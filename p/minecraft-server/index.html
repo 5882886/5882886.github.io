@@ -306,7 +306,14 @@
     </li>
     <li><a href="#服务器进阶">服务器进阶</a>
       <ol>
-        <li><a href="#修改服务器配置">修改服务器配置</a></li>
+        <li><a href="#修改服务器配置">修改服务器配置</a>
+          <ol>
+            <li><a href="#启动文件bat">启动文件<code>.bat</code></a></li>
+            <li><a href="#serverproperties文件"><code>server.properties</code>文件</a></li>
+            <li><a href="#bukkityml文件"><code>bukkit.yml</code>文件</a></li>
+            <li><a href="#spiogtyml文件"><code>spiogt.yml</code>文件</a></li>
+          </ol>
+        </li>
         <li><a href="#安装插件和模组">安装插件和模组</a></li>
         <li><a href="#使用ssh远程连接服务器主机">使用ssh远程连接服务器主机</a></li>
       </ol>
@@ -346,7 +353,7 @@
     
     <header class="article-category">
         
-            <a href="/categories/minecraft/" >
+            <a href="/categories/minecraft/" style="background-color: #2a9d8f; color: #fff;">
                 Minecraft
             </a>
         
@@ -396,7 +403,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 3 分钟
+                    阅读时长: 4 分钟
                 </time>
             </div>
         
@@ -412,7 +419,8 @@
     
     
     <h1 id="minecraft服务器开服历程">Minecraft服务器开服历程
-</h1><h2 id="服务端搭建">服务端搭建
+</h1><p>我从2025年2月初开始学习搭建MC服务器，到现在也学到了不少知识。以下是我的开服历程，若能对各位有所帮助，实在是我的荣幸。</p>
+<h2 id="服务端搭建">服务端搭建
 </h2><h3 id="常见的服务端">常见的服务端
 </h3><p>目前MC服务端主要包括：原版、插件端、模组端和混合端四类。</p>
 <div class="table-wrapper"><table>
@@ -464,7 +472,7 @@
           <td>全版本</td>
       </tr>
       <tr>
-          <td>Forge/Fabric</td>
+          <td>Forge/Fabric/NeoForge</td>
           <td>模组端</td>
           <td>全版本</td>
       </tr>
@@ -482,7 +490,7 @@
 </table></div>
 <h3 id="服务端启动流程">服务端启动流程
 </h3><p>首先在网络上下载对应的服务端，通常是一个.jar文件。然后新建一个文件夹，将服务端核心放在文件夹内。</p>
-<p>然后新建一个文本文档，在文档内输入<code>java 你的服务端核心名.jar</code>，保存后将文件扩展名改为<code>.bat</code>。之后双击<code>.bat</code>文件，服务端将会运行并且在终端实时输出。这时通常会出现<code>是否同意eula协议</code>，此时须在文件夹内找到<code>eula</code>开头的文件，将其中的<code>false</code>改为<code>true</code>。最后再次启动<code>.bat</code>文件，服务端开启成功。</p>
+<p>然后新建一个文本文档，在文档内输入<code>java -jar 你的服务端核心名.jar</code>，保存后将文件扩展名改为<code>.bat</code>。之后双击<code>.bat</code>文件，服务端将会运行并且在终端实时输出。这时通常会出现<code>是否同意eula协议</code>，此时须在文件夹内找到<code>eula</code>开头的文件，将其中的<code>false</code>改为<code>true</code>。最后再次启动<code>.bat</code>文件，服务端开启成功。</p>
 <h2 id="网络配置">网络配置
 </h2><p>搭建服务器最重要的是配置好网络，核心是确定服务器的IP地址和端口号。</p>
 <h3 id="局域网联机">局域网联机
@@ -506,10 +514,136 @@
 <h2 id="服务器进阶">服务器进阶
 </h2><h3 id="修改服务器配置">修改服务器配置
 </h3><p>依据服务端核心的不同，修改方法也有所区别。</p>
-<p>server.properties文件</p>
-<h3 id="安装插件和模组">安装插件和模组
+<h4 id="启动文件bat">启动文件<code>.bat</code>
+</h4><p>在<code>java -jar 你的服务端核心名.jar</code>中，可在<code>-jar</code>之后加上<code>-XmsAG -XmxBG</code>表示给服务器至少分配A个G的内存，至多分配B个G的内存。</p>
+<h4 id="serverproperties文件"><code>server.properties</code>文件
+</h4><p>这是所有服务器都具备的配置文件。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-properties" data-lang="properties"><span class="line"><span class="cl"><span class="na">allow-flight</span><span class="o">=</span><span class="s">true   #是否启用飞行</span>
+</span></span><span class="line"><span class="cl"><span class="na">allow-nether</span><span class="o">=</span><span class="s">true   #是否生成下界</span>
+</span></span><span class="line"><span class="cl"><span class="na">broadcast-console-to-ops</span><span class="o">=</span><span class="s">true   #是否向管理员发送控制台消息</span>
+</span></span><span class="line"><span class="cl"><span class="na">broadcast-rcon-to-ops</span><span class="o">=</span><span class="s">true</span>
+</span></span><span class="line"><span class="cl"><span class="na">debug</span><span class="o">=</span><span class="s">false     #是否开启调试模式</span>
+</span></span><span class="line"><span class="cl"><span class="na">difficulty</span><span class="o">=</span><span class="s">normal       #难度设置</span>
+</span></span><span class="line"><span class="cl"><span class="na">enable-command-block</span><span class="o">=</span><span class="s">true       #是否启用命令方块</span>
+</span></span><span class="line"><span class="cl"><span class="na">enable-jmx-monitoring</span><span class="o">=</span><span class="s">false</span>
+</span></span><span class="line"><span class="cl"><span class="na">enable-query</span><span class="o">=</span><span class="s">false</span>
+</span></span><span class="line"><span class="cl"><span class="na">enable-rcon</span><span class="o">=</span><span class="s">false</span>
+</span></span><span class="line"><span class="cl"><span class="na">enable-status</span><span class="o">=</span><span class="s">true</span>
+</span></span><span class="line"><span class="cl"><span class="na">enforce-secure-profile</span><span class="o">=</span><span class="s">true</span>
+</span></span><span class="line"><span class="cl"><span class="na">enforce-whitelist</span><span class="o">=</span><span class="s">false</span>
+</span></span><span class="line"><span class="cl"><span class="na">entity-broadcast-range-percentage</span><span class="o">=</span><span class="s">100</span>
+</span></span><span class="line"><span class="cl"><span class="na">force-gamemode</span><span class="o">=</span><span class="s">false        #是否强制设置玩家的游戏模式</span>
+</span></span><span class="line"><span class="cl"><span class="na">function-permission-level</span><span class="o">=</span><span class="s">4     #命令等级设置，最高为4，最低为0 </span>
+</span></span><span class="line"><span class="cl"><span class="na">gamemode</span><span class="o">=</span><span class="s">survival       #游戏模式设置</span>
+</span></span><span class="line"><span class="cl"><span class="na">generate-structures</span><span class="o">=</span><span class="s">true</span>
+</span></span><span class="line"><span class="cl"><span class="na">generator-settings</span><span class="o">=</span><span class="s">{}</span>
+</span></span><span class="line"><span class="cl"><span class="na">hardcore</span><span class="o">=</span><span class="s">false</span>
+</span></span><span class="line"><span class="cl"><span class="na">hide-online-players</span><span class="o">=</span><span class="s">false</span>
+</span></span><span class="line"><span class="cl"><span class="na">initial-disabled-packs</span><span class="o">=</span>
+</span></span><span class="line"><span class="cl"><span class="na">initial-enabled-packs</span><span class="o">=</span><span class="s">vanilla</span>
+</span></span><span class="line"><span class="cl"><span class="na">level-name</span><span class="o">=</span><span class="s">play     #游戏主世界存档名称</span>
+</span></span><span class="line"><span class="cl"><span class="na">level-seed</span><span class="o">=</span>
+</span></span><span class="line"><span class="cl"><span class="na">level-type</span><span class="o">=</span><span class="s">minecraft\:normal</span>
+</span></span><span class="line"><span class="cl"><span class="na">max-chained-neighbor-updates</span><span class="o">=</span><span class="s">1000000</span>
+</span></span><span class="line"><span class="cl"><span class="na">max-players</span><span class="o">=</span><span class="s">40      #服务器允许的最多人数</span>
+</span></span><span class="line"><span class="cl"><span class="na">max-tick-time</span><span class="o">=</span><span class="s">60000</span>
+</span></span><span class="line"><span class="cl"><span class="na">max-world-size</span><span class="o">=</span><span class="s">29999984</span>
+</span></span><span class="line"><span class="cl"><span class="na">motd</span><span class="o">=</span><span class="s">智算11班公益养老服(1.4)</span>
+</span></span><span class="line"><span class="cl"><span class="na">network-compression-threshold</span><span class="o">=</span><span class="s">256</span>
+</span></span><span class="line"><span class="cl"><span class="na">online-mode</span><span class="o">=</span><span class="s">false       #是否启用在线模式</span>
+</span></span><span class="line"><span class="cl"><span class="na">op-permission-level</span><span class="o">=</span><span class="s">4</span>
+</span></span><span class="line"><span class="cl"><span class="na">player-idle-timeout</span><span class="o">=</span><span class="s">0</span>
+</span></span><span class="line"><span class="cl"><span class="na">prevent-proxy-connections</span><span class="o">=</span><span class="s">false</span>
+</span></span><span class="line"><span class="cl"><span class="na">pvp</span><span class="o">=</span><span class="s">true        #是否允许玩家互相攻击</span>
+</span></span><span class="line"><span class="cl"><span class="na">query.port</span><span class="o">=</span><span class="s">25565    </span>
+</span></span><span class="line"><span class="cl"><span class="na">rate-limit</span><span class="o">=</span><span class="s">0</span>
+</span></span><span class="line"><span class="cl"><span class="na">rcon.password</span><span class="o">=</span>
+</span></span><span class="line"><span class="cl"><span class="na">rcon.port</span><span class="o">=</span><span class="s">25575</span>
+</span></span><span class="line"><span class="cl"><span class="na">require-resource-pack</span><span class="o">=</span><span class="s">false</span>
+</span></span><span class="line"><span class="cl"><span class="na">resource-pack</span><span class="o">=</span>
+</span></span><span class="line"><span class="cl"><span class="na">resource-pack-prompt</span><span class="o">=</span>
+</span></span><span class="line"><span class="cl"><span class="na">resource-pack-sha1</span><span class="o">=</span>
+</span></span><span class="line"><span class="cl"><span class="na">server-ip</span><span class="o">=</span>     <span class="s">#服务器运行的IP地址，默认留空</span>
+</span></span><span class="line"><span class="cl"><span class="na">server-port</span><span class="o">=</span><span class="s">30067       #服务器运行的端口</span>
+</span></span><span class="line"><span class="cl"><span class="na">simulation-distance</span><span class="o">=</span><span class="s">10      #服务器模拟距离，建议设置为4~6</span>
+</span></span><span class="line"><span class="cl"><span class="na">spawn-animals</span><span class="o">=</span><span class="s">true</span>
+</span></span><span class="line"><span class="cl"><span class="na">spawn-monsters</span><span class="o">=</span><span class="s">true</span>
+</span></span><span class="line"><span class="cl"><span class="na">spawn-npcs</span><span class="o">=</span><span class="s">true</span>
+</span></span><span class="line"><span class="cl"><span class="na">spawn-protection</span><span class="o">=</span><span class="s">0      #出生点保护范围</span>
+</span></span><span class="line"><span class="cl"><span class="na">sync-chunk-writes</span><span class="o">=</span><span class="s">true</span>
+</span></span><span class="line"><span class="cl"><span class="na">text-filtering-config</span><span class="o">=</span>
+</span></span><span class="line"><span class="cl"><span class="na">use-native-transport</span><span class="o">=</span><span class="s">true</span>
+</span></span><span class="line"><span class="cl"><span class="na">view-distance</span><span class="o">=</span><span class="s">10        #服务器视野距离，建议设置为4~6</span>
+</span></span><span class="line"><span class="cl"><span class="na">white-list</span><span class="o">=</span><span class="s">false</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="bukkityml文件"><code>bukkit.yml</code>文件
+</h4><h4 id="spiogtyml文件"><code>spiogt.yml</code>文件
+</h4><h3 id="安装插件和模组">安装插件和模组
 </h3><h3 id="使用ssh远程连接服务器主机">使用ssh远程连接服务器主机
-</h3><h2 id="开发者选项">开发者选项
+</h3><p>参见：ssh配置简介</p>
+<h2 id="开发者选项">开发者选项
 </h2><h3 id="制作自己的服务端插件">制作自己的服务端插件
 </h3>
 </section>
@@ -539,6 +673,28 @@
     
 
     
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/ssh/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">ssh配置简介</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
 
      
     
