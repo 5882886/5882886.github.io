@@ -9,11 +9,110 @@
         <copyright>RunicDolphin806</copyright>
         <lastBuildDate>Thu, 31 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/minecraft/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Minecraft服务器</title>
-        <link>http://localhost:1313/p/test-chinese/</link>
+        <link>http://localhost:1313/p/minecraft-server/</link>
         <pubDate>Thu, 31 Jul 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/test-chinese/</guid>
-        <description>&lt;img src="http://localhost:1313/helena-hertz-wWZzXlDpMog-unsplash.jpg" alt="Featured image of post Minecraft服务器" /&gt;&lt;h3 id=&#34;minecraft服务器开服历程&#34;&gt;Minecraft服务器开服历程
+        <guid>http://localhost:1313/p/minecraft-server/</guid>
+        <description>&lt;img src="http://localhost:1313/p/minecraft-server/helena-hertz-wWZzXlDpMog-unsplash.jpg" alt="Featured image of post Minecraft服务器" /&gt;&lt;h1 id=&#34;minecraft服务器开服历程&#34;&gt;Minecraft服务器开服历程
+&lt;/h1&gt;&lt;h2 id=&#34;服务端搭建&#34;&gt;服务端搭建
+&lt;/h2&gt;&lt;h3 id=&#34;常见的服务端&#34;&gt;常见的服务端
+&lt;/h3&gt;&lt;p&gt;目前MC服务端主要包括：原版、插件端、模组端和混合端四类。&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;类别&lt;/th&gt;
+          &lt;th&gt;特点&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;原版&lt;/td&gt;
+          &lt;td&gt;就和MC原版一样，没有特殊功能&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;插件端&lt;/td&gt;
+          &lt;td&gt;能加插件，不能加模组&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;模组端&lt;/td&gt;
+          &lt;td&gt;能加模组，不能加插件&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;混合端&lt;/td&gt;
+          &lt;td&gt;既能加模组，也能加插件&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;似乎混合端功能更强大，但实际上它的兼容性更差，所以如果想开整合包服务器的话最好还是用模组端。
+由于我目前没找到合适的模组代替插件，因此只能用混合端了。&lt;/p&gt;
+&lt;p&gt;以下是常见的服务端：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;服务端&lt;/th&gt;
+          &lt;th&gt;类别&lt;/th&gt;
+          &lt;th&gt;支持&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Spigot&lt;/td&gt;
+          &lt;td&gt;插件端&lt;/td&gt;
+          &lt;td&gt;全版本&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Paper&lt;/td&gt;
+          &lt;td&gt;插件端&lt;/td&gt;
+          &lt;td&gt;全版本&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Forge/Fabric&lt;/td&gt;
+          &lt;td&gt;模组端&lt;/td&gt;
+          &lt;td&gt;全版本&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Catserver （猫端）&lt;/td&gt;
+          &lt;td&gt;混合端&lt;/td&gt;
+          &lt;td&gt;1.12.2/1.16.5/1.18.2&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Mohist （墨端）&lt;/td&gt;
+          &lt;td&gt;混合端&lt;/td&gt;
+          &lt;td&gt;全版本&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;服务端启动流程&#34;&gt;服务端启动流程
+&lt;/h3&gt;&lt;p&gt;首先在网络上下载对应的服务端，通常是一个.jar文件。然后新建一个文件夹，将服务端核心放在文件夹内。&lt;/p&gt;
+&lt;p&gt;然后新建一个文本文档，在文档内输入&lt;code&gt;java 你的服务端核心名.jar&lt;/code&gt;，保存后将文件扩展名改为&lt;code&gt;.bat&lt;/code&gt;。之后双击&lt;code&gt;.bat&lt;/code&gt;文件，服务端将会运行并且在终端实时输出。这时通常会出现&lt;code&gt;是否同意eula协议&lt;/code&gt;，此时须在文件夹内找到&lt;code&gt;eula&lt;/code&gt;开头的文件，将其中的&lt;code&gt;false&lt;/code&gt;改为&lt;code&gt;true&lt;/code&gt;。最后再次启动&lt;code&gt;.bat&lt;/code&gt;文件，服务端开启成功。&lt;/p&gt;
+&lt;h2 id=&#34;网络配置&#34;&gt;网络配置
+&lt;/h2&gt;&lt;p&gt;搭建服务器最重要的是配置好网络，核心是确定服务器的IP地址和端口号。&lt;/p&gt;
+&lt;h3 id=&#34;局域网联机&#34;&gt;局域网联机
+&lt;/h3&gt;&lt;p&gt;局域网联机最简单，只需知道服务器运行的主机的IP地址即可。&lt;/p&gt;
+&lt;p&gt;Windows平台：&lt;code&gt;win+r&lt;/code&gt;打开cmd，输入&lt;code&gt;ipconfig&lt;/code&gt;，查看Wifi（无线连接）或以太网（有线连接）下的IP地址。&lt;/p&gt;
+&lt;p&gt;Linux平台：命令行输入 &lt;code&gt;ip a&lt;/code&gt; 。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;什么是局域网？&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;通俗来说，通过同一个Wifi相连的设备都处于同一个局域网下。连接在同一个局域网下的设备，它们的设备IP地址仅在最后一位不同。在同一个局域网下的设备可通过IP地址互相连接。&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;内网穿透&#34;&gt;内网穿透
+&lt;/h3&gt;&lt;p&gt;请在网络上自行查找相关内容。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;什么是内网穿透？&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;内网穿透是通过特定技术，将你的内网（如局域网）地址经服务器映射到公网上的过程。此时一个公网IP地址，如：&lt;code&gt;frp-xxx.com:xxxxx&lt;/code&gt;就等同于你的局域网地址&lt;code&gt;192.168.x.x&lt;/code&gt;。&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;ipv6连接&#34;&gt;IPV6连接
+&lt;/h3&gt;&lt;p&gt;这是目前成本最低，效果最好的连接方式。&lt;/p&gt;
+&lt;p&gt;首先必须确保你和你的伙伴都有IPV6访问，然后&lt;code&gt;win+r&lt;/code&gt;打开cmd，输入&lt;code&gt;ipconfig&lt;/code&gt;，这时应该可以看到一串&lt;code&gt;240e:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx&lt;/code&gt;（必须为&lt;code&gt;240e&lt;/code&gt;开头，这样才是公网IPV6），这时&lt;code&gt;[IPV6地址]:端口号&lt;/code&gt;的形式就是服务器的IP地址。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;什么是IPV6？&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;目前IP技术分为IPV4和IPV6两种。IPV4地址为12个十进制数，每3个数字用&amp;quot; : &amp;ldquo;隔开；IPV6地址为28个16进制数，每4个数字用&amp;rdquo; : &amp;ldquo;隔开。由此可见，IPV6地址比IPV4多得多，所以每个IPV6地址都可以作为公网使用。&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;服务器进阶&#34;&gt;服务器进阶
+&lt;/h2&gt;&lt;h3 id=&#34;修改服务器配置&#34;&gt;修改服务器配置
+&lt;/h3&gt;&lt;p&gt;依据服务端核心的不同，修改方法也有所区别。&lt;/p&gt;
+&lt;p&gt;server.properties文件&lt;/p&gt;
+&lt;h3 id=&#34;安装插件和模组&#34;&gt;安装插件和模组
+&lt;/h3&gt;&lt;h3 id=&#34;使用ssh远程连接服务器主机&#34;&gt;使用ssh远程连接服务器主机
+&lt;/h3&gt;&lt;h2 id=&#34;开发者选项&#34;&gt;开发者选项
+&lt;/h2&gt;&lt;h3 id=&#34;制作自己的服务端插件&#34;&gt;制作自己的服务端插件
 &lt;/h3&gt;</description>
         </item>
         

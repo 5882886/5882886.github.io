@@ -121,7 +121,7 @@
         <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
         
         <guid>http://localhost:1313/p/markdown%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/</guid>
-        <description>&lt;img src="http://localhost:1313/p/markdown-syntax-guide/pawel-czerwinski-8uZPynIu-rQ-unsplash.jpg" alt="Featured image of post Markdown语法指南" /&gt;&lt;p&gt;本文提供了可用于 Hugo 内容文件的基本 Markdown 语法示例，还显示了 Hugo 主题中的基本 HTML 元素是否使用 CSS 进行修饰。&lt;/p&gt;
+        <description>&lt;img src="http://localhost:1313/p/markdown%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/pawel-czerwinski-8uZPynIu-rQ-unsplash.jpg" alt="Featured image of post Markdown语法指南" /&gt;&lt;p&gt;本文提供了可用于 Hugo 内容文件的基本 Markdown 语法示例，还显示了 Hugo 主题中的基本 HTML 元素是否使用 CSS 进行修饰。&lt;/p&gt;
 &lt;h2 id=&#34;标题&#34;&gt;标题
 &lt;/h2&gt;&lt;p&gt;如下的 &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt;—&lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt; 显示了标题的6个级别， &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt; 级别最高， &lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt; 级别最低.&lt;/p&gt;
 &lt;h1 id=&#34;h1&#34;&gt;H1
@@ -131,7 +131,8 @@
 &lt;/h4&gt;&lt;h5 id=&#34;h5&#34;&gt;H5
 &lt;/h5&gt;&lt;h6 id=&#34;h6&#34;&gt;H6
 &lt;/h6&gt;&lt;h2 id=&#34;段落&#34;&gt;段落
-&lt;/h2&gt;&lt;p&gt;Xerum, quo qui aut unt expliquam qui dolut labo. Aque venitatiusda cum, voluptionse latur sitiae dolessi aut parist aut dollo enim qui voluptate ma dolestendit peritin re plis aut quas inctum laceat est volestemque commosa as cus endigna tectur, offic to cor sequas etum rerum idem sintibus eiur? Quianimin porecus evelectur, cum que nis nust voloribus ratem aut omnimi, sitatur? Quiatem. Nam, omnis sum am facea corem alique molestrunt et eos evelece arcillit ut aut eos eos nus, sin conecerem erum fuga. Ri oditatquam, ad quibus unda veliamenimin cusam et facea ipsamus es exerum sitate dolores editium rerore eost, temped molorro ratiae volorro te reribus dolorer sperchicium faceata tiustia prat.&lt;/p&gt;
+&lt;/h2&gt;&lt;p&gt;示例段落：&lt;/p&gt;
+&lt;p&gt;马克思主义者认为，只有人们的社会实践，才是人们对于外界认识真理性的标准&lt;/p&gt;
 &lt;p&gt;Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sapicia is sinveli squiatum, core et que aut hariosam ex eat.&lt;/p&gt;
 &lt;h2 id=&#34;blockquotes&#34;&gt;Blockquotes
 &lt;/h2&gt;&lt;p&gt;The blockquote element represents content that is quoted from another source, optionally with a citation which must be within a &lt;code&gt;footer&lt;/code&gt; or &lt;code&gt;cite&lt;/code&gt; element, and optionally with in-line changes such as annotations and abbreviations.&lt;/p&gt;
