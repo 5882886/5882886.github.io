@@ -1,0 +1,727 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>RunicDolphin806的博客</title><link>https://5882886.github.io/</link><description>Recent content on RunicDolphin806的博客</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>RunicDolphin806</copyright><lastBuildDate>Thu, 31 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://5882886.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Minecraft服务器</title><link>https://5882886.github.io/p/minecraft-server/</link><pubDate>Thu, 31 Jul 2025 00:00:00 +0000</pubDate><guid>https://5882886.github.io/p/minecraft-server/</guid><description>&lt;img src="https://5882886.github.io/p/minecraft-server/helena-hertz-wWZzXlDpMog-unsplash.jpg" alt="Featured image of post Minecraft服务器" />&lt;h1 id="minecraft服务器开服历程">Minecraft服务器开服历程
+&lt;/h1>&lt;p>我从2025年2月初开始学习搭建MC服务器，到现在也学到了不少知识。以下是我的开服历程，若能对各位有所帮助，实在是我的荣幸。&lt;/p>
+&lt;h2 id="服务端搭建">服务端搭建
+&lt;/h2>&lt;h3 id="常见的服务端">常见的服务端
+&lt;/h3>&lt;p>目前MC服务端主要包括：原版、插件端、模组端和混合端四类。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>类别&lt;/th>
+&lt;th>特点&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>原版&lt;/td>
+&lt;td>就和MC原版一样，没有特殊功能&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>插件端&lt;/td>
+&lt;td>能加插件，不能加模组&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>模组端&lt;/td>
+&lt;td>能加模组，不能加插件&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>混合端&lt;/td>
+&lt;td>既能加模组，也能加插件&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>似乎混合端功能更强大，但实际上它的兼容性更差，所以如果想开整合包服务器的话最好还是用模组端。
+由于我目前没找到合适的模组代替插件，因此只能用混合端了。&lt;/p>
+&lt;p>以下是常见的服务端：&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>服务端&lt;/th>
+&lt;th>类别&lt;/th>
+&lt;th>支持&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Spigot&lt;/td>
+&lt;td>插件端&lt;/td>
+&lt;td>全版本&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Paper&lt;/td>
+&lt;td>插件端&lt;/td>
+&lt;td>全版本&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Forge/Fabric/NeoForge&lt;/td>
+&lt;td>模组端&lt;/td>
+&lt;td>全版本&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Catserver （猫端）&lt;/td>
+&lt;td>混合端&lt;/td>
+&lt;td>1.12.2/1.16.5/1.18.2&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Mohist （墨端）&lt;/td>
+&lt;td>混合端&lt;/td>
+&lt;td>全版本&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="服务端启动流程">服务端启动流程
+&lt;/h3>&lt;p>首先在网络上下载对应的服务端，通常是一个.jar文件。然后新建一个文件夹，将服务端核心放在文件夹内。&lt;/p>
+&lt;p>然后新建一个文本文档，在文档内输入&lt;code>java -jar 你的服务端核心名.jar&lt;/code>，保存后将文件扩展名改为&lt;code>.bat&lt;/code>。之后双击&lt;code>.bat&lt;/code>文件，服务端将会运行并且在终端实时输出。这时通常会出现&lt;code>是否同意eula协议&lt;/code>，此时须在文件夹内找到&lt;code>eula&lt;/code>开头的文件，将其中的&lt;code>false&lt;/code>改为&lt;code>true&lt;/code>。最后再次启动&lt;code>.bat&lt;/code>文件，服务端开启成功。&lt;/p>
+&lt;h2 id="网络配置">网络配置
+&lt;/h2>&lt;p>搭建服务器最重要的是配置好网络，核心是确定服务器的IP地址和端口号。&lt;/p>
+&lt;h3 id="局域网联机">局域网联机
+&lt;/h3>&lt;p>局域网联机最简单，只需知道服务器运行的主机的IP地址即可。&lt;/p>
+&lt;p>Windows平台：&lt;code>win+r&lt;/code>打开cmd，输入&lt;code>ipconfig&lt;/code>，查看Wifi（无线连接）或以太网（有线连接）下的IP地址。&lt;/p>
+&lt;p>Linux平台：命令行输入 &lt;code>ip a&lt;/code> 。&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;em>什么是局域网？&lt;/em>&lt;/p>
+&lt;p>&lt;em>通俗来说，通过同一个Wifi相连的设备都处于同一个局域网下。连接在同一个局域网下的设备，它们的设备IP地址仅在最后一位不同。在同一个局域网下的设备可通过IP地址互相连接。&lt;/em>&lt;/p>&lt;/blockquote>
+&lt;h3 id="内网穿透">内网穿透
+&lt;/h3>&lt;p>请在网络上自行查找相关内容。&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;em>什么是内网穿透？&lt;/em>&lt;/p>
+&lt;p>&lt;em>内网穿透是通过特定技术，将你的内网（如局域网）地址经服务器映射到公网上的过程。此时一个公网IP地址，如：&lt;code>frp-xxx.com:xxxxx&lt;/code>就等同于你的局域网地址&lt;code>192.168.x.x&lt;/code>。&lt;/em>&lt;/p>&lt;/blockquote>
+&lt;h3 id="ipv6连接">IPV6连接
+&lt;/h3>&lt;p>这是目前成本最低，效果最好的连接方式。&lt;/p>
+&lt;p>首先必须确保你和你的伙伴都有IPV6访问，然后&lt;code>win+r&lt;/code>打开cmd，输入&lt;code>ipconfig&lt;/code>，这时应该可以看到一串&lt;code>240e:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx&lt;/code>（必须为&lt;code>240e&lt;/code>开头，这样才是公网IPV6），这时&lt;code>[IPV6地址]:端口号&lt;/code>的形式就是服务器的IP地址。&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;em>什么是IPV6？&lt;/em>&lt;/p>
+&lt;p>&lt;em>目前IP技术分为IPV4和IPV6两种。IPV4地址为12个十进制数，每3个数字用&amp;quot; : &amp;ldquo;隔开；IPV6地址为28个16进制数，每4个数字用&amp;rdquo; : &amp;ldquo;隔开。由此可见，IPV6地址比IPV4多得多，所以每个IPV6地址都可以作为公网使用。&lt;/em>&lt;/p>&lt;/blockquote>
+&lt;h2 id="服务器进阶">服务器进阶
+&lt;/h2>&lt;h3 id="修改服务器配置">修改服务器配置
+&lt;/h3>&lt;p>依据服务端核心的不同，修改方法也有所区别。&lt;/p>
+&lt;h4 id="启动文件bat">启动文件&lt;code>.bat&lt;/code>
+&lt;/h4>&lt;p>在&lt;code>java -jar 你的服务端核心名.jar&lt;/code>中，可在&lt;code>-jar&lt;/code>之后加上&lt;code>-XmsAG -XmxBG&lt;/code>表示给服务器至少分配A个G的内存，至多分配B个G的内存。&lt;/p>
+&lt;h4 id="serverproperties文件">&lt;code>server.properties&lt;/code>文件
+&lt;/h4>&lt;p>这是所有服务器都具备的配置文件。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;span class="lnt">42
+&lt;/span>&lt;span class="lnt">43
+&lt;/span>&lt;span class="lnt">44
+&lt;/span>&lt;span class="lnt">45
+&lt;/span>&lt;span class="lnt">46
+&lt;/span>&lt;span class="lnt">47
+&lt;/span>&lt;span class="lnt">48
+&lt;/span>&lt;span class="lnt">49
+&lt;/span>&lt;span class="lnt">50
+&lt;/span>&lt;span class="lnt">51
+&lt;/span>&lt;span class="lnt">52
+&lt;/span>&lt;span class="lnt">53
+&lt;/span>&lt;span class="lnt">54
+&lt;/span>&lt;span class="lnt">55
+&lt;/span>&lt;span class="lnt">56
+&lt;/span>&lt;span class="lnt">57
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-properties" data-lang="properties">&lt;span class="line">&lt;span class="cl">&lt;span class="na">allow-flight&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">true #是否启用飞行&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">allow-nether&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">true #是否生成下界&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">broadcast-console-to-ops&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">true #是否向管理员发送控制台消息&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">broadcast-rcon-to-ops&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">debug&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">false #是否开启调试模式&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">difficulty&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">normal #难度设置&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">enable-command-block&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">true #是否启用命令方块&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">enable-jmx-monitoring&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">false&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">enable-query&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">false&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">enable-rcon&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">false&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">enable-status&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">enforce-secure-profile&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">enforce-whitelist&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">false&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">entity-broadcast-range-percentage&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">100&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">force-gamemode&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">false #是否强制设置玩家的游戏模式&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">function-permission-level&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">4 #命令等级设置，最高为4，最低为0 &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">gamemode&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">survival #游戏模式设置&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">generate-structures&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">generator-settings&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">{}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">hardcore&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">false&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">hide-online-players&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">false&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">initial-disabled-packs&lt;/span>&lt;span class="o">=&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">initial-enabled-packs&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">vanilla&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">level-name&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">play #游戏主世界存档名称&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">level-seed&lt;/span>&lt;span class="o">=&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">level-type&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">minecraft\:normal&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">max-chained-neighbor-updates&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">1000000&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">max-players&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">40 #服务器允许的最多人数&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">max-tick-time&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">60000&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">max-world-size&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">29999984&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">motd&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">智算11班公益养老服(1.4)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">network-compression-threshold&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">256&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">online-mode&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">false #是否启用在线模式&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">op-permission-level&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">4&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">player-idle-timeout&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">prevent-proxy-connections&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">false&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">pvp&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">true #是否允许玩家互相攻击&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">query.port&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">25565 &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">rate-limit&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">rcon.password&lt;/span>&lt;span class="o">=&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">rcon.port&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">25575&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">require-resource-pack&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">false&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">resource-pack&lt;/span>&lt;span class="o">=&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">resource-pack-prompt&lt;/span>&lt;span class="o">=&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">resource-pack-sha1&lt;/span>&lt;span class="o">=&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">server-ip&lt;/span>&lt;span class="o">=&lt;/span> &lt;span class="s">#服务器运行的IP地址，默认留空&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">server-port&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">30067 #服务器运行的端口&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">simulation-distance&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">10 #服务器模拟距离，建议设置为4~6&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">spawn-animals&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">spawn-monsters&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">spawn-npcs&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">spawn-protection&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">0 #出生点保护范围&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">sync-chunk-writes&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">text-filtering-config&lt;/span>&lt;span class="o">=&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">use-native-transport&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">view-distance&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">10 #服务器视野距离，建议设置为4~6&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">white-list&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">false&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="bukkityml文件">&lt;code>bukkit.yml&lt;/code>文件
+&lt;/h4>&lt;h4 id="spiogtyml文件">&lt;code>spiogt.yml&lt;/code>文件
+&lt;/h4>&lt;h3 id="安装插件和模组">安装插件和模组
+&lt;/h3>&lt;h3 id="使用ssh远程连接服务器主机">使用ssh远程连接服务器主机
+&lt;/h3>&lt;p>参见：ssh配置简介&lt;/p>
+&lt;h2 id="开发者选项">开发者选项
+&lt;/h2>&lt;h3 id="制作自己的服务端插件">制作自己的服务端插件
+&lt;/h3></description></item><item><title>ssh配置简介</title><link>https://5882886.github.io/p/ssh/</link><pubDate>Thu, 31 Jul 2025 00:00:00 +0000</pubDate><guid>https://5882886.github.io/p/ssh/</guid><description>&lt;h2 id="选择ssh应用程序">选择ssh应用程序
+&lt;/h2>&lt;h3 id="visual-studio-code">Visual Studio Code
+&lt;/h3>&lt;p>这是目前为止最强大的ssh应用，只需下载VScode并安装Remote-ssh插件，写好配置文件后就能连接。&lt;/p>
+&lt;p>全程免费，而且附带端口转发、文件编辑、下载等功能，绝对好用！&lt;/p>
+&lt;h3 id="tabby">Tabby
+&lt;/h3>&lt;p>Tabby是一款现代的终端应用，界面简洁。&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;em>&lt;a class="link" href="https://github.com/Eugeny/tabby" target="_blank" rel="noopener"
+>Tabby的Github仓库&lt;/a>&lt;/em>&lt;/p>&lt;/blockquote>
+&lt;h3 id="serverbox">ServerBox
+&lt;/h3>&lt;p>ServerBox是一款国产的远程服务器监控和操作应用，支持Windows、Linux、Android、MacOS等操作系统。优点是可以监测服务器实时运行状态（包括CPU、内存、温度、网络、硬盘等）。&lt;/p>
+&lt;p>&lt;img src="https://5882886.github.io/p/ssh/serverbox.png"
+width="643"
+height="459"
+srcset="https://5882886.github.io/p/ssh/serverbox_hu_659d8f6a579ef453.png 480w, https://5882886.github.io/p/ssh/serverbox_hu_a21fa07204a654fc.png 1024w"
+loading="lazy"
+alt="Serverbox的监测界面"
+class="gallery-image"
+data-flex-grow="140"
+data-flex-basis="336px"
+>&lt;/p>
+&lt;p>注意，Serverbox自带的脚本只支持监控Linux系统的运行数据，对于WSL系统，也只能监控部分数据。&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;em>&lt;a class="link" href="https://github.com/lollipopkit/flutter_server_box" target="_blank" rel="noopener"
+>ServerBox的Github仓库&lt;/a>&lt;/em>&lt;/p>&lt;/blockquote>
+&lt;p>以下是各ssh应用程序的功能比较：&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>应用&lt;/th>
+&lt;th>特点&lt;/th>
+&lt;th>平台&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>VScode&lt;/td>
+&lt;td>功能最强大&lt;/td>
+&lt;td>Windows/Linux/MacOs&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Tabby&lt;/td>
+&lt;td>界面简洁美观&lt;/td>
+&lt;td>Windows/Linux/MacOS&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Serverbox&lt;/td>
+&lt;td>可以监控服务端的运行&lt;/td>
+&lt;td>Windows/Android&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="配置ssh">配置ssh
+&lt;/h2>&lt;p>连接到远程主机的原理与连接MC服务器类似，关键在于确定远程主机的IP地址和端口。&lt;/p>
+&lt;h3 id="windows系统">Windows系统
+&lt;/h3>&lt;h4 id="安装ssh服务">安装ssh服务
+&lt;/h4>&lt;p>首先在要连接的主机上打开设置，搜索“可选功能”，在“添加可选功能”中搜索“OpenSSH服务器”，下载该功能。&lt;/p>
+&lt;h4 id="启动并配置ssh服务">启动并配置ssh服务
+&lt;/h4>&lt;p>管理员权限打开Powershell，输入：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">Start-Service&lt;/span> &lt;span class="n">sshd&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">Set-Service&lt;/span> &lt;span class="n">-Name&lt;/span> &lt;span class="n">sshd&lt;/span> &lt;span class="n">-StartupType&lt;/span> &lt;span class="s1">&amp;#39;Automatic&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>然后开放防火墙端口（默认22）：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">New-NetFirewallRule&lt;/span> &lt;span class="n">-Name&lt;/span> &lt;span class="n">sshd&lt;/span> &lt;span class="n">-DisplayName&lt;/span> &lt;span class="s1">&amp;#39;OpenSSH Server&amp;#39;&lt;/span> &lt;span class="n">-Enabled&lt;/span> &lt;span class="n">True&lt;/span> &lt;span class="n">-Direction&lt;/span> &lt;span class="n">Inbound&lt;/span> &lt;span class="n">-Protocol&lt;/span> &lt;span class="n">TCP&lt;/span> &lt;span class="n">-Action&lt;/span> &lt;span class="n">Allow&lt;/span> &lt;span class="n">-LocalPort&lt;/span> &lt;span class="mf">22&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="linux系统">Linux系统
+&lt;/h3>&lt;h4 id="安装-openssh-server">安装 OpenSSH Server
+&lt;/h4>&lt;p>如果尚未安装，运行：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo apt update
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt install openssh-server
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="启动并启用-ssh-服务">启动并启用 SSH 服务
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo systemctl start ssh
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo systemctl &lt;span class="nb">enable&lt;/span> ssh &lt;span class="c1"># 开机自启&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>确认服务正在运行：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo systemctl status ssh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>输出中应显示 active (running)。&lt;/p>
+&lt;h4 id="配置防火墙如启用-ufw">配置防火墙（如启用 UFW）
+&lt;/h4>&lt;p>允许 SSH 默认端口（22）：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo ufw &lt;span class="nb">enable&lt;/span> &lt;span class="c1"># 如果防火墙未启用&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo ufw allow ssh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="获取服务器的-ip-地址">获取服务器的 IP 地址
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ip a &lt;span class="c1"># 或 hostname -I&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>找到类似 192.168.x.x 的局域网 IP 或公网 IP（如果适用）。&lt;/p>
+&lt;h3 id="wsl系统">WSL系统
+&lt;/h3>&lt;h4 id="安装-openssh-server-1">安装 OpenSSH Server
+&lt;/h4>&lt;p>打开 WSL 中的 Ubuntu 终端，执行：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo apt update
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt install openssh-server
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="配置-ssh">配置 SSH
+&lt;/h4>&lt;p>编辑配置文件：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo nano /etc/ssh/sshd_config
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>确保以下配置项存在且未被注释：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">Port &lt;span class="m">22&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">PasswordAuthentication yes
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">PermitRootLogin yes
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="启动-ssh-服务">启动 SSH 服务
+&lt;/h4>&lt;p>在 WSL 中，不能使用 systemctl，请使用：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo service ssh start
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>验证服务是否运行：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo service ssh status
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>或使用：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ps aux &lt;span class="p">|&lt;/span> grep sshd
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="使用wsl的注意事项">使用WSL的注意事项
+&lt;/h4>&lt;p>WSL系统是Windows的子系统，在Windows开机时，WSL的ssh功能默认并不能开启，此时需要将WSL的ssh注册为系统服务实现Windows开机时启用WSL的ssh功能。&lt;/p>
+&lt;p>下面给出使用任务计划程序（无需第三方程序）的方法&lt;/p>
+&lt;p>打开任务计划程序
+&lt;code>Win+R&lt;/code> → &lt;code>taskschd.msc&lt;/code>&lt;/p>
+&lt;p>创建任务&lt;/p>
+&lt;p>名称：StartWSL&lt;/p>
+&lt;p>触发器：选择「计算机启动时」&lt;/p>
+&lt;p>操作：新建 →程序/脚本：&lt;code>wsl.exe&lt;/code>，参数：&lt;code>-d Ubuntu-22.04 -u root /usr/sbin/service ssh start&lt;/code>
+（或 &lt;code>-d Ubuntu-22.04 true&lt;/code> 单纯启动实例）&lt;/p>
+&lt;p>设置：勾选「允许任务按需运行」&lt;/p>
+&lt;p>保存时输入管理员密码。重启测试即可。&lt;/p>
+&lt;h2 id="连接ssh">连接ssh
+&lt;/h2>&lt;p>在 Windows 本地测试：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ssh 用户名@localhost
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>从局域网其他设备连接：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ssh 用户名@&amp;lt;Windows主机IP&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>档案</title><link>https://5882886.github.io/archives/</link><pubDate>Thu, 31 Jul 2025 00:00:00 +0000</pubDate><guid>https://5882886.github.io/archives/</guid><description/></item><item><title>Markdown语法指南</title><link>https://5882886.github.io/p/markdown%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/</link><pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate><guid>https://5882886.github.io/p/markdown%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/</guid><description>&lt;img src="https://5882886.github.io/p/markdown%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/pawel-czerwinski-8uZPynIu-rQ-unsplash.jpg" alt="Featured image of post Markdown语法指南" />&lt;p>本文提供了可用于 Hugo 内容文件的基本 Markdown 语法示例，还显示了 Hugo 主题中的基本 HTML 元素是否使用 CSS 进行修饰。&lt;/p>
+&lt;h2 id="标题">标题
+&lt;/h2>&lt;p>如下的 &lt;code>&amp;lt;h1&amp;gt;&lt;/code>—&lt;code>&amp;lt;h6&amp;gt;&lt;/code> 显示了标题的6个级别， &lt;code>&amp;lt;h1&amp;gt;&lt;/code> 级别最高， &lt;code>&amp;lt;h6&amp;gt;&lt;/code> 级别最低.&lt;/p>
+&lt;h1 id="h1">H1
+&lt;/h1>&lt;h2 id="h2">H2
+&lt;/h2>&lt;h3 id="h3">H3
+&lt;/h3>&lt;h4 id="h4">H4
+&lt;/h4>&lt;h5 id="h5">H5
+&lt;/h5>&lt;h6 id="h6">H6
+&lt;/h6>&lt;h2 id="段落">段落
+&lt;/h2>&lt;p>示例段落：&lt;/p>
+&lt;p>马克思主义者认为，只有人们的社会实践，才是人们对于外界认识真理性的标准。实际的情形是这样的，只有在社会实践过程中（物质生产过程中，阶级斗争过程中，科学实验过程中），人们达到了思想中所预想的结果时，人们的认识才被证实了。人们要想得到工作的胜利即得到预想的结果，一定要使自己的思想合于客观外界的规律性，如果不合，就会在实践中失败。人们经过失败之后，也就从失败取得教训，改正自己的思想使之适合于外界的规律性，人们就能变失败为胜利，所谓“失败是成功之母”，“吃一堑长一智”，就是这个道理。&lt;/p>
+&lt;h2 id="引用">引用
+&lt;/h2>&lt;p>引用元素表示从另一个来源引用的内容，可以选择引用必须在&lt;code>footer&lt;/code>或&lt;code>cite&lt;/code>元素内，也可以选择内联更改，如注释和缩写。&lt;/p>
+&lt;h3 id="不含注解的引用">不含注解的引用
+&lt;/h3>&lt;blockquote>
+&lt;p>Tiam, ad mint andaepu dandae nostion secatur sequo quae.
+&lt;strong>Note&lt;/strong> that you can use &lt;em>Markdown syntax&lt;/em> within a blockquote.&lt;/p>&lt;/blockquote>
+&lt;h3 id="包含注解的引用">包含注解的引用
+&lt;/h3>&lt;blockquote>
+&lt;p>不积跬步，无以至千里；不积小流，无以成江海。&lt;br>
+——— &lt;cite>荀子&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/cite>&lt;/p>&lt;/blockquote>
+&lt;h2 id="表格">表格
+&lt;/h2>&lt;p>表格不是Markdown语法的核心功能，但是Hugo同样为其提供了支持。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Name&lt;/th>
+&lt;th>Age&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Bob&lt;/td>
+&lt;td>27&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Alice&lt;/td>
+&lt;td>23&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="行内列表">行内列表
+&lt;/h3>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Italics&lt;/th>
+&lt;th>Bold&lt;/th>
+&lt;th>Code&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;em>italics&lt;/em>&lt;/td>
+&lt;td>&lt;strong>bold&lt;/strong>&lt;/td>
+&lt;td>&lt;code>code&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>A&lt;/th>
+&lt;th>B&lt;/th>
+&lt;th>C&lt;/th>
+&lt;th>D&lt;/th>
+&lt;th>E&lt;/th>
+&lt;th>F&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/td>
+&lt;td>Phasellus ultricies, sapien non euismod aliquam, dui ligula tincidunt odio, at accumsan nulla sapien eget ex.&lt;/td>
+&lt;td>Proin eleifend dictum ipsum, non euismod ipsum pulvinar et. Vivamus sollicitudin, quam in pulvinar aliquam, metus elit pretium purus&lt;/td>
+&lt;td>Proin sit amet velit nec enim imperdiet vehicula.&lt;/td>
+&lt;td>Ut bibendum vestibulum quam, eu egestas turpis gravida nec&lt;/td>
+&lt;td>Sed scelerisque nec turpis vel viverra. Vivamus vitae pretium sapien&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="代码块">代码块
+&lt;/h2>&lt;h3 id="code-block-with-backticks">Code block with backticks
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&amp;lt;!doctype html&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">html&lt;/span> &lt;span class="na">lang&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;en&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">meta&lt;/span> &lt;span class="na">charset&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;utf-8&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">title&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>Example HTML5 Document&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">title&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>Test&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">html&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="code-block-indented-with-four-spaces">Code block indented with four spaces
+&lt;/h3>&lt;pre>&lt;code>&amp;lt;!doctype html&amp;gt;
+&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;
+&amp;lt;head&amp;gt;
+&amp;lt;meta charset=&amp;quot;utf-8&amp;quot;&amp;gt;
+&amp;lt;title&amp;gt;Example HTML5 Document&amp;lt;/title&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+&amp;lt;p&amp;gt;Test&amp;lt;/p&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code>&lt;/pre>
+&lt;h3 id="code-block-with-hugos-internal-highlight-shortcode">Code block with Hugo&amp;rsquo;s internal highlight shortcode
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&amp;lt;!doctype html&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">html&lt;/span> &lt;span class="na">lang&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;en&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">meta&lt;/span> &lt;span class="na">charset&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;utf-8&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">title&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>Example HTML5 Document&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">title&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>Test&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">html&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;h3 id="diff-code-block">Diff code block
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-diff" data-lang="diff">&lt;span class="line">&lt;span class="cl">[dependencies.bevy]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git = &amp;#34;https://github.com/bevyengine/bevy&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">rev = &amp;#34;11f52b8c72fc3a568e8bb4a4cd1f3eb025ac2e13&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gd">- features = [&amp;#34;dynamic&amp;#34;]
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gd">&lt;/span>&lt;span class="gi">+ features = [&amp;#34;jpeg&amp;#34;, &amp;#34;dynamic&amp;#34;]
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="列举类">列举类
+&lt;/h2>&lt;h3 id="有序列举">有序列举
+&lt;/h3>&lt;ol>
+&lt;li>First item&lt;/li>
+&lt;li>Second item&lt;/li>
+&lt;li>Third item&lt;/li>
+&lt;/ol>
+&lt;h3 id="无序列举">无序列举
+&lt;/h3>&lt;ul>
+&lt;li>List item&lt;/li>
+&lt;li>Another item&lt;/li>
+&lt;li>And another item&lt;/li>
+&lt;/ul>
+&lt;h3 id="嵌套列举">嵌套列举
+&lt;/h3>&lt;ul>
+&lt;li>Fruit
+&lt;ul>
+&lt;li>Apple&lt;/li>
+&lt;li>Orange&lt;/li>
+&lt;li>Banana&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Dairy
+&lt;ul>
+&lt;li>Milk&lt;/li>
+&lt;li>Cheese&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="其他类型--abbr-sub-sup-kbd-mark">其他类型 — abbr, sub, sup, kbd, mark
+&lt;/h2>&lt;p>&lt;abbr title="Graphics Interchange Format">GIF&lt;/abbr> is a bitmap image format.&lt;/p>
+&lt;p>H&lt;sub>2&lt;/sub>O&lt;/p>
+&lt;p>X&lt;sup>n&lt;/sup> + Y&lt;sup>n&lt;/sup> = Z&lt;sup>n&lt;/sup>&lt;/p>
+&lt;p>Press &lt;kbd>CTRL&lt;/kbd> + &lt;kbd>ALT&lt;/kbd> + &lt;kbd>Delete&lt;/kbd> to end the session.&lt;/p>
+&lt;p>Most &lt;mark>salamanders&lt;/mark> are nocturnal, and hunt for insects, worms, and other small creatures.&lt;/p>
+&lt;h2 id="参考资料">参考资料
+&lt;/h2>&lt;p>&lt;a class="link" href="https://google.com" target="_blank" rel="noopener"
+>&lt;img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_light_color_272x92dp.png"
+loading="lazy"
+alt="Google"
+>&lt;/a>&lt;/p>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>荀子，中国古代哲学家。&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item><item><title>Math Typesetting</title><link>https://5882886.github.io/p/math-typesetting/</link><pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate><guid>https://5882886.github.io/p/math-typesetting/</guid><description>&lt;p>Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.&lt;/p>
+&lt;p>In this example we will be using &lt;a class="link" href="https://katex.org/" target="_blank" rel="noopener"
+>KaTeX&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>Create a partial under &lt;code>/layouts/partials/math.html&lt;/code>&lt;/li>
+&lt;li>Within this partial reference the &lt;a class="link" href="https://katex.org/docs/autorender.html" target="_blank" rel="noopener"
+>Auto-render Extension&lt;/a> or host these scripts locally.&lt;/li>
+&lt;li>Include the partial in your templates like so:&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="o">{{&lt;/span> &lt;span class="k">if&lt;/span> or .Params.math .Site.Params.math &lt;span class="o">}}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">{{&lt;/span> partial &lt;span class="s2">&amp;#34;math.html&amp;#34;&lt;/span> . &lt;span class="o">}}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">{{&lt;/span> end &lt;span class="o">}}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>To enable KaTeX globally set the parameter &lt;code>math&lt;/code> to &lt;code>true&lt;/code> in a project&amp;rsquo;s configuration&lt;/li>
+&lt;li>To enable KaTeX on a per page basis include the parameter &lt;code>math: true&lt;/code> in content files&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Note:&lt;/strong> Use the online reference of &lt;a class="link" href="https://katex.org/docs/supported.html" target="_blank" rel="noopener"
+>Supported TeX Functions&lt;/a>&lt;/p>
+&lt;h3 id="examples">Examples
+&lt;/h3>&lt;p>Inline math: $\varphi = \dfrac{1+\sqrt5}{2}= 1.6180339887…$&lt;/p>
+&lt;p>Block math:
+&lt;/p>
+$$
+\varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } }
+$$</description></item><item><title>Emoji Support</title><link>https://5882886.github.io/p/emoji-support/</link><pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate><guid>https://5882886.github.io/p/emoji-support/</guid><description>&lt;img src="https://5882886.github.io/p/emoji-support/the-creative-exchange-d2zvqp3fpro-unsplash.jpg" alt="Featured image of post Emoji Support" />&lt;p>Emoji can be enabled in a Hugo project in a number of ways.&lt;/p>
+&lt;p>The &lt;a class="link" href="https://gohugo.io/functions/emojify/" target="_blank" rel="noopener"
+>&lt;code>emojify&lt;/code>&lt;/a> function can be called directly in templates or &lt;a class="link" href="https://gohugo.io/templates/shortcode-templates/#inline-shortcodes" target="_blank" rel="noopener"
+>Inline Shortcodes&lt;/a>.&lt;/p>
+&lt;p>To enable emoji globally, set &lt;code>enableEmoji&lt;/code> to &lt;code>true&lt;/code> in your site&amp;rsquo;s &lt;a class="link" href="https://gohugo.io/getting-started/configuration/" target="_blank" rel="noopener"
+>configuration&lt;/a> and then you can type emoji shorthand codes directly in content files; e.g.&lt;/p>
+&lt;p>&lt;span class="nowrap">&lt;span class="emojify">🙈&lt;/span> &lt;code>:see_no_evil:&lt;/code>&lt;/span> &lt;span class="nowrap">&lt;span class="emojify">🙉&lt;/span> &lt;code>:hear_no_evil:&lt;/code>&lt;/span> &lt;span class="nowrap">&lt;span class="emojify">🙊&lt;/span> &lt;code>:speak_no_evil:&lt;/code>&lt;/span>&lt;/p>
+&lt;br>
+&lt;p>The &lt;a class="link" href="http://www.emoji-cheat-sheet.com/" target="_blank" rel="noopener"
+>Emoji cheat sheet&lt;/a> is a useful reference for emoji shorthand codes.&lt;/p>
+&lt;hr>
+&lt;p>&lt;strong>N.B.&lt;/strong> The above steps enable Unicode Standard emoji characters and sequences in Hugo, however the rendering of these glyphs depends on the browser and the platform. To style the emoji you can either use a third party emoji font or a font stack; e.g.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">.emoji {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> font-family: Apple Color Emoji, Segoe UI Emoji, NotoColorEmoji, Segoe UI Symbol, Android Emoji, EmojiSymbols;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">}&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>关于</title><link>https://5882886.github.io/%E5%85%B3%E4%BA%8E/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://5882886.github.io/%E5%85%B3%E4%BA%8E/</guid><description>&lt;p>Hugo 是用 Go 编写的一个开源静态站点生成器，可在 [Apache License 2.0.] 下使用。项目地址：https://github.com/gohugoio/hugo/blob/master/LICENSE。Hugo 支持 TOML、YAML 和 JSON 数据文件类型、Markdown 和 HTML 内容文件，并使用短代码添加丰富的内容。其他实用功能包括分类法、多语言模式、图像处理、自定义输出格式、HTML/CSS/JS 缩小和对 Sass SCSS 工作流程的支持。&lt;/p>
+&lt;p>本网站用于分享本人在技术实践时的经验总结，如有好的建议，欢迎批评指正！&lt;/p></description></item><item><title>链接</title><link>https://5882886.github.io/%E9%93%BE%E6%8E%A5/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://5882886.github.io/%E9%93%BE%E6%8E%A5/</guid><description/></item><item><title>搜索</title><link>https://5882886.github.io/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://5882886.github.io/search/</guid><description/></item></channel></rss>
