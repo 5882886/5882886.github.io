@@ -174,7 +174,7 @@
 
 
                 
-                <span>档案</span>
+                <span>文章</span>
             </a>
         </li>
         
@@ -297,27 +297,27 @@
         <li><a href="#serverbox">ServerBox</a></li>
       </ol>
     </li>
-    <li><a href="#配置ssh">配置ssh</a>
+    <li><a href="#配置-ssh">配置 SSH</a>
       <ol>
         <li><a href="#windows系统">Windows系统</a>
           <ol>
-            <li><a href="#安装ssh服务">安装ssh服务</a></li>
-            <li><a href="#启动并配置ssh服务">启动并配置ssh服务</a></li>
+            <li><a href="#安装-ssh-服务">安装 SSH 服务</a></li>
+            <li><a href="#启动并配置-ssh-服务">启动并配置 SSH 服务</a></li>
           </ol>
         </li>
         <li><a href="#linux系统">Linux系统</a>
           <ol>
             <li><a href="#安装-openssh-server">安装 OpenSSH Server</a></li>
-            <li><a href="#启动并启用-ssh-服务">启动并启用 SSH 服务</a></li>
-            <li><a href="#配置防火墙如启用-ufw">配置防火墙（如启用 UFW）</a></li>
-            <li><a href="#获取服务器的-ip-地址">获取服务器的 IP 地址</a></li>
+            <li><a href="#启动-ssh-服务">启动 SSH 服务</a></li>
+            <li><a href="#配置防火墙">配置防火墙</a></li>
+            <li><a href="#获取服务器的ip地址">获取服务器的IP地址</a></li>
           </ol>
         </li>
         <li><a href="#wsl系统">WSL系统</a>
           <ol>
             <li><a href="#安装-openssh-server-1">安装 OpenSSH Server</a></li>
-            <li><a href="#配置-ssh">配置 SSH</a></li>
-            <li><a href="#启动-ssh-服务">启动 SSH 服务</a></li>
+            <li><a href="#配置-ssh-1">配置 SSH</a></li>
+            <li><a href="#启动-ssh-服务-1">启动 SSH 服务</a></li>
             <li><a href="#使用wsl的注意事项">使用WSL的注意事项</a></li>
           </ol>
         </li>
@@ -482,12 +482,12 @@
       </tr>
   </tbody>
 </table></div>
-<h2 id="配置ssh">配置ssh
+<h2 id="配置-ssh">配置 SSH
 </h2><p>连接到远程主机的原理与连接MC服务器类似，关键在于确定远程主机的IP地址和端口。</p>
 <h3 id="windows系统">Windows系统
-</h3><h4 id="安装ssh服务">安装ssh服务
+</h3><h4 id="安装-ssh-服务">安装 SSH 服务
 </h4><p>首先在要连接的主机上打开设置，搜索“可选功能”，在“添加可选功能”中搜索“OpenSSH服务器”，下载该功能。</p>
-<h4 id="启动并配置ssh服务">启动并配置ssh服务
+<h4 id="启动并配置-ssh-服务">启动并配置 SSH 服务
 </h4><p>管理员权限打开Powershell，输入：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -521,7 +521,7 @@
 </span></span><span class="line"><span class="cl">sudo apt install openssh-server
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="启动并启用-ssh-服务">启动并启用 SSH 服务
+</div><h4 id="启动-ssh-服务">启动 SSH 服务
 </h4><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -542,7 +542,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>输出中应显示 active (running)。</p>
-<h4 id="配置防火墙如启用-ufw">配置防火墙（如启用 UFW）
+<h4 id="配置防火墙">配置防火墙
 </h4><p>允许 SSH 默认端口（22）：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -554,7 +554,7 @@
 </span></span><span class="line"><span class="cl">sudo ufw allow ssh
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="获取服务器的-ip-地址">获取服务器的 IP 地址
+</div><h4 id="获取服务器的ip地址">获取服务器的IP地址
 </h4><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -577,7 +577,7 @@
 </span></span><span class="line"><span class="cl">sudo apt install openssh-server
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="配置-ssh">配置 SSH
+</div><h4 id="配置-ssh-1">配置 SSH
 </h4><p>编辑配置文件：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -600,7 +600,7 @@
 </span></span><span class="line"><span class="cl">PermitRootLogin yes
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="启动-ssh-服务">启动 SSH 服务
+</div><h4 id="启动-ssh-服务-1">启动 SSH 服务
 </h4><p>在 WSL 中，不能使用 systemctl，请使用：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">

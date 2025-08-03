@@ -2,43 +2,44 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Pages on RunicDolphin806的博客</title>
-        <link>https://5882886.github.io/page/</link>
+        <link>http://localhost:1313/page/</link>
         <description>Recent content in Pages on RunicDolphin806的博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>RunicDolphin806</copyright>
-        <lastBuildDate>Thu, 31 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://5882886.github.io/page/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>档案</title>
-        <link>https://5882886.github.io/archives/</link>
+        <lastBuildDate>Thu, 31 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/page/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>文章</title>
+        <link>http://localhost:1313/archives/</link>
         <pubDate>Thu, 31 Jul 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/archives/</guid>
+        <guid>http://localhost:1313/archives/</guid>
         <description></description>
         </item>
         <item>
         <title>关于</title>
-        <link>https://5882886.github.io/%E5%85%B3%E4%BA%8E/</link>
+        <link>http://localhost:1313/%E5%85%B3%E4%BA%8E/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/%E5%85%B3%E4%BA%8E/</guid>
-        <description>&lt;p&gt;Hugo 是用 Go 编写的一个开源静态站点生成器，可在 [Apache License 2.0.] 下使用。项目地址：https://github.com/gohugoio/hugo/blob/master/LICENSE。Hugo 支持 TOML、YAML 和 JSON 数据文件类型、Markdown 和 HTML 内容文件，并使用短代码添加丰富的内容。其他实用功能包括分类法、多语言模式、图像处理、自定义输出格式、HTML/CSS/JS 缩小和对 Sass SCSS 工作流程的支持。&lt;/p&gt;
+        <guid>http://localhost:1313/%E5%85%B3%E4%BA%8E/</guid>
+        <description>&lt;p&gt;Hugo 是用 Go 编写的一个开源静态站点生成器，可在 [Apache License 2.0.] 下使用。证书参见&lt;a class=&#34;link&#34; href=&#34;https://github.com/gohugoio/hugo/blob/master/LICENSE&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/gohugoio/hugo/blob/master/LICENSE&lt;/a&gt;。Hugo 支持 TOML、YAML 和 JSON 数据文件类型、Markdown 和 HTML 内容文件，并使用短代码添加丰富的内容。其他实用功能包括分类法、多语言模式、图像处理、自定义输出格式、HTML/CSS/JS 缩小和对 Sass SCSS 工作流程的支持。&lt;/p&gt;
 &lt;p&gt;本网站用于分享本人在技术实践时的经验总结，如有好的建议，欢迎批评指正！&lt;/p&gt;
 </description>
         </item>
         <item>
         <title>链接</title>
-        <link>https://5882886.github.io/%E9%93%BE%E6%8E%A5/</link>
+        <link>http://localhost:1313/%E9%93%BE%E6%8E%A5/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/%E9%93%BE%E6%8E%A5/</guid>
+        <guid>http://localhost:1313/%E9%93%BE%E6%8E%A5/</guid>
         <description></description>
         </item>
         <item>
         <title>搜索</title>
-        <link>https://5882886.github.io/search/</link>
+        <link>http://localhost:1313/search/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/search/</guid>
+        <guid>http://localhost:1313/search/</guid>
         <description></description>
         </item>
         

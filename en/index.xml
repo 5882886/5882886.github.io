@@ -2,18 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>RunicDolphin806&#39;s Blog</title>
-        <link>https://5882886.github.io/en/</link>
+        <link>http://localhost:1313/en/</link>
         <description>Recent content on RunicDolphin806&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>RunicDolphin806</copyright>
-        <lastBuildDate>Thu, 31 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://5882886.github.io/en/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Minecraft服务器</title>
-        <link>https://5882886.github.io/en/p/minecraft-server/</link>
+        <lastBuildDate>Thu, 31 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/en/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Archives</title>
+        <link>http://localhost:1313/en/archives/</link>
         <pubDate>Thu, 31 Jul 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/en/p/minecraft-server/</guid>
-        <description>&lt;img src="https://5882886.github.io/p/minecraft-server/helena-hertz-wWZzXlDpMog-unsplash.jpg" alt="Featured image of post Minecraft服务器" /&gt;&lt;h1 id=&#34;minecraft服务器开服历程&#34;&gt;Minecraft服务器开服历程
+        <guid>http://localhost:1313/en/archives/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Minecraft服务器</title>
+        <link>http://localhost:1313/en/p/minecraft-server/</link>
+        <pubDate>Thu, 31 Jul 2025 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/en/p/minecraft-server/</guid>
+        <description>&lt;img src="http://localhost:1313/p/minecraft-server/helena-hertz-wWZzXlDpMog-unsplash.jpg" alt="Featured image of post Minecraft服务器" /&gt;&lt;h1 id=&#34;minecraft服务器开服历程&#34;&gt;Minecraft服务器开服历程
 &lt;/h1&gt;&lt;p&gt;我从2025年2月初开始学习搭建MC服务器，到现在也学到了不少知识。以下是我的开服历程，若能对各位有所帮助，实在是我的荣幸。&lt;/p&gt;
 &lt;h2 id=&#34;服务端搭建&#34;&gt;服务端搭建
 &lt;/h2&gt;&lt;h3 id=&#34;常见的服务端&#34;&gt;常见的服务端
@@ -244,10 +252,10 @@
         </item>
         <item>
         <title>ssh配置简介</title>
-        <link>https://5882886.github.io/en/p/ssh/</link>
+        <link>http://localhost:1313/en/p/ssh/</link>
         <pubDate>Thu, 31 Jul 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/en/p/ssh/</guid>
+        <guid>http://localhost:1313/en/p/ssh/</guid>
         <description>&lt;h2 id=&#34;选择ssh应用程序&#34;&gt;选择ssh应用程序
 &lt;/h2&gt;&lt;h3 id=&#34;visual-studio-code&#34;&gt;Visual Studio Code
 &lt;/h3&gt;&lt;p&gt;这是目前为止最强大的ssh应用，只需下载VScode并安装Remote-ssh插件，写好配置文件后就能连接。&lt;/p&gt;
@@ -259,10 +267,10 @@
     &gt;Tabby的Github仓库&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;serverbox&#34;&gt;ServerBox
 &lt;/h3&gt;&lt;p&gt;ServerBox是一款国产的远程服务器监控和操作应用，支持Windows、Linux、Android、MacOS等操作系统。优点是可以监测服务器实时运行状态（包括CPU、内存、温度、网络、硬盘等）。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://5882886.github.io/p/ssh/serverbox.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/ssh/serverbox.png&#34;
 	width=&#34;643&#34;
 	height=&#34;459&#34;
-	srcset=&#34;https://5882886.github.io/p/ssh/serverbox_hu_659d8f6a579ef453.png 480w, https://5882886.github.io/p/ssh/serverbox_hu_a21fa07204a654fc.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/ssh/serverbox_hu_659d8f6a579ef453.png 480w, http://localhost:1313/p/ssh/serverbox_hu_a21fa07204a654fc.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Serverbox的监测界面&#34;
@@ -484,20 +492,12 @@
 &lt;/div&gt;</description>
         </item>
         <item>
-        <title>Archives</title>
-        <link>https://5882886.github.io/en/archives/</link>
-        <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
-        
-        <guid>https://5882886.github.io/en/archives/</guid>
-        <description></description>
-        </item>
-        <item>
         <title>Markdown Syntax Guide</title>
-        <link>https://5882886.github.io/en/p/markdown-syntax-guide/</link>
+        <link>http://localhost:1313/en/p/markdown-syntax-guide/</link>
         <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/en/p/markdown-syntax-guide/</guid>
-        <description>&lt;img src="https://5882886.github.io/p/markdown%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/pawel-czerwinski-8uZPynIu-rQ-unsplash.jpg" alt="Featured image of post Markdown Syntax Guide" /&gt;&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;
+        <guid>http://localhost:1313/en/p/markdown-syntax-guide/</guid>
+        <description>&lt;img src="http://localhost:1313/p/markdown%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/pawel-czerwinski-8uZPynIu-rQ-unsplash.jpg" alt="Featured image of post Markdown Syntax Guide" /&gt;&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;
 &lt;h2 id=&#34;headings&#34;&gt;Headings
 &lt;/h2&gt;&lt;p&gt;The following HTML &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt;—&lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt; elements represent six levels of section headings. &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt; is the highest section level while &lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt; is the lowest.&lt;/p&gt;
 &lt;h1 id=&#34;h1&#34;&gt;H1
@@ -721,10 +721,10 @@
         </item>
         <item>
         <title>Math Typesetting</title>
-        <link>https://5882886.github.io/en/p/math-typesetting/</link>
+        <link>http://localhost:1313/en/p/math-typesetting/</link>
         <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/en/p/math-typesetting/</guid>
+        <guid>http://localhost:1313/en/p/math-typesetting/</guid>
         <description>&lt;p&gt;Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.&lt;/p&gt;
 &lt;p&gt;In this example we will be using &lt;a class=&#34;link&#34; href=&#34;https://katex.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;KaTeX&lt;/a&gt;&lt;/p&gt;
@@ -763,11 +763,11 @@ $$</description>
         </item>
         <item>
         <title>Emoji Support</title>
-        <link>https://5882886.github.io/en/p/emoji-support/</link>
+        <link>http://localhost:1313/en/p/emoji-support/</link>
         <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/en/p/emoji-support/</guid>
-        <description>&lt;img src="https://5882886.github.io/p/emoji-support/the-creative-exchange-d2zvqp3fpro-unsplash.jpg" alt="Featured image of post Emoji Support" /&gt;&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;
+        <guid>http://localhost:1313/en/p/emoji-support/</guid>
+        <description>&lt;img src="http://localhost:1313/p/emoji-support/the-creative-exchange-d2zvqp3fpro-unsplash.jpg" alt="Featured image of post Emoji Support" /&gt;&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;
 &lt;p&gt;The &lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/functions/emojify/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;&lt;code&gt;emojify&lt;/code&gt;&lt;/a&gt; function can be called directly in templates or &lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/templates/shortcode-templates/#inline-shortcodes&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Inline Shortcodes&lt;/a&gt;.&lt;/p&gt;
@@ -794,10 +794,10 @@ $$</description>
         </item>
         <item>
         <title>About</title>
-        <link>https://5882886.github.io/en/about/</link>
+        <link>http://localhost:1313/en/about/</link>
         <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/en/about/</guid>
+        <guid>http://localhost:1313/en/about/</guid>
         <description>&lt;p&gt;Written in Go, Hugo is an open source static site generator available under the &lt;a class=&#34;link&#34; href=&#34;https://github.com/gohugoio/hugo/blob/master/LICENSE&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Apache License 2.0.&lt;/a&gt; Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.&lt;/p&gt;
 &lt;p&gt;Hugo makes use of a variety of open source projects including:&lt;/p&gt;
@@ -822,10 +822,10 @@ $$</description>
         </item>
         <item>
         <title>Links</title>
-        <link>https://5882886.github.io/en/links/</link>
+        <link>http://localhost:1313/en/links/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/en/links/</guid>
+        <guid>http://localhost:1313/en/links/</guid>
         <description>&lt;p&gt;To use this feature, add &lt;code&gt;links&lt;/code&gt; section to frontmatter.&lt;/p&gt;
 &lt;p&gt;This page&amp;rsquo;s frontmatter: links&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -859,10 +859,10 @@ $$</description>
         </item>
         <item>
         <title>Search</title>
-        <link>https://5882886.github.io/en/search/</link>
+        <link>http://localhost:1313/en/search/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/en/search/</guid>
+        <guid>http://localhost:1313/en/search/</guid>
         <description></description>
         </item>
         
