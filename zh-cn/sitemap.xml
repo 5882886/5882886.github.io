@@ -120,15 +120,18 @@
   </url><url>
     <loc>https://5882886.github.io/p/ssh/</loc>
     <lastmod>2025-07-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://5882886.github.io/categories/syntax/</loc>
+    <lastmod>2025-07-31T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://5882886.github.io/en/p/ssh/"
+                href="https://5882886.github.io/en/categories/syntax/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://5882886.github.io/p/ssh/"
+                href="https://5882886.github.io/categories/syntax/"
                 />
   </url><url>
     <loc>https://5882886.github.io/archives/</loc>
@@ -194,19 +197,6 @@
                 rel="alternate"
                 hreflang="zh-cn"
                 href="https://5882886.github.io/p/markdown%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/"
-                />
-  </url><url>
-    <loc>https://5882886.github.io/categories/syntax/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://5882886.github.io/en/categories/syntax/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://5882886.github.io/categories/syntax/"
                 />
   </url><url>
     <loc>https://5882886.github.io/tags/</loc>

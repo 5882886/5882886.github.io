@@ -292,18 +292,6 @@
             <nav id="TableOfContents">
   <ol>
     <li><a href="#标题">标题</a></li>
-  </ol>
-
-  <ol>
-    <li><a href="#h2">H2</a>
-      <ol>
-        <li><a href="#h3">H3</a>
-          <ol>
-            <li><a href="#h4">H4</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
     <li><a href="#段落">段落</a></li>
     <li><a href="#引用">引用</a>
       <ol>
@@ -331,7 +319,14 @@
         <li><a href="#嵌套列举">嵌套列举</a></li>
       </ol>
     </li>
-    <li><a href="#其他类型--下划线-下标-上标-方框-高亮">其他类型 — 下划线, 下标, 上标, 方框, 高亮</a></li>
+    <li><a href="#文本类型">文本类型</a>
+      <ol>
+        <li><a href="#下划线">下划线</a></li>
+        <li><a href="#上下标">上下标</a></li>
+        <li><a href="#方框与高亮显示">方框与高亮显示</a></li>
+      </ol>
+    </li>
+    <li><a href="#段落类型">段落类型</a></li>
     <li><a href="#参考资料">参考资料</a></li>
   </ol>
 </nav>
@@ -417,7 +412,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 2 分钟
+                    阅读时长: 3 分钟
                 </time>
             </div>
         
@@ -454,13 +449,25 @@
     <p>本文提供了可用于 Hugo 内容文件的基本 Markdown 语法示例，还显示了 Hugo 主题中的基本 HTML 元素是否使用 CSS 进行修饰。</p>
 <h2 id="标题">标题
 </h2><p>如下的 <code>&lt;h1&gt;</code>—<code>&lt;h6&gt;</code> 显示了标题的6个级别， <code>&lt;h1&gt;</code> 级别最高， <code>&lt;h6&gt;</code> 级别最低.</p>
-<h1 id="h1">H1
-</h1><h2 id="h2">H2
-</h2><h3 id="h3">H3
-</h3><h4 id="h4">H4
-</h4><h5 id="h5">H5
-</h5><h6 id="h6">H6
-</h6><h2 id="段落">段落
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># H1
+</span></span><span class="line"><span class="cl">## H2
+</span></span><span class="line"><span class="cl">### H3
+</span></span><span class="line"><span class="cl">#### H4
+</span></span><span class="line"><span class="cl">##### H5
+</span></span><span class="line"><span class="cl">###### H6
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="段落">段落
 </h2><p>示例段落：</p>
 <p>马克思主义者认为，只有人们的社会实践，才是人们对于外界认识真理性的标准。实际的情形是这样的，只有在社会实践过程中（物质生产过程中，阶级斗争过程中，科学实验过程中），人们达到了思想中所预想的结果时，人们的认识才被证实了。人们要想得到工作的胜利即得到预想的结果，一定要使自己的思想合于客观外界的规律性，如果不合，就会在实践中失败。人们经过失败之后，也就从失败取得教训，改正自己的思想使之适合于外界的规律性，人们就能变失败为胜利，所谓“失败是成功之母”，“吃一堑长一智”，就是这个道理。</p>
 <h2 id="引用">引用
@@ -621,19 +628,66 @@
 </div>
 </div><h2 id="列举类">列举类
 </h2><h3 id="有序列举">有序列举
-</h3><ol>
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1. 项目一
+</span></span><span class="line"><span class="cl">2. 项目二
+</span></span><span class="line"><span class="cl">3. 项目三
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>效果：</p>
+<ol>
 <li>项目一</li>
 <li>项目二</li>
 <li>项目三</li>
 </ol>
 <h3 id="无序列举">无序列举
-</h3><ul>
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">* 项目
+</span></span><span class="line"><span class="cl">* 另一个项目
+</span></span><span class="line"><span class="cl">* 再一个项目
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>效果：</p>
+<ul>
 <li>项目</li>
 <li>另一个项目</li>
 <li>再一个项目</li>
 </ul>
 <h3 id="嵌套列举">嵌套列举
-</h3><ul>
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">* Fruit
+</span></span><span class="line"><span class="cl">  * Apple
+</span></span><span class="line"><span class="cl">  * Orange
+</span></span><span class="line"><span class="cl">  * Banana
+</span></span><span class="line"><span class="cl">* Dairy
+</span></span><span class="line"><span class="cl">  * Milk
+</span></span><span class="line"><span class="cl">  * Cheese
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>效果：</p>
+<ul>
 <li>Fruit
 <ul>
 <li>Apple</li>
@@ -648,21 +702,30 @@
 </ul>
 </li>
 </ul>
-<h2 id="其他类型--下划线-下标-上标-方框-高亮">其他类型 — 下划线, 下标, 上标, 方框, 高亮
-</h2><p><abbr title="Graphics Interchange Format">GIF</abbr> is a bitmap image format.</p>
-<p>H<sub>2</sub>O</p>
-<p>X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup></p>
-<p>Press <kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>Delete</kbd> to end the session.</p>
-<p>Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and other small creatures.</p>
+<h2 id="文本类型">文本类型
+</h2><h3 id="下划线">下划线
+</h3><p><code>&lt;span style=&quot;text-decoration: wavy underline;&quot;&gt; 天津大学是中国第一所现代大学。 &lt;/span&gt;</code> → <span style="text-decoration: wavy underline;"> 天津大学是中国第一所现代大学。 </span></p>
+<p><code>&lt;u&gt; 2025年将迎来天津大学130周年校庆。 &lt;/u&gt;</code> → <u> 2025年将迎来天津大学130周年校庆。 </u></p>
+<h3 id="上下标">上下标
+</h3><p><code>H&lt;sub&gt;2&lt;/sub&gt;O</code> → H<sub>2</sub>O</p>
+<p><code>X&lt;sup&gt;n&lt;/sup&gt; + Y&lt;sup&gt;n&lt;/sup&gt; = Z&lt;sup&gt;n&lt;/sup&gt;</code> → X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup></p>
+<h3 id="方框与高亮显示">方框与高亮显示
+</h3><p><code>按下 &lt;kbd&gt;CTRL&lt;/kbd&gt; + &lt;kbd&gt;ALT&lt;/kbd&gt; + &lt;kbd&gt;Delete&lt;/kbd&gt; 以结束段落。</code> → 按下 <kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>Delete</kbd> 以结束段落。</p>
+<p><code>&lt;mark&gt;兴学强国&lt;/mark&gt;的使命，&lt;mark&gt;实事求是&lt;/mark&gt;的校训，&lt;mark&gt;严谨治学&lt;/mark&gt;的校风，&lt;mark&gt;矢志创新&lt;/mark&gt;的追求。</code> → <mark>兴学强国</mark>的使命，<mark>实事求是</mark>的校训，<mark>严谨治学</mark>的校风，<mark>矢志创新</mark>的追求。</p>
+<h2 id="段落类型">段落类型
+</h2><p>首行缩进：<code>&lt;p style=&quot;text-indent: 2em;margin-top: 0;margin-bottom: 0;&quot;&gt; 文本 &lt;/p&gt;</code>，其中<code>margin-top: 0</code>表示忽略段前空行，<code>margin-bottom: 0</code>表示忽略段后空行。</p>
+<p>居中：<code>&lt;div style=&quot;text-align: center;&quot;&gt; 文本 &lt;/div&gt;</code></p>
+<p>左对齐：默认</p>
+<p>右对齐：<code>&lt;div style=&quot;text-align: right;&quot;&gt; 文本 &lt;/div&gt;</code></p>
 <h2 id="参考资料">参考资料
-</h2><p><a class="link" href="https://google.com"  target="_blank" rel="noopener"
-    ><img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_light_color_272x92dp.png"
+</h2><p><code>[![Zhisuan_Eleven](https://github.com/5882886/My-Minecraft-Sever/blob/main/icon.jpg)](https://github.com/5882886/My-Minecraft-Sever)</code> → <a class="link" href="https://github.com/5882886/My-Minecraft-Sever"  target="_blank" rel="noopener"
+    ><img src="https://github.com/5882886/My-Minecraft-Sever/blob/main/icon.jpg"
 	
 	
 	
 	loading="lazy"
 	
-		alt="Google"
+		alt="Zhisuan_Eleven"
 	
 	
 ></a></p>
