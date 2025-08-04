@@ -1,52 +1,72 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Website on RunicDolphin806的博客</title><link>https://5882886.github.io/categories/website/</link><description>Recent content in Website on RunicDolphin806的博客</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>RunicDolphin806</copyright><lastBuildDate>Sat, 02 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://5882886.github.io/categories/website/index.xml" rel="self" type="application/rss+xml"/><item><title>使用Hugo搭建网站</title><link>https://5882886.github.io/p/website/</link><pubDate>Sat, 02 Aug 2025 00:00:00 +0000</pubDate><guid>https://5882886.github.io/p/website/</guid><description>&lt;h2 id="hugo环境配置">Hugo环境配置
-&lt;/h2>&lt;p>点击进入&lt;a class="link" href="https://github.com/gohugoio/hugo" target="_blank" rel="noopener"
->Hugo下载地址&lt;/a>，下载最新的release文件。&lt;/p>
-&lt;h2 id="创建博客网站">创建博客网站
-&lt;/h2>&lt;h3 id="准备步骤">准备步骤
-&lt;/h3>&lt;p>在hugo对应的文件夹内打开cmd，输入&lt;code>hugo new site 你的文件夹名&lt;/code>，可以看到多出一个新的空文件夹。&lt;/p>
-&lt;p>进入空文件夹，在cmd中输入&lt;code>hugo service build&lt;/code>。可以看到网站在&lt;code>localhost:1313&lt;/code>转发，在浏览器中输入该网址即可看到当前网站的内容。&lt;/p>
-&lt;h3 id="下载hugo主题">下载Hugo主题
-&lt;/h3>&lt;p>在Hugo官网上进入Theme，下载需要的主题文件，解压后放入网站文件夹的theme子文件夹。&lt;/p>
-&lt;p>接着在下载的主题文件夹中复制content文件夹和hugo.yaml（或hugo.toml）文件，粘贴到你的网站文件夹中。&lt;/p>
-&lt;p>打开主题的配置文件，找到&lt;code>theme: hugo-theme-stack&lt;/code>一行，这里标明所使用主题的名称，须保持名称与主题文件夹的名称相同，否则要修改其一。再次执行&lt;code>hugo service build&lt;/code>，即可看到使用了主题的网站。&lt;/p>
-&lt;h3 id="创建自定义内容">创建自定义内容
-&lt;/h3>&lt;p>Hugo网站的文章内容均在content文件夹中，每篇文章对应一个子文件夹。&lt;/p>
-&lt;p>每篇文章均采用Markdown语法书写，通常在文章开头有类似的配置文字：&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;span class="lnt">5
-&lt;/span>&lt;span class="lnt">6
-&lt;/span>&lt;span class="lnt">7
-&lt;/span>&lt;span class="lnt">8
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">---
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">title: xxxxx #文章的标题
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">description: xxxxx #文章的副标题
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">date: xxxxx #文章的日期
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">slug: xxxxx
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">categories:
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - xxxxx #文章所属类别
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">---
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>必须包含这些内容网站才会显示对应文章。&lt;/p>
-&lt;p>文章正文参照Markdown语法规则。&lt;/p>
-&lt;h2 id="hugo构建命令">Hugo构建命令
-&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">hugo server -D &lt;span class="c1">#构建本地网页&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">hugo --gc --minify &lt;span class="c1">#构建在线网页&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;blockquote>
-&lt;p>&lt;em>注意事项&lt;/em>&lt;/p>
-&lt;p>&lt;em>使用&lt;code>hugo server -D&lt;/code>命令构建的是本地网页，遇到超链接时会重定向到&lt;code>localhost:1313/xxx&lt;/code>，不能直接部署到GitHub等服务器上，必须再执行一次&lt;code>hugo --cleanDestinationDir --gc&lt;/code>命令清除本地链接的内容之后，才能正确部署。&lt;/em>&lt;/p>&lt;/blockquote></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Website on RunicDolphin806的博客</title>
+        <link>https://5882886.github.io/categories/website/</link>
+        <description>Recent content in Website on RunicDolphin806的博客</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>RunicDolphin806</copyright>
+        <lastBuildDate>Sat, 02 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://5882886.github.io/categories/website/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>使用Hugo搭建网站</title>
+        <link>https://5882886.github.io/p/website/</link>
+        <pubDate>Sat, 02 Aug 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://5882886.github.io/p/website/</guid>
+        <description>&lt;h2 id=&#34;hugo环境配置&#34;&gt;Hugo环境配置
+&lt;/h2&gt;&lt;p&gt;点击进入&lt;a class=&#34;link&#34; href=&#34;https://github.com/gohugoio/hugo&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Hugo下载地址&lt;/a&gt;，下载最新的release文件。&lt;/p&gt;
+&lt;h2 id=&#34;创建博客网站&#34;&gt;创建博客网站
+&lt;/h2&gt;&lt;h3 id=&#34;准备步骤&#34;&gt;准备步骤
+&lt;/h3&gt;&lt;p&gt;在hugo对应的文件夹内打开cmd，输入&lt;code&gt;hugo new site 你的文件夹名&lt;/code&gt;，可以看到多出一个新的空文件夹。&lt;/p&gt;
+&lt;p&gt;进入空文件夹，在cmd中输入&lt;code&gt;hugo service build&lt;/code&gt;。可以看到网站在&lt;code&gt;localhost:1313&lt;/code&gt;转发，在浏览器中输入该网址即可看到当前网站的内容。&lt;/p&gt;
+&lt;h3 id=&#34;下载hugo主题&#34;&gt;下载Hugo主题
+&lt;/h3&gt;&lt;p&gt;在Hugo官网上进入Theme，下载需要的主题文件，解压后放入网站文件夹的theme子文件夹。&lt;/p&gt;
+&lt;p&gt;接着在下载的主题文件夹中复制content文件夹和hugo.yaml（或hugo.toml）文件，粘贴到你的网站文件夹中。&lt;/p&gt;
+&lt;p&gt;打开主题的配置文件，找到&lt;code&gt;theme: hugo-theme-stack&lt;/code&gt;一行，这里标明所使用主题的名称，须保持名称与主题文件夹的名称相同，否则要修改其一。再次执行&lt;code&gt;hugo service build&lt;/code&gt;，即可看到使用了主题的网站。&lt;/p&gt;
+&lt;h3 id=&#34;创建自定义内容&#34;&gt;创建自定义内容
+&lt;/h3&gt;&lt;p&gt;Hugo网站的文章内容均在content文件夹中，每篇文章对应一个子文件夹。&lt;/p&gt;
+&lt;p&gt;每篇文章均采用Markdown语法书写，通常在文章开头有类似的配置文字：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;---
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;title: xxxxx        #文章的标题
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;description: xxxxx      #文章的副标题
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;date: xxxxx         #文章的日期
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;slug: xxxxx     
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;categories:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    - xxxxx         #文章所属类别
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;---
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;必须包含这些内容网站才会显示对应文章。&lt;/p&gt;
+&lt;p&gt;文章正文参照Markdown语法规则。&lt;/p&gt;
+&lt;h2 id=&#34;hugo构建命令&#34;&gt;Hugo构建命令
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo server -D      &lt;span class=&#34;c1&#34;&gt;#构建本地网页&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo       &lt;span class=&#34;c1&#34;&gt;#构建在线网页&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;注意事项&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;使用&lt;code&gt;hugo server -D&lt;/code&gt;命令构建的是本地网页，遇到超链接时会重定向到&lt;code&gt;localhost:1313/xxx&lt;/code&gt;，不能直接部署到GitHub等服务器上，必须再执行一次&lt;code&gt;hugo&lt;/code&gt;命令清除本地链接的内容之后，才能正确部署。&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

@@ -1,1 +1,52 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Categories on RunicDolphin806的博客</title><link>https://5882886.github.io/categories/</link><description>Recent content in Categories on RunicDolphin806的博客</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>RunicDolphin806</copyright><lastBuildDate>Sat, 02 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://5882886.github.io/categories/index.xml" rel="self" type="application/rss+xml"/><item><title>Website</title><link>https://5882886.github.io/categories/website/</link><pubDate>Sat, 02 Aug 2025 00:00:00 +0000</pubDate><guid>https://5882886.github.io/categories/website/</guid><description>&lt;img src="https://5882886.github.io/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post Website" /></description></item><item><title>Minecraft</title><link>https://5882886.github.io/categories/minecraft/</link><pubDate>Thu, 31 Jul 2025 00:00:00 +0000</pubDate><guid>https://5882886.github.io/categories/minecraft/</guid><description>&lt;img src="https://5882886.github.io/categories/minecraft/screenshot.png" alt="Featured image of post Minecraft" /></description></item><item><title>Syntax</title><link>https://5882886.github.io/categories/syntax/</link><pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate><guid>https://5882886.github.io/categories/syntax/</guid><description/></item><item><title>Themes</title><link>https://5882886.github.io/categories/themes/</link><pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate><guid>https://5882886.github.io/categories/themes/</guid><description/></item><item><title>Test</title><link>https://5882886.github.io/categories/test/</link><pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate><guid>https://5882886.github.io/categories/test/</guid><description>&lt;img src="https://5882886.github.io/categories/test/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post Test" /></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Categories on RunicDolphin806的博客</title>
+        <link>https://5882886.github.io/categories/</link>
+        <description>Recent content in Categories on RunicDolphin806的博客</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>RunicDolphin806</copyright>
+        <lastBuildDate>Sat, 02 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://5882886.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Website</title>
+        <link>https://5882886.github.io/categories/website/</link>
+        <pubDate>Sat, 02 Aug 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://5882886.github.io/categories/website/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Minecraft</title>
+        <link>https://5882886.github.io/categories/minecraft/</link>
+        <pubDate>Thu, 31 Jul 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://5882886.github.io/categories/minecraft/</guid>
+        <description>&lt;img src="https://5882886.github.io/categories/minecraft/screenshot.png" alt="Featured image of post Minecraft" /&gt;</description>
+        </item>
+        <item>
+        <title>Syntax</title>
+        <link>https://5882886.github.io/categories/syntax/</link>
+        <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://5882886.github.io/categories/syntax/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Themes</title>
+        <link>https://5882886.github.io/categories/themes/</link>
+        <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://5882886.github.io/categories/themes/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Test</title>
+        <link>https://5882886.github.io/categories/test/</link>
+        <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://5882886.github.io/categories/test/</guid>
+        <description>&lt;img src="https://5882886.github.io/categories/test/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post Test" /&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
