@@ -10,9 +10,10 @@
 <meta property='og:description' content="如何优雅地使用Linux系统">
 <meta property='og:url' content='https://5882886.github.io/p/linux_help/'>
 <meta property='og:site_name' content='RunicDolphin806的博客'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-08-04T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-08-04T00:00:00&#43;00:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-08-04T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-08-04T00:00:00&#43;00:00'/><meta property='og:image' content='https://5882886.github.io/p/linux_help/Linux-tips.png' />
 <meta name="twitter:title" content="Linux系统小技巧">
-<meta name="twitter:description" content="如何优雅地使用Linux系统">
+<meta name="twitter:description" content="如何优雅地使用Linux系统"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://5882886.github.io/p/linux_help/Linux-tips.png' />
     <link rel="shortcut icon" href="/favicon.ico" />
 
     </head>
@@ -290,6 +291,7 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
+    <li><a href="#linux发行版">Linux发行版</a></li>
     <li><a href="#linux系统命令">Linux系统命令</a>
       <ol>
         <li><a href="#文件操作">文件操作</a></li>
@@ -313,8 +315,20 @@
 
 
             <main class="main full-width">
-    <article class="main-article">
+    <article class="has-image main-article">
     <header class="article-header">
+        <div class="article-image">
+            <a href="/p/linux_help/">
+                <img src="/p/linux_help/Linux-tips_hu_329ba1e8c475507d.png"
+                        srcset="/p/linux_help/Linux-tips_hu_329ba1e8c475507d.png 800w, /p/linux_help/Linux-tips_hu_2fe9f1999d7aa89c.png 1600w"
+                        width="800" 
+                        height="438" 
+                        loading="lazy"
+                        alt="Featured image of post Linux系统小技巧" />
+                
+            </a>
+        </div>
+    
 
     <div class="article-details">
     
@@ -370,7 +384,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 2 分钟
+                    阅读时长: 3 分钟
                 </time>
             </div>
         
@@ -385,7 +399,119 @@
     <section class="article-content">
     
     
-    <h2 id="linux系统命令">Linux系统命令
+    <h2 id="linux发行版">Linux发行版
+</h2><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">发行版名称</th>
+          <th style="text-align: left">基础系统</th>
+          <th style="text-align: left">特点</th>
+          <th style="text-align: left">适用场景</th>
+          <th style="text-align: left">推荐用户群体</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>Ubuntu</strong></td>
+          <td style="text-align: left">Debian</td>
+          <td style="text-align: left">易用性高、软件生态丰富、社区支持强大</td>
+          <td style="text-align: left">桌面、服务器</td>
+          <td style="text-align: left">初学者、开发者、企业用户</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Linux Mint</strong></td>
+          <td style="text-align: left">Ubuntu/Debian</td>
+          <td style="text-align: left">界面友好、预装丰富软件、高度易用</td>
+          <td style="text-align: left">桌面</td>
+          <td style="text-align: left">从 Windows 转过来的新用户</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Fedora</strong></td>
+          <td style="text-align: left">独立开发</td>
+          <td style="text-align: left">新技术前沿、更新频繁、适合尝鲜</td>
+          <td style="text-align: left">桌面、服务器</td>
+          <td style="text-align: left">开发者、技术爱好者</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Pop!_OS</strong></td>
+          <td style="text-align: left">Ubuntu</td>
+          <td style="text-align: left">硬件优化、GPU 切换、适合开发者</td>
+          <td style="text-align: left">桌面、游戏</td>
+          <td style="text-align: left">开发者、游戏玩家</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Zorin OS</strong></td>
+          <td style="text-align: left">Ubuntu</td>
+          <td style="text-align: left">类似 Windows 的 UI、预装丰富软件</td>
+          <td style="text-align: left">桌面</td>
+          <td style="text-align: left">初学者、Windows 迁移用户</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Debian</strong></td>
+          <td style="text-align: left">独立开发</td>
+          <td style="text-align: left">稳定性高、自由软件精神、适合服务器</td>
+          <td style="text-align: left">服务器、桌面</td>
+          <td style="text-align: left">高级用户、企业用户</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>AlmaLinux</strong></td>
+          <td style="text-align: left">RHEL</td>
+          <td style="text-align: left">免费、与 RHEL 高度兼容</td>
+          <td style="text-align: left">服务器</td>
+          <td style="text-align: left">企业用户、开发者</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Ubuntu LTS</strong></td>
+          <td style="text-align: left">Debian</td>
+          <td style="text-align: left">长期支持、稳定性高</td>
+          <td style="text-align: left">服务器、桌面</td>
+          <td style="text-align: left">企业用户、个人用户</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Kali Linux</strong></td>
+          <td style="text-align: left">Debian</td>
+          <td style="text-align: left">安全测试、渗透测试、内置大量安全工具</td>
+          <td style="text-align: left">安全测试、渗透测试</td>
+          <td style="text-align: left">安全专家、渗透测试人员</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Raspberry Pi OS</strong></td>
+          <td style="text-align: left">Debian</td>
+          <td style="text-align: left">针对 Raspberry Pi 优化、适合嵌入式设备</td>
+          <td style="text-align: left">教育、DIY、物联网</td>
+          <td style="text-align: left">学生、爱好者</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Arch Linux</strong></td>
+          <td style="text-align: left">独立开发</td>
+          <td style="text-align: left">滚动更新、高度定制、适合高级用户</td>
+          <td style="text-align: left">桌面、服务器</td>
+          <td style="text-align: left">高级用户、开发者</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Manjaro</strong></td>
+          <td style="text-align: left">Arch Linux</td>
+          <td style="text-align: left">滚动更新、优化安装和配置</td>
+          <td style="text-align: left">桌面</td>
+          <td style="text-align: left">中级用户、开发者</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>openSUSE Tumbleweed</strong></td>
+          <td style="text-align: left">独立开发</td>
+          <td style="text-align: left">滚动更新、适合桌面及开发环境</td>
+          <td style="text-align: left">桌面、开发</td>
+          <td style="text-align: left">开发者、技术爱好者</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>openSUSE Leap</strong></td>
+          <td style="text-align: left">SUSE Linux Enterprise</td>
+          <td style="text-align: left">稳定性高、图形化管理工具 YaST</td>
+          <td style="text-align: left">桌面、服务器</td>
+          <td style="text-align: left">中级用户、企业用户</td>
+      </tr>
+  </tbody>
+</table></div>
+<h2 id="linux系统命令">Linux系统命令
 </h2><h3 id="文件操作">文件操作
 </h3><div class="table-wrapper"><table>
   <thead>
@@ -690,7 +816,8 @@
   </tbody>
 </table></div>
 <h2 id="ssh连接linux系统">SSH连接Linux系统
-</h2>
+</h2><p>参见：SSH配置简介</p>
+
 </section>
 
 
@@ -769,8 +896,6 @@
     <footer class="site-footer">
     <section class="copyright">
         &copy; 
-        
-            2020 - 
         
         2025 RunicDolphin806
     </section>

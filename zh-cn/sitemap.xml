@@ -15,6 +15,32 @@
                 href="https://5882886.github.io/"
                 />
   </url><url>
+    <loc>https://5882886.github.io/categories/</loc>
+    <lastmod>2025-08-04T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://5882886.github.io/en/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://5882886.github.io/categories/"
+                />
+  </url><url>
+    <loc>https://5882886.github.io/categories/linux/</loc>
+    <lastmod>2025-08-04T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://5882886.github.io/en/categories/linux/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://5882886.github.io/categories/linux/"
+                />
+  </url><url>
     <loc>https://5882886.github.io/p/linux_help/</loc>
     <lastmod>2025-08-04T00:00:00+00:00</lastmod>
   </url><url>
@@ -31,18 +57,21 @@
                 href="https://5882886.github.io/post/"
                 />
   </url><url>
-    <loc>https://5882886.github.io/categories/</loc>
-    <lastmod>2025-08-02T00:00:00+00:00</lastmod>
+    <loc>https://5882886.github.io/categories/interesting_things/</loc>
+    <lastmod>2025-08-04T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://5882886.github.io/en/categories/"
+                href="https://5882886.github.io/en/categories/interesting_things/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://5882886.github.io/categories/"
+                href="https://5882886.github.io/categories/interesting_things/"
                 />
+  </url><url>
+    <loc>https://5882886.github.io/p/haha/</loc>
+    <lastmod>2025-08-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://5882886.github.io/categories/website/</loc>
     <lastmod>2025-08-02T00:00:00+00:00</lastmod>
@@ -271,18 +300,6 @@
                 href="https://5882886.github.io/categories/test/"
                 />
   </url><url>
-    <loc>https://5882886.github.io/categories/linux/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://5882886.github.io/en/categories/linux/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://5882886.github.io/categories/linux/"
-                />
-  </url><url>
     <loc>https://5882886.github.io/%E5%85%B3%E4%BA%8E/</loc>
     <xhtml:link
                 rel="alternate"
@@ -317,18 +334,6 @@
                 rel="alternate"
                 hreflang="zh-cn"
                 href="https://5882886.github.io/search/"
-                />
-  </url><url>
-    <loc>https://5882886.github.io/categories/interesting_things/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://5882886.github.io/en/categories/interesting_things/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://5882886.github.io/categories/interesting_things/"
                 />
   </url>
 </urlset>

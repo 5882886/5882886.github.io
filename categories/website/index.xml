@@ -13,7 +13,7 @@
         <pubDate>Sat, 02 Aug 2025 00:00:00 +0000</pubDate>
         
         <guid>https://5882886.github.io/p/website/</guid>
-        <description>&lt;h2 id=&#34;hugo环境配置&#34;&gt;Hugo环境配置
+        <description>&lt;img src="https://5882886.github.io/p/website/Hugo.png" alt="Featured image of post 使用Hugo搭建网站" /&gt;&lt;h2 id=&#34;hugo环境配置&#34;&gt;Hugo环境配置
 &lt;/h2&gt;&lt;p&gt;点击进入&lt;a class=&#34;link&#34; href=&#34;https://github.com/gohugoio/hugo&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Hugo下载地址&lt;/a&gt;，下载最新的release文件。&lt;/p&gt;
 &lt;h2 id=&#34;创建博客网站&#34;&gt;创建博客网站

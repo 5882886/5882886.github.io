@@ -13,7 +13,119 @@
         <pubDate>Mon, 04 Aug 2025 00:00:00 +0000</pubDate>
         
         <guid>https://5882886.github.io/p/linux_help/</guid>
-        <description>&lt;h2 id=&#34;linux系统命令&#34;&gt;Linux系统命令
+        <description>&lt;img src="https://5882886.github.io/p/linux_help/Linux-tips.png" alt="Featured image of post Linux系统小技巧" /&gt;&lt;h2 id=&#34;linux发行版&#34;&gt;Linux发行版
+&lt;/h2&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;发行版名称&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;基础系统&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;特点&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;适用场景&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;推荐用户群体&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;Ubuntu&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Debian&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;易用性高、软件生态丰富、社区支持强大&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;桌面、服务器&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;初学者、开发者、企业用户&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;Linux Mint&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Ubuntu/Debian&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;界面友好、预装丰富软件、高度易用&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;桌面&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;从 Windows 转过来的新用户&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;Fedora&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;独立开发&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;新技术前沿、更新频繁、适合尝鲜&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;桌面、服务器&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;开发者、技术爱好者&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;Pop!_OS&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Ubuntu&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;硬件优化、GPU 切换、适合开发者&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;桌面、游戏&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;开发者、游戏玩家&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;Zorin OS&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Ubuntu&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;类似 Windows 的 UI、预装丰富软件&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;桌面&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;初学者、Windows 迁移用户&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;Debian&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;独立开发&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;稳定性高、自由软件精神、适合服务器&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;服务器、桌面&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;高级用户、企业用户&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;AlmaLinux&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;RHEL&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;免费、与 RHEL 高度兼容&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;服务器&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;企业用户、开发者&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;Ubuntu LTS&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Debian&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;长期支持、稳定性高&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;服务器、桌面&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;企业用户、个人用户&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;Kali Linux&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Debian&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;安全测试、渗透测试、内置大量安全工具&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;安全测试、渗透测试&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;安全专家、渗透测试人员&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;Raspberry Pi OS&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Debian&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;针对 Raspberry Pi 优化、适合嵌入式设备&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;教育、DIY、物联网&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;学生、爱好者&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;Arch Linux&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;独立开发&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;滚动更新、高度定制、适合高级用户&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;桌面、服务器&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;高级用户、开发者&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;Manjaro&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Arch Linux&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;滚动更新、优化安装和配置&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;桌面&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;中级用户、开发者&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;openSUSE Tumbleweed&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;独立开发&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;滚动更新、适合桌面及开发环境&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;桌面、开发&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;开发者、技术爱好者&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;openSUSE Leap&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;SUSE Linux Enterprise&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;稳定性高、图形化管理工具 YaST&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;桌面、服务器&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;中级用户、企业用户&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;linux系统命令&#34;&gt;Linux系统命令
 &lt;/h2&gt;&lt;h3 id=&#34;文件操作&#34;&gt;文件操作
 &lt;/h3&gt;&lt;table&gt;
   &lt;thead&gt;
@@ -318,7 +430,52 @@
   &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2 id=&#34;ssh连接linux系统&#34;&gt;SSH连接Linux系统
-&lt;/h2&gt;</description>
+&lt;/h2&gt;&lt;p&gt;参见：SSH配置简介&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>有意思的玩意</title>
+        <link>https://5882886.github.io/p/haha/</link>
+        <pubDate>Mon, 04 Aug 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://5882886.github.io/p/haha/</guid>
+        <description>&lt;p&gt;阅读下面的文言文，完成10~14题。&lt;/p&gt;
+&lt;p&gt;材料一：&lt;/p&gt;
+&lt;p&gt;甲午战后，杏荪①奏曰：“自强首在储才，储才必先兴学。臣观津门之地，富野千里，通衢八方，自当创办新学，以期强兵富国。”帝曰：“善。”乃于光绪廿一年御批：“该衙门知道。”始立天津北洋西学堂，杏荪权督办。越明年，更名北洋大学堂，尊西学为上，辟工程、矿务、机器、律例四科，后增铁路，以济当世之需，开中国近代高等教育之先河。历辛亥革命，易名国立北洋大学，后为北洋工学院，“北洋”之称遂传于世。初，赵天麟首倡校训“实事求是”。赵天麟者，时任北洋大学校长也，专精法务。既立此训，以为端正学风之策。民国廿六，天津陷于日寇铁蹄，院西迁至陕西固县七星寺，组“国立西北联合大学”。&lt;span style=&#34;text-decoration: wavy underline;&#34;&gt;当是时办学境艰乏屋舍师生乃于寺挑灯夜读&lt;/span&gt;，彻夜不息，时称“七星灯火”。抗战胜利，还迁原址，复其旧名。公元一九四九元月，天津解放，举城欢庆。同年，北洋大学划属中央教育部，增其旧制，设理、工二院，凡共十一系。适一九五一年九月廿二，始更名“天津大学”，沿用至今。至新世纪，已入“985”“211”“双一流”之列。建校百余年，谨记“兴学强国”使命，成果颇丰，培养各界人才逾卅万，享誉寰球。&lt;/p&gt;
+&lt;p&gt;——佚名《天津大学校史》&lt;/p&gt;
+&lt;p&gt;材料二：&lt;/p&gt;
+&lt;p&gt;花堤霭霭，北运滔滔，巍巍学府北洋高。悠长称历史，建设为同胞。不从纸上逞空谈，要实地把中华改造。&lt;u&gt;穷学理，振科工，重实验，薄雕虫。&lt;/u&gt;望前驱之英华卓荦，应后起之努力追踪；念过去之艰难缔造，愿一心一德共扬校誉于无穷。&lt;/p&gt;
+&lt;p&gt;——廖辅叔《天津大学校歌》&lt;/p&gt;
+&lt;p&gt;注：①杏荪：盛宣怀，字杏荪。&lt;/p&gt;
+&lt;ol start=&#34;10&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;文中画波浪线的部分有三处需要断句，请用铅笔将答题卡上相应位置的答案标号涂黑。每涂对一处给1分，涂黑超过三处不给分。（3分）&lt;br&gt;
+当是时&lt;kbd&gt;A&lt;/kbd&gt;办学&lt;kbd&gt;B&lt;/kbd&gt;境艰&lt;kbd&gt;C&lt;/kbd&gt;乏&lt;kbd&gt;D&lt;/kbd&gt;屋舍&lt;kbd&gt;E&lt;/kbd&gt;师生&lt;kbd&gt;F&lt;/kbd&gt;乃于寺&lt;kbd&gt;G&lt;/kbd&gt;挑灯&lt;kbd&gt;H&lt;/kbd&gt;夜读&lt;br&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;下列对文中材料中加点词语及相关内容的解说，不正确的一项是（3分）&lt;br&gt;
+A. “廿”，数目字，读作niàn。人们常用“廿”代表二十，“卅”代表三十。&lt;br&gt;
+B. “权”，文中指代理，与《孟子》中“权，然后知轻重”的“权”意思不同。&lt;br&gt;
+C. “以为”，文中指认为，与贾谊《过秦论》中“以为固”中的“以为”意思相同。&lt;br&gt;
+D. “双一流”，指建设世界一流大学和一流学科，意在提升中国高等教育综合实力。&lt;br&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;下列对材料有关内容的概述，不正确的一项是（3分）&lt;br&gt;
+A. 甲午中日战争战败后，为了挽救危局，盛宣怀上书提议在天津建立新式学校。&lt;br&gt;
+B. 北洋大学堂完全教授西方先进科技知识，是中国高等教育探索道路上的先驱。&lt;br&gt;
+C. 建国以来，天津大学位列“985”“211”“双一流”之列，是我国的著名学府。&lt;br&gt;
+D. 天津大学以“兴学强国”为使命，提倡“实事求是”，脚踏实地投身祖国建设。&lt;br&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;把文中画横线的句子翻译成现代汉语。（8分）&lt;br&gt;
+（1）臣观津门之地，富野千里，通衢八方，自当创办新学，以期强兵富国。&lt;br&gt;
+（2）穷学理，振科工，重实验，薄雕虫。&lt;br&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;结合材料，说明天津大学是如何实践“实事求是”校训的。（5分）&lt;br&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
         </item>
         <item>
         <title>使用Hugo搭建网站</title>
@@ -326,7 +483,7 @@
         <pubDate>Sat, 02 Aug 2025 00:00:00 +0000</pubDate>
         
         <guid>https://5882886.github.io/p/website/</guid>
-        <description>&lt;h2 id=&#34;hugo环境配置&#34;&gt;Hugo环境配置
+        <description>&lt;img src="https://5882886.github.io/p/website/Hugo.png" alt="Featured image of post 使用Hugo搭建网站" /&gt;&lt;h2 id=&#34;hugo环境配置&#34;&gt;Hugo环境配置
 &lt;/h2&gt;&lt;p&gt;点击进入&lt;a class=&#34;link&#34; href=&#34;https://github.com/gohugoio/hugo&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Hugo下载地址&lt;/a&gt;，下载最新的release文件。&lt;/p&gt;
 &lt;h2 id=&#34;创建博客网站&#34;&gt;创建博客网站
@@ -880,6 +1037,21 @@
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ssh 用户名@&amp;lt;Windows主机IP&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;VScode的SSH配置文件:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Host xxxx       #Host的名称，可自定义
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    HostName xxx.xxx.xxx.xxx    #SSH服务端的IP地址
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    User xxxxx                  #登录的用户名
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    Port xxxxx                  #SSH服务端的IP端口
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;</description>

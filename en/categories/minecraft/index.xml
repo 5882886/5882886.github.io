@@ -242,12 +242,12 @@
 &lt;/h3&gt;</description>
         </item>
         <item>
-        <title>ssh配置简介</title>
+        <title>SSH配置简介</title>
         <link>https://5882886.github.io/en/p/ssh/</link>
         <pubDate>Thu, 31 Jul 2025 00:00:00 +0000</pubDate>
         
         <guid>https://5882886.github.io/en/p/ssh/</guid>
-        <description>&lt;h2 id=&#34;选择ssh应用程序&#34;&gt;选择ssh应用程序
+        <description>&lt;h2 id=&#34;选择ssh应用程序&#34;&gt;选择SSH应用程序
 &lt;/h2&gt;&lt;h3 id=&#34;visual-studio-code&#34;&gt;Visual Studio Code
 &lt;/h3&gt;&lt;p&gt;这是目前为止最强大的ssh应用，只需下载VScode并安装Remote-ssh插件，写好配置文件后就能连接。&lt;/p&gt;
 &lt;p&gt;全程免费，而且附带端口转发、文件编辑、下载等功能，绝对好用！&lt;/p&gt;
