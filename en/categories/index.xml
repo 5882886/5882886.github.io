@@ -55,6 +55,14 @@
         <guid>https://5882886.github.io/en/categories/linux/</guid>
         <description>&lt;img src="https://5882886.github.io/categories/linux/Linux.jpg" alt="Featured image of post Linux" /&gt;</description>
         </item>
+        <item>
+        <title>Website</title>
+        <link>https://5882886.github.io/en/categories/website/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://5882886.github.io/en/categories/website/</guid>
+        <description>&lt;img src="https://5882886.github.io/categories/website/Website.jpg" alt="Featured image of post Website" /&gt;</description>
+        </item>
         
     </channel>
 </rss>

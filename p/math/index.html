@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="使用开源软件Hugo搭建自己的博客网站">
-<title>使用Hugo搭建网站</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="常用公式">
+<title>微积分</title>
 
-<link rel='canonical' href='https://5882886.github.io/p/website/'>
+<link rel='canonical' href='https://5882886.github.io/p/math/'>
 
-<link rel="stylesheet" href="/scss/style.min.946cca6c6259ef94ac55abfae7c7bf3291ea3ed5eea17ef77500b257217c6710.css"><meta property='og:title' content="使用Hugo搭建网站">
-<meta property='og:description' content="使用开源软件Hugo搭建自己的博客网站">
-<meta property='og:url' content='https://5882886.github.io/p/website/'>
+<link rel="stylesheet" href="/scss/style.min.946cca6c6259ef94ac55abfae7c7bf3291ea3ed5eea17ef77500b257217c6710.css"><meta property='og:title' content="微积分">
+<meta property='og:description' content="常用公式">
+<meta property='og:url' content='https://5882886.github.io/p/math/'>
 <meta property='og:site_name' content='RunicDolphin806的博客'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-08-02T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-08-02T00:00:00&#43;00:00'/><meta property='og:image' content='https://5882886.github.io/p/website/Hugo.png' />
-<meta name="twitter:title" content="使用Hugo搭建网站">
-<meta name="twitter:description" content="使用开源软件Hugo搭建自己的博客网站"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://5882886.github.io/p/website/Hugo.png' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-08-04T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-08-04T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="微积分">
+<meta name="twitter:description" content="常用公式">
     <link rel="shortcut icon" href="/favicon.ico" />
 
     </head>
@@ -291,15 +290,32 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#hugo环境配置">Hugo环境配置</a></li>
-    <li><a href="#创建博客网站">创建博客网站</a>
+    <li><a href="#一元函数微分学">一元函数微分学</a>
       <ol>
-        <li><a href="#准备步骤">准备步骤</a></li>
-        <li><a href="#下载hugo主题">下载Hugo主题</a></li>
-        <li><a href="#创建自定义内容">创建自定义内容</a></li>
+        <li><a href="#求导方法">求导方法</a></li>
+        <li><a href="#微分中值定理">微分中值定理</a></li>
+        <li><a href="#导数的应用">导数的应用</a>
+          <ol>
+            <li><a href="#求曲线的切线与法线方程">求曲线的切线与法线方程</a></li>
+            <li><a href="#函数的单调性与极值">函数的单调性与极值</a></li>
+            <li><a href="#曲线的凹凸性与拐点">曲线的凹凸性与拐点</a></li>
+            <li><a href="#曲线的渐近线">曲线的渐近线</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
-    <li><a href="#hugo构建命令">Hugo构建命令</a></li>
+    <li><a href="#一元函数积分学">一元函数积分学</a>
+      <ol>
+        <li><a href="#凑微分法">凑微分法</a></li>
+        <li><a href="#换元积分法">换元积分法</a>
+          <ol>
+            <li><a href="#三角代换">三角代换</a></li>
+            <li><a href="#根式代换">根式代换</a></li>
+            <li><a href="#倒代换">倒代换</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -311,27 +327,15 @@
 
 
             <main class="main full-width">
-    <article class="has-image main-article">
+    <article class="main-article">
     <header class="article-header">
-        <div class="article-image">
-            <a href="/p/website/">
-                <img src="/p/website/Hugo_hu_bad826032478639d.png"
-                        srcset="/p/website/Hugo_hu_bad826032478639d.png 800w, /p/website/Hugo_hu_be220b24a53a39f2.png 1600w"
-                        width="800" 
-                        height="263" 
-                        loading="lazy"
-                        alt="Featured image of post 使用Hugo搭建网站" />
-                
-            </a>
-        </div>
-    
 
     <div class="article-details">
     
     <header class="article-category">
         
-            <a href="/categories/website/" style="background-color: #2a9d8h; color: #fff;">
-                网站
+            <a href="/categories/interesting_things/" style="background-color: #2a9d8f; color: #fff;">
+                小乐趣
             </a>
         
     </header>
@@ -339,12 +343,12 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/website/">使用Hugo搭建网站</a>
+            <a href="/p/math/">微积分</a>
         </h2>
     
         
         <h3 class="article-subtitle">
-            使用开源软件Hugo搭建自己的博客网站
+            常用公式
         </h3>
         
     </div>
@@ -365,7 +369,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Aug 02, 2025</time>
+                <time class="article-time--published">Aug 04, 2025</time>
             </div>
         
 
@@ -380,7 +384,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 2 分钟
+                    阅读时长: 4 分钟
                 </time>
             </div>
         
@@ -395,58 +399,104 @@
     <section class="article-content">
     
     
-    <h2 id="hugo环境配置">Hugo环境配置
-</h2><p>点击进入<a class="link" href="https://github.com/gohugoio/hugo"  target="_blank" rel="noopener"
-    >Hugo下载地址</a>，下载最新的release文件。</p>
-<h2 id="创建博客网站">创建博客网站
-</h2><h3 id="准备步骤">准备步骤
-</h3><p>在hugo对应的文件夹内打开cmd，输入<code>hugo new site 你的文件夹名</code>，可以看到多出一个新的空文件夹。</p>
-<p>进入空文件夹，在cmd中输入<code>hugo service build</code>。可以看到网站在<code>localhost:1313</code>转发，在浏览器中输入该网址即可看到当前网站的内容。</p>
-<h3 id="下载hugo主题">下载Hugo主题
-</h3><p>在Hugo官网上进入Theme，下载需要的主题文件，解压后放入网站文件夹的theme子文件夹。</p>
-<p>接着在下载的主题文件夹中复制content文件夹和hugo.yaml（或hugo.toml）文件，粘贴到你的网站文件夹中。</p>
-<p>打开主题的配置文件，找到<code>theme: hugo-theme-stack</code>一行，这里标明所使用主题的名称，须保持名称与主题文件夹的名称相同，否则要修改其一。再次执行<code>hugo service build</code>，即可看到使用了主题的网站。</p>
-<h3 id="创建自定义内容">创建自定义内容
-</h3><p>Hugo网站的文章内容均在content文件夹中，每篇文章对应一个子文件夹。</p>
-<p>每篇文章均采用Markdown语法书写，通常在文章开头有类似的配置文字：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">---
-</span></span><span class="line"><span class="cl">title: xxxxx        #文章的标题
-</span></span><span class="line"><span class="cl">description: xxxxx      #文章的副标题
-</span></span><span class="line"><span class="cl">date: xxxxx         #文章的日期
-</span></span><span class="line"><span class="cl">slug: xxxxx     
-</span></span><span class="line"><span class="cl">categories:
-</span></span><span class="line"><span class="cl">    - xxxxx         #文章所属类别
-</span></span><span class="line"><span class="cl">---
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>必须包含这些内容网站才会显示对应文章。</p>
-<p>文章正文参照Markdown语法规则。</p>
-<h2 id="hugo构建命令">Hugo构建命令
-</h2><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo server -D      <span class="c1">#构建本地网页</span>
-</span></span><span class="line"><span class="cl">hugo       <span class="c1">#构建在线网页</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><blockquote>
-<p><em>注意事项</em></p>
-<p><em>使用<code>hugo server -D</code>命令构建的是本地网页，遇到超链接时会重定向到<code>localhost:1313/xxx</code>，不能直接部署到GitHub等服务器上，必须再执行一次<code>hugo</code>命令清除本地链接的内容之后，才能正确部署。</em></p></blockquote>
+    <h2 id="一元函数微分学">一元函数微分学
+</h2><h3 id="求导方法">求导方法
+</h3><p>利用导数定义: $\displaystyle f&rsquo;(x_{0}) = \lim_{x \to x_{0}} \frac{f(x)-f(x_{0})}{x-x_{0}}$.</p>
+<p>常用公式：</p>
+<ol>
+<li>
+<p>$(\mathrm{e}^x) ^ {(n)} = \mathrm{e}^x$；</p>
+</li>
+<li>
+<p>$\displaystyle (\sin x) ^ {(n)} = \sin (x+n\cdot\frac{\pi}{2})$；</p>
+</li>
+<li>
+<p>$\displaystyle (\cos x) ^ {(n)} = \cos (x+n\cdot\frac{\pi}{2})$；</p>
+</li>
+<li>
+<p>$\displaystyle [\ln (1+x) ^ {(n)}] = (-1)^{(n-1)} \frac{(n-1)!}{(1+x)^{n}}$；</p>
+</li>
+<li>
+<p>$(x^{\alpha})^{(n)} = \alpha (\alpha-1) \cdots (\alpha-n+1)x^{\alpha - n}$ ($\alpha$是任意常数)</p>
+</li>
+</ol>
+<p>莱布尼茨公式</p>
+<p>对于函数$u=u(x)$和$v=v(x)$的乘积，有：
+</p>
+$$(uv)^{(n)} = \mathrm{C}_{n}^{0}u^{(n)}v + \mathrm{C}_{n}^{1}u^{(n-1)}v'+\cdots + \mathrm{C}_{n}^{n-1}u'v^{(n-1)} + \mathrm{C}_{n}^{n}uv^{(n)}.$$<p>泰勒公式</p>
+<p>由泰勒公式可知：
+</p>
+$$f(x) = \sum_{k=0}^{n} \frac{f^{(k)}(0)}{k!} x^{k} + o(x^{n}).$$<p>
+比较同次幂系数可得$f^{(k)}(0) = k!a_{k}, k=0,1,2,\cdots,n$.</p>
+<h3 id="微分中值定理">微分中值定理
+</h3><p>费马定理：如果$f(x)$在点$x_{0}$处取极值，且$f&rsquo;(x_{0})$存在，那么$f&rsquo;(x_{0})=0$.</p>
+<p>罗尔中值定理：如果$f(x)$在$[a,b]$上连续，在$(a,b)$内可导，且$f(a)=f(b)$，那么至少存在一点$\xi \in(a,b)$，使得$f&rsquo;(\xi) = 0$.</p>
+<p>拉格朗日中值定理：如果$f(x)$在$[a,b]$上连续，在$(a,b)$内可导，那么至少存在一点$\xi \in(a,b)$，使得$f(b)-f(a)=f&rsquo;(\xi)(b-a)$.</p>
+<p>柯西中值定理：如果$f(x)$和$g(x)$在$[a,b]$上连续，在$(a,b)$内可导，且$g(x)\ne 0$，那么至少存在一点$\xi \in(a,b)$，使得$\displaystyle \frac{f(b)-f(a)}{g(b)-g(a)} = \frac{f&rsquo;(\xi)}{g&rsquo;(\xi)}$.</p>
+<h3 id="导数的应用">导数的应用
+</h3><h4 id="求曲线的切线与法线方程">求曲线的切线与法线方程
+</h4><p>（在$x_{0}$处）</p>
+<p>切线方程：$y-f(x_{0}) = f&rsquo;(x_{0})(x-x_{0})$；</p>
+<p>法线方程：$\displaystyle y-f(x_{0}) = -\frac{1}{f&rsquo;(x_{0})}(x-x_{0})$.</p>
+<h4 id="函数的单调性与极值">函数的单调性与极值
+</h4><ol>
+<li>充分必要条件：</li>
+</ol>
+<p>设$f(x)$在$[a,b]$上连续，在$(a,b)$内可导，那么</p>
+<p>(1) $\forall x \in (a,b)$，$f&rsquo;(x)&gt;0$，则$y=f(x)$在$[a,b]$上单调递增.</p>
+<p>(2) $\forall x \in (a,b)$，$f&rsquo;(x)&lt;0$，则$y=f(x)$在$[a,b]$上单调递减.</p>
+<ol start="2">
+<li>判定方法：</li>
+</ol>
+<p>若$f(x)$在$x_{0}$处二阶可导，且$f&rsquo;(x)=0$，$f&rsquo;&rsquo;(x) \ne 0$.
+则当$f&rsquo;&rsquo;(x)&gt;0$时，$f(x)$在$x_{0}$处取得极小值；当$f&rsquo;&rsquo;(x)&lt;0$时，$f(x)$在$x_{0}$处取得极大值.</p>
+<h4 id="曲线的凹凸性与拐点">曲线的凹凸性与拐点
+</h4><p>设$f(x)$在$[a,b]$上连续，在$(a,b)$内二阶可导，那么</p>
+<p>(1)若在$(a,b)$内$f&rsquo;&rsquo;(x)&gt;0$，则曲线$y=f(x)$在$[a,b]$上是凹函数；</p>
+<p>(2)若在$(a,b)$内$f&rsquo;&rsquo;(x)&lt;0$，则曲线$y=f(x)$在$[a,b]$上是凸函数.</p>
+<h4 id="曲线的渐近线">曲线的渐近线
+</h4><p>(1) 若$\displaystyle \lim_{x \to x_{0}} f(x) = \infty$，则直线$x=x_{0}$是曲线的垂直渐近线；</p>
+<p>(2) 若$\displaystyle \lim_{x \to \infty} f(x) = A$，则直线$y=A$是曲线的水平渐近线；</p>
+<p>(3) 若$\displaystyle \lim_{x \to \infty} \frac{f(x)}{x} = k$，$\displaystyle \lim_{x \to \infty} [f(x)-kx] = b$，则直线$y=kx+b$是曲线的斜渐近线；</p>
+<h2 id="一元函数积分学">一元函数积分学
+</h2><h3 id="凑微分法">凑微分法
+</h3><ol>
+<li>
+<p>$\displaystyle \mathrm{e}^{x} \mathrm{d}x = \mathrm{d} (\mathrm{e}^{x})$</p>
+</li>
+<li>
+<p>$\displaystyle x^{n-1} \mathrm{d}x = \frac{1}{na} \mathrm{d} (ax^{n}+b)$</p>
+</li>
+<li>
+<p>$\displaystyle \frac{\mathrm{d}x}{x} = \mathrm{d}(\ln x)$</p>
+</li>
+<li>
+<p>$\displaystyle \frac{\mathrm{d}x}{1+x^{2}} = \mathrm{d} (\arctan x)$</p>
+</li>
+<li>
+<p>$\displaystyle \frac{\mathrm{d}x}{\cos ^{2}x} = \mathrm{d} (\tan x)$</p>
+</li>
+<li>
+<p>$\displaystyle \sin x \mathrm{d}x = - \mathrm{d}(\cos x)$</p>
+</li>
+<li>
+<p>$\displaystyle \cos x \mathrm{d}x = \mathrm{d}(\sin x)$</p>
+</li>
+<li>
+<p>$\displaystyle \frac{\mathrm{d}x}{\sqrt{1-x^{2}}} = \mathrm{d}(\arcsin x)$</p>
+</li>
+</ol>
+<h3 id="换元积分法">换元积分法
+</h3><h4 id="三角代换">三角代换
+</h4><p>若被积函数中含有$\sqrt{a^{2}-x^{2}}$时，可设$x = a\sin t$；含有$\sqrt{a^{2}+x^{2}}$时，可设$x = a\tan t$；含有$\sqrt{ax^{2}+bx+c}$时，可先配方再设.</p>
+<p>对于积分式$\displaystyle \int f(\sin x, \cos x) \mathrm{d}x$，其中$f(u,v)$是有理函数，利用代换$\displaystyle t = \tan \frac{x}{2}$可化为有理函数积分.</p>
+<h4 id="根式代换">根式代换
+</h4><p>含两个一次平方根式$\sqrt{x+\alpha}$与$\sqrt{x+\beta}$  $(\alpha &lt; \beta)$，可设</p>
+\[ \sqrt{x+\beta} = \lambda \left(t+\frac{1}{t}\right) \quad \sqrt{x+\alpha} = \lambda \left(t-\frac{1}{t}\right) \]<p>以上两式平方后相减，有$4\lambda^{2} = \beta - \alpha$.</p>
+<p>含两个一次根式$\sqrt[m]{x+a}$与$\sqrt[n]{x+a}$的积分，可设$t = \sqrt[k]{x+a}$，这里$k$是$m$，$n$的最小公倍数.</p>
+<p>对于根式$\displaystyle \sqrt[m]{\frac{x+a}{x-a}}$，直接设$\displaystyle t = \sqrt[m]{\frac{x+a}{x-a}}$</p>
+<h4 id="倒代换">倒代换
+</h4><p>令$\displaystyle t = \frac{1}{x+a}$，当被积函数为$x$的有理式或无理式时，往往可利用倒代换消去分母中所含的因子$x + a$或$x + a$的幂。</p>
 
 </section>
 
@@ -470,11 +520,59 @@
 
 
     
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+	const mainArticleElement = document.querySelector(".main-article");
+        renderMathInElement(mainArticleElement, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+
+    
 </article>
 
     
 
     
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/haha/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">有意思的玩意</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
 
      
     

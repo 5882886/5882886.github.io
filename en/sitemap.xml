@@ -309,5 +309,17 @@
                 hreflang="en"
                 href="https://5882886.github.io/en/search/"
                 />
+  </url><url>
+    <loc>https://5882886.github.io/en/categories/website/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://5882886.github.io/categories/website/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://5882886.github.io/en/categories/website/"
+                />
   </url>
 </urlset>

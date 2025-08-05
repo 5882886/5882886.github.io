@@ -57,6 +57,9 @@
                 href="https://5882886.github.io/post/"
                 />
   </url><url>
+    <loc>https://5882886.github.io/p/math/</loc>
+    <lastmod>2025-08-04T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://5882886.github.io/categories/interesting_things/</loc>
     <lastmod>2025-08-04T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -73,11 +76,21 @@
     <loc>https://5882886.github.io/p/haha/</loc>
     <lastmod>2025-08-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://5882886.github.io/categories/website/</loc>
-    <lastmod>2025-08-02T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://5882886.github.io/p/website/</loc>
     <lastmod>2025-08-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://5882886.github.io/categories/website/</loc>
+    <lastmod>2025-08-02T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://5882886.github.io/en/categories/website/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://5882886.github.io/categories/website/"
+                />
   </url><url>
     <loc>https://5882886.github.io/categories/minecraft/</loc>
     <lastmod>2025-07-31T00:00:00+00:00</lastmod>
