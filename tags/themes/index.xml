@@ -289,6 +289,12 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;h2 id=&#34;其他&#34;&gt;其他
+&lt;/h2&gt;&lt;h3 id=&#34;隐藏内容&#34;&gt;隐藏内容
+&lt;/h3&gt;&lt;details&gt;
+      &lt;summary&gt;点击展开隐藏内容&lt;/summary&gt;
+&lt;p&gt;隐藏内容&lt;/p&gt;
+&lt;/details&gt;
 &lt;h2 id=&#34;参考资料&#34;&gt;参考资料
 &lt;/h2&gt;&lt;p&gt;&lt;code&gt;[![Zhisuan_Eleven](https://github.com/5882886/My-Minecraft-Sever/blob/main/icon.jpg)](https://github.com/5882886/My-Minecraft-Sever)&lt;/code&gt; → &lt;a class=&#34;link&#34; href=&#34;https://github.com/5882886/My-Minecraft-Sever&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;&lt;img src=&#34;https://github.com/5882886/My-Minecraft-Sever/blob/main/icon.jpg&#34;

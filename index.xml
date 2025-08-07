@@ -7,7 +7,54 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>RunicDolphin806</copyright>
-        <lastBuildDate>Mon, 04 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://5882886.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 07 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://5882886.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>微积分：题目</title>
+        <link>https://5882886.github.io/p/math_quiz/</link>
+        <pubDate>Thu, 07 Aug 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://5882886.github.io/p/math_quiz/</guid>
+        <description>&lt;h2 id=&#34;极限与函数&#34;&gt;极限与函数
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;求极限：$\displaystyle \lim_{x \to 0} \left( \frac{a^{x^{2}} + b^{x^{2}}}{a^{x} + b^{x}} \right) ^ {\frac{1}{x}}$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;details&gt;
+      &lt;summary&gt;点击展开解答&lt;/summary&gt;
+&lt;p&gt;解：利用重要极限，变形得原式 $\displaystyle = \lim_{x \to 0} \left( \frac{a^{x^{2}} + b^{x^{2}}}{a^{x} + b^{x}} + 1 - 1 \right) ^ {\frac{1}{x}} = \mathrm{exp}\left(\lim_{x \to 0} \frac{a^{x^{2}} + b^{x^{2}} - a^{x} - b^{x}}{a^{x} + b^{x}} \cdot \frac{1}{x}\right) $&lt;/p&gt;
+&lt;p&gt;下面求 $\displaystyle \lim_{x \to 0} \frac{a^{x^{2}} + b^{x^{2}} - a^{x} - b^{x}}{a^{x} + b^{x}} \cdot \frac{1}{x} $，记为 $I$.&lt;/p&gt;
+&lt;p&gt;$\displaystyle I = \lim_{x \to 0} \frac{1}{a^{x}+b^{x}} \left[\frac{a^{x} \left(a^{x(x-1)} -1\right)}{x} + \frac{b^{x} \left(b^{x(x-1)}-1 \right)}{x} \right] = \lim_{x \to 0} \frac{1}{a^{x}+b^{x}} \left[a^{x} \frac{\left(a^{x(x-1)} -1\right)}{x(x-1)} \cdot (x-1) + b^{x} \frac{\left(b^{x(x-1)}-1 \right)}{x(x-1)} \cdot (x-1) \right]  = \frac{1}{2} (-\ln a - \ln b) = \ln \frac{1}{\sqrt{ab}} $&lt;/p&gt;
+&lt;p&gt;故原式 $\displaystyle = \frac{1}{\sqrt{ab}} $&lt;/p&gt;
+&lt;/details&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;求极限：$\displaystyle \lim_{x \to + \infty} \int_{0}^{\pi} \sin \frac{\pi}{x+t} \mathrm{d}t$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;details&gt;
+      &lt;summary&gt;点击展开解答&lt;/summary&gt;
+&lt;p&gt;解：由 $\sin x$ 的泰勒展开式，当 $x$ 为正且 $x$  充分小时，有&lt;/p&gt;
+$$ x - \frac{x^{3}}{6} &lt; \sin x &lt; x $$&lt;p&gt;而 $x \to + \infty $ 时，$ \displaystyle \frac{\pi}{x+t} \to 0 $，故原式可放缩为&lt;/p&gt;
+$$ \int_{0}^{x} \frac{\pi}{x+t} \mathrm{d}t - \frac{\pi^{3}}{6} \int_{0}^{x} \frac{1}{(x+t)^{3}} \mathrm{d}t &lt; \int_{0}^{\pi} \sin \frac{\pi}{x+t} \mathrm{d}t &lt; \int_{0}^{\pi} \frac{\pi}{x+t} \mathrm{d}t $$&lt;p&gt;而 $\displaystyle \int_{0}^{\pi} \frac{\pi}{x+t} \mathrm{d}t = \pi \ln 2 $，对 $\displaystyle \int_{0}^{x} \frac{1}{(x+t)^{3}} \mathrm{d}t $ 有&lt;/p&gt;
+$$ \int_{0}^{x} \frac{1}{(x+t)^{3}} \mathrm{d}t = \frac{1}{2} \left( \frac{1}{x^{2}}- \frac{1}{4x^{2}} \right) \to 0 $$&lt;p&gt;由迫敛准则知，原式 $ = \pi \ln 2 $.&lt;/p&gt;
+&lt;/details&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;求极限：$\displaystyle \lim_{x \to 0} \frac{1}{n^{4}} \prod_{i=1}^{2n} (n^{2} + i^{2}) ^{\frac{1}{n}}$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;details&gt;
+      &lt;summary&gt;点击展开解答&lt;/summary&gt;   
+&lt;p&gt;解：由题意，
+$\displaystyle \frac{1}{n^{4}} \prod_{i=1}^{2n} (n^{2} + i^{2}) ^{\frac{1}{n}} = \mathrm{exp} \left( \ln \frac{1}{n^{4}} \prod_{i=1}^{2n} (n^{2} + i^{2}) ^{\frac{1}{n}} \right) = \mathrm{exp} \left( \sum_{i=1}^{2n} \ln (n^{2} + i^{2})^{\frac{1}{n}} - \ln n^{4}  \right)$，对指数部分做变形，&lt;/p&gt;
+&lt;p&gt;$\displaystyle \sum_{i=1}^{2n} \ln (n^{2} + i^{2})^{\frac{1}{n}} - \ln n^{4} = \sum_{i=1}^{2n} \frac{\ln n^{2}}{n} + \sum_{i=1}^{2n} \frac{\ln [1+(\frac{i}{n})^{2}]}{n} - 4 \ln n = 2 \ln n^{2} + \sum_{i=1}^{2n} \frac{\ln [1+(\frac{i}{n})^{2}]}{n}- 4 \ln n = \sum_{i=1}^{2n} \frac{\ln [1+(\frac{i}{n})^{2}]}{n}$&lt;/p&gt;
+&lt;p&gt;则原式 $\displaystyle  = \lim_{x \to \infty} \mathrm{exp} \left( \sum_{i=1}^{2n} \frac{\ln [1+(\frac{i}{n})^{2}]}{n} \right) = \mathrm{exp} \left( \int_{0}^{2} \ln (1+x^{2}) \mathrm{d}x \right) = 25\mathrm{e}^{2\arctan 2 - 4}$&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本题核心在于取对数，将连乘转换为连加，从而可以使用微积分的定义解决。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;/details&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;details&gt;
+      &lt;summary&gt;点击展开答案&lt;/summary&gt;
+&lt;p&gt;解：&lt;/p&gt;
+&lt;/details&gt;</description>
+        </item>
+        <item>
         <title>Linux系统小技巧</title>
         <link>https://5882886.github.io/p/linux_help/</link>
         <pubDate>Mon, 04 Aug 2025 00:00:00 +0000</pubDate>
@@ -792,20 +839,6 @@ $$f(x) = \sum_{k=0}^{n} \frac{f^{(k)}(0)}{k!} x^{k} + o(x^{n}).$$&lt;p&gt;
 &lt;h4 id=&#34;倒代换&#34;&gt;倒代换
 &lt;/h4&gt;&lt;p&gt;令$\displaystyle t = \frac{1}{x+a}$，当被积函数为$x$的有理式或无理式时，往往可利用倒代换消去分母中所含的因子$x + a$或$(x + a)^{n}$。&lt;/p&gt;
 </description>
-        </item>
-        <item>
-        <title>微积分：题目</title>
-        <link>https://5882886.github.io/p/math_quiz/</link>
-        <pubDate>Mon, 04 Aug 2025 00:00:00 +0000</pubDate>
-        
-        <guid>https://5882886.github.io/p/math_quiz/</guid>
-        <description>&lt;ol&gt;
-&lt;li&gt;求极限：$\displaystyle \lim_{x \to 0} \left( \frac{a^{x^{2}} + b^{x^{2}}}{a^{x} + b^{x}} \right) ^ {\frac{1}{x}}$&lt;/li&gt;
-&lt;/ol&gt;
-&lt;details&gt;
-      &lt;summary&gt;点击展开解答&lt;/summary&gt;
-&lt;p&gt;Hidden explanation&lt;/p&gt;
-&lt;/details&gt;</description>
         </item>
         <item>
         <title>有意思的玩意</title>
@@ -1890,6 +1923,12 @@ D.	全诗语言简明直白，生动地表达作者对天津的喜爱和赞美�
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;h2 id=&#34;其他&#34;&gt;其他
+&lt;/h2&gt;&lt;h3 id=&#34;隐藏内容&#34;&gt;隐藏内容
+&lt;/h3&gt;&lt;details&gt;
+      &lt;summary&gt;点击展开隐藏内容&lt;/summary&gt;
+&lt;p&gt;隐藏内容&lt;/p&gt;
+&lt;/details&gt;
 &lt;h2 id=&#34;参考资料&#34;&gt;参考资料
 &lt;/h2&gt;&lt;p&gt;&lt;code&gt;[![Zhisuan_Eleven](https://github.com/5882886/My-Minecraft-Sever/blob/main/icon.jpg)](https://github.com/5882886/My-Minecraft-Sever)&lt;/code&gt; → &lt;a class=&#34;link&#34; href=&#34;https://github.com/5882886/My-Minecraft-Sever&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;&lt;img src=&#34;https://github.com/5882886/My-Minecraft-Sever/blob/main/icon.jpg&#34;
