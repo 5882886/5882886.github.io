@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Syntax on RunicDolphin806的博客</title>
-        <link>https://5882886.github.io/categories/syntax/</link>
+        <link>https://runicdolphin806.github.io/categories/syntax/</link>
         <description>Recent content in Syntax on RunicDolphin806的博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>RunicDolphin806</copyright>
-        <lastBuildDate>Thu, 31 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://5882886.github.io/categories/syntax/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 31 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://runicdolphin806.github.io/categories/syntax/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>SSH配置简介</title>
-        <link>https://5882886.github.io/p/ssh/</link>
+        <link>https://runicdolphin806.github.io/p/ssh/</link>
         <pubDate>Thu, 31 Jul 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/ssh/</guid>
+        <guid>https://runicdolphin806.github.io/p/ssh/</guid>
         <description>&lt;h2 id=&#34;选择ssh应用程序&#34;&gt;选择SSH应用程序
 &lt;/h2&gt;&lt;h3 id=&#34;visual-studio-code&#34;&gt;Visual Studio Code
 &lt;/h3&gt;&lt;p&gt;这是目前为止最强大的SSH应用，只需下载VScode并安装Remote-ssh插件，写好配置文件后就能连接。&lt;/p&gt;
@@ -24,10 +24,10 @@
     &gt;Tabby的Github仓库&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;serverbox&#34;&gt;ServerBox
 &lt;/h3&gt;&lt;p&gt;ServerBox是一款国产的远程服务器监控和操作应用，支持Windows、Linux、Android、MacOS等操作系统。优点是可以监测服务器实时运行状态（包括CPU、内存、温度、网络、硬盘等）。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://5882886.github.io/p/ssh/serverbox.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://runicdolphin806.github.io/p/ssh/serverbox.png&#34;
 	width=&#34;643&#34;
 	height=&#34;459&#34;
-	srcset=&#34;https://5882886.github.io/p/ssh/serverbox_hu_659d8f6a579ef453.png 480w, https://5882886.github.io/p/ssh/serverbox_hu_a21fa07204a654fc.png 1024w&#34;
+	srcset=&#34;https://runicdolphin806.github.io/p/ssh/serverbox_hu_659d8f6a579ef453.png 480w, https://runicdolphin806.github.io/p/ssh/serverbox_hu_a21fa07204a654fc.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Serverbox的监测界面&#34;
@@ -265,11 +265,11 @@
         </item>
         <item>
         <title>Markdown语法指南</title>
-        <link>https://5882886.github.io/p/markdown%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/</link>
+        <link>https://runicdolphin806.github.io/p/markdown%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/</link>
         <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/markdown%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/</guid>
-        <description>&lt;img src="https://5882886.github.io/p/markdown%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/pawel-czerwinski-8uZPynIu-rQ-unsplash.jpg" alt="Featured image of post Markdown语法指南" /&gt;&lt;p&gt;本文提供了可用于 Hugo 内容文件的基本 Markdown 语法示例，还显示了 Hugo 主题中的基本 HTML 元素是否使用 CSS 进行修饰。&lt;/p&gt;
+        <guid>https://runicdolphin806.github.io/p/markdown%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/</guid>
+        <description>&lt;img src="https://runicdolphin806.github.io/p/markdown%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/pawel-czerwinski-8uZPynIu-rQ-unsplash.jpg" alt="Featured image of post Markdown语法指南" /&gt;&lt;p&gt;本文提供了可用于 Hugo 内容文件的基本 Markdown 语法示例，还显示了 Hugo 主题中的基本 HTML 元素是否使用 CSS 进行修饰。&lt;/p&gt;
 &lt;h2 id=&#34;标题&#34;&gt;标题
 &lt;/h2&gt;&lt;p&gt;如下的 &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt;—&lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt; 显示了标题的6个级别， &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt; 级别最高， &lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt; 级别最低.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;

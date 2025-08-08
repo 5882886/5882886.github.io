@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>网站 on RunicDolphin806的博客</title>
-        <link>https://5882886.github.io/categories/website/</link>
+        <link>https://runicdolphin806.github.io/categories/website/</link>
         <description>Recent content in 网站 on RunicDolphin806的博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>RunicDolphin806</copyright>
-        <lastBuildDate>Sat, 02 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://5882886.github.io/categories/website/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 02 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://runicdolphin806.github.io/categories/website/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>使用Hugo搭建网站</title>
-        <link>https://5882886.github.io/p/website/</link>
+        <link>https://runicdolphin806.github.io/p/website/</link>
         <pubDate>Sat, 02 Aug 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/website/</guid>
-        <description>&lt;img src="https://5882886.github.io/p/website/Hugo.png" alt="Featured image of post 使用Hugo搭建网站" /&gt;&lt;h2 id=&#34;hugo环境配置&#34;&gt;Hugo环境配置
+        <guid>https://runicdolphin806.github.io/p/website/</guid>
+        <description>&lt;img src="https://runicdolphin806.github.io/p/website/Hugo.png" alt="Featured image of post 使用Hugo搭建网站" /&gt;&lt;h2 id=&#34;hugo环境配置&#34;&gt;Hugo环境配置
 &lt;/h2&gt;&lt;p&gt;点击进入&lt;a class=&#34;link&#34; href=&#34;https://github.com/gohugoio/hugo&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Hugo下载地址&lt;/a&gt;，下载最新的release文件。&lt;/p&gt;
 &lt;h2 id=&#34;创建博客网站&#34;&gt;创建博客网站
