@@ -14,19 +14,18 @@
         
         <guid>https://5882886.github.io/p/math_quiz/</guid>
         <description>&lt;h2 id=&#34;极限与函数&#34;&gt;极限与函数
-&lt;/h2&gt;&lt;ol&gt;
+&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;求极限：$\displaystyle \lim_{x \to 0} \left( \frac{a^{x^{2}} + b^{x^{2}}}{a^{x} + b^{x}} \right) ^ {\frac{1}{x}}$&lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 &lt;details&gt;
       &lt;summary&gt;点击展开解答&lt;/summary&gt;
 &lt;p&gt;解：利用重要极限，变形得原式 $\displaystyle = \lim_{x \to 0} \left( \frac{a^{x^{2}} + b^{x^{2}}}{a^{x} + b^{x}} + 1 - 1 \right) ^ {\frac{1}{x}} = \mathrm{exp}\left(\lim_{x \to 0} \frac{a^{x^{2}} + b^{x^{2}} - a^{x} - b^{x}}{a^{x} + b^{x}} \cdot \frac{1}{x}\right) $&lt;/p&gt;
 &lt;p&gt;下面求 $\displaystyle \lim_{x \to 0} \frac{a^{x^{2}} + b^{x^{2}} - a^{x} - b^{x}}{a^{x} + b^{x}} \cdot \frac{1}{x} $，记为 $I$.&lt;/p&gt;
-&lt;p&gt;$\displaystyle I = \lim_{x \to 0} \frac{1}{a^{x}+b^{x}} \left[\frac{a^{x} \left(a^{x(x-1)} -1\right)}{x} + \frac{b^{x} \left(b^{x(x-1)}-1 \right)}{x} \right] = \lim_{x \to 0} \frac{1}{a^{x}+b^{x}} \left[a^{x} \frac{\left(a^{x(x-1)} -1\right)}{x(x-1)} \cdot (x-1) + b^{x} \frac{\left(b^{x(x-1)}-1 \right)}{x(x-1)} \cdot (x-1) \right]  = \frac{1}{2} (-\ln a - \ln b) = \ln \frac{1}{\sqrt{ab}} $&lt;/p&gt;
-&lt;p&gt;故原式 $\displaystyle = \frac{1}{\sqrt{ab}} $&lt;/p&gt;
+$$\displaystyle I = \lim_{x \to 0} \frac{1}{a^{x}+b^{x}} \left[\frac{a^{x} \left(a^{x(x-1)} -1\right)}{x} + \frac{b^{x} \left(b^{x(x-1)}-1 \right)}{x} \right] $$$$ = \lim_{x \to 0} \frac{1}{a^{x}+b^{x}} \left[a^{x} \frac{\left(a^{x(x-1)} -1\right)}{x(x-1)} \cdot (x-1) + b^{x} \frac{\left(b^{x(x-1)}-1 \right)}{x(x-1)} \cdot (x-1) \right] $$$$ = \frac{1}{2} (-\ln a - \ln b) = \ln \frac{1}{\sqrt{ab}} $$&lt;p&gt;故原式 $\displaystyle = \frac{1}{\sqrt{ab}} $&lt;/p&gt;
 &lt;/details&gt;
-&lt;ol start=&#34;2&#34;&gt;
+&lt;ul&gt;
 &lt;li&gt;求极限：$\displaystyle \lim_{x \to + \infty} \int_{0}^{\pi} \sin \frac{\pi}{x+t} \mathrm{d}t$&lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 &lt;details&gt;
       &lt;summary&gt;点击展开解答&lt;/summary&gt;
 &lt;p&gt;解：由 $\sin x$ 的泰勒展开式，当 $x$ 为正且 $x$  充分小时，有&lt;/p&gt;
@@ -34,9 +33,9 @@ $$ x - \frac{x^{3}}{6} &lt; \sin x &lt; x $$&lt;p&gt;而 $x \to + \infty $ 时�
 $$ \int_{0}^{x} \frac{\pi}{x+t} \mathrm{d}t - \frac{\pi^{3}}{6} \int_{0}^{x} \frac{1}{(x+t)^{3}} \mathrm{d}t &lt; \int_{0}^{\pi} \sin \frac{\pi}{x+t} \mathrm{d}t &lt; \int_{0}^{\pi} \frac{\pi}{x+t} \mathrm{d}t $$&lt;p&gt;而 $\displaystyle \int_{0}^{\pi} \frac{\pi}{x+t} \mathrm{d}t = \pi \ln 2 $，对 $\displaystyle \int_{0}^{x} \frac{1}{(x+t)^{3}} \mathrm{d}t $ 有&lt;/p&gt;
 $$ \int_{0}^{x} \frac{1}{(x+t)^{3}} \mathrm{d}t = \frac{1}{2} \left( \frac{1}{x^{2}}- \frac{1}{4x^{2}} \right) \to 0 $$&lt;p&gt;由迫敛准则知，原式 $ = \pi \ln 2 $.&lt;/p&gt;
 &lt;/details&gt;
-&lt;ol start=&#34;3&#34;&gt;
+&lt;ul&gt;
 &lt;li&gt;求极限：$\displaystyle \lim_{x \to 0} \frac{1}{n^{4}} \prod_{i=1}^{2n} (n^{2} + i^{2}) ^{\frac{1}{n}}$&lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 &lt;details&gt;
       &lt;summary&gt;点击展开解答&lt;/summary&gt;   
 &lt;p&gt;解：由题意，
@@ -46,13 +45,43 @@ $\displaystyle \frac{1}{n^{4}} \prod_{i=1}^{2n} (n^{2} + i^{2}) ^{\frac{1}{n}} =
 &lt;blockquote&gt;
 &lt;p&gt;本题核心在于取对数，将连乘转换为连加，从而可以使用微积分的定义解决。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;/details&gt;
-&lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h2 id=&#34;微分中值定理&#34;&gt;微分中值定理
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;设 $f(x)$ 在$[0,1]$上连续，在$(0,1)$内可导，$f(1) = 2f(0)$. 试证明：至少存在一点$\xi \in (0,1)$，使得$ (1+\xi)f&#39;(\xi) = f(\xi) $.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;details&gt;
       &lt;summary&gt;点击展开答案&lt;/summary&gt;
-&lt;p&gt;解：&lt;/p&gt;
-&lt;/details&gt;</description>
+&lt;p&gt;解：构造函数 $\displaystyle F(x) = \frac{f(x)}{x+1} $，可知 $ F(0) = F(1) $. 由罗尔中值定理，存在 $\xi \in (a,b)$ 使得 $\displaystyle F&#39;(\xi) = \frac{f&#39;(\xi)(1+\xi) - f(\xi)}{(1+\xi)^{2}} = 0 $，即 $ (1+\xi)f&#39;(\xi) = f(\xi)$.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本题核心在于构造辅助函数 $ \displaystyle F(x) = \frac{f(x)}{x+1} $. 由相减的形式可考虑函数相除的形式.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;/details&gt;
+&lt;ul&gt;
+&lt;li&gt;设 $f(x)$ 在 $ [0,1] $上连续，在 $(0,1)$内可导，$ f(0) = 0, f(1) = 1 $, $k_{1}, k_{2}, \cdots ,k_{n} $为 $n$ 个正数，证明：在区间 $(0,1) $内至少存在一组互不相等的数 $x_{1}, x_{2}, \cdots, x_{n}$，使得 $\displaystyle \sum_{i=1}^{n} \frac{k_{i}}{f&#39;(x_{i})} = \sum_{i=1}^{n} k_{i} $.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;details&gt;
+      &lt;summary&gt;点击展开答案&lt;/summary&gt;
+&lt;p&gt;证：记 $\displaystyle m = \sum_{i=1}^{n} k_{i} $，$\displaystyle \lambda_{i} = \frac{k_{i}}{m} $，$i = 1, 2, \cdots, n$，且 $0&amp;lt;\lambda_{i}&amp;lt;1$, $\displaystyle \sum_{i=1}^{n} \lambda_{i} = 1 $.&lt;/p&gt;
+&lt;p&gt;因为 $f(0) = 0, f(1) = 1$，$f(x)$在 $[0,1]$上连续，由界值定理，存在点 $c_{1} \in (0,1)$，使得 $f(c_{1}) = \lambda_{1} $；点 $c_{2} \in (c_{1},1)$，使得 $f(c_{2}) = \lambda_{1} + \lambda_{2} $，以此类推，找到点 $0&amp;lt;c_{1}&amp;lt;c_{2}&amp;lt;\cdots &amp;lt;c_{i} $，使得 $\displaystyle f(c_{i}) = \sum_{j=1}^{i} \lambda_{j} = \frac{1}{m} \sum_{j=1}^{i} k_{i}，(i = 1, 2, \cdots, n-1)$. 记 $c_{0} = 0$，$c_{n} = 1$，则有 $f(c_{n}) = 1$.&lt;/p&gt;
+&lt;p&gt;对$f(x)$ 在 $[c_{i-1},c_{i}]$上应用拉格朗日中值定理，存在 $x_{i} \in (c_{i-1},c_{i})$，$\displaystyle f&#39;(x_{i}) = \frac{f(c_{i}) - f(c_{i-1})}{c_{i} - c_{i-1}} = \frac{\lambda_{i}}{c_{i} - c_{i-1}}$，则 $\displaystyle \frac{\lambda_{i}}{f&#39;(x_{i})} = c_{i} - c_{i-1} $&lt;/p&gt;
+&lt;p&gt;两边同时求和，得 &lt;/p&gt;
+$$\sum_{i=1}^{n} \frac{\lambda_{i}}{f&#39;(x_{i})} = \sum_{i=1}^{n} (c_{i} - c_{i-1}) = c_{n} - c_{0} = 1 $$&lt;p&gt;代入 $\displaystyle \lambda_{i} = \frac{k_{i}}{m} $，得 $\displaystyle \sum_{i=1}^{n} \frac{k_{i}}{f&#39;(x_{i})} = m = \sum_{i=1}^{n} k_{i} $&lt;/p&gt;
+&lt;/details&gt;
+&lt;ul&gt;
+&lt;li&gt;设函数 $\varphi(x)$可导，且满足 $\varphi(x) = 0 $，又设 $\varphi&#39;(x)$单调递减.&lt;br&gt;
+(1) 证明：对 $x \in (0,1)$，有 $\varphi(1)x &amp;lt; \varphi(x) &amp;lt; \varphi&#39;(0)x$；&lt;br&gt;
+(2) 若 $ \varphi(1) \geqslant 0$，$\varphi&#39;(0) \leqslant 1$，任取 $x_{0} \in (0,1)$，令 $x_{n} = \varphi(x_{n-1}), (n=1,2,\cdots)$. 证明：$\displaystyle \lim_{n \to \infty} x_{n} $ 存在，并求出该极限值.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;details&gt;
+      &lt;summary&gt;点击展开答案&lt;/summary&gt;
+&lt;p&gt;证：&lt;/p&gt;
+&lt;/details&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;details&gt;
+      &lt;summary&gt;点击展开答案&lt;/summary&gt;
+&lt;/details&gt;
+</description>
         </item>
         <item>
         <title>Linux系统小技巧</title>
@@ -770,10 +799,51 @@ $$(uv)^{(n)} = \mathrm{C}_{n}^{0}u^{(n)}v + \mathrm{C}_{n}^{1}u^{(n-1)}v&#39;+\c
 $$f(x) = \sum_{k=0}^{n} \frac{f^{(k)}(0)}{k!} x^{k} + o(x^{n}).$$&lt;p&gt;
 比较同次幂系数可得$f^{(k)}(0) = k!a_{k}, k=0,1,2,\cdots,n$.&lt;/p&gt;
 &lt;h3 id=&#34;微分中值定理&#34;&gt;微分中值定理
-&lt;/h3&gt;&lt;p&gt;费马定理：如果$f(x)$在点$x_{0}$处取极值，且$f&#39;(x_{0})$存在，那么$f&#39;(x_{0})=0$.&lt;/p&gt;
-&lt;p&gt;罗尔中值定理：如果$f(x)$在$[a,b]$上连续，在$(a,b)$内可导，且$f(a)=f(b)$，那么至少存在一点$\xi \in(a,b)$，使得$f&#39;(\xi) = 0$.&lt;/p&gt;
-&lt;p&gt;拉格朗日中值定理：如果$f(x)$在$[a,b]$上连续，在$(a,b)$内可导，那么至少存在一点$\xi \in(a,b)$，使得$f(b)-f(a)=f&#39;(\xi)(b-a)$.&lt;/p&gt;
-&lt;p&gt;柯西中值定理：如果$f(x)$和$g(x)$在$[a,b]$上连续，在$(a,b)$内可导，且$g(x)\ne 0$，那么至少存在一点$\xi \in(a,b)$，使得$\displaystyle \frac{f(b)-f(a)}{g(b)-g(a)} = \frac{f&#39;(\xi)}{g&#39;(\xi)}$.&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;费马定理&lt;/strong&gt;：如果 $f(x)$ 在点 $x_{0}$ 处取极值，且 $f&#39;(x_{0})$ 存在，那么 $f&#39;(x_{0})=0$.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;罗尔中值定理&lt;/strong&gt;：如果 $f(x)$ 在$[a,b]$上连续，在 $(a,b)$ 内可导，且$f(a)=f(b)$，那么至少存在一点$\xi \in(a,b)$，使得$f&#39;(\xi) = 0$.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;拉格朗日中值定理&lt;/strong&gt;：如果 $f(x)$ 在$[a,b]$上连续，在$(a,b)$内可导，那么至少存在一点$\xi \in(a,b)$，使得$f(b)-f(a)=f&#39;(\xi)(b-a)$.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;柯西中值定理&lt;/strong&gt;：如果$f(x)$和$g(x)$在$[a,b]$上连续，在 $(a,b)$ 内可导，且$g(x)\ne 0$，那么至少存在一点 $\xi \in(a,b)$，使得$\displaystyle \frac{f(b)-f(a)}{g(b)-g(a)} = \frac{f&#39;(\xi)}{g&#39;(\xi)} $.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;把 $x$ 当作参数，则 &lt;/p&gt;
+$$ \left\{ \begin{array}{c} u=f(x) \\ v=g(x) \\ \end{array} \right. $$&lt;p&gt; 可以看作一个参数方程. &lt;br&gt;
+① $\displaystyle \frac{f(b)-f(a)}{g(b)-g(a)} $ 表示连接参数两端点弦的斜率. &lt;br&gt;
+② $\displaystyle \frac{f&#39;(\xi)}{g&#39;(\xi)}$ 表示曲线上某点切线的斜率.&lt;br&gt;
+柯西中值定理可理解为：用参数方程表示的曲线上至少有一点，在这一点处的切线平行于连接两个端点的弦. &lt;br&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;辅助函数构造：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;函数&lt;/th&gt;
+          &lt;th&gt;构造函数&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$ f(x) = 0 $&lt;/td&gt;
+          &lt;td&gt;$ F(x) $&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$ u&#39;(x)v(x) + u(x)v&#39;(x) = 0 $&lt;/td&gt;
+          &lt;td&gt;$F(x) = u(x)v(x) $&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$ u&#39;(x)v(x) - u(x)v&#39;(x) = 0 $&lt;/td&gt;
+          &lt;td&gt;$\displaystyle F(x) = \frac{u(x)}{v(x)}，$ $v(x) \ne 0 $&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$ ku(x) + xu&#39;(x) = 0 $&lt;/td&gt;
+          &lt;td&gt;$ F(x) = x^{k}u(x) $&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$ u&#39;(x) + \lambda u(x) = 0 $&lt;/td&gt;
+          &lt;td&gt;$ F(x) = u(x)\mathrm{e}^{\lambda x} $&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$ u&#39;(x) + u(x)v&#39;(x)  = 0 $&lt;/td&gt;
+          &lt;td&gt;$ F(x) = u(x)\mathrm{e}^{v(x)} $&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 &lt;h3 id=&#34;导数的应用&#34;&gt;导数的应用
 &lt;/h3&gt;&lt;h4 id=&#34;求曲线的切线与法线方程&#34;&gt;求曲线的切线与法线方程
 &lt;/h4&gt;&lt;p&gt;（在$x_{0}$处）&lt;/p&gt;
