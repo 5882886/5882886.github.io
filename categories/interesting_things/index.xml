@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>小乐趣 on RunicDolphin806的博客</title>
-        <link>https://runicdolphin806.github.io/categories/interesting_things/</link>
+        <link>https://5882886.github.io/categories/interesting_things/</link>
         <description>Recent content in 小乐趣 on RunicDolphin806的博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>RunicDolphin806</copyright>
-        <lastBuildDate>Thu, 07 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://runicdolphin806.github.io/categories/interesting_things/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 07 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://5882886.github.io/categories/interesting_things/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>微积分：题目</title>
-        <link>https://runicdolphin806.github.io/p/math_quiz/</link>
+        <link>https://5882886.github.io/p/math_quiz/</link>
         <pubDate>Thu, 07 Aug 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://runicdolphin806.github.io/p/math_quiz/</guid>
+        <guid>https://5882886.github.io/p/math_quiz/</guid>
         <description>&lt;h2 id=&#34;极限与函数&#34;&gt;极限与函数
 &lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;求极限：$\displaystyle \lim_{x \to 0} \left( \frac{a^{x^{2}} + b^{x^{2}}}{a^{x} + b^{x}} \right) ^ {\frac{1}{x}}$&lt;/li&gt;
@@ -85,10 +85,10 @@ $$\sum_{i=1}^{n} \frac{\lambda_{i}}{f&#39;(x_{i})} = \sum_{i=1}^{n} (c_{i} - c_{
         </item>
         <item>
         <title>微积分：常用公式</title>
-        <link>https://runicdolphin806.github.io/p/math_tips/</link>
+        <link>https://5882886.github.io/p/math_tips/</link>
         <pubDate>Mon, 04 Aug 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://runicdolphin806.github.io/p/math_tips/</guid>
+        <guid>https://5882886.github.io/p/math_tips/</guid>
         <description>&lt;h2 id=&#34;一元函数微分学&#34;&gt;一元函数微分学
 &lt;/h2&gt;&lt;h3 id=&#34;求导方法&#34;&gt;求导方法
 &lt;/h3&gt;&lt;p&gt;利用导数定义: $\displaystyle f&#39;(x_{0}) = \lim_{x \to x_{0}} \frac{f(x)-f(x_{0})}{x-x_{0}}$.&lt;/p&gt;
@@ -232,10 +232,10 @@ $$ \left\{ \begin{array}{c} u=f(x) \\ v=g(x) \\ \end{array} \right. $$&lt;p&gt; 
         </item>
         <item>
         <title>有意思的玩意</title>
-        <link>https://runicdolphin806.github.io/p/haha/</link>
+        <link>https://5882886.github.io/p/haha/</link>
         <pubDate>Mon, 04 Aug 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://runicdolphin806.github.io/p/haha/</guid>
+        <guid>https://5882886.github.io/p/haha/</guid>
         <description>&lt;h2 id=&#34;阅读&#34;&gt;阅读
 &lt;/h2&gt;&lt;h3 id=&#34;阅读-1&#34;&gt;阅读Ⅰ
 &lt;/h3&gt;&lt;p&gt;阅读下面的文字，完成1~5题。（本题共5小题，19分）&lt;/p&gt;
