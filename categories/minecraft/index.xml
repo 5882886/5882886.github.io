@@ -264,9 +264,10 @@
 &lt;/div&gt;&lt;h4 id=&#34;bukkityml&#34;&gt;&lt;code&gt;bukkit.yml&lt;/code&gt;
 &lt;/h4&gt;&lt;h4 id=&#34;spiogtyml&#34;&gt;&lt;code&gt;spiogt.yml&lt;/code&gt;
 &lt;/h4&gt;&lt;h3 id=&#34;安装插件和模组&#34;&gt;安装插件和模组
-&lt;/h3&gt;&lt;h3 id=&#34;使用ssh远程连接服务器主机&#34;&gt;使用ssh远程连接服务器主机
-&lt;/h3&gt;&lt;p&gt;参见：ssh配置简介&lt;/p&gt;
-&lt;h2 id=&#34;开发者选项&#34;&gt;开发者选项
+&lt;/h3&gt;&lt;h3 id=&#34;使用ssh远程连接服务器主机&#34;&gt;使用SSH远程连接服务器主机
+&lt;/h3&gt;&lt;p&gt;参见：&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/ssh/&#34; &gt;SSH配置简介&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;使用mysql管理玩家数据&#34;&gt;使用MySQL管理玩家数据
+&lt;/h3&gt;&lt;h2 id=&#34;开发者选项&#34;&gt;开发者选项
 &lt;/h2&gt;&lt;h3 id=&#34;制作自己的服务端插件&#34;&gt;制作自己的服务端插件
 &lt;/h3&gt;</description>
         </item>
