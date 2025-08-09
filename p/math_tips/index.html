@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="一元函数微分学 求导方法 利用导数定义: $\\displaystyle f'(x_{0}) = \\lim_{x \\to x_{0}} \\frac{f(x)-f(x_{0})}{x-x_{0}}$.\n常用公式：\n$(\\mathrm{e}^x) ^ {(n)} = \\mathrm{e}^x$；\n$\\displaystyle (\\sin x) ^ {(n)} = \\sin (x+n\\cdot\\frac{\\pi}{2})$；\n$\\displaystyle (\\cos x) ^ {(n)} = \\cos (x+n\\cdot\\frac{\\pi}{2})$；\n$\\displaystyle [\\ln (1+x) ^ {(n)}] = (-1)^{(n-1)} \\frac{(n-1)!}{(1+x)^{n}}$；\n$(x^{\\alpha})^{(n)} = \\alpha (\\alpha-1) \\cdots (\\alpha-n+1)x^{\\alpha - n}$ ($\\alpha$是任意常数)\n">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="极限与函数 泰勒公式 皮亚诺余项 $$ f(x) = \\sum_{k=0}^{n} \\frac{f^{(k)}(x_0)}{k!}(x - x_0)^k + o\\left((x - x_0)^n\\right), \\quad x \\to x_0 $$拉格朗日余项 $$ f(x) = \\sum_{k=0}^{n} \\frac{f^{(k)}(x_0)}{k!}(x - x_0)^k + \\frac{f^{(n+1)}(\\xi)}{(n+1)!}(x - x_0)^{n+1}, \\quad \\xi \\in (x, x_0) $$麦克劳林公式 $\\displaystyle \\mathrm{e}^x = \\sum_{n=0}^{\\infty} \\frac{x^{n}}{n!} = 1 + x + \\frac{x^{2}}{2!} + \\frac{x^{3}}{3!} + \\cdots + o(x^{n})$\n$\\displaystyle \\sin x = \\sum_{n=0}^{\\infty} (-1)^{n}\\frac{x^{2n+1}}{(2n+1)!} = x - \\frac{x^{3}}{3!} + \\frac{x^{5}}{5!} - \\cdots + o(x^{2n})$\n">
 <title>微积分：常用公式</title>
 
 <link rel='canonical' href='https://5882886.github.io/p/math_tips/'>
 
 <link rel="stylesheet" href="/scss/style.min.946cca6c6259ef94ac55abfae7c7bf3291ea3ed5eea17ef77500b257217c6710.css"><meta property='og:title' content="微积分：常用公式">
-<meta property='og:description' content="一元函数微分学 求导方法 利用导数定义: $\\displaystyle f'(x_{0}) = \\lim_{x \\to x_{0}} \\frac{f(x)-f(x_{0})}{x-x_{0}}$.\n常用公式：\n$(\\mathrm{e}^x) ^ {(n)} = \\mathrm{e}^x$；\n$\\displaystyle (\\sin x) ^ {(n)} = \\sin (x+n\\cdot\\frac{\\pi}{2})$；\n$\\displaystyle (\\cos x) ^ {(n)} = \\cos (x+n\\cdot\\frac{\\pi}{2})$；\n$\\displaystyle [\\ln (1+x) ^ {(n)}] = (-1)^{(n-1)} \\frac{(n-1)!}{(1+x)^{n}}$；\n$(x^{\\alpha})^{(n)} = \\alpha (\\alpha-1) \\cdots (\\alpha-n+1)x^{\\alpha - n}$ ($\\alpha$是任意常数)\n">
+<meta property='og:description' content="极限与函数 泰勒公式 皮亚诺余项 $$ f(x) = \\sum_{k=0}^{n} \\frac{f^{(k)}(x_0)}{k!}(x - x_0)^k + o\\left((x - x_0)^n\\right), \\quad x \\to x_0 $$拉格朗日余项 $$ f(x) = \\sum_{k=0}^{n} \\frac{f^{(k)}(x_0)}{k!}(x - x_0)^k + \\frac{f^{(n+1)}(\\xi)}{(n+1)!}(x - x_0)^{n+1}, \\quad \\xi \\in (x, x_0) $$麦克劳林公式 $\\displaystyle \\mathrm{e}^x = \\sum_{n=0}^{\\infty} \\frac{x^{n}}{n!} = 1 + x + \\frac{x^{2}}{2!} + \\frac{x^{3}}{3!} + \\cdots + o(x^{n})$\n$\\displaystyle \\sin x = \\sum_{n=0}^{\\infty} (-1)^{n}\\frac{x^{2n+1}}{(2n+1)!} = x - \\frac{x^{3}}{3!} + \\frac{x^{5}}{5!} - \\cdots + o(x^{2n})$\n">
 <meta property='og:url' content='https://5882886.github.io/p/math_tips/'>
 <meta property='og:site_name' content='RunicDolphin806的博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-08-04T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-08-04T00:00:00&#43;00:00'/>
 <meta name="twitter:title" content="微积分：常用公式">
-<meta name="twitter:description" content="一元函数微分学 求导方法 利用导数定义: $\\displaystyle f'(x_{0}) = \\lim_{x \\to x_{0}} \\frac{f(x)-f(x_{0})}{x-x_{0}}$.\n常用公式：\n$(\\mathrm{e}^x) ^ {(n)} = \\mathrm{e}^x$；\n$\\displaystyle (\\sin x) ^ {(n)} = \\sin (x+n\\cdot\\frac{\\pi}{2})$；\n$\\displaystyle (\\cos x) ^ {(n)} = \\cos (x+n\\cdot\\frac{\\pi}{2})$；\n$\\displaystyle [\\ln (1+x) ^ {(n)}] = (-1)^{(n-1)} \\frac{(n-1)!}{(1+x)^{n}}$；\n$(x^{\\alpha})^{(n)} = \\alpha (\\alpha-1) \\cdots (\\alpha-n+1)x^{\\alpha - n}$ ($\\alpha$是任意常数)\n">
+<meta name="twitter:description" content="极限与函数 泰勒公式 皮亚诺余项 $$ f(x) = \\sum_{k=0}^{n} \\frac{f^{(k)}(x_0)}{k!}(x - x_0)^k + o\\left((x - x_0)^n\\right), \\quad x \\to x_0 $$拉格朗日余项 $$ f(x) = \\sum_{k=0}^{n} \\frac{f^{(k)}(x_0)}{k!}(x - x_0)^k + \\frac{f^{(n+1)}(\\xi)}{(n+1)!}(x - x_0)^{n+1}, \\quad \\xi \\in (x, x_0) $$麦克劳林公式 $\\displaystyle \\mathrm{e}^x = \\sum_{n=0}^{\\infty} \\frac{x^{n}}{n!} = 1 + x + \\frac{x^{2}}{2!} + \\frac{x^{3}}{3!} + \\cdots + o(x^{n})$\n$\\displaystyle \\sin x = \\sum_{n=0}^{\\infty} (-1)^{n}\\frac{x^{2n+1}}{(2n+1)!} = x - \\frac{x^{3}}{3!} + \\frac{x^{5}}{5!} - \\cdots + o(x^{2n})$\n">
     <link rel="shortcut icon" href="/favicon.ico" />
 
     </head>
@@ -290,6 +290,17 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
+    <li><a href="#极限与函数">极限与函数</a>
+      <ol>
+        <li><a href="#泰勒公式">泰勒公式</a>
+          <ol>
+            <li><a href="#皮亚诺余项">皮亚诺余项</a></li>
+            <li><a href="#拉格朗日余项">拉格朗日余项</a></li>
+          </ol>
+        </li>
+        <li><a href="#麦克劳林公式">麦克劳林公式</a></li>
+      </ol>
+    </li>
     <li><a href="#一元函数微分学">一元函数微分学</a>
       <ol>
         <li><a href="#求导方法">求导方法</a></li>
@@ -314,6 +325,11 @@
             <li><a href="#倒代换">倒代换</a></li>
           </ol>
         </li>
+      </ol>
+    </li>
+    <li><a href="#小知识">小知识</a>
+      <ol>
+        <li><a href="#斐波那契数列">斐波那契数列</a></li>
       </ol>
     </li>
   </ol>
@@ -380,7 +396,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 5 分钟
+                    阅读时长: 6 分钟
                 </time>
             </div>
         
@@ -395,7 +411,29 @@
     <section class="article-content">
     
     
-    <h2 id="一元函数微分学">一元函数微分学
+    <h2 id="极限与函数">极限与函数
+</h2><h3 id="泰勒公式">泰勒公式
+</h3><h4 id="皮亚诺余项">皮亚诺余项
+</h4>$$ f(x) = \sum_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!}(x - x_0)^k + o\left((x - x_0)^n\right), \quad x \to x_0 $$<h4 id="拉格朗日余项">拉格朗日余项
+</h4>$$ f(x) = \sum_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!}(x - x_0)^k + \frac{f^{(n+1)}(\xi)}{(n+1)!}(x - x_0)^{n+1}, \quad \xi \in (x, x_0) $$<h3 id="麦克劳林公式">麦克劳林公式
+</h3><ol>
+<li>
+<p>$\displaystyle \mathrm{e}^x = \sum_{n=0}^{\infty} \frac{x^{n}}{n!} = 1 + x + \frac{x^{2}}{2!} + \frac{x^{3}}{3!} + \cdots + o(x^{n})$</p>
+</li>
+<li>
+<p>$\displaystyle \sin x = \sum_{n=0}^{\infty} (-1)^{n}\frac{x^{2n+1}}{(2n+1)!} = x - \frac{x^{3}}{3!} + \frac{x^{5}}{5!} - \cdots + o(x^{2n})$</p>
+</li>
+<li>
+<p>$\displaystyle \cos x = \sum_{n=0}^{\infty} (-1)^{n}\frac{x^{2n}}{(2n)!} = 1 - \frac{x^{2}}{2!} + \frac{x^{4}}{4!} - \cdots +  o(x^{2n})$</p>
+</li>
+<li>
+<p>$\displaystyle \ln(1+x) = \sum_{n=1}^{\infty} (-1)^{n-1}\frac{x^{n}}{n} = x - \frac{x^{2}}{2} + \frac{x^{3}}{3} - \cdots + o(x^{n}), (-1&lt;x\le 1)$</p>
+</li>
+<li>
+<p>$\displaystyle (1+x)^{\alpha} = \sum_{n=0}^{\infty} \mathrm{C}_{\alpha}^{n}x^{n} = 1 + \alpha x + \frac{\alpha(\alpha-1)}{2!}x^{2} + \cdots + o(x^{n}), (|x|&lt;1) $</p>
+</li>
+</ol>
+<h2 id="一元函数微分学">一元函数微分学
 </h2><h3 id="求导方法">求导方法
 </h3><p>利用导数定义: $\displaystyle f'(x_{0}) = \lim_{x \to x_{0}} \frac{f(x)-f(x_{0})}{x-x_{0}}$.</p>
 <p>常用公式：</p>
@@ -528,13 +566,44 @@ $$ \left\{ \begin{array}{c} u=f(x) \\ v=g(x) \\ \end{array} \right. $$<p> 可以
 </h4><p>若被积函数中含有$\sqrt{a^{2}-x^{2}}$时，可设$x = a\sin t$；含有$\sqrt{a^{2}+x^{2}}$时，可设$x = a\tan t$；含有$\sqrt{ax^{2}+bx+c}$时，可先配方再设.</p>
 <p>对于积分式$\displaystyle \int f(\sin x, \cos x) \mathrm{d}x$，其中$f(u,v)$是有理函数，利用代换$\displaystyle t = \tan \frac{x}{2}$可化为有理函数积分.</p>
 <h4 id="根式代换">根式代换
-</h4><p>含两个一次平方根式$\sqrt{x+\alpha}$与$\sqrt{x+\beta}$  $(\alpha &lt; \beta)$，可设</p>
-\[ \sqrt{x+\beta} = \lambda \left(t+\frac{1}{t}\right) \quad \sqrt{x+\alpha} = \lambda \left(t-\frac{1}{t}\right) \]<p>以上两式平方后相减，有$4\lambda^{2} = \beta - \alpha$.</p>
-<p>含两个一次根式$\sqrt[m]{x+a}$与$\sqrt[n]{x+a}$的积分，可设$t = \sqrt[k]{x+a}$，这里$k$是$m$，$n$的最小公倍数.</p>
-<p>对于根式$\displaystyle \sqrt[m]{\frac{x+a}{x-a}}$，直接设$\displaystyle t = \sqrt[m]{\frac{x+a}{x-a}}$</p>
+</h4><p>含两个一次平方根式 $\sqrt{x+\alpha}$与$\sqrt{x+\beta}$  $(\alpha &lt; \beta)$，可设</p>
+\[ \sqrt{x+\beta} = \lambda \left(t+\frac{1}{t}\right)， \sqrt{x+\alpha} = \lambda \left(t-\frac{1}{t}\right) \]<p>以上两式平方后相减，有$4\lambda^{2} = \beta - \alpha$.</p>
+<p>含两个一次根式 $\sqrt[m]{x+a}$与$\sqrt[n]{x+a}$的积分，可设 $t = \sqrt[k]{x+a}$，这里$k$是$m$，$n$的最小公倍数.</p>
+<p>对于根式 $\displaystyle \sqrt[m]{\frac{x+a}{x-a}}$，直接设 $\displaystyle t = \sqrt[m]{\frac{x+a}{x-a}}$</p>
 <h4 id="倒代换">倒代换
-</h4><p>令$\displaystyle t = \frac{1}{x+a}$，当被积函数为$x$的有理式或无理式时，往往可利用倒代换消去分母中所含的因子$x + a$或$(x + a)^{n}$。</p>
-
+</h4><p>令 $\displaystyle t = \frac{1}{x+a}$</p>
+<p>当被积函数为$x$的有理式或无理式时，往往可利用倒代换消去分母中所含的因子 $x + a$ 或 $(x + a)^{n}$。</p>
+<h2 id="小知识">小知识
+</h2><h3 id="斐波那契数列">斐波那契数列
+</h3><p>递推公式：$F_{n} = F_{n-1} + F_{n-2}$，用矩阵表示为 </p>
+$$\left[\begin{array}{c}  F_{n+1}  \\ F_{n} \\  \end{array} \right] = \left[\begin{matrix}  1& 1 \\  1& 0 \\  \end{matrix}\right] \left[\begin{array}{c}  F_{n} \\  F_{n-1} \\ \end{array} \right] $$<p>记 </p>
+$$\bm{A} = \left[\begin{matrix}  1& 1 \\  1& 0 \\\end{matrix} \right] ， \bm{D}_{n} = \left[\begin{array}{c}  F_{n+1} \\  F_{n} \\ \end{array}\right] $$<p>则 </p>
+$$\bm{D}_{n} = \bm{A} \bm{D}_{n-1}$$<p>递推得 </p>
+$$\bm{D}_{n} = \bm{A}^{n} \bm{D}_{0} $$<p>下面计算 $\bm{A}^{n}$.</p>
+<p>易知$\bm{A}$的特征多项式为$f(\lambda) = \lambda ^ {2} - \lambda - 1$，特征值为 $\displaystyle \lambda_{1} = \frac{1-\sqrt{5}}{2}$，$\displaystyle\lambda_{2} = \frac{1+\sqrt{5}}{2}$，相应的特征向量分别为 </p>
+$$\bm{\xi}_{1} = \left[\begin{array}{c}  1 \\    -\lambda_{2} \end{array}\right]，  \bm{\xi}_{2} = \left[\begin{array}{c}  1 \\    -\lambda_{1} \\  \end{array}\right]$$<p>令 </p>
+$$\bm{T} = \left[\bm{\xi}_{1}, \bm{\xi}_{2}\right]$$<p>则 </p>
+$$\bm{A} = \bm{T} \left[\begin{matrix}  \lambda_{1}& \\ & \lambda_2 \\  \end{matrix}\right] \bm{T}^{-1} $$<p>于是
+</p>
+$$ \bm{A}^{n} = \bm{T} \left[\begin{matrix} \lambda_{1}^{n}& \\
+& \lambda_{2}^{n} \\
+\end{matrix}\right] \bm{T}^{-1} = \left[\begin{matrix}
+1& 1 \\
+-\lambda_{2}& -\lambda_{1} \\
+\end{matrix}\right] \left[\begin{matrix}
+\lambda_{1}^{n}& \\
+& \lambda_{2}^{n} \\
+\end{matrix}\right]  \left[\begin{matrix}
+1& 1 \\
+-\lambda_{2}& -\lambda_{1} \\
+\end{matrix}\right]^{-1} = \frac{1}{\sqrt{5}} \left[\begin{matrix}
+\lambda_{2}^{n+1} - \lambda_{1}^{n+1}& \lambda_{2}^{n}-  \lambda_{1}^{n} \\
+\lambda_{2}^{n}-  \lambda_{1}^{n}& \lambda_{2}^{n-1} - \lambda_{1}^{n-1} \\
+\end{matrix}\right] $$<p>最后将 $ \bm{A}^{n} $代入 </p>
+$$\bm{D}_{n} = \bm{A}^{n} \bm{D}_{0} $$<p>
+并注意到 </p>
+$$\bm{D}_{0} = [1,1]^{\mathrm{T}}$$<p> 且 $\lambda_{1}$与 $\lambda_{2}$是$\lambda^{2} = \lambda + 1$ 的根，即得</p>
+$$ F_{n} = \frac{1}{\sqrt{5}} \left[\left(\frac{1+\sqrt{5}}{2}\right)^{n+1} - \left(\frac{1-\sqrt{5}}{2}\right)^{n+1} \right] $$
 </section>
 
 
