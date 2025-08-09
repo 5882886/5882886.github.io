@@ -290,9 +290,13 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li>
+    <li><a href="#在markdown中使用tex">在Markdown中使用Tex</a></li>
+    <li><a href="#tex语法简介">Tex语法简介</a>
       <ol>
-        <li><a href="#examples">Examples</a></li>
+        <li><a href="#常用公式">常用公式</a></li>
+        <li><a href="#导数与微分">导数与微分</a></li>
+        <li><a href="#求和与积分">求和与积分</a></li>
+        <li><a href="#行列式与矩阵">行列式与矩阵</a></li>
       </ol>
     </li>
   </ol>
@@ -411,19 +415,115 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
-<li>To enable KaTeX globally set the parameter <code>math</code> to <code>true</code> in a project&rsquo;s configuration</li>
-<li>To enable KaTeX on a per page basis include the parameter <code>math: true</code> in content files</li>
+<li>若要在全局文件中使用KaTex，请在配置文件中将 <code>math</code> 设为 <code>true</code> .</li>
+<li>若只在单个文件中使用KaTex，请在文件开头设置 <code>math: true</code> .</li>
 </ul>
-<p><strong>Note:</strong> Use the online reference of <a class="link" href="https://katex.org/docs/supported.html"  target="_blank" rel="noopener"
+<p><strong>Note:</strong> 查询在线帮助： <a class="link" href="https://katex.org/docs/supported.html"  target="_blank" rel="noopener"
     >Supported TeX Functions</a></p>
 
-<h3 id="examples">Examples
-</h3><p>Inline math: $\varphi = \dfrac{1+\sqrt5}{2}= 1.6180339887…$</p>
-<p>Block math:
-</p>
-$$
- \varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } } 
-$$
+<h2 id="在markdown中使用tex">在Markdown中使用Tex
+</h2><p>在Markdown文件中，Tex文本须使用<code>$…$</code>（行内文本）或<code>$$…$$</code>（行间文本）包裹.</p>
+<blockquote>
+<p>注意：若要在行内文本中显示行间文本的样式，须加上<code>\displaystyle</code>.</p></blockquote>
+<h2 id="tex语法简介">Tex语法简介
+</h2><h3 id="常用公式">常用公式
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>公式</th>
+          <th>语法</th>
+          <th>示例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>分式</td>
+          <td><code>\frac{a}{b}</code></td>
+          <td>$\displaystyle \frac{a}{b}$</td>
+      </tr>
+      <tr>
+          <td>幂</td>
+          <td><code>a^{m}</code></td>
+          <td>$ a^{m} $</td>
+      </tr>
+      <tr>
+          <td>根式</td>
+          <td><code>\sqrt{2}</code></td>
+          <td>$\sqrt{2}$</td>
+      </tr>
+      <tr>
+          <td>高次根式</td>
+          <td><code>\sqrt[n]{m}</code></td>
+          <td>$\sqrt[n]{m}$</td>
+      </tr>
+      <tr>
+          <td>下标</td>
+          <td><code>a_{n}</code></td>
+          <td>$ a_{n} $</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="导数与微分">导数与微分
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>公式</th>
+          <th>语法</th>
+          <th>示例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>极限</td>
+          <td><code>\lim_{x \to 0}</code></td>
+          <td>$\displaystyle \lim_{x \to 0}$</td>
+      </tr>
+      <tr>
+          <td>导数</td>
+          <td><code>f \'(x)</code></td>
+          <td>$ f'(x) $</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td><code>\frac{\mathrm{d}y}{\mathrm{d}x}</code></td>
+          <td>$\displaystyle \frac{\mathrm{d}y}{\mathrm{d}x} $</td>
+      </tr>
+      <tr>
+          <td>高阶导数</td>
+          <td><code>f^{(n)}(x)</code></td>
+          <td>$f^{(n)}(x)$</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="求和与积分">求和与积分
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>公式</th>
+          <th>语法</th>
+          <th>示例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>求和</td>
+          <td><code>\sum_{i=0}^{n} a_{i}</code></td>
+          <td>$\displaystyle \sum_{i=0}^{n} a_{i}$</td>
+      </tr>
+      <tr>
+          <td>求积</td>
+          <td><code>\prod_{i=0}^{n} a^{i}</code></td>
+          <td>$\displaystyle \prod_{i=0}^{n} a^{i} $</td>
+      </tr>
+      <tr>
+          <td>积分</td>
+          <td><code>\int_{a}^{b} f(x) \mathrm{d}x</code></td>
+          <td>$\displaystyle \int_{a}^{b} f(x) \mathrm{d}x$</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="行列式与矩阵">行列式与矩阵
+</h3>
 </section>
 
 

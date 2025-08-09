@@ -769,7 +769,29 @@ $$\sum_{i=1}^{n} \frac{\lambda_{i}}{f&#39;(x_{i})} = \sum_{i=1}^{n} (c_{i} - c_{
         <pubDate>Mon, 04 Aug 2025 00:00:00 +0000</pubDate>
         
         <guid>https://5882886.github.io/p/math_tips/</guid>
-        <description>&lt;h2 id=&#34;一元函数微分学&#34;&gt;一元函数微分学
+        <description>&lt;h2 id=&#34;极限与函数&#34;&gt;极限与函数
+&lt;/h2&gt;&lt;h3 id=&#34;泰勒公式&#34;&gt;泰勒公式
+&lt;/h3&gt;&lt;h4 id=&#34;皮亚诺余项&#34;&gt;皮亚诺余项
+&lt;/h4&gt;$$ f(x) = \sum_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!}(x - x_0)^k + o\left((x - x_0)^n\right), \quad x \to x_0 $$&lt;h4 id=&#34;拉格朗日余项&#34;&gt;拉格朗日余项
+&lt;/h4&gt;$$ f(x) = \sum_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!}(x - x_0)^k + \frac{f^{(n+1)}(\xi)}{(n+1)!}(x - x_0)^{n+1}, \quad \xi \in (x, x_0) $$&lt;h3 id=&#34;麦克劳林公式&#34;&gt;麦克劳林公式
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;$\displaystyle \mathrm{e}^x = \sum_{n=0}^{\infty} \frac{x^{n}}{n!} = 1 + x + \frac{x^{2}}{2!} + \frac{x^{3}}{3!} + \cdots + o(x^{n})$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$\displaystyle \sin x = \sum_{n=0}^{\infty} (-1)^{n}\frac{x^{2n+1}}{(2n+1)!} = x - \frac{x^{3}}{3!} + \frac{x^{5}}{5!} - \cdots + o(x^{2n})$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$\displaystyle \cos x = \sum_{n=0}^{\infty} (-1)^{n}\frac{x^{2n}}{(2n)!} = 1 - \frac{x^{2}}{2!} + \frac{x^{4}}{4!} - \cdots +  o(x^{2n})$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$\displaystyle \ln(1+x) = \sum_{n=1}^{\infty} (-1)^{n-1}\frac{x^{n}}{n} = x - \frac{x^{2}}{2} + \frac{x^{3}}{3} - \cdots + o(x^{n}), (-1&amp;lt;x\le 1)$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$\displaystyle (1+x)^{\alpha} = \sum_{n=0}^{\infty} \mathrm{C}_{\alpha}^{n}x^{n} = 1 + \alpha x + \frac{\alpha(\alpha-1)}{2!}x^{2} + \cdots + o(x^{n}), (|x|&amp;lt;1) $&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;一元函数微分学&#34;&gt;一元函数微分学
 &lt;/h2&gt;&lt;h3 id=&#34;求导方法&#34;&gt;求导方法
 &lt;/h3&gt;&lt;p&gt;利用导数定义: $\displaystyle f&#39;(x_{0}) = \lim_{x \to x_{0}} \frac{f(x)-f(x_{0})}{x-x_{0}}$.&lt;/p&gt;
 &lt;p&gt;常用公式：&lt;/p&gt;
@@ -902,13 +924,44 @@ $$ \left\{ \begin{array}{c} u=f(x) \\ v=g(x) \\ \end{array} \right. $$&lt;p&gt; 
 &lt;/h4&gt;&lt;p&gt;若被积函数中含有$\sqrt{a^{2}-x^{2}}$时，可设$x = a\sin t$；含有$\sqrt{a^{2}+x^{2}}$时，可设$x = a\tan t$；含有$\sqrt{ax^{2}+bx+c}$时，可先配方再设.&lt;/p&gt;
 &lt;p&gt;对于积分式$\displaystyle \int f(\sin x, \cos x) \mathrm{d}x$，其中$f(u,v)$是有理函数，利用代换$\displaystyle t = \tan \frac{x}{2}$可化为有理函数积分.&lt;/p&gt;
 &lt;h4 id=&#34;根式代换&#34;&gt;根式代换
-&lt;/h4&gt;&lt;p&gt;含两个一次平方根式$\sqrt{x+\alpha}$与$\sqrt{x+\beta}$  $(\alpha &amp;lt; \beta)$，可设&lt;/p&gt;
-\[ \sqrt{x+\beta} = \lambda \left(t+\frac{1}{t}\right) \quad \sqrt{x+\alpha} = \lambda \left(t-\frac{1}{t}\right) \]&lt;p&gt;以上两式平方后相减，有$4\lambda^{2} = \beta - \alpha$.&lt;/p&gt;
-&lt;p&gt;含两个一次根式$\sqrt[m]{x+a}$与$\sqrt[n]{x+a}$的积分，可设$t = \sqrt[k]{x+a}$，这里$k$是$m$，$n$的最小公倍数.&lt;/p&gt;
-&lt;p&gt;对于根式$\displaystyle \sqrt[m]{\frac{x+a}{x-a}}$，直接设$\displaystyle t = \sqrt[m]{\frac{x+a}{x-a}}$&lt;/p&gt;
+&lt;/h4&gt;&lt;p&gt;含两个一次平方根式 $\sqrt{x+\alpha}$与$\sqrt{x+\beta}$  $(\alpha &amp;lt; \beta)$，可设&lt;/p&gt;
+\[ \sqrt{x+\beta} = \lambda \left(t+\frac{1}{t}\right)， \sqrt{x+\alpha} = \lambda \left(t-\frac{1}{t}\right) \]&lt;p&gt;以上两式平方后相减，有$4\lambda^{2} = \beta - \alpha$.&lt;/p&gt;
+&lt;p&gt;含两个一次根式 $\sqrt[m]{x+a}$与$\sqrt[n]{x+a}$的积分，可设 $t = \sqrt[k]{x+a}$，这里$k$是$m$，$n$的最小公倍数.&lt;/p&gt;
+&lt;p&gt;对于根式 $\displaystyle \sqrt[m]{\frac{x+a}{x-a}}$，直接设 $\displaystyle t = \sqrt[m]{\frac{x+a}{x-a}}$&lt;/p&gt;
 &lt;h4 id=&#34;倒代换&#34;&gt;倒代换
-&lt;/h4&gt;&lt;p&gt;令$\displaystyle t = \frac{1}{x+a}$，当被积函数为$x$的有理式或无理式时，往往可利用倒代换消去分母中所含的因子$x + a$或$(x + a)^{n}$。&lt;/p&gt;
-</description>
+&lt;/h4&gt;&lt;p&gt;令 $\displaystyle t = \frac{1}{x+a}$&lt;/p&gt;
+&lt;p&gt;当被积函数为$x$的有理式或无理式时，往往可利用倒代换消去分母中所含的因子 $x + a$ 或 $(x + a)^{n}$。&lt;/p&gt;
+&lt;h2 id=&#34;小知识&#34;&gt;小知识
+&lt;/h2&gt;&lt;h3 id=&#34;斐波那契数列&#34;&gt;斐波那契数列
+&lt;/h3&gt;&lt;p&gt;递推公式：$F_{n} = F_{n-1} + F_{n-2}$，用矩阵表示为 &lt;/p&gt;
+$$\left[\begin{array}{c}  F_{n+1}  \\ F_{n} \\  \end{array} \right] = \left[\begin{matrix}  1&amp; 1 \\  1&amp; 0 \\  \end{matrix}\right] \left[\begin{array}{c}  F_{n} \\  F_{n-1} \\ \end{array} \right] $$&lt;p&gt;记 &lt;/p&gt;
+$$\bm{A} = \left[\begin{matrix}  1&amp; 1 \\  1&amp; 0 \\\end{matrix} \right] ， \bm{D}_{n} = \left[\begin{array}{c}  F_{n+1} \\  F_{n} \\ \end{array}\right] $$&lt;p&gt;则 &lt;/p&gt;
+$$\bm{D}_{n} = \bm{A} \bm{D}_{n-1}$$&lt;p&gt;递推得 &lt;/p&gt;
+$$\bm{D}_{n} = \bm{A}^{n} \bm{D}_{0} $$&lt;p&gt;下面计算 $\bm{A}^{n}$.&lt;/p&gt;
+&lt;p&gt;易知$\bm{A}$的特征多项式为$f(\lambda) = \lambda ^ {2} - \lambda - 1$，特征值为 $\displaystyle \lambda_{1} = \frac{1-\sqrt{5}}{2}$，$\displaystyle\lambda_{2} = \frac{1+\sqrt{5}}{2}$，相应的特征向量分别为 &lt;/p&gt;
+$$\bm{\xi}_{1} = \left[\begin{array}{c}  1 \\    -\lambda_{2} \end{array}\right]，  \bm{\xi}_{2} = \left[\begin{array}{c}  1 \\    -\lambda_{1} \\  \end{array}\right]$$&lt;p&gt;令 &lt;/p&gt;
+$$\bm{T} = \left[\bm{\xi}_{1}, \bm{\xi}_{2}\right]$$&lt;p&gt;则 &lt;/p&gt;
+$$\bm{A} = \bm{T} \left[\begin{matrix}  \lambda_{1}&amp; \\ &amp; \lambda_2 \\  \end{matrix}\right] \bm{T}^{-1} $$&lt;p&gt;于是
+&lt;/p&gt;
+$$ \bm{A}^{n} = \bm{T} \left[\begin{matrix} \lambda_{1}^{n}&amp; \\
+&amp; \lambda_{2}^{n} \\
+\end{matrix}\right] \bm{T}^{-1} = \left[\begin{matrix}
+1&amp; 1 \\
+-\lambda_{2}&amp; -\lambda_{1} \\
+\end{matrix}\right] \left[\begin{matrix}
+\lambda_{1}^{n}&amp; \\
+&amp; \lambda_{2}^{n} \\
+\end{matrix}\right]  \left[\begin{matrix}
+1&amp; 1 \\
+-\lambda_{2}&amp; -\lambda_{1} \\
+\end{matrix}\right]^{-1} = \frac{1}{\sqrt{5}} \left[\begin{matrix}
+\lambda_{2}^{n+1} - \lambda_{1}^{n+1}&amp; \lambda_{2}^{n}-  \lambda_{1}^{n} \\
+\lambda_{2}^{n}-  \lambda_{1}^{n}&amp; \lambda_{2}^{n-1} - \lambda_{1}^{n-1} \\
+\end{matrix}\right] $$&lt;p&gt;最后将 $ \bm{A}^{n} $代入 &lt;/p&gt;
+$$\bm{D}_{n} = \bm{A}^{n} \bm{D}_{0} $$&lt;p&gt;
+并注意到 &lt;/p&gt;
+$$\bm{D}_{0} = [1,1]^{\mathrm{T}}$$&lt;p&gt; 且 $\lambda_{1}$与 $\lambda_{2}$是$\lambda^{2} = \lambda + 1$ 的根，即得&lt;/p&gt;
+$$ F_{n} = \frac{1}{\sqrt{5}} \left[\left(\frac{1+\sqrt{5}}{2}\right)^{n+1} - \left(\frac{1-\sqrt{5}}{2}\right)^{n+1} \right] $$</description>
         </item>
         <item>
         <title>有意思的玩意</title>
@@ -2040,19 +2093,115 @@ D.	全诗语言简明直白，生动地表达作者对天津的喜爱和赞美�
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;To enable KaTeX globally set the parameter &lt;code&gt;math&lt;/code&gt; to &lt;code&gt;true&lt;/code&gt; in a project&amp;rsquo;s configuration&lt;/li&gt;
-&lt;li&gt;To enable KaTeX on a per page basis include the parameter &lt;code&gt;math: true&lt;/code&gt; in content files&lt;/li&gt;
+&lt;li&gt;若要在全局文件中使用KaTex，请在配置文件中将 &lt;code&gt;math&lt;/code&gt; 设为 &lt;code&gt;true&lt;/code&gt; .&lt;/li&gt;
+&lt;li&gt;若只在单个文件中使用KaTex，请在文件开头设置 &lt;code&gt;math: true&lt;/code&gt; .&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Use the online reference of &lt;a class=&#34;link&#34; href=&#34;https://katex.org/docs/supported.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; 查询在线帮助： &lt;a class=&#34;link&#34; href=&#34;https://katex.org/docs/supported.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Supported TeX Functions&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3 id=&#34;examples&#34;&gt;Examples
-&lt;/h3&gt;&lt;p&gt;Inline math: $\varphi = \dfrac{1+\sqrt5}{2}= 1.6180339887…$&lt;/p&gt;
-&lt;p&gt;Block math:
-&lt;/p&gt;
-$$
- \varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } } 
-$$</description>
+&lt;h2 id=&#34;在markdown中使用tex&#34;&gt;在Markdown中使用Tex
+&lt;/h2&gt;&lt;p&gt;在Markdown文件中，Tex文本须使用&lt;code&gt;$…$&lt;/code&gt;（行内文本）或&lt;code&gt;$$…$$&lt;/code&gt;（行间文本）包裹.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意：若要在行内文本中显示行间文本的样式，须加上&lt;code&gt;\displaystyle&lt;/code&gt;.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;tex语法简介&#34;&gt;Tex语法简介
+&lt;/h2&gt;&lt;h3 id=&#34;常用公式&#34;&gt;常用公式
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;公式&lt;/th&gt;
+          &lt;th&gt;语法&lt;/th&gt;
+          &lt;th&gt;示例&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;分式&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\frac{a}{b}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \frac{a}{b}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;幂&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;a^{m}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$ a^{m} $&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;根式&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\sqrt{2}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\sqrt{2}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;高次根式&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\sqrt[n]{m}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\sqrt[n]{m}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;下标&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;a_{n}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$ a_{n} $&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;导数与微分&#34;&gt;导数与微分
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;公式&lt;/th&gt;
+          &lt;th&gt;语法&lt;/th&gt;
+          &lt;th&gt;示例&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;极限&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\lim_{x \to 0}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \lim_{x \to 0}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;导数&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;f \&#39;(x)&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$ f&#39;(x) $&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\frac{\mathrm{d}y}{\mathrm{d}x}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \frac{\mathrm{d}y}{\mathrm{d}x} $&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;高阶导数&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;f^{(n)}(x)&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$f^{(n)}(x)$&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;求和与积分&#34;&gt;求和与积分
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;公式&lt;/th&gt;
+          &lt;th&gt;语法&lt;/th&gt;
+          &lt;th&gt;示例&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;求和&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\sum_{i=0}^{n} a_{i}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \sum_{i=0}^{n} a_{i}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;求积&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\prod_{i=0}^{n} a^{i}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \prod_{i=0}^{n} a^{i} $&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;积分&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\int_{a}^{b} f(x) \mathrm{d}x&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \int_{a}^{b} f(x) \mathrm{d}x$&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;行列式与矩阵&#34;&gt;行列式与矩阵
+&lt;/h3&gt;</description>
         </item>
         <item>
         <title>Emoji Support</title>
