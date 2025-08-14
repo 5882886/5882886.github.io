@@ -7,7 +7,43 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>RunicDolphin806</copyright>
-        <lastBuildDate>Mon, 04 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://5882886.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 10 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://5882886.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Termux使用小技巧</title>
+        <link>https://5882886.github.io/p/termux/</link>
+        <pubDate>Sun, 10 Aug 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://5882886.github.io/p/termux/</guid>
+        <description>&lt;img src="https://5882886.github.io/p/termux/termux.png" alt="Featured image of post Termux使用小技巧" /&gt;&lt;h2 id=&#34;termux简介&#34;&gt;Termux简介
+&lt;/h2&gt;&lt;h2 id=&#34;termux下载linux发行版&#34;&gt;Termux下载Linux发行版
+&lt;/h2&gt;&lt;h3 id=&#34;使用tmoe工具&#34;&gt;使用TMOE工具
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;输入&lt;code&gt;curl -LO https://gitee.com/mo2/linux/raw/2/2.awk &amp;amp;&amp;amp; awk -f 2.awk&lt;/code&gt;下载TMOE工具，之后默认全输入&lt;code&gt;Y&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在语言选择界面使用小键盘的“↑”、“↓”键选择所需语言。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://5882886.github.io/p/termux/tmoe-language.jpg&#34;
+	width=&#34;1080&#34;
+	height=&#34;1094&#34;
+	srcset=&#34;https://5882886.github.io/p/termux/tmoe-language_hu_3f2a272539edffb0.jpg 480w, https://5882886.github.io/p/termux/tmoe-language_hu_95857e98ceccfb3.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;tmoe语言选择&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;98&#34;
+		data-flex-basis=&#34;236px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;选择第一个proot容器，模拟root环境，按回车继续。&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
         <title>Linux系统小技巧</title>
         <link>https://5882886.github.io/p/linux_help/</link>
         <pubDate>Mon, 04 Aug 2025 00:00:00 +0000</pubDate>

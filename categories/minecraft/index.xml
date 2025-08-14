@@ -7,7 +7,100 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>RunicDolphin806</copyright>
-        <lastBuildDate>Thu, 31 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://5882886.github.io/categories/minecraft/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 10 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://5882886.github.io/categories/minecraft/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Minecraft教程</title>
+        <link>https://5882886.github.io/p/minecraft-help/</link>
+        <pubDate>Sun, 10 Aug 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://5882886.github.io/p/minecraft-help/</guid>
+        <description>&lt;img src="https://5882886.github.io/p/minecraft-help/minecraft.jpg" alt="Featured image of post Minecraft教程" /&gt;&lt;h2 id=&#34;认识minecraft&#34;&gt;认识Minecraft
+&lt;/h2&gt;&lt;p&gt;Minecraft（简称MC），作为全球销量第一的游戏，深受众多玩家喜爱。&lt;/p&gt;
+&lt;p&gt;MC分为Java版、基岩版、主机板（Xbox版）和网易版。&lt;/p&gt;
+&lt;h2 id=&#34;下载minecraft&#34;&gt;下载Minecraft
+&lt;/h2&gt;&lt;h3 id=&#34;正版和离线版&#34;&gt;正版和离线版
+&lt;/h3&gt;&lt;p&gt;MC的正版与否取决于你的微软账号上有没有MC。换句话说，无论是否购买正版，你都可以下载到MC的游戏文件并启动游玩。唯一的区别在于非正版玩家无法进入开启了正版验证的服务器，因此MC中的“非正版”也被称之为“离线版”。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;离线版依然可以进入未开启正版验证的服务器&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;mc-java版启动器&#34;&gt;MC Java版启动器
+&lt;/h3&gt;&lt;p&gt;MC Java版本身没有.exe之类的文件，必须得有一个启动程序才能运行。&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;启动器&lt;/th&gt;
+          &lt;th&gt;支持系统&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Minecraft Launcher （官方启动器）&lt;/td&gt;
+          &lt;td&gt;Windows/MacOS&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Plain Craft Launcher 2（PCL2）&lt;/td&gt;
+          &lt;td&gt;Windows&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Hello Minecraft Launcher （HMCL）&lt;/td&gt;
+          &lt;td&gt;Windows/Linux&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;也有部分发烧友喜欢在手机等Android平台上启动MC Java版。Android平台目前流行的启动器主要是Fold Craft Launcher和ZalitLauncher&lt;/p&gt;
+&lt;p&gt;注意：千万不要指望Android平台上MC Java版的表现和Windows系统的一样。&lt;/p&gt;
+&lt;p&gt;启动器的原理就是整合了启动游戏核心 &lt;code&gt;.jar&lt;/code&gt;文件的功能。因此如果愿意，也可以使用IntelliJ IDEA启动。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;mc基岩版&#34;&gt;MC基岩版
+&lt;/h3&gt;&lt;p&gt;MC基岩版则相对简单很多。只需要在相应的平台里下载MC基岩版即可。&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;平台&lt;/th&gt;
+          &lt;th&gt;下载地点&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Windows&lt;/td&gt;
+          &lt;td&gt;Microsoft Store&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Android&lt;/td&gt;
+          &lt;td&gt;Google Store&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;iOS&lt;/td&gt;
+          &lt;td&gt;Apple Store&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;鉴于国内通常无法打开Google网站，如果想体验Minecraft基岩版，可以在&lt;a class=&#34;link&#34; href=&#34;https://klpbbs.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;苦力怕论坛&lt;/a&gt;下载。需注意，论坛中下载的并非正版，请于下载体验后24小时内删除！&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;minecraft-java版进阶&#34;&gt;Minecraft Java版进阶
+&lt;/h2&gt;&lt;h3 id=&#34;java版游戏文件&#34;&gt;Java版游戏文件
+&lt;/h3&gt;&lt;p&gt;Minecraft Java版对玩家文件管理的要求较高，因此需先了解其文件结构。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;- .minecraft        # 游戏总文件
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|- assets           # 游戏资源文件夹
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|- global           # 全局配置
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|- libraries        # 加载库文件
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|- versions         # 版本文件夹（开启版本隔离后生效）
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|- …
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;其中&lt;code&gt;versions&lt;/code&gt;文件夹是我们进行操作的主要场所。&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>Minecraft服务器</title>
         <link>https://5882886.github.io/p/minecraft-server/</link>
         <pubDate>Thu, 31 Jul 2025 00:00:00 +0000</pubDate>

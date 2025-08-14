@@ -350,9 +350,9 @@
 &lt;/h3&gt;&lt;table&gt;
   &lt;thead&gt;
       &lt;tr&gt;
-          &lt;th&gt;Italics&lt;/th&gt;
-          &lt;th&gt;Bold&lt;/th&gt;
-          &lt;th&gt;Code&lt;/th&gt;
+          &lt;th&gt;斜体&lt;/th&gt;
+          &lt;th&gt;加粗&lt;/th&gt;
+          &lt;th&gt;代码&lt;/th&gt;
       &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
