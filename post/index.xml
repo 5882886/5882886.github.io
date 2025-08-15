@@ -65,7 +65,7 @@
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;Android&lt;/td&gt;
-          &lt;td&gt;Google Store&lt;/td&gt;
+          &lt;td&gt;Google Play&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;iOS&lt;/td&gt;
@@ -98,6 +98,61 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;其中&lt;code&gt;versions&lt;/code&gt;文件夹是我们进行操作的主要场所。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;版本隔离&lt;/p&gt;
+&lt;p&gt;版本隔离是MC Java版独特的功能，它使得每个Java游戏版本都相互独立，互不影响。注意：版本隔离选项默认是关闭的，第一次使用应当在启动器设置内将“版本隔离”设置成“各版本相互独立”。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;安装mod&#34;&gt;安装MOD
+&lt;/h3&gt;&lt;p&gt;Java版的优势之一就是能方便自由地安装mod、材质和光影等。&lt;/p&gt;
+&lt;p&gt;安装mod的前提是安装mod加载器，这是绝大多数mod的加载环境。&lt;/p&gt;
+&lt;p&gt;常用mod加载器如下：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;名称&lt;/th&gt;
+          &lt;th&gt;版本支持&lt;/th&gt;
+          &lt;th&gt;特点&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Forge&lt;/td&gt;
+          &lt;td&gt;1.5.2 - 最新&lt;/td&gt;
+          &lt;td&gt;最流行，支持大量模组&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Fabric&lt;/td&gt;
+          &lt;td&gt;1.14 - 最新&lt;/td&gt;
+          &lt;td&gt;轻量加载器，提供快照版本&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;NeoForge&lt;/td&gt;
+          &lt;td&gt;1.20.1 - 最新&lt;/td&gt;
+          &lt;td&gt;新兴加载器，由Forge发展而来，极具潜力&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;以上加载器互不兼容，只能选择其一。&lt;/p&gt;
+&lt;h4 id=&#34;启动器内安装&#34;&gt;启动器内安装
+&lt;/h4&gt;&lt;p&gt;PCL2、HMCL等第三方启动器内置了mod加载器下载方式，在安装新版本时即可选择是否安装mod加载器。&lt;/p&gt;
+&lt;h4 id=&#34;通用安装方法&#34;&gt;通用安装方法
+&lt;/h4&gt;&lt;p&gt;在mod加载器相应的官网下载文件，并按说明安装。&lt;/p&gt;
+&lt;p&gt;以Forge为例进行说明：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;进入&lt;a class=&#34;link&#34; href=&#34;https://files.minecraftforge.net/net/minecraftforge/forge/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Forge官网&lt;/a&gt;，选择需要下载的MC版本。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;点击Installer，此时将跳转到广告界面。若你的网络状况较好，应当会在界面右上角出现“SKIP”按钮，点击“SKIP”即可下载Forge文件。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;定位到文件所在位置，双击打开&lt;code&gt;.jar&lt;/code&gt;文件，稍等一会儿就会打开安装界面，选择“Install client”，再选择安装位置，点击确定即可安装成功。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;center&gt;&lt;img src=&#34;forge.png&#34; width=&#34;500&#34; alt=&#34;Forge&#34;&gt;&lt;/center&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;此时打开启动器，应当能在版本列表中看到刚安装的Forge版本。&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h2 id=&#34;常见问题&#34;&gt;常见问题
 &lt;/h2&gt;&lt;h3 id=&#34;微软账号无法登录&#34;&gt;微软账号无法登录
 &lt;/h3&gt;&lt;p&gt;有时网络运营商的 DNS 可能无法很好地解析微软的验证服务器地址，导致微软账号的登录界面无法进入，无法与小伙伴愉快游玩Hypixel。解决方法为更换更可靠的公共 DNS。&lt;/p&gt;
@@ -107,6 +162,29 @@
 &lt;p&gt;保存设置，重新登录。&lt;/p&gt;
 &lt;p&gt;以上解决办法来源&lt;a class=&#34;link&#34; href=&#34;https://learn.microsoft.com/zh-cn/answers/questions/4373928/microsoft-store-mc-minecraft&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;此处&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;链接网站&#34;&gt;链接网站
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.mcmod.cn/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;MC百科&lt;/a&gt;：下载MC Java版mod，整合包等资源。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://klpbbs.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;苦力怕论坛&lt;/a&gt;：下载MC基岩版资源包、行为包、材质、光影、地图等。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://littleskin.cn/?lang=zh_CN&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;LittleSkin皮肤站&lt;/a&gt;：托管MC皮肤文件。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.xbox.com/zh-CN/games/store/minecraft-java-bedrock-edition-for-pc/9nxp44l49shj?ocid=storeforweb&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Minecraft捆绑包商店&lt;/a&gt;：购买Minecraft正版。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://modrinth.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Modrinth&lt;/a&gt;：下载MC和MC服务器资源。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 </description>
         </item>
         <item>
@@ -311,6 +389,116 @@ $$ I = 2 \cdot 7 - \int_{0}^{2} \frac{x^{3}+3x}{2} \mathrm{d}x = 14 - \left( \fr
       &lt;summary&gt;点击展开答案&lt;/summary&gt;
 &lt;/details&gt;
 </description>
+        </item>
+        <item>
+        <title>git帮助</title>
+        <link>https://5882886.github.io/p/git_help/</link>
+        <pubDate>Mon, 04 Aug 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://5882886.github.io/p/git_help/</guid>
+        <description>&lt;img src="https://5882886.github.io/p/git_help/git.jpg" alt="Featured image of post git帮助" /&gt;&lt;h2 id=&#34;git简介&#34;&gt;git简介
+&lt;/h2&gt;&lt;p&gt;git 是一个开源的分布式 版本控制系统（VCS），用于高效、快速地处理从小型到大型项目的所有内容管理。它由 Linus Torvalds（Linux 之父）于 2005 年创建，最初是为了更好地管理 Linux 内核开发。&lt;/p&gt;
+&lt;h2 id=&#34;git基本概念&#34;&gt;git基本概念
+&lt;/h2&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;术语&lt;/th&gt;
+          &lt;th&gt;含义&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;仓库（Repository）&lt;/td&gt;
+          &lt;td&gt;存储项目所有文件和历史记录的地方&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;工作区（Working Directory）&lt;/td&gt;
+          &lt;td&gt;你电脑上实际看到的项目文件夹&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;暂存区（Index/Stage）&lt;/td&gt;
+          &lt;td&gt;准备提交的更改区域，介于工作区和仓库之间&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;提交（Commit）&lt;/td&gt;
+          &lt;td&gt;保存项目当前状态为一个版本&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;分支（Branch）&lt;/td&gt;
+          &lt;td&gt;从主线上分出来的独立开发线，不影响主线&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;合并（Merge）&lt;/td&gt;
+          &lt;td&gt;将分支的更改整合到另一个分支&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;远程仓库（Remote）&lt;/td&gt;
+          &lt;td&gt;托管在网络上的仓库，如 GitHub、GitLab&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;git操作&#34;&gt;git操作
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;克隆（clone） 远程仓库到本地&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git clone https://github.com/user/repo.git
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;修改 文件在工作区中。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;暂存（add） 更改到暂存区&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git add .
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;提交（commit） 更改到本地仓库&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git commit -m &lt;span class=&#34;s2&#34;&gt;&amp;#34;描述信息&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;推送（push） 到远程仓库&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git push origin main
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;拉取（pull） 获取他人更新&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git pull origin main
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
         </item>
         <item>
         <title>Linux系统小技巧</title>

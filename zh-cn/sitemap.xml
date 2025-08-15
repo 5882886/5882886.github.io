@@ -73,6 +73,19 @@
     <loc>https://5882886.github.io/p/termux/</loc>
     <lastmod>2025-08-10T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://5882886.github.io/categories/guide/</loc>
+    <lastmod>2025-08-10T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://5882886.github.io/en/categories/guide/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://5882886.github.io/categories/guide/"
+                />
+  </url><url>
     <loc>https://5882886.github.io/p/math_quiz/</loc>
     <lastmod>2025-08-07T00:00:00+00:00</lastmod>
   </url><url>
@@ -88,6 +101,9 @@
                 hreflang="zh-cn"
                 href="https://5882886.github.io/categories/interesting_things/"
                 />
+  </url><url>
+    <loc>https://5882886.github.io/p/git_help/</loc>
+    <lastmod>2025-08-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://5882886.github.io/p/linux_help/</loc>
     <lastmod>2025-08-04T00:00:00+00:00</lastmod>
@@ -132,19 +148,6 @@
   </url><url>
     <loc>https://5882886.github.io/p/ssh/</loc>
     <lastmod>2025-07-31T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://5882886.github.io/categories/syntax/</loc>
-    <lastmod>2025-07-31T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://5882886.github.io/en/categories/syntax/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://5882886.github.io/categories/syntax/"
-                />
   </url><url>
     <loc>https://5882886.github.io/archives/</loc>
     <lastmod>2025-07-31T00:00:00+00:00</lastmod>
@@ -225,19 +228,6 @@
                 rel="alternate"
                 hreflang="zh-cn"
                 href="https://5882886.github.io/tags/"
-                />
-  </url><url>
-    <loc>https://5882886.github.io/categories/themes/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://5882886.github.io/en/categories/themes/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://5882886.github.io/categories/themes/"
                 />
   </url><url>
     <loc>https://5882886.github.io/tags/themes/</loc>

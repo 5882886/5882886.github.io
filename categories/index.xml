@@ -24,6 +24,14 @@
         <description>&lt;img src="https://5882886.github.io/categories/minecraft/screenshot.png" alt="Featured image of post Minecraft" /&gt;</description>
         </item>
         <item>
+        <title>教程</title>
+        <link>https://5882886.github.io/categories/guide/</link>
+        <pubDate>Sun, 10 Aug 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://5882886.github.io/categories/guide/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>小乐趣</title>
         <link>https://5882886.github.io/categories/interesting_things/</link>
         <pubDate>Thu, 07 Aug 2025 00:00:00 +0000</pubDate>
@@ -38,22 +46,6 @@
         
         <guid>https://5882886.github.io/categories/website/</guid>
         <description>&lt;img src="https://5882886.github.io/categories/website/Website.jpg" alt="Featured image of post 网站" /&gt;</description>
-        </item>
-        <item>
-        <title>Syntax</title>
-        <link>https://5882886.github.io/categories/syntax/</link>
-        <pubDate>Thu, 31 Jul 2025 00:00:00 +0000</pubDate>
-        
-        <guid>https://5882886.github.io/categories/syntax/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Themes</title>
-        <link>https://5882886.github.io/categories/themes/</link>
-        <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-        
-        <guid>https://5882886.github.io/categories/themes/</guid>
-        <description></description>
         </item>
         <item>
         <title>Test</title>
