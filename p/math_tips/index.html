@@ -325,6 +325,10 @@
             <li><a href="#倒代换">倒代换</a></li>
           </ol>
         </li>
+        <li><a href="#分部积分法">分部积分法</a></li>
+        <li><a href="#区间再现法">区间再现法</a></li>
+        <li><a href="#组合积分法">组合积分法</a></li>
+        <li><a href="#反函数积分法">反函数积分法</a></li>
       </ol>
     </li>
     <li><a href="#小知识">小知识</a>
@@ -573,6 +577,15 @@ $$ \left\{ \begin{array}{c} u=f(x) \\ v=g(x) \\ \end{array} \right. $$<p> 可以
 <h4 id="倒代换">倒代换
 </h4><p>令 $\displaystyle t = \frac{1}{x+a}$</p>
 <p>当被积函数为$x$的有理式或无理式时，往往可利用倒代换消去分母中所含的因子 $x + a$ 或 $(x + a)^{n}$。</p>
+<h3 id="分部积分法">分部积分法
+</h3><p>设 $u(x)$，$v(x)$ 具有连续导数，则有分部积分公式</p>
+$$ \int u(x)v'(x) \mathrm{d}x = u(x)v(x) - \int u'(x)v(x) \mathrm{d}x $$<h3 id="区间再现法">区间再现法
+</h3><p>对于周期函数，若知道其周期，可使用区间再现法求定积分。</p>
+<p>例如，若 $f(x+T)=f(x)$，则有</p>
+$$\int_{a}^{a+T} f(x) \mathrm{d}x = \int_{0}^{T} f(x) \mathrm{d}x$$$$\int_{0}^{nT} f(x) \mathrm{d}x = n\int_{0}^{T} f(x) \mathrm{d}x$$<h3 id="组合积分法">组合积分法
+</h3><p>如果积分式具有单对称性，可考虑构造另一个积分式，使两者的线性运算所得的积分容易求出，最后通过解方程求得原式的结果。<a class="link" href="/p/math_quiz/#%e7%bb%84%e5%90%88%e7%a7%af%e5%88%86%e6%b3%95" >Example</a></p>
+<h3 id="反函数积分法">反函数积分法
+</h3><p>对于一些定积分，若被积函数较复杂，而其反函数较简单，可利用定积分的几何意义：用积分区间的面积减去被积函数反函数的定积分。<a class="link" href="/p/math_quiz/#%e5%8f%8d%e5%87%bd%e6%95%b0%e7%a7%af%e5%88%86%e6%b3%95" >Example</a></p>
 <h2 id="小知识">小知识
 </h2><h3 id="斐波那契数列">斐波那契数列
 </h3><p>递推公式：$F_{n} = F_{n-1} + F_{n-2}$，用矩阵表示为 </p>
@@ -665,19 +678,6 @@ $$ F_{n} = \frac{1}{\sqrt{5}} \left[\left(\frac{1+\sqrt{5}}{2}\right)^{n+1} - \l
             
                 
 <article class="">
-    <a href="/p/senior_high/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">十四班学生列传</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
     <a href="/p/math_quiz/">
         
         
@@ -697,6 +697,19 @@ $$ F_{n} = \frac{1}{\sqrt{5}} \left[\left(\frac{1+\sqrt{5}}{2}\right)^{n+1} - \l
 
         <div class="article-details">
             <h2 class="article-title">有意思的玩意</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/senior_high/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">十四班学生列传</h2>
         </div>
     </a>
 </article>

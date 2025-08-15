@@ -73,9 +73,6 @@
     <loc>https://5882886.github.io/p/termux/</loc>
     <lastmod>2025-08-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://5882886.github.io/p/senior_high/</loc>
-    <lastmod>2025-08-07T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://5882886.github.io/p/math_quiz/</loc>
     <lastmod>2025-08-07T00:00:00+00:00</lastmod>
   </url><url>
@@ -161,6 +158,9 @@
                 hreflang="zh-cn"
                 href="https://5882886.github.io/archives/"
                 />
+  </url><url>
+    <loc>https://5882886.github.io/p/senior_high/</loc>
+    <lastmod>2024-06-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://5882886.github.io/tags/css/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>

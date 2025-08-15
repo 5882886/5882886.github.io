@@ -13,7 +13,7 @@
         <pubDate>Sun, 10 Aug 2025 00:00:00 +0000</pubDate>
         
         <guid>https://5882886.github.io/p/minecraft-help/</guid>
-        <description>&lt;img src="https://5882886.github.io/p/minecraft-help/minecraft.jpg" alt="Featured image of post Minecraft教程" /&gt;&lt;h2 id=&#34;认识minecraft&#34;&gt;认识Minecraft
+        <description>&lt;img src="https://5882886.github.io/p/minecraft-help/minecraft.jpeg" alt="Featured image of post Minecraft教程" /&gt;&lt;h2 id=&#34;认识minecraft&#34;&gt;认识Minecraft
 &lt;/h2&gt;&lt;p&gt;Minecraft（简称MC），作为全球销量第一的游戏，深受众多玩家喜爱。&lt;/p&gt;
 &lt;p&gt;MC分为Java版、基岩版、主机板（Xbox版）和网易版。&lt;/p&gt;
 &lt;h2 id=&#34;下载minecraft&#34;&gt;下载Minecraft
@@ -98,6 +98,15 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;其中&lt;code&gt;versions&lt;/code&gt;文件夹是我们进行操作的主要场所。&lt;/p&gt;
+&lt;h2 id=&#34;常见问题&#34;&gt;常见问题
+&lt;/h2&gt;&lt;h3 id=&#34;微软账号无法登录&#34;&gt;微软账号无法登录
+&lt;/h3&gt;&lt;p&gt;有时网络运营商的 DNS 可能无法很好地解析微软的验证服务器地址，导致微软账号的登录界面无法进入，无法与小伙伴愉快游玩Hypixel。解决方法为更换更可靠的公共 DNS。&lt;/p&gt;
+&lt;p&gt;进入 设置 &amp;gt; 网络和 Internet，点击正在连接的 Wi-Fi 或以太网的 “属性”。&lt;/p&gt;
+&lt;p&gt;找到 “DNS 服务器分配”，点击“编辑”。&lt;/p&gt;
+&lt;p&gt;将其更改为“手动”，然后打开 IPv4 开关。在“首选 DNS”中输入 8.8.8.8，在“备用 DNS”中输入 8.8.4.4。（这是 Google 的公共 DNS，非常稳定）。&lt;/p&gt;
+&lt;p&gt;保存设置，重新登录。&lt;/p&gt;
+&lt;p&gt;以上解决办法来源&lt;a class=&#34;link&#34; href=&#34;https://learn.microsoft.com/zh-cn/answers/questions/4373928/microsoft-store-mc-minecraft&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;此处&lt;/a&gt;&lt;/p&gt;
 </description>
         </item>
         <item>

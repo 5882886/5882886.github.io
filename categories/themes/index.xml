@@ -289,24 +289,141 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;其他&#34;&gt;其他
+&lt;h2 id=&#34;在markdown中使用tex&#34;&gt;在Markdown中使用Tex
+&lt;/h2&gt;&lt;p&gt;在Markdown文件中，Tex文本须使用&lt;code&gt;$…$&lt;/code&gt;（行内文本）或&lt;code&gt;$$…$$&lt;/code&gt;（行间文本）包裹.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意：若要在行内文本中显示行间文本的样式，须加上&lt;code&gt;\displaystyle&lt;/code&gt;.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;常用公式&#34;&gt;常用公式
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;公式&lt;/th&gt;
+          &lt;th&gt;语法&lt;/th&gt;
+          &lt;th&gt;示例&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;分式&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\frac{a}{b}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \frac{a}{b}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;幂&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;a^{m}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$ a^{m} $&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;根式&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\sqrt{2}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\sqrt{2}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;高次根式&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\sqrt[n]{m}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\sqrt[n]{m}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;下标&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;a_{n}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$ a_{n} $&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;导数与微分&#34;&gt;导数与微分
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;公式&lt;/th&gt;
+          &lt;th&gt;语法&lt;/th&gt;
+          &lt;th&gt;示例&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;极限&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\lim_{x \to 0}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \lim_{x \to 0}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;导数&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;f \&#39;(x)&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$ f&#39;(x) $&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\frac{\mathrm{d}y}{\mathrm{d}x}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \frac{\mathrm{d}y}{\mathrm{d}x} $&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;高阶导数&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;f^{(n)}(x)&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$f^{(n)}(x)$&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;求和与积分&#34;&gt;求和与积分
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;公式&lt;/th&gt;
+          &lt;th&gt;语法&lt;/th&gt;
+          &lt;th&gt;示例&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;求和&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\sum_{i=0}^{n} a_{i}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \sum_{i=0}^{n} a_{i}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;求积&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\prod_{i=0}^{n} a^{i}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \prod_{i=0}^{n} a^{i} $&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;积分&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\int_{a}^{b} f(x) \mathrm{d}x&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \int_{a}^{b} f(x) \mathrm{d}x$&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;行列式与矩阵&#34;&gt;行列式与矩阵
+&lt;/h3&gt;&lt;h2 id=&#34;其他&#34;&gt;其他
 &lt;/h2&gt;&lt;h3 id=&#34;隐藏内容&#34;&gt;隐藏内容
-&lt;/h3&gt;&lt;details&gt;
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;lt;details&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &amp;lt;summary&amp;gt;点击展开隐藏内容&amp;lt;/summary&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;隐藏内容
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;lt;/details&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;效果：&lt;/p&gt;
+&lt;details&gt;
       &lt;summary&gt;点击展开隐藏内容&lt;/summary&gt;
 &lt;p&gt;隐藏内容&lt;/p&gt;
 &lt;/details&gt;
 &lt;h2 id=&#34;参考资料&#34;&gt;参考资料
-&lt;/h2&gt;&lt;p&gt;&lt;code&gt;[![Zhisuan_Eleven](https://github.com/5882886/My-Minecraft-Sever/blob/main/icon.jpg)](https://github.com/5882886/My-Minecraft-Sever)&lt;/code&gt; → &lt;a class=&#34;link&#34; href=&#34;https://github.com/5882886/My-Minecraft-Sever&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;&lt;img src=&#34;https://github.com/5882886/My-Minecraft-Sever/blob/main/icon.jpg&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;Zhisuan_Eleven&#34;
-	
-	
-&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[图片文件](网址) 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;→ &lt;a class=&#34;link&#34; href=&#34;https://github.com/5882886/My-Minecraft-Sever&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;img src=&#34;https://github.564456.xyz/https://raw.githubusercontent.com/5882886/My-Minecraft-Sever/refs/heads/main/icon.jpg&#34; width=&#34;40&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
 &lt;hr&gt;
 &lt;ol&gt;

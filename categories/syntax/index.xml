@@ -72,10 +72,14 @@
 &lt;h2 id=&#34;配置-ssh&#34;&gt;配置 SSH
 &lt;/h2&gt;&lt;p&gt;连接到远程主机的原理与连接MC服务器类似，关键在于确定远程主机的IP地址和端口。&lt;/p&gt;
 &lt;h3 id=&#34;windows系统&#34;&gt;Windows系统
-&lt;/h3&gt;&lt;h4 id=&#34;安装-ssh-服务&#34;&gt;安装 SSH 服务
-&lt;/h4&gt;&lt;p&gt;首先在要连接的主机上打开设置，搜索“可选功能”，在“添加可选功能”中搜索“OpenSSH服务器”，下载该功能。&lt;/p&gt;
-&lt;h4 id=&#34;启动并配置-ssh-服务&#34;&gt;启动并配置 SSH 服务
-&lt;/h4&gt;&lt;p&gt;管理员权限打开Powershell，输入：&lt;/p&gt;
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;安装 SSH 服务&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;首先在要连接的主机上打开设置，搜索“可选功能”，在“添加可选功能”中搜索“OpenSSH服务器”，下载该功能。&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;启动并配置 SSH 服务&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;管理员权限打开Powershell，输入：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -96,8 +100,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h3 id=&#34;linux系统&#34;&gt;Linux系统
-&lt;/h3&gt;&lt;h4 id=&#34;安装-openssh-server&#34;&gt;安装 OpenSSH Server
-&lt;/h4&gt;&lt;p&gt;如果尚未安装，运行：&lt;/p&gt;
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;安装 OpenSSH Server
+如果尚未安装，运行：&lt;/li&gt;
+&lt;/ol&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -108,8 +114,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install openssh-server
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h4 id=&#34;启动-ssh-服务&#34;&gt;启动 SSH 服务
-&lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;启动 SSH 服务&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
@@ -129,8 +137,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;输出中应显示 active (running)。&lt;/p&gt;
-&lt;h4 id=&#34;配置防火墙&#34;&gt;配置防火墙
-&lt;/h4&gt;&lt;p&gt;允许 SSH 默认端口（22）：&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;配置防火墙
+允许 SSH 默认端口（22）：&lt;/li&gt;
+&lt;/ol&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -141,8 +151,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo ufw allow ssh
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h4 id=&#34;获取服务器的ip地址&#34;&gt;获取服务器的IP地址
-&lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;/div&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;获取服务器的IP地址&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
@@ -152,8 +164,10 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;找到类似 192.168.x.x 的局域网 IP 或公网 IP（如果适用）。&lt;/p&gt;
 &lt;h3 id=&#34;wsl系统&#34;&gt;WSL系统
-&lt;/h3&gt;&lt;h4 id=&#34;安装-openssh-server-1&#34;&gt;安装 OpenSSH Server
-&lt;/h4&gt;&lt;p&gt;打开 WSL 中的 Ubuntu 终端，执行：&lt;/p&gt;
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;安装 OpenSSH Server
+打开 WSL 中的 Ubuntu 终端，执行：&lt;/li&gt;
+&lt;/ol&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -164,8 +178,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install openssh-server
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h4 id=&#34;配置-ssh-1&#34;&gt;配置 SSH
-&lt;/h4&gt;&lt;p&gt;编辑配置文件：&lt;/p&gt;
+&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;配置 SSH
+编辑配置文件：&lt;/li&gt;
+&lt;/ol&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -187,8 +203,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;PermitRootLogin yes
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h4 id=&#34;启动-ssh-服务-1&#34;&gt;启动 SSH 服务
-&lt;/h4&gt;&lt;p&gt;在 WSL 中，不能使用 systemctl，请使用：&lt;/p&gt;
+&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;启动 SSH 服务
+在 WSL 中，不能使用 systemctl，请使用：&lt;/li&gt;
+&lt;/ol&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -215,8 +233,10 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ps aux &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; grep sshd
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h4 id=&#34;使用wsl的注意事项&#34;&gt;使用WSL的注意事项
-&lt;/h4&gt;&lt;p&gt;WSL系统是Windows的子系统，在Windows开机时，WSL的ssh功能默认并不能开启，此时需要将WSL的ssh注册为系统服务实现Windows开机时启用WSL的ssh功能。&lt;/p&gt;
+&lt;/div&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;使用WSL的注意事项&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;WSL系统是Windows的子系统，在Windows开机时，WSL的ssh功能默认并不能开启，此时需要将WSL的ssh注册为系统服务实现Windows开机时启用WSL的ssh功能。&lt;/p&gt;
 &lt;p&gt;下面给出使用任务计划程序（无需第三方程序）的方法&lt;/p&gt;
 &lt;p&gt;打开任务计划程序
 &lt;code&gt;Win+R&lt;/code&gt; → &lt;code&gt;taskschd.msc&lt;/code&gt;&lt;/p&gt;
@@ -227,6 +247,8 @@
 （或 &lt;code&gt;-d Ubuntu-22.04 true&lt;/code&gt; 单纯启动实例）&lt;/p&gt;
 &lt;p&gt;设置：勾选「允许任务按需运行」&lt;/p&gt;
 &lt;p&gt;保存时输入管理员密码。重启测试即可。&lt;/p&gt;
+&lt;h3 id=&#34;termux&#34;&gt;Termux
+&lt;/h3&gt;&lt;p&gt;参见：&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/termux/#termux%e5%90%af%e5%8a%a8ssh%e5%8a%9f%e8%83%bd&#34; &gt;Termux启动SSH功能&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;连接ssh&#34;&gt;连接ssh
 &lt;/h2&gt;&lt;p&gt;在 Windows 本地测试：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -545,24 +567,141 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;其他&#34;&gt;其他
+&lt;h2 id=&#34;在markdown中使用tex&#34;&gt;在Markdown中使用Tex
+&lt;/h2&gt;&lt;p&gt;在Markdown文件中，Tex文本须使用&lt;code&gt;$…$&lt;/code&gt;（行内文本）或&lt;code&gt;$$…$$&lt;/code&gt;（行间文本）包裹.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意：若要在行内文本中显示行间文本的样式，须加上&lt;code&gt;\displaystyle&lt;/code&gt;.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;常用公式&#34;&gt;常用公式
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;公式&lt;/th&gt;
+          &lt;th&gt;语法&lt;/th&gt;
+          &lt;th&gt;示例&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;分式&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\frac{a}{b}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \frac{a}{b}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;幂&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;a^{m}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$ a^{m} $&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;根式&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\sqrt{2}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\sqrt{2}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;高次根式&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\sqrt[n]{m}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\sqrt[n]{m}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;下标&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;a_{n}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$ a_{n} $&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;导数与微分&#34;&gt;导数与微分
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;公式&lt;/th&gt;
+          &lt;th&gt;语法&lt;/th&gt;
+          &lt;th&gt;示例&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;极限&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\lim_{x \to 0}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \lim_{x \to 0}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;导数&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;f \&#39;(x)&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$ f&#39;(x) $&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\frac{\mathrm{d}y}{\mathrm{d}x}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \frac{\mathrm{d}y}{\mathrm{d}x} $&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;高阶导数&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;f^{(n)}(x)&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$f^{(n)}(x)$&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;求和与积分&#34;&gt;求和与积分
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;公式&lt;/th&gt;
+          &lt;th&gt;语法&lt;/th&gt;
+          &lt;th&gt;示例&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;求和&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\sum_{i=0}^{n} a_{i}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \sum_{i=0}^{n} a_{i}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;求积&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\prod_{i=0}^{n} a^{i}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \prod_{i=0}^{n} a^{i} $&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;积分&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\int_{a}^{b} f(x) \mathrm{d}x&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \int_{a}^{b} f(x) \mathrm{d}x$&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;行列式与矩阵&#34;&gt;行列式与矩阵
+&lt;/h3&gt;&lt;h2 id=&#34;其他&#34;&gt;其他
 &lt;/h2&gt;&lt;h3 id=&#34;隐藏内容&#34;&gt;隐藏内容
-&lt;/h3&gt;&lt;details&gt;
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;lt;details&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &amp;lt;summary&amp;gt;点击展开隐藏内容&amp;lt;/summary&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;隐藏内容
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;lt;/details&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;效果：&lt;/p&gt;
+&lt;details&gt;
       &lt;summary&gt;点击展开隐藏内容&lt;/summary&gt;
 &lt;p&gt;隐藏内容&lt;/p&gt;
 &lt;/details&gt;
 &lt;h2 id=&#34;参考资料&#34;&gt;参考资料
-&lt;/h2&gt;&lt;p&gt;&lt;code&gt;[![Zhisuan_Eleven](https://github.com/5882886/My-Minecraft-Sever/blob/main/icon.jpg)](https://github.com/5882886/My-Minecraft-Sever)&lt;/code&gt; → &lt;a class=&#34;link&#34; href=&#34;https://github.com/5882886/My-Minecraft-Sever&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;&lt;img src=&#34;https://github.com/5882886/My-Minecraft-Sever/blob/main/icon.jpg&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;Zhisuan_Eleven&#34;
-	
-	
-&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[图片文件](网址) 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;→ &lt;a class=&#34;link&#34; href=&#34;https://github.com/5882886/My-Minecraft-Sever&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;img src=&#34;https://github.564456.xyz/https://raw.githubusercontent.com/5882886/My-Minecraft-Sever/refs/heads/main/icon.jpg&#34; width=&#34;40&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
 &lt;hr&gt;
 &lt;ol&gt;
