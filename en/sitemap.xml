@@ -28,45 +28,6 @@
                 href="https://5882886.github.io/en/archives/"
                 />
   </url><url>
-    <loc>https://5882886.github.io/en/categories/</loc>
-    <lastmod>2025-07-31T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://5882886.github.io/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://5882886.github.io/en/categories/"
-                />
-  </url><url>
-    <loc>https://5882886.github.io/en/categories/minecraft/</loc>
-    <lastmod>2025-07-31T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://5882886.github.io/categories/minecraft/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://5882886.github.io/en/categories/minecraft/"
-                />
-  </url><url>
-    <loc>https://5882886.github.io/en/p/minecraft-server/</loc>
-    <lastmod>2025-07-31T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://5882886.github.io/p/minecraft-server/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://5882886.github.io/en/p/minecraft-server/"
-                />
-  </url><url>
     <loc>https://5882886.github.io/en/page/</loc>
     <lastmod>2025-07-31T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -80,17 +41,17 @@
                 href="https://5882886.github.io/en/page/"
                 />
   </url><url>
-    <loc>https://5882886.github.io/en/post/</loc>
-    <lastmod>2025-07-31T00:00:00+00:00</lastmod>
+    <loc>https://5882886.github.io/en/categories/</loc>
+    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://5882886.github.io/post/"
+                href="https://5882886.github.io/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://5882886.github.io/en/post/"
+                href="https://5882886.github.io/en/categories/"
                 />
   </url><url>
     <loc>https://5882886.github.io/en/tags/css/</loc>
@@ -143,6 +104,19 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://5882886.github.io/en/p/markdown-syntax-guide/"
+                />
+  </url><url>
+    <loc>https://5882886.github.io/en/post/</loc>
+    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://5882886.github.io/post/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://5882886.github.io/en/post/"
                 />
   </url><url>
     <loc>https://5882886.github.io/en/categories/syntax/</loc>
@@ -296,6 +270,18 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://5882886.github.io/en/categories/linux/"
+                />
+  </url><url>
+    <loc>https://5882886.github.io/en/categories/minecraft/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://5882886.github.io/categories/minecraft/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://5882886.github.io/en/categories/minecraft/"
                 />
   </url><url>
     <loc>https://5882886.github.io/en/search/</loc>

@@ -7,15 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>RunicDolphin806</copyright>
-        <lastBuildDate>Thu, 31 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://5882886.github.io/en/categories/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Minecraft</title>
-        <link>https://5882886.github.io/en/categories/minecraft/</link>
-        <pubDate>Thu, 31 Jul 2025 00:00:00 +0000</pubDate>
-        
-        <guid>https://5882886.github.io/en/categories/minecraft/</guid>
-        <description>&lt;img src="https://5882886.github.io/categories/minecraft/screenshot.png" alt="Featured image of post Minecraft" /&gt;</description>
-        </item>
-        <item>
+        <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://5882886.github.io/en/categories/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Syntax</title>
         <link>https://5882886.github.io/en/categories/syntax/</link>
         <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
@@ -54,6 +46,14 @@
         
         <guid>https://5882886.github.io/en/categories/linux/</guid>
         <description>&lt;img src="https://5882886.github.io/categories/linux/Linux.jpg" alt="Featured image of post Linux" /&gt;</description>
+        </item>
+        <item>
+        <title>Minecraft</title>
+        <link>https://5882886.github.io/en/categories/minecraft/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://5882886.github.io/en/categories/minecraft/</guid>
+        <description>&lt;img src="https://5882886.github.io/categories/minecraft/screenshot.png" alt="Featured image of post Minecraft" /&gt;</description>
         </item>
         <item>
         <title>Website</title>
