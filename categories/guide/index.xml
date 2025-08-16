@@ -1594,7 +1594,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h2 id=&#34;文本类型&#34;&gt;文本类型
-&lt;/h2&gt;&lt;h3 id=&#34;下划线&#34;&gt;下划线
+&lt;/h2&gt;&lt;h3 id=&#34;加粗与斜体&#34;&gt;加粗与斜体
+&lt;/h3&gt;&lt;p&gt;加粗：&lt;code&gt;**文本**&lt;/code&gt; → &lt;strong&gt;文本&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;斜体：&lt;code&gt;*文本*&lt;/code&gt; → &lt;em&gt;文本&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&#34;下划线&#34;&gt;下划线
 &lt;/h3&gt;&lt;p&gt;&lt;code&gt;&amp;lt;span style=&amp;quot;text-decoration: wavy underline;&amp;quot;&amp;gt; 天津大学是中国第一所现代大学。 &amp;lt;/span&amp;gt;&lt;/code&gt; → &lt;span style=&#34;text-decoration: wavy underline;&#34;&gt; 天津大学是中国第一所现代大学。 &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;&amp;lt;u&amp;gt; 2025年将迎来天津大学130周年校庆。 &amp;lt;/u&amp;gt;&lt;/code&gt; → &lt;u&gt; 2025年将迎来天津大学130周年校庆。 &lt;/u&gt;&lt;/p&gt;
 &lt;h3 id=&#34;上下标&#34;&gt;上下标
@@ -1852,6 +1855,38 @@
 &lt;/h2&gt;&lt;p&gt;在Markdown文件中，Tex文本须使用&lt;code&gt;$…$&lt;/code&gt;（行内文本）或&lt;code&gt;$$…$$&lt;/code&gt;（行间文本）包裹.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;注意：若要在行内文本中显示行间文本的样式，须加上&lt;code&gt;\displaystyle&lt;/code&gt;.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;数学符号&#34;&gt;数学符号
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;公式&lt;/th&gt;
+          &lt;th&gt;语法&lt;/th&gt;
+          &lt;th&gt;示例&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;点乘&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\cdot&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$A \cdot B$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;叉乘&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\times&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$ A \times B $&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;三角形&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\triangle&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\triangle ABC $&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;向量&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\overrightarrow{}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\overrightarrow{AB}$&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 &lt;h3 id=&#34;常用公式&#34;&gt;常用公式
 &lt;/h3&gt;&lt;table&gt;
   &lt;thead&gt;
