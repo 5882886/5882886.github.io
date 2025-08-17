@@ -66,6 +66,25 @@
 &lt;/div&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;注意事项&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;使用&lt;code&gt;hugo server -D&lt;/code&gt;命令构建的是本地网页，遇到超链接时会重定向到&lt;code&gt;localhost:1313/xxx&lt;/code&gt;，不能直接部署到GitHub等服务器上，必须再执行一次&lt;code&gt;hugo&lt;/code&gt;命令清除本地链接的内容之后，才能正确部署。&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;参考视频：
+
+
+
+
+
+    
+
+
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;iframe src=&#34;https://player.bilibili.com/player.html?as_wide=1&amp;amp;high_quality=1&amp;amp;page=1&amp;bvid=BV1bovfeaEtQ&#34;
+            scrolling=&#34;no&#34;
+            frameborder=&#34;no&#34;
+            framespacing=&#34;0&#34;
+            allowfullscreen=&#34;true&#34;
+    &gt;
+    &lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/p&gt;
 &lt;h2 id=&#34;在github上托管网页&#34;&gt;在Github上托管网页
 &lt;/h2&gt;&lt;p&gt;Github网站提供了“Github Pages”功能，允许用户为自己的项目显示一个静态网页。&lt;/p&gt;
 &lt;h3 id=&#34;创建网站仓库&#34;&gt;创建网站仓库
@@ -86,7 +105,26 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;执行完成后会在工作区文件夹中出现一个&lt;code&gt;public&lt;/code&gt;文件夹，进入该文件夹。&lt;/p&gt;
 &lt;h3 id=&#34;上传文件至github&#34;&gt;上传文件至Github
-&lt;/h3&gt;&lt;p&gt;参见：玩转Github&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;参见：&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/git_help/&#34; &gt;玩转Github&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;参考视频：
+
+
+
+
+
+    
+
+
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;iframe src=&#34;https://player.bilibili.com/player.html?as_wide=1&amp;amp;high_quality=1&amp;amp;page=3&amp;bvid=BV1bovfeaEtQ&#34;
+            scrolling=&#34;no&#34;
+            frameborder=&#34;no&#34;
+            framespacing=&#34;0&#34;
+            allowfullscreen=&#34;true&#34;
+    &gt;
+    &lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/p&gt;
 &lt;h2 id=&#34;hugo网站搭建内部链接&#34;&gt;Hugo网站搭建内部链接
 &lt;/h2&gt;&lt;h3 id=&#34;使用相对路径链接&#34;&gt;使用相对路径链接
 &lt;/h3&gt;&lt;p&gt;相对路径是根据当前页面的位置来定位目标页面的路径。这是最简单且常用的方式之一。&lt;/p&gt;
