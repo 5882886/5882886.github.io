@@ -299,28 +299,10 @@
     </li>
     <li><a href="#配置-ssh">配置 SSH</a>
       <ol>
-        <li><a href="#windows系统">Windows系统</a>
-          <ol>
-            <li><a href="#安装-ssh-服务">安装 SSH 服务</a></li>
-            <li><a href="#启动并配置-ssh-服务">启动并配置 SSH 服务</a></li>
-          </ol>
-        </li>
-        <li><a href="#linux系统">Linux系统</a>
-          <ol>
-            <li><a href="#安装-openssh-server">安装 OpenSSH Server</a></li>
-            <li><a href="#启动-ssh-服务">启动 SSH 服务</a></li>
-            <li><a href="#配置防火墙">配置防火墙</a></li>
-            <li><a href="#获取服务器的ip地址">获取服务器的IP地址</a></li>
-          </ol>
-        </li>
-        <li><a href="#wsl系统">WSL系统</a>
-          <ol>
-            <li><a href="#安装-openssh-server-1">安装 OpenSSH Server</a></li>
-            <li><a href="#配置-ssh-1">配置 SSH</a></li>
-            <li><a href="#启动-ssh-服务-1">启动 SSH 服务</a></li>
-            <li><a href="#使用wsl的注意事项">使用WSL的注意事项</a></li>
-          </ol>
-        </li>
+        <li><a href="#windows系统">Windows系统</a></li>
+        <li><a href="#linux系统">Linux系统</a></li>
+        <li><a href="#wsl系统">WSL系统</a></li>
+        <li><a href="#termux">Termux</a></li>
       </ol>
     </li>
     <li><a href="#连接ssh">连接ssh</a></li>
@@ -342,8 +324,8 @@
     
     <header class="article-category">
         
-            <a href="/categories/syntax/" >
-                Syntax
+            <a href="/categories/guide/" style="background-color: #1117d0ff; color: #fff;">
+                教程
             </a>
         
     </header>
@@ -466,10 +448,14 @@
 <h2 id="配置-ssh">配置 SSH
 </h2><p>连接到远程主机的原理与连接MC服务器类似，关键在于确定远程主机的IP地址和端口。</p>
 <h3 id="windows系统">Windows系统
-</h3><h4 id="安装-ssh-服务">安装 SSH 服务
-</h4><p>首先在要连接的主机上打开设置，搜索“可选功能”，在“添加可选功能”中搜索“OpenSSH服务器”，下载该功能。</p>
-<h4 id="启动并配置-ssh-服务">启动并配置 SSH 服务
-</h4><p>管理员权限打开Powershell，输入：</p>
+</h3><ol>
+<li>安装 SSH 服务</li>
+</ol>
+<p>首先在要连接的主机上打开设置，搜索“可选功能”，在“添加可选功能”中搜索“OpenSSH服务器”，下载该功能。</p>
+<ol start="2">
+<li>启动并配置 SSH 服务</li>
+</ol>
+<p>管理员权限打开Powershell，输入：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -490,8 +476,10 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="linux系统">Linux系统
-</h3><h4 id="安装-openssh-server">安装 OpenSSH Server
-</h4><p>如果尚未安装，运行：</p>
+</h3><ol>
+<li>安装 OpenSSH Server
+如果尚未安装，运行：</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -502,8 +490,10 @@
 </span></span><span class="line"><span class="cl">sudo apt install openssh-server
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="启动-ssh-服务">启动 SSH 服务
-</h4><div class="highlight"><div class="chroma">
+</div><ol start="2">
+<li>启动 SSH 服务</li>
+</ol>
+<div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -523,8 +513,10 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>输出中应显示 active (running)。</p>
-<h4 id="配置防火墙">配置防火墙
-</h4><p>允许 SSH 默认端口（22）：</p>
+<ol start="3">
+<li>配置防火墙
+允许 SSH 默认端口（22）：</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -535,8 +527,10 @@
 </span></span><span class="line"><span class="cl">sudo ufw allow ssh
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="获取服务器的ip地址">获取服务器的IP地址
-</h4><div class="highlight"><div class="chroma">
+</div><ol start="4">
+<li>获取服务器的IP地址</li>
+</ol>
+<div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
@@ -546,8 +540,10 @@
 </div>
 </div><p>找到类似 192.168.x.x 的局域网 IP 或公网 IP（如果适用）。</p>
 <h3 id="wsl系统">WSL系统
-</h3><h4 id="安装-openssh-server-1">安装 OpenSSH Server
-</h4><p>打开 WSL 中的 Ubuntu 终端，执行：</p>
+</h3><ol>
+<li>安装 OpenSSH Server
+打开 WSL 中的 Ubuntu 终端，执行：</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -558,8 +554,10 @@
 </span></span><span class="line"><span class="cl">sudo apt install openssh-server
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="配置-ssh-1">配置 SSH
-</h4><p>编辑配置文件：</p>
+</div><ol start="2">
+<li>配置 SSH
+编辑配置文件：</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -581,8 +579,10 @@
 </span></span><span class="line"><span class="cl">PermitRootLogin yes
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="启动-ssh-服务-1">启动 SSH 服务
-</h4><p>在 WSL 中，不能使用 systemctl，请使用：</p>
+</div><ol start="3">
+<li>启动 SSH 服务
+在 WSL 中，不能使用 systemctl，请使用：</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -609,8 +609,10 @@
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ps aux <span class="p">|</span> grep sshd
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="使用wsl的注意事项">使用WSL的注意事项
-</h4><p>WSL系统是Windows的子系统，在Windows开机时，WSL的ssh功能默认并不能开启，此时需要将WSL的ssh注册为系统服务实现Windows开机时启用WSL的ssh功能。</p>
+</div><ol start="4">
+<li>使用WSL的注意事项</li>
+</ol>
+<p>WSL系统是Windows的子系统，在Windows开机时，WSL的ssh功能默认并不能开启，此时需要将WSL的ssh注册为系统服务实现Windows开机时启用WSL的ssh功能。</p>
 <p>下面给出使用任务计划程序（无需第三方程序）的方法</p>
 <p>打开任务计划程序
 <code>Win+R</code> → <code>taskschd.msc</code></p>
@@ -621,6 +623,8 @@
 （或 <code>-d Ubuntu-22.04 true</code> 单纯启动实例）</p>
 <p>设置：勾选「允许任务按需运行」</p>
 <p>保存时输入管理员密码。重启测试即可。</p>
+<h3 id="termux">Termux
+</h3><p>参见：<a class="link" href="/p/termux/#termux%e5%90%af%e5%8a%a8ssh%e5%8a%9f%e8%83%bd" >Termux启动SSH功能</a></p>
 <h2 id="连接ssh">连接ssh
 </h2><p>在 Windows 本地测试：</p>
 <div class="highlight"><div class="chroma">
@@ -683,6 +687,124 @@
     
 
     
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/windows/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Windows系统安装与修复</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/minecraft-help/">
+        
+        
+            <div class="article-image">
+                <img src="/p/minecraft-help/minecraft.e527c59dae653086a9b4162f809a0f11_hu_9ac70657a63e5259.jpeg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Minecraft教程"
+                        data-key="minecraft-help" 
+                        data-hash="md5-5SfFna5lMIaptBYvgJoPEQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Minecraft教程</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/termux/">
+        
+        
+            <div class="article-image">
+                <img src="/p/termux/termux.ef9c8dc02981dfda7424f6d78125f014_hu_82cffd8a4244ea7f.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Termux使用小技巧"
+                        data-key="termux" 
+                        data-hash="md5-75yNwCmB39p0JPbXgSXwFA==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Termux使用小技巧</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/linux_help/">
+        
+        
+            <div class="article-image">
+                <img src="/p/linux_help/Linux-tips.85fd86c2433475c11b829eaf0d87d703_hu_4e669f737b95627f.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Linux系统小技巧"
+                        data-key="linux_help" 
+                        data-hash="md5-hf2GwkM0dcEbgp6vDYfXAw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Linux系统小技巧</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/git_help/">
+        
+        
+            <div class="article-image">
+                <img src="/p/git_help/git.061182848171c4951fbd88afb1628088_hu_f828319875602582.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post git帮助"
+                        data-key="git_help" 
+                        data-hash="md5-BhGChIFxxJUfvYivsWKAiA==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">git帮助</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
 
      
     

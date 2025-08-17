@@ -526,20 +526,26 @@
 </h3><p>局域网联机最简单，只需知道服务器运行的主机的IP地址即可。</p>
 <p>Windows平台：<code>win+r</code>打开cmd，输入<code>ipconfig</code>，查看Wifi（无线连接）或以太网（有线连接）下的IP地址。</p>
 <p>Linux平台：命令行输入 <code>ip a</code> 。</p>
+<details>
+    <summary>什么是局域网？</summary>
 <blockquote>
-<p><em>什么是局域网？</em></p>
-<p><em>通俗来说，通过同一个Wifi相连的设备都处于同一个局域网下。连接在同一个局域网下的设备，它们的设备IP地址仅最后一位不同。在同一个局域网下的设备可通过IP地址互相连接。</em></p></blockquote>
+<p>通俗来说，通过同一个Wifi相连的设备都处于同一个局域网下。连接在同一个局域网下的设备，它们的设备IP地址仅最后一位不同。在同一个局域网下的设备可通过IP地址互相连接。</p></blockquote>
+</details>
 <h3 id="内网穿透">内网穿透
 </h3><p>请在网络上自行查找相关内容。</p>
+<details>
+    <summary>什么是内网穿透？</summary>
 <blockquote>
-<p><em>什么是内网穿透？</em></p>
-<p><em>内网穿透是通过特定技术，将你的内网（如局域网）地址经服务器映射到公网上的过程。此时一个公网IP地址，如：<code>frp-xxx.com:xxxxx</code>就等同于你的局域网地址<code>192.168.x.x</code>。</em></p></blockquote>
+<p>内网穿透是通过特定技术，将你的内网（如局域网）地址经服务器映射到公网上的过程。此时一个公网IP地址，如：<code>frp-xxx.com:xxxxx</code>就等同于你的局域网地址<code>192.168.x.x</code>。</p></blockquote>
+</details>
 <h3 id="ipv6连接">IPV6连接
 </h3><p>这是目前成本最低，效果最好的连接方式。</p>
 <p>首先必须确保你和你的伙伴都有IPV6访问，然后<code>win+r</code>打开cmd，输入<code>ipconfig</code>，这时应该可以看到一串<code>240e:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx</code>（必须为<code>240e</code>开头，这样才是公网IPV6），这时<code>[IPV6地址]:端口号</code>的形式就是服务器的IP地址。</p>
+<details>
+    <summary>什么是IPV6？</summary>
 <blockquote>
-<p><em>什么是IPV6？</em></p>
-<p><em>目前IP技术分为IPV4和IPV6两种。IPV4地址为12个十进制数，每3个数字用&quot; : &ldquo;隔开；IPV6地址为28个16进制数，每4个数字用&rdquo; : &ldquo;隔开。由此可见，IPV6地址比IPV4多得多，所以每个IPV6地址都可以作为公网使用。</em></p></blockquote>
+<p>目前IP技术分为IPV4和IPV6两种。IPV4地址为12个十进制数，每3个数字用&quot; : &ldquo;隔开；IPV6地址为28个16进制数，每4个数字用&rdquo; : &ldquo;隔开。由此可见，IPV6地址比IPV4多得多，所以每个IPV6地址都可以作为公网使用。</p></blockquote>
+</details>
 <h2 id="服务器进阶">服务器进阶
 </h2><h3 id="修改服务器配置">修改服务器配置
 </h3><p>依据服务端核心的不同，修改方法也有所区别。</p>
@@ -716,7 +722,7 @@
         
         
             <div class="article-image">
-                <img src="/p/minecraft-help/minecraft.e527c59dae653086a9b4162f809a0f11_hu_9ac70657a63e5259.jpg" 
+                <img src="/p/minecraft-help/minecraft.e527c59dae653086a9b4162f809a0f11_hu_9ac70657a63e5259.jpeg" 
                         width="250" 
                         height="150" 
                         loading="lazy"

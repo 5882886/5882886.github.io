@@ -26,16 +26,19 @@
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# H1
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;## H2
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;### H3
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;#### H4
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;##### H5
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;###### H6
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-md&#34; data-lang=&#34;md&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gh&#34;&gt;# H1
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gh&#34;&gt;&lt;/span&gt;&lt;span class=&#34;gu&#34;&gt;## H2
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gu&#34;&gt;### H3
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gu&#34;&gt;#### H4
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gu&#34;&gt;##### H5
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gu&#34;&gt;###### H6
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h2 id=&#34;文本类型&#34;&gt;文本类型
-&lt;/h2&gt;&lt;h3 id=&#34;下划线&#34;&gt;下划线
+&lt;/h2&gt;&lt;h3 id=&#34;加粗与斜体&#34;&gt;加粗与斜体
+&lt;/h3&gt;&lt;p&gt;加粗：&lt;code&gt;**文本**&lt;/code&gt; → &lt;strong&gt;文本&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;斜体：&lt;code&gt;*文本*&lt;/code&gt; → &lt;em&gt;文本&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&#34;下划线&#34;&gt;下划线
 &lt;/h3&gt;&lt;p&gt;&lt;code&gt;&amp;lt;span style=&amp;quot;text-decoration: wavy underline;&amp;quot;&amp;gt; 天津大学是中国第一所现代大学。 &amp;lt;/span&amp;gt;&lt;/code&gt; → &lt;span style=&#34;text-decoration: wavy underline;&#34;&gt; 天津大学是中国第一所现代大学。 &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;&amp;lt;u&amp;gt; 2025年将迎来天津大学130周年校庆。 &amp;lt;/u&amp;gt;&lt;/code&gt; → &lt;u&gt; 2025年将迎来天津大学130周年校庆。 &lt;/u&gt;&lt;/p&gt;
 &lt;h3 id=&#34;上下标&#34;&gt;上下标
@@ -48,15 +51,25 @@
 &lt;/h2&gt;&lt;h3 id=&#34;普通段落&#34;&gt;普通段落
 &lt;/h3&gt;&lt;p&gt;马克思主义者认为，只有人们的社会实践，才是人们对于外界认识真理性的标准。实际的情形是这样的，只有在社会实践过程中（物质生产过程中，阶级斗争过程中，科学实验过程中），人们达到了思想中所预想的结果时，人们的认识才被证实了。人们要想得到工作的胜利即得到预想的结果，一定要使自己的思想合于客观外界的规律性，如果不合，就会在实践中失败。人们经过失败之后，也就从失败取得教训，改正自己的思想使之适合于外界的规律性，人们就能变失败为胜利，所谓“失败是成功之母”，“吃一堑长一智”，就是这个道理。&lt;/p&gt;
 &lt;h3 id=&#34;段落类型&#34;&gt;段落类型
-&lt;/h3&gt;&lt;p&gt;首行缩进：&lt;code&gt;&amp;lt;p style=&amp;quot;text-indent: 2em;margin-top: 0;margin-bottom: 0;&amp;quot;&amp;gt; 文本 &amp;lt;/p&amp;gt;&lt;/code&gt;，其中&lt;code&gt;margin-top: 0&lt;/code&gt;表示忽略段前空行，&lt;code&gt;margin-bottom: 0&lt;/code&gt;表示忽略段后空行。&lt;/p&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;首行缩进：&lt;code&gt;&amp;lt;p style=&amp;quot;text-indent: 2em;margin-top: 0;margin-bottom: 0;&amp;quot;&amp;gt; 文本 &amp;lt;/p&amp;gt;&lt;/code&gt;，其中&lt;code&gt;margin-top: 0&lt;/code&gt;表示忽略段前空行，&lt;code&gt;margin-bottom: 0&lt;/code&gt;表示忽略段后空行。&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;示例：&lt;/p&gt;
 &lt;p style=&#34;text-indent: 2em;margin-top: 0;margin-bottom: 0;&#34;&gt; 君子曰：学不可以已。 &lt;/p&gt;
 &lt;p style=&#34;text-indent: 2em;margin-top: 0;margin-bottom: 0;&#34;&gt;青，取之于蓝而青于蓝；冰，水为之而寒于水。木直中绳，輮以为轮，其曲中规。虽有槁暴，不复挺者，輮使之然也。故木受绳则直，金就砺则利，君子博学而日参省乎己，则知明而行无过矣。 &lt;/p&gt;
 &lt;p style=&#34;text-indent: 2em;margin-top: 0;margin-bottom: 0;&#34;&gt;吾尝终日而思矣，不如须臾之所学也；吾尝跂而望矣，不如登高之博见也。登高而招，臂非加长也，而见者远；顺风而呼，声非加疾也，而闻者彰。假舆马者，非利足也，而致千里；假舟楫者，非能水也，而绝江河。君子生非异也，善假于物也。&lt;/p&gt;
 &lt;p style=&#34;text-indent: 2em;margin-top: 0;margin-bottom: 0;&#34;&gt;积土成山，风雨兴焉；积水成渊，蛟龙生焉；积善成德，而神明自得，圣心备焉。故不积跬步，无以至千里；不积小流，无以成江海。骐骥一跃，不能十步；驽马十驾，功在不舍。锲而舍之，朽木不折；锲而不舍，金石可镂。蚓无爪牙之利，筋骨之强，上食埃土，下饮黄泉，用心一也。蟹六跪而二螯，非蛇鳝之穴无可寄托者，用心躁也。&lt;/p&gt;
-&lt;p&gt;居中：&lt;code&gt;&amp;lt;div style=&amp;quot;text-align: center;&amp;quot;&amp;gt; 文本 &amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;居中：&lt;code&gt;&amp;lt;div style=&amp;quot;text-align: center;&amp;quot;&amp;gt; 文本 &amp;lt;/div&amp;gt;&lt;/code&gt;或&lt;code&gt;&amp;lt;center&amp;gt; 文本 &amp;lt;/center&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
 &lt;p&gt;左对齐：默认&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
 &lt;p&gt;右对齐：&lt;code&gt;&amp;lt;div style=&amp;quot;text-align: right;&amp;quot;&amp;gt; 文本 &amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;引用&#34;&gt;引用
 &lt;/h2&gt;&lt;p&gt;引用元素表示从另一个来源引用的内容，可以选择引用必须在&lt;code&gt;footer&lt;/code&gt;或&lt;code&gt;cite&lt;/code&gt;元素内，也可以选择内联更改，如注释和缩写。&lt;/p&gt;
 &lt;h3 id=&#34;不含注解的引用&#34;&gt;不含注解的引用
@@ -222,9 +235,9 @@
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;1. 项目一
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;2. 项目二
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;3. 项目三
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-md&#34; data-lang=&#34;md&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;1.&lt;/span&gt; 项目一
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;2.&lt;/span&gt; 项目二
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;3.&lt;/span&gt; 项目三
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;效果：&lt;/p&gt;
@@ -241,9 +254,9 @@
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;* 项目
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;* 另一个项目
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;* 再一个项目
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-md&#34; data-lang=&#34;md&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;*&lt;/span&gt; 项目
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;*&lt;/span&gt; 另一个项目
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;*&lt;/span&gt; 再一个项目
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;效果：&lt;/p&gt;
@@ -264,13 +277,13 @@
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;* Fruit
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  * Apple
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  * Orange
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  * Banana
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;* Dairy
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  * Milk
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  * Cheese
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-md&#34; data-lang=&#34;md&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;*&lt;/span&gt; Fruit
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;*&lt;/span&gt; Apple
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;*&lt;/span&gt; Orange
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;*&lt;/span&gt; Banana
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;*&lt;/span&gt; Dairy
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;*&lt;/span&gt; Milk
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;*&lt;/span&gt; Cheese
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;效果：&lt;/p&gt;
@@ -289,24 +302,367 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;其他&#34;&gt;其他
+&lt;h2 id=&#34;在markdown中使用tex&#34;&gt;在Markdown中使用Tex
+&lt;/h2&gt;&lt;p&gt;在Markdown文件中，Tex文本须使用&lt;code&gt;$…$&lt;/code&gt;（行内文本）或&lt;code&gt;$$…$$&lt;/code&gt;（行间文本）包裹.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意：若要在行内文本中显示行间文本的样式，须加上&lt;code&gt;\displaystyle&lt;/code&gt;.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;数学符号&#34;&gt;数学符号
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;符号&lt;/th&gt;
+          &lt;th&gt;语法&lt;/th&gt;
+          &lt;th&gt;示例&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;点乘&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\cdot&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$A \cdot B$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;叉乘&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\times&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$ A \times B $&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;角&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\angle&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\angle ABC $&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;三角形&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\triangle&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\triangle ABC $&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;向量&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\overrightarrow{}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\overrightarrow{AB}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;推出&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Rightarrow&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$A \Rightarrow B$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;等价于&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Leftrightarrow&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$ A \Leftrightarrow B $&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;粗体&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\boldsymbol{}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\boldsymbol{a}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;正体&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\mathrm{}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\mathrm{d}x$&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;字母&lt;/th&gt;
+          &lt;th&gt;LaTeX 命令&lt;/th&gt;
+          &lt;th&gt;字母&lt;/th&gt;
+          &lt;th&gt;LaTeX 命令&lt;/th&gt;
+          &lt;th&gt;字母&lt;/th&gt;
+          &lt;th&gt;LaTeX 命令&lt;/th&gt;
+          &lt;th&gt;字母&lt;/th&gt;
+          &lt;th&gt;LaTeX 命令&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;α&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\alpha&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;ν&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\nu&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Α&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Alpha&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Ν&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Nu&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;β&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\beta&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;ξ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\xi&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Β&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Beta&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Ξ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Xi&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;γ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\gamma&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;ο&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\omicron&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Γ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Gamma&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Ο&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Omicron&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;δ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\delta&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;π&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\pi&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Δ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Delta&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Π&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Pi&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;ε&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\epsilon&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;ρ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\rho&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Ε&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Epsilon&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Ρ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Rho&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;ζ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\zeta&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;σ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\sigma&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Ζ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Zeta&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Σ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Sigma&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;η&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\eta&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;τ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\tau&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Η&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Eta&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Τ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Tau&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;θ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\theta&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;υ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\upsilon&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Θ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Theta&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Υ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Upsilon&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;ι&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\iota&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;φ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\phi&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Ι&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Iota&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Φ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Phi&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;κ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\kappa&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;χ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\chi&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Κ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Kappa&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Χ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Chi&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;λ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\lambda&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;ψ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\psi&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Λ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Lambda&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Ψ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Psi&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;μ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\mu&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;ω&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\omega&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Μ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Mu&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Ω&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Omega&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;公式&lt;/th&gt;
+          &lt;th&gt;语法&lt;/th&gt;
+          &lt;th&gt;示例&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;分式&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\frac{a}{b}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \frac{a}{b}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;幂&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;a^{m}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$ a^{m} $&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;根式&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\sqrt{2}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\sqrt{2}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;高次根式&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\sqrt[n]{m}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\sqrt[n]{m}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;下标&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;a_{n}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$ a_{n} $&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;方程组&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\left\{ \begin{array}{c}  \end{array} \right.&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$$\left\{ \begin{array}{c} F(x,y,u,v) = 0 \\ G(x,y,u,v) = 0 \end{array} \right.$$&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;导数与微分&#34;&gt;导数与微分
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;公式&lt;/th&gt;
+          &lt;th&gt;语法&lt;/th&gt;
+          &lt;th&gt;示例&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;极限&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\lim_{x \to 0}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \lim_{x \to 0}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;二重极限&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\lim_{\substack{\Delta x \to 0 \\ \Delta y \to 0}}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$$\lim_{\substack{\Delta x \to 0 \\ \Delta y \to 0}} f(x,y)$$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;导数&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;f \&#39;(x)&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$ f&#39;(x) $&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\frac{\mathrm{d}y}{\mathrm{d}x}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \frac{\mathrm{d}y}{\mathrm{d}x} $&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;高阶导数&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;f^{(n)}(x)&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$f^{(n)}(x)$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;偏导&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\partial&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \frac{\partial z}{\partial x}$&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;求和与积分&#34;&gt;求和与积分
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;公式&lt;/th&gt;
+          &lt;th&gt;语法&lt;/th&gt;
+          &lt;th&gt;示例&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;求和&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\sum_{i=0}^{n} a_{i}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \sum_{i=0}^{n} a_{i}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;求积&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\prod_{i=0}^{n} a^{i}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \prod_{i=0}^{n} a^{i} $&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;积分&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\int_{a}^{b} f(x) \mathrm{d}x&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \int_{a}^{b} f(x) \mathrm{d}x$&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;行列式与矩阵&#34;&gt;行列式与矩阵
+&lt;/h3&gt;&lt;h3 id=&#34;在等号处对齐&#34;&gt;在等号处对齐
+&lt;/h3&gt;&lt;p&gt;使用&lt;code&gt;{align*}&lt;/code&gt;环境，在每一行公式后加上&lt;code&gt;\\&lt;/code&gt;；在要对齐的等号前加上&lt;code&gt;&amp;amp;&lt;/code&gt;。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-tex&#34; data-lang=&#34;tex&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sb&#34;&gt;$$&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;\begin&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;{align&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;} 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;x_&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;x_&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt; &amp;amp;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;\frac&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;\sqrt&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;{b^{&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;ac}}{&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;a} &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;\frac&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;\sqrt&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;{b^{&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;ac}}{&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;a} &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;\\&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt; &amp;amp;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;\frac&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;{b}{a}
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;\end&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;{align&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;$$&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;效果：&lt;/p&gt;
+$$ \begin{align*} x_1+x_2 &amp;= \frac{-b+\sqrt{b^{2}-4ac}}{2a} + \frac{-b-\sqrt{b^{2}-4ac}}{2a} \\ &amp;= -\frac{b}{a} \end{align*}$$&lt;h2 id=&#34;其他&#34;&gt;其他
 &lt;/h2&gt;&lt;h3 id=&#34;隐藏内容&#34;&gt;隐藏内容
-&lt;/h3&gt;&lt;details&gt;
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;details&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;summary&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;点击展开隐藏内容&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;summary&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;隐藏内容
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;details&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;效果：&lt;/p&gt;
+&lt;details&gt;
       &lt;summary&gt;点击展开隐藏内容&lt;/summary&gt;
 &lt;p&gt;隐藏内容&lt;/p&gt;
 &lt;/details&gt;
 &lt;h2 id=&#34;参考资料&#34;&gt;参考资料
-&lt;/h2&gt;&lt;p&gt;&lt;code&gt;[![Zhisuan_Eleven](https://github.com/5882886/My-Minecraft-Sever/blob/main/icon.jpg)](https://github.com/5882886/My-Minecraft-Sever)&lt;/code&gt; → &lt;a class=&#34;link&#34; href=&#34;https://github.com/5882886/My-Minecraft-Sever&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;&lt;img src=&#34;https://github.com/5882886/My-Minecraft-Sever/blob/main/icon.jpg&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;Zhisuan_Eleven&#34;
-	
-	
-&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[图片文件](网址) 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;→ &lt;a class=&#34;link&#34; href=&#34;https://github.com/5882886/My-Minecraft-Sever&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;img src=&#34;https://github.564456.xyz/https://raw.githubusercontent.com/5882886/My-Minecraft-Sever/refs/heads/main/icon.jpg&#34; width=&#34;40&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
 &lt;hr&gt;
 &lt;ol&gt;

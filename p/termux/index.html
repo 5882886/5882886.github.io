@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="在Android上启动Linux">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="在Android系统上启动Linux虚拟机">
 <title>Termux使用小技巧</title>
 
 <link rel='canonical' href='https://5882886.github.io/p/termux/'>
 
 <link rel="stylesheet" href="/scss/style.min.946cca6c6259ef94ac55abfae7c7bf3291ea3ed5eea17ef77500b257217c6710.css"><meta property='og:title' content="Termux使用小技巧">
-<meta property='og:description' content="在Android上启动Linux">
+<meta property='og:description' content="在Android系统上启动Linux虚拟机">
 <meta property='og:url' content='https://5882886.github.io/p/termux/'>
 <meta property='og:site_name' content='RunicDolphin806的博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-08-10T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-08-10T00:00:00&#43;00:00'/><meta property='og:image' content='https://5882886.github.io/p/termux/termux.png' />
 <meta name="twitter:title" content="Termux使用小技巧">
-<meta name="twitter:description" content="在Android上启动Linux"><meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="在Android系统上启动Linux虚拟机"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://5882886.github.io/p/termux/termux.png' />
     <link rel="shortcut icon" href="/favicon.ico" />
 
@@ -294,9 +294,11 @@
     <li><a href="#termux简介">Termux简介</a></li>
     <li><a href="#termux下载linux发行版">Termux下载Linux发行版</a>
       <ol>
-        <li><a href="#使用tmoe工具">使用TMOE工具</a></li>
+        <li><a href="#方法1使用tmoe工具">方法1：使用TMOE工具</a></li>
+        <li><a href="#方法2古法装机">方法2：古法装机</a></li>
       </ol>
     </li>
+    <li><a href="#termux启动ssh功能">Termux启动SSH功能</a></li>
   </ol>
 </nav>
         </div>
@@ -331,6 +333,10 @@
                 Linux
             </a>
         
+            <a href="/categories/guide/" style="background-color: #1117d0ff; color: #fff;">
+                教程
+            </a>
+        
     </header>
     
 
@@ -341,7 +347,7 @@
     
         
         <h3 class="article-subtitle">
-            在Android上启动Linux
+            在Android系统上启动Linux虚拟机
         </h3>
         
     </div>
@@ -377,7 +383,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 1 分钟
+                    阅读时长: 2 分钟
                 </time>
             </div>
         
@@ -393,9 +399,11 @@
     
     
     <h2 id="termux简介">Termux简介
-</h2><h2 id="termux下载linux发行版">Termux下载Linux发行版
-</h2><h3 id="使用tmoe工具">使用TMOE工具
-</h3><ol>
+</h2><p>Termux是Android系统上的Linux终端模拟器，能够让用户在未获取root权限的情况下运行Linux虚拟机，并可以安装多个Linux发行版。</p>
+<h2 id="termux下载linux发行版">Termux下载Linux发行版
+</h2><h3 id="方法1使用tmoe工具">方法1：使用TMOE工具
+</h3><p>TMOE是GitHub的2moe大佬制作的容器一键安装脚本（目前不再更新，但仍可继续使用，最新支持Ubuntu 24.04 (LTS) 和Debian 13）</p>
+<ol>
 <li>
 <p>输入<code>curl -LO https://gitee.com/mo2/linux/raw/2/2.awk &amp;&amp; awk -f 2.awk</code>下载TMOE工具，之后默认全输入<code>Y</code>。</p>
 </li>
@@ -403,23 +411,91 @@
 <p>在语言选择界面使用小键盘的“↑”、“↓”键选择所需语言。</p>
 </li>
 </ol>
-<p><img src="/p/termux/tmoe-language.jpg"
-	width="1080"
-	height="1094"
-	srcset="/p/termux/tmoe-language_hu_3f2a272539edffb0.jpg 480w, /p/termux/tmoe-language_hu_95857e98ceccfb3.jpg 1024w"
-	loading="lazy"
-	
-		alt="tmoe语言选择"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="98"
-		data-flex-basis="236px"
-	
-></p>
+<center><img src="tmoe-language.jpg" width="400"></center>
 <ol start="3">
 <li>选择第一个proot容器，模拟root环境，按回车继续。</li>
 </ol>
+<center><img src="tmoe-proot.jpeg" width="400"></center>
+<ol start="4">
+<li>
+<p>选择终端配色和字体，看个人喜好。</p>
+</li>
+<li>
+<p>是否创建<code>termux.properties</code>，看个人喜好。</p>
+</li>
+<li>
+<p>选择DNS解析地址，建议选择阿里（Ali）</p>
+</li>
+</ol>
+<center><img src="tmoe-dns.jpeg" width="400"></center>
+<ol start="7">
+<li>是否需要启用“一言”，看个人喜好。</li>
+</ol>
+<blockquote>
+<p>启用“一言”可以让终端界面出现颜文字、古诗句、名言警句等，很有意思，建议开启。</p></blockquote>
+<ol start="8">
+<li>
+<p>选择时区，默认选“Yes”。</p>
+</li>
+<li>
+<p>选择共享sd目录，这个需要慎重考虑，它关系到你的Linux发行版的用户文件目录。尽量不要共享整个sd目录，建议选择自定义路径。</p>
+</li>
+</ol>
+<center><img src="tmoe-sd.jpeg" width="400"></center>
+<ol start="10">
+<li>选择共享Home目录，选择默认选项。</li>
+</ol>
+<p>到此为止，TMOE的配置工作全部结束，接下来就可以安装自己喜欢的Linux发行版了。</p>
+<h3 id="方法2古法装机">方法2：古法装机
+</h3><h2 id="termux启动ssh功能">Termux启动SSH功能
+</h2><p>Termux配置SSH功能后，可以搭配Serverbox软件实现监测Android系统运行状态的功能，还是挺有用的。</p>
+<ol>
+<li>安装并启动 SSH 服务
+打开 Termux，依次执行以下命令：</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pkg update <span class="o">&amp;&amp;</span> pkg upgrade -y    <span class="c1"># 更新软件包列表</span>
+</span></span><span class="line"><span class="cl">pkg install openssh -y          <span class="c1"># 安装 OpenSSH</span>
+</span></span><span class="line"><span class="cl">sshd                            <span class="c1"># 启动 SSH 服务（默认端口为 8022）</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>注意：Termux 的 SSH 服务默认监听端口是 8022，不是常见的 22。</p></blockquote>
+<ol start="2">
+<li>查看用户名和 IP 地址</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">whoami      <span class="c1"># 查看用户名（后续连接用）</span>
+</span></span><span class="line"><span class="cl">ifconfig        <span class="c1"># 查看本机 IP 地址（需在局域网内）</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>记下类似 192.168.x.x 的 IP 地址和用户名（如 u0_a123）。</p>
+<ol start="3">
+<li>设置登录密码（可选）</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">passwd
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>输入两次密码即可设置完成。</p>
+<blockquote>
+<p>Termux 默认仅支持密钥登录，密码登录需额外配置。</p></blockquote>
+<p>接下来就可以使用SSH连接工具连接Termux了。</p>
 
 </section>
 
@@ -473,6 +549,91 @@
 
         <div class="article-details">
             <h2 class="article-title">Linux系统小技巧</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/windows/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Windows系统安装与修复</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/minecraft-help/">
+        
+        
+            <div class="article-image">
+                <img src="/p/minecraft-help/minecraft.e527c59dae653086a9b4162f809a0f11_hu_9ac70657a63e5259.jpeg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Minecraft教程"
+                        data-key="minecraft-help" 
+                        data-hash="md5-5SfFna5lMIaptBYvgJoPEQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Minecraft教程</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/git_help/">
+        
+        
+            <div class="article-image">
+                <img src="/p/git_help/git.061182848171c4951fbd88afb1628088_hu_f828319875602582.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post git帮助"
+                        data-key="git_help" 
+                        data-hash="md5-BhGChIFxxJUfvYivsWKAiA==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">git帮助</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/website/">
+        
+        
+            <div class="article-image">
+                <img src="/p/website/Hugo.12632854668e7159c4501891346184b7_hu_8fd9f38fb9bdc44d.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 使用Hugo搭建网站"
+                        data-key="website" 
+                        data-hash="md5-EmMoVGaOcVnEUBiRNGGEtw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">使用Hugo搭建网站</h2>
         </div>
     </a>
 </article>

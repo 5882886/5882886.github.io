@@ -1,0 +1,2327 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>教程 on RunicDolphin806的博客</title>
+        <link>https://5882886.github.io/categories/guide/</link>
+        <description>Recent content in 教程 on RunicDolphin806的博客</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>RunicDolphin806</copyright>
+        <lastBuildDate>Sun, 17 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://5882886.github.io/categories/guide/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Windows系统安装与修复</title>
+        <link>https://5882886.github.io/p/windows/</link>
+        <pubDate>Sun, 17 Aug 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://5882886.github.io/p/windows/</guid>
+        <description>&lt;h2 id=&#34;系统直接安装到u盘&#34;&gt;系统直接安装到U盘
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;在微软官网找到&lt;a class=&#34;link&#34; href=&#34;https://www.microsoft.com/zh-cn/software-download&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Windows系统下载&lt;/a&gt;，选择需要安装的系统。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;准备一个U盘（容量大于8GB），并插入电脑。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;选择“创建Windows10安装媒体”，点击立即下载，将下载启动文件。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;打开启动文件，同意用户协议后，选择“直接安装到U盘”，再选择安装位置，等待系统安装完成。这时系统就在U盘中，可直接启动。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意：安装到U盘会将U盘格式化。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;下载系统镜像&#34;&gt;下载系统镜像
+&lt;/h2&gt;&lt;p&gt;在上述方法的第4步，选择“下载系统镜像”，即可下载系统镜像文件。这样U盘不会格式化，仍可以储存其他文件。&lt;/p&gt;
+&lt;p&gt;系统镜像文件不是完整系统，从U盘启动时需要等待安装完成才可使用。&lt;/p&gt;
+&lt;h2 id=&#34;微pe工具箱&#34;&gt;微PE工具箱
+&lt;/h2&gt;&lt;p&gt;若只是进行系统修复而不需要重装系统，可选择使用PE系统U盘。这里推荐使用“微PE工具箱”。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;在&lt;a class=&#34;link&#34; href=&#34;https://www.wepe.com.cn/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;微PE工具箱官网&lt;/a&gt;下载微PE工具箱。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;准备一个U盘（容量大于8GB），并插入电脑。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;打开微PE工具箱，选择右下角的安装到U盘，将打开设置界面。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;center&gt;&lt;img src=&#34;WePE.png&#34; width=&#34;400&#34;&gt;&lt;/center&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“格式化”如果勾选，则U盘会格式化。&lt;/p&gt;
+&lt;p&gt;“U盘卷标”表示安装后U盘的名称。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;设置完成后点击安装，等待片刻后PE系统就会安装到U盘中。此时查看“此电脑”，通常会出现一个“EFI”和另一个空盘。“EFI”盘是PE系统，另一个空盘可以作为普通U盘使用，可以储存系统镜像文件。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;参考视频：&lt;/p&gt;
+&lt;p&gt;安装系统&lt;/p&gt;
+
+
+
+
+
+
+    
+
+
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;iframe src=&#34;https://player.bilibili.com/player.html?as_wide=1&amp;amp;high_quality=1&amp;amp;page=1&amp;bvid=BV1DJ411D79y&#34;
+            scrolling=&#34;no&#34;
+            frameborder=&#34;no&#34;
+            framespacing=&#34;0&#34;
+            allowfullscreen=&#34;true&#34;
+    &gt;
+    &lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;微PE&lt;/p&gt;
+
+
+
+
+
+
+    
+
+
+&lt;div class=&#34;video-wrapper&#34;&gt;
+    &lt;iframe src=&#34;https://player.bilibili.com/player.html?as_wide=1&amp;amp;high_quality=1&amp;amp;page=2&amp;bvid=BV1DJ411D79y&#34;
+            scrolling=&#34;no&#34;
+            frameborder=&#34;no&#34;
+            framespacing=&#34;0&#34;
+            allowfullscreen=&#34;true&#34;
+    &gt;
+    &lt;/iframe&gt;
+&lt;/div&gt;
+
+</description>
+        </item>
+        <item>
+        <title>Minecraft教程</title>
+        <link>https://5882886.github.io/p/minecraft-help/</link>
+        <pubDate>Sun, 10 Aug 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://5882886.github.io/p/minecraft-help/</guid>
+        <description>&lt;img src="https://5882886.github.io/p/minecraft-help/minecraft.jpeg" alt="Featured image of post Minecraft教程" /&gt;&lt;h2 id=&#34;认识minecraft&#34;&gt;认识Minecraft
+&lt;/h2&gt;&lt;p&gt;Minecraft（简称MC），作为全球销量第一的游戏，深受众多玩家喜爱。&lt;/p&gt;
+&lt;p&gt;MC分为Java版、基岩版、主机板（Xbox版）和网易版。&lt;/p&gt;
+&lt;h2 id=&#34;下载minecraft&#34;&gt;下载Minecraft
+&lt;/h2&gt;&lt;h3 id=&#34;正版和离线版&#34;&gt;正版和离线版
+&lt;/h3&gt;&lt;p&gt;MC的正版与否取决于你的微软账号上有没有MC。换句话说，无论是否购买正版，你都可以下载到MC的游戏文件并启动游玩。唯一的区别在于非正版玩家无法进入开启了正版验证的服务器，因此MC中的“非正版”也被称之为“离线版”。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;离线版依然可以进入未开启正版验证的服务器&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;mc-java版启动器&#34;&gt;MC Java版启动器
+&lt;/h3&gt;&lt;p&gt;MC Java版本身没有.exe之类的文件，必须得有一个启动程序才能运行。&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;启动器&lt;/th&gt;
+          &lt;th&gt;支持系统&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Minecraft Launcher （官方启动器）&lt;/td&gt;
+          &lt;td&gt;Windows/MacOS&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Plain Craft Launcher 2（PCL2）&lt;/td&gt;
+          &lt;td&gt;Windows&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Hello Minecraft Launcher （HMCL）&lt;/td&gt;
+          &lt;td&gt;Windows/Linux&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;也有部分发烧友喜欢在手机等Android平台上启动MC Java版。Android平台目前流行的启动器主要是Fold Craft Launcher和ZalitLauncher&lt;/p&gt;
+&lt;p&gt;注意：千万不要指望Android平台上MC Java版的表现和Windows系统的一样。&lt;/p&gt;
+&lt;p&gt;启动器的原理就是整合了启动游戏核心 &lt;code&gt;.jar&lt;/code&gt;文件的功能。因此如果愿意，也可以使用IntelliJ IDEA启动。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;mc基岩版&#34;&gt;MC基岩版
+&lt;/h3&gt;&lt;p&gt;MC基岩版则相对简单很多。只需要在相应的平台里下载MC基岩版即可。&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;平台&lt;/th&gt;
+          &lt;th&gt;下载地点&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Windows&lt;/td&gt;
+          &lt;td&gt;Microsoft Store&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Android&lt;/td&gt;
+          &lt;td&gt;Google Play&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;iOS&lt;/td&gt;
+          &lt;td&gt;Apple Store&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;鉴于国内通常无法打开Google网站，如果想体验Minecraft基岩版，可以在&lt;a class=&#34;link&#34; href=&#34;https://klpbbs.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;苦力怕论坛&lt;/a&gt;下载。需注意，论坛中下载的并非正版，请于下载体验后24小时内删除！&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;minecraft-java版进阶&#34;&gt;Minecraft Java版进阶
+&lt;/h2&gt;&lt;h3 id=&#34;java版游戏文件&#34;&gt;Java版游戏文件
+&lt;/h3&gt;&lt;p&gt;Minecraft Java版对玩家文件管理的要求较高，因此需先了解其文件结构。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;- .minecraft        # 游戏总文件
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|- assets           # 游戏资源文件夹
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|- global           # 全局配置
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|- libraries        # 加载库文件
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|- versions         # 版本文件夹（开启版本隔离后生效）
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|- …
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;其中&lt;code&gt;versions&lt;/code&gt;文件夹是我们进行操作的主要场所。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;版本隔离&lt;/p&gt;
+&lt;p&gt;版本隔离是MC Java版独特的功能，它使得每个Java游戏版本都相互独立，互不影响。注意：版本隔离选项默认是关闭的，第一次使用应当在启动器设置内将“版本隔离”设置成“各版本相互独立”。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;安装mod&#34;&gt;安装MOD
+&lt;/h3&gt;&lt;p&gt;Java版的优势之一就是能方便自由地安装mod、材质和光影等。&lt;/p&gt;
+&lt;p&gt;安装mod的前提是安装mod加载器，这是绝大多数mod的加载环境。&lt;/p&gt;
+&lt;p&gt;常用mod加载器如下：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;名称&lt;/th&gt;
+          &lt;th&gt;版本支持&lt;/th&gt;
+          &lt;th&gt;特点&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Forge&lt;/td&gt;
+          &lt;td&gt;1.5.2 - 最新&lt;/td&gt;
+          &lt;td&gt;最流行，支持大量模组&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Fabric&lt;/td&gt;
+          &lt;td&gt;1.14 - 最新&lt;/td&gt;
+          &lt;td&gt;轻量加载器，提供快照版本&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;NeoForge&lt;/td&gt;
+          &lt;td&gt;1.20.1 - 最新&lt;/td&gt;
+          &lt;td&gt;新兴加载器，由Forge发展而来，极具潜力&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;以上加载器互不兼容，只能选择其一。&lt;/p&gt;
+&lt;h4 id=&#34;启动器内安装&#34;&gt;启动器内安装
+&lt;/h4&gt;&lt;p&gt;PCL2、HMCL等第三方启动器内置了mod加载器下载方式，在安装新版本时即可选择是否安装mod加载器。&lt;/p&gt;
+&lt;h4 id=&#34;通用安装方法&#34;&gt;通用安装方法
+&lt;/h4&gt;&lt;p&gt;在mod加载器相应的官网下载文件，并按说明安装。&lt;/p&gt;
+&lt;p&gt;以Forge为例进行说明：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;进入&lt;a class=&#34;link&#34; href=&#34;https://files.minecraftforge.net/net/minecraftforge/forge/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Forge官网&lt;/a&gt;，选择需要下载的MC版本。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;点击Installer，此时将跳转到广告界面。若你的网络状况较好，应当会在界面右上角出现“SKIP”按钮，点击“SKIP”即可下载Forge文件。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;定位到文件所在位置，双击打开&lt;code&gt;.jar&lt;/code&gt;文件，稍等一会儿就会打开安装界面，选择“Install client”，再选择安装位置，点击确定即可安装成功。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;center&gt;&lt;img src=&#34;forge.png&#34; width=&#34;500&#34; alt=&#34;Forge&#34;&gt;&lt;/center&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;此时打开启动器，应当能在版本列表中看到刚安装的Forge版本。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;常见问题&#34;&gt;常见问题
+&lt;/h2&gt;&lt;h3 id=&#34;微软账号无法登录&#34;&gt;微软账号无法登录
+&lt;/h3&gt;&lt;p&gt;有时网络运营商的 DNS 可能无法很好地解析微软的验证服务器地址，导致微软账号的登录界面无法进入，无法与小伙伴愉快游玩Hypixel。解决方法为更换更可靠的公共 DNS。&lt;/p&gt;
+&lt;p&gt;进入 设置 &amp;gt; 网络和 Internet，点击正在连接的 Wi-Fi 或以太网的 “属性”。&lt;/p&gt;
+&lt;p&gt;找到 “DNS 服务器分配”，点击“编辑”。&lt;/p&gt;
+&lt;p&gt;将其更改为“手动”，然后打开 IPv4 开关。在“首选 DNS”中输入 8.8.8.8，在“备用 DNS”中输入 8.8.4.4。（这是 Google 的公共 DNS，非常稳定）。&lt;/p&gt;
+&lt;p&gt;保存设置，重新登录。&lt;/p&gt;
+&lt;p&gt;以上解决办法来源&lt;a class=&#34;link&#34; href=&#34;https://learn.microsoft.com/zh-cn/answers/questions/4373928/microsoft-store-mc-minecraft&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;此处&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;链接网站&#34;&gt;链接网站
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.mcmod.cn/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;MC百科&lt;/a&gt;：下载MC Java版mod，整合包等资源。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://klpbbs.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;苦力怕论坛&lt;/a&gt;：下载MC基岩版资源包、行为包、材质、光影、地图等。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://littleskin.cn/?lang=zh_CN&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;LittleSkin皮肤站&lt;/a&gt;：托管MC皮肤文件。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.xbox.com/zh-CN/games/store/minecraft-java-bedrock-edition-for-pc/9nxp44l49shj?ocid=storeforweb&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Minecraft捆绑包商店&lt;/a&gt;：购买Minecraft正版。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://modrinth.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Modrinth&lt;/a&gt;：下载MC和MC服务器资源。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
+        <title>Termux使用小技巧</title>
+        <link>https://5882886.github.io/p/termux/</link>
+        <pubDate>Sun, 10 Aug 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://5882886.github.io/p/termux/</guid>
+        <description>&lt;img src="https://5882886.github.io/p/termux/termux.png" alt="Featured image of post Termux使用小技巧" /&gt;&lt;h2 id=&#34;termux简介&#34;&gt;Termux简介
+&lt;/h2&gt;&lt;p&gt;Termux是Android系统上的Linux终端模拟器，能够让用户在未获取root权限的情况下运行Linux虚拟机，并可以安装多个Linux发行版。&lt;/p&gt;
+&lt;h2 id=&#34;termux下载linux发行版&#34;&gt;Termux下载Linux发行版
+&lt;/h2&gt;&lt;h3 id=&#34;方法1使用tmoe工具&#34;&gt;方法1：使用TMOE工具
+&lt;/h3&gt;&lt;p&gt;TMOE是GitHub的2moe大佬制作的容器一键安装脚本（目前不再更新，但仍可继续使用，最新支持Ubuntu 24.04 (LTS) 和Debian 13）&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;输入&lt;code&gt;curl -LO https://gitee.com/mo2/linux/raw/2/2.awk &amp;amp;&amp;amp; awk -f 2.awk&lt;/code&gt;下载TMOE工具，之后默认全输入&lt;code&gt;Y&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在语言选择界面使用小键盘的“↑”、“↓”键选择所需语言。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;center&gt;&lt;img src=&#34;tmoe-language.jpg&#34; width=&#34;400&#34;&gt;&lt;/center&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;选择第一个proot容器，模拟root环境，按回车继续。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;center&gt;&lt;img src=&#34;tmoe-proot.jpeg&#34; width=&#34;400&#34;&gt;&lt;/center&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;选择终端配色和字体，看个人喜好。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;是否创建&lt;code&gt;termux.properties&lt;/code&gt;，看个人喜好。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;选择DNS解析地址，建议选择阿里（Ali）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;center&gt;&lt;img src=&#34;tmoe-dns.jpeg&#34; width=&#34;400&#34;&gt;&lt;/center&gt;
+&lt;ol start=&#34;7&#34;&gt;
+&lt;li&gt;是否需要启用“一言”，看个人喜好。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;启用“一言”可以让终端界面出现颜文字、古诗句、名言警句等，很有意思，建议开启。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;ol start=&#34;8&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;选择时区，默认选“Yes”。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;选择共享sd目录，这个需要慎重考虑，它关系到你的Linux发行版的用户文件目录。尽量不要共享整个sd目录，建议选择自定义路径。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;center&gt;&lt;img src=&#34;tmoe-sd.jpeg&#34; width=&#34;400&#34;&gt;&lt;/center&gt;
+&lt;ol start=&#34;10&#34;&gt;
+&lt;li&gt;选择共享Home目录，选择默认选项。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;到此为止，TMOE的配置工作全部结束，接下来就可以安装自己喜欢的Linux发行版了。&lt;/p&gt;
+&lt;h3 id=&#34;方法2古法装机&#34;&gt;方法2：古法装机
+&lt;/h3&gt;&lt;h2 id=&#34;termux启动ssh功能&#34;&gt;Termux启动SSH功能
+&lt;/h2&gt;&lt;p&gt;Termux配置SSH功能后，可以搭配Serverbox软件实现监测Android系统运行状态的功能，还是挺有用的。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;安装并启动 SSH 服务
+打开 Termux，依次执行以下命令：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;pkg update &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; pkg upgrade -y    &lt;span class=&#34;c1&#34;&gt;# 更新软件包列表&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;pkg install openssh -y          &lt;span class=&#34;c1&#34;&gt;# 安装 OpenSSH&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sshd                            &lt;span class=&#34;c1&#34;&gt;# 启动 SSH 服务（默认端口为 8022）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;注意：Termux 的 SSH 服务默认监听端口是 8022，不是常见的 22。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;查看用户名和 IP 地址&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;whoami      &lt;span class=&#34;c1&#34;&gt;# 查看用户名（后续连接用）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ifconfig        &lt;span class=&#34;c1&#34;&gt;# 查看本机 IP 地址（需在局域网内）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;记下类似 192.168.x.x 的 IP 地址和用户名（如 u0_a123）。&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;设置登录密码（可选）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;passwd
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;输入两次密码即可设置完成。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Termux 默认仅支持密钥登录，密码登录需额外配置。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;接下来就可以使用SSH连接工具连接Termux了。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>git帮助</title>
+        <link>https://5882886.github.io/p/git_help/</link>
+        <pubDate>Mon, 04 Aug 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://5882886.github.io/p/git_help/</guid>
+        <description>&lt;img src="https://5882886.github.io/p/git_help/git.jpg" alt="Featured image of post git帮助" /&gt;&lt;h2 id=&#34;git简介&#34;&gt;git简介
+&lt;/h2&gt;&lt;p&gt;git 是一个开源的分布式版本控制系统（VCS），用于高效、快速地处理从小型到大型项目的所有内容管理。它由 Linus Torvalds（Linux 之父）于 2005 年创建，最初是为了更好地管理 Linux 内核开发。&lt;/p&gt;
+&lt;h2 id=&#34;git基本概念&#34;&gt;git基本概念
+&lt;/h2&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;术语&lt;/th&gt;
+          &lt;th&gt;含义&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;仓库（Repository）&lt;/td&gt;
+          &lt;td&gt;存储项目所有文件和历史记录的地方&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;工作区（Working Directory）&lt;/td&gt;
+          &lt;td&gt;你电脑上实际看到的项目文件夹&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;暂存区（Index/Stage）&lt;/td&gt;
+          &lt;td&gt;准备提交的更改区域，介于工作区和仓库之间&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;提交（Commit）&lt;/td&gt;
+          &lt;td&gt;保存项目当前状态为一个版本&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;分支（Branch）&lt;/td&gt;
+          &lt;td&gt;从主线上分出来的独立开发线，不影响主线&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;合并（Merge）&lt;/td&gt;
+          &lt;td&gt;将分支的更改整合到另一个分支&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;远程仓库（Remote）&lt;/td&gt;
+          &lt;td&gt;托管在网络上的仓库，如 GitHub、GitLab&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;git操作&#34;&gt;git操作
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;克隆（clone） 远程仓库到本地&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git clone https://github.com/user/repo.git
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;修改 文件在工作区中。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;暂存（add） 更改到暂存区&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git add .
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;提交（commit） 更改到本地仓库&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git commit -m &lt;span class=&#34;s2&#34;&gt;&amp;#34;描述信息&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;推送（push） 到远程仓库&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git push origin main
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;拉取（pull） 获取他人更新&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git pull origin main
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+        </item>
+        <item>
+        <title>Linux系统小技巧</title>
+        <link>https://5882886.github.io/p/linux_help/</link>
+        <pubDate>Mon, 04 Aug 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://5882886.github.io/p/linux_help/</guid>
+        <description>&lt;img src="https://5882886.github.io/p/linux_help/Linux-tips.png" alt="Featured image of post Linux系统小技巧" /&gt;&lt;h2 id=&#34;linux发行版&#34;&gt;Linux发行版
+&lt;/h2&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;发行版名称&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;基础系统&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;特点&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;适用场景&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;推荐用户群体&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;Ubuntu&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Debian&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;易用性高、软件生态丰富、社区支持强大&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;桌面、服务器&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;初学者、开发者、企业用户&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;Linux Mint&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Ubuntu/Debian&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;界面友好、预装丰富软件、高度易用&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;桌面&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;从 Windows 转过来的新用户&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;Fedora&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;独立开发&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;新技术前沿、更新频繁、适合尝鲜&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;桌面、服务器&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;开发者、技术爱好者&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;Zorin OS&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Ubuntu&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;类似 Windows 的 UI、预装丰富软件&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;桌面&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;初学者、Windows 迁移用户&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;Debian&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;独立开发&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;稳定性高、自由软件精神、适合服务器&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;服务器、桌面&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;高级用户、企业用户&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;AlmaLinux&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;RHEL&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;免费、与 RHEL 高度兼容&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;服务器&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;企业用户、开发者&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;Ubuntu LTS&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Debian&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;长期支持、稳定性高&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;服务器、桌面&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;企业用户、个人用户&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;Kali Linux&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Debian&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;安全测试、渗透测试、内置大量安全工具&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;安全测试、渗透测试&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;安全专家、渗透测试人员&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;Raspberry Pi OS&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Debian&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;针对 Raspberry Pi 优化、适合嵌入式设备&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;教育、DIY、物联网&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;学生、爱好者&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;Arch Linux&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;独立开发&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;滚动更新、高度定制、适合高级用户&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;桌面、服务器&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;高级用户、开发者&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;Manjaro&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Arch Linux&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;滚动更新、优化安装和配置&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;桌面&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;中级用户、开发者&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;linux系统命令&#34;&gt;Linux系统命令
+&lt;/h2&gt;&lt;h3 id=&#34;文件操作&#34;&gt;文件操作
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;命令&lt;/th&gt;
+          &lt;th&gt;作用&lt;/th&gt;
+          &lt;th&gt;示例&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;ls&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;列出目录内容&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;ls -l&lt;/code&gt;（详细信息）&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;cd&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;切换目录&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;cd /home/user&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;pwd&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;显示当前路径&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;pwd&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;mkdir&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;创建目录&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;mkdir new_folder&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;touch&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;创建空文件&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;touch file.txt&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;cp&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;复制文件/目录&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;cp file.txt backup.txt&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;mv&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;移动或重命名&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;mv old.txt new.txt&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;rm&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;删除文件/目录&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;rm -r folder&lt;/code&gt;（递归删除）&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;cat&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;查看文件内容&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;cat file.txt&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;less&lt;/code&gt;/&lt;code&gt;more&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;分页查看文件&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;less file.txt&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;head&lt;/code&gt;/&lt;code&gt;tail&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;查看文件开头/结尾&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;tail -n 50 file.log&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;搜索与查找&#34;&gt;搜索与查找
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;命令&lt;/th&gt;
+          &lt;th&gt;作用&lt;/th&gt;
+          &lt;th&gt;示例&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;find&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;查找文件&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;find / -name &amp;quot;*.conf&amp;quot;&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;grep&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;文本搜索&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;grep &amp;quot;error&amp;quot; log.txt&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;which&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;查找命令路径&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;which python3&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;locate&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;快速查找文件（需&lt;code&gt;updatedb&lt;/code&gt;）&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;locate bashrc&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;系统信息&#34;&gt;系统信息
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;命令&lt;/th&gt;
+          &lt;th&gt;作用&lt;/th&gt;
+          &lt;th&gt;示例&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;top&lt;/code&gt;/&lt;code&gt;htop&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;实时进程监控&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;htop&lt;/code&gt;（需安装）&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;ps aux&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;查看进程&lt;/td&gt;
+          &lt;td&gt;`ps aux&lt;/td&gt;
+          &lt;td&gt;grep nginx`&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;df -h&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;磁盘空间&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;df -h&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;free -h&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;内存使用&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;free -h&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;uname -a&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;内核信息&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;uname -a&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;uptime&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;系统运行时间&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;uptime&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;权限与用户&#34;&gt;权限与用户
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;命令&lt;/th&gt;
+          &lt;th&gt;作用&lt;/th&gt;
+          &lt;th&gt;示例&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;chmod&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;修改权限&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;chmod +x script.sh&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;chown&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;修改所有者&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;chown user:group file&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;sudo&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;以管理员权限运行&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;sudo apt update&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;adduser&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;添加用户&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;sudo adduser alice&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;passwd&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;修改密码&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;passwd&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;网络操作&#34;&gt;网络操作
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;命令&lt;/th&gt;
+          &lt;th&gt;作用&lt;/th&gt;
+          &lt;th&gt;示例&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;ping&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;测试网络连通性&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;ping google.com&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;curl&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;发送HTTP请求&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;curl -I https://example.com&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;wget&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;下载文件&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;wget https://file.tar.gz&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;ssh&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;远程登录&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;ssh user@192.168.1.100&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;scp&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;远程复制文件&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;scp file.txt user@host:/path&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;netstat&lt;/code&gt;/&lt;code&gt;ss&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;查看网络连接&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;ss -tuln&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;软件包管理根据发行版选择&#34;&gt;软件包管理（根据发行版选择）
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;系统&lt;/th&gt;
+          &lt;th&gt;命令&lt;/th&gt;
+          &lt;th&gt;示例&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Debian/Ubuntu&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;apt&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;sudo apt install nginx&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;CentOS/RHEL&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;yum&lt;/code&gt;/&lt;code&gt;dnf&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;sudo dnf install nginx&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Arch Linux&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;pacman&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;sudo pacman -S nginx&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;其他实用命令&#34;&gt;其他实用命令
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;命令&lt;/th&gt;
+          &lt;th&gt;作用&lt;/th&gt;
+          &lt;th&gt;示例&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;tar&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;压缩/解压&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;tar -xzf file.tar.gz&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;zip&lt;/code&gt;/&lt;code&gt;unzip&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;ZIP格式压缩&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;unzip archive.zip&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;history&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;查看命令历史&lt;/td&gt;
+          &lt;td&gt;`history&lt;/td&gt;
+          &lt;td&gt;grep ssh`&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;alias&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;设置命令别名&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;alias ll=&#39;ls -la&#39;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;wc&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;统计行数/单词数&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;wc -l file.txt&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;diff&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;比较文件差异&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;diff file1.txt file2.txt&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;文本编辑器&#34;&gt;文本编辑器
+&lt;/h2&gt;&lt;h3 id=&#34;nano&#34;&gt;Nano
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;&lt;strong&gt;功能&lt;/strong&gt;&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;&lt;strong&gt;命令&lt;/strong&gt;&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;&lt;strong&gt;说明&lt;/strong&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;启动 Nano&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;nano [文件名]&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;打开一个新文件或已存在的文件。如果文件不存在，将创建一个新文件。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;保存文件&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;Ctrl + O&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;保存当前文件，按 &lt;code&gt;Enter&lt;/code&gt; 确认保存路径和文件名。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;退出 Nano&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;Ctrl + X&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;退出 Nano。如果文件有未保存的更改，会提示是否保存。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;撤销更改&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;Ctrl + U&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;撤销最近的更改。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;跳到文件顶部&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;Ctrl + _&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;跳到文件的第一行。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;跳到文件底部&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;Ctrl + Shift + _&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;跳到文件的最后一行。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;跳到指定行&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;Ctrl + _&lt;/code&gt;，输入行号，&lt;code&gt;Enter&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;跳到指定的行号。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;删除字符&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;Backspace&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;删除光标所在位置的字符。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;删除光标前字符&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;Ctrl + Backspace&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;删除光标前的字符。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;剪切到行尾&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;Ctrl + K&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;剪切从光标位置到行尾的内容。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;粘贴&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;Ctrl + U&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;粘贴剪切的内容。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;查找文本&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;Ctrl + W&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;查找文本，输入要查找的内容后按 &lt;code&gt;Enter&lt;/code&gt;。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;替换文本&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;Ctrl + \&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;替换文本，输入要查找的内容，按 &lt;code&gt;Enter&lt;/code&gt;，再输入要替换的内容，按 &lt;code&gt;Enter&lt;/code&gt;。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;自动缩进&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;Ctrl + I&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;在新的一行中自动缩进。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;显示帮助菜单&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;Ctrl + G&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;显示 Nano 的帮助菜单。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;切换拼写检查&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;Ctrl + T&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;切换拼写检查功能（需要安装拼写检查工具）。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;显示行号&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;nano -l [文件名]&lt;/code&gt; 或 &lt;code&gt;Ctrl + C&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;启动时加上 &lt;code&gt;-l&lt;/code&gt; 参数显示行号，或在编辑时按 &lt;code&gt;Ctrl + C&lt;/code&gt; 显示当前行号和列号。&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;vim&#34;&gt;Vim
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;&lt;strong&gt;功能&lt;/strong&gt;&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;&lt;strong&gt;命令模式&lt;/strong&gt;&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;&lt;strong&gt;说明&lt;/strong&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;启动 Vim&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;vim [文件名]&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;打开一个新文件或已存在的文件。如果文件不存在，将创建一个新文件。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;模式切换&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;i&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;切换到插入模式（可以输入文本）。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;Esc&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;从插入模式返回到命令模式。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;v&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;切换到可视模式（逐字符选择）。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;V&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;切换到可视行模式（逐行选择）。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;Ctrl + v&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;切换到可视块模式（逐列选择）。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;保存和退出&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;:w&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;保存文件。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;:wq&lt;/code&gt; 或 &lt;code&gt;ZZ&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;保存并退出 Vim。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;:q&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;退出 Vim（如果文件有未保存的更改，会提示）。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;:q!&lt;/code&gt; 或 &lt;code&gt;ZQ&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;强制退出 Vim，不保存更改。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;光标移动&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;h&lt;/code&gt;、&lt;code&gt;j&lt;/code&gt;、&lt;code&gt;k&lt;/code&gt;、&lt;code&gt;l&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;左、下、上、右移动光标。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;gg&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;跳到文件顶部。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;G&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;跳到文件底部。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;:行号&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;跳到指定行号。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;Ctrl + f&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;向下翻页。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;Ctrl + b&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;向上翻页。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;编辑操作&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;x&lt;/code&gt; 或 &lt;code&gt;Del&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;删除光标所在位置的字符。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;dd&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;删除光标所在的整行。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;yy&lt;/code&gt; 或 &lt;code&gt;Ctrl + y&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;复制光标所在的整行。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;p&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;粘贴复制的内容（粘贴到光标下方）。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;P&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;粘贴复制的内容（粘贴到光标上方）。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;u&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;撤销最近的更改。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;Ctrl + r&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;重做撤销的更改。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;查找和替换&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;/搜索内容&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;向下查找指定的文本。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;?搜索内容&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;向上查找指定的文本。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;n&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;查找下一个匹配项。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;N&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;查找上一个匹配项。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;:%s/旧内容/新内容/g&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;替换文件中所有匹配的文本。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;其他功能&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;:help&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;显示帮助文档。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;:set number&lt;/code&gt; 或 &lt;code&gt;:set nu&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;显示行号。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;:set nonumber&lt;/code&gt; 或 &lt;code&gt;:set nonu&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;隐藏行号。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;:set ignorecase&lt;/code&gt; 或 &lt;code&gt;:set ic&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;在查找时忽略大小写。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;:set noignorecase&lt;/code&gt; 或 &lt;code&gt;:set noci&lt;/code&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;在查找时区分大小写。&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;ssh连接linux系统&#34;&gt;SSH连接Linux系统
+&lt;/h2&gt;&lt;p&gt;参见：SSH配置简介&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>使用Hugo搭建网站</title>
+        <link>https://5882886.github.io/p/website/</link>
+        <pubDate>Sat, 02 Aug 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://5882886.github.io/p/website/</guid>
+        <description>&lt;img src="https://5882886.github.io/p/website/Hugo.png" alt="Featured image of post 使用Hugo搭建网站" /&gt;&lt;h2 id=&#34;hugo环境配置&#34;&gt;Hugo环境配置
+&lt;/h2&gt;&lt;p&gt;点击进入&lt;a class=&#34;link&#34; href=&#34;https://github.com/gohugoio/hugo&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Hugo下载地址&lt;/a&gt;，下载最新的release文件。&lt;/p&gt;
+&lt;h2 id=&#34;创建博客网站&#34;&gt;创建博客网站
+&lt;/h2&gt;&lt;h3 id=&#34;准备步骤&#34;&gt;准备步骤
+&lt;/h3&gt;&lt;p&gt;在hugo对应的文件夹内打开cmd，输入&lt;code&gt;hugo new site 你的文件夹名&lt;/code&gt;，可以看到多出一个新的空文件夹。&lt;/p&gt;
+&lt;p&gt;进入空文件夹，在cmd中输入&lt;code&gt;hugo service build&lt;/code&gt;。可以看到网站在&lt;code&gt;localhost:1313&lt;/code&gt;转发，在浏览器中输入该网址即可看到当前网站的内容。&lt;/p&gt;
+&lt;h3 id=&#34;下载hugo主题&#34;&gt;下载Hugo主题
+&lt;/h3&gt;&lt;p&gt;在Hugo官网上进入Theme，下载需要的主题文件，解压后放入网站文件夹的theme子文件夹。&lt;/p&gt;
+&lt;p&gt;接着在下载的主题文件夹中复制content文件夹和hugo.yaml（或hugo.toml）文件，粘贴到你的网站文件夹中。&lt;/p&gt;
+&lt;p&gt;打开主题的配置文件，找到&lt;code&gt;theme: hugo-theme-stack&lt;/code&gt;一行，这里标明所使用主题的名称，须保持名称与主题文件夹的名称相同，否则要修改其一。再次执行&lt;code&gt;hugo service build&lt;/code&gt;，即可看到使用了主题的网站。&lt;/p&gt;
+&lt;h3 id=&#34;创建自定义内容&#34;&gt;创建自定义内容
+&lt;/h3&gt;&lt;p&gt;Hugo网站的文章内容均在content文件夹中，每篇文章对应一个子文件夹。&lt;/p&gt;
+&lt;p&gt;每篇文章均采用Markdown语法书写，通常在文章开头有类似的配置文字：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;---
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;title: xxxxx        #文章的标题
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;description: xxxxx      #文章的副标题
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;date: xxxxx         #文章的日期
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;slug: xxxxx         #文章在静态页面所属的文件夹
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;categories:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    - xxxxx         #文章所属类别
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;---
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;必须包含这些内容网站才会显示对应文章。&lt;/p&gt;
+&lt;p&gt;文章正文参照Markdown语法规则。&lt;/p&gt;
+&lt;h3 id=&#34;hugo构建命令&#34;&gt;Hugo构建命令
+&lt;/h3&gt;&lt;p&gt;完成网页的编辑后，需执行Hugo的构建命令，方能生成网页文件。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo server -D      &lt;span class=&#34;c1&#34;&gt;#构建本地网页&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo       &lt;span class=&#34;c1&#34;&gt;#构建在线网页&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;注意事项&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;使用&lt;code&gt;hugo server -D&lt;/code&gt;命令构建的是本地网页，遇到超链接时会重定向到&lt;code&gt;localhost:1313/xxx&lt;/code&gt;，不能直接部署到GitHub等服务器上，必须再执行一次&lt;code&gt;hugo&lt;/code&gt;命令清除本地链接的内容之后，才能正确部署。&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;在github上托管网页&#34;&gt;在Github上托管网页
+&lt;/h2&gt;&lt;p&gt;Github网站提供了“Github Pages”功能，允许用户为自己的项目显示一个静态网页。&lt;/p&gt;
+&lt;h3 id=&#34;创建网站仓库&#34;&gt;创建网站仓库
+&lt;/h3&gt;&lt;p&gt;注册Github账号，并创建一个新仓库，命名为&lt;code&gt;你的用户名.github.io&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;为什么命名为&lt;code&gt;你的用户名.github.io&lt;/code&gt;？&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Github的Pages分为两种，一种为用户Pages，另一种为项目Pages。用户Pages每个账号只能拥有一个，域名为&lt;code&gt;https://你的用户名.github.io&lt;/code&gt;；项目Pages数目不限，域名为&lt;code&gt;https://你的用户名.github.io/你的项目名&lt;/code&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;因此，设置仓库名为&lt;code&gt;你的用户名.github.io&lt;/code&gt;可以使网站地址更简洁。&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;生成静态网页文件&#34;&gt;生成静态网页文件
+&lt;/h3&gt;&lt;p&gt;在命令行中执行&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;执行完成后会在工作区文件夹中出现一个&lt;code&gt;public&lt;/code&gt;文件夹，进入该文件夹。&lt;/p&gt;
+&lt;h3 id=&#34;上传文件至github&#34;&gt;上传文件至Github
+&lt;/h3&gt;&lt;p&gt;参见：玩转Github&lt;/p&gt;
+&lt;h2 id=&#34;hugo网站搭建内部链接&#34;&gt;Hugo网站搭建内部链接
+&lt;/h2&gt;&lt;h3 id=&#34;使用相对路径链接&#34;&gt;使用相对路径链接
+&lt;/h3&gt;&lt;p&gt;相对路径是根据当前页面的位置来定位目标页面的路径。这是最简单且常用的方式之一。&lt;/p&gt;
+&lt;p&gt;假设你的网站目录结构如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;content/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── about.md
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── blog/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│   ├── post1.md
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│   └── post2.md
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;└── projects.md
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;在 about.md 中链接到 blog/post1.md：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[访问博客文章](blog/post1)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;在 blog/post1.md 中链接到 projects.md：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[查看项目](../projects)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;在 blog/post1.md 中链接到同级的 post2.md：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[查看另一篇文章](post2)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;使用绝对路径链接&#34;&gt;使用绝对路径链接
+&lt;/h3&gt;&lt;p&gt;绝对路径是从网站的根目录开始的完整路径。这种方式的好处是不受当前页面位置的影响。&lt;/p&gt;
+&lt;p&gt;假设你的网站根目录是 &lt;a class=&#34;link&#34; href=&#34;https://example.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://example.com&lt;/a&gt;，目录结构同上。&lt;/p&gt;
+&lt;p&gt;在 about.md 中链接到 blog/post1.md：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[访问博客文章](/blog/post1)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;在 blog/post1.md 中链接到 projects.md：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[查看项目](/projects)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;使用-hugo-的-ref-和-relref-短代码&#34;&gt;使用 Hugo 的 ref 和 relref 短代码
+&lt;/h3&gt;&lt;p&gt;Hugo 提供了 ref 和 relref 短代码，可以更智能地处理内部链接。这些短代码会根据页面的路径自动解析链接。&lt;/p&gt;
+&lt;p&gt;ref 短代码：生成绝对路径链接。&lt;/p&gt;
+&lt;p&gt;relref 短代码：生成相对路径链接。&lt;/p&gt;
+&lt;h3 id=&#34;链接到页面的特定部分&#34;&gt;链接到页面的特定部分
+&lt;/h3&gt;&lt;p&gt;如果你希望链接到页面的某个特定部分（例如某个标题），可以通过锚点（anchor）来实现。&lt;/p&gt;
+&lt;p&gt;假设 post1.md 中有一个标题：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;## 我的博客文章内容 {#my-section}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;你可以通过以下方式链接到这个部分：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[查看博客文章的特定部分](/blog/post1#my-section)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;链接到页面的别名&#34;&gt;链接到页面的别名
+&lt;/h3&gt;&lt;p&gt;如果某些页面有别名（例如在 frontmatter 中定义了 aliases），你可以直接使用别名来链接。&lt;/p&gt;
+&lt;p&gt;假设 post1.md 的 frontmatter 中定义了别名：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nn&#34;&gt;---&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;我的博客文章&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;aliases&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;- &lt;span class=&#34;s2&#34;&gt;&amp;#34;/old-post1&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nn&#34;&gt;---&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;你可以通过以下方式链接到它：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[访问旧的博客文章](/old-post1)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+        </item>
+        <item>
+        <title>SSH配置简介</title>
+        <link>https://5882886.github.io/p/ssh/</link>
+        <pubDate>Thu, 31 Jul 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://5882886.github.io/p/ssh/</guid>
+        <description>&lt;h2 id=&#34;选择ssh应用程序&#34;&gt;选择SSH应用程序
+&lt;/h2&gt;&lt;h3 id=&#34;visual-studio-code&#34;&gt;Visual Studio Code
+&lt;/h3&gt;&lt;p&gt;这是目前为止最强大的SSH应用，只需下载VScode并安装Remote-ssh插件，写好配置文件后就能连接。&lt;/p&gt;
+&lt;p&gt;全程免费，而且附带端口转发、文件编辑、下载等功能，绝对好用！&lt;/p&gt;
+&lt;h3 id=&#34;tabby&#34;&gt;Tabby
+&lt;/h3&gt;&lt;p&gt;Tabby是一款现代的终端应用，界面简洁。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/Eugeny/tabby&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Tabby的Github仓库&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;serverbox&#34;&gt;ServerBox
+&lt;/h3&gt;&lt;p&gt;ServerBox是一款国产的远程服务器监控和操作应用，支持Windows、Linux、Android、MacOS等操作系统。优点是可以监测服务器实时运行状态（包括CPU、内存、温度、网络、硬盘等）。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://5882886.github.io/p/ssh/serverbox.png&#34;
+	width=&#34;643&#34;
+	height=&#34;459&#34;
+	srcset=&#34;https://5882886.github.io/p/ssh/serverbox_hu_659d8f6a579ef453.png 480w, https://5882886.github.io/p/ssh/serverbox_hu_a21fa07204a654fc.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Serverbox的监测界面&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;140&#34;
+		data-flex-basis=&#34;336px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;注意，Serverbox自带的脚本只支持监控Linux系统的运行数据，对于WSL系统，也只能监控部分数据。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/lollipopkit/flutter_server_box&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ServerBox的Github仓库&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;以下是各ssh应用程序的功能比较：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;应用&lt;/th&gt;
+          &lt;th&gt;特点&lt;/th&gt;
+          &lt;th&gt;平台&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;VScode&lt;/td&gt;
+          &lt;td&gt;功能最强大&lt;/td&gt;
+          &lt;td&gt;Windows/Linux/MacOs&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Tabby&lt;/td&gt;
+          &lt;td&gt;界面简洁美观&lt;/td&gt;
+          &lt;td&gt;Windows/Linux/MacOS&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Serverbox&lt;/td&gt;
+          &lt;td&gt;可以监控服务端的运行&lt;/td&gt;
+          &lt;td&gt;Windows/Android&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;配置-ssh&#34;&gt;配置 SSH
+&lt;/h2&gt;&lt;p&gt;连接到远程主机的原理与连接MC服务器类似，关键在于确定远程主机的IP地址和端口。&lt;/p&gt;
+&lt;h3 id=&#34;windows系统&#34;&gt;Windows系统
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;安装 SSH 服务&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;首先在要连接的主机上打开设置，搜索“可选功能”，在“添加可选功能”中搜索“OpenSSH服务器”，下载该功能。&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;启动并配置 SSH 服务&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;管理员权限打开Powershell，输入：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;Start-Service&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sshd&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;Set-Service&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;-Name&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sshd&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;-StartupType&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;Automatic&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;然后开放防火墙端口（默认22）：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;New-NetFirewallRule&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;-Name&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sshd&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;-DisplayName&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;OpenSSH Server&amp;#39;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;-Enabled&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;True&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;-Direction&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Inbound&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;-Protocol&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;TCP&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;-Action&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Allow&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;-LocalPort&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;22&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;linux系统&#34;&gt;Linux系统
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;安装 OpenSSH Server
+如果尚未安装，运行：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt update
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install openssh-server
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;启动 SSH 服务&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo systemctl start ssh
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo systemctl &lt;span class=&#34;nb&#34;&gt;enable&lt;/span&gt; ssh  &lt;span class=&#34;c1&#34;&gt;# 开机自启&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;确认服务正在运行：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo systemctl status ssh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;输出中应显示 active (running)。&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;配置防火墙
+允许 SSH 默认端口（22）：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo ufw &lt;span class=&#34;nb&#34;&gt;enable&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 如果防火墙未启用&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo ufw allow ssh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;获取服务器的IP地址&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ip a  &lt;span class=&#34;c1&#34;&gt;# 或 hostname -I&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;找到类似 192.168.x.x 的局域网 IP 或公网 IP（如果适用）。&lt;/p&gt;
+&lt;h3 id=&#34;wsl系统&#34;&gt;WSL系统
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;安装 OpenSSH Server
+打开 WSL 中的 Ubuntu 终端，执行：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt update
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install openssh-server
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;配置 SSH
+编辑配置文件：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo nano /etc/ssh/sshd_config
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;确保以下配置项存在且未被注释：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Port &lt;span class=&#34;m&#34;&gt;22&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;PasswordAuthentication yes
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;PermitRootLogin yes
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;启动 SSH 服务
+在 WSL 中，不能使用 systemctl，请使用：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo service ssh start
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;验证服务是否运行：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo service ssh status
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;或使用：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ps aux &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; grep sshd
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;使用WSL的注意事项&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;WSL系统是Windows的子系统，在Windows开机时，WSL的ssh功能默认并不能开启，此时需要将WSL的ssh注册为系统服务实现Windows开机时启用WSL的ssh功能。&lt;/p&gt;
+&lt;p&gt;下面给出使用任务计划程序（无需第三方程序）的方法&lt;/p&gt;
+&lt;p&gt;打开任务计划程序
+&lt;code&gt;Win+R&lt;/code&gt; → &lt;code&gt;taskschd.msc&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;创建任务&lt;/p&gt;
+&lt;p&gt;名称：StartWSL&lt;/p&gt;
+&lt;p&gt;触发器：选择「计算机启动时」&lt;/p&gt;
+&lt;p&gt;操作：新建 →程序/脚本：&lt;code&gt;wsl.exe&lt;/code&gt;，参数：&lt;code&gt;-d Ubuntu-22.04 -u root /usr/sbin/service ssh start&lt;/code&gt;
+（或 &lt;code&gt;-d Ubuntu-22.04 true&lt;/code&gt; 单纯启动实例）&lt;/p&gt;
+&lt;p&gt;设置：勾选「允许任务按需运行」&lt;/p&gt;
+&lt;p&gt;保存时输入管理员密码。重启测试即可。&lt;/p&gt;
+&lt;h3 id=&#34;termux&#34;&gt;Termux
+&lt;/h3&gt;&lt;p&gt;参见：&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/termux/#termux%e5%90%af%e5%8a%a8ssh%e5%8a%9f%e8%83%bd&#34; &gt;Termux启动SSH功能&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;连接ssh&#34;&gt;连接ssh
+&lt;/h2&gt;&lt;p&gt;在 Windows 本地测试：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ssh 用户名@localhost
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;从局域网其他设备连接：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ssh 用户名@&amp;lt;Windows主机IP&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;VScode的SSH配置文件:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Host xxxx       #Host的名称，可自定义
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    HostName xxx.xxx.xxx.xxx    #SSH服务端的IP地址
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    User xxxxx                  #登录的用户名
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    Port xxxxx                  #SSH服务端的IP端口
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+        </item>
+        <item>
+        <title>Markdown语法指南</title>
+        <link>https://5882886.github.io/p/markdown%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/</link>
+        <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+        
+        <guid>https://5882886.github.io/p/markdown%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/</guid>
+        <description>&lt;img src="https://5882886.github.io/p/markdown%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/pawel-czerwinski-8uZPynIu-rQ-unsplash.jpg" alt="Featured image of post Markdown语法指南" /&gt;&lt;p&gt;本文提供了可用于 Hugo 内容文件的基本 Markdown 语法示例，还显示了 Hugo 主题中的基本 HTML 元素是否使用 CSS 进行修饰。&lt;/p&gt;
+&lt;h2 id=&#34;标题&#34;&gt;标题
+&lt;/h2&gt;&lt;p&gt;如下的 &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt;—&lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt; 显示了标题的6个级别， &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt; 级别最高， &lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt; 级别最低.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-md&#34; data-lang=&#34;md&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gh&#34;&gt;# H1
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gh&#34;&gt;&lt;/span&gt;&lt;span class=&#34;gu&#34;&gt;## H2
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gu&#34;&gt;### H3
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gu&#34;&gt;#### H4
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gu&#34;&gt;##### H5
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gu&#34;&gt;###### H6
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;文本类型&#34;&gt;文本类型
+&lt;/h2&gt;&lt;h3 id=&#34;加粗与斜体&#34;&gt;加粗与斜体
+&lt;/h3&gt;&lt;p&gt;加粗：&lt;code&gt;**文本**&lt;/code&gt; → &lt;strong&gt;文本&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;斜体：&lt;code&gt;*文本*&lt;/code&gt; → &lt;em&gt;文本&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&#34;下划线&#34;&gt;下划线
+&lt;/h3&gt;&lt;p&gt;&lt;code&gt;&amp;lt;span style=&amp;quot;text-decoration: wavy underline;&amp;quot;&amp;gt; 天津大学是中国第一所现代大学。 &amp;lt;/span&amp;gt;&lt;/code&gt; → &lt;span style=&#34;text-decoration: wavy underline;&#34;&gt; 天津大学是中国第一所现代大学。 &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;u&amp;gt; 2025年将迎来天津大学130周年校庆。 &amp;lt;/u&amp;gt;&lt;/code&gt; → &lt;u&gt; 2025年将迎来天津大学130周年校庆。 &lt;/u&gt;&lt;/p&gt;
+&lt;h3 id=&#34;上下标&#34;&gt;上下标
+&lt;/h3&gt;&lt;p&gt;&lt;code&gt;H&amp;lt;sub&amp;gt;2&amp;lt;/sub&amp;gt;O&lt;/code&gt; → H&lt;sub&gt;2&lt;/sub&gt;O&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;X&amp;lt;sup&amp;gt;n&amp;lt;/sup&amp;gt; + Y&amp;lt;sup&amp;gt;n&amp;lt;/sup&amp;gt; = Z&amp;lt;sup&amp;gt;n&amp;lt;/sup&amp;gt;&lt;/code&gt; → X&lt;sup&gt;n&lt;/sup&gt; + Y&lt;sup&gt;n&lt;/sup&gt; = Z&lt;sup&gt;n&lt;/sup&gt;&lt;/p&gt;
+&lt;h3 id=&#34;方框与高亮显示&#34;&gt;方框与高亮显示
+&lt;/h3&gt;&lt;p&gt;&lt;code&gt;按下 &amp;lt;kbd&amp;gt;CTRL&amp;lt;/kbd&amp;gt; + &amp;lt;kbd&amp;gt;ALT&amp;lt;/kbd&amp;gt; + &amp;lt;kbd&amp;gt;Delete&amp;lt;/kbd&amp;gt; 以结束段落。&lt;/code&gt; → 按下 &lt;kbd&gt;CTRL&lt;/kbd&gt; + &lt;kbd&gt;ALT&lt;/kbd&gt; + &lt;kbd&gt;Delete&lt;/kbd&gt; 以结束段落。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;mark&amp;gt;兴学强国&amp;lt;/mark&amp;gt;的使命，&amp;lt;mark&amp;gt;实事求是&amp;lt;/mark&amp;gt;的校训，&amp;lt;mark&amp;gt;严谨治学&amp;lt;/mark&amp;gt;的校风，&amp;lt;mark&amp;gt;矢志创新&amp;lt;/mark&amp;gt;的追求。&lt;/code&gt; → &lt;mark&gt;兴学强国&lt;/mark&gt;的使命，&lt;mark&gt;实事求是&lt;/mark&gt;的校训，&lt;mark&gt;严谨治学&lt;/mark&gt;的校风，&lt;mark&gt;矢志创新&lt;/mark&gt;的追求。&lt;/p&gt;
+&lt;h2 id=&#34;段落&#34;&gt;段落
+&lt;/h2&gt;&lt;h3 id=&#34;普通段落&#34;&gt;普通段落
+&lt;/h3&gt;&lt;p&gt;马克思主义者认为，只有人们的社会实践，才是人们对于外界认识真理性的标准。实际的情形是这样的，只有在社会实践过程中（物质生产过程中，阶级斗争过程中，科学实验过程中），人们达到了思想中所预想的结果时，人们的认识才被证实了。人们要想得到工作的胜利即得到预想的结果，一定要使自己的思想合于客观外界的规律性，如果不合，就会在实践中失败。人们经过失败之后，也就从失败取得教训，改正自己的思想使之适合于外界的规律性，人们就能变失败为胜利，所谓“失败是成功之母”，“吃一堑长一智”，就是这个道理。&lt;/p&gt;
+&lt;h3 id=&#34;段落类型&#34;&gt;段落类型
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;首行缩进：&lt;code&gt;&amp;lt;p style=&amp;quot;text-indent: 2em;margin-top: 0;margin-bottom: 0;&amp;quot;&amp;gt; 文本 &amp;lt;/p&amp;gt;&lt;/code&gt;，其中&lt;code&gt;margin-top: 0&lt;/code&gt;表示忽略段前空行，&lt;code&gt;margin-bottom: 0&lt;/code&gt;表示忽略段后空行。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;示例：&lt;/p&gt;
+&lt;p style=&#34;text-indent: 2em;margin-top: 0;margin-bottom: 0;&#34;&gt; 君子曰：学不可以已。 &lt;/p&gt;
+&lt;p style=&#34;text-indent: 2em;margin-top: 0;margin-bottom: 0;&#34;&gt;青，取之于蓝而青于蓝；冰，水为之而寒于水。木直中绳，輮以为轮，其曲中规。虽有槁暴，不复挺者，輮使之然也。故木受绳则直，金就砺则利，君子博学而日参省乎己，则知明而行无过矣。 &lt;/p&gt;
+&lt;p style=&#34;text-indent: 2em;margin-top: 0;margin-bottom: 0;&#34;&gt;吾尝终日而思矣，不如须臾之所学也；吾尝跂而望矣，不如登高之博见也。登高而招，臂非加长也，而见者远；顺风而呼，声非加疾也，而闻者彰。假舆马者，非利足也，而致千里；假舟楫者，非能水也，而绝江河。君子生非异也，善假于物也。&lt;/p&gt;
+&lt;p style=&#34;text-indent: 2em;margin-top: 0;margin-bottom: 0;&#34;&gt;积土成山，风雨兴焉；积水成渊，蛟龙生焉；积善成德，而神明自得，圣心备焉。故不积跬步，无以至千里；不积小流，无以成江海。骐骥一跃，不能十步；驽马十驾，功在不舍。锲而舍之，朽木不折；锲而不舍，金石可镂。蚓无爪牙之利，筋骨之强，上食埃土，下饮黄泉，用心一也。蟹六跪而二螯，非蛇鳝之穴无可寄托者，用心躁也。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;居中：&lt;code&gt;&amp;lt;div style=&amp;quot;text-align: center;&amp;quot;&amp;gt; 文本 &amp;lt;/div&amp;gt;&lt;/code&gt;或&lt;code&gt;&amp;lt;center&amp;gt; 文本 &amp;lt;/center&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;左对齐：默认&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;右对齐：&lt;code&gt;&amp;lt;div style=&amp;quot;text-align: right;&amp;quot;&amp;gt; 文本 &amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;引用&#34;&gt;引用
+&lt;/h2&gt;&lt;p&gt;引用元素表示从另一个来源引用的内容，可以选择引用必须在&lt;code&gt;footer&lt;/code&gt;或&lt;code&gt;cite&lt;/code&gt;元素内，也可以选择内联更改，如注释和缩写。&lt;/p&gt;
+&lt;h3 id=&#34;不含注解的引用&#34;&gt;不含注解的引用
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;Tiam, ad mint andaepu dandae nostion secatur sequo quae.
+&lt;strong&gt;Note&lt;/strong&gt; that you can use &lt;em&gt;Markdown syntax&lt;/em&gt; within a blockquote.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;包含注解的引用&#34;&gt;包含注解的引用
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;不积跬步，无以至千里；不积小流，无以成江海。&lt;br&gt;
+——— &lt;cite&gt;荀子&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/cite&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;表格&#34;&gt;表格
+&lt;/h2&gt;&lt;p&gt;表格不是Markdown语法的核心功能，但是Hugo同样为其提供了支持。&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;姓名&lt;/th&gt;
+          &lt;th&gt;年级&lt;/th&gt;
+          &lt;th&gt;专业&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;张三&lt;/td&gt;
+          &lt;td&gt;2024级&lt;/td&gt;
+          &lt;td&gt;计算机科学与技术&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;李四&lt;/td&gt;
+          &lt;td&gt;2023级&lt;/td&gt;
+          &lt;td&gt;软件工程&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;行内列表&#34;&gt;行内列表
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;斜体&lt;/th&gt;
+          &lt;th&gt;加粗&lt;/th&gt;
+          &lt;th&gt;代码&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;em&gt;italics&lt;/em&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;strong&gt;bold&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;code&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;A&lt;/th&gt;
+          &lt;th&gt;B&lt;/th&gt;
+          &lt;th&gt;C&lt;/th&gt;
+          &lt;th&gt;D&lt;/th&gt;
+          &lt;th&gt;E&lt;/th&gt;
+          &lt;th&gt;F&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/td&gt;
+          &lt;td&gt;Phasellus ultricies, sapien non euismod aliquam, dui ligula tincidunt odio, at accumsan nulla sapien eget ex.&lt;/td&gt;
+          &lt;td&gt;Proin eleifend dictum ipsum, non euismod ipsum pulvinar et. Vivamus sollicitudin, quam in pulvinar aliquam, metus elit pretium purus&lt;/td&gt;
+          &lt;td&gt;Proin sit amet velit nec enim imperdiet vehicula.&lt;/td&gt;
+          &lt;td&gt;Ut bibendum vestibulum quam, eu egestas turpis gravida nec&lt;/td&gt;
+          &lt;td&gt;Sed scelerisque nec turpis vel viverra. Vivamus vitae pretium sapien&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;代码块&#34;&gt;代码块
+&lt;/h2&gt;&lt;h3 id=&#34;使用三个竖撇号包裹&#34;&gt;使用三个竖撇号包裹
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;!doctype html&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;html&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;lang&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;en&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;head&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;meta&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;charset&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;utf-8&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;Example HTML5 Document&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;head&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;body&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;Test&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;body&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;html&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;使用tab缩进表示&#34;&gt;使用Tab缩进表示
+&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;&amp;lt;!doctype html&amp;gt;
+&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;
+&amp;lt;head&amp;gt;
+  &amp;lt;meta charset=&amp;quot;utf-8&amp;quot;&amp;gt;
+  &amp;lt;title&amp;gt;Example HTML5 Document&amp;lt;/title&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+  &amp;lt;p&amp;gt;Test&amp;lt;/p&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;自动代码高亮&#34;&gt;自动代码高亮
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;!doctype html&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;html&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;lang&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;en&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;head&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;meta&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;charset&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;utf-8&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;Example HTML5 Document&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;head&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;body&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;Test&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;body&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;html&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;代码比较&#34;&gt;代码比较
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-diff&#34; data-lang=&#34;diff&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[dependencies.bevy]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git = &amp;#34;https://github.com/bevyengine/bevy&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;rev = &amp;#34;11f52b8c72fc3a568e8bb4a4cd1f3eb025ac2e13&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gd&#34;&gt;- features = [&amp;#34;dynamic&amp;#34;]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gd&#34;&gt;&lt;/span&gt;&lt;span class=&#34;gi&#34;&gt;+ features = [&amp;#34;jpeg&amp;#34;, &amp;#34;dynamic&amp;#34;]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;列举类&#34;&gt;列举类
+&lt;/h2&gt;&lt;h3 id=&#34;有序列举&#34;&gt;有序列举
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-md&#34; data-lang=&#34;md&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;1.&lt;/span&gt; 项目一
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;2.&lt;/span&gt; 项目二
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;3.&lt;/span&gt; 项目三
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;效果：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;项目一&lt;/li&gt;
+&lt;li&gt;项目二&lt;/li&gt;
+&lt;li&gt;项目三&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;无序列举&#34;&gt;无序列举
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-md&#34; data-lang=&#34;md&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;*&lt;/span&gt; 项目
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;*&lt;/span&gt; 另一个项目
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;*&lt;/span&gt; 再一个项目
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;效果：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;项目&lt;/li&gt;
+&lt;li&gt;另一个项目&lt;/li&gt;
+&lt;li&gt;再一个项目&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;嵌套列举&#34;&gt;嵌套列举
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-md&#34; data-lang=&#34;md&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;*&lt;/span&gt; Fruit
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;*&lt;/span&gt; Apple
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;*&lt;/span&gt; Orange
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;*&lt;/span&gt; Banana
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;*&lt;/span&gt; Dairy
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;*&lt;/span&gt; Milk
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;*&lt;/span&gt; Cheese
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;效果：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Fruit
+&lt;ul&gt;
+&lt;li&gt;Apple&lt;/li&gt;
+&lt;li&gt;Orange&lt;/li&gt;
+&lt;li&gt;Banana&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Dairy
+&lt;ul&gt;
+&lt;li&gt;Milk&lt;/li&gt;
+&lt;li&gt;Cheese&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;在markdown中使用tex&#34;&gt;在Markdown中使用Tex
+&lt;/h2&gt;&lt;p&gt;在Markdown文件中，Tex文本须使用&lt;code&gt;$…$&lt;/code&gt;（行内文本）或&lt;code&gt;$$…$$&lt;/code&gt;（行间文本）包裹.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意：若要在行内文本中显示行间文本的样式，须加上&lt;code&gt;\displaystyle&lt;/code&gt;.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;数学符号&#34;&gt;数学符号
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;符号&lt;/th&gt;
+          &lt;th&gt;语法&lt;/th&gt;
+          &lt;th&gt;示例&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;点乘&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\cdot&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$A \cdot B$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;叉乘&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\times&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$ A \times B $&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;角&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\angle&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\angle ABC $&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;三角形&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\triangle&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\triangle ABC $&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;向量&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\overrightarrow{}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\overrightarrow{AB}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;推出&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Rightarrow&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$A \Rightarrow B$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;等价于&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Leftrightarrow&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$ A \Leftrightarrow B $&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;粗体&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\boldsymbol{}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\boldsymbol{a}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;正体&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\mathrm{}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\mathrm{d}x$&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;字母&lt;/th&gt;
+          &lt;th&gt;LaTeX 命令&lt;/th&gt;
+          &lt;th&gt;字母&lt;/th&gt;
+          &lt;th&gt;LaTeX 命令&lt;/th&gt;
+          &lt;th&gt;字母&lt;/th&gt;
+          &lt;th&gt;LaTeX 命令&lt;/th&gt;
+          &lt;th&gt;字母&lt;/th&gt;
+          &lt;th&gt;LaTeX 命令&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;α&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\alpha&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;ν&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\nu&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Α&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Alpha&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Ν&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Nu&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;β&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\beta&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;ξ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\xi&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Β&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Beta&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Ξ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Xi&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;γ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\gamma&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;ο&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\omicron&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Γ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Gamma&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Ο&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Omicron&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;δ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\delta&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;π&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\pi&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Δ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Delta&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Π&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Pi&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;ε&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\epsilon&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;ρ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\rho&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Ε&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Epsilon&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Ρ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Rho&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;ζ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\zeta&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;σ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\sigma&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Ζ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Zeta&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Σ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Sigma&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;η&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\eta&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;τ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\tau&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Η&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Eta&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Τ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Tau&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;θ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\theta&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;υ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\upsilon&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Θ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Theta&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Υ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Upsilon&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;ι&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\iota&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;φ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\phi&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Ι&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Iota&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Φ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Phi&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;κ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\kappa&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;χ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\chi&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Κ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Kappa&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Χ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Chi&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;λ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\lambda&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;ψ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\psi&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Λ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Lambda&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Ψ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Psi&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;μ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\mu&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;ω&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\omega&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Μ&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Mu&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Ω&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\Omega&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;公式&lt;/th&gt;
+          &lt;th&gt;语法&lt;/th&gt;
+          &lt;th&gt;示例&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;分式&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\frac{a}{b}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \frac{a}{b}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;幂&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;a^{m}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$ a^{m} $&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;根式&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\sqrt{2}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\sqrt{2}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;高次根式&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\sqrt[n]{m}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\sqrt[n]{m}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;下标&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;a_{n}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$ a_{n} $&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;方程组&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\left\{ \begin{array}{c}  \end{array} \right.&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$$\left\{ \begin{array}{c} F(x,y,u,v) = 0 \\ G(x,y,u,v) = 0 \end{array} \right.$$&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;导数与微分&#34;&gt;导数与微分
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;公式&lt;/th&gt;
+          &lt;th&gt;语法&lt;/th&gt;
+          &lt;th&gt;示例&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;极限&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\lim_{x \to 0}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \lim_{x \to 0}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;二重极限&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\lim_{\substack{\Delta x \to 0 \\ \Delta y \to 0}}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$$\lim_{\substack{\Delta x \to 0 \\ \Delta y \to 0}} f(x,y)$$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;导数&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;f \&#39;(x)&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$ f&#39;(x) $&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\frac{\mathrm{d}y}{\mathrm{d}x}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \frac{\mathrm{d}y}{\mathrm{d}x} $&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;高阶导数&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;f^{(n)}(x)&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$f^{(n)}(x)$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;偏导&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\partial&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \frac{\partial z}{\partial x}$&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;求和与积分&#34;&gt;求和与积分
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;公式&lt;/th&gt;
+          &lt;th&gt;语法&lt;/th&gt;
+          &lt;th&gt;示例&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;求和&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\sum_{i=0}^{n} a_{i}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \sum_{i=0}^{n} a_{i}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;求积&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\prod_{i=0}^{n} a^{i}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \prod_{i=0}^{n} a^{i} $&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;积分&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\int_{a}^{b} f(x) \mathrm{d}x&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \int_{a}^{b} f(x) \mathrm{d}x$&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;行列式与矩阵&#34;&gt;行列式与矩阵
+&lt;/h3&gt;&lt;h3 id=&#34;在等号处对齐&#34;&gt;在等号处对齐
+&lt;/h3&gt;&lt;p&gt;使用&lt;code&gt;{align*}&lt;/code&gt;环境，在每一行公式后加上&lt;code&gt;\\&lt;/code&gt;；在要对齐的等号前加上&lt;code&gt;&amp;amp;&lt;/code&gt;。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-tex&#34; data-lang=&#34;tex&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sb&#34;&gt;$$&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;\begin&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;{align&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;} 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;x_&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;x_&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt; &amp;amp;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;\frac&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;\sqrt&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;{b^{&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;ac}}{&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;a} &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;\frac&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;\sqrt&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;{b^{&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;ac}}{&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;a} &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;\\&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt; &amp;amp;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;\frac&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;{b}{a}
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;\end&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;{align&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;$$&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;效果：&lt;/p&gt;
+$$ \begin{align*} x_1+x_2 &amp;= \frac{-b+\sqrt{b^{2}-4ac}}{2a} + \frac{-b-\sqrt{b^{2}-4ac}}{2a} \\ &amp;= -\frac{b}{a} \end{align*}$$&lt;h2 id=&#34;其他&#34;&gt;其他
+&lt;/h2&gt;&lt;h3 id=&#34;隐藏内容&#34;&gt;隐藏内容
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;details&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;summary&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;点击展开隐藏内容&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;summary&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;隐藏内容
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;details&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;效果：&lt;/p&gt;
+&lt;details&gt;
+      &lt;summary&gt;点击展开隐藏内容&lt;/summary&gt;
+&lt;p&gt;隐藏内容&lt;/p&gt;
+&lt;/details&gt;
+&lt;h2 id=&#34;参考资料&#34;&gt;参考资料
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[图片文件](网址) 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;→ &lt;a class=&#34;link&#34; href=&#34;https://github.com/5882886/My-Minecraft-Sever&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;img src=&#34;https://github.564456.xyz/https://raw.githubusercontent.com/5882886/My-Minecraft-Sever/refs/heads/main/icon.jpg&#34; width=&#34;40&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;荀子，中国古代哲学家。&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</description>
+        </item>
+        
+    </channel>
+</rss>

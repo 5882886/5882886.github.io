@@ -294,6 +294,7 @@
     <li><a href="#标题">标题</a></li>
     <li><a href="#文本类型">文本类型</a>
       <ol>
+        <li><a href="#加粗与斜体">加粗与斜体</a></li>
         <li><a href="#下划线">下划线</a></li>
         <li><a href="#上下标">上下标</a></li>
         <li><a href="#方框与高亮显示">方框与高亮显示</a></li>
@@ -329,6 +330,15 @@
         <li><a href="#有序列举">有序列举</a></li>
         <li><a href="#无序列举">无序列举</a></li>
         <li><a href="#嵌套列举">嵌套列举</a></li>
+      </ol>
+    </li>
+    <li><a href="#在markdown中使用tex">在Markdown中使用Tex</a>
+      <ol>
+        <li><a href="#数学符号">数学符号</a></li>
+        <li><a href="#导数与微分">导数与微分</a></li>
+        <li><a href="#求和与积分">求和与积分</a></li>
+        <li><a href="#行列式与矩阵">行列式与矩阵</a></li>
+        <li><a href="#在等号处对齐">在等号处对齐</a></li>
       </ol>
     </li>
     <li><a href="#其他">其他</a>
@@ -367,12 +377,8 @@
     
     <header class="article-category">
         
-            <a href="/categories/themes/" >
-                Themes
-            </a>
-        
-            <a href="/categories/syntax/" >
-                Syntax
+            <a href="/categories/guide/" style="background-color: #1117d0ff; color: #fff;">
+                教程
             </a>
         
     </header>
@@ -421,7 +427,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 4 分钟
+                    阅读时长: 5 分钟
                 </time>
             </div>
         
@@ -468,16 +474,19 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># H1
-</span></span><span class="line"><span class="cl">## H2
-</span></span><span class="line"><span class="cl">### H3
-</span></span><span class="line"><span class="cl">#### H4
-</span></span><span class="line"><span class="cl">##### H5
-</span></span><span class="line"><span class="cl">###### H6
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-md" data-lang="md"><span class="line"><span class="cl"><span class="gh"># H1
+</span></span></span><span class="line"><span class="cl"><span class="gh"></span><span class="gu">## H2
+</span></span></span><span class="line"><span class="cl"><span class="gu">### H3
+</span></span></span><span class="line"><span class="cl"><span class="gu">#### H4
+</span></span></span><span class="line"><span class="cl"><span class="gu">##### H5
+</span></span></span><span class="line"><span class="cl"><span class="gu">###### H6
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="文本类型">文本类型
-</h2><h3 id="下划线">下划线
+</h2><h3 id="加粗与斜体">加粗与斜体
+</h3><p>加粗：<code>**文本**</code> → <strong>文本</strong></p>
+<p>斜体：<code>*文本*</code> → <em>文本</em></p>
+<h3 id="下划线">下划线
 </h3><p><code>&lt;span style=&quot;text-decoration: wavy underline;&quot;&gt; 天津大学是中国第一所现代大学。 &lt;/span&gt;</code> → <span style="text-decoration: wavy underline;"> 天津大学是中国第一所现代大学。 </span></p>
 <p><code>&lt;u&gt; 2025年将迎来天津大学130周年校庆。 &lt;/u&gt;</code> → <u> 2025年将迎来天津大学130周年校庆。 </u></p>
 <h3 id="上下标">上下标
@@ -490,15 +499,25 @@
 </h2><h3 id="普通段落">普通段落
 </h3><p>马克思主义者认为，只有人们的社会实践，才是人们对于外界认识真理性的标准。实际的情形是这样的，只有在社会实践过程中（物质生产过程中，阶级斗争过程中，科学实验过程中），人们达到了思想中所预想的结果时，人们的认识才被证实了。人们要想得到工作的胜利即得到预想的结果，一定要使自己的思想合于客观外界的规律性，如果不合，就会在实践中失败。人们经过失败之后，也就从失败取得教训，改正自己的思想使之适合于外界的规律性，人们就能变失败为胜利，所谓“失败是成功之母”，“吃一堑长一智”，就是这个道理。</p>
 <h3 id="段落类型">段落类型
-</h3><p>首行缩进：<code>&lt;p style=&quot;text-indent: 2em;margin-top: 0;margin-bottom: 0;&quot;&gt; 文本 &lt;/p&gt;</code>，其中<code>margin-top: 0</code>表示忽略段前空行，<code>margin-bottom: 0</code>表示忽略段后空行。</p>
+</h3><ul>
+<li>首行缩进：<code>&lt;p style=&quot;text-indent: 2em;margin-top: 0;margin-bottom: 0;&quot;&gt; 文本 &lt;/p&gt;</code>，其中<code>margin-top: 0</code>表示忽略段前空行，<code>margin-bottom: 0</code>表示忽略段后空行。</li>
+</ul>
 <p>示例：</p>
 <p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;"> 君子曰：学不可以已。 </p>
 <p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;">青，取之于蓝而青于蓝；冰，水为之而寒于水。木直中绳，輮以为轮，其曲中规。虽有槁暴，不复挺者，輮使之然也。故木受绳则直，金就砺则利，君子博学而日参省乎己，则知明而行无过矣。 </p>
 <p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;">吾尝终日而思矣，不如须臾之所学也；吾尝跂而望矣，不如登高之博见也。登高而招，臂非加长也，而见者远；顺风而呼，声非加疾也，而闻者彰。假舆马者，非利足也，而致千里；假舟楫者，非能水也，而绝江河。君子生非异也，善假于物也。</p>
 <p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;">积土成山，风雨兴焉；积水成渊，蛟龙生焉；积善成德，而神明自得，圣心备焉。故不积跬步，无以至千里；不积小流，无以成江海。骐骥一跃，不能十步；驽马十驾，功在不舍。锲而舍之，朽木不折；锲而不舍，金石可镂。蚓无爪牙之利，筋骨之强，上食埃土，下饮黄泉，用心一也。蟹六跪而二螯，非蛇鳝之穴无可寄托者，用心躁也。</p>
-<p>居中：<code>&lt;div style=&quot;text-align: center;&quot;&gt; 文本 &lt;/div&gt;</code></p>
+<ul>
+<li>
+<p>居中：<code>&lt;div style=&quot;text-align: center;&quot;&gt; 文本 &lt;/div&gt;</code>或<code>&lt;center&gt; 文本 &lt;/center&gt;</code></p>
+</li>
+<li>
 <p>左对齐：默认</p>
+</li>
+<li>
 <p>右对齐：<code>&lt;div style=&quot;text-align: right;&quot;&gt; 文本 &lt;/div&gt;</code></p>
+</li>
+</ul>
 <h2 id="引用">引用
 </h2><p>引用元素表示从另一个来源引用的内容，可以选择引用必须在<code>footer</code>或<code>cite</code>元素内，也可以选择内联更改，如注释和缩写。</p>
 <h3 id="不含注解的引用">不含注解的引用
@@ -664,9 +683,9 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1. 项目一
-</span></span><span class="line"><span class="cl">2. 项目二
-</span></span><span class="line"><span class="cl">3. 项目三
+<pre tabindex="0" class="chroma"><code class="language-md" data-lang="md"><span class="line"><span class="cl"><span class="k">1.</span> 项目一
+</span></span><span class="line"><span class="cl"><span class="k">2.</span> 项目二
+</span></span><span class="line"><span class="cl"><span class="k">3.</span> 项目三
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>效果：</p>
@@ -683,9 +702,9 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">* 项目
-</span></span><span class="line"><span class="cl">* 另一个项目
-</span></span><span class="line"><span class="cl">* 再一个项目
+<pre tabindex="0" class="chroma"><code class="language-md" data-lang="md"><span class="line"><span class="cl"><span class="k">*</span> 项目
+</span></span><span class="line"><span class="cl"><span class="k">*</span> 另一个项目
+</span></span><span class="line"><span class="cl"><span class="k">*</span> 再一个项目
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>效果：</p>
@@ -706,13 +725,13 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">* Fruit
-</span></span><span class="line"><span class="cl">  * Apple
-</span></span><span class="line"><span class="cl">  * Orange
-</span></span><span class="line"><span class="cl">  * Banana
-</span></span><span class="line"><span class="cl">* Dairy
-</span></span><span class="line"><span class="cl">  * Milk
-</span></span><span class="line"><span class="cl">  * Cheese
+<pre tabindex="0" class="chroma"><code class="language-md" data-lang="md"><span class="line"><span class="cl"><span class="k">*</span> Fruit
+</span></span><span class="line"><span class="cl">  <span class="k">*</span> Apple
+</span></span><span class="line"><span class="cl">  <span class="k">*</span> Orange
+</span></span><span class="line"><span class="cl">  <span class="k">*</span> Banana
+</span></span><span class="line"><span class="cl"><span class="k">*</span> Dairy
+</span></span><span class="line"><span class="cl">  <span class="k">*</span> Milk
+</span></span><span class="line"><span class="cl">  <span class="k">*</span> Cheese
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>效果：</p>
@@ -731,24 +750,367 @@
 </ul>
 </li>
 </ul>
-<h2 id="其他">其他
+<h2 id="在markdown中使用tex">在Markdown中使用Tex
+</h2><p>在Markdown文件中，Tex文本须使用<code>$…$</code>（行内文本）或<code>$$…$$</code>（行间文本）包裹.</p>
+<blockquote>
+<p>注意：若要在行内文本中显示行间文本的样式，须加上<code>\displaystyle</code>.</p></blockquote>
+<h3 id="数学符号">数学符号
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>符号</th>
+          <th>语法</th>
+          <th>示例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>点乘</td>
+          <td><code>\cdot</code></td>
+          <td>$A \cdot B$</td>
+      </tr>
+      <tr>
+          <td>叉乘</td>
+          <td><code>\times</code></td>
+          <td>$ A \times B $</td>
+      </tr>
+      <tr>
+          <td>角</td>
+          <td><code>\angle</code></td>
+          <td>$\angle ABC $</td>
+      </tr>
+      <tr>
+          <td>三角形</td>
+          <td><code>\triangle</code></td>
+          <td>$\triangle ABC $</td>
+      </tr>
+      <tr>
+          <td>向量</td>
+          <td><code>\overrightarrow{}</code></td>
+          <td>$\overrightarrow{AB}$</td>
+      </tr>
+      <tr>
+          <td>推出</td>
+          <td><code>\Rightarrow</code></td>
+          <td>$A \Rightarrow B$</td>
+      </tr>
+      <tr>
+          <td>等价于</td>
+          <td><code>\Leftrightarrow</code></td>
+          <td>$ A \Leftrightarrow B $</td>
+      </tr>
+      <tr>
+          <td>粗体</td>
+          <td><code>\boldsymbol{}</code></td>
+          <td>$\boldsymbol{a}$</td>
+      </tr>
+      <tr>
+          <td>正体</td>
+          <td><code>\mathrm{}</code></td>
+          <td>$\mathrm{d}x$</td>
+      </tr>
+  </tbody>
+</table></div>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>字母</th>
+          <th>LaTeX 命令</th>
+          <th>字母</th>
+          <th>LaTeX 命令</th>
+          <th>字母</th>
+          <th>LaTeX 命令</th>
+          <th>字母</th>
+          <th>LaTeX 命令</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>α</td>
+          <td><code>\alpha</code></td>
+          <td>ν</td>
+          <td><code>\nu</code></td>
+          <td>Α</td>
+          <td><code>\Alpha</code></td>
+          <td>Ν</td>
+          <td><code>\Nu</code></td>
+      </tr>
+      <tr>
+          <td>β</td>
+          <td><code>\beta</code></td>
+          <td>ξ</td>
+          <td><code>\xi</code></td>
+          <td>Β</td>
+          <td><code>\Beta</code></td>
+          <td>Ξ</td>
+          <td><code>\Xi</code></td>
+      </tr>
+      <tr>
+          <td>γ</td>
+          <td><code>\gamma</code></td>
+          <td>ο</td>
+          <td><code>\omicron</code></td>
+          <td>Γ</td>
+          <td><code>\Gamma</code></td>
+          <td>Ο</td>
+          <td><code>\Omicron</code></td>
+      </tr>
+      <tr>
+          <td>δ</td>
+          <td><code>\delta</code></td>
+          <td>π</td>
+          <td><code>\pi</code></td>
+          <td>Δ</td>
+          <td><code>\Delta</code></td>
+          <td>Π</td>
+          <td><code>\Pi</code></td>
+      </tr>
+      <tr>
+          <td>ε</td>
+          <td><code>\epsilon</code></td>
+          <td>ρ</td>
+          <td><code>\rho</code></td>
+          <td>Ε</td>
+          <td><code>\Epsilon</code></td>
+          <td>Ρ</td>
+          <td><code>\Rho</code></td>
+      </tr>
+      <tr>
+          <td>ζ</td>
+          <td><code>\zeta</code></td>
+          <td>σ</td>
+          <td><code>\sigma</code></td>
+          <td>Ζ</td>
+          <td><code>\Zeta</code></td>
+          <td>Σ</td>
+          <td><code>\Sigma</code></td>
+      </tr>
+      <tr>
+          <td>η</td>
+          <td><code>\eta</code></td>
+          <td>τ</td>
+          <td><code>\tau</code></td>
+          <td>Η</td>
+          <td><code>\Eta</code></td>
+          <td>Τ</td>
+          <td><code>\Tau</code></td>
+      </tr>
+      <tr>
+          <td>θ</td>
+          <td><code>\theta</code></td>
+          <td>υ</td>
+          <td><code>\upsilon</code></td>
+          <td>Θ</td>
+          <td><code>\Theta</code></td>
+          <td>Υ</td>
+          <td><code>\Upsilon</code></td>
+      </tr>
+      <tr>
+          <td>ι</td>
+          <td><code>\iota</code></td>
+          <td>φ</td>
+          <td><code>\phi</code></td>
+          <td>Ι</td>
+          <td><code>\Iota</code></td>
+          <td>Φ</td>
+          <td><code>\Phi</code></td>
+      </tr>
+      <tr>
+          <td>κ</td>
+          <td><code>\kappa</code></td>
+          <td>χ</td>
+          <td><code>\chi</code></td>
+          <td>Κ</td>
+          <td><code>\Kappa</code></td>
+          <td>Χ</td>
+          <td><code>\Chi</code></td>
+      </tr>
+      <tr>
+          <td>λ</td>
+          <td><code>\lambda</code></td>
+          <td>ψ</td>
+          <td><code>\psi</code></td>
+          <td>Λ</td>
+          <td><code>\Lambda</code></td>
+          <td>Ψ</td>
+          <td><code>\Psi</code></td>
+      </tr>
+      <tr>
+          <td>μ</td>
+          <td><code>\mu</code></td>
+          <td>ω</td>
+          <td><code>\omega</code></td>
+          <td>Μ</td>
+          <td><code>\Mu</code></td>
+          <td>Ω</td>
+          <td><code>\Omega</code></td>
+      </tr>
+  </tbody>
+</table></div>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>公式</th>
+          <th>语法</th>
+          <th>示例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>分式</td>
+          <td><code>\frac{a}{b}</code></td>
+          <td>$\displaystyle \frac{a}{b}$</td>
+      </tr>
+      <tr>
+          <td>幂</td>
+          <td><code>a^{m}</code></td>
+          <td>$ a^{m} $</td>
+      </tr>
+      <tr>
+          <td>根式</td>
+          <td><code>\sqrt{2}</code></td>
+          <td>$\sqrt{2}$</td>
+      </tr>
+      <tr>
+          <td>高次根式</td>
+          <td><code>\sqrt[n]{m}</code></td>
+          <td>$\sqrt[n]{m}$</td>
+      </tr>
+      <tr>
+          <td>下标</td>
+          <td><code>a_{n}</code></td>
+          <td>$ a_{n} $</td>
+      </tr>
+      <tr>
+          <td>方程组</td>
+          <td><code>\left\{ \begin{array}{c}  \end{array} \right.</code></td>
+          <td>$$\left\{ \begin{array}{c} F(x,y,u,v) = 0 \\ G(x,y,u,v) = 0 \end{array} \right.$$</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="导数与微分">导数与微分
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>公式</th>
+          <th>语法</th>
+          <th>示例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>极限</td>
+          <td><code>\lim_{x \to 0}</code></td>
+          <td>$\displaystyle \lim_{x \to 0}$</td>
+      </tr>
+      <tr>
+          <td>二重极限</td>
+          <td><code>\lim_{\substack{\Delta x \to 0 \\ \Delta y \to 0}}</code></td>
+          <td>$$\lim_{\substack{\Delta x \to 0 \\ \Delta y \to 0}} f(x,y)$$</td>
+      </tr>
+      <tr>
+          <td>导数</td>
+          <td><code>f \'(x)</code></td>
+          <td>$ f'(x) $</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td><code>\frac{\mathrm{d}y}{\mathrm{d}x}</code></td>
+          <td>$\displaystyle \frac{\mathrm{d}y}{\mathrm{d}x} $</td>
+      </tr>
+      <tr>
+          <td>高阶导数</td>
+          <td><code>f^{(n)}(x)</code></td>
+          <td>$f^{(n)}(x)$</td>
+      </tr>
+      <tr>
+          <td>偏导</td>
+          <td><code>\partial</code></td>
+          <td>$\displaystyle \frac{\partial z}{\partial x}$</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="求和与积分">求和与积分
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>公式</th>
+          <th>语法</th>
+          <th>示例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>求和</td>
+          <td><code>\sum_{i=0}^{n} a_{i}</code></td>
+          <td>$\displaystyle \sum_{i=0}^{n} a_{i}$</td>
+      </tr>
+      <tr>
+          <td>求积</td>
+          <td><code>\prod_{i=0}^{n} a^{i}</code></td>
+          <td>$\displaystyle \prod_{i=0}^{n} a^{i} $</td>
+      </tr>
+      <tr>
+          <td>积分</td>
+          <td><code>\int_{a}^{b} f(x) \mathrm{d}x</code></td>
+          <td>$\displaystyle \int_{a}^{b} f(x) \mathrm{d}x$</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="行列式与矩阵">行列式与矩阵
+</h3><h3 id="在等号处对齐">在等号处对齐
+</h3><p>使用<code>{align*}</code>环境，在每一行公式后加上<code>\\</code>；在要对齐的等号前加上<code>&amp;</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-tex" data-lang="tex"><span class="line"><span class="cl"><span class="sb">$$</span><span class="nb"> 
+</span></span></span><span class="line"><span class="cl"><span class="nb"></span><span class="nv">\begin</span><span class="nb">{align</span><span class="o">*</span><span class="nb">} 
+</span></span></span><span class="line"><span class="cl"><span class="nb">x_</span><span class="m">1</span><span class="o">+</span><span class="nb">x_</span><span class="m">2</span><span class="nb"> &amp;</span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{</span><span class="o">-</span><span class="nb">b</span><span class="o">+</span><span class="nv">\sqrt</span><span class="nb">{b^{</span><span class="m">2</span><span class="nb">}</span><span class="o">-</span><span class="m">4</span><span class="nb">ac}}{</span><span class="m">2</span><span class="nb">a} </span><span class="o">+</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{</span><span class="o">-</span><span class="nb">b</span><span class="o">-</span><span class="nv">\sqrt</span><span class="nb">{b^{</span><span class="m">2</span><span class="nb">}</span><span class="o">-</span><span class="m">4</span><span class="nb">ac}}{</span><span class="m">2</span><span class="nb">a} </span><span class="nv">\\</span><span class="nb"> &amp;</span><span class="o">=</span><span class="nb"> </span><span class="o">-</span><span class="nv">\frac</span><span class="nb">{b}{a}
+</span></span></span><span class="line"><span class="cl"><span class="nb"></span><span class="nv">\end</span><span class="nb">{align</span><span class="o">*</span><span class="nb">}
+</span></span></span><span class="line"><span class="cl"><span class="nb"></span><span class="s">$$</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>效果：</p>
+$$ \begin{align*} x_1+x_2 &= \frac{-b+\sqrt{b^{2}-4ac}}{2a} + \frac{-b-\sqrt{b^{2}-4ac}}{2a} \\ &= -\frac{b}{a} \end{align*}$$<h2 id="其他">其他
 </h2><h3 id="隐藏内容">隐藏内容
-</h3><details>
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">details</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">summary</span><span class="p">&gt;</span>点击展开隐藏内容<span class="p">&lt;/</span><span class="nt">summary</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      
+</span></span><span class="line"><span class="cl">隐藏内容
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">details</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>效果：</p>
+<details>
       <summary>点击展开隐藏内容</summary>
 <p>隐藏内容</p>
 </details>
 <h2 id="参考资料">参考资料
-</h2><p><code>[![Zhisuan_Eleven](https://github.com/5882886/My-Minecraft-Sever/blob/main/icon.jpg)](https://github.com/5882886/My-Minecraft-Sever)</code> → <a class="link" href="https://github.com/5882886/My-Minecraft-Sever"  target="_blank" rel="noopener"
-    ><img src="https://github.com/5882886/My-Minecraft-Sever/blob/main/icon.jpg"
-	
-	
-	
-	loading="lazy"
-	
-		alt="Zhisuan_Eleven"
-	
-	
-></a></p>
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[图片文件](网址) 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>→ <a class="link" href="https://github.com/5882886/My-Minecraft-Sever"  target="_blank" rel="noopener"
+    ><img src="https://github.564456.xyz/https://raw.githubusercontent.com/5882886/My-Minecraft-Sever/refs/heads/main/icon.jpg" width="40"></a></p>
 <div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
@@ -789,6 +1151,32 @@
     </section>
     </footer>
 
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+	const mainArticleElement = document.querySelector(".main-article");
+        renderMathInElement(mainArticleElement, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
 
     
 </article>
