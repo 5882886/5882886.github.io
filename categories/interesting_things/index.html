@@ -90,7 +90,7 @@
             
                 <li>
                     <a 
-                        href='https://github.com/5882886/5882886.github.io'
+                        href='https://github.com/5882886'
                         target="_blank"
                         title="GitHub"
                         rel="me"
@@ -210,6 +210,29 @@
         
         <li class="menu-bottom-section">
             <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://5882886.github.io/en/" >English</option>
+                                
+                                    <option value="https://5882886.github.io/" selected>简体中文</option>
+                                
+                            </select>
+                        </li>
+                    
+                
 
                 
                     <li id="dark-mode-toggle">
@@ -441,7 +464,7 @@
 </article>
         
             <article>
-    <a href="/p/haha/">
+    <a href="/p/tju/">
         <div class="article-details">
             <h2 class="article-title">有意思的玩意</h2>
             <footer class="article-time">
@@ -495,28 +518,41 @@
         document.head.appendChild(customFont);
     }());
 </script>
-
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
 <div id="aplayer"></div>
 <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
 
 <script>
-    const home = 'https:\/\/5882886.github.io\/'
     const ap = new APlayer({
         container: document.getElementById('aplayer'),
         fixed: true,
 		audio: [{
             name: 'The Internationale',
-            artist: 'Various Artists',
-            url: home + '/music/the_internationale.ogg',
-            cover: 'cover.jpg'
+            artist: '中央乐队合唱团',
+            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0Vja0Vlc3NaV2tGTmlKdGdkY1Atd0tjQl9KWGNMSlM1TTZtTm4wNjNZUm9Zd2c_ZT1PVGFYZ2k.mp3',
+            cover: '/music.png'
         }, {
             name: 'School song',
             artist: 'Various Artists',
-            url: home + '/music/school_song.ogg',
-            cover: 'cover.jpg'
+            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VkN0ZBOGl6cWNWR3FsUC1reFFoLW9RQnQyYmdPTEdkbXlNZS0xSnl0b1EyTVE_ZT1Oa1JYQm0.mp3',
+            cover: '/music.png'
 
-		}]
+		}, {
+            name: '一笑江湖（交响乐版）',
+            artist: '蜩與學鸠',
+            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VSeFRkc2tRYW1kUG9hNllSNGVmdUpRQmV5cVdhMXd0WE92WXI5N0kxd1pEdXc.mp3',
+            cover: '/music.png'
+        }, {
+            name: '错位时空',
+            artist: '排骨教主',
+            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VSWTg0Mmp6TU1CUHJieHFhdXdmRU9FQkdUUGNmeVluWkdWd091aUpYY3FYakE_ZT1ZdW1kYzE.mp3',
+            cover: '/music.png'
+        }, {
+            name: '少年游',
+            artist: '灰太狼办公室',
+            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VhSHRYVE15aUNkSGpiR0xSSERIamVnQlNyMU5ObkZyeFBPZUJjempCd2tud1E_ZT15ejlxdWI.mp3',
+            cover: '/music.png'
+        }]
     });
 
 	 
@@ -552,7 +588,6 @@
         }, 500);
     };
 </script>
-
 
 
 <script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>

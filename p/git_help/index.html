@@ -93,7 +93,7 @@
             
                 <li>
                     <a 
-                        href='https://github.com/5882886/5882886.github.io'
+                        href='https://github.com/5882886'
                         target="_blank"
                         title="GitHub"
                         rel="me"
@@ -213,6 +213,29 @@
         
         <li class="menu-bottom-section">
             <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://5882886.github.io/en/" >English</option>
+                                
+                                    <option value="https://5882886.github.io/" selected>简体中文</option>
+                                
+                            </select>
+                        </li>
+                    
+                
 
                 
                     <li id="dark-mode-toggle">
@@ -262,9 +285,14 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#git简介">git简介</a></li>
-    <li><a href="#git基本概念">git基本概念</a></li>
-    <li><a href="#git操作">git操作</a></li>
+    <li><a href="#git简介">git简介</a>
+      <ol>
+        <li><a href="#git基本概念">git基本概念</a></li>
+        <li><a href="#git基本操作">git基本操作</a></li>
+        <li><a href="#变更分支">变更分支</a></li>
+      </ol>
+    </li>
+    <li><a href="#github使用教程">Github使用教程</a></li>
   </ol>
 </nav>
         </div>
@@ -335,20 +363,6 @@
         
 
         
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="12" r="9" />
-  <polyline points="12 7 12 12 15 15" />
-</svg>
-
-
-
-                <time class="article-time--reading">
-                    阅读时长: 1 分钟
-                </time>
-            </div>
-        
     </footer>
     
 
@@ -362,8 +376,8 @@
     
     <h2 id="git简介">git简介
 </h2><p>git 是一个开源的分布式版本控制系统（VCS），用于高效、快速地处理从小型到大型项目的所有内容管理。它由 Linus Torvalds（Linux 之父）于 2005 年创建，最初是为了更好地管理 Linux 内核开发。</p>
-<h2 id="git基本概念">git基本概念
-</h2><div class="table-wrapper"><table>
+<h3 id="git基本概念">git基本概念
+</h3><div class="table-wrapper"><table>
   <thead>
       <tr>
           <th>术语</th>
@@ -401,8 +415,8 @@
       </tr>
   </tbody>
 </table></div>
-<h2 id="git操作">git操作
-</h2><ol>
+<h3 id="git基本操作">git基本操作
+</h3><ol>
 <li>克隆（clone） 远程仓库到本地</li>
 </ol>
 <div class="highlight"><div class="chroma">
@@ -462,7 +476,56 @@
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git pull origin main
 </span></span></code></pre></td></tr></table>
 </div>
+</div><h3 id="变更分支">变更分支
+</h3><p>若更改未push到远程仓库中，默认保存在本地工作文件夹的<code>.git</code>文件夹中，此时可以对分支进行任意的修改操作。</p>
+<ol>
+<li>进入工程文件夹，在终端中输入</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git log
+</span></span></code></pre></td></tr></table>
 </div>
+</div><p>此命令可以查看当前所有提交的具体信息，包括提交时间、作者、提交ID等。可以使用键盘的“↑”、“↓”键滚动，按q键退出。</p>
+<ol start="2">
+<li>
+<p>选择需要更改的提交，复制它的ID。</p>
+</li>
+<li>
+<p>退出log，在终端中输入</p>
+</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git rebase -i 复制的提交ID
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这样会打开一个Nano编辑器（Linux环境下），在要删除的提交前加上<code>#</code>，然后<code>Ctrl+O</code>写入、回车、<code>Ctrl+X</code>保存。系统会自动变更分支结构。</p>
+<ol start="4">
+<li>继续提交新的更改，变更完成。</li>
+</ol>
+<p>若要更改的提交已经push到远程仓库，则只需在最后push时输入</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git pull &lt;分支名&gt; --force
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>强制变更。</p>
+<blockquote>
+<p>注意：强制变更时应保证此时没有其他人员的提交，否则会导致分支出错。</p></blockquote>
+<h2 id="github使用教程">Github使用教程
+</h2><p>Github是当前世界最大的开源网站库，使用git操作管理所有文件。</p>
+<p>注册一个Github账号后即可在Github上免费创建和使用仓库，也可以加入其他开源项目的开发。</p>
+
 </section>
 
 
@@ -612,48 +675,6 @@
      
     
         
-    <div class="disqus-container">
-    <div id="disqus_thread"></div>
-<script>
-    window.disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-</div>
-
-<style>
-    .disqus-container {
-        background-color: var(--card-background);
-        border-radius: var(--card-border-radius);
-        box-shadow: var(--shadow-l1);
-        padding: var(--card-padding);
-    }
-</style>
-
-<script>
-    window.addEventListener('onColorSchemeChange', (e) => {
-        if (typeof DISQUS == 'object') {
-            DISQUS.reset({
-                reload: true
-            });
-        }
-    })
-</script>
-
     
 
     <footer class="site-footer">
@@ -766,28 +787,41 @@
         document.head.appendChild(customFont);
     }());
 </script>
-
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
 <div id="aplayer"></div>
 <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
 
 <script>
-    const home = 'https:\/\/5882886.github.io\/'
     const ap = new APlayer({
         container: document.getElementById('aplayer'),
         fixed: true,
 		audio: [{
             name: 'The Internationale',
-            artist: 'Various Artists',
-            url: home + '/music/the_internationale.ogg',
-            cover: 'cover.jpg'
+            artist: '中央乐队合唱团',
+            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0Vja0Vlc3NaV2tGTmlKdGdkY1Atd0tjQl9KWGNMSlM1TTZtTm4wNjNZUm9Zd2c_ZT1PVGFYZ2k.mp3',
+            cover: '/music.png'
         }, {
             name: 'School song',
             artist: 'Various Artists',
-            url: home + '/music/school_song.ogg',
-            cover: 'cover.jpg'
+            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VkN0ZBOGl6cWNWR3FsUC1reFFoLW9RQnQyYmdPTEdkbXlNZS0xSnl0b1EyTVE_ZT1Oa1JYQm0.mp3',
+            cover: '/music.png'
 
-		}]
+		}, {
+            name: '一笑江湖（交响乐版）',
+            artist: '蜩與學鸠',
+            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VSeFRkc2tRYW1kUG9hNllSNGVmdUpRQmV5cVdhMXd0WE92WXI5N0kxd1pEdXc.mp3',
+            cover: '/music.png'
+        }, {
+            name: '错位时空',
+            artist: '排骨教主',
+            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VSWTg0Mmp6TU1CUHJieHFhdXdmRU9FQkdUUGNmeVluWkdWd091aUpYY3FYakE_ZT1ZdW1kYzE.mp3',
+            cover: '/music.png'
+        }, {
+            name: '少年游',
+            artist: '灰太狼办公室',
+            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VhSHRYVE15aUNkSGpiR0xSSERIamVnQlNyMU5ObkZyeFBPZUJjempCd2tud1E_ZT15ejlxdWI.mp3',
+            cover: '/music.png'
+        }]
     });
 
 	 
@@ -823,7 +857,6 @@
         }, 500);
     };
 </script>
-
 
 
 <script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
