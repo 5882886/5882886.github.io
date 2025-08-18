@@ -263,26 +263,6 @@
     <aside class="sidebar right-sidebar sticky">
         
             
-                <form action="/search/" class="search-form widget" >
-        <p>
-            <label>搜索</label>
-            <input name="keyword" required placeholder="输入关键词..." />
-        
-            <button title="搜索">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="10" cy="10" r="7" />
-  <line x1="21" y1="21" x2="15" y2="15" />
-</svg>
-
-
-
-            </button>
-        </p>
-    </form>
-            
-        
-            
                 <section class="widget archives">
         <div class="widget-icon">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-infinity" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -348,7 +328,7 @@
 
     <div class="tagCloud-tags">
         
-            <a href="/categories/guide/" class="font_size_8">
+            <a href="/categories/guide/" class="font_size_9">
                 教程
             </a>
         
@@ -377,46 +357,6 @@
 
             
         
-            
-                <section class="widget tagCloud">
-    <div class="widget-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tag" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <path d="M11 3L20 12a1.5 1.5 0 0 1 0 2L14 20a1.5 1.5 0 0 1 -2 0L3 11v-4a4 4 0 0 1 4 -4h4" />
-  <circle cx="9" cy="9" r="2" />
-</svg>
-
-
-
-    </div>
-    <h2 class="widget-title section-title">标签云</h2>
-
-    <div class="tagCloud-tags">
-        
-            <a href="/tags/css/" class="font_size_1">
-                Css
-            </a>
-        
-            <a href="/tags/emoji/" class="font_size_1">
-                Emoji
-            </a>
-        
-            <a href="/tags/html/" class="font_size_1">
-                Html
-            </a>
-        
-            <a href="/tags/markdown/" class="font_size_1">
-                Markdown
-            </a>
-        
-            <a href="/tags/themes/" class="font_size_1">
-                Themes
-            </a>
-        
-    </div>
-</section>
-            
-        
     </aside>
 
 
@@ -440,18 +380,18 @@
     <section class="article-list--compact">
         
             <article>
-    <a href="/p/markdown%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/">
+    <a href="/p/markdown%E8%AF%AD%E6%B3%95/">
         <div class="article-details">
-            <h2 class="article-title">Markdown语法指南</h2>
+            <h2 class="article-title">Markdown语法</h2>
             <footer class="article-time">
                 <time datetime='2019-03-11T00:00:00Z'>Mar 11, 2019</time>
             </footer>
         </div>
             <div class="article-image">
-                <img src="/p/markdown%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/pawel-czerwinski-8uZPynIu-rQ-unsplash_hu_e95a4276bf860a84.jpg" 
+                <img src="/p/markdown%E8%AF%AD%E6%B3%95/pawel-czerwinski-8uZPynIu-rQ-unsplash_hu_e95a4276bf860a84.jpg" 
                         width="120"
                         height="120" 
-                        alt="Markdown语法指南"
+                        alt="Markdown语法"
                         loading="lazy">
                 
             </div>
@@ -500,15 +440,18 @@
     const ap = new APlayer({
         container: document.getElementById('aplayer'),
         fixed: true,
+        lrcType: 3,
 		audio: [{
             name: 'The Internationale',
             artist: '中央乐队合唱团',
             url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0Vja0Vlc3NaV2tGTmlKdGdkY1Atd0tjQl9KWGNMSlM1TTZtTm4wNjNZUm9Zd2c_ZT1PVGFYZ2k.mp3',
+            lrc: '/music/国际歌.lrc',
             cover: '/music.png'
         }, {
             name: 'School song',
             artist: 'Various Artists',
             url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VkN0ZBOGl6cWNWR3FsUC1reFFoLW9RQnQyYmdPTEdkbXlNZS0xSnl0b1EyTVE_ZT1Oa1JYQm0.mp3',
+            lrc: '/music/天津大学校歌.lrc',
             cover: '/music.png'
 
 		}, {
@@ -517,14 +460,16 @@
             url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VSeFRkc2tRYW1kUG9hNllSNGVmdUpRQmV5cVdhMXd0WE92WXI5N0kxd1pEdXc.mp3',
             cover: '/music.png'
         }, {
-            name: '错位时空',
-            artist: '排骨教主',
-            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VSWTg0Mmp6TU1CUHJieHFhdXdmRU9FQkdUUGNmeVluWkdWd091aUpYY3FYakE_ZT1ZdW1kYzE.mp3',
+            name: '五四特别版错位时空',
+            artist: '共青团中央',
+            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VldlEwZ3EzZzI5SG1SVURHRzFNdUhJQllZbm1ycDZDbXNHOVF0MzVLZ3RjeXc_ZT1iRXpZdzI.mp3',
+            lrc: '/music/五四特别版错位时空.lrc',
             cover: '/music.png'
         }, {
             name: '少年游',
             artist: '灰太狼办公室',
-            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VhSHRYVE15aUNkSGpiR0xSSERIamVnQlNyMU5ObkZyeFBPZUJjempCd2tud1E_ZT15ejlxdWI.mp3',
+            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VmbEdBTnYxdVdGQ3FBMWFvbkt4dF9BQlppNzgtZDcyenhGNXVnVmphOGx3NlE_ZT04Q1ZoZlU.mp3',
+            lrc: '/music/少年游-完整版.lrc',
             cover: '/music.png'
         }]
     });

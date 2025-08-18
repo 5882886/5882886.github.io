@@ -107,7 +107,32 @@
         
         <guid>https://5882886.github.io/p/math_tips/</guid>
         <description>&lt;h2 id=&#34;极限与函数&#34;&gt;极限与函数
-&lt;/h2&gt;&lt;h3 id=&#34;泰勒公式&#34;&gt;泰勒公式
+&lt;/h2&gt;&lt;h3 id=&#34;等价无穷小&#34;&gt;等价无穷小
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;等价无穷小&lt;/th&gt;
+          &lt;th&gt;$(x \to 0)$&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$ \sin x \sim x$&lt;/td&gt;
+          &lt;td&gt;$ \tan x \sim x $&lt;/td&gt;
+          &lt;td&gt;$\arcsin x \sim x$&lt;/td&gt;
+          &lt;td&gt;$ \arctan x \sim x $&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\displaystyle \cos x \sim 1-\frac{1}{2}x^{2} $&lt;/td&gt;
+          &lt;td&gt;$ \mathrm{e}^{x}-1 \sim x $&lt;/td&gt;
+          &lt;td&gt;$ \ln(1+x) \sim x $&lt;/td&gt;
+          &lt;td&gt;$ (1+x)^{\alpha}-1 \sim \alpha x $&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;泰勒公式&#34;&gt;泰勒公式
 &lt;/h3&gt;&lt;h4 id=&#34;皮亚诺余项&#34;&gt;皮亚诺余项
 &lt;/h4&gt;$$ f(x) = \sum_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!}(x - x_0)^k + o\left((x - x_0)^n\right), \quad x \to x_0 $$&lt;h4 id=&#34;拉格朗日余项&#34;&gt;拉格朗日余项
 &lt;/h4&gt;$$ f(x) = \sum_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!}(x - x_0)^k + \frac{f^{(n+1)}(\xi)}{(n+1)!}(x - x_0)^{n+1}, \quad \xi \in (x, x_0) $$&lt;h3 id=&#34;麦克劳林公式&#34;&gt;麦克劳林公式
@@ -212,7 +237,7 @@ $$ \left\{ \begin{array}{c} u=f(x) \\ v=g(x) \\ \end{array} \right. $$&lt;p&gt; 
   &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h3 id=&#34;导数的应用&#34;&gt;导数的应用
-&lt;/h3&gt;&lt;h4 id=&#34;求曲线的切线与法线方程&#34;&gt;求曲线的切线与法线方程
+&lt;/h3&gt;&lt;h4 id=&#34;曲线的切线与法线&#34;&gt;曲线的切线与法线
 &lt;/h4&gt;&lt;p&gt;（在$x_{0}$处）&lt;/p&gt;
 &lt;p&gt;切线方程：$y-f(x_{0}) = f&#39;(x_{0})(x-x_{0})$；&lt;/p&gt;
 &lt;p&gt;法线方程：$\displaystyle y-f(x_{0}) = -\frac{1}{f&#39;(x_{0})}(x-x_{0})$.&lt;/p&gt;
@@ -237,8 +262,9 @@ $$ \left\{ \begin{array}{c} u=f(x) \\ v=g(x) \\ \end{array} \right. $$&lt;p&gt; 
 &lt;p&gt;(2) 若 $\displaystyle \lim_{x \to \infty} f(x) = A$，则直线$y=A$是曲线的水平渐近线；&lt;/p&gt;
 &lt;p&gt;(3) 若 $\displaystyle \lim_{x \to \infty} \frac{f(x)}{x} = k$，$\displaystyle \lim_{x \to \infty} [f(x)-kx] = b$，则直线$y=kx+b$是曲线的斜渐近线；&lt;/p&gt;
 &lt;h2 id=&#34;一元函数积分学&#34;&gt;一元函数积分学
-&lt;/h2&gt;&lt;h3 id=&#34;凑微分法&#34;&gt;凑微分法
-&lt;/h3&gt;&lt;ol&gt;
+&lt;/h2&gt;&lt;h3 id=&#34;积分方法&#34;&gt;积分方法
+&lt;/h3&gt;&lt;h4 id=&#34;凑微分法&#34;&gt;凑微分法
+&lt;/h4&gt;&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;$\displaystyle \mathrm{e}^{x} \mathrm{d}x = \mathrm{d} (\mathrm{e}^{x})$&lt;/p&gt;
 &lt;/li&gt;
@@ -264,30 +290,55 @@ $$ \left\{ \begin{array}{c} u=f(x) \\ v=g(x) \\ \end{array} \right. $$&lt;p&gt; 
 &lt;p&gt;$\displaystyle \frac{\mathrm{d}x}{\sqrt{1-x^{2}}} = \mathrm{d}(\arcsin x)$&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id=&#34;换元积分法&#34;&gt;换元积分法
-&lt;/h3&gt;&lt;h4 id=&#34;三角代换&#34;&gt;三角代换
-&lt;/h4&gt;&lt;p&gt;若被积函数中含有 $\sqrt{a^{2}-x^{2}}$时，可设$x = a\sin t$；含有 $\sqrt{a^{2}+x^{2}}$时，可设$x = a\tan t$；含有 $\sqrt{ax^{2}+bx+c}$ 时，可先配方再设.&lt;/p&gt;
+&lt;h4 id=&#34;换元积分法&#34;&gt;换元积分法
+&lt;/h4&gt;&lt;h5 id=&#34;三角代换&#34;&gt;三角代换
+&lt;/h5&gt;&lt;p&gt;若被积函数中含有 $\sqrt{a^{2}-x^{2}}$时，可设$x = a\sin t$；含有 $\sqrt{a^{2}+x^{2}}$时，可设$x = a\tan t$；含有 $\sqrt{ax^{2}+bx+c}$ 时，可先配方再设.&lt;/p&gt;
 &lt;p&gt;对于积分式 $\displaystyle \int f(\sin x, \cos x) \mathrm{d}x$，其中 $f(u,v)$是有理函数，利用代换 $\displaystyle t = \tan \frac{x}{2}$ 可化为有理函数积分.&lt;/p&gt;
-&lt;h4 id=&#34;根式代换&#34;&gt;根式代换
-&lt;/h4&gt;&lt;p&gt;含两个一次平方根式 $\sqrt{x+\alpha}$与$\sqrt{x+\beta}$  $(\alpha &amp;lt; \beta)$，可设&lt;/p&gt;
+&lt;h5 id=&#34;根式代换&#34;&gt;根式代换
+&lt;/h5&gt;&lt;p&gt;含两个一次平方根式 $\sqrt{x+\alpha}$与$\sqrt{x+\beta}$  $(\alpha &amp;lt; \beta)$，可设&lt;/p&gt;
 \[ \sqrt{x+\beta} = \lambda \left(t+\frac{1}{t}\right)， \sqrt{x+\alpha} = \lambda \left(t-\frac{1}{t}\right) \]&lt;p&gt;以上两式平方后相减，有$4\lambda^{2} = \beta - \alpha$.&lt;/p&gt;
 &lt;p&gt;含两个一次根式 $\sqrt[m]{x+a}$与$\sqrt[n]{x+a}$的积分，可设 $t = \sqrt[k]{x+a}$，这里$k$是$m$，$n$的最小公倍数.&lt;/p&gt;
 &lt;p&gt;对于根式 $\displaystyle \sqrt[m]{\frac{x+a}{x-a}}$，直接设 $\displaystyle t = \sqrt[m]{\frac{x+a}{x-a}}$&lt;/p&gt;
-&lt;h4 id=&#34;倒代换&#34;&gt;倒代换
-&lt;/h4&gt;&lt;p&gt;令 $\displaystyle t = \frac{1}{x+a}$&lt;/p&gt;
+&lt;h5 id=&#34;倒代换&#34;&gt;倒代换
+&lt;/h5&gt;&lt;p&gt;令 $\displaystyle t = \frac{1}{x+a}$&lt;/p&gt;
 &lt;p&gt;当被积函数为$x$的有理式或无理式时，往往可利用倒代换消去分母中所含的因子 $x + a$ 或 $(x + a)^{n}$。&lt;/p&gt;
-&lt;h3 id=&#34;分部积分法&#34;&gt;分部积分法
-&lt;/h3&gt;&lt;p&gt;设 $u(x)$，$v(x)$ 具有连续导数，则有分部积分公式&lt;/p&gt;
+&lt;h4 id=&#34;分部积分法&#34;&gt;分部积分法
+&lt;/h4&gt;&lt;p&gt;设 $u(x)$，$v(x)$ 具有连续导数，则有分部积分公式&lt;/p&gt;
 $$ \int u(x)v&#39;(x) \mathrm{d}x = u(x)v(x) - \int u&#39;(x)v(x) \mathrm{d}x $$&lt;p&gt;或简记为：$\displaystyle \int u \mathrm{d}v = uv - \int v \mathrm{d}u$&lt;/p&gt;
-&lt;h3 id=&#34;区间再现法&#34;&gt;区间再现法
-&lt;/h3&gt;&lt;p&gt;对于周期函数，若知道其周期，可使用区间再现法求定积分。&lt;/p&gt;
+&lt;h4 id=&#34;区间再现法&#34;&gt;区间再现法
+&lt;/h4&gt;&lt;p&gt;对于周期函数，若知道其周期，可使用区间再现法求定积分。&lt;/p&gt;
 &lt;p&gt;例如，若 $f(x+T)=f(x)$，则有&lt;/p&gt;
-$$\int_{a}^{a+T} f(x) \mathrm{d}x = \int_{0}^{T} f(x) \mathrm{d}x$$$$\int_{0}^{nT} f(x) \mathrm{d}x = n\int_{0}^{T} f(x) \mathrm{d}x$$&lt;h3 id=&#34;组合积分法&#34;&gt;组合积分法
-&lt;/h3&gt;&lt;p&gt;如果积分式具有单对称性，可考虑构造另一个积分式，使两者的线性运算所得的积分容易求出，最后通过解方程求得原式的结果。&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/math_quiz/#%e7%bb%84%e5%90%88%e7%a7%af%e5%88%86%e6%b3%95&#34; &gt;Example&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;反函数积分法&#34;&gt;反函数积分法
-&lt;/h3&gt;&lt;p&gt;对于一些定积分，若被积函数较复杂，而其反函数较简单，可利用定积分的几何意义：用积分区间的面积减去被积函数反函数的定积分。&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/math_quiz/#%e5%8f%8d%e5%87%bd%e6%95%b0%e7%a7%af%e5%88%86%e6%b3%95&#34; &gt;Example&lt;/a&gt;&lt;/p&gt;
+$$\int_{a}^{a+T} f(x) \mathrm{d}x = \int_{0}^{T} f(x) \mathrm{d}x$$$$\int_{0}^{nT} f(x) \mathrm{d}x = n\int_{0}^{T} f(x) \mathrm{d}x$$&lt;h4 id=&#34;组合积分法&#34;&gt;组合积分法
+&lt;/h4&gt;&lt;p&gt;如果积分式具有单对称性，可考虑构造另一个积分式，使两者的线性运算所得的积分容易求出，最后通过解方程求得原式的结果。&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/math_quiz/#%e7%bb%84%e5%90%88%e7%a7%af%e5%88%86%e6%b3%95&#34; &gt;Example&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&#34;反函数积分法&#34;&gt;反函数积分法
+&lt;/h4&gt;&lt;p&gt;对于一些定积分，若被积函数较复杂，而其反函数较简单，可利用定积分的几何意义：用积分区间的面积减去被积函数反函数的定积分。&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/math_quiz/#%e5%8f%8d%e5%87%bd%e6%95%b0%e7%a7%af%e5%88%86%e6%b3%95&#34; &gt;Example&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;定积分的应用&#34;&gt;定积分的应用
+&lt;/h3&gt;&lt;h4 id=&#34;弧长与曲率&#34;&gt;弧长与曲率
+&lt;/h4&gt;&lt;h5 id=&#34;弧长&#34;&gt;弧长
+&lt;/h5&gt;&lt;p&gt;参数方程 &lt;/p&gt;
+$$\left\{ \begin{array}{c} x = \varphi(t) \\ y = \psi(t) \\ \end{array} \right. t \in [a,b]$$&lt;p&gt; 确定的平面曲线的弧长 $\displaystyle s = \int_{a}^{b} \sqrt{\varphi&#39;^{\ 2}(t) + \psi&#39;^{\ 2}(t)} \mathrm{d}t $&lt;/p&gt;
+&lt;p&gt;极坐标方程 &lt;/p&gt;
+$$\rho = \rho(\theta) \quad \theta \in (\alpha,\beta) $$&lt;p&gt; 确定的平面曲线的弧长 $\displaystyle s = \int_{\alpha}^{\beta} \sqrt{\rho^{2}(\theta) + \rho&#39;^{\ 2}(\theta)} \mathrm{d}\theta $&lt;/p&gt;
+&lt;h5 id=&#34;曲率&#34;&gt;曲率
+&lt;/h5&gt;&lt;p&gt;参数方程 &lt;/p&gt;
+$$\left\{ \begin{array}{c} x = \varphi(t) \\ y = \psi(t) \\ \end{array} \right. t \in [a,b]$$&lt;p&gt; 确定的平面曲线的曲率 &lt;/p&gt;
+$$ K = \frac{\left| \varphi&#39;(t) \psi&#39;&#39;(t) - \varphi&#39;&#39;(t) \psi&#39;(t) \right|}{[\varphi&#39;^{\ 2}(t)+\psi&#39;^{\ 2}(t)]^{\frac{3}{2}}} $$&lt;p&gt;曲线 $y=y(x)$ 的曲率中心 &lt;/p&gt;
+$$\left\{ \begin{array}{c} \begin{align*} \xi &amp;= x - \dfrac{y&#39;(1+y&#39;^{\ 2})}{y&#39;&#39;} \\ \eta &amp;= y + \dfrac{1+y&#39;^{\ 2}}{y&#39;&#39;} \end{align*} \end{array} \right.$$&lt;h4 id=&#34;旋转体的体积&#34;&gt;旋转体的体积
+&lt;/h4&gt;&lt;p&gt;曲线 $y=f(x)$ 在 $[c,d]$ 上的部分绕 $x$ 轴旋转一周所围立体的体积 $\displaystyle V = \pi \int_{c}^{d} f^{2}(x) \mathrm{d}x $&lt;/p&gt;
+&lt;h4 id=&#34;旋转曲面的面积&#34;&gt;旋转曲面的面积
+&lt;/h4&gt;&lt;p&gt;曲线 $y=f(x)$ 在 $[c,d]$ 上的部分绕 $x$ 轴旋转一周所得曲面的面积 $\displaystyle S = 2\pi \int_{c}^{d} f(x)\sqrt{1+f&#39;^{\ 2}(x)} \mathrm{d}x $&lt;/p&gt;
 &lt;h2 id=&#34;空间解析几何&#34;&gt;空间解析几何
-&lt;/h2&gt;&lt;h3 id=&#34;向量基本定理&#34;&gt;向量基本定理
+&lt;/h2&gt;&lt;h3 id=&#34;向量的运算&#34;&gt;向量的运算
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;数量积&lt;/li&gt;
+&lt;/ol&gt;
+$$\bm{a} \cdot \bm{b} = x_1 x_2+y_1 y_2+z_1 z_2 $$&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;向量积&lt;/li&gt;
+&lt;/ol&gt;
+$$ \bm{a} \times \bm{b} = \left| \begin{matrix} \bm{i} &amp; \bm{j} &amp; \bm{k} \\ x_1 &amp; y_1 &amp; z_1 \\ x_2 &amp; y_2 &amp; z_2 \\ \end{matrix} \right| $$&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;混合积&lt;/li&gt;
+&lt;/ol&gt;
+$$ ( \bm{a} \times \bm{b} ) \cdot \bm{c} = \left| \begin{matrix} x_1 &amp; y_1 &amp; z_1 \\ x_2 &amp; y_2 &amp; z_2 \\ x_3 &amp; y_3 &amp; z_3 \\ \end{matrix} \right| $$&lt;h3 id=&#34;向量基本定理&#34;&gt;向量基本定理
 &lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;已知点 $A，B，C$，对于另一点 $O$，若 $\overrightarrow{OA} = \lambda \overrightarrow{OB} + (1-\lambda) \overrightarrow{OC}$，则点 $A，B，C$ 在同一条直线上.&lt;/p&gt;
@@ -311,7 +362,7 @@ $$\int_{a}^{a+T} f(x) \mathrm{d}x = \int_{0}^{T} f(x) \mathrm{d}x$$$$\int_{0}^{n
 &lt;p&gt;三角形的面积：已知三角形 $\triangle ABC$，则其面积 $\displaystyle S_{\triangle ABC} = \frac{1}{2} \left( \overrightarrow{AB} \times \overrightarrow{AC} \right)$&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;平行六面体的体积：已知平行六面体其中一个顶点所连的三条边对应的向量分别为 $\boldsymbol{a}$，$\boldsymbol{b}$，$\boldsymbol{c}$， 则其体积 $V = \boldsymbol{a} \cdot ( \boldsymbol{b} \times \boldsymbol{c})$&lt;/p&gt;
+&lt;p&gt;平行六面体的体积：已知平行六面体其中一个顶点所连的三条边对应的向量分别为 $\boldsymbol{a}$，$\boldsymbol{b}$，$\boldsymbol{c}$， 则其体积 $V = \left| (\boldsymbol{a} \times \boldsymbol{b}) \cdot \boldsymbol{c} \right|$&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;blockquote&gt;
@@ -478,8 +529,7 @@ $$\left[\int_{a}^{x} f(u,t) \mathrm{d}t \right]&#39;_{x} = \int_{a}^{x} \frac{\p
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;由多个函数确定 &lt;/p&gt;
-$$\left\{ \begin{array}{c} F(x,y,u,v) = 0 \\ G(x,y,u,v) = 0 \end{array} \right.$$&lt;p&gt; &lt;br&gt;
-分别对等式两边求偏导，解关于 $\displaystyle \frac{\partial z}{\partial x}$ 和 $\displaystyle \frac{\partial z}{\partial y}$ 的线性方程组.&lt;/p&gt;
+$$\left\{ \begin{array}{c} F(x,y,u,v) = 0 \\ G(x,y,u,v) = 0 \end{array} \right.$$&lt;p&gt; 分别对等式两边求偏导，解关于 $\displaystyle \frac{\partial z}{\partial x}$ 和 $\displaystyle \frac{\partial z}{\partial y}$ 的线性方程组.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
@@ -489,31 +539,67 @@ $$\left\{ \begin{array}{c} F(x,y,u,v) = 0 \\ G(x,y,u,v) = 0 \end{array} \right.$
 &lt;li&gt;
 &lt;p&gt;方向导数 &lt;br&gt;
 (1) 定义式：&lt;/p&gt;
-$$ \frac{\partial f}{\partial l} \Bigg|_{(x_0,y_0)} = \lim_{(\Delta x, \Delta y) \to (0,0)} \frac{f(x_0+\Delta x, y_0+\Delta y) - f(x_0,y_0)}{\sqrt{\Delta x^{2} + \Delta y^{2}}} $$&lt;p&gt; &lt;br&gt;
+$$ \frac{\partial f}{\partial \bm{l}} \Bigg|_{(x_0,y_0)} = \lim_{(\Delta x, \Delta y) \to (0,0)} \frac{f(x_0+\Delta x, y_0+\Delta y) - f(x_0,y_0)}{\sqrt{\Delta x^{2} + \Delta y^{2}}} $$&lt;p&gt; &lt;br&gt;
 (2) 计算式：&lt;/p&gt;
-$$ \frac{\partial f}{\partial l} \Bigg|_{(x_0,y_0)} =  \frac{\partial f}{\partial x} \cos \alpha + \frac{\partial f}{\partial y} \cos \beta $$&lt;p&gt; 其中 $\displaystyle \cos \alpha = \frac{x_0}{\sqrt{x_0^{2}+y_0^{2}}}$，$\displaystyle \cos \beta = \frac{y_0}{\sqrt{x_0^{2}+y_0^{2}}}$&lt;/p&gt;
+$$ \frac{\partial f}{\partial \bm{l}} \Bigg|_{(x_0,y_0)} =  \frac{\partial f}{\partial x} \cos \alpha + \frac{\partial f}{\partial y} \cos \beta $$&lt;p&gt; 其中 $\displaystyle \cos \alpha = \frac{x_0}{\sqrt{x_0^{2}+y_0^{2}}}$，$\displaystyle \cos \beta = \frac{y_0}{\sqrt{x_0^{2}+y_0^{2}}}$&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;梯度 &lt;br&gt;
 &lt;/p&gt;
 $$\textbf{grad}z = \left(\frac{\partial f}{\partial x},\frac{\partial f}{\partial y}\right)$$&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id=&#34;极值与最值&#34;&gt;极值与最值
-&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;无条件极值&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;条件极值与拉格朗日乘数法&lt;/p&gt;
-&lt;/li&gt;
+&lt;h3 id=&#34;应用&#34;&gt;应用
+&lt;/h3&gt;&lt;h4 id=&#34;切平面和法线&#34;&gt;切平面和法线
+&lt;/h4&gt;&lt;p&gt;已知曲面 $F(x,y,z)=0$，在点 $(x_0,y_0,z_0)$ 处的切平面方程为 &lt;/p&gt;
+$$F&#39;_x(x-x_0)+F&#39;_y(y-y_0)+F&#39;_z(z-z_0) = 0$$&lt;p&gt;已知曲线 &lt;/p&gt;
+$$\left\{ \begin{array}{c} A_1x+B_1y+C_1z+D_1=0 \\  A_2x+B_2y+C_2z+D_2=0 \end{array} \right. $$&lt;p&gt; 在一点 $(x_0,y_0,z_0)$ 处的法向量 $\bm{n} = (A_1,B_1,C_1) \times (A_2,B_2,C_2)$&lt;/p&gt;
+&lt;h4 id=&#34;极值与最值&#34;&gt;极值与最值
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;无条件极值&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;对于稳定点 $x_0$ （满足 $f&#39;(x_0) = 0$），有$Hesse$ 矩阵：&lt;/p&gt;
+$$H = \left[ \begin{matrix} \dfrac{\partial^{2}y}{\partial x_1^{2}} &amp; \dfrac{\partial^{2}y}{\partial x_1 \partial x_2} &amp; \cdots &amp; \dfrac{\partial^{2}y}{\partial x_1 \partial x_n}  \\ \dfrac{\partial^{2}y}{\partial x_2 \partial x_1} &amp; \dfrac{\partial^{2}y}{\partial x_2^{2}} &amp; \cdots &amp; \dfrac{\partial^{2}y}{\partial x_2 \partial x_n}  \\ \vdots &amp; \vdots &amp; &amp; \vdots  \\ \dfrac{\partial^{2}y}{\partial x_n \partial x_1} &amp; \dfrac{\partial^{2}y}{\partial x_n \partial x_2} &amp; \cdots &amp; \dfrac{\partial^{2}y}{\partial x_n^{2}}  \\ \end{matrix} \right]$$&lt;p&gt;若 $Hesse$ 矩阵是正定矩阵，则稳定点 $P_0$ 是极小值点. &lt;br&gt;
+若 $Hesse$ 矩阵是负定矩阵，则稳定点 $P_0$ 是极大值点. &lt;br&gt;
+若 $Hesse$ 矩阵是不定矩阵，则稳定点 $P_0$ 不是极值点. &lt;br&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;条件极值与拉格朗日乘数法&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;已知函数 $F(x,y) = 0$，约束方程 $W(x,y) = 0$.&lt;/p&gt;
 &lt;p&gt;构造拉格朗日函数 $L(x,y,\lambda) = F(x,y) + \lambda W(x,y)$，求满足方程组 &lt;/p&gt;
-$$ \left\{\begin{array}{c} \begin{align*} L&#39;_x &amp;= 0 \\ L&#39;_y &amp;= 0 \\ L&#39;_\lambda &amp;= W(x,y) = 0 \end{align*} \end{array}  \right.  $$&lt;p&gt;的$x,y,\lambda$.&lt;/p&gt;
+$$ \left\{\begin{array}{c} \begin{align*} L&#39;_x &amp;= 0 \\ L&#39;_y &amp;= 0 \\ L&#39;_\lambda &amp;= W(x,y) = 0 \end{align*} \end{array}  \right.  $$&lt;p&gt;的$x,y,\lambda$，则 $F(x,y)$ 在所求的 $(x,y)$ 处存在最值.&lt;/p&gt;
 &lt;ol start=&#34;3&#34;&gt;
 &lt;li&gt;最值&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;小知识&#34;&gt;小知识
+&lt;h2 id=&#34;重积分&#34;&gt;重积分
+&lt;/h2&gt;&lt;h3 id=&#34;二重积分&#34;&gt;二重积分
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;积分换序&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;坐标变换&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;一般坐标变换&lt;/p&gt;
+&lt;p&gt;令 $x = x(u,v)$，$y = y(u,v)$，则&lt;/p&gt;
+$$\iint\limits_D f(x,y) \mathrm{d}x \mathrm{d}y = \iint\limits_D f(x(u,v),y(u,v)) \left| \frac{\partial(x,y)}{\partial(u,v)} \right| \mathrm{d}u \mathrm{d}v $$&lt;p&gt;其中 &lt;/p&gt;
+$$\frac{\partial(x,y)}{\partial(u,v)} = \left| \begin{matrix} \dfrac{\partial x}{\partial u} &amp; \dfrac{\partial x}{\partial v}  \\ \\ \dfrac{\partial y}{\partial u} &amp; \dfrac{\partial y}{\partial v} \\ \end{matrix}  \right|$$&lt;p&gt;$$$$&lt;/p&gt;
+&lt;p&gt;特别的，有极坐标变换：&lt;/p&gt;
+&lt;p&gt;令 $x = \rho \cos \theta$，$y = \rho \sin \theta$，则&lt;/p&gt;
+$$\iint\limits_D f(x,y) \mathrm{d}x\mathrm{d}y = \iint\limits_D f(\rho \cos \theta,\rho \sin \theta) \rho \mathrm{d}\rho \mathrm{d}\theta$$&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;轮换对称性&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;若积分区域关于原点对称，则 $x$ 与 $y$ 交换位置后，积分值不变. 即 &lt;/p&gt;
+$$\iint\limits_D f(x,y) \mathrm{d}x \mathrm{d}y = \frac{1}{2} \left( \iint\limits_D f(x,y) \mathrm{d}x \mathrm{d}y + \iint\limits_D f(y,x) \mathrm{d}y \mathrm{d}x \right)$$&lt;h3 id=&#34;三重积分&#34;&gt;三重积分
+&lt;/h3&gt;&lt;p&gt;球坐标变换&lt;/p&gt;
+&lt;p&gt;令 &lt;/p&gt;
+$$\left\{ \begin{array}{c} \begin{align*} x &amp;= \rho \cos \theta \sin \varphi \\ y &amp;= \rho \sin \theta \sin \varphi \\ z &amp;= \rho \cos \varphi \end{align*} \end{array}\right.$$&lt;p&gt; 则雅可比行列式的绝对值为 $\rho^{2} \sin \theta$&lt;/p&gt;
+&lt;h3 id=&#34;重积分的应用&#34;&gt;重积分的应用
+&lt;/h3&gt;&lt;h4 id=&#34;物体的质心&#34;&gt;物体的质心
+&lt;/h4&gt;&lt;p&gt;设物体的密度函数为 $\mu(x,y,z)$，则物体质心坐标为 &lt;/p&gt;
+$$\begin{array}{c} \displaystyle \overline{x} = \frac{1}{m}\iiint\limits_\varOmega x \mu(x,y,z) \mathrm{d}V \\ \\ \displaystyle \overline{y} = \frac{1}{m}\iiint\limits_\varOmega y \mu(x,y,z) \mathrm{d}V \\ \\ \displaystyle \overline{z} = \frac{1}{m}\iiint\limits_\varOmega z \mu(x,y,z) \mathrm{d}V \end{array}$$&lt;h4 id=&#34;物体的转动惯量&#34;&gt;物体的转动惯量
+&lt;/h4&gt;&lt;p&gt;设物体的密度函数为 $\mu(x,y,z)$，则物体对 $x,y,z$ 轴的转动惯量分别为 &lt;/p&gt;
+$$\begin{array}{c} \displaystyle I_x = \iiint\limits_\varOmega (y^{2}+z^{2}) \mu(x,y,z) \mathrm{d}V \\ \\ \displaystyle I_y = \iiint\limits_\varOmega (x^{2}+z^{2}) \mu(x,y,z) \mathrm{d}V \\ \\ \displaystyle I_z =  \iiint\limits_\varOmega (x^{2}+y^{2}) \mu(x,y,z) \mathrm{d}V \end{array}  $$&lt;h2 id=&#34;小知识&#34;&gt;小知识
 &lt;/h2&gt;&lt;h3 id=&#34;斐波那契数列&#34;&gt;斐波那契数列
 &lt;/h3&gt;&lt;p&gt;递推公式：$F_{n} = F_{n-1} + F_{n-2}$，用矩阵表示为 &lt;/p&gt;
 $$\left[\begin{array}{c}  F_{n+1}  \\ F_{n} \\  \end{array} \right] = \left[\begin{matrix}  1&amp; 1 \\  1&amp; 0 \\  \end{matrix}\right] \left[\begin{array}{c}  F_{n} \\  F_{n-1} \\ \end{array} \right] $$&lt;p&gt;记 &lt;/p&gt;
@@ -2820,12 +2906,12 @@ D.	全诗语言简明直白，生动地表达作者对天津的喜爱和赞美�
 </description>
         </item>
         <item>
-        <title>Markdown语法指南</title>
-        <link>https://5882886.github.io/p/markdown%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/</link>
+        <title>Markdown语法</title>
+        <link>https://5882886.github.io/p/markdown%E8%AF%AD%E6%B3%95/</link>
         <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/markdown%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/</guid>
-        <description>&lt;img src="https://5882886.github.io/p/markdown%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/pawel-czerwinski-8uZPynIu-rQ-unsplash.jpg" alt="Featured image of post Markdown语法指南" /&gt;&lt;p&gt;本文提供了可用于 Hugo 内容文件的基本 Markdown 语法示例，还显示了 Hugo 主题中的基本 HTML 元素是否使用 CSS 进行修饰。&lt;/p&gt;
+        <guid>https://5882886.github.io/p/markdown%E8%AF%AD%E6%B3%95/</guid>
+        <description>&lt;img src="https://5882886.github.io/p/markdown%E8%AF%AD%E6%B3%95/pawel-czerwinski-8uZPynIu-rQ-unsplash.jpg" alt="Featured image of post Markdown语法" /&gt;&lt;p&gt;本文提供了可用于 Hugo 内容文件的基本 Markdown 语法示例，还显示了 Hugo 主题中的基本 HTML 元素是否使用 CSS 进行修饰。&lt;/p&gt;
 &lt;h2 id=&#34;标题&#34;&gt;标题
 &lt;/h2&gt;&lt;p&gt;如下的 &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt;—&lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt; 显示了标题的6个级别， &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt; 级别最高， &lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt; 级别最低.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -3129,6 +3215,11 @@ D.	全诗语言简明直白，生动地表达作者对天津的喜爱和赞美�
   &lt;/thead&gt;
   &lt;tbody&gt;
       &lt;tr&gt;
+          &lt;td&gt;空格&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;a\ b&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$a\ b$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
           &lt;td&gt;点乘&lt;/td&gt;
           &lt;td&gt;&lt;code&gt;\cdot&lt;/code&gt;&lt;/td&gt;
           &lt;td&gt;$A \cdot B$&lt;/td&gt;
@@ -3383,7 +3474,7 @@ D.	全诗语言简明直白，生动地表达作者对天津的喜爱和赞美�
           &lt;td&gt;$\displaystyle \frac{\mathrm{d}y}{\mathrm{d}x} $&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
-          &lt;td&gt;高阶导数&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
           &lt;td&gt;&lt;code&gt;f^{(n)}(x)&lt;/code&gt;&lt;/td&gt;
           &lt;td&gt;$f^{(n)}(x)$&lt;/td&gt;
       &lt;/tr&gt;
@@ -3406,23 +3497,48 @@ D.	全诗语言简明直白，生动地表达作者对天津的喜爱和赞美�
   &lt;tbody&gt;
       &lt;tr&gt;
           &lt;td&gt;求和&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;\sum_{i=0}^{n} a_{i}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\sum_{i=0}^{n}&lt;/code&gt;&lt;/td&gt;
           &lt;td&gt;$\displaystyle \sum_{i=0}^{n} a_{i}$&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;求积&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;\prod_{i=0}^{n} a^{i}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\prod_{i=0}^{n}&lt;/code&gt;&lt;/td&gt;
           &lt;td&gt;$\displaystyle \prod_{i=0}^{n} a^{i} $&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;积分&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;\int_{a}^{b} f(x) \mathrm{d}x&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\int_{a}^{b}&lt;/code&gt;&lt;/td&gt;
           &lt;td&gt;$\displaystyle \int_{a}^{b} f(x) \mathrm{d}x$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\iint\limits_D&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \iint\limits_D f(x,y) \mathrm{d}x \mathrm{d}y$&lt;/td&gt;
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h3 id=&#34;行列式与矩阵&#34;&gt;行列式与矩阵
-&lt;/h3&gt;&lt;h3 id=&#34;在等号处对齐&#34;&gt;在等号处对齐
+&lt;/h3&gt;&lt;p&gt;矩阵：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-tex&#34; data-lang=&#34;tex&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;\left&lt;/span&gt;[
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;\begin&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;{&lt;/span&gt;matrix&lt;span class=&#34;nb&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;a &lt;span class=&#34;nb&#34;&gt;&amp;amp;&lt;/span&gt; a+b &lt;span class=&#34;k&#34;&gt;\\&lt;/span&gt;    # &amp;#39;&lt;span class=&#34;nb&#34;&gt;&amp;amp;&lt;/span&gt;&amp;#39;是占位符，&amp;#39;&lt;span class=&#34;k&#34;&gt;\\&lt;/span&gt;&amp;#39;是换行符
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;c+d &lt;span class=&#34;nb&#34;&gt;&amp;amp;&lt;/span&gt; d &lt;span class=&#34;k&#34;&gt;\\&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;\end&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;{&lt;/span&gt;matrix&lt;span class=&#34;nb&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;\right&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;效果：&lt;/p&gt;
+$$\left[\begin{matrix} a &amp; a+b \\ c+d &amp; d \\ \end{matrix} \right]$$&lt;h3 id=&#34;在等号处对齐&#34;&gt;在等号处对齐
 &lt;/h3&gt;&lt;p&gt;使用&lt;code&gt;{align*}&lt;/code&gt;环境，在每一行公式后加上&lt;code&gt;\\&lt;/code&gt;；在要对齐的等号前加上&lt;code&gt;&amp;amp;&lt;/code&gt;。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -3486,10 +3602,10 @@ $$ \begin{align*} x_1+x_2 &amp;= \frac{-b+\sqrt{b^{2}-4ac}}{2a} + \frac{-b-\sqrt
         </item>
         <item>
         <title>数学公式输入</title>
-        <link>https://5882886.github.io/p/%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E8%BE%93%E5%85%A5/</link>
+        <link>https://5882886.github.io/p/math-typesetting/</link>
         <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E8%BE%93%E5%85%A5/</guid>
+        <guid>https://5882886.github.io/p/math-typesetting/</guid>
         <description>&lt;p&gt;Hugo项目中的数学符号可以通过使用第三方JavaScript库来启用。&lt;/p&gt;
 &lt;p&gt;这个例子中将会使用 &lt;a class=&#34;link&#34; href=&#34;https://katex.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;KaTeX&lt;/a&gt;&lt;/p&gt;
