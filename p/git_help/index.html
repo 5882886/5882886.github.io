@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/git_help/'>
 
-<link rel="stylesheet" href="/scss/style.min.fca3067da4fdd5e59fe9f94cd60a2f39fd941a613b075c64629392b750a3dbc1.css"><meta property='og:title' content="玩转Github">
+<link rel="stylesheet" href="/scss/style.min.dc01087b02a5d171634b11935d64b929caec3da054829d3436fca0cab1cb1164.css"><meta property='og:title' content="玩转Github">
 <meta property='og:description' content="成为开源社区贡献者">
 <meta property='og:url' content='https://5882886.github.io/p/git_help/'>
 <meta property='og:site_name' content='RunicDolphin806的博客'>
@@ -169,7 +169,7 @@
 
 
                 
-                <span>文章</span>
+                <span>归档</span>
             </a>
         </li>
         
@@ -292,7 +292,11 @@
         <li><a href="#变更分支">变更分支</a></li>
       </ol>
     </li>
-    <li><a href="#github使用教程">Github使用教程</a></li>
+    <li><a href="#github使用教程">Github使用教程</a>
+      <ol>
+        <li><a href="#添加-ssh-密钥">添加 SSH 密钥</a></li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -525,6 +529,45 @@
 <h2 id="github使用教程">Github使用教程
 </h2><p>Github是当前世界最大的开源网站库，使用git操作管理所有文件。</p>
 <p>注册一个Github账号后即可在Github上免费创建和使用仓库，也可以加入其他开源项目的开发。</p>
+<h3 id="添加-ssh-密钥">添加 SSH 密钥
+</h3><p>一些情况下，使用<code>git push</code>时会提示网络连接超时。这时可以尝试使用SSH协议，为你的Github账户添加 SSH 密钥。</p>
+<p>以下操作均在Linux系统下进行。</p>
+<ol>
+<li>生成SSH密钥（如果尚未生成）：</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="s2">&#34;your_email@example.com&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>将公钥添加到GitHub账户：</li>
+</ol>
+<p>复制公钥内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat ~/.ssh/id_rsa.pub
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>登录GitHub，进入Settings → SSH and GPG keys → New SSH key，粘贴公钥并保存。</p>
+<ol start="3">
+<li>更新Git远程仓库地址为SSH格式：</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>替换<code>USERNAME</code>和<code>REPOSITORY</code>为你的GitHub用户名和仓库名。</p>
 
 </section>
 
@@ -811,6 +854,13 @@
             lrc: '/music/五四特别版错位时空.lrc',
             cover: '/music.png'
         }, {
+            name: '问月',
+            artist: '葫芦童声;妞妞合唱团',
+            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VRWGtMS0hmUnE1Tm1ZS09RNll0R2JrQmM2Yk94WWNrZUYwSVVkcHhXekFuOWc_ZT0zQ0pmYTY.jpg',
+            lrc: '/music/问月.lrc',
+            cover: '/music.png'
+
+        },{
             name: '少年游',
             artist: '灰太狼办公室',
             url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VmbEdBTnYxdVdGQ3FBMWFvbkt4dF9BQlppNzgtZDcyenhGNXVnVmphOGx3NlE_ZT04Q1ZoZlU.mp3',
@@ -856,7 +906,7 @@
 
 <style>
     .aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
+        left: -70px !important;
          
     }
 
@@ -931,6 +981,7 @@
         renderKaTeX();
     })
 </script>
+
 
     </body>
 </html>
