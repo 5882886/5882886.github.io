@@ -678,6 +678,7 @@ $$ I = 2 \cdot 7 - \int_{0}^{2} \frac{x^{3}+3x}{2} \mathrm{d}x = 14 - \left( \fr
     const ap = new APlayer({
         container: document.getElementById('aplayer'),
         fixed: true,
+        listFolded: true,
         lrcType: 3,
 		audio: [{
             name: 'The Internationale',
@@ -712,7 +713,7 @@ $$ I = 2 \cdot 7 - \int_{0}^{2} \frac{x^{3}+3x}{2} \mathrm{d}x = 14 - \left( \fr
         }]
     });
 
-	 
+	
 
     window.onbeforeunload = () => {
         
@@ -744,9 +745,20 @@ $$ I = 2 \cdot 7 - \int_{0}^{2} \frac{x^{3}+3x}{2} \mathrm{d}x = 14 - \left( \fr
             }
         }, 500);
     };
+    
 </script>
 
+<style>
+    .aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+         
+    }
 
+    .aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0 !important;
+         
+    }
+</style>
 <script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
 <script>
     var pjax = new Pjax({

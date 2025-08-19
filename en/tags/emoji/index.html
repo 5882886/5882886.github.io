@@ -408,6 +408,7 @@
     const ap = new APlayer({
         container: document.getElementById('aplayer'),
         fixed: true,
+        listFolded: true,
         lrcType: 3,
 		audio: [{
             name: 'The Internationale',
@@ -442,7 +443,7 @@
         }]
     });
 
-	 
+	
 
     window.onbeforeunload = () => {
         
@@ -474,9 +475,20 @@
             }
         }, 500);
     };
+    
 </script>
 
+<style>
+    .aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+         
+    }
 
+    .aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0 !important;
+         
+    }
+</style>
 <script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
 <script>
     var pjax = new Pjax({

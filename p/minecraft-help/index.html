@@ -603,6 +603,19 @@
             
                 
 <article class="">
+    <a href="/p/aplayer/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">APlayer</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
     <a href="/p/windows/">
         
         
@@ -681,30 +694,6 @@
 
         <div class="article-details">
             <h2 class="article-title">玩转Github</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
-    <a href="/p/website/">
-        
-        
-            <div class="article-image">
-                <img src="/p/website/Hugo.12632854668e7159c4501891346184b7_hu_8fd9f38fb9bdc44d.png" 
-                        width="250" 
-                        height="150" 
-                        loading="lazy"
-                        alt="Featured image of post 使用Hugo搭建网站"
-                        data-key="website" 
-                        data-hash="md5-EmMoVGaOcVnEUBiRNGGEtw==">
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">使用Hugo搭建网站</h2>
         </div>
     </a>
 </article>
@@ -837,6 +826,7 @@
     const ap = new APlayer({
         container: document.getElementById('aplayer'),
         fixed: true,
+        listFolded: true,
         lrcType: 3,
 		audio: [{
             name: 'The Internationale',
@@ -871,7 +861,7 @@
         }]
     });
 
-	 
+	
 
     window.onbeforeunload = () => {
         
@@ -903,9 +893,20 @@
             }
         }, 500);
     };
+    
 </script>
 
+<style>
+    .aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+         
+    }
 
+    .aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0 !important;
+         
+    }
+</style>
 <script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
 <script>
     var pjax = new Pjax({

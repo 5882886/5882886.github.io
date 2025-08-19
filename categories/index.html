@@ -285,7 +285,7 @@
                     <a href="/archives/#2025">
                         
                             <span class="year">2025</span>
-                            <span class="count">11</span>
+                            <span class="count">12</span>
                         
                     </a> 
                 </div>
@@ -328,7 +328,7 @@
 
     <div class="tagCloud-tags">
         
-            <a href="/categories/guide/" class="font_size_9">
+            <a href="/categories/guide/" class="font_size_10">
                 教程
             </a>
         
@@ -344,12 +344,12 @@
                 Minecraft
             </a>
         
-            <a href="/categories/test/" class="font_size_1">
-                Test
+            <a href="/categories/website/" class="font_size_2">
+                网站
             </a>
         
-            <a href="/categories/website/" class="font_size_1">
-                网站
+            <a href="/categories/test/" class="font_size_1">
+                Test
             </a>
         
     </div>
@@ -387,6 +387,26 @@
                 <time datetime='2025-08-17T00:00:00Z'>Aug 17, 2025</time>
             </footer>
         </div>
+    </a>
+</article>
+        
+            <article>
+    <a href="/categories/website/">
+        <div class="article-details">
+            <h2 class="article-title">网站</h2>
+            <footer class="article-time">
+                <time datetime='2025-08-17T00:00:00Z'>Aug 17, 2025</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                <img src="/categories/website/Website_hu_b196000e75306a1f.jpg" 
+                        width="120"
+                        height="120" 
+                        alt="网站"
+                        loading="lazy">
+                
+            </div>
+        
     </a>
 </article>
         
@@ -434,26 +454,6 @@
                         width="120"
                         height="120" 
                         alt="Minecraft"
-                        loading="lazy">
-                
-            </div>
-        
-    </a>
-</article>
-        
-            <article>
-    <a href="/categories/website/">
-        <div class="article-details">
-            <h2 class="article-title">网站</h2>
-            <footer class="article-time">
-                <time datetime='2025-08-02T00:00:00Z'>Aug 02, 2025</time>
-            </footer>
-        </div>
-            <div class="article-image">
-                <img src="/categories/website/Website_hu_b196000e75306a1f.jpg" 
-                        width="120"
-                        height="120" 
-                        alt="网站"
                         loading="lazy">
                 
             </div>
@@ -517,6 +517,7 @@
     const ap = new APlayer({
         container: document.getElementById('aplayer'),
         fixed: true,
+        listFolded: true,
         lrcType: 3,
 		audio: [{
             name: 'The Internationale',
@@ -551,7 +552,7 @@
         }]
     });
 
-	 
+	
 
     window.onbeforeunload = () => {
         
@@ -583,9 +584,20 @@
             }
         }, 500);
     };
+    
 </script>
 
+<style>
+    .aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+         
+    }
 
+    .aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0 !important;
+         
+    }
+</style>
 <script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
 <script>
     var pjax = new Pjax({

@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="成为开源社区贡献者">
-<title>玩转Github</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="使用APlayer引入网站音乐播放器">
+<title>APlayer</title>
 
-<link rel='canonical' href='https://5882886.github.io/p/git_help/'>
+<link rel='canonical' href='https://5882886.github.io/p/aplayer/'>
 
-<link rel="stylesheet" href="/scss/style.min.fca3067da4fdd5e59fe9f94cd60a2f39fd941a613b075c64629392b750a3dbc1.css"><meta property='og:title' content="玩转Github">
-<meta property='og:description' content="成为开源社区贡献者">
-<meta property='og:url' content='https://5882886.github.io/p/git_help/'>
+<link rel="stylesheet" href="/scss/style.min.fca3067da4fdd5e59fe9f94cd60a2f39fd941a613b075c64629392b750a3dbc1.css"><meta property='og:title' content="APlayer">
+<meta property='og:description' content="使用APlayer引入网站音乐播放器">
+<meta property='og:url' content='https://5882886.github.io/p/aplayer/'>
 <meta property='og:site_name' content='RunicDolphin806的博客'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-08-04T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-08-04T00:00:00&#43;00:00'/><meta property='og:image' content='https://5882886.github.io/p/git_help/git.jpg' />
-<meta name="twitter:title" content="玩转Github">
-<meta name="twitter:description" content="成为开源社区贡献者"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://5882886.github.io/p/git_help/git.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-08-17T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-08-17T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="APlayer">
+<meta name="twitter:description" content="使用APlayer引入网站音乐播放器">
     <link rel="shortcut icon" href="/favicon.ico" />
 
     </head>
@@ -285,14 +284,13 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#git简介">git简介</a>
+    <li><a href="#引入aplayer">引入APlayer</a></li>
+    <li><a href="#修改aplayer样式">修改APlayer样式</a>
       <ol>
-        <li><a href="#git基本概念">git基本概念</a></li>
-        <li><a href="#git基本操作">git基本操作</a></li>
-        <li><a href="#变更分支">变更分支</a></li>
+        <li><a href="#实现播放进度保存">实现播放进度保存</a></li>
+        <li><a href="#实现隐藏播放器图标">实现隐藏播放器图标</a></li>
       </ol>
     </li>
-    <li><a href="#github使用教程">Github使用教程</a></li>
   </ol>
 </nav>
         </div>
@@ -304,24 +302,16 @@
 
 
             <main class="main full-width">
-    <article class="has-image main-article">
+    <article class="main-article">
     <header class="article-header">
-        <div class="article-image">
-            <a href="/p/git_help/">
-                <img src="/p/git_help/git_hu_481564a724fac5a6.jpg"
-                        srcset="/p/git_help/git_hu_481564a724fac5a6.jpg 800w, /p/git_help/git_hu_2e42b992a1f5af83.jpg 1600w"
-                        width="800" 
-                        height="450" 
-                        loading="lazy"
-                        alt="Featured image of post 玩转Github" />
-                
-            </a>
-        </div>
-    
 
     <div class="article-details">
     
     <header class="article-category">
+        
+            <a href="/categories/website/" style="background-color: #007acc; color: #fff;">
+                网站
+            </a>
         
             <a href="/categories/guide/" style="background-color: #1117d0ff; color: #fff;">
                 教程
@@ -332,12 +322,12 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/git_help/">玩转Github</a>
+            <a href="/p/aplayer/">APlayer</a>
         </h2>
     
         
         <h3 class="article-subtitle">
-            成为开源社区贡献者
+            使用APlayer引入网站音乐播放器
         </h3>
         
     </div>
@@ -358,7 +348,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Aug 04, 2025</time>
+                <time class="article-time--published">Aug 17, 2025</time>
             </div>
         
 
@@ -374,158 +364,182 @@
     <section class="article-content">
     
     
-    <h2 id="git简介">git简介
-</h2><p>git 是一个开源的分布式版本控制系统（VCS），用于高效、快速地处理从小型到大型项目的所有内容管理。它由 Linus Torvalds（Linux 之父）于 2005 年创建，最初是为了更好地管理 Linux 内核开发。</p>
-<h3 id="git基本概念">git基本概念
-</h3><div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>术语</th>
-          <th>含义</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>仓库（Repository）</td>
-          <td>存储项目所有文件和历史记录的地方</td>
-      </tr>
-      <tr>
-          <td>工作区（Working Directory）</td>
-          <td>你电脑上实际看到的项目文件夹</td>
-      </tr>
-      <tr>
-          <td>暂存区（Index/Stage）</td>
-          <td>准备提交的更改区域，介于工作区和仓库之间</td>
-      </tr>
-      <tr>
-          <td>提交（Commit）</td>
-          <td>保存项目当前状态为一个版本</td>
-      </tr>
-      <tr>
-          <td>分支（Branch）</td>
-          <td>从主线上分出来的独立开发线，不影响主线</td>
-      </tr>
-      <tr>
-          <td>合并（Merge）</td>
-          <td>将分支的更改整合到另一个分支</td>
-      </tr>
-      <tr>
-          <td>远程仓库（Remote）</td>
-          <td>托管在网络上的仓库，如 GitHub、GitLab</td>
-      </tr>
-  </tbody>
-</table></div>
-<h3 id="git基本操作">git基本操作
-</h3><ol>
-<li>克隆（clone） 远程仓库到本地</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone https://github.com/user/repo.git
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="2">
+    <p>以下由Hugo的stack主题演示，其他的可作为参考。</p>
+<h2 id="引入aplayer">引入APlayer
+</h2><ol>
 <li>
-<p>在工作区中修改文件。</p>
+<p>在Hugo工作文件夹的<code>layouts -&gt; partials -&gt; footer</code>文件夹中新建一个<code>.html</code>文件，命名为 <code>aplayer.html</code>。</p>
 </li>
 <li>
-<p>暂存（add） 更改到暂存区</p>
+<p>在 <code>aplayer.html</code>中输入以下内容：</p>
 </li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git add .
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;aplayer&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">ap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">APlayer</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">container</span><span class="o">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;aplayer&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fixed</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">listFolded</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">lrcType</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">audio</span><span class="o">:</span> <span class="p">[{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;example&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">artist</span><span class="o">:</span> <span class="s1">&#39;example&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;https://example.mp3&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">lrc</span><span class="o">:</span> <span class="s1">&#39;example.lrc&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">cover</span><span class="o">:</span> <span class="s1">&#39;example.png&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><ol start="4">
-<li>提交（commit） 更改到本地仓库</li>
+</div><ol start="3">
+<li>在<code>layouts -&gt; partials -&gt; footer</code>中新建一个文件夹，命名为<code>custom.html</code>，在其中输入：</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git commit -m <span class="s2">&#34;描述信息&#34;</span>
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">{{ partialCached &#34;footer/aplayer.html&#34; . }}
 </span></span></code></pre></td></tr></table>
 </div>
-</div><ol start="5">
-<li>推送（push） 到远程仓库</li>
-</ol>
-<div class="highlight"><div class="chroma">
+</div><p>这样，aplayer就成功导入到网页中了。</p>
+<h2 id="修改aplayer样式">修改APlayer样式
+</h2><h3 id="实现播放进度保存">实现播放进度保存
+</h3><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git push origin main
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">    * 页面销毁前监听
+</span></span></span><span class="line"><span class="cl"><span class="cm">    */</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">window</span><span class="p">.</span><span class="nx">onbeforeunload</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 将播放信息用对象封装，并存入到localStorage中
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kr">const</span> <span class="nx">playInfo</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">index</span><span class="o">:</span> <span class="nx">ap</span><span class="p">.</span><span class="nx">list</span><span class="p">.</span><span class="nx">index</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">currentTime</span><span class="o">:</span> <span class="nx">ap</span><span class="p">.</span><span class="nx">audio</span><span class="p">.</span><span class="nx">currentTime</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">paused</span><span class="o">:</span> <span class="nx">ap</span><span class="p">.</span><span class="nx">paused</span>
+</span></span><span class="line"><span class="cl">        <span class="p">};</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s2">&#34;playInfo&#34;</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">playInfo</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">        * 页面加载后监听
+</span></span></span><span class="line"><span class="cl"><span class="cm">        */</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 从localStorage取出播放信息
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kr">const</span> <span class="nx">playInfo</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s2">&#34;playInfo&#34;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">playInfo</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 切换歌曲
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">ap</span><span class="p">.</span><span class="nx">list</span><span class="p">.</span><span class="k">switch</span><span class="p">(</span><span class="nx">playInfo</span><span class="p">.</span><span class="nx">index</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 等待500ms再执行下一步(切换歌曲需要点时间，不能立马调歌曲进度条)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 调整时长
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nx">ap</span><span class="p">.</span><span class="nx">seek</span><span class="p">(</span><span class="nx">playInfo</span><span class="p">.</span><span class="nx">currentTime</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 是否播放
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">playInfo</span><span class="p">.</span><span class="nx">paused</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">ap</span><span class="p">.</span><span class="nx">play</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span> <span class="mi">500</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><ol start="6">
-<li>拉取（pull） 获取他人更新</li>
-</ol>
-<div class="highlight"><div class="chroma">
+</div><h3 id="实现隐藏播放器图标">实现隐藏播放器图标
+</h3><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git pull origin main
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">aplayer-fixed</span><span class="p">.</span><span class="nc">aplayer-narrow</span> <span class="p">.</span><span class="nc">aplayer-body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">left</span><span class="p">:</span> <span class="mi">-66</span><span class="kt">px</span> <span class="cp">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="c">/* 默认情况下缩进左侧66px，只留一点箭头部分 */</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">aplayer-fixed</span><span class="p">.</span><span class="nc">aplayer-narrow</span> <span class="p">.</span><span class="nc">aplayer-body</span><span class="p">:</span><span class="nd">hover</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">left</span><span class="p">:</span> <span class="mi">0</span> <span class="cp">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="c">/* 鼠标悬停是左侧缩进归零，完全显示按钮 */</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="变更分支">变更分支
-</h3><p>若更改未push到远程仓库中，默认保存在本地工作文件夹的<code>.git</code>文件夹中，此时可以对分支进行任意的修改操作。</p>
-<ol>
-<li>进入工程文件夹，在终端中输入</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git log
-</span></span></code></pre></td></tr></table>
 </div>
-</div><p>此命令可以查看当前所有提交的具体信息，包括提交时间、作者、提交ID等。可以使用键盘的“↑”、“↓”键滚动，按q键退出。</p>
-<ol start="2">
-<li>
-<p>选择需要更改的提交，复制它的ID。</p>
-</li>
-<li>
-<p>退出log，在终端中输入</p>
-</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git rebase -i 复制的提交ID
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>这样会打开一个Nano编辑器（Linux环境下），在要删除的提交前加上<code>#</code>，然后<code>Ctrl+O</code>写入、回车、<code>Ctrl+X</code>保存。系统会自动变更分支结构。</p>
-<ol start="4">
-<li>继续提交新的更改，变更完成。</li>
-</ol>
-<p>若要更改的提交已经push到远程仓库，则只需在最后push时输入</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git pull &lt;分支名&gt; --force
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>强制变更。</p>
-<blockquote>
-<p>注意：强制变更时应保证此时没有其他人员的提交，否则会导致分支出错。</p></blockquote>
-<h2 id="github使用教程">Github使用教程
-</h2><p>Github是当前世界最大的开源网站库，使用git操作管理所有文件。</p>
-<p>注册一个Github账号后即可在Github上免费创建和使用仓库，也可以加入其他开源项目的开发。</p>
-
 </section>
 
 
@@ -560,13 +574,24 @@
         <div class="flex article-list--tile">
             
                 
-<article class="">
-    <a href="/p/aplayer/">
+<article class="has-image">
+    <a href="/p/website/">
         
+        
+            <div class="article-image">
+                <img src="/p/website/Hugo.12632854668e7159c4501891346184b7_hu_8fd9f38fb9bdc44d.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 使用Hugo搭建网站"
+                        data-key="website" 
+                        data-hash="md5-EmMoVGaOcVnEUBiRNGGEtw==">
+                
+            </div>
         
 
         <div class="article-details">
-            <h2 class="article-title">APlayer</h2>
+            <h2 class="article-title">使用Hugo搭建网站</h2>
         </div>
     </a>
 </article>

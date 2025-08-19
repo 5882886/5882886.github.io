@@ -760,6 +760,11 @@
           <td>$ A \times B $</td>
       </tr>
       <tr>
+          <td>正负号</td>
+          <td><code>\pm</code></td>
+          <td>$ \pm a $</td>
+      </tr>
+      <tr>
           <td>角</td>
           <td><code>\angle</code></td>
           <td>$\angle ABC $</td>
@@ -1320,6 +1325,7 @@ $$ \begin{align*} x_1+x_2 &= \frac{-b+\sqrt{b^{2}-4ac}}{2a} + \frac{-b-\sqrt{b^{
     const ap = new APlayer({
         container: document.getElementById('aplayer'),
         fixed: true,
+        listFolded: true,
         lrcType: 3,
 		audio: [{
             name: 'The Internationale',
@@ -1354,7 +1360,7 @@ $$ \begin{align*} x_1+x_2 &= \frac{-b+\sqrt{b^{2}-4ac}}{2a} + \frac{-b-\sqrt{b^{
         }]
     });
 
-	 
+	
 
     window.onbeforeunload = () => {
         
@@ -1386,9 +1392,20 @@ $$ \begin{align*} x_1+x_2 &= \frac{-b+\sqrt{b^{2}-4ac}}{2a} + \frac{-b-\sqrt{b^{
             }
         }, 500);
     };
+    
 </script>
 
+<style>
+    .aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+         
+    }
 
+    .aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0 !important;
+         
+    }
+</style>
 <script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
 <script>
     var pjax = new Pjax({

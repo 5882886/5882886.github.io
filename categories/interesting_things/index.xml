@@ -96,12 +96,12 @@ $$(uv)^{(n)} = \mathrm{C}_{n}^{0}u^{(n)}v + \mathrm{C}_{n}^{1}u^{(n-1)}v&#39;+\c
 &lt;p&gt;由泰勒公式可知：
 &lt;/p&gt;
 $$f(x) = \sum_{k=0}^{n} \frac{f^{(k)}(0)}{k!} x^{k} + o(x^{n}).$$&lt;p&gt;
-比较同次幂系数可得$f^{(k)}(0) = k!a_{k}, k=0,1,2,\cdots,n$.&lt;/p&gt;
+比较同次幂系数可得 $f^{(k)}(0) = k!a_{k}, k=0,1,2,\cdots,n$.&lt;/p&gt;
 &lt;h3 id=&#34;微分中值定理&#34;&gt;微分中值定理
 &lt;/h3&gt;&lt;p&gt;&lt;strong&gt;费马定理&lt;/strong&gt;：如果 $f(x)$ 在点 $x_{0}$ 处取极值，且 $f&#39;(x_{0})$ 存在，那么 $f&#39;(x_{0})=0$.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;罗尔中值定理&lt;/strong&gt;：如果 $f(x)$ 在$[a,b]$上连续，在 $(a,b)$ 内可导，且$f(a)=f(b)$，那么至少存在一点$\xi \in(a,b)$，使得$f&#39;(\xi) = 0$.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;拉格朗日中值定理&lt;/strong&gt;：如果 $f(x)$ 在$[a,b]$上连续，在$(a,b)$内可导，那么至少存在一点$\xi \in(a,b)$，使得$f(b)-f(a)=f&#39;(\xi)(b-a)$.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;柯西中值定理&lt;/strong&gt;：如果$f(x)$和$g(x)$在$[a,b]$上连续，在 $(a,b)$ 内可导，且$g(x)\ne 0$，那么至少存在一点 $\xi \in(a,b)$，使得$\displaystyle \frac{f(b)-f(a)}{g(b)-g(a)} = \frac{f&#39;(\xi)}{g&#39;(\xi)} $.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;柯西中值定理&lt;/strong&gt;：如果$f(x)$和$g(x)$在$[a,b]$上连续，在 $(a,b)$ 内可导，且$g(x)\ne 0$，那么至少存在一点 $\xi \in(a,b)$，使得 $\displaystyle \frac{f(b)-f(a)}{g(b)-g(a)} = \frac{f&#39;(\xi)}{g&#39;(\xi)} $.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;把 $x$ 当作参数，则 &lt;/p&gt;
 $$ \left\{ \begin{array}{c} u=f(x) \\ v=g(x) \\ \end{array} \right. $$&lt;p&gt; 可以看作一个参数方程. &lt;br&gt;
@@ -506,7 +506,38 @@ $$\left\{ \begin{array}{c} \begin{align*} x &amp;= \rho \cos \theta \sin \varphi
 &lt;/h4&gt;&lt;p&gt;设物体的密度函数为 $\mu(x,y,z)$，则物体质心坐标为 &lt;/p&gt;
 $$\begin{array}{c} \displaystyle \overline{x} = \frac{1}{m}\iiint\limits_\varOmega x \mu(x,y,z) \mathrm{d}V \\ \\ \displaystyle \overline{y} = \frac{1}{m}\iiint\limits_\varOmega y \mu(x,y,z) \mathrm{d}V \\ \\ \displaystyle \overline{z} = \frac{1}{m}\iiint\limits_\varOmega z \mu(x,y,z) \mathrm{d}V \end{array}$$&lt;h4 id=&#34;物体的转动惯量&#34;&gt;物体的转动惯量
 &lt;/h4&gt;&lt;p&gt;设物体的密度函数为 $\mu(x,y,z)$，则物体对 $x,y,z$ 轴的转动惯量分别为 &lt;/p&gt;
-$$\begin{array}{c} \displaystyle I_x = \iiint\limits_\varOmega (y^{2}+z^{2}) \mu(x,y,z) \mathrm{d}V \\ \\ \displaystyle I_y = \iiint\limits_\varOmega (x^{2}+z^{2}) \mu(x,y,z) \mathrm{d}V \\ \\ \displaystyle I_z =  \iiint\limits_\varOmega (x^{2}+y^{2}) \mu(x,y,z) \mathrm{d}V \end{array}  $$&lt;h2 id=&#34;小知识&#34;&gt;小知识
+$$\begin{array}{c} \displaystyle I_x = \iiint\limits_\varOmega (y^{2}+z^{2}) \mu(x,y,z) \mathrm{d}V \\ \\ \displaystyle I_y = \iiint\limits_\varOmega (x^{2}+z^{2}) \mu(x,y,z) \mathrm{d}V \\ \\ \displaystyle I_z =  \iiint\limits_\varOmega (x^{2}+y^{2}) \mu(x,y,z) \mathrm{d}V \end{array}  $$&lt;h2 id=&#34;线面积分&#34;&gt;线面积分
+&lt;/h2&gt;&lt;h3 id=&#34;曲线积分&#34;&gt;曲线积分
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;第一类曲线积分&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;对于由参数方程 &lt;/p&gt;
+$$\left\{ \begin{array}{c} x=x(t) \\ y=y(t) \\ z=z(t) \\ \end{array} \right. t \in [a,b] $$&lt;p&gt; 确定的曲线，有 &lt;/p&gt;
+$$\int_{L} f(x,y,z) \mathrm{d}s = \int_{a}^{b} f(x(t),y(t),z(t))\sqrt{x&#39;^{\ 2}(t) + y&#39;^{\ 2}(t) + z&#39;^{\ 2}(t)} \mathrm{d}t$$&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;第二类曲线积分&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;对于由参数方程 &lt;/p&gt;
+$$\left\{ \begin{array}{c} x=x(t) \\ y=y(t) \\ z=z(t) \\ \end{array} \right. t \in [a,b] $$&lt;p&gt; 确定的曲线，向量值函数 $\bm{A} = P(x,y,z)\bm{i} + Q(x,y,z)\bm{j} + R(x,y,z)\bm{k} $， 有 &lt;/p&gt;
+$$\begin{align*} \int_{L} \bm{A} \cdot \mathrm{d} \bm{r} &amp;= \int_{L} P(x,y,z) \mathrm{d}x + \int_{L} Q(x,y,z) \mathrm{d}y + \int_{L} R(x,y,z) \mathrm{d}z \\ &amp;= \int_{a}^{b} [P(x(t),y(t),z(t))x&#39;(t) + Q(x(t),y(t),z(t))y&#39;(t) \\ &amp; \qquad + R(x(t),y(t),z(t))z&#39;(t)] \mathrm{d}t \end{align*}$$&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;两类曲线积分之间的联系&lt;/li&gt;
+&lt;/ol&gt;
+$$\int_{L} P \mathrm{d}x + Q \mathrm{d}y + R \mathrm{d}z = \int_{L} [P\cos \alpha + Q\cos \beta + R\cos \gamma] \mathrm{d}s $$&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;格林公式&lt;/li&gt;
+&lt;/ol&gt;
+$$\oint_{L} P \mathrm{d}x + Q \mathrm{d}y = \iint\limits_{D} \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) \mathrm{d}\sigma $$&lt;h3 id=&#34;曲面积分&#34;&gt;曲面积分
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;第一类曲线积分&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;对于曲面 $z=z(x,y)$，有 &lt;/p&gt;
+$$\iint\limits_{\varSigma} f(x,y,z) \mathrm{d}S = \iint\limits_{D_{xy}} f(x,y,z(x,y)) \sqrt{1+z_x^{&#39;\ 2}(x,y) + z_y^{&#39;\ 2}(x,y)} \mathrm{d}\sigma $$&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;第二类曲线积分&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;对于曲面 $z=z(x,y)$，有 &lt;/p&gt;
+$$\begin{array}{c} \displaystyle \iint\limits_{\varSigma} R(x,y,z) \mathrm{d}x\mathrm{d}y = \pm \iint\limits_{D_{xy}} R(x,y,z(x,y)) \mathrm{d}\sigma \\ \\ \displaystyle \iint\limits_{\varSigma} P(x,y,z) \mathrm{d}y\mathrm{d}z = \pm \iint\limits_{D_{yz}} P(x(y,z),y,z) \mathrm{d}\sigma \\ \\ \displaystyle \iint\limits_{\varSigma} Q(x,y,z) \mathrm{d}x\mathrm{d}z = \pm \iint\limits_{D_{xz}} Q(x,y(x,z),z) \mathrm{d}\sigma \end{array}$$&lt;p&gt;其中正负号由积分曲面的方向决定.&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;高斯公式&lt;/li&gt;
+&lt;/ol&gt;
+$$\oiint\limits_{\varSigma} P \mathrm{d}y\mathrm{d}z + Q \mathrm{d}x\mathrm{d}z + R \mathrm{d}x\mathrm{d}y = \iiint\limits_{\varOmega} \left( \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z} \right) \mathrm{d}V $$&lt;h2 id=&#34;小知识&#34;&gt;小知识
 &lt;/h2&gt;&lt;h3 id=&#34;斐波那契数列&#34;&gt;斐波那契数列
 &lt;/h3&gt;&lt;p&gt;递推公式：$F_{n} = F_{n-1} + F_{n-2}$，用矩阵表示为 &lt;/p&gt;
 $$\left[\begin{array}{c}  F_{n+1}  \\ F_{n} \\  \end{array} \right] = \left[\begin{matrix}  1&amp; 1 \\  1&amp; 0 \\  \end{matrix}\right] \left[\begin{array}{c}  F_{n} \\  F_{n-1} \\ \end{array} \right] $$&lt;p&gt;记 &lt;/p&gt;
@@ -518,7 +549,7 @@ $$\bm{\xi}_{1} = \left[\begin{array}{c}  1 \\    -\lambda_{2} \end{array}\right]
 $$\bm{T} = \left[\bm{\xi}_{1}, \bm{\xi}_{2}\right]$$&lt;p&gt;则 &lt;/p&gt;
 $$\bm{A} = \bm{T} \left[\begin{matrix}  \lambda_{1}&amp; \\ &amp; \lambda_2 \\  \end{matrix}\right] \bm{T}^{-1} $$&lt;p&gt;于是
 &lt;/p&gt;
-$$\begin{align*} \bm{A}^{n} &amp;= \bm{T} \left[\begin{matrix} \lambda_{1}^{n} &amp; \\ &amp; \lambda_{2}^{n} \\ \end{matrix}\right] \bm{T}^{-1} = \left[\begin{matrix} 1&amp; 1 \\ -\lambda_{2}&amp; -\lambda_{1} \\ \end{matrix}\right] \left[\begin{matrix} \lambda_{1}^{n}&amp; \\ &amp; \lambda_{2}^{n} \\ \end{matrix}\right]  \left[\begin{matrix} 1&amp; 1 \\ -\lambda_{2}&amp; -\lambda_{1} \\ \end{matrix}\right]^{-1} \\ &amp;= \frac{1}{\sqrt{5}} \left[\begin{matrix} \lambda_{2}^{n+1} - \lambda_{1}^{n+1}&amp; \lambda_{2}^{n}-  \lambda_{1}^{n} \\ \lambda_{2}^{n}-  \lambda_{1}^{n}&amp; \lambda_{2}^{n-1} - \lambda_{1}^{n-1} \\ \end{matrix}\right] \end{align*}$$&lt;p&gt;最后将 $ \bm{A}^{n} $ 代入 $\boldsymbol{D}_n = \boldsymbol{A}^{n} \boldsymbol{D}_0$.&lt;/p&gt;
+$$\begin{align*} \bm{A}^{n} &amp;= \bm{T} \left[\begin{matrix} \lambda_{1}^{n} &amp; \\ &amp; \lambda_{2}^{n} \\ \end{matrix}\right] \bm{T}^{-1} = \left[\begin{matrix} 1&amp; 1 \\ -\lambda_{2}&amp; -\lambda_{1} \\ \end{matrix}\right] \left[\begin{matrix} \lambda_{1}^{n}&amp; \\ &amp; \lambda_{2}^{n} \\ \end{matrix}\right]  \left[\begin{matrix} 1&amp; 1 \\ -\lambda_{2}&amp; -\lambda_{1} \\ \end{matrix}\right]^{-1} \\ &amp;= \frac{1}{\sqrt{5}} \left[\begin{matrix} \lambda_{2}^{n+1} - \lambda_{1}^{n+1}&amp; \lambda_{2}^{n}-  \lambda_{1}^{n} \\ \lambda_{2}^{n}-  \lambda_{1}^{n}&amp; \lambda_{2}^{n-1} - \lambda_{1}^{n-1} \\ \end{matrix}\right] \end{align*}$$&lt;p&gt;最后将 $ \bm}{A}^{n} $ 代入 $\boldsymbol{D}_n = \boldsymbol{A}^{n} \boldsymbol{D}_0$.&lt;/p&gt;
 &lt;p&gt;并注意到 &lt;/p&gt;
 $$\boldsymbol{D}_{0} = [1,1]^{\mathrm{T}} $$&lt;p&gt; 且 $\lambda_{1}$ 与 $\lambda_{2}$ 是 $\lambda^{2} = \lambda + 1$ 的根，即得&lt;/p&gt;
 $$ F_{n} = \frac{1}{\sqrt{5}} \left[\left(\frac{1+\sqrt{5}}{2}\right)^{n+1} - \left(\frac{1-\sqrt{5}}{2}\right)^{n+1} \right] $$</description>

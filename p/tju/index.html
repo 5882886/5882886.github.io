@@ -770,6 +770,7 @@ D.	全诗语言简明直白，生动地表达作者对天津的喜爱和赞美�
     const ap = new APlayer({
         container: document.getElementById('aplayer'),
         fixed: true,
+        listFolded: true,
         lrcType: 3,
 		audio: [{
             name: 'The Internationale',
@@ -804,7 +805,7 @@ D.	全诗语言简明直白，生动地表达作者对天津的喜爱和赞美�
         }]
     });
 
-	 
+	
 
     window.onbeforeunload = () => {
         
@@ -836,9 +837,20 @@ D.	全诗语言简明直白，生动地表达作者对天津的喜爱和赞美�
             }
         }, 500);
     };
+    
 </script>
 
+<style>
+    .aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+         
+    }
 
+    .aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0 !important;
+         
+    }
+</style>
 <script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
 <script>
     var pjax = new Pjax({

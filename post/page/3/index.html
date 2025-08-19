@@ -285,7 +285,7 @@
                     <a href="/archives/#2025">
                         
                             <span class="year">2025</span>
-                            <span class="count">11</span>
+                            <span class="count">12</span>
                         
                     </a> 
                 </div>
@@ -328,7 +328,7 @@
 
     <div class="tagCloud-tags">
         
-            <a href="/categories/guide/" class="font_size_9">
+            <a href="/categories/guide/" class="font_size_10">
                 教程
             </a>
         
@@ -344,12 +344,12 @@
                 Minecraft
             </a>
         
-            <a href="/categories/test/" class="font_size_1">
-                Test
+            <a href="/categories/website/" class="font_size_2">
+                网站
             </a>
         
-            <a href="/categories/website/" class="font_size_1">
-                网站
+            <a href="/categories/test/" class="font_size_1">
+                Test
             </a>
         
     </div>
@@ -370,7 +370,7 @@
 
         <div class="section-card">
             <div class="section-details">
-                <h3 class="section-count">15 个页面</h3>
+                <h3 class="section-count">16 个页面</h3>
                 <h1 class="section-term">Posts</h1>
                 
             </div>
@@ -378,6 +378,26 @@
     </header>
     
     <section class="article-list--compact">
+        
+            <article>
+    <a href="/p/minecraft-server/">
+        <div class="article-details">
+            <h2 class="article-title">Minecraft服务器</h2>
+            <footer class="article-time">
+                <time datetime='2025-07-31T00:00:00Z'>Jul 31, 2025</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                <img src="/p/minecraft-server/helena-hertz-wWZzXlDpMog-unsplash_hu_2307260c751d0e0b.jpg" 
+                        width="120"
+                        height="120" 
+                        alt="Minecraft服务器"
+                        loading="lazy">
+                
+            </div>
+        
+    </a>
+</article>
         
             <article>
     <a href="/p/ssh/">
@@ -432,26 +452,6 @@
     </a>
 </article>
         
-            <article>
-    <a href="/p/emoji-support/">
-        <div class="article-details">
-            <h2 class="article-title">Emoji Support</h2>
-            <footer class="article-time">
-                <time datetime='2019-03-05T00:00:00Z'>Mar 05, 2019</time>
-            </footer>
-        </div>
-            <div class="article-image">
-                <img src="/p/emoji-support/the-creative-exchange-d2zvqp3fpro-unsplash_hu_27b8954607cdb515.jpg" 
-                        width="120"
-                        height="120" 
-                        alt="Emoji Support"
-                        loading="lazy">
-                
-            </div>
-        
-    </a>
-</article>
-        
     </section>
     <nav class='pagination'>
         
@@ -468,6 +468,10 @@
             
             
                 <span class='page-link current'>3</span>
+                
+            
+            
+                    <a class='page-link' href='/post/page/4/'>4</a>
                 
             
     </nav>
@@ -512,6 +516,7 @@
     const ap = new APlayer({
         container: document.getElementById('aplayer'),
         fixed: true,
+        listFolded: true,
         lrcType: 3,
 		audio: [{
             name: 'The Internationale',
@@ -546,7 +551,7 @@
         }]
     });
 
-	 
+	
 
     window.onbeforeunload = () => {
         
@@ -578,9 +583,20 @@
             }
         }, 500);
     };
+    
 </script>
 
+<style>
+    .aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+         
+    }
 
+    .aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0 !important;
+         
+    }
+</style>
 <script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
 <script>
     var pjax = new Pjax({

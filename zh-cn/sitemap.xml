@@ -15,6 +15,9 @@
                 href="https://5882886.github.io/"
                 />
   </url><url>
+    <loc>https://5882886.github.io/p/aplayer/</loc>
+    <lastmod>2025-08-17T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://5882886.github.io/categories/</loc>
     <lastmod>2025-08-17T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -55,6 +58,19 @@
                 rel="alternate"
                 hreflang="zh-cn"
                 href="https://5882886.github.io/categories/guide/"
+                />
+  </url><url>
+    <loc>https://5882886.github.io/categories/website/</loc>
+    <lastmod>2025-08-17T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://5882886.github.io/en/categories/website/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://5882886.github.io/categories/website/"
                 />
   </url><url>
     <loc>https://5882886.github.io/p/math_tips/</loc>
@@ -119,19 +135,6 @@
   </url><url>
     <loc>https://5882886.github.io/p/website/</loc>
     <lastmod>2025-08-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://5882886.github.io/categories/website/</loc>
-    <lastmod>2025-08-02T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://5882886.github.io/en/categories/website/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://5882886.github.io/categories/website/"
-                />
   </url><url>
     <loc>https://5882886.github.io/p/minecraft-server/</loc>
     <lastmod>2025-07-31T00:00:00+00:00</lastmod>

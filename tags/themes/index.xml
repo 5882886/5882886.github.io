@@ -332,6 +332,11 @@
           &lt;td&gt;$ A \times B $&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
+          &lt;td&gt;正负号&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\pm&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$ \pm a $&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
           &lt;td&gt;角&lt;/td&gt;
           &lt;td&gt;&lt;code&gt;\angle&lt;/code&gt;&lt;/td&gt;
           &lt;td&gt;$\angle ABC $&lt;/td&gt;
