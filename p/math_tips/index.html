@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/math_tips/'>
 
-<link rel="stylesheet" href="/scss/style.min.dc01087b02a5d171634b11935d64b929caec3da054829d3436fca0cab1cb1164.css"><meta property='og:title' content="微积分：常用公式">
+<link rel="stylesheet" href="/scss/style.min.3a1dac43aec8f723834bd83fac278e8c5480114812e36f0366399d87cfc7dd75.css"><meta property='og:title' content="微积分：常用公式">
 <meta property='og:description' content="极限与函数 等价无穷小 等价无穷小 $(x \\to 0)$ $ \\sin x \\sim x$ $ \\tan x \\sim x $ $\\arcsin x \\sim x$ $ \\arctan x \\sim x $ $\\displaystyle \\cos x \\sim 1-\\frac{1}{2}x^{2} $ $ \\mathrm{e}^{x}-1 \\sim x $ $ \\ln(1+x) \\sim x $ $ (1+x)^{\\alpha}-1 \\sim \\alpha x $ 泰勒公式 皮亚诺余项 $$ f(x) = \\sum_{k=0}^{n} \\frac{f^{(k)}(x_0)}{k!}(x - x_0)^k + o\\left((x - x_0)^n\\right), \\quad x \\to x_0 $$拉格朗日余项 $$ f(x) = \\sum_{k=0}^{n} \\frac{f^{(k)}(x_0)}{k!}(x - x_0)^k + \\frac{f^{(n+1)}(\\xi)}{(n+1)!}(x - x_0)^{n+1}, \\quad \\xi \\in (x, x_0) $$麦克劳林公式 $\\displaystyle \\mathrm{e}^x = \\sum_{n=0}^{\\infty} \\frac{x^{n}}{n!} = 1 + x + \\frac{x^{2}}{2!} + \\frac{x^{3}}{3!} + \\cdots + o(x^{n})$\n">
 <meta property='og:url' content='https://5882886.github.io/p/math_tips/'>
 <meta property='og:site_name' content='RunicDolphin806的博客'>
@@ -266,7 +266,9 @@
         
             
                 
-    <section class="widget archives">
+    
+    <button id="toggle-toc" class="mobile-only">目录</button>
+    <section class="widget archives" id="toc-container">
         <div class="widget-icon">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
@@ -280,7 +282,7 @@
 
         </div>
         <h2 class="widget-title section-title">目录</h2>
-        
+
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
@@ -322,6 +324,7 @@
             <li><a href="#反函数积分法">反函数积分法</a></li>
           </ol>
         </li>
+        <li><a href="#常用积分">常用积分</a></li>
         <li><a href="#定积分的应用">定积分的应用</a>
           <ol>
             <li><a href="#弧长与曲率">弧长与曲率</a></li>
@@ -370,6 +373,31 @@
         <li><a href="#曲面积分">曲面积分</a></li>
       </ol>
     </li>
+    <li><a href="#级数">级数</a>
+      <ol>
+        <li><a href="#数项级数">数项级数</a>
+          <ol>
+            <li><a href="#数项级数收敛的条件">数项级数收敛的条件</a></li>
+            <li><a href="#基本数项级数">基本数项级数</a></li>
+            <li><a href="#正项级数收敛的判断">正项级数收敛的判断</a></li>
+            <li><a href="#一般级数收敛的判断">一般级数收敛的判断</a></li>
+          </ol>
+        </li>
+        <li><a href="#幂级数">幂级数</a>
+          <ol>
+            <li><a href="#幂函数的收敛半径">幂函数的收敛半径</a></li>
+            <li><a href="#函数展开成幂级数">函数展开成幂级数</a></li>
+          </ol>
+        </li>
+        <li><a href="#傅里叶级数">傅里叶级数</a>
+          <ol>
+            <li><a href="#傅里叶系数">傅里叶系数</a></li>
+            <li><a href="#傅里叶级数-1">傅里叶级数</a></li>
+            <li><a href="#狄利克雷收敛定理">狄利克雷收敛定理</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
     <li><a href="#小知识">小知识</a>
       <ol>
         <li><a href="#斐波那契数列">斐波那契数列</a></li>
@@ -379,6 +407,141 @@
 </nav>
         </div>
     </section>
+
+
+<style>
+    .container {
+        .right-sidebar {
+             
+            display: flex;
+        }
+    }
+
+     
+    .mobile-only {
+        display: none !important;
+    }
+
+    #toc-container {
+         
+         
+        position: fixed;
+         
+        bottom: 21%;
+         
+        right: 60px;
+         
+        background-color: var(--card-background);
+         
+        padding: 10px;
+         
+        border: 1px solid #96979a50;
+        border-radius: var(--card-border-radius);
+         
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+         
+        z-index: 9998 !important;
+         
+        max-height: 75vh;
+        overflow-y: auto;
+         
+        width: auto;
+        max-width: 290px;
+    }
+
+    #toggle-toc {
+        position: fixed;
+        bottom: 22%;
+        right: 20px;
+        padding: 10px 10px;
+        z-index: 9998 !important;
+        border: 0px solid #96979a50;
+        border-radius: 7px;
+        box-shadow: var(--shadow-l1);
+        background-color: #00640010;
+        color: #020e1a;
+         
+        display: none;  
+        margin-bottom: -20px;
+        cursor: pointer;
+        font-size: 1.2rem;
+    }
+
+    .widget--toc #TableOfContents {
+        overflow-x: auto;
+        max-height: 66vh;
+        width: auto;
+    }
+
+    @media screen and (max-width: 768px) {
+        .mobile-only {
+            display: block !important;  
+        }
+
+        #toc-container {
+            display: none;  
+        }
+
+        #toggle-toc {
+            display: block;  
+            bottom: 100px;  
+        }
+    }
+
+     
+    @media screen and (min-width: 769px) {
+        #toc-container {
+            display: block !important;  
+            position: static;  
+            border: none;  
+            box-shadow: none;  
+            max-height: none;  
+            overflow-y: visible;  
+            margin-top: 20px;  
+            right: auto;  
+            bottom: auto;  
+            width: auto;  
+            max-width: 100%;  
+            background-color: transparent;  
+            padding: 0;  
+        }
+
+        #toggle-toc {
+            display: none !important;  
+        }
+    }
+</style>
+<script>
+    var toggleButton = document.getElementById('toggle-toc');
+    var tocContainer = document.getElementById('toc-container');
+
+    
+    toggleButton.addEventListener('click', function() {
+        if (tocContainer.style.display === 'none' || tocContainer.style.display === '') {
+            tocContainer.style.display = 'block';
+        } else {
+            tocContainer.style.display = 'none';
+        }
+    });
+
+    
+    toggleButton.addEventListener('mouseover', function() {
+        
+            tocContainer.style.display = 'block';
+        
+    });
+
+    
+    document.addEventListener('click', function(event) {
+        
+            
+            if (!tocContainer.contains(event.target) && event.target !== toggleButton) {
+                
+                tocContainer.style.display = 'none';
+            }
+        
+    });
+</script>
 
             
         
@@ -646,7 +809,8 @@ $$\int_{a}^{a+T} f(x) \mathrm{d}x = \int_{0}^{T} f(x) \mathrm{d}x$$$$\int_{0}^{n
 </h4><p>如果积分式具有单对称性，可考虑构造另一个积分式，使两者的线性运算所得的积分容易求出，最后通过解方程求得原式的结果。<a class="link" href="/p/math_quiz/#%e7%bb%84%e5%90%88%e7%a7%af%e5%88%86%e6%b3%95" >Example</a></p>
 <h4 id="反函数积分法">反函数积分法
 </h4><p>对于一些定积分，若被积函数较复杂，而其反函数较简单，可利用定积分的几何意义：用积分区间的面积减去被积函数反函数的定积分。<a class="link" href="/p/math_quiz/#%e5%8f%8d%e5%87%bd%e6%95%b0%e7%a7%af%e5%88%86%e6%b3%95" >Example</a></p>
-<h3 id="定积分的应用">定积分的应用
+<h3 id="常用积分">常用积分
+</h3>$$I_n = \int_{0}^{\frac{\pi}{2}} \sin^{n}x \mathrm{d}x = \left\{ \begin{array}{c}  \begin{align*} & \displaystyle \frac{(n-1)!!}{n!!} \qquad n = 2k+1 \\ \\ & \displaystyle \frac{(n-1)!!}{n!!} \cdot \frac{\pi}{2} \qquad n=2k \\ \end{align*} \end{array} \right.$$<h3 id="定积分的应用">定积分的应用
 </h3><h4 id="弧长与曲率">弧长与曲率
 </h4><h5 id="弧长">弧长
 </h5><p>参数方程 </p>
@@ -964,7 +1128,104 @@ $$\begin{array}{c} \displaystyle \iint\limits_{\varSigma} R(x,y,z) \mathrm{d}x\m
 <ol start="3">
 <li>高斯公式</li>
 </ol>
-$$\oiint\limits_{\varSigma} P \mathrm{d}y\mathrm{d}z + Q \mathrm{d}x\mathrm{d}z + R \mathrm{d}x\mathrm{d}y = \iiint\limits_{\varOmega} \left( \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z} \right) \mathrm{d}V $$<h2 id="小知识">小知识
+$$\oiint\limits_{\varSigma} P \mathrm{d}y\mathrm{d}z + Q \mathrm{d}x\mathrm{d}z + R \mathrm{d}x\mathrm{d}y = \iiint\limits_{\varOmega} \left( \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z} \right) \mathrm{d}V $$<h2 id="级数">级数
+</h2><h3 id="数项级数">数项级数
+</h3><h4 id="数项级数收敛的条件">数项级数收敛的条件
+</h4><p>若 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛，则 $\displaystyle \lim_{n \to \infty} a_n = 0$；反之，若 $\displaystyle \lim_{n \to \infty} a_n \ne 0$，则 $\displaystyle \sum_{n=1}^{\infty} a_n $ 发散，</p>
+<h4 id="基本数项级数">基本数项级数
+</h4><ol>
+<li>
+<p>几何级数：$\displaystyle \sum_{n=0}^{\infty} q^{n} $，当 $|q|&lt;1$ 时收敛，和 $\displaystyle S = \frac{1}{1-q}$.</p>
+</li>
+<li>
+<p>$p$ 级数：$\displaystyle \sum_{n=0}^{\infty} \frac{1}{n^{p}} $，当 $p&gt;1$ 时收敛；当 $p \leqslant 1$ 时发散.</p>
+</li>
+<li>
+<p>调和级数：$\displaystyle \sum_{n=1}^{\infty} \frac{1}{n}$ 发散.</p>
+</li>
+</ol>
+<h4 id="正项级数收敛的判断">正项级数收敛的判断
+</h4><ol>
+<li>比较判别法</li>
+</ol>
+<p>设 $\exists N$，当 $n&gt;N$ 时，$0 \leqslant a_n \leqslant b_n$，若 $\displaystyle \sum_{n=1}^{\infty} b_n$ 收敛，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；若 $\displaystyle \sum_{n=1}^{\infty} a_n$ 发散，则 $\displaystyle \sum_{n=1}^{\infty} b_n$ 发散.</p>
+<blockquote>
+<p>极限形式：对两个正项级数 $\displaystyle \sum_{n=1}^{\infty} a_n$ 和 $\displaystyle \sum_{n=1}^{\infty} b_n$，设 $\displaystyle \lim_{n \to \infty} \frac{a_n}{b_n} = l$，若 $0&lt;l&lt;+\infty$，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 和 $\displaystyle \sum_{n=1}^{\infty} b_n$ 同敛散.</p></blockquote>
+<blockquote>
+<p>推论：设 $a_n \geqslant 0$，$b_n \geqslant 0$，若 $n \geqslant n_0$ 时有 $\displaystyle \frac{a_{n+1}}{a_{n}} \leqslant \frac{b_{n+1}}{b_{n}}$，则有：若$\displaystyle \sum_{n=1}^{\infty} b_n$ 收敛，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；若 $\displaystyle \sum_{n=1}^{\infty} a_n$ 发散，则 $\displaystyle \sum_{n=1}^{\infty} b_n$ 发散.</p></blockquote>
+<ol start="2">
+<li>比值判别法</li>
+</ol>
+<p>设 $a_n&gt;0$，$n=1,2,\cdots$. 当 $n \geqslant n_0$ 时，若 $\displaystyle \frac{a_{n+1}}{a_n} \leqslant q &lt; 1$，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；若 $\displaystyle \frac{a_{n+1}}{a_n} \geqslant 1$，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 发散.</p>
+<blockquote>
+<p>极限形式：若 $\displaystyle \lim_{n \to \infty} \frac{a_{n+1}}{a_n} = q$，则当 $q&lt;1$ 时，$\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；当 $q&gt;1$ 时，$\displaystyle \sum_{n=1}^{\infty} a_n$ 发散.</p></blockquote>
+<ol start="3">
+<li>根值判别法</li>
+</ol>
+<p>设 $a_n \geqslant 0$，若 $\exists N \in \textbf{N}$，使得 $n&gt;N$ 时，有 $\sqrt[n]{a_n} \leqslant q &lt; 1$，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；若对无穷多个 $n$，有 $\sqrt[n]{a_n} \geqslant 1$，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 发散.</p>
+<blockquote>
+<p>极限形式：若 $\displaystyle \lim_{n \to \infty} \sqrt[n]{a_n} = q$，则当 $q&lt;1$ 时，$\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；$q&gt;1$ 时，$\displaystyle \sum_{n=1}^{\infty} a_n$ 发散.</p></blockquote>
+<ol start="4">
+<li>积分判别法</li>
+</ol>
+<p>设 $x \geqslant 1$ 时，$f(x) \geqslant 0$ 且单调递减，则无穷级数 $\displaystyle \sum_{n=1}^{\infty} f(n)$ 与无穷积分 $\displaystyle \int_{1}^{\infty} f(x) \mathrm{d}x $ 同敛散.</p>
+<ol start="5">
+<li>Rabbe判别法</li>
+</ol>
+<p>设 $a_n &gt; 0$，$n=1,2,\cdots$.</p>
+<p>①若 $n &gt; n_0$ 时，$\displaystyle n \left( \frac{a_n}{a_{n+1}} - 1 \right) \leqslant 1$，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 发散.</p>
+<p>②若 $n &gt; n_0$ 时，$\displaystyle n \left( \frac{a_n}{a_{n+1}} - 1 \right) \geqslant r &gt; 1$，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛.</p>
+<blockquote>
+<p>极限形式：若 $\displaystyle \lim_{n \to \infty} n \left( \frac{a_n}{a_{n+1}}-1 \right) = l$，则当 $l&gt;1$ 时，级数 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；当 $l&lt;1$ 时，级数 $\displaystyle \sum_{n=1}^{\infty} a_n$ 发散.</p></blockquote>
+<ol start="6">
+<li>Gauss判别法</li>
+</ol>
+<p>设 $a_n &gt; 0$，满足 </p>
+$$\frac{a_n}{a_{n+1}} = 1 + \frac{1}{n} + \frac{\beta}{n \ln n} + o\left( \frac{1}{n \ln n} \right)，n \to \infty$$<p> 则当 $\beta &gt; 1$ 时 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；当 $\beta &lt; 1$ 时 $\displaystyle \sum_{n=1}^{\infty} a_n$ 发散.</p>
+<blockquote>
+<p>极限形式：若 $\displaystyle \lim_{n \to \infty} n \ln n \left( \frac{a_n}{a_{n+1}}-1 - \frac{1}{n} \right) = \beta$，则当 $\beta&gt;1$ 时，级数 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；当 $\beta&lt;1$ 时，级数 $\displaystyle \sum_{n=1}^{\infty} a_n$ 发散.</p></blockquote>
+<h4 id="一般级数收敛的判断">一般级数收敛的判断
+</h4><ol>
+<li>莱布尼茨判别法</li>
+</ol>
+<p>设交错级数 $\displaystyle \sum_{n=1}^{\infty} (-1)^{n} a_n$，$a_n &gt;0$，若 $\{a_n\}$ 递减趋于0，则 $\displaystyle \sum_{n=1}^{\infty} (-1)^{n} a_n$ 收敛.</p>
+<ol start="2">
+<li>阿贝尔和狄利克雷判别法</li>
+</ol>
+<p>(1) 分部求和公式</p>
+<p>设数列 $\{ a_n \}$和 $\{ b_n \}$，记 $\displaystyle S_k = \sum_{i=1}^{k} a_i$，$S_0 = 0$，则 </p>
+$$\sum_{k=1}^{n} a_k b_k = \sum_{k=1}^{n-1}S_k(b_k-b_{k+1})+S_n b_n $$<p>(2) 阿贝尔引理</p>
+<p>设数列 $\{b_n \}$ 单调，$\displaystyle S_k = \sum_{i=1}^{k} a_i$，若 $|S_k| \leqslant M (k=1,2,\cdots,n)$，则 </p>
+$$\left| \sum_{k=1}^{n} a_k b_k  \right|\leqslant  M \left(\left| b_1 \right| + 2 \left| b_n \right| \right)$$<p>(3) 狄利克雷判别法</p>
+<p>设数列 $\{ a_n \}$和 $\{ b_n \}$，记 $\displaystyle S_k = \sum_{i=1}^{k} a_i$，若它们满足：$\{b_n\}$ 单调且 $\displaystyle b_n = 0$，$\{S_k\}$ 有界，则 $\displaystyle \sum_{n=0}^{\infty} a_n b_n $ 收敛.</p>
+<p>(4) 阿贝尔判别法</p>
+<p>设数列 $\{ a_n \}$和 $\{ b_n \}$ 满足：$\{ b_n \}$ 单调有界，且 $\displaystyle \sum_{n=0}^{\infty} a_n$ 收敛，则 $\displaystyle \sum_{n=0}^{\infty} a_n b_n $ 收敛.</p>
+<h3 id="幂级数">幂级数
+</h3><h4 id="幂函数的收敛半径">幂函数的收敛半径
+</h4><p>对幂级数 $\displaystyle \sum_{n=0}^{\infty} a_n x^{n}$，</p>
+<ol>
+<li>阿贝尔定理</li>
+</ol>
+<p>若在 $x_0 \ne 0$ 处收敛，则它对一切 $\left| x \right| &lt; \left| x_0 \right|$ 绝对收敛；</p>
+<p>若在 $x_1 \ne 0$ 处发散，则它对一切 $\left| x \right| &gt; \left| x_1 \right|$ 绝对收敛；</p>
+<p>$R = \left| x_0 \right|$ 称为幂级数 $\displaystyle \sum_{n=0}^{\infty} a_n x^{n}$ 的收敛半径.</p>
+<ol start="2">
+<li>幂级数收敛的性质</li>
+</ol>
+<p>① $0&lt;R&lt;+\infty$，$\left| x \right| &lt; R$ 时绝对收敛；$\left| x \right| &gt; R$ 时发散.</p>
+<p>② $R = +\infty$，级数在整个数轴上都绝对收敛.</p>
+<p>③ $R = 0$，仅在 $x=0$ 时收敛.</p>
+<ol start="3">
+<li>收敛半径公式</li>
+</ol>
+$$R = \frac{1}{\displaystyle \lim_{n \to \infty} \sqrt[n]{\left| a_n \right|}}$$$$R = \lim_{n \to \infty} \left| \frac{a_n}{a_{n+1}} \right|$$<h4 id="函数展开成幂级数">函数展开成幂级数
+</h4><p>泰勒系数 $\displaystyle a_n = \frac{f^{(n)}(x_0)}{n!}$</p>
+<h3 id="傅里叶级数">傅里叶级数
+</h3><h4 id="傅里叶系数">傅里叶系数
+</h4>$$\left\{ \begin{array}{c} \begin{align*} a_n &= \displaystyle \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \cos nx \mathrm{d}x，(n=0,1,2,\cdots) \\ \\ \displaystyle b_n &= \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \sin nx \mathrm{d}x，(n=1,2,\cdots) \end{align*} \end{array} \right.$$<h4 id="傅里叶级数-1">傅里叶级数
+</h4>$$f(x) \sim \frac{a_0}{2} + \sum_{n=1}^{\infty} \left( a_n \cos nx + b_n \sin nx \right) $$<h4 id="狄利克雷收敛定理">狄利克雷收敛定理
+</h4><p>傅里叶级数的和函数 $S(x)$ 以 $2\pi$ 为周期，</p>
+$$ S(x) = \left\{ \begin{array}{c} \begin{align*} &f(x)， x为f(x)的连续点 \\ \\ & \displaystyle \frac{f(x-0)+f(x+0)}{2}，x为f(x)的间断点 \\ \\ & \displaystyle \frac{f(-\pi+0)+f(\pi-0)}{2}，x=\pm \pi \\ \end{align*} \end{array} \\ \right.$$<h2 id="小知识">小知识
 </h2><h3 id="斐波那契数列">斐波那契数列
 </h3><p>递推公式：$F_{n} = F_{n-1} + F_{n-2}$，用矩阵表示为 </p>
 $$\left[\begin{array}{c}  F_{n+1}  \\ F_{n} \\  \end{array} \right] = \left[\begin{matrix}  1& 1 \\  1& 0 \\  \end{matrix}\right] \left[\begin{array}{c}  F_{n} \\  F_{n-1} \\ \end{array} \right] $$<p>记 </p>
@@ -972,13 +1233,10 @@ $$\bm{A} = \left[\begin{matrix}  1& 1 \\  1& 0 \\\end{matrix} \right] ， \bm{D}
 $$\bm{D}_{n} = \bm{A} \bm{D}_{n-1}$$<p>递推得 </p>
 $$\bm{D}_{n} = \bm{A}^{n} \bm{D}_{0} $$<p>下面计算 $\bm{A}^{n}$.</p>
 <p>易知$\bm{A}$的特征多项式为$f(\lambda) = \lambda ^ {2} - \lambda - 1$，特征值为 $\displaystyle \lambda_{1} = \frac{1-\sqrt{5}}{2}$，$\displaystyle\lambda_{2} = \frac{1+\sqrt{5}}{2}$，相应的特征向量分别为 </p>
-$$\bm{\xi}_{1} = \left[\begin{array}{c}  1 \\    -\lambda_{2} \end{array}\right]，  \bm{\xi}_{2} = \left[\begin{array}{c}  1 \\    -\lambda_{1} \\  \end{array}\right]$$<p>令 </p>
-$$\bm{T} = \left[\bm{\xi}_{1}, \bm{\xi}_{2}\right]$$<p>则 </p>
-$$\bm{A} = \bm{T} \left[\begin{matrix}  \lambda_{1}& \\ & \lambda_2 \\  \end{matrix}\right] \bm{T}^{-1} $$<p>于是
+$$\bm{\xi}_{1} = \left[\begin{array}{c}  1 \\    -\lambda_{2} \end{array}\right]，  \bm{\xi}_{2} = \left[\begin{array}{c}  1 \\    -\lambda_{1} \\  \end{array}\right]$$<p>令 $\bm{T} = \left[\bm{\xi}_1, \bm{\xi}_2\right]$，则</p>
+$$\bm{A} = \bm{T} \left[\begin{matrix}  \lambda_1 & \\ & \lambda_2 \\  \end{matrix}\right] \bm{T}^{-1} $$<p>于是
 </p>
-$$\begin{align*} \bm{A}^{n} &= \bm{T} \left[\begin{matrix} \lambda_{1}^{n} & \\ & \lambda_{2}^{n} \\ \end{matrix}\right] \bm{T}^{-1} = \left[\begin{matrix} 1& 1 \\ -\lambda_{2}& -\lambda_{1} \\ \end{matrix}\right] \left[\begin{matrix} \lambda_{1}^{n}& \\ & \lambda_{2}^{n} \\ \end{matrix}\right]  \left[\begin{matrix} 1& 1 \\ -\lambda_{2}& -\lambda_{1} \\ \end{matrix}\right]^{-1} \\ &= \frac{1}{\sqrt{5}} \left[\begin{matrix} \lambda_{2}^{n+1} - \lambda_{1}^{n+1}& \lambda_{2}^{n}-  \lambda_{1}^{n} \\ \lambda_{2}^{n}-  \lambda_{1}^{n}& \lambda_{2}^{n-1} - \lambda_{1}^{n-1} \\ \end{matrix}\right] \end{align*}$$<p>最后将 $ \bm{A}^{n} $ 代入 $\boldsymbol{D}_n = \boldsymbol{A}^{n} \boldsymbol{D}_0$.</p>
-<p>并注意到 </p>
-$$\boldsymbol{D}_{0} = [1,1]^{\mathrm{T}} $$<p> 且 $\lambda_{1}$ 与 $\lambda_{2}$ 是 $\lambda^{2} = \lambda + 1$ 的根，即得</p>
+$$\begin{align*} \bm{A}^{n} &= \bm{T} \left[\begin{matrix} \lambda_{1}^{n} & \\ & \lambda_{2}^{n} \\ \end{matrix}\right] \bm{T}^{-1} = \left[\begin{matrix} 1& 1 \\ -\lambda_{2}& -\lambda_{1} \\ \end{matrix}\right] \left[\begin{matrix} \lambda_{1}^{n}& \\ & \lambda_{2}^{n} \\ \end{matrix}\right]  \left[\begin{matrix} 1& 1 \\ -\lambda_{2}& -\lambda_{1} \\ \end{matrix}\right]^{-1} \\ &= \frac{1}{\sqrt{5}} \left[\begin{matrix} \lambda_{2}^{n+1} - \lambda_{1}^{n+1}& \lambda_{2}^{n}-  \lambda_{1}^{n} \\ \lambda_{2}^{n}-  \lambda_{1}^{n}& \lambda_{2}^{n-1} - \lambda_{1}^{n-1} \\ \end{matrix}\right] \end{align*}$$<p>最后将 $ \bm{A}^{n} $ 代入 $\boldsymbol{D}_n = \boldsymbol{A}^{n} \boldsymbol{D}_0$. 并注意到 $\boldsymbol{D}_0 = [1,1]^{\mathrm{T}} $ 且 $\lambda_1$ 与 $\lambda_2$ 是 $\lambda^{2} = \lambda + 1$ 的根，即得</p>
 $$ F_{n} = \frac{1}{\sqrt{5}} \left[\left(\frac{1+\sqrt{5}}{2}\right)^{n+1} - \left(\frac{1-\sqrt{5}}{2}\right)^{n+1} \right] $$
 </section>
 
@@ -1187,7 +1445,7 @@ $$ F_{n} = \frac{1}{\sqrt{5}} \left[\left(\frac{1+\sqrt{5}}{2}\right)^{n+1} - \l
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.0476202c573af48c2df9833eec1bc2b1b75aebf6ebdddef3b67aa0145357f0ac.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.0476202c573af48c2df9833eec1bc2b1b75aebf6ebdddef3b67aa0145357f0ac.js" defer></script><script type="text/javascript" src="/ts/custom.89d9bb2c3c071ae8a261f67661c22b84ef67ba7b7a885dabd2bbd9ebef84ed40.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');
@@ -1361,7 +1619,6 @@ $$ F_{n} = \frac{1}{\sqrt{5}} \left[\left(\frac{1+\sqrt{5}}{2}\right)^{n+1} - \l
         renderKaTeX();
     })
 </script>
-
 
     </body>
 </html>

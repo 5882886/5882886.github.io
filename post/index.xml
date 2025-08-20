@@ -17,7 +17,7 @@
 &lt;h2 id=&#34;引入aplayer&#34;&gt;引入APlayer
 &lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;在Hugo工作文件夹的&lt;code&gt;layouts -&amp;gt; partials -&amp;gt; footer&lt;/code&gt;文件夹中新建一个&lt;code&gt;.html&lt;/code&gt;文件，命名为 &lt;code&gt;aplayer.html&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;在Hugo工作文件夹的&lt;code&gt;layouts/partials/footer&lt;/code&gt;文件夹中新建一个&lt;code&gt;.html&lt;/code&gt;文件，命名为 &lt;code&gt;aplayer.html&lt;/code&gt;。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;在 &lt;code&gt;aplayer.html&lt;/code&gt;中输入以下内容：&lt;/p&gt;
@@ -68,7 +68,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;在&lt;code&gt;layouts -&amp;gt; partials -&amp;gt; footer&lt;/code&gt;中新建一个文件夹，命名为&lt;code&gt;custom.html&lt;/code&gt;，在其中输入：&lt;/li&gt;
+&lt;li&gt;在&lt;code&gt;layouts/partials/footer&lt;/code&gt;中新建一个文件夹，命名为&lt;code&gt;custom.html&lt;/code&gt;，在其中输入：&lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -495,7 +495,8 @@ $$\int_{a}^{a+T} f(x) \mathrm{d}x = \int_{0}^{T} f(x) \mathrm{d}x$$$$\int_{0}^{n
 &lt;/h4&gt;&lt;p&gt;如果积分式具有单对称性，可考虑构造另一个积分式，使两者的线性运算所得的积分容易求出，最后通过解方程求得原式的结果。&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/math_quiz/#%e7%bb%84%e5%90%88%e7%a7%af%e5%88%86%e6%b3%95&#34; &gt;Example&lt;/a&gt;&lt;/p&gt;
 &lt;h4 id=&#34;反函数积分法&#34;&gt;反函数积分法
 &lt;/h4&gt;&lt;p&gt;对于一些定积分，若被积函数较复杂，而其反函数较简单，可利用定积分的几何意义：用积分区间的面积减去被积函数反函数的定积分。&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/math_quiz/#%e5%8f%8d%e5%87%bd%e6%95%b0%e7%a7%af%e5%88%86%e6%b3%95&#34; &gt;Example&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;定积分的应用&#34;&gt;定积分的应用
+&lt;h3 id=&#34;常用积分&#34;&gt;常用积分
+&lt;/h3&gt;$$I_n = \int_{0}^{\frac{\pi}{2}} \sin^{n}x \mathrm{d}x = \left\{ \begin{array}{c}  \begin{align*} &amp; \displaystyle \frac{(n-1)!!}{n!!} \qquad n = 2k+1 \\ \\ &amp; \displaystyle \frac{(n-1)!!}{n!!} \cdot \frac{\pi}{2} \qquad n=2k \\ \end{align*} \end{array} \right.$$&lt;h3 id=&#34;定积分的应用&#34;&gt;定积分的应用
 &lt;/h3&gt;&lt;h4 id=&#34;弧长与曲率&#34;&gt;弧长与曲率
 &lt;/h4&gt;&lt;h5 id=&#34;弧长&#34;&gt;弧长
 &lt;/h5&gt;&lt;p&gt;参数方程 &lt;/p&gt;
@@ -813,7 +814,104 @@ $$\begin{array}{c} \displaystyle \iint\limits_{\varSigma} R(x,y,z) \mathrm{d}x\m
 &lt;ol start=&#34;3&#34;&gt;
 &lt;li&gt;高斯公式&lt;/li&gt;
 &lt;/ol&gt;
-$$\oiint\limits_{\varSigma} P \mathrm{d}y\mathrm{d}z + Q \mathrm{d}x\mathrm{d}z + R \mathrm{d}x\mathrm{d}y = \iiint\limits_{\varOmega} \left( \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z} \right) \mathrm{d}V $$&lt;h2 id=&#34;小知识&#34;&gt;小知识
+$$\oiint\limits_{\varSigma} P \mathrm{d}y\mathrm{d}z + Q \mathrm{d}x\mathrm{d}z + R \mathrm{d}x\mathrm{d}y = \iiint\limits_{\varOmega} \left( \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z} \right) \mathrm{d}V $$&lt;h2 id=&#34;级数&#34;&gt;级数
+&lt;/h2&gt;&lt;h3 id=&#34;数项级数&#34;&gt;数项级数
+&lt;/h3&gt;&lt;h4 id=&#34;数项级数收敛的条件&#34;&gt;数项级数收敛的条件
+&lt;/h4&gt;&lt;p&gt;若 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛，则 $\displaystyle \lim_{n \to \infty} a_n = 0$；反之，若 $\displaystyle \lim_{n \to \infty} a_n \ne 0$，则 $\displaystyle \sum_{n=1}^{\infty} a_n $ 发散，&lt;/p&gt;
+&lt;h4 id=&#34;基本数项级数&#34;&gt;基本数项级数
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;几何级数：$\displaystyle \sum_{n=0}^{\infty} q^{n} $，当 $|q|&amp;lt;1$ 时收敛，和 $\displaystyle S = \frac{1}{1-q}$.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$p$ 级数：$\displaystyle \sum_{n=0}^{\infty} \frac{1}{n^{p}} $，当 $p&amp;gt;1$ 时收敛；当 $p \leqslant 1$ 时发散.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;调和级数：$\displaystyle \sum_{n=1}^{\infty} \frac{1}{n}$ 发散.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;正项级数收敛的判断&#34;&gt;正项级数收敛的判断
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;比较判别法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;设 $\exists N$，当 $n&amp;gt;N$ 时，$0 \leqslant a_n \leqslant b_n$，若 $\displaystyle \sum_{n=1}^{\infty} b_n$ 收敛，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；若 $\displaystyle \sum_{n=1}^{\infty} a_n$ 发散，则 $\displaystyle \sum_{n=1}^{\infty} b_n$ 发散.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;极限形式：对两个正项级数 $\displaystyle \sum_{n=1}^{\infty} a_n$ 和 $\displaystyle \sum_{n=1}^{\infty} b_n$，设 $\displaystyle \lim_{n \to \infty} \frac{a_n}{b_n} = l$，若 $0&amp;lt;l&amp;lt;+\infty$，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 和 $\displaystyle \sum_{n=1}^{\infty} b_n$ 同敛散.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;推论：设 $a_n \geqslant 0$，$b_n \geqslant 0$，若 $n \geqslant n_0$ 时有 $\displaystyle \frac{a_{n+1}}{a_{n}} \leqslant \frac{b_{n+1}}{b_{n}}$，则有：若$\displaystyle \sum_{n=1}^{\infty} b_n$ 收敛，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；若 $\displaystyle \sum_{n=1}^{\infty} a_n$ 发散，则 $\displaystyle \sum_{n=1}^{\infty} b_n$ 发散.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;比值判别法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;设 $a_n&amp;gt;0$，$n=1,2,\cdots$. 当 $n \geqslant n_0$ 时，若 $\displaystyle \frac{a_{n+1}}{a_n} \leqslant q &amp;lt; 1$，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；若 $\displaystyle \frac{a_{n+1}}{a_n} \geqslant 1$，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 发散.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;极限形式：若 $\displaystyle \lim_{n \to \infty} \frac{a_{n+1}}{a_n} = q$，则当 $q&amp;lt;1$ 时，$\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；当 $q&amp;gt;1$ 时，$\displaystyle \sum_{n=1}^{\infty} a_n$ 发散.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;根值判别法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;设 $a_n \geqslant 0$，若 $\exists N \in \textbf{N}$，使得 $n&amp;gt;N$ 时，有 $\sqrt[n]{a_n} \leqslant q &amp;lt; 1$，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；若对无穷多个 $n$，有 $\sqrt[n]{a_n} \geqslant 1$，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 发散.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;极限形式：若 $\displaystyle \lim_{n \to \infty} \sqrt[n]{a_n} = q$，则当 $q&amp;lt;1$ 时，$\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；$q&amp;gt;1$ 时，$\displaystyle \sum_{n=1}^{\infty} a_n$ 发散.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;积分判别法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;设 $x \geqslant 1$ 时，$f(x) \geqslant 0$ 且单调递减，则无穷级数 $\displaystyle \sum_{n=1}^{\infty} f(n)$ 与无穷积分 $\displaystyle \int_{1}^{\infty} f(x) \mathrm{d}x $ 同敛散.&lt;/p&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;Rabbe判别法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;设 $a_n &amp;gt; 0$，$n=1,2,\cdots$.&lt;/p&gt;
+&lt;p&gt;①若 $n &amp;gt; n_0$ 时，$\displaystyle n \left( \frac{a_n}{a_{n+1}} - 1 \right) \leqslant 1$，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 发散.&lt;/p&gt;
+&lt;p&gt;②若 $n &amp;gt; n_0$ 时，$\displaystyle n \left( \frac{a_n}{a_{n+1}} - 1 \right) \geqslant r &amp;gt; 1$，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;极限形式：若 $\displaystyle \lim_{n \to \infty} n \left( \frac{a_n}{a_{n+1}}-1 \right) = l$，则当 $l&amp;gt;1$ 时，级数 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；当 $l&amp;lt;1$ 时，级数 $\displaystyle \sum_{n=1}^{\infty} a_n$ 发散.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;Gauss判别法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;设 $a_n &amp;gt; 0$，满足 &lt;/p&gt;
+$$\frac{a_n}{a_{n+1}} = 1 + \frac{1}{n} + \frac{\beta}{n \ln n} + o\left( \frac{1}{n \ln n} \right)，n \to \infty$$&lt;p&gt; 则当 $\beta &amp;gt; 1$ 时 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；当 $\beta &amp;lt; 1$ 时 $\displaystyle \sum_{n=1}^{\infty} a_n$ 发散.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;极限形式：若 $\displaystyle \lim_{n \to \infty} n \ln n \left( \frac{a_n}{a_{n+1}}-1 - \frac{1}{n} \right) = \beta$，则当 $\beta&amp;gt;1$ 时，级数 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；当 $\beta&amp;lt;1$ 时，级数 $\displaystyle \sum_{n=1}^{\infty} a_n$ 发散.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h4 id=&#34;一般级数收敛的判断&#34;&gt;一般级数收敛的判断
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;莱布尼茨判别法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;设交错级数 $\displaystyle \sum_{n=1}^{\infty} (-1)^{n} a_n$，$a_n &amp;gt;0$，若 $\{a_n\}$ 递减趋于0，则 $\displaystyle \sum_{n=1}^{\infty} (-1)^{n} a_n$ 收敛.&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;阿贝尔和狄利克雷判别法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;(1) 分部求和公式&lt;/p&gt;
+&lt;p&gt;设数列 $\{ a_n \}$和 $\{ b_n \}$，记 $\displaystyle S_k = \sum_{i=1}^{k} a_i$，$S_0 = 0$，则 &lt;/p&gt;
+$$\sum_{k=1}^{n} a_k b_k = \sum_{k=1}^{n-1}S_k(b_k-b_{k+1})+S_n b_n $$&lt;p&gt;(2) 阿贝尔引理&lt;/p&gt;
+&lt;p&gt;设数列 $\{b_n \}$ 单调，$\displaystyle S_k = \sum_{i=1}^{k} a_i$，若 $|S_k| \leqslant M (k=1,2,\cdots,n)$，则 &lt;/p&gt;
+$$\left| \sum_{k=1}^{n} a_k b_k  \right|\leqslant  M \left(\left| b_1 \right| + 2 \left| b_n \right| \right)$$&lt;p&gt;(3) 狄利克雷判别法&lt;/p&gt;
+&lt;p&gt;设数列 $\{ a_n \}$和 $\{ b_n \}$，记 $\displaystyle S_k = \sum_{i=1}^{k} a_i$，若它们满足：$\{b_n\}$ 单调且 $\displaystyle b_n = 0$，$\{S_k\}$ 有界，则 $\displaystyle \sum_{n=0}^{\infty} a_n b_n $ 收敛.&lt;/p&gt;
+&lt;p&gt;(4) 阿贝尔判别法&lt;/p&gt;
+&lt;p&gt;设数列 $\{ a_n \}$和 $\{ b_n \}$ 满足：$\{ b_n \}$ 单调有界，且 $\displaystyle \sum_{n=0}^{\infty} a_n$ 收敛，则 $\displaystyle \sum_{n=0}^{\infty} a_n b_n $ 收敛.&lt;/p&gt;
+&lt;h3 id=&#34;幂级数&#34;&gt;幂级数
+&lt;/h3&gt;&lt;h4 id=&#34;幂函数的收敛半径&#34;&gt;幂函数的收敛半径
+&lt;/h4&gt;&lt;p&gt;对幂级数 $\displaystyle \sum_{n=0}^{\infty} a_n x^{n}$，&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;阿贝尔定理&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;若在 $x_0 \ne 0$ 处收敛，则它对一切 $\left| x \right| &amp;lt; \left| x_0 \right|$ 绝对收敛；&lt;/p&gt;
+&lt;p&gt;若在 $x_1 \ne 0$ 处发散，则它对一切 $\left| x \right| &amp;gt; \left| x_1 \right|$ 绝对收敛；&lt;/p&gt;
+&lt;p&gt;$R = \left| x_0 \right|$ 称为幂级数 $\displaystyle \sum_{n=0}^{\infty} a_n x^{n}$ 的收敛半径.&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;幂级数收敛的性质&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;① $0&amp;lt;R&amp;lt;+\infty$，$\left| x \right| &amp;lt; R$ 时绝对收敛；$\left| x \right| &amp;gt; R$ 时发散.&lt;/p&gt;
+&lt;p&gt;② $R = +\infty$，级数在整个数轴上都绝对收敛.&lt;/p&gt;
+&lt;p&gt;③ $R = 0$，仅在 $x=0$ 时收敛.&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;收敛半径公式&lt;/li&gt;
+&lt;/ol&gt;
+$$R = \frac{1}{\displaystyle \lim_{n \to \infty} \sqrt[n]{\left| a_n \right|}}$$$$R = \lim_{n \to \infty} \left| \frac{a_n}{a_{n+1}} \right|$$&lt;h4 id=&#34;函数展开成幂级数&#34;&gt;函数展开成幂级数
+&lt;/h4&gt;&lt;p&gt;泰勒系数 $\displaystyle a_n = \frac{f^{(n)}(x_0)}{n!}$&lt;/p&gt;
+&lt;h3 id=&#34;傅里叶级数&#34;&gt;傅里叶级数
+&lt;/h3&gt;&lt;h4 id=&#34;傅里叶系数&#34;&gt;傅里叶系数
+&lt;/h4&gt;$$\left\{ \begin{array}{c} \begin{align*} a_n &amp;= \displaystyle \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \cos nx \mathrm{d}x，(n=0,1,2,\cdots) \\ \\ \displaystyle b_n &amp;= \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \sin nx \mathrm{d}x，(n=1,2,\cdots) \end{align*} \end{array} \right.$$&lt;h4 id=&#34;傅里叶级数-1&#34;&gt;傅里叶级数
+&lt;/h4&gt;$$f(x) \sim \frac{a_0}{2} + \sum_{n=1}^{\infty} \left( a_n \cos nx + b_n \sin nx \right) $$&lt;h4 id=&#34;狄利克雷收敛定理&#34;&gt;狄利克雷收敛定理
+&lt;/h4&gt;&lt;p&gt;傅里叶级数的和函数 $S(x)$ 以 $2\pi$ 为周期，&lt;/p&gt;
+$$ S(x) = \left\{ \begin{array}{c} \begin{align*} &amp;f(x)， x为f(x)的连续点 \\ \\ &amp; \displaystyle \frac{f(x-0)+f(x+0)}{2}，x为f(x)的间断点 \\ \\ &amp; \displaystyle \frac{f(-\pi+0)+f(\pi-0)}{2}，x=\pm \pi \\ \end{align*} \end{array} \\ \right.$$&lt;h2 id=&#34;小知识&#34;&gt;小知识
 &lt;/h2&gt;&lt;h3 id=&#34;斐波那契数列&#34;&gt;斐波那契数列
 &lt;/h3&gt;&lt;p&gt;递推公式：$F_{n} = F_{n-1} + F_{n-2}$，用矩阵表示为 &lt;/p&gt;
 $$\left[\begin{array}{c}  F_{n+1}  \\ F_{n} \\  \end{array} \right] = \left[\begin{matrix}  1&amp; 1 \\  1&amp; 0 \\  \end{matrix}\right] \left[\begin{array}{c}  F_{n} \\  F_{n-1} \\ \end{array} \right] $$&lt;p&gt;记 &lt;/p&gt;
@@ -821,13 +919,10 @@ $$\bm{A} = \left[\begin{matrix}  1&amp; 1 \\  1&amp; 0 \\\end{matrix} \right] �
 $$\bm{D}_{n} = \bm{A} \bm{D}_{n-1}$$&lt;p&gt;递推得 &lt;/p&gt;
 $$\bm{D}_{n} = \bm{A}^{n} \bm{D}_{0} $$&lt;p&gt;下面计算 $\bm{A}^{n}$.&lt;/p&gt;
 &lt;p&gt;易知$\bm{A}$的特征多项式为$f(\lambda) = \lambda ^ {2} - \lambda - 1$，特征值为 $\displaystyle \lambda_{1} = \frac{1-\sqrt{5}}{2}$，$\displaystyle\lambda_{2} = \frac{1+\sqrt{5}}{2}$，相应的特征向量分别为 &lt;/p&gt;
-$$\bm{\xi}_{1} = \left[\begin{array}{c}  1 \\    -\lambda_{2} \end{array}\right]，  \bm{\xi}_{2} = \left[\begin{array}{c}  1 \\    -\lambda_{1} \\  \end{array}\right]$$&lt;p&gt;令 &lt;/p&gt;
-$$\bm{T} = \left[\bm{\xi}_{1}, \bm{\xi}_{2}\right]$$&lt;p&gt;则 &lt;/p&gt;
-$$\bm{A} = \bm{T} \left[\begin{matrix}  \lambda_{1}&amp; \\ &amp; \lambda_2 \\  \end{matrix}\right] \bm{T}^{-1} $$&lt;p&gt;于是
+$$\bm{\xi}_{1} = \left[\begin{array}{c}  1 \\    -\lambda_{2} \end{array}\right]，  \bm{\xi}_{2} = \left[\begin{array}{c}  1 \\    -\lambda_{1} \\  \end{array}\right]$$&lt;p&gt;令 $\bm{T} = \left[\bm{\xi}_1, \bm{\xi}_2\right]$，则&lt;/p&gt;
+$$\bm{A} = \bm{T} \left[\begin{matrix}  \lambda_1 &amp; \\ &amp; \lambda_2 \\  \end{matrix}\right] \bm{T}^{-1} $$&lt;p&gt;于是
 &lt;/p&gt;
-$$\begin{align*} \bm{A}^{n} &amp;= \bm{T} \left[\begin{matrix} \lambda_{1}^{n} &amp; \\ &amp; \lambda_{2}^{n} \\ \end{matrix}\right] \bm{T}^{-1} = \left[\begin{matrix} 1&amp; 1 \\ -\lambda_{2}&amp; -\lambda_{1} \\ \end{matrix}\right] \left[\begin{matrix} \lambda_{1}^{n}&amp; \\ &amp; \lambda_{2}^{n} \\ \end{matrix}\right]  \left[\begin{matrix} 1&amp; 1 \\ -\lambda_{2}&amp; -\lambda_{1} \\ \end{matrix}\right]^{-1} \\ &amp;= \frac{1}{\sqrt{5}} \left[\begin{matrix} \lambda_{2}^{n+1} - \lambda_{1}^{n+1}&amp; \lambda_{2}^{n}-  \lambda_{1}^{n} \\ \lambda_{2}^{n}-  \lambda_{1}^{n}&amp; \lambda_{2}^{n-1} - \lambda_{1}^{n-1} \\ \end{matrix}\right] \end{align*}$$&lt;p&gt;最后将 $ \bm{A}^{n} $ 代入 $\boldsymbol{D}_n = \boldsymbol{A}^{n} \boldsymbol{D}_0$.&lt;/p&gt;
-&lt;p&gt;并注意到 &lt;/p&gt;
-$$\boldsymbol{D}_{0} = [1,1]^{\mathrm{T}} $$&lt;p&gt; 且 $\lambda_{1}$ 与 $\lambda_{2}$ 是 $\lambda^{2} = \lambda + 1$ 的根，即得&lt;/p&gt;
+$$\begin{align*} \bm{A}^{n} &amp;= \bm{T} \left[\begin{matrix} \lambda_{1}^{n} &amp; \\ &amp; \lambda_{2}^{n} \\ \end{matrix}\right] \bm{T}^{-1} = \left[\begin{matrix} 1&amp; 1 \\ -\lambda_{2}&amp; -\lambda_{1} \\ \end{matrix}\right] \left[\begin{matrix} \lambda_{1}^{n}&amp; \\ &amp; \lambda_{2}^{n} \\ \end{matrix}\right]  \left[\begin{matrix} 1&amp; 1 \\ -\lambda_{2}&amp; -\lambda_{1} \\ \end{matrix}\right]^{-1} \\ &amp;= \frac{1}{\sqrt{5}} \left[\begin{matrix} \lambda_{2}^{n+1} - \lambda_{1}^{n+1}&amp; \lambda_{2}^{n}-  \lambda_{1}^{n} \\ \lambda_{2}^{n}-  \lambda_{1}^{n}&amp; \lambda_{2}^{n-1} - \lambda_{1}^{n-1} \\ \end{matrix}\right] \end{align*}$$&lt;p&gt;最后将 $ \bm{A}^{n} $ 代入 $\boldsymbol{D}_n = \boldsymbol{A}^{n} \boldsymbol{D}_0$. 并注意到 $\boldsymbol{D}_0 = [1,1]^{\mathrm{T}} $ 且 $\lambda_1$ 与 $\lambda_2$ 是 $\lambda^{2} = \lambda + 1$ 的根，即得&lt;/p&gt;
 $$ F_{n} = \frac{1}{\sqrt{5}} \left[\left(\frac{1+\sqrt{5}}{2}\right)^{n+1} - \left(\frac{1-\sqrt{5}}{2}\right)^{n+1} \right] $$</description>
         </item>
         <item>
@@ -1890,7 +1985,7 @@ $$ I = 2 \cdot 7 - \int_{0}^{2} \frac{x^{3}+3x}{2} \mathrm{d}x = 14 - \left( \fr
   &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2 id=&#34;ssh连接linux系统&#34;&gt;SSH连接Linux系统
-&lt;/h2&gt;&lt;p&gt;参见：SSH配置简介&lt;/p&gt;
+&lt;/h2&gt;&lt;p&gt;参见：&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/ssh/#linux%e7%b3%bb%e7%bb%9f&#34; &gt;SSH配置简介&lt;/a&gt;&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -3489,6 +3584,16 @@ D.	全诗语言简明直白，生动地表达作者对天津的喜爱和赞美�
           &lt;td&gt;$a\ b$&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
+          &lt;td&gt;小于等于&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\leqslant&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$a \leqslant b$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;大于等于&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\geqslant&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$a \geqslant b$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
           &lt;td&gt;点乘&lt;/td&gt;
           &lt;td&gt;&lt;code&gt;\cdot&lt;/code&gt;&lt;/td&gt;
           &lt;td&gt;$A \cdot B$&lt;/td&gt;
@@ -3772,12 +3877,12 @@ D.	全诗语言简明直白，生动地表达作者对天津的喜爱和赞美�
       &lt;tr&gt;
           &lt;td&gt;求和&lt;/td&gt;
           &lt;td&gt;&lt;code&gt;\sum_{i=0}^{n}&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;$\displaystyle \sum_{i=0}^{n} a_{i}$&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \sum_{i=0}^{n} a_i$&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;求积&lt;/td&gt;
           &lt;td&gt;&lt;code&gt;\prod_{i=0}^{n}&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;$\displaystyle \prod_{i=0}^{n} a^{i} $&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \prod_{i=0}^{n} a_i $&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;积分&lt;/td&gt;
@@ -3788,6 +3893,16 @@ D.	全诗语言简明直白，生动地表达作者对天津的喜爱和赞美�
           &lt;td&gt;&lt;/td&gt;
           &lt;td&gt;&lt;code&gt;\iint\limits_D&lt;/code&gt;&lt;/td&gt;
           &lt;td&gt;$\displaystyle \iint\limits_D f(x,y) \mathrm{d}x \mathrm{d}y$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\oint_{L}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \oint_{L} f(x,y,z) \mathrm{d}l$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;\oiint\limits_{\varSigma}&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \oiint\limits_{\varSigma} f(x,y,z) \mathrm{d}S$&lt;/td&gt;
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;

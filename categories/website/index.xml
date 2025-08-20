@@ -17,7 +17,7 @@
 &lt;h2 id=&#34;引入aplayer&#34;&gt;引入APlayer
 &lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;在Hugo工作文件夹的&lt;code&gt;layouts -&amp;gt; partials -&amp;gt; footer&lt;/code&gt;文件夹中新建一个&lt;code&gt;.html&lt;/code&gt;文件，命名为 &lt;code&gt;aplayer.html&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;在Hugo工作文件夹的&lt;code&gt;layouts/partials/footer&lt;/code&gt;文件夹中新建一个&lt;code&gt;.html&lt;/code&gt;文件，命名为 &lt;code&gt;aplayer.html&lt;/code&gt;。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;在 &lt;code&gt;aplayer.html&lt;/code&gt;中输入以下内容：&lt;/p&gt;
@@ -68,7 +68,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;在&lt;code&gt;layouts -&amp;gt; partials -&amp;gt; footer&lt;/code&gt;中新建一个文件夹，命名为&lt;code&gt;custom.html&lt;/code&gt;，在其中输入：&lt;/li&gt;
+&lt;li&gt;在&lt;code&gt;layouts/partials/footer&lt;/code&gt;中新建一个文件夹，命名为&lt;code&gt;custom.html&lt;/code&gt;，在其中输入：&lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
