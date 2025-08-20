@@ -52,16 +52,16 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;ap&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;APlayer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;({&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;nx&#34;&gt;container&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;document&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;getElementById&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;aplayer&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;nx&#34;&gt;fixed&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;nx&#34;&gt;listFolded&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;nx&#34;&gt;lrcType&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;nx&#34;&gt;audio&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;nx&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;example&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;nx&#34;&gt;artist&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;example&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;nx&#34;&gt;url&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;https://example.mp3&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;nx&#34;&gt;lrc&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;example.lrc&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;nx&#34;&gt;cover&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;example.png&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nx&#34;&gt;container&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;document&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;getElementById&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;aplayer&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nx&#34;&gt;fixed&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nx&#34;&gt;listFolded&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nx&#34;&gt;lrcType&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nx&#34;&gt;audio&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nx&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;example&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nx&#34;&gt;artist&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;example&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nx&#34;&gt;url&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;https://example.mp3&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nx&#34;&gt;lrc&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;example.lrc&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nx&#34;&gt;cover&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;example.png&amp;#39;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;}]&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;});&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
@@ -315,10 +315,23 @@
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;h3 id=&#34;两个重要极限&#34;&gt;两个重要极限
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;$\displaystyle \lim_{n \to 0} \frac{\sin n}{n} = 1，\lim_{x \to 0} \frac{\sin x}{x} = 1$.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$\displaystyle \lim_{n \to \infty} \left(1+ \frac{1}{n} \right)^{n} = \mathrm{e}，\lim_{x \to \infty} \left(1+ \frac{1}{x} \right)^{x} = \mathrm{e}$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h3 id=&#34;泰勒公式&#34;&gt;泰勒公式
-&lt;/h3&gt;&lt;h4 id=&#34;皮亚诺余项&#34;&gt;皮亚诺余项
-&lt;/h4&gt;$$ f(x) = \sum_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!}(x - x_0)^k + o\left((x - x_0)^n\right), \quad x \to x_0 $$&lt;h4 id=&#34;拉格朗日余项&#34;&gt;拉格朗日余项
-&lt;/h4&gt;$$ f(x) = \sum_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!}(x - x_0)^k + \frac{f^{(n+1)}(\xi)}{(n+1)!}(x - x_0)^{n+1}, \quad \xi \in (x, x_0) $$&lt;h3 id=&#34;麦克劳林公式&#34;&gt;麦克劳林公式
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;皮亚诺余项&lt;/li&gt;
+&lt;/ol&gt;
+$$ f(x) = \sum_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!}(x - x_0)^k + o\left((x - x_0)^n\right), \quad x \to x_0 $$&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;拉格朗日余项&lt;/li&gt;
+&lt;/ol&gt;
+$$ f(x) = \sum_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!}(x - x_0)^k + \frac{f^{(n+1)}(\xi)}{(n+1)!}(x - x_0)^{n+1}, \quad \xi \in (x, x_0) $$&lt;h3 id=&#34;麦克劳林公式&#34;&gt;麦克劳林公式
 &lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;$\displaystyle \mathrm{e}^x = \sum_{n=0}^{\infty} \frac{x^{n}}{n!} = 1 + x + \frac{x^{2}}{2!} + \frac{x^{3}}{3!} + \cdots + o(x^{n})$&lt;/p&gt;
@@ -336,6 +349,11 @@
 &lt;p&gt;$\displaystyle (1+x)^{\alpha} = \sum_{n=0}^{\infty} \mathrm{C}_{\alpha}^{n}x^{n} = 1 + \alpha x + \frac{\alpha(\alpha-1)}{2!}x^{2} + \cdots + o(x^{n}), (|x|&amp;lt;1) $&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
+&lt;h3 id=&#34;讨论极限的存在性&#34;&gt;讨论极限的存在性
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;利用海涅定理&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果能够选取数列 $\{a_n\}$，$\{b_n\}$，使得 $\displaystyle \lim_{n \to \infty} a_n = x_0$，$\displaystyle \lim_{n \to \infty} b_n = x_0$，并且 $\displaystyle \lim_{n \to \infty} f(a_n)$ 与 $\displaystyle \lim_{n \to \infty} f(b_n)$ 至少有一个不存在，或者都存在但不相等，那么极限 $\displaystyle \lim_{x \to x_0} f(x)$ 不存在.&lt;/p&gt;
 &lt;h2 id=&#34;一元函数微分学&#34;&gt;一元函数微分学
 &lt;/h2&gt;&lt;h3 id=&#34;求导方法&#34;&gt;求导方法
 &lt;/h3&gt;&lt;ul&gt;
@@ -349,10 +367,10 @@ $$\displaystyle f&#39;(x_{0}) = \lim_{x \to x_{0}} \frac{f(x)-f(x_{0})}{x-x_{0}}
 &lt;p&gt;$(\mathrm{e}^x) ^ {(n)} = \mathrm{e}^x$；&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;$\displaystyle (\sin x) ^ {(n)} = \sin (x+n\cdot\frac{\pi}{2})$；&lt;/p&gt;
+&lt;p&gt;$\displaystyle (\sin x) ^ {(n)} = \sin (x+n\cdot\frac{\pi}{2})，(\cos x) ^ {(n)} = \cos (x+n\cdot\frac{\pi}{2})$；&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;$\displaystyle (\cos x) ^ {(n)} = \cos (x+n\cdot\frac{\pi}{2})$；&lt;/p&gt;
+&lt;p&gt;$\displaystyle (\arcsin x)&#39; = \frac{1}{\sqrt{1-x^{2}}}，(\arccos x)&#39; = -\frac{1}{\sqrt{1-x^{2}}}，\\ (\arctan x)&#39; = \frac{1}{1+x^{2}}，(\mathrm{arccot} x)&#39; = -\frac{1}{1+x^{2}}$&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;$\displaystyle [\ln (1+x) ^ {(n)}] = (-1)^{(n-1)} \frac{(n-1)!}{(1+x)^{n}}$；&lt;/p&gt;
@@ -444,7 +462,11 @@ $$ \left\{ \begin{array}{c} u=f(x) \\ v=g(x) \\ \end{array} \right. $$&lt;p&gt; 
 &lt;/h4&gt;&lt;p&gt;(1) 若 $\displaystyle \lim_{x \to x_{0}} f(x) = \infty$，则直线$x=x_{0}$是曲线的垂直渐近线；&lt;/p&gt;
 &lt;p&gt;(2) 若 $\displaystyle \lim_{x \to \infty} f(x) = A$，则直线$y=A$是曲线的水平渐近线；&lt;/p&gt;
 &lt;p&gt;(3) 若 $\displaystyle \lim_{x \to \infty} \frac{f(x)}{x} = k$，$\displaystyle \lim_{x \to \infty} [f(x)-kx] = b$，则直线$y=kx+b$是曲线的斜渐近线；&lt;/p&gt;
-&lt;h2 id=&#34;一元函数积分学&#34;&gt;一元函数积分学
+&lt;h4 id=&#34;曲率与曲率中心&#34;&gt;曲率与曲率中心
+&lt;/h4&gt;&lt;p&gt;参数方程 &lt;/p&gt;
+$$\left\{ \begin{array}{c} x = \varphi(t) \\ y = \psi(t) \\ \end{array} \right. t \in [a,b]$$&lt;p&gt; 确定的平面曲线的曲率 &lt;/p&gt;
+$$ K = \frac{\left| \varphi&#39;(t) \psi&#39;&#39;(t) - \varphi&#39;&#39;(t) \psi&#39;(t) \right|}{[\varphi&#39;^{\ 2}(t)+\psi&#39;^{\ 2}(t)]^{\frac{3}{2}}} $$&lt;p&gt;曲线 $y=y(x)$ 的曲率中心 &lt;/p&gt;
+$$\left\{ \begin{array}{c} \begin{align*} \xi &amp;= x - \dfrac{y&#39;(1+y&#39;^{\ 2})}{y&#39;&#39;} \\ \eta &amp;= y + \dfrac{1+y&#39;^{\ 2}}{y&#39;&#39;} \end{align*} \end{array} \right.$$&lt;h2 id=&#34;一元函数积分学&#34;&gt;一元函数积分学
 &lt;/h2&gt;&lt;h3 id=&#34;积分方法&#34;&gt;积分方法
 &lt;/h3&gt;&lt;h4 id=&#34;凑微分法&#34;&gt;凑微分法
 &lt;/h4&gt;&lt;ol&gt;
@@ -492,22 +514,35 @@ $$ \int u(x)v&#39;(x) \mathrm{d}x = u(x)v(x) - \int u&#39;(x)v(x) \mathrm{d}x $$
 &lt;/h4&gt;&lt;p&gt;对于周期函数，若知道其周期，可使用区间再现法求定积分。&lt;/p&gt;
 &lt;p&gt;例如，若 $f(x+T)=f(x)$，则有&lt;/p&gt;
 $$\int_{a}^{a+T} f(x) \mathrm{d}x = \int_{0}^{T} f(x) \mathrm{d}x$$$$\int_{0}^{nT} f(x) \mathrm{d}x = n\int_{0}^{T} f(x) \mathrm{d}x$$&lt;h4 id=&#34;组合积分法&#34;&gt;组合积分法
-&lt;/h4&gt;&lt;p&gt;如果积分式具有单对称性，可考虑构造另一个积分式，使两者的线性运算所得的积分容易求出，最后通过解方程求得原式的结果。&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/math_quiz/#%e7%bb%84%e5%90%88%e7%a7%af%e5%88%86%e6%b3%95&#34; &gt;Example&lt;/a&gt;&lt;/p&gt;
+&lt;/h4&gt;&lt;p&gt;如果积分式具有单对称性，可考虑构造另一个积分式，使两者的线性运算所得的积分容易求出，最后通过解方程求得原式的结果。&lt;/p&gt;
 &lt;h4 id=&#34;反函数积分法&#34;&gt;反函数积分法
-&lt;/h4&gt;&lt;p&gt;对于一些定积分，若被积函数较复杂，而其反函数较简单，可利用定积分的几何意义：用积分区间的面积减去被积函数反函数的定积分。&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/math_quiz/#%e5%8f%8d%e5%87%bd%e6%95%b0%e7%a7%af%e5%88%86%e6%b3%95&#34; &gt;Example&lt;/a&gt;&lt;/p&gt;
+&lt;/h4&gt;&lt;p&gt;对于一些定积分，若被积函数较复杂，而其反函数较简单，可利用定积分的几何意义：用积分区间的面积减去被积函数反函数的定积分。&lt;/p&gt;
 &lt;h3 id=&#34;常用积分&#34;&gt;常用积分
-&lt;/h3&gt;$$I_n = \int_{0}^{\frac{\pi}{2}} \sin^{n}x \mathrm{d}x = \left\{ \begin{array}{c}  \begin{align*} &amp; \displaystyle \frac{(n-1)!!}{n!!} \qquad n = 2k+1 \\ \\ &amp; \displaystyle \frac{(n-1)!!}{n!!} \cdot \frac{\pi}{2} \qquad n=2k \\ \end{align*} \end{array} \right.$$&lt;h3 id=&#34;定积分的应用&#34;&gt;定积分的应用
-&lt;/h3&gt;&lt;h4 id=&#34;弧长与曲率&#34;&gt;弧长与曲率
-&lt;/h4&gt;&lt;h5 id=&#34;弧长&#34;&gt;弧长
-&lt;/h5&gt;&lt;p&gt;参数方程 &lt;/p&gt;
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;$\displaystyle \int_{0}^{\pi} xf(\sin x) \mathrm{d}x = \frac{\pi}{2} \int_{0}^{\pi} f(\sin x) \mathrm{d}x $&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;沃利斯公式：&lt;/p&gt;
+$$I_n = \int_{0}^{\frac{\pi}{2}} \sin^{n}x \mathrm{d}x = \left\{ \begin{array}{c}  \begin{align*} &amp; \displaystyle \frac{(n-1)!!}{n!!} \quad n = 2k+1 \\ \\ &amp; \displaystyle \frac{(n-1)!!}{n!!} \cdot \frac{\pi}{2} \quad n=2k \\ \end{align*} \end{array} \right.$$&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;高斯积分：&lt;/p&gt;
+$$\int_{0}^{+\infty} \mathrm{e}^{-x^{2}} \mathrm{d}x = \frac{\sqrt{\pi}}{2} $$&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;傅汝兰尼积分公式：&lt;br&gt;设 $f(x)$ 在 $[0,+\infty)$ 上连续，且 $\displaystyle \int_{A}^{+\infty} \frac{f(x)}{x} \mathrm{d}x$ 收敛，其中常数 $A &amp;gt; 0$，则有 &lt;/p&gt;
+$$\int_{0}^{+\infty} \frac{f(ax)-f(bx)}{x} \mathrm{d}x = f(0) \ln \frac{b}{a} \quad (a &lt; b &lt; c) $$&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;柯西积分不等式：&lt;/p&gt;
+$$\left[ \int_{a}^{b} f(x)g(x) \mathrm{d}x \right]^{2} \leqslant \int_{a}^{b} f^{2}(x) \mathrm{d}x \int_{a}^{b} g^{2}(x) \mathrm{d}x $$&lt;p&gt;  其中 $f(x)$，$g(x)$ 均为 $[a,b]$ 上的连续函数.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;定积分的应用&#34;&gt;定积分的应用
+&lt;/h3&gt;&lt;h4 id=&#34;曲线的弧长&#34;&gt;曲线的弧长
+&lt;/h4&gt;&lt;p&gt;参数方程 &lt;/p&gt;
 $$\left\{ \begin{array}{c} x = \varphi(t) \\ y = \psi(t) \\ \end{array} \right. t \in [a,b]$$&lt;p&gt; 确定的平面曲线的弧长 $\displaystyle s = \int_{a}^{b} \sqrt{\varphi&#39;^{\ 2}(t) + \psi&#39;^{\ 2}(t)} \mathrm{d}t $&lt;/p&gt;
 &lt;p&gt;极坐标方程 &lt;/p&gt;
 $$\rho = \rho(\theta) \quad \theta \in (\alpha,\beta) $$&lt;p&gt; 确定的平面曲线的弧长 $\displaystyle s = \int_{\alpha}^{\beta} \sqrt{\rho^{2}(\theta) + \rho&#39;^{\ 2}(\theta)} \mathrm{d}\theta $&lt;/p&gt;
-&lt;h5 id=&#34;曲率&#34;&gt;曲率
-&lt;/h5&gt;&lt;p&gt;参数方程 &lt;/p&gt;
-$$\left\{ \begin{array}{c} x = \varphi(t) \\ y = \psi(t) \\ \end{array} \right. t \in [a,b]$$&lt;p&gt; 确定的平面曲线的曲率 &lt;/p&gt;
-$$ K = \frac{\left| \varphi&#39;(t) \psi&#39;&#39;(t) - \varphi&#39;&#39;(t) \psi&#39;(t) \right|}{[\varphi&#39;^{\ 2}(t)+\psi&#39;^{\ 2}(t)]^{\frac{3}{2}}} $$&lt;p&gt;曲线 $y=y(x)$ 的曲率中心 &lt;/p&gt;
-$$\left\{ \begin{array}{c} \begin{align*} \xi &amp;= x - \dfrac{y&#39;(1+y&#39;^{\ 2})}{y&#39;&#39;} \\ \eta &amp;= y + \dfrac{1+y&#39;^{\ 2}}{y&#39;&#39;} \end{align*} \end{array} \right.$$&lt;h4 id=&#34;旋转体的体积&#34;&gt;旋转体的体积
+&lt;h4 id=&#34;旋转体的体积&#34;&gt;旋转体的体积
 &lt;/h4&gt;&lt;p&gt;曲线 $y=f(x)$ 在 $[c,d]$ 上的部分绕 $x$ 轴旋转一周所围立体的体积 $\displaystyle V = \pi \int_{c}^{d} f^{2}(x) \mathrm{d}x $&lt;/p&gt;
 &lt;h4 id=&#34;旋转曲面的面积&#34;&gt;旋转曲面的面积
 &lt;/h4&gt;&lt;p&gt;曲线 $y=f(x)$ 在 $[c,d]$ 上的部分绕 $x$ 轴旋转一周所得曲面的面积 $\displaystyle S = 2\pi \int_{c}^{d} f(x)\sqrt{1+f&#39;^{\ 2}(x)} \mathrm{d}x $&lt;/p&gt;
@@ -904,7 +939,7 @@ $$\left| \sum_{k=1}^{n} a_k b_k  \right|\leqslant  M \left(\left| b_1 \right| + 
 &lt;ol start=&#34;3&#34;&gt;
 &lt;li&gt;收敛半径公式&lt;/li&gt;
 &lt;/ol&gt;
-$$R = \frac{1}{\displaystyle \lim_{n \to \infty} \sqrt[n]{\left| a_n \right|}}$$$$R = \lim_{n \to \infty} \left| \frac{a_n}{a_{n+1}} \right|$$&lt;h4 id=&#34;函数展开成幂级数&#34;&gt;函数展开成幂级数
+$$R = \frac{1}{\displaystyle \lim_{n \to \infty} \sqrt[n]{\left| a_n \right|}} = \lim_{n \to \infty} \left| \frac{a_n}{a_{n+1}} \right|$$&lt;h4 id=&#34;函数展开成幂级数&#34;&gt;函数展开成幂级数
 &lt;/h4&gt;&lt;p&gt;泰勒系数 $\displaystyle a_n = \frac{f^{(n)}(x_0)}{n!}$&lt;/p&gt;
 &lt;h3 id=&#34;傅里叶级数&#34;&gt;傅里叶级数
 &lt;/h3&gt;&lt;h4 id=&#34;傅里叶系数&#34;&gt;傅里叶系数
@@ -1280,9 +1315,7 @@ $$\sum_{i=1}^{n} \frac{\lambda_{i}}{f&#39;(x_{i})} = \sum_{i=1}^{n} (c_{i} - c_{
 &lt;p&gt;证：&lt;/p&gt;
 &lt;/details&gt;
 &lt;h2 id=&#34;一元函数积分学&#34;&gt;一元函数积分学
-&lt;/h2&gt;&lt;h3 id=&#34;特殊方法举例&#34;&gt;特殊方法举例
-&lt;/h3&gt;&lt;h4 id=&#34;组合积分法&#34;&gt;组合积分法
-&lt;/h4&gt;&lt;ul&gt;
+&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;求积分：$\displaystyle \int \frac{\cos ^{3} x}{1 + \cos x \sin x} \mathrm{d}x$&lt;/li&gt;
 &lt;/ul&gt;
 &lt;details&gt;
@@ -1290,8 +1323,7 @@ $$\sum_{i=1}^{n} \frac{\lambda_{i}}{f&#39;(x_{i})} = \sum_{i=1}^{n} (c_{i} - c_{
 &lt;p&gt;解：令 $\displaystyle I = \int \frac{\cos ^{3} x}{1 + \cos x \sin x} \mathrm{d}x$，$\displaystyle J = \int \frac{\sin ^{3} x}{1 + \cos x \sin x} \mathrm{d}x$，则&lt;/p&gt;
 $$I-J = \int \frac{\cos^{3} x - \sin^{3} x}{1 + \cos x \sin x} \mathrm{d}x = \int (\cos x - \sin x)\mathrm{d}x = \sin x + \cos x + C_{1}$$$$\begin{align*} I+J &amp;= \int \frac{\cos^{3} x + \sin^{3} x}{1 + \cos x \sin x} \mathrm{d}x = \int \frac{(\cos x + \sin x)(1-\sin x \cos x)}{1+\sin x \cos x}\mathrm{d}x \\ &amp;= \int \frac{1+(\sin x + \cos x)^{2}}{3-(\sin x - \cos x)^{2}} \mathrm{d}(\sin x - \cos x) \xlongequal{t = \sin x - \cos x} \int \frac{1+t^{2}}{3-t^{2}} \mathrm{d}t \\ &amp;= \int \left(\frac{4}{3-t^{2}} - 1\right)\mathrm{d}t = \frac{2}{\sqrt{3}} \ln \left|\frac{\sqrt{3}+t}{\sqrt{3}-t}\right| - t + C_{2} \\ &amp;= \frac{2}{\sqrt{3}} \ln \left|\frac{\sqrt{3}+\sin x - \cos x}{\sqrt{3}-\sin x + \cos x}\right| - \sin x + \cos x + C_{2} \end{align*}$$&lt;p&gt;解上述方程得：$\displaystyle I = \frac{1}{\sqrt{3}} \ln \left|\frac{\sqrt{3}+\sin x - \cos x}{\sqrt{3}-\sin x + \cos x}\right| + \cos x + C$&lt;/p&gt;
 &lt;/details&gt;
-&lt;h4 id=&#34;反函数积分法&#34;&gt;反函数积分法
-&lt;/h4&gt;&lt;ul&gt;
+&lt;ul&gt;
 &lt;li&gt;求积分： $$I =\int_{0}^{7} \left( \sqrt[3]{x-\sqrt{x^{2}-1}}+\sqrt[3]{x+\sqrt{x^{2}+1}}\right) \mathrm{d}x$$&lt;/li&gt;
 &lt;/ul&gt;
 &lt;details&gt;
@@ -1301,11 +1333,18 @@ $$I-J = \int \frac{\cos^{3} x - \sin^{3} x}{1 + \cos x \sin x} \mathrm{d}x = \in
 &lt;p&gt;解得 $\displaystyle x = \frac{y^{3}+3y}{2}$，则令 $ x = 7$，得 $ y^{3} + 3y = 14$，解得 $y = 2$. 则：&lt;/p&gt;
 $$ I = 2 \cdot 7 - \int_{0}^{2} \frac{x^{3}+3x}{2} \mathrm{d}x = 14 - \left( \frac{x^{4}}{8} + \frac{3x^{2}}{4} \right) \Bigg|_{0}^{2}  = 9$$&lt;/details&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;/li&gt;
+&lt;li&gt;证明柯西积分不等式 $$\left[ \int_{a}^{b} f(x)g(x) \mathrm{d}x \right]^{2} \leqslant \int_{a}^{b} f^{2}(x) \mathrm{d}x \int_{a}^{b} g^{2}(x) \mathrm{d}x $$  其中 $f(x)$，$g(x)$ 均为 $[a,b]$ 上的连续函数.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;details&gt;
       &lt;summary&gt;点击展开答案&lt;/summary&gt;
+&lt;p&gt;证：设$D$：$a \leqslant x \leqslant b, a \leqslant y \leqslant b$，则&lt;/p&gt;
+$$\begin{array}{c} \begin{align*} \left[\int_{a}^{b} f(x)g(x) \mathrm{d}x \right]^{2} &amp;= \int_{a}^{b} f(x)g(x) \mathrm{d}x \int_{a}^{b} f(y)g(y) \mathrm{d}y \\ &amp;= \iint\limits_{D} f(x)g(y) \cdot f(y)g(x) \mathrm{d}x\mathrm{d}y \\ &amp; \leqslant \iint\limits_{D} \frac{1}{2} \left[ f^{2}(x)g^{2}(y) + f^{2}(y)g^{2}(x) \right] \mathrm{d}x\mathrm{d}y \\ &amp;= \frac{1}{2} \iint\limits_{D}  f^{2}(x)g^{2}(y) \mathrm{d}x\mathrm{d}y + \frac{1}{2} \iint\limits_{D}f^{2}(y)g^{2}(x) \mathrm{d}x\mathrm{d}y \\ &amp;= \frac{1}{2} \int_{a}^{b} f^{2}(x) \mathrm{d}x \int_{a}^{b} g^{2}(y) \mathrm{d}y + \frac{1}{2} \int_{a}^{b} f^{2}(y) \mathrm{d}y \int_{a}^{b} g^{2}(x) \mathrm{d}x \\ &amp;= \frac{1}{2} \int_{a}^{b} f^{2}(x) \mathrm{d}x \int_{a}^{b} g^{2}(x) \mathrm{d}x + \frac{1}{2} \int_{a}^{b} f^{2}(x) \mathrm{d}x \int_{a}^{b} g^{2}(x) \mathrm{d}x \\ &amp;= \int_{a}^{b} f^{2}(x) \mathrm{d}x \int_{a}^{b} g^{2}(x) \mathrm{d}x \\ \end{align*} \end{array}$$&lt;/details&gt;
+&lt;details&gt;
+      &lt;summary&gt;点击展开答案&lt;/summary&gt;
 &lt;/details&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         </item>
         <item>
@@ -3582,6 +3621,16 @@ D.	全诗语言简明直白，生动地表达作者对天津的喜爱和赞美�
           &lt;td&gt;空格&lt;/td&gt;
           &lt;td&gt;&lt;code&gt;a\ b&lt;/code&gt;&lt;/td&gt;
           &lt;td&gt;$a\ b$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;小于&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;a &amp;lt; b&lt;/code&gt; 空格不能少&lt;/td&gt;
+          &lt;td&gt;$a &amp;lt; b$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;大于&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;a &amp;lt; b&lt;/code&gt; 空格不能少&lt;/td&gt;
+          &lt;td&gt;$a &amp;gt; b$&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;小于等于&lt;/td&gt;

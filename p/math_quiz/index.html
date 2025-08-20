@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/math_quiz/'>
 
-<link rel="stylesheet" href="/scss/style.min.3a1dac43aec8f723834bd83fac278e8c5480114812e36f0366399d87cfc7dd75.css"><meta property='og:title' content="微积分：题目">
+<link rel="stylesheet" href="/scss/style.min.1fc8fe2033334e4063bb16a85fe18ba5e0407c9c4c064ca65928022fbed4675f.css"><meta property='og:title' content="微积分：题目">
 <meta property='og:description' content="极限与函数 求极限：$\\displaystyle \\lim_{x \\to 0} \\left( \\frac{a^{x^{2}} + b^{x^{2}}}{a^{x} + b^{x}} \\right) ^ {\\frac{1}{x}}$ 点击展开解答 解：利用重要极限，变形得\n$$ \\lim_{x \\to 0} \\left( \\frac{a^{x^{2}} + b^{x^{2}}}{a^{x} + b^{x}} + 1 - 1 \\right) ^ {\\frac{1}{x}} = \\mathrm{exp}\\left\\{\\lim_{x \\to 0} \\frac{a^{x^{2}} + b^{x^{2}} - a^{x} - b^{x}}{a^{x} + b^{x}} \\cdot \\frac{1}{x}\\right\\} $$下面求 $\\displaystyle \\lim_{x \\to 0} \\frac{a^{x^{2}} + b^{x^{2}} - a^{x} - b^{x}}{a^{x} + b^{x}} \\cdot \\frac{1}{x} $，记为 $I$.\n">
 <meta property='og:url' content='https://5882886.github.io/p/math_quiz/'>
 <meta property='og:site_name' content='RunicDolphin806的博客'>
@@ -288,16 +288,7 @@
   <ol>
     <li><a href="#极限与函数">极限与函数</a></li>
     <li><a href="#微分中值定理">微分中值定理</a></li>
-    <li><a href="#一元函数积分学">一元函数积分学</a>
-      <ol>
-        <li><a href="#特殊方法举例">特殊方法举例</a>
-          <ol>
-            <li><a href="#组合积分法">组合积分法</a></li>
-            <li><a href="#反函数积分法">反函数积分法</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
+    <li><a href="#一元函数积分学">一元函数积分学</a></li>
   </ol>
 </nav>
         </div>
@@ -561,9 +552,7 @@ $$\sum_{i=1}^{n} \frac{\lambda_{i}}{f'(x_{i})} = \sum_{i=1}^{n} (c_{i} - c_{i-1}
 <p>证：</p>
 </details>
 <h2 id="一元函数积分学">一元函数积分学
-</h2><h3 id="特殊方法举例">特殊方法举例
-</h3><h4 id="组合积分法">组合积分法
-</h4><ul>
+</h2><ul>
 <li>求积分：$\displaystyle \int \frac{\cos ^{3} x}{1 + \cos x \sin x} \mathrm{d}x$</li>
 </ul>
 <details>
@@ -571,8 +560,7 @@ $$\sum_{i=1}^{n} \frac{\lambda_{i}}{f'(x_{i})} = \sum_{i=1}^{n} (c_{i} - c_{i-1}
 <p>解：令 $\displaystyle I = \int \frac{\cos ^{3} x}{1 + \cos x \sin x} \mathrm{d}x$，$\displaystyle J = \int \frac{\sin ^{3} x}{1 + \cos x \sin x} \mathrm{d}x$，则</p>
 $$I-J = \int \frac{\cos^{3} x - \sin^{3} x}{1 + \cos x \sin x} \mathrm{d}x = \int (\cos x - \sin x)\mathrm{d}x = \sin x + \cos x + C_{1}$$$$\begin{align*} I+J &= \int \frac{\cos^{3} x + \sin^{3} x}{1 + \cos x \sin x} \mathrm{d}x = \int \frac{(\cos x + \sin x)(1-\sin x \cos x)}{1+\sin x \cos x}\mathrm{d}x \\ &= \int \frac{1+(\sin x + \cos x)^{2}}{3-(\sin x - \cos x)^{2}} \mathrm{d}(\sin x - \cos x) \xlongequal{t = \sin x - \cos x} \int \frac{1+t^{2}}{3-t^{2}} \mathrm{d}t \\ &= \int \left(\frac{4}{3-t^{2}} - 1\right)\mathrm{d}t = \frac{2}{\sqrt{3}} \ln \left|\frac{\sqrt{3}+t}{\sqrt{3}-t}\right| - t + C_{2} \\ &= \frac{2}{\sqrt{3}} \ln \left|\frac{\sqrt{3}+\sin x - \cos x}{\sqrt{3}-\sin x + \cos x}\right| - \sin x + \cos x + C_{2} \end{align*}$$<p>解上述方程得：$\displaystyle I = \frac{1}{\sqrt{3}} \ln \left|\frac{\sqrt{3}+\sin x - \cos x}{\sqrt{3}-\sin x + \cos x}\right| + \cos x + C$</p>
 </details>
-<h4 id="反函数积分法">反函数积分法
-</h4><ul>
+<ul>
 <li>求积分： $$I =\int_{0}^{7} \left( \sqrt[3]{x-\sqrt{x^{2}-1}}+\sqrt[3]{x+\sqrt{x^{2}+1}}\right) \mathrm{d}x$$</li>
 </ul>
 <details>
@@ -582,11 +570,18 @@ $$I-J = \int \frac{\cos^{3} x - \sin^{3} x}{1 + \cos x \sin x} \mathrm{d}x = \in
 <p>解得 $\displaystyle x = \frac{y^{3}+3y}{2}$，则令 $ x = 7$，得 $ y^{3} + 3y = 14$，解得 $y = 2$. 则：</p>
 $$ I = 2 \cdot 7 - \int_{0}^{2} \frac{x^{3}+3x}{2} \mathrm{d}x = 14 - \left( \frac{x^{4}}{8} + \frac{3x^{2}}{4} \right) \Bigg|_{0}^{2}  = 9$$</details>
 <ul>
-<li></li>
+<li>证明柯西积分不等式 $$\left[ \int_{a}^{b} f(x)g(x) \mathrm{d}x \right]^{2} \leqslant \int_{a}^{b} f^{2}(x) \mathrm{d}x \int_{a}^{b} g^{2}(x) \mathrm{d}x $$  其中 $f(x)$，$g(x)$ 均为 $[a,b]$ 上的连续函数.</li>
 </ul>
 <details>
       <summary>点击展开答案</summary>
+<p>证：设$D$：$a \leqslant x \leqslant b, a \leqslant y \leqslant b$，则</p>
+$$\begin{array}{c} \begin{align*} \left[\int_{a}^{b} f(x)g(x) \mathrm{d}x \right]^{2} &= \int_{a}^{b} f(x)g(x) \mathrm{d}x \int_{a}^{b} f(y)g(y) \mathrm{d}y \\ &= \iint\limits_{D} f(x)g(y) \cdot f(y)g(x) \mathrm{d}x\mathrm{d}y \\ & \leqslant \iint\limits_{D} \frac{1}{2} \left[ f^{2}(x)g^{2}(y) + f^{2}(y)g^{2}(x) \right] \mathrm{d}x\mathrm{d}y \\ &= \frac{1}{2} \iint\limits_{D}  f^{2}(x)g^{2}(y) \mathrm{d}x\mathrm{d}y + \frac{1}{2} \iint\limits_{D}f^{2}(y)g^{2}(x) \mathrm{d}x\mathrm{d}y \\ &= \frac{1}{2} \int_{a}^{b} f^{2}(x) \mathrm{d}x \int_{a}^{b} g^{2}(y) \mathrm{d}y + \frac{1}{2} \int_{a}^{b} f^{2}(y) \mathrm{d}y \int_{a}^{b} g^{2}(x) \mathrm{d}x \\ &= \frac{1}{2} \int_{a}^{b} f^{2}(x) \mathrm{d}x \int_{a}^{b} g^{2}(x) \mathrm{d}x + \frac{1}{2} \int_{a}^{b} f^{2}(x) \mathrm{d}x \int_{a}^{b} g^{2}(x) \mathrm{d}x \\ &= \int_{a}^{b} f^{2}(x) \mathrm{d}x \int_{a}^{b} g^{2}(x) \mathrm{d}x \\ \end{align*} \end{array}$$</details>
+<details>
+      <summary>点击展开答案</summary>
 </details>
+<ul>
+<li></li>
+</ul>
 
 </section>
 
@@ -848,7 +843,13 @@ $$ I = 2 \cdot 7 - \int_{0}^{2} \frac{x^{3}+3x}{2} \mathrm{d}x = 14 - \left( \fr
             lrc: '/music/问月.lrc',
             cover: '/music.png'
 
-        },{
+        }, {
+            name: '夜空中最亮的星',
+            artist: '逃跑计划',
+            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VhTDhBUEZoSnZCQW8weVd4bHo1SmxBQktpVWZtRzFORkxGeFVtWXA3bTFmTUE_ZT1oZmg0a0w.mp3',
+            lrc: '/music/夜空中最亮的星.lrc',
+            cover: '/music.png'
+        }, {
             name: '少年游',
             artist: '灰太狼办公室',
             url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VmbEdBTnYxdVdGQ3FBMWFvbkt4dF9BQlppNzgtZDcyenhGNXVnVmphOGx3NlE_ZT04Q1ZoZlU.mp3',
@@ -969,6 +970,27 @@ $$ I = 2 \cdot 7 - \int_{0}^{2} \frac{x^{3}+3x}{2} \mathrm{d}x = 14 - \left( \fr
         renderKaTeX();
     })
 </script>
+
+
+<script
+    src="https://cdn.jsdelivr.net/gh/zhixuan2333/gh-blog@v0.1.0/js/nprogress.min.js"
+    integrity="sha384-bHDlAEUFxsRI7JfULv3DTpL2IXbbgn4JHQJibgo5iiXSK6Iu8muwqHANhun74Cqg"
+    crossorigin="anonymous"
+></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/zhixuan2333/gh-blog@v0.1.0/css/nprogress.css"
+    integrity="sha384-KJyhr2syt5+4M9Pz5dipCvTrtvOmLk/olWVdfhAp858UCa64Ia5GFpTN7+G4BWpE"
+    crossorigin="anonymous"
+/>
+<script>
+    NProgress.start();
+    document.addEventListener("readystatechange", () => {
+        if (document.readyState === "interactive") NProgress.inc(0.8);
+        if (document.readyState === "complete") NProgress.done();
+    });
+</script>
+
 
     </body>
 </html>

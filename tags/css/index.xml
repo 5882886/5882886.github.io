@@ -322,6 +322,16 @@
           &lt;td&gt;$a\ b$&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
+          &lt;td&gt;小于&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;a &amp;lt; b&lt;/code&gt; 空格不能少&lt;/td&gt;
+          &lt;td&gt;$a &amp;lt; b$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;大于&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;a &amp;lt; b&lt;/code&gt; 空格不能少&lt;/td&gt;
+          &lt;td&gt;$a &amp;gt; b$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
           &lt;td&gt;小于等于&lt;/td&gt;
           &lt;td&gt;&lt;code&gt;\leqslant&lt;/code&gt;&lt;/td&gt;
           &lt;td&gt;$a \leqslant b$&lt;/td&gt;
