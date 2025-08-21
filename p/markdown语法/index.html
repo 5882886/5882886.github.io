@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/markdown%E8%AF%AD%E6%B3%95/'>
 
-<link rel="stylesheet" href="/scss/style.min.1fc8fe2033334e4063bb16a85fe18ba5e0407c9c4c064ca65928022fbed4675f.css"><meta property='og:title' content="Markdown语法">
+<link rel="stylesheet" href="/scss/style.min.85bbfceec5829bc8cc74528bad656ba31564ad046bbe6f5e6f88234fe96be1d9.css"><meta property='og:title' content="Markdown语法">
 <meta property='og:description' content="Markdown语法案例">
 <meta property='og:url' content='https://5882886.github.io/p/markdown%E8%AF%AD%E6%B3%95/'>
 <meta property='og:site_name' content='RunicDolphin806的博客'>
@@ -1615,6 +1615,12 @@ $$ \begin{align*} x_1+x_2 &= \frac{-b+\sqrt{b^{2}-4ac}}{2a} + \frac{-b-\sqrt{b^{
         
         window.Stack.init();
     })
+
+    document.addEventListener('DOMContentLoaded', function () {
+        if (window.pjax) {
+            window.pjax.options.cacheBust = false; 
+        }
+    });
 </script>
 
 <script>
@@ -1652,6 +1658,7 @@ $$ \begin{align*} x_1+x_2 &= \frac{-b+\sqrt{b^{2}-4ac}}{2a} + \frac{-b-\sqrt{b^{
         renderKaTeX();
     })
 </script>
+
 
 
 <script

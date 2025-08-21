@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/aplayer/'>
 
-<link rel="stylesheet" href="/scss/style.min.1fc8fe2033334e4063bb16a85fe18ba5e0407c9c4c064ca65928022fbed4675f.css"><meta property='og:title' content="APlayer">
+<link rel="stylesheet" href="/scss/style.min.85bbfceec5829bc8cc74528bad656ba31564ad046bbe6f5e6f88234fe96be1d9.css"><meta property='og:title' content="APlayer">
 <meta property='og:description' content="使用APlayer引入网站音乐播放器">
 <meta property='og:url' content='https://5882886.github.io/p/aplayer/'>
 <meta property='og:site_name' content='RunicDolphin806的博客'>
@@ -293,6 +293,12 @@
         <li><a href="#实现隐藏播放器图标">实现隐藏播放器图标</a></li>
       </ol>
     </li>
+    <li><a href="#导入pojax实现音乐不间断播放">导入pojax实现音乐不间断播放</a>
+      <ol>
+        <li><a href="#导入pojax">导入pojax</a></li>
+        <li><a href="#修复网页样式丢失">修复网页样式丢失</a></li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -505,7 +511,7 @@
 <h2 id="引入aplayer">引入APlayer
 </h2><ol>
 <li>
-<p>在Hugo工作文件夹的<code>layouts/partials/footer</code>文件夹中新建一个<code>.html</code>文件，命名为 <code>aplayer.html</code>。</p>
+<p>在Hugo工作文件夹的<code>layouts/partials/footer</code>文件夹中新建一个文件，命名为 <code>aplayer.html</code>。</p>
 </li>
 <li>
 <p>在 <code>aplayer.html</code>中输入以下内容：</p>
@@ -563,7 +569,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">{{ partialCached &#34;footer/aplayer.html&#34; . }}
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">{{/* partialCached &#34;footer/aplayer.html&#34; . */}}
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>这样，aplayer就成功导入到网页中了。</p>
@@ -676,7 +682,85 @@
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
 </span></span></code></pre></td></tr></table>
 </div>
+</div><h2 id="导入pojax实现音乐不间断播放">导入pojax实现音乐不间断播放
+</h2><h3 id="导入pojax">导入pojax
+</h3><ol>
+<li>
+<p>在<code>layouts/partials/footer</code>中新建文件，命名为<code>pojax.html</code>.</p>
+</li>
+<li>
+<p>在文件中写入代码：</p>
+</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/pjax/pjax.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">pjax</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Pjax</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">selectors</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;.main-container&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">pjax</span><span class="p">.</span><span class="nx">_handleResponse</span> <span class="o">=</span> <span class="nx">pjax</span><span class="p">.</span><span class="nx">handleResponse</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">pjax</span><span class="p">.</span><span class="nx">handleResponse</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">responseText</span><span class="p">,</span> <span class="nx">request</span><span class="p">,</span> <span class="nx">href</span><span class="p">,</span> <span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">responseText</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="s2">&#34;&lt;html&#34;</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="nx">responseText</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="c1">// 将新页面的html字符串解析成DOM对象
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="kd">let</span> <span class="nx">newDom</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DOMParser</span><span class="p">().</span><span class="nx">parseFromString</span><span class="p">(</span><span class="nx">responseText</span><span class="p">,</span> <span class="s1">&#39;text/html&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="c1">// 获取新页面中body的className，并设置回当前页面
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="kd">let</span> <span class="nx">bodyClass</span> <span class="o">=</span> <span class="nx">newDom</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">className</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&#34;class&#34;</span><span class="p">,</span> <span class="nx">bodyClass</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="c1">// 放行，交给pjax自己处理
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="nx">pjax</span><span class="p">.</span><span class="nx">_handleResponse</span><span class="p">(</span><span class="nx">responseText</span><span class="p">,</span> <span class="nx">request</span><span class="p">,</span> <span class="nx">href</span><span class="p">,</span> <span class="nx">options</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// handle non-HTML response here
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;pjax:complete&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// Stack脚本初始化
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nb">window</span><span class="p">.</span><span class="nx">Stack</span><span class="p">.</span><span class="nx">init</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
 </div>
+</div><p>这样pojax就成功导入网页中了。</p>
+<h3 id="修复网页样式丢失">修复网页样式丢失
+</h3>
 </section>
 
 
@@ -1069,6 +1153,12 @@
         
         window.Stack.init();
     })
+
+    document.addEventListener('DOMContentLoaded', function () {
+        if (window.pjax) {
+            window.pjax.options.cacheBust = false; 
+        }
+    });
 </script>
 
 <script>
@@ -1106,6 +1196,7 @@
         renderKaTeX();
     })
 </script>
+
 
 
 <script

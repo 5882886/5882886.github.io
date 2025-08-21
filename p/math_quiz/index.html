@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/math_quiz/'>
 
-<link rel="stylesheet" href="/scss/style.min.1fc8fe2033334e4063bb16a85fe18ba5e0407c9c4c064ca65928022fbed4675f.css"><meta property='og:title' content="微积分：题目">
+<link rel="stylesheet" href="/scss/style.min.85bbfceec5829bc8cc74528bad656ba31564ad046bbe6f5e6f88234fe96be1d9.css"><meta property='og:title' content="微积分：题目">
 <meta property='og:description' content="极限与函数 求极限：$\\displaystyle \\lim_{x \\to 0} \\left( \\frac{a^{x^{2}} + b^{x^{2}}}{a^{x} + b^{x}} \\right) ^ {\\frac{1}{x}}$ 点击展开解答 解：利用重要极限，变形得\n$$ \\lim_{x \\to 0} \\left( \\frac{a^{x^{2}} + b^{x^{2}}}{a^{x} + b^{x}} + 1 - 1 \\right) ^ {\\frac{1}{x}} = \\mathrm{exp}\\left\\{\\lim_{x \\to 0} \\frac{a^{x^{2}} + b^{x^{2}} - a^{x} - b^{x}}{a^{x} + b^{x}} \\cdot \\frac{1}{x}\\right\\} $$下面求 $\\displaystyle \\lim_{x \\to 0} \\frac{a^{x^{2}} + b^{x^{2}} - a^{x} - b^{x}}{a^{x} + b^{x}} \\cdot \\frac{1}{x} $，记为 $I$.\n">
 <meta property='og:url' content='https://5882886.github.io/p/math_quiz/'>
 <meta property='og:site_name' content='RunicDolphin806的博客'>
@@ -933,6 +933,12 @@ $$\begin{array}{c} \begin{align*} \left[\int_{a}^{b} f(x)g(x) \mathrm{d}x \right
         
         window.Stack.init();
     })
+
+    document.addEventListener('DOMContentLoaded', function () {
+        if (window.pjax) {
+            window.pjax.options.cacheBust = false; 
+        }
+    });
 </script>
 
 <script>
@@ -970,6 +976,7 @@ $$\begin{array}{c} \begin{align*} \left[\int_{a}^{b} f(x)g(x) \mathrm{d}x \right
         renderKaTeX();
     })
 </script>
+
 
 
 <script
