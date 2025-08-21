@@ -661,7 +661,7 @@
 <details>
     <summary>什么是IPV6？</summary>
 <blockquote>
-<p>目前IP技术分为IPV4和IPV6两种。IPV4地址为12个十进制数，每3个数字用&quot; : &ldquo;隔开；IPV6地址为28个16进制数，每4个数字用&rdquo; : &ldquo;隔开。由此可见，IPV6地址比IPV4多得多，所以每个IPV6地址都可以作为公网使用。</p></blockquote>
+<p>目前IP技术分为IPV4和IPV6两种。IPV4地址为12个十进制数，每3个数字用“ : ”隔开；IPV6地址为28个16进制数，每4个数字用“ : ”隔开。由此可见，IPV6地址比IPV4多得多，所以每个IPV6地址都可以作为公网使用。</p></blockquote>
 </details>
 <h2 id="服务器进阶">服务器进阶
 </h2><h3 id="修改服务器配置">修改服务器配置
@@ -797,7 +797,53 @@
 </h3><h3 id="使用ssh远程连接服务器主机">使用SSH远程连接服务器主机
 </h3><p>参见：<a class="link" href="/p/ssh/" >SSH配置简介</a></p>
 <h3 id="使用mysql管理玩家数据">使用MySQL管理玩家数据
-</h3><h2 id="开发者选项">开发者选项
+</h3><p>对于多个服务器，如果想不同服务器之间共享玩家数据（如权限、经验等），可以使用MySQL数据库。</p>
+<p>下面以服务端插件PowerRanks为例进行说明。</p>
+<ol>
+<li>打开PowerRanks的配置文件，找到关于数据来源的配置。</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nn">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">storage</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">mysql</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">mysql</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="m">127.0.0.1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">3306</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">database</span><span class="p">:</span><span class="w"> </span><span class="l">powerranks</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l">root</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="cp">*******</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ssl</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">verbose</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">...</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>将<code>type</code>改为<code>mysql</code>，并配置好端口、用户名和密码。这样在启动时，插件会自动从<code>127.0.0.1:3306</code>端口的root用户读入数据。</p>
+<ol start="2">
+<li>
+<p>在MySQL的表中创建新表，命名为<code>powerranks</code>，此处名称应与配置文件中的<code>database</code>后的名称相同。</p>
+</li>
+<li>
+<p>启动MC服务器，这样Powerranks插件就会自动在MySQL中创建数据表，可以对其进行相关操作。</p>
+</li>
+</ol>
+<blockquote>
+<p>注意：使用MySQL的数据时，每次启动服务器前应当先启动MySQL客户端，否则插件会报错。</p></blockquote>
+<h2 id="开发者选项">开发者选项
 </h2><h3 id="制作自己的服务端插件">制作自己的服务端插件
 </h3>
 </section>
@@ -964,7 +1010,7 @@
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.0476202c573af48c2df9833eec1bc2b1b75aebf6ebdddef3b67aa0145357f0ac.js" defer></script><script type="text/javascript" src="/ts/custom.89d9bb2c3c071ae8a261f67661c22b84ef67ba7b7a885dabd2bbd9ebef84ed40.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.eaf1211e4c7db355f37ceea53df13700e1b77fbcc3cfe8c1c1f69e4468a752e1.js" defer></script><script type="text/javascript" src="/ts/custom.f2979a93a325fecf9605263bd141398a311c8e23388ed7dcff74f92f7e632866.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');

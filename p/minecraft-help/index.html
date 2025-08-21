@@ -304,6 +304,7 @@
             <li><a href="#通用安装方法">通用安装方法</a></li>
           </ol>
         </li>
+        <li><a href="#安装材质和光影">安装材质和光影</a></li>
       </ol>
     </li>
     <li><a href="#常见问题">常见问题</a>
@@ -608,12 +609,12 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">- .minecraft        # 游戏总文件
-</span></span><span class="line"><span class="cl">|- assets           # 游戏资源文件夹
-</span></span><span class="line"><span class="cl">|- global           # 全局配置
-</span></span><span class="line"><span class="cl">|- libraries        # 加载库文件
-</span></span><span class="line"><span class="cl">|- versions         # 版本文件夹（开启版本隔离后生效）
-</span></span><span class="line"><span class="cl">|- …
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">—— .minecraft        # 游戏总文件
+</span></span><span class="line"><span class="cl">|—— assets           # 游戏资源文件夹
+</span></span><span class="line"><span class="cl">|—— global           # 全局配置
+</span></span><span class="line"><span class="cl">|—— libraries        # 加载库文件
+</span></span><span class="line"><span class="cl">|—— versions         # 版本文件夹（开启版本隔离后生效）
+</span></span><span class="line"><span class="cl">|—— …
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>其中<code>versions</code>文件夹是我们进行操作的主要场所。</p>
@@ -672,6 +673,27 @@
 <ol start="4">
 <li>此时打开启动器，应当能在版本列表中看到刚安装的Forge版本。</li>
 </ol>
+<h3 id="安装材质和光影">安装材质和光影
+</h3><p>安装材质的方法较为简单，直接下载好需要的材质文件（通常是压缩包的形式），将其放入<code>/versions/你的游戏版本/resourcepacks</code>文件夹即可。</p>
+<p>安装光影则需要MOD的前置支持，安装好对应MOD后，将下载的光影文件放入<code>/versions/你的游戏版本/shaderpacks</code>文件夹。</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>模组加载器</th>
+          <th>对应MOD</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Forge</td>
+          <td>1.12.2 以下：Optifine；1.16.5 以上：Oculus</td>
+      </tr>
+      <tr>
+          <td>Fabric</td>
+          <td>Iris</td>
+      </tr>
+  </tbody>
+</table></div>
 <h2 id="常见问题">常见问题
 </h2><h3 id="微软账号无法登录">微软账号无法登录
 </h3><p>有时网络运营商的 DNS 可能无法很好地解析微软的验证服务器地址，导致微软账号的登录界面无法进入，无法与小伙伴愉快游玩Hypixel。解决方法为更换更可靠的公共 DNS。</p>
@@ -943,7 +965,7 @@
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.0476202c573af48c2df9833eec1bc2b1b75aebf6ebdddef3b67aa0145357f0ac.js" defer></script><script type="text/javascript" src="/ts/custom.89d9bb2c3c071ae8a261f67661c22b84ef67ba7b7a885dabd2bbd9ebef84ed40.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.eaf1211e4c7db355f37ceea53df13700e1b77fbcc3cfe8c1c1f69e4468a752e1.js" defer></script><script type="text/javascript" src="/ts/custom.f2979a93a325fecf9605263bd141398a311c8e23388ed7dcff74f92f7e632866.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');
