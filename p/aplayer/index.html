@@ -293,14 +293,14 @@
         <li><a href="#实现隐藏播放器图标">实现隐藏播放器图标</a></li>
       </ol>
     </li>
-    <li><a href="#导入pojax实现音乐不间断播放">导入pojax实现音乐不间断播放</a>
+    <li><a href="#导入pjax实现音乐不间断播放">导入pjax实现音乐不间断播放</a>
       <ol>
-        <li><a href="#导入pojax">导入pojax</a></li>
+        <li><a href="#导入pjax">导入pjax</a></li>
         <li><a href="#修复网页样式">修复网页样式</a></li>
         <li><a href="#修复主题切换">修复主题切换</a></li>
         <li><a href="#修复搜索">修复搜索</a></li>
         <li><a href="#修复latex">修复Latex</a></li>
-        <li><a href="#取消pojax的时间戳">取消pojax的时间戳</a></li>
+        <li><a href="#取消pjax的时间戳">取消pjax的时间戳</a></li>
       </ol>
     </li>
   </ol>
@@ -575,7 +575,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">{{/* partialCached &#34;footer/aplayer.html&#34; . */}}
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">{{ partialCached &#34;footer/aplayer.html&#34; . }}
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>这样，aplayer就成功导入到网页中了。</p>
@@ -688,11 +688,12 @@
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="导入pojax实现音乐不间断播放">导入pojax实现音乐不间断播放
-</h2><h3 id="导入pojax">导入pojax
+</div><h2 id="导入pjax实现音乐不间断播放">导入pjax实现音乐不间断播放
+</h2><p>pjax是一项页面切换不加载技术，可实现切换网页后音乐不间断。</p>
+<h3 id="导入pjax">导入pjax
 </h3><ol>
 <li>
-<p>在<code>layouts/partials/footer</code>中新建文件，命名为<code>pojax.html</code>.</p>
+<p>在<code>layouts/partials/footer</code>中新建文件，命名为<code>pjax.html</code>.</p>
 </li>
 <li>
 <p>在文件中写入代码：</p>
@@ -720,9 +721,9 @@
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>这样pojax就成功导入网页中了。</p>
+</div><p>这样pjax就成功导入网页中了。</p>
 <h3 id="修复网页样式">修复网页样式
-</h3><p>在<code>pojax.html</code>中加入以下内容：</p>
+</h3><p>在<code>pjax.html</code>中加入以下内容：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -766,7 +767,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="修复主题切换">修复主题切换
-</h3><p>在<code>pojax.html</code>中加入以下内容。</p>
+</h3><p>在<code>pjax.html</code>中加入以下内容。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -876,7 +877,7 @@
 </div>
 </div><ol start="3">
 <li>
-<p>tsx 类型的文件引入方式有点特殊，需要我们修改<code>main.ts</code>的引入方式，修改<code>layouts\partials\footer\components\script.html</code>，改法参考<code>layouts\page\search.html</code>，把<code>JSXFactory</code>，<code>createElement</code>补充上就好</p>
+<p>tsx 类型的文件引入方式有点特殊，需要我们修改<code>main.ts</code>的引入方式，修改<code>layouts/partials/footer/components/script.html</code>，改法参考<code>layouts/page/search.html</code>，把<code>JSXFactory</code>，<code>createElement</code>补充上就好</p>
 </li>
 <li>
 <p>修改<code>assets/ts/search.tsx</code>，在动态渲染数据方法末尾让pjax重新解析文档</p>
@@ -999,9 +1000,9 @@
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="取消pojax的时间戳">取消pojax的时间戳
-</h3><p>pojax会默认给网页加上时间戳，具体为表现为<code>?t=1724141234567</code>，这样会使页面间的跳转出现问题，建议关闭。</p>
-<p>在<code>pojax.html</code>中引入：</p>
+</div><h3 id="取消pjax的时间戳">取消pjax的时间戳
+</h3><p>pjax会默认给网页加上时间戳，具体为表现为<code>?t=1724141234567</code>的样式，这样会使页面间的跳转出现问题，建议关闭。</p>
+<p>在<code>pjax.html</code>中引入：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1

@@ -77,7 +77,7 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{/* partialCached &amp;#34;footer/aplayer.html&amp;#34; . */}}
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{ partialCached &amp;#34;footer/aplayer.html&amp;#34; . }}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;这样，aplayer就成功导入到网页中了。&lt;/p&gt;
@@ -190,11 +190,12 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;style&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;导入pojax实现音乐不间断播放&#34;&gt;导入pojax实现音乐不间断播放
-&lt;/h2&gt;&lt;h3 id=&#34;导入pojax&#34;&gt;导入pojax
+&lt;/div&gt;&lt;h2 id=&#34;导入pjax实现音乐不间断播放&#34;&gt;导入pjax实现音乐不间断播放
+&lt;/h2&gt;&lt;p&gt;pjax是一项页面切换不加载技术，可实现切换网页后音乐不间断。&lt;/p&gt;
+&lt;h3 id=&#34;导入pjax&#34;&gt;导入pjax
 &lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;在&lt;code&gt;layouts/partials/footer&lt;/code&gt;中新建文件，命名为&lt;code&gt;pojax.html&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;在&lt;code&gt;layouts/partials/footer&lt;/code&gt;中新建文件，命名为&lt;code&gt;pjax.html&lt;/code&gt;.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;在文件中写入代码：&lt;/p&gt;
@@ -222,9 +223,9 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;这样pojax就成功导入网页中了。&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;这样pjax就成功导入网页中了。&lt;/p&gt;
 &lt;h3 id=&#34;修复网页样式&#34;&gt;修复网页样式
-&lt;/h3&gt;&lt;p&gt;在&lt;code&gt;pojax.html&lt;/code&gt;中加入以下内容：&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;在&lt;code&gt;pjax.html&lt;/code&gt;中加入以下内容：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -268,7 +269,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h3 id=&#34;修复主题切换&#34;&gt;修复主题切换
-&lt;/h3&gt;&lt;p&gt;在&lt;code&gt;pojax.html&lt;/code&gt;中加入以下内容。&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;在&lt;code&gt;pjax.html&lt;/code&gt;中加入以下内容。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -378,7 +379,7 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
 &lt;li&gt;
-&lt;p&gt;tsx 类型的文件引入方式有点特殊，需要我们修改&lt;code&gt;main.ts&lt;/code&gt;的引入方式，修改&lt;code&gt;layouts\partials\footer\components\script.html&lt;/code&gt;，改法参考&lt;code&gt;layouts\page\search.html&lt;/code&gt;，把&lt;code&gt;JSXFactory&lt;/code&gt;，&lt;code&gt;createElement&lt;/code&gt;补充上就好&lt;/p&gt;
+&lt;p&gt;tsx 类型的文件引入方式有点特殊，需要我们修改&lt;code&gt;main.ts&lt;/code&gt;的引入方式，修改&lt;code&gt;layouts/partials/footer/components/script.html&lt;/code&gt;，改法参考&lt;code&gt;layouts/page/search.html&lt;/code&gt;，把&lt;code&gt;JSXFactory&lt;/code&gt;，&lt;code&gt;createElement&lt;/code&gt;补充上就好&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;修改&lt;code&gt;assets/ts/search.tsx&lt;/code&gt;，在动态渲染数据方法末尾让pjax重新解析文档&lt;/p&gt;
@@ -501,9 +502,9 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;取消pojax的时间戳&#34;&gt;取消pojax的时间戳
-&lt;/h3&gt;&lt;p&gt;pojax会默认给网页加上时间戳，具体为表现为&lt;code&gt;?t=1724141234567&lt;/code&gt;，这样会使页面间的跳转出现问题，建议关闭。&lt;/p&gt;
-&lt;p&gt;在&lt;code&gt;pojax.html&lt;/code&gt;中引入：&lt;/p&gt;
+&lt;/div&gt;&lt;h3 id=&#34;取消pjax的时间戳&#34;&gt;取消pjax的时间戳
+&lt;/h3&gt;&lt;p&gt;pjax会默认给网页加上时间戳，具体为表现为&lt;code&gt;?t=1724141234567&lt;/code&gt;的样式，这样会使页面间的跳转出现问题，建议关闭。&lt;/p&gt;
+&lt;p&gt;在&lt;code&gt;pjax.html&lt;/code&gt;中引入：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -800,8 +801,7 @@ $$ \left\{ \begin{array}{c} u=f(x) \\ v=g(x) \\ \end{array} \right. $$&lt;p&gt; 
 &lt;p&gt;(2) 若 $\displaystyle \lim_{x \to \infty} f(x) = A$，则直线$y=A$是曲线的水平渐近线；&lt;/p&gt;
 &lt;p&gt;(3) 若 $\displaystyle \lim_{x \to \infty} \frac{f(x)}{x} = k$，$\displaystyle \lim_{x \to \infty} [f(x)-kx] = b$，则直线$y=kx+b$是曲线的斜渐近线；&lt;/p&gt;
 &lt;h4 id=&#34;曲率与曲率中心&#34;&gt;曲率与曲率中心
-&lt;/h4&gt;&lt;p&gt;参数方程 &lt;/p&gt;
-$$\left\{ \begin{array}{c} x = \varphi(t) \\ y = \psi(t) \\ \end{array} \right. t \in [a,b]$$&lt;p&gt; 确定的平面曲线的曲率 &lt;/p&gt;
+&lt;/h4&gt;&lt;p&gt;参数方程 $\left\{ \begin{array}{c} x = \varphi(t) \\ y = \psi(t) \ \end{array} \right. t \in [a,b]$ 确定的平面曲线的曲率 &lt;/p&gt;
 $$ K = \frac{\left| \varphi&#39;(t) \psi&#39;&#39;(t) - \varphi&#39;&#39;(t) \psi&#39;(t) \right|}{[\varphi&#39;^{\ 2}(t)+\psi&#39;^{\ 2}(t)]^{\frac{3}{2}}} $$&lt;p&gt;曲线 $y=y(x)$ 的曲率中心 &lt;/p&gt;
 $$\left\{ \begin{array}{c} \begin{align*} \xi &amp;= x - \dfrac{y&#39;(1+y&#39;^{\ 2})}{y&#39;&#39;} \\ \eta &amp;= y + \dfrac{1+y&#39;^{\ 2}}{y&#39;&#39;} \end{align*} \end{array} \right.$$&lt;h2 id=&#34;一元函数积分学&#34;&gt;一元函数积分学
 &lt;/h2&gt;&lt;h3 id=&#34;积分方法&#34;&gt;积分方法
@@ -1640,7 +1640,7 @@ $$ F_{n} = \frac{1}{\sqrt{5}} \left[\left(\frac{1+\sqrt{5}}{2}\right)^{n+1} - \l
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;whoami      &lt;span class=&#34;c1&#34;&gt;# 查看用户名（后续连接用）&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ifconfig        &lt;span class=&#34;c1&#34;&gt;# 查看本机 IP 地址（需在局域网内）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ifconfig    &lt;span class=&#34;c1&#34;&gt;# 查看本机 IP 地址（需在局域网内）&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;记下类似 192.168.x.x 的 IP 地址和用户名（如 u0_a123）。&lt;/p&gt;
@@ -2886,13 +2886,13 @@ D.	全诗语言简明直白，生动地表达作者对天津的喜爱和赞美�
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;---
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;title: xxxxx        #文章的标题
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;description: xxxxx      #文章的副标题
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;date: xxxxx         #文章的日期
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;slug: xxxxx         #文章在静态页面所属的文件夹
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-md&#34; data-lang=&#34;md&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;---
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;title: xxxxx            # 文章的标题
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;description: xxxxx      # 文章的副标题
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;date: xxxxx             # 文章的日期
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;slug: xxxxx             # 文章在静态页面所属的文件夹
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;categories:
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    - xxxxx         #文章所属类别
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;-&lt;/span&gt; xxxxx             # 文章所属类别
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;---
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
@@ -2906,8 +2906,8 @@ D.	全诗语言简明直白，生动地表达作者对天津的喜爱和赞美�
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo server -D      &lt;span class=&#34;c1&#34;&gt;#构建本地网页&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo       &lt;span class=&#34;c1&#34;&gt;#构建在线网页&lt;/span&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo server -D    &lt;span class=&#34;c1&#34;&gt;#构建本地网页&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo              &lt;span class=&#34;c1&#34;&gt;#构建在线网页&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;blockquote&gt;
@@ -2937,9 +2937,9 @@ D.	全诗语言简明直白，生动地表达作者对天津的喜爱和赞美�
 &lt;h3 id=&#34;创建网站仓库&#34;&gt;创建网站仓库
 &lt;/h3&gt;&lt;p&gt;注册Github账号，并创建一个新仓库，命名为&lt;code&gt;你的用户名.github.io&lt;/code&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;为什么命名为&lt;code&gt;你的用户名.github.io&lt;/code&gt;？&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Github的Pages分为两种，一种为用户Pages，另一种为项目Pages。用户Pages每个账号只能拥有一个，域名为&lt;code&gt;https://你的用户名.github.io&lt;/code&gt;；项目Pages数目不限，域名为&lt;code&gt;https://你的用户名.github.io/你的项目名&lt;/code&gt;.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;因此，设置仓库名为&lt;code&gt;你的用户名.github.io&lt;/code&gt;可以使网站地址更简洁。&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;为什么命名为&lt;code&gt;你的用户名.github.io&lt;/code&gt;？&lt;/p&gt;
+&lt;p&gt;Github的Pages分为两种，一种为用户Pages，另一种为项目Pages。用户Pages每个账号只能拥有一个，域名为&lt;code&gt;https://你的用户名.github.io&lt;/code&gt;；项目Pages数目不限，域名为&lt;code&gt;https://你的用户名.github.io/你的项目名&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;因此，设置仓库名为&lt;code&gt;你的用户名.github.io&lt;/code&gt;可以使网站地址更简洁。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;生成静态网页文件&#34;&gt;生成静态网页文件
 &lt;/h3&gt;&lt;p&gt;在命令行中执行&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -2994,7 +2994,7 @@ D.	全诗语言简明直白，生动地表达作者对天津的喜爱和赞美�
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;└── projects.md
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;在 about.md 中链接到 blog/post1.md：&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;在&lt;code&gt;about.md&lt;/code&gt;中链接到 blog/post1.md：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -3003,7 +3003,7 @@ D.	全诗语言简明直白，生动地表达作者对天津的喜爱和赞美�
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[访问博客文章](blog/post1)
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;在 blog/post1.md 中链接到 projects.md：&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;在 blog/post1.md 中链接到&lt;code&gt;projects.md&lt;/code&gt;：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -3012,7 +3012,7 @@ D.	全诗语言简明直白，生动地表达作者对天津的喜爱和赞美�
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[查看项目](../projects)
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;在 blog/post1.md 中链接到同级的 post2.md：&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;在 blog/post1.md 中链接到同级的&lt;code&gt;post2.md&lt;/code&gt;：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -3025,7 +3025,7 @@ D.	全诗语言简明直白，生动地表达作者对天津的喜爱和赞美�
 &lt;/h3&gt;&lt;p&gt;绝对路径是从网站的根目录开始的完整路径。这种方式的好处是不受当前页面位置的影响。&lt;/p&gt;
 &lt;p&gt;假设你的网站根目录是 &lt;a class=&#34;link&#34; href=&#34;https://example.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://example.com&lt;/a&gt;，目录结构同上。&lt;/p&gt;
-&lt;p&gt;在 about.md 中链接到 blog/post1.md：&lt;/p&gt;
+&lt;p&gt;在&lt;code&gt;about.md&lt;/code&gt;中链接到 blog/post1.md：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -3034,7 +3034,7 @@ D.	全诗语言简明直白，生动地表达作者对天津的喜爱和赞美�
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[访问博客文章](/blog/post1)
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;在 blog/post1.md 中链接到 projects.md：&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;在 blog/post1.md 中链接到&lt;code&gt;projects.md&lt;/code&gt;：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -3065,7 +3065,7 @@ D.	全诗语言简明直白，生动地表达作者对天津的喜爱和赞美�
 &lt;/div&gt;
 &lt;/div&gt;&lt;h3 id=&#34;链接到页面的特定部分&#34;&gt;链接到页面的特定部分
 &lt;/h3&gt;&lt;p&gt;如果你希望链接到页面的某个特定部分（例如某个标题），可以通过锚点（anchor）来实现。&lt;/p&gt;
-&lt;p&gt;假设 post1.md 中有一个标题：&lt;/p&gt;
+&lt;p&gt;假设&lt;code&gt;post1.md&lt;/code&gt;中有一个标题：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -3085,7 +3085,7 @@ D.	全诗语言简明直白，生动地表达作者对天津的喜爱和赞美�
 &lt;/div&gt;
 &lt;/div&gt;&lt;h3 id=&#34;链接到页面的别名&#34;&gt;链接到页面的别名
 &lt;/h3&gt;&lt;p&gt;如果某些页面有别名（例如在 frontmatter 中定义了 aliases），你可以直接使用别名来链接。&lt;/p&gt;
-&lt;p&gt;假设 post1.md 的 frontmatter 中定义了别名：&lt;/p&gt;
+&lt;p&gt;假设&lt;code&gt;post1.md&lt;/code&gt;的 frontmatter 中定义了别名：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -3706,6 +3706,116 @@ D.	全诗语言简明直白，生动地表达作者对天津的喜爱和赞美�
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;</description>
+        </item>
+        <item>
+        <title>MySQL操作</title>
+        <link>https://5882886.github.io/p/mysql/</link>
+        <pubDate>Mon, 14 Jul 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://5882886.github.io/p/mysql/</guid>
+        <description>&lt;h2 id=&#34;mysql基本操作&#34;&gt;MySQL基本操作
+&lt;/h2&gt;&lt;h2 id=&#34;mysql管理可视化&#34;&gt;MySQL管理可视化
+&lt;/h2&gt;&lt;p&gt;面对单调的MySQL代码是非常无聊的，因此通过软件可视化管理MySQL数据库是不错的选择。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.navicat.com.cn/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Navicat&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Navicat是一款综合性的数据库管理软件，允许通过一个界面连接和管理多个数据库（其实这个功能大多数类似软件都有）。&lt;/p&gt;
+&lt;p&gt;Navicat提供多个版本，其中只有Navicat Premium Lite可免费使用（貌似还要注册一个账号）。&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://dbeaver.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DBeaver&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;功能与Navicat类似，但它提供免费的社区版下载，而且不用注册账号，就像JetBrain全家桶。&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.mysql.com/products/workbench/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;MySQL Workbench&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;这是MySQL的官方提供的可视化管理工具，免费，但是没有中文支持。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>熟练掌握数据结构</title>
+        <link>https://5882886.github.io/p/data-structure/</link>
+        <pubDate>Sun, 06 Jul 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://5882886.github.io/p/data-structure/</guid>
+        <description>&lt;h2 id=&#34;预备知识&#34;&gt;预备知识
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;typedef&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;C语言的输入与输出函数&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;一般而言，C语言的输入输出函数比&lt;code&gt;cin&lt;/code&gt;，&lt;code&gt;cout&lt;/code&gt;更高效。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;num&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;float&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;fnum&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;double&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dnum&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;str&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;// 输入
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;nf&#34;&gt;scanf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%d&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;num&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;      &lt;span class=&#34;c1&#34;&gt;// 整数
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;nf&#34;&gt;scanf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%f&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;fnum&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;     &lt;span class=&#34;c1&#34;&gt;// float类型浮点数
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;nf&#34;&gt;scanf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%lf&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dnum&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;// double类型浮点数
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;nf&#34;&gt;scanf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%s&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;str&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;       &lt;span class=&#34;c1&#34;&gt;// 字符串
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;//输出
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;nf&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%d&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;num&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nf&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%f&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;fnum&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;若无特殊说明，以下所有代码的全局设置如下：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;std&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;typedef&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ElemType&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;顺序表&#34;&gt;顺序表
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;定义：用一段物理地址连续的存储单元依次存储数据元素的线性结构。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;链表&#34;&gt;链表
+&lt;/h2&gt;&lt;h2 id=&#34;栈与堆&#34;&gt;栈与堆
+&lt;/h2&gt;</description>
         </item>
         <item>
         <title>十四班学生列传</title>

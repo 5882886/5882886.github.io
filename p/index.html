@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='http://localhost:1313/p/'>
 
-<link rel="stylesheet" href="/scss/style.min.fca3067da4fdd5e59fe9f94cd60a2f39fd941a613b075c64629392b750a3dbc1.css"><meta property='og:title' content="">
+<link rel="stylesheet" href="/scss/style.min.85bbfceec5829bc8cc74528bad656ba31564ad046bbe6f5e6f88234fe96be1d9.css"><meta property='og:title' content="">
 <meta property='og:description' content="">
 <meta property='og:url' content='http://localhost:1313/p/'>
 <meta property='og:site_name' content='RunicDolphin806的博客'>
@@ -168,7 +168,7 @@
 
 
                 
-                <span>文章</span>
+                <span>归档</span>
             </a>
         </li>
         
@@ -424,7 +424,7 @@
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.47e51d20c3c99959e72c0fad614f4ab3eaf2cdc1a72e69395d02e40ed98f891f.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.39a53604e60493c4110ce3c436a555d75dbe8ce2c3608ef20ef537bbab494ef6.js" defer></script><script type="text/javascript" src="/ts/custom.5ed52cdd956021fd7194109b25dbc5cbe93a1085461b9f29b1284df94c19481c.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');
@@ -469,6 +469,19 @@
             artist: '共青团中央',
             url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VldlEwZ3EzZzI5SG1SVURHRzFNdUhJQllZbm1ycDZDbXNHOVF0MzVLZ3RjeXc_ZT1iRXpZdzI.mp3',
             lrc: '/music/五四特别版错位时空.lrc',
+            cover: '/music.png'
+        }, {
+            name: '问月',
+            artist: '葫芦童声;妞妞合唱团',
+            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VRWGtMS0hmUnE1Tm1ZS09RNll0R2JrQmM2Yk94WWNrZUYwSVVkcHhXekFuOWc_ZT0zQ0pmYTY.jpg',
+            lrc: '/music/问月.lrc',
+            cover: '/music.png'
+
+        }, {
+            name: '夜空中最亮的星',
+            artist: '逃跑计划',
+            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VhTDhBUEZoSnZCQW8weVd4bHo1SmxBQktpVWZtRzFORkxGeFVtWXA3bTFmTUE_ZT1oZmg0a0w.mp3',
+            lrc: '/music/夜空中最亮的星.lrc',
             cover: '/music.png'
         }, {
             name: '少年游',
@@ -516,7 +529,7 @@
 
 <style>
     .aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
+        left: -70px !important;
          
     }
 
@@ -554,6 +567,12 @@
         
         window.Stack.init();
     })
+
+    document.addEventListener('DOMContentLoaded', function () {
+        if (window.pjax) {
+            window.pjax.options.cacheBust = false; 
+        }
+    });
 </script>
 
 <script>
@@ -591,6 +610,28 @@
         renderKaTeX();
     })
 </script>
+
+
+
+<script
+    src="https://cdn.jsdelivr.net/gh/zhixuan2333/gh-blog@v0.1.0/js/nprogress.min.js"
+    integrity="sha384-bHDlAEUFxsRI7JfULv3DTpL2IXbbgn4JHQJibgo5iiXSK6Iu8muwqHANhun74Cqg"
+    crossorigin="anonymous"
+></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/zhixuan2333/gh-blog@v0.1.0/css/nprogress.css"
+    integrity="sha384-KJyhr2syt5+4M9Pz5dipCvTrtvOmLk/olWVdfhAp858UCa64Ia5GFpTN7+G4BWpE"
+    crossorigin="anonymous"
+/>
+<script>
+    NProgress.start();
+    document.addEventListener("readystatechange", () => {
+        if (document.readyState === "interactive") NProgress.inc(0.8);
+        if (document.readyState === "complete") NProgress.done();
+    });
+</script>
+
 
     </body>
 </html>

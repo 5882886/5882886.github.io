@@ -558,13 +558,13 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">---
-</span></span><span class="line"><span class="cl">title: xxxxx        #文章的标题
-</span></span><span class="line"><span class="cl">description: xxxxx      #文章的副标题
-</span></span><span class="line"><span class="cl">date: xxxxx         #文章的日期
-</span></span><span class="line"><span class="cl">slug: xxxxx         #文章在静态页面所属的文件夹
+<pre tabindex="0" class="chroma"><code class="language-md" data-lang="md"><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">title: xxxxx            # 文章的标题
+</span></span><span class="line"><span class="cl">description: xxxxx      # 文章的副标题
+</span></span><span class="line"><span class="cl">date: xxxxx             # 文章的日期
+</span></span><span class="line"><span class="cl">slug: xxxxx             # 文章在静态页面所属的文件夹
 </span></span><span class="line"><span class="cl">categories:
-</span></span><span class="line"><span class="cl">    - xxxxx         #文章所属类别
+</span></span><span class="line"><span class="cl">    <span class="k">-</span> xxxxx             # 文章所属类别
 </span></span><span class="line"><span class="cl">---
 </span></span></code></pre></td></tr></table>
 </div>
@@ -578,8 +578,8 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo server -D      <span class="c1">#构建本地网页</span>
-</span></span><span class="line"><span class="cl">hugo       <span class="c1">#构建在线网页</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo server -D    <span class="c1">#构建本地网页</span>
+</span></span><span class="line"><span class="cl">hugo              <span class="c1">#构建在线网页</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
@@ -609,9 +609,9 @@
 <h3 id="创建网站仓库">创建网站仓库
 </h3><p>注册Github账号，并创建一个新仓库，命名为<code>你的用户名.github.io</code></p>
 <blockquote>
-<p><em>为什么命名为<code>你的用户名.github.io</code>？</em></p>
-<p><em>Github的Pages分为两种，一种为用户Pages，另一种为项目Pages。用户Pages每个账号只能拥有一个，域名为<code>https://你的用户名.github.io</code>；项目Pages数目不限，域名为<code>https://你的用户名.github.io/你的项目名</code>.</em></p>
-<p><em>因此，设置仓库名为<code>你的用户名.github.io</code>可以使网站地址更简洁。</em></p></blockquote>
+<p>为什么命名为<code>你的用户名.github.io</code>？</p>
+<p>Github的Pages分为两种，一种为用户Pages，另一种为项目Pages。用户Pages每个账号只能拥有一个，域名为<code>https://你的用户名.github.io</code>；项目Pages数目不限，域名为<code>https://你的用户名.github.io/你的项目名</code>.</p>
+<p>因此，设置仓库名为<code>你的用户名.github.io</code>可以使网站地址更简洁。</p></blockquote>
 <h3 id="生成静态网页文件">生成静态网页文件
 </h3><p>在命令行中执行</p>
 <div class="highlight"><div class="chroma">
@@ -666,7 +666,7 @@
 </span></span><span class="line"><span class="cl">└── projects.md
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>在 about.md 中链接到 blog/post1.md：</p>
+</div><p>在<code>about.md</code>中链接到 blog/post1.md：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -675,7 +675,7 @@
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[访问博客文章](blog/post1)
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>在 blog/post1.md 中链接到 projects.md：</p>
+</div><p>在 blog/post1.md 中链接到<code>projects.md</code>：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -684,7 +684,7 @@
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[查看项目](../projects)
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>在 blog/post1.md 中链接到同级的 post2.md：</p>
+</div><p>在 blog/post1.md 中链接到同级的<code>post2.md</code>：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -697,7 +697,7 @@
 </h3><p>绝对路径是从网站的根目录开始的完整路径。这种方式的好处是不受当前页面位置的影响。</p>
 <p>假设你的网站根目录是 <a class="link" href="https://example.com"  target="_blank" rel="noopener"
     >https://example.com</a>，目录结构同上。</p>
-<p>在 about.md 中链接到 blog/post1.md：</p>
+<p>在<code>about.md</code>中链接到 blog/post1.md：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -706,7 +706,7 @@
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[访问博客文章](/blog/post1)
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>在 blog/post1.md 中链接到 projects.md：</p>
+</div><p>在 blog/post1.md 中链接到<code>projects.md</code>：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -737,7 +737,7 @@
 </div>
 </div><h3 id="链接到页面的特定部分">链接到页面的特定部分
 </h3><p>如果你希望链接到页面的某个特定部分（例如某个标题），可以通过锚点（anchor）来实现。</p>
-<p>假设 post1.md 中有一个标题：</p>
+<p>假设<code>post1.md</code>中有一个标题：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -757,7 +757,7 @@
 </div>
 </div><h3 id="链接到页面的别名">链接到页面的别名
 </h3><p>如果某些页面有别名（例如在 frontmatter 中定义了 aliases），你可以直接使用别名来链接。</p>
-<p>假设 post1.md 的 frontmatter 中定义了别名：</p>
+<p>假设<code>post1.md</code>的 frontmatter 中定义了别名：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
