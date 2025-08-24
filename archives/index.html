@@ -457,42 +457,11 @@
 </article>
             
                 <article>
-    <a href="/p/minecraft-help/">
-        <div class="article-details">
-            <h2 class="article-title">Minecraft教程</h2>
-            <footer class="article-time">
-                <time datetime='2025-08-10T00:00:00Z'>Aug 10, 2025</time>
-            </footer>
-        </div>
-            <div class="article-image">
-                <img src="/p/minecraft-help/minecraft_hu_a15661c29bb9eac3.jpeg" 
-                        width="120"
-                        height="120" 
-                        alt="Minecraft教程"
-                        loading="lazy">
-                
-            </div>
-        
-    </a>
-</article>
-            
-                <article>
     <a href="/p/math_quiz/">
         <div class="article-details">
             <h2 class="article-title">微积分：题目</h2>
             <footer class="article-time">
                 <time datetime='2025-08-07T00:00:00Z'>Aug 07, 2025</time>
-            </footer>
-        </div>
-    </a>
-</article>
-            
-                <article>
-    <a href="/p/tju/">
-        <div class="article-details">
-            <h2 class="article-title">有意思的玩意</h2>
-            <footer class="article-time">
-                <time datetime='2025-08-04T00:00:00Z'>Aug 04, 2025</time>
             </footer>
         </div>
     </a>
@@ -559,6 +528,17 @@
 </article>
             
                 <article>
+    <a href="/p/stack-decorate/">
+        <div class="article-details">
+            <h2 class="article-title">Hugo-stack主题装饰</h2>
+            <footer class="article-time">
+                <time datetime='2025-08-02T00:00:00Z'>Aug 02, 2025</time>
+            </footer>
+        </div>
+    </a>
+</article>
+            
+                <article>
     <a href="/p/ssh/">
         <div class="article-details">
             <h2 class="article-title">SSH配置简介</h2>
@@ -597,6 +577,15 @@
                 <time datetime='2025-07-14T00:00:00Z'>Jul 14, 2025</time>
             </footer>
         </div>
+            <div class="article-image">
+                <img src="/p/mysql/mysql_hu_79a1fd304a36f4b0.jpg" 
+                        width="120"
+                        height="120" 
+                        alt="MySQL操作"
+                        loading="lazy">
+                
+            </div>
+        
     </a>
 </article>
             
@@ -611,6 +600,17 @@
     </a>
 </article>
             
+                <article>
+    <a href="/p/tju/">
+        <div class="article-details">
+            <h2 class="article-title">有意思的玩意</h2>
+            <footer class="article-time">
+                <time datetime='2025-01-09T00:00:00Z'>Jan 09, 2025</time>
+            </footer>
+        </div>
+    </a>
+</article>
+            
         </div>
     </div>
     
@@ -618,6 +618,26 @@
     <div class="archives-group" id="2024">
         <h2 class="archives-date section-title"><a href="/archives/#2024">2024</a></h2>
         <div class="article-list--compact">
+            
+                <article>
+    <a href="/p/minecraft-help/">
+        <div class="article-details">
+            <h2 class="article-title">Minecraft教程</h2>
+            <footer class="article-time">
+                <time datetime='2024-08-10T00:00:00Z'>Aug 10, 2024</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                <img src="/p/minecraft-help/minecraft_hu_a15661c29bb9eac3.jpeg" 
+                        width="120"
+                        height="120" 
+                        alt="Minecraft教程"
+                        loading="lazy">
+                
+            </div>
+        
+    </a>
+</article>
             
                 <article>
     <a href="/p/senior_high/">
@@ -902,23 +922,27 @@
 
 
 
-<script
-    src="https://cdn.jsdelivr.net/gh/zhixuan2333/gh-blog@v0.1.0/js/nprogress.min.js"
-    integrity="sha384-bHDlAEUFxsRI7JfULv3DTpL2IXbbgn4JHQJibgo5iiXSK6Iu8muwqHANhun74Cqg"
-    crossorigin="anonymous"
-></script>
-<link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/gh/zhixuan2333/gh-blog@v0.1.0/css/nprogress.css"
-    integrity="sha384-KJyhr2syt5+4M9Pz5dipCvTrtvOmLk/olWVdfhAp858UCa64Ia5GFpTN7+G4BWpE"
-    crossorigin="anonymous"
-/>
+    
+    <script src=https://5882886.github.io/js/topbar.min.js></script>
+
 <script>
-    NProgress.start();
-    document.addEventListener("readystatechange", () => {
-        if (document.readyState === "interactive") NProgress.inc(0.8);
-        if (document.readyState === "complete") NProgress.done();
-    });
+    
+    topbar.config({
+        barColors: {
+            '0': 'rgba(255,  255, 255, 1)', 
+            '1.0': 'rgba(0, 149, 234,  1)' 
+        }
+    })
+	
+    document.addEventListener('pjax:send', () => {
+        
+        topbar.show();
+    })
+	
+    document.addEventListener('pjax:complete', () => {     
+        
+        topbar.hide();
+    })
 </script>
 
 

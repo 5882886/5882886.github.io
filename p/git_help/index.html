@@ -767,30 +767,6 @@
             
                 
 <article class="has-image">
-    <a href="/p/minecraft-help/">
-        
-        
-            <div class="article-image">
-                <img src="/p/minecraft-help/minecraft.e527c59dae653086a9b4162f809a0f11_hu_9ac70657a63e5259.jpeg" 
-                        width="250" 
-                        height="150" 
-                        loading="lazy"
-                        alt="Featured image of post Minecraft教程"
-                        data-key="minecraft-help" 
-                        data-hash="md5-5SfFna5lMIaptBYvgJoPEQ==">
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Minecraft教程</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
     <a href="/p/termux/">
         
         
@@ -832,6 +808,19 @@
 
         <div class="article-details">
             <h2 class="article-title">Linux系统小技巧</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/stack-decorate/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Hugo-stack主题装饰</h2>
         </div>
     </a>
 </article>
@@ -1133,23 +1122,27 @@
 
 
 
-<script
-    src="https://cdn.jsdelivr.net/gh/zhixuan2333/gh-blog@v0.1.0/js/nprogress.min.js"
-    integrity="sha384-bHDlAEUFxsRI7JfULv3DTpL2IXbbgn4JHQJibgo5iiXSK6Iu8muwqHANhun74Cqg"
-    crossorigin="anonymous"
-></script>
-<link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/gh/zhixuan2333/gh-blog@v0.1.0/css/nprogress.css"
-    integrity="sha384-KJyhr2syt5+4M9Pz5dipCvTrtvOmLk/olWVdfhAp858UCa64Ia5GFpTN7+G4BWpE"
-    crossorigin="anonymous"
-/>
+    
+    <script src=https://5882886.github.io/js/topbar.min.js></script>
+
 <script>
-    NProgress.start();
-    document.addEventListener("readystatechange", () => {
-        if (document.readyState === "interactive") NProgress.inc(0.8);
-        if (document.readyState === "complete") NProgress.done();
-    });
+    
+    topbar.config({
+        barColors: {
+            '0': 'rgba(255,  255, 255, 1)', 
+            '1.0': 'rgba(0, 149, 234,  1)' 
+        }
+    })
+	
+    document.addEventListener('pjax:send', () => {
+        
+        topbar.show();
+    })
+	
+    document.addEventListener('pjax:complete', () => {     
+        
+        topbar.hide();
+    })
 </script>
 
 

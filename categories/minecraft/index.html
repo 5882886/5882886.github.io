@@ -294,7 +294,7 @@
                     <a href="/archives/#2024">
                         
                             <span class="year">2024</span>
-                            <span class="count">1</span>
+                            <span class="count">2</span>
                         
                     </a> 
                 </div>
@@ -329,12 +329,16 @@
 
     <div class="tagCloud-tags">
         
-            <a href="/categories/guide/" class="font_size_11">
+            <a href="/categories/guide/" class="font_size_12">
                 教程
             </a>
         
             <a href="/categories/interesting_things/" class="font_size_5">
                 小乐趣
+            </a>
+        
+            <a href="/categories/website/" class="font_size_3">
+                网站
             </a>
         
             <a href="/categories/linux/" class="font_size_2">
@@ -343,10 +347,6 @@
         
             <a href="/categories/minecraft/" class="font_size_2">
                 Minecraft
-            </a>
-        
-            <a href="/categories/website/" class="font_size_2">
-                网站
             </a>
         
             <a href="/categories/test/" class="font_size_1">
@@ -391,26 +391,6 @@
     <section class="article-list--compact">
         
             <article>
-    <a href="/p/minecraft-help/">
-        <div class="article-details">
-            <h2 class="article-title">Minecraft教程</h2>
-            <footer class="article-time">
-                <time datetime='2025-08-10T00:00:00Z'>Aug 10, 2025</time>
-            </footer>
-        </div>
-            <div class="article-image">
-                <img src="/p/minecraft-help/minecraft_hu_a15661c29bb9eac3.jpeg" 
-                        width="120"
-                        height="120" 
-                        alt="Minecraft教程"
-                        loading="lazy">
-                
-            </div>
-        
-    </a>
-</article>
-        
-            <article>
     <a href="/p/minecraft-server/">
         <div class="article-details">
             <h2 class="article-title">Minecraft服务器</h2>
@@ -423,6 +403,26 @@
                         width="120"
                         height="120" 
                         alt="Minecraft服务器"
+                        loading="lazy">
+                
+            </div>
+        
+    </a>
+</article>
+        
+            <article>
+    <a href="/p/minecraft-help/">
+        <div class="article-details">
+            <h2 class="article-title">Minecraft教程</h2>
+            <footer class="article-time">
+                <time datetime='2024-08-10T00:00:00Z'>Aug 10, 2024</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                <img src="/p/minecraft-help/minecraft_hu_a15661c29bb9eac3.jpeg" 
+                        width="120"
+                        height="120" 
+                        alt="Minecraft教程"
                         loading="lazy">
                 
             </div>
@@ -640,23 +640,27 @@
 
 
 
-<script
-    src="https://cdn.jsdelivr.net/gh/zhixuan2333/gh-blog@v0.1.0/js/nprogress.min.js"
-    integrity="sha384-bHDlAEUFxsRI7JfULv3DTpL2IXbbgn4JHQJibgo5iiXSK6Iu8muwqHANhun74Cqg"
-    crossorigin="anonymous"
-></script>
-<link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/gh/zhixuan2333/gh-blog@v0.1.0/css/nprogress.css"
-    integrity="sha384-KJyhr2syt5+4M9Pz5dipCvTrtvOmLk/olWVdfhAp858UCa64Ia5GFpTN7+G4BWpE"
-    crossorigin="anonymous"
-/>
+    
+    <script src=https://5882886.github.io/js/topbar.min.js></script>
+
 <script>
-    NProgress.start();
-    document.addEventListener("readystatechange", () => {
-        if (document.readyState === "interactive") NProgress.inc(0.8);
-        if (document.readyState === "complete") NProgress.done();
-    });
+    
+    topbar.config({
+        barColors: {
+            '0': 'rgba(255,  255, 255, 1)', 
+            '1.0': 'rgba(0, 149, 234,  1)' 
+        }
+    })
+	
+    document.addEventListener('pjax:send', () => {
+        
+        topbar.show();
+    })
+	
+    document.addEventListener('pjax:complete', () => {     
+        
+        topbar.hide();
+    })
 </script>
 
 

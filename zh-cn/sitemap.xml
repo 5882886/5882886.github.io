@@ -102,22 +102,6 @@
                 href="https://5882886.github.io/categories/linux/"
                 />
   </url><url>
-    <loc>https://5882886.github.io/categories/minecraft/</loc>
-    <lastmod>2025-08-10T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://5882886.github.io/en/categories/minecraft/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://5882886.github.io/categories/minecraft/"
-                />
-  </url><url>
-    <loc>https://5882886.github.io/p/minecraft-help/</loc>
-    <lastmod>2025-08-10T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://5882886.github.io/p/termux/</loc>
     <lastmod>2025-08-10T00:00:00+00:00</lastmod>
   </url><url>
@@ -130,11 +114,24 @@
     <loc>https://5882886.github.io/p/git_help/</loc>
     <lastmod>2025-08-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://5882886.github.io/p/tju/</loc>
-    <lastmod>2025-08-04T00:00:00+00:00</lastmod>
+    <loc>https://5882886.github.io/p/stack-decorate/</loc>
+    <lastmod>2025-08-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://5882886.github.io/p/website/</loc>
     <lastmod>2025-08-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://5882886.github.io/categories/minecraft/</loc>
+    <lastmod>2025-07-31T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://5882886.github.io/en/categories/minecraft/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://5882886.github.io/categories/minecraft/"
+                />
   </url><url>
     <loc>https://5882886.github.io/p/minecraft-server/</loc>
     <lastmod>2025-07-31T00:00:00+00:00</lastmod>
@@ -173,6 +170,12 @@
   </url><url>
     <loc>https://5882886.github.io/p/data-structure/</loc>
     <lastmod>2025-07-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://5882886.github.io/p/tju/</loc>
+    <lastmod>2025-01-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://5882886.github.io/p/minecraft-help/</loc>
+    <lastmod>2024-08-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://5882886.github.io/p/senior_high/</loc>
     <lastmod>2024-06-14T00:00:00+00:00</lastmod>

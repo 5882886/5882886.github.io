@@ -10,9 +10,10 @@
 <meta property='og:description' content="默默无闻的后端……">
 <meta property='og:url' content='https://5882886.github.io/p/mysql/'>
 <meta property='og:site_name' content='RunicDolphin806的博客'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-07-14T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-07-14T00:00:00&#43;00:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-07-14T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-07-14T00:00:00&#43;00:00'/><meta property='og:image' content='https://5882886.github.io/p/mysql/mysql.jpg' />
 <meta name="twitter:title" content="MySQL操作">
-<meta name="twitter:description" content="默默无闻的后端……">
+<meta name="twitter:description" content="默默无闻的后端……"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://5882886.github.io/p/mysql/mysql.jpg' />
     <link rel="shortcut icon" href="/favicon.ico" />
 
     </head>
@@ -286,8 +287,35 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#mysql基本操作">MySQL基本操作</a></li>
+    <li><a href="#mysql基本操作">MySQL基本操作</a>
+      <ol>
+        <li><a href="#通用语法">通用语法</a></li>
+        <li><a href="#基本概念">基本概念</a></li>
+        <li><a href="#sql语句分类">SQL语句分类</a></li>
+      </ol>
+    </li>
+    <li><a href="#ddl">DDL</a>
+      <ol>
+        <li><a href="#数据库操作">数据库操作</a></li>
+        <li><a href="#表操作">表操作</a></li>
+      </ol>
+    </li>
+    <li><a href="#dml">DML</a>
+      <ol>
+        <li><a href="#添加数据">添加数据</a></li>
+        <li><a href="#修改数据">修改数据</a></li>
+        <li><a href="#删除数据">删除数据</a></li>
+      </ol>
+    </li>
+    <li><a href="#dql">DQL</a>
+      <ol>
+        <li><a href="#语法">语法</a></li>
+        <li><a href="#基本查询">基本查询</a></li>
+        <li><a href="#条件查询">条件查询</a></li>
+      </ol>
+    </li>
     <li><a href="#mysql管理可视化">MySQL管理可视化</a></li>
+    <li><a href="#mysql的数据类型">MySQL的数据类型</a></li>
   </ol>
 </nav>
         </div>
@@ -434,8 +462,20 @@
 
 
             <main class="main full-width">
-    <article class="main-article">
+    <article class="has-image main-article">
     <header class="article-header">
+        <div class="article-image">
+            <a href="/p/mysql/">
+                <img src="/p/mysql/mysql_hu_50e14b964f055329.jpg"
+                        srcset="/p/mysql/mysql_hu_50e14b964f055329.jpg 800w, /p/mysql/mysql_hu_de5695c3cf03de63.jpg 1600w"
+                        width="800" 
+                        height="450" 
+                        loading="lazy"
+                        alt="Featured image of post MySQL操作" />
+                
+            </a>
+        </div>
+    
 
     <div class="article-details">
     
@@ -492,8 +532,461 @@
     <section class="article-content">
     
     
-    <h2 id="mysql基本操作">MySQL基本操作
-</h2><h2 id="mysql管理可视化">MySQL管理可视化
+    <p>MySQL是目前流行的数据库管理系统，使用SQL语法操作和管理。</p>
+<h2 id="mysql基本操作">MySQL基本操作
+</h2><h3 id="通用语法">通用语法
+</h3><ol>
+<li>
+<p>单行或多行书写，<strong>以分号结尾</strong>。</p>
+</li>
+<li>
+<p>可以使用空格/缩进。</p>
+</li>
+<li>
+<p>SQL语句不区分大小写，关键字建议大写。</p>
+</li>
+<li>
+<p>单行注释：<code>--注释内容</code>或<code># 注释内容</code>；多行注释：<code>/* 注释内容 */</code>。</p>
+</li>
+</ol>
+<h3 id="基本概念">基本概念
+</h3><p>字段（columns）：相当于表格中一列的数据。</p>
+<p>数据（rows）：相当于表格中一行的内容。</p>
+<h3 id="sql语句分类">SQL语句分类
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>分类</th>
+          <th>全称</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>DDL</td>
+          <td>Data Definition Language</td>
+          <td>数据定义语言，用于定义数据库对象</td>
+      </tr>
+      <tr>
+          <td>DML</td>
+          <td>Data Manipulation Language</td>
+          <td>数据操作语言，用于数据库中数据的增删改</td>
+      </tr>
+      <tr>
+          <td>DQL</td>
+          <td>Data Query Language</td>
+          <td>数据查询语言，用于查询数据库中表的记录</td>
+      </tr>
+      <tr>
+          <td>DCL</td>
+          <td>Data Control Language</td>
+          <td>数据控制语言，用于创建数据库用户、控制数据库访问权限</td>
+      </tr>
+  </tbody>
+</table></div>
+<h2 id="ddl">DDL
+</h2><p>数据定义语言，用于定义数据库对象</p>
+<h3 id="数据库操作">数据库操作
+</h3><ul>
+<li>查询</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="c1">-- 查询所有数据库
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SHOW</span><span class="w"> </span><span class="n">DATABASES</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 查询当前数据库
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">DATABASE</span><span class="p">();</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>创建</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="p">[</span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="p">]</span><span class="w"> </span><span class="err">数据库名</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">[</span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">CHARSET</span><span class="w"> </span><span class="err">字符集</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="k">COLLATE</span><span class="w"> </span><span class="err">排序规则</span><span class="p">];</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>MySQL中建议使用字符集<code>UTF8mb4</code>。</p></blockquote>
+<ul>
+<li>删除</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">DROP</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="p">[</span><span class="k">IF</span><span class="w"> </span><span class="k">EXISTS</span><span class="p">]</span><span class="w"> </span><span class="err">数据库名</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>使用</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="n">USE</span><span class="w"> </span><span class="err">数据库名</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="表操作">表操作
+</h3><ol>
+<li>查询</li>
+</ol>
+<ul>
+<li>查询当前数据库中所有表</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">SHOW</span><span class="w"> </span><span class="k">TABLE</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>查询表结构</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">DESC</span><span class="w"> </span><span class="err">表名</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>查询指定表的建表语句</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">SHOW</span><span class="w"> </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="err">表名</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>创建</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="err">表名</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">字段</span><span class="mi">1</span><span class="w"> </span><span class="err">字段</span><span class="mi">1</span><span class="err">类型</span><span class="w"> </span><span class="p">[</span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;字段1注释&#39;</span><span class="p">],</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">字段</span><span class="mi">2</span><span class="w"> </span><span class="err">字段</span><span class="mi">2</span><span class="err">类型</span><span class="w"> </span><span class="p">[</span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;字段2注释&#39;</span><span class="p">],</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">字段</span><span class="mi">3</span><span class="w"> </span><span class="err">字段</span><span class="mi">3</span><span class="err">类型</span><span class="w"> </span><span class="p">[</span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;字段3注释&#39;</span><span class="p">],</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">字段</span><span class="n">n</span><span class="w"> </span><span class="err">字段</span><span class="n">n类型</span><span class="w"> </span><span class="p">[</span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;字段n注释&#39;</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;表注释&#39;</span><span class="p">];</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>参见：<a class="link" href="/p/mysql/#mysql%e7%9a%84%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b" >MySQL的数据类型</a></p>
+<ol start="3">
+<li>修改</li>
+</ol>
+<ul>
+<li>添加字段</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="k">ADD</span><span class="w"> </span><span class="err">字段名</span><span class="w"> </span><span class="err">类型</span><span class="p">(</span><span class="err">长度</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;注释&#39;</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="err">约束</span><span class="p">];</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>修改数据类型</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="k">MODIFY</span><span class="w"> </span><span class="err">字段名</span><span class="w"> </span><span class="err">新数据类型</span><span class="p">(</span><span class="err">长度</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>修改字段名和字段类型</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="n">CHANGE</span><span class="w"> </span><span class="err">旧字段名</span><span class="w"> </span><span class="err">新字段名</span><span class="w"> </span><span class="err">类型</span><span class="p">(</span><span class="err">长度</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;注释&#39;</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="err">约束</span><span class="p">];</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>删除字段</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="k">DROP</span><span class="w"> </span><span class="err">字段名</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>修改表名</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="k">RENAME</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="err">新表名</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>删除表</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="c1">-- 删除表
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">[</span><span class="k">IF</span><span class="w"> </span><span class="k">EXISTS</span><span class="p">]</span><span class="w"> </span><span class="err">表名</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 删除指定表，并重新创建该表
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">TRUNCATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="err">表名</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="dml">DML
+</h2><p>数据操作语言，用于数据库中数据的增删改。</p>
+<h3 id="添加数据">添加数据
+</h3><ul>
+<li>给指定字段添加数据</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="err">表名</span><span class="p">(</span><span class="err">字段名</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="err">字段名</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="p">...)</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">值</span><span class="mi">2</span><span class="p">,...);</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>给全部字段添加数据</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">值</span><span class="mi">2</span><span class="p">,...);</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>批量添加数据</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="c1">-- 指定字段名添加
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="err">表名</span><span class="p">(</span><span class="err">字段名</span><span class="mi">1</span><span class="p">,</span><span class="err">字段名</span><span class="mi">2</span><span class="p">,...)</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">值</span><span class="mi">2</span><span class="p">,...),(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">值</span><span class="mi">2</span><span class="p">,...),(...);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 全部添加
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">值</span><span class="mi">2</span><span class="p">,...),(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">值</span><span class="mi">2</span><span class="p">,...),(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">值</span><span class="mi">2</span><span class="p">,...);</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>注意：</p>
+<ol>
+<li>插入数据时，指定的字段顺序需要与值的顺序相对应。</li>
+<li>字符串和日期型数据应包含在引号中。</li>
+<li>插入数据的大小应该在字段的指定范围内。</li>
+</ol></blockquote>
+<h3 id="修改数据">修改数据
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">UPDATE</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="err">字段名</span><span class="mi">1</span><span class="o">=</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">字段名</span><span class="mi">2</span><span class="o">=</span><span class="err">值</span><span class="mi">2</span><span class="p">,...</span><span class="w"> </span><span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="err">条件</span><span class="p">];</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 作用是修改满足条件的一行数据对应字段的值，不是修改字段名
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 如果没有修改条件，则会修改整张表中所有数据
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="删除数据">删除数据
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="err">条件</span><span class="p">];</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 如果没有修改条件，则会修改整张表中所有数据
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- DELETE语句不能删除某一个字段的值，可以使用UPDATE将该字段值设为NONE
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="dql">DQL
+</h2><p>数据查询语言，用于查询数据库中表的记录。</p>
+<h3 id="语法">语法
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w">      </span><span class="c1">-- 字段列表
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">FROM</span><span class="w">        </span><span class="c1">-- 表名列表
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">WHERE</span><span class="w">       </span><span class="c1">-- 条件列表
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w">    </span><span class="c1">-- 分组字段列表
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">HAVING</span><span class="w">      </span><span class="c1">-- 分组后筛选列表
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w">    </span><span class="c1">-- 排序字段列表
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">LIMIT</span><span class="w">       </span><span class="c1">-- 分页参数
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="基本查询">基本查询
+</h3><ul>
+<li>查询多个字段</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="c1">-- 查询指定字段
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="err">字段</span><span class="mi">1</span><span class="p">,</span><span class="err">字段</span><span class="mi">2</span><span class="p">,...</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="err">表名</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 查询所有字段
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="err">表名</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>设置别名</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="err">字段</span><span class="mi">1</span><span class="w"> </span><span class="p">[</span><span class="k">AS</span><span class="w"> </span><span class="err">别名</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="err">字段</span><span class="mi">2</span><span class="w"> </span><span class="p">[</span><span class="k">AS</span><span class="w"> </span><span class="err">别名</span><span class="mi">2</span><span class="p">],...</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="err">表名</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- AS可省略
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>去除重复记录</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="err">字段列表</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="err">表名</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="条件查询">条件查询
+</h3><ol>
+<li>语法</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="err">字段列表</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="err">条件</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>条件</li>
+</ol>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>运算符</th>
+          <th>功能</th>
+          <th>运算符</th>
+          <th>功能</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>&gt;</td>
+          <td>大于</td>
+          <td>IN(&hellip;)</td>
+          <td>在in之后的列表中的值（多选一）</td>
+      </tr>
+      <tr>
+          <td>&gt;=</td>
+          <td>大于等于</td>
+          <td>LIKE 占位符</td>
+          <td>模糊匹配（ _ 匹配单个字符，% 匹配任意个字符）</td>
+      </tr>
+      <tr>
+          <td>&lt;</td>
+          <td>小于</td>
+          <td>IS NULL</td>
+          <td>数据为空</td>
+      </tr>
+      <tr>
+          <td>&lt;=</td>
+          <td>小于等于</td>
+          <td>AND 或 &amp;&amp;</td>
+          <td>逻辑与</td>
+      </tr>
+      <tr>
+          <td>=</td>
+          <td>等于</td>
+          <td>OR 或 <code>||</code></td>
+          <td>逻辑或</td>
+      </tr>
+      <tr>
+          <td>&lt;&gt; 或 !=</td>
+          <td>不等于</td>
+          <td>NOT 或!</td>
+          <td>逻辑非</td>
+      </tr>
+      <tr>
+          <td>BETWEEN&hellip;AND&hellip;</td>
+          <td>在某个范围之间（含端点）</td>
+          <td></td>
+          <td></td>
+      </tr>
+  </tbody>
+</table></div>
+<h2 id="mysql管理可视化">MySQL管理可视化
 </h2><p>面对单调的MySQL代码是非常无聊的，因此通过软件可视化管理MySQL数据库是不错的选择。</p>
 <ol>
 <li><a class="link" href="https://www.navicat.com.cn/"  target="_blank" rel="noopener"
@@ -511,6 +1004,170 @@
     >MySQL Workbench</a></li>
 </ol>
 <p>这是MySQL的官方提供的可视化管理工具，免费，但是没有中文支持。</p>
+<h2 id="mysql的数据类型">MySQL的数据类型
+</h2><ol>
+<li>数据类型</li>
+</ol>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>类型</th>
+          <th>大小</th>
+          <th>描述</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>TINYINT</td>
+          <td>1 byte</td>
+          <td>小整数集</td>
+      </tr>
+      <tr>
+          <td>SMALLINT</td>
+          <td>2 bytes</td>
+          <td>大整数集</td>
+      </tr>
+      <tr>
+          <td>MEDIUMINT</td>
+          <td>3 bytes</td>
+          <td>大整数集</td>
+      </tr>
+      <tr>
+          <td>INT</td>
+          <td>4 bytes</td>
+          <td>大整数集</td>
+      </tr>
+      <tr>
+          <td>BIGINT</td>
+          <td>8 bytes</td>
+          <td>极大整数集</td>
+      </tr>
+      <tr>
+          <td>FLOAT</td>
+          <td>4 bytes</td>
+          <td>单精度浮点数集</td>
+      </tr>
+      <tr>
+          <td>DOUBLE</td>
+          <td>8 bytes</td>
+          <td>双精度浮点数集</td>
+      </tr>
+      <tr>
+          <td>DECIMAL</td>
+          <td>依赖精度值（总数位）和标度值（小数位）</td>
+          <td>精确定点数</td>
+      </tr>
+  </tbody>
+</table></div>
+<ol start="2">
+<li>字符串类型</li>
+</ol>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>类型</th>
+          <th>大小</th>
+          <th>描述</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>CHAR()</td>
+          <td>0-255 bytes</td>
+          <td>定长字符串</td>
+      </tr>
+      <tr>
+          <td>VARCHAR()</td>
+          <td>0-65,535 bytes</td>
+          <td>变长字符串</td>
+      </tr>
+      <tr>
+          <td>TINYBLOB</td>
+          <td>0-255 bytes</td>
+          <td>二进制数据</td>
+      </tr>
+      <tr>
+          <td>TINYTEXT</td>
+          <td>0-255 bytes</td>
+          <td>短文本字符串</td>
+      </tr>
+      <tr>
+          <td>BLOB</td>
+          <td>0-65,535 bytes</td>
+          <td>二进制长文本数据</td>
+      </tr>
+      <tr>
+          <td>TEXT</td>
+          <td>0-65,535 bytes</td>
+          <td>长文本数据</td>
+      </tr>
+      <tr>
+          <td>MEDIUMBLOB</td>
+          <td>0-16,777,215 bytes</td>
+          <td>二进制中等长度文本数据</td>
+      </tr>
+      <tr>
+          <td>MEDIUMTEXT</td>
+          <td>0-16,777,215 bytes</td>
+          <td>中等长度文本数据</td>
+      </tr>
+      <tr>
+          <td>LONGBLOB</td>
+          <td>0-4,294,967,295 bytes</td>
+          <td>二进制极大文本数据</td>
+      </tr>
+      <tr>
+          <td>LONGTEXT</td>
+          <td>0-4,294,967,295 bytes</td>
+          <td>极大文本数据</td>
+      </tr>
+  </tbody>
+</table></div>
+<ol start="3">
+<li>日期类型</li>
+</ol>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>类型</th>
+          <th>大小</th>
+          <th>格式</th>
+          <th>描述</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>DATA</td>
+          <td>3</td>
+          <td>YYYY-MM-DD</td>
+          <td>日期值</td>
+      </tr>
+      <tr>
+          <td>TIME</td>
+          <td>3</td>
+          <td>HH:MM:SS</td>
+          <td>时间值或持续时间</td>
+      </tr>
+      <tr>
+          <td>TEAR</td>
+          <td>1</td>
+          <td>YYYY</td>
+          <td>年份值</td>
+      </tr>
+      <tr>
+          <td>DATETIME</td>
+          <td>8</td>
+          <td>YYYY-MM-DD HH:MM:SS</td>
+          <td>混合日期和时间值</td>
+      </tr>
+      <tr>
+          <td>TIMESTAMP</td>
+          <td>4</td>
+          <td>YYYY-MM-DD HH:MM:SS</td>
+          <td>时间戳</td>
+      </tr>
+  </tbody>
+</table></div>
 
 </section>
 
@@ -573,30 +1230,6 @@
             
                 
 <article class="has-image">
-    <a href="/p/minecraft-help/">
-        
-        
-            <div class="article-image">
-                <img src="/p/minecraft-help/minecraft.e527c59dae653086a9b4162f809a0f11_hu_9ac70657a63e5259.jpeg" 
-                        width="250" 
-                        height="150" 
-                        loading="lazy"
-                        alt="Featured image of post Minecraft教程"
-                        data-key="minecraft-help" 
-                        data-hash="md5-5SfFna5lMIaptBYvgJoPEQ==">
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Minecraft教程</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
     <a href="/p/termux/">
         
         
@@ -638,6 +1271,30 @@
 
         <div class="article-details">
             <h2 class="article-title">Linux系统小技巧</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/git_help/">
+        
+        
+            <div class="article-image">
+                <img src="/p/git_help/git.061182848171c4951fbd88afb1628088_hu_f828319875602582.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 玩转Github"
+                        data-key="git_help" 
+                        data-hash="md5-BhGChIFxxJUfvYivsWKAiA==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">玩转Github</h2>
         </div>
     </a>
 </article>
@@ -939,23 +1596,27 @@
 
 
 
-<script
-    src="https://cdn.jsdelivr.net/gh/zhixuan2333/gh-blog@v0.1.0/js/nprogress.min.js"
-    integrity="sha384-bHDlAEUFxsRI7JfULv3DTpL2IXbbgn4JHQJibgo5iiXSK6Iu8muwqHANhun74Cqg"
-    crossorigin="anonymous"
-></script>
-<link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/gh/zhixuan2333/gh-blog@v0.1.0/css/nprogress.css"
-    integrity="sha384-KJyhr2syt5+4M9Pz5dipCvTrtvOmLk/olWVdfhAp858UCa64Ia5GFpTN7+G4BWpE"
-    crossorigin="anonymous"
-/>
+    
+    <script src=https://5882886.github.io/js/topbar.min.js></script>
+
 <script>
-    NProgress.start();
-    document.addEventListener("readystatechange", () => {
-        if (document.readyState === "interactive") NProgress.inc(0.8);
-        if (document.readyState === "complete") NProgress.done();
-    });
+    
+    topbar.config({
+        barColors: {
+            '0': 'rgba(255,  255, 255, 1)', 
+            '1.0': 'rgba(0, 149, 234,  1)' 
+        }
+    })
+	
+    document.addEventListener('pjax:send', () => {
+        
+        topbar.show();
+    })
+	
+    document.addEventListener('pjax:complete', () => {     
+        
+        topbar.hide();
+    })
 </script>
 
 
