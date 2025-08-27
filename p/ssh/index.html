@@ -10,9 +10,10 @@
 <meta property='og:description' content="配置Linux，Windows，WSL系统的SSH连接">
 <meta property='og:url' content='https://5882886.github.io/p/ssh/'>
 <meta property='og:site_name' content='RunicDolphin806的博客'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-07-31T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-07-31T00:00:00&#43;00:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-07-31T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-07-31T00:00:00&#43;00:00'/><meta property='og:image' content='https://5882886.github.io/p/ssh/SSH.png' />
 <meta name="twitter:title" content="SSH配置简介">
-<meta name="twitter:description" content="配置Linux，Windows，WSL系统的SSH连接">
+<meta name="twitter:description" content="配置Linux，Windows，WSL系统的SSH连接"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://5882886.github.io/p/ssh/SSH.png' />
     <link rel="shortcut icon" href="/favicon.ico" />
 
     </head>
@@ -266,9 +267,7 @@
         
             
                 
-    
-    <button id="toggle-toc" class="mobile-only">目录</button>
-    <section class="widget archives" id="toc-container">
+    <section class="widget archives">
         <div class="widget-icon">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
@@ -282,7 +281,7 @@
 
         </div>
         <h2 class="widget-title section-title">目录</h2>
-
+        
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
@@ -301,146 +300,11 @@
         <li><a href="#termux">Termux</a></li>
       </ol>
     </li>
-    <li><a href="#连接ssh">连接ssh</a></li>
+    <li><a href="#连接-ssh">连接 SSH</a></li>
   </ol>
 </nav>
         </div>
     </section>
-
-
-<style>
-    .container {
-        .right-sidebar {
-             
-            display: flex;
-        }
-    }
-
-     
-    .mobile-only {
-        display: none !important;
-    }
-
-    #toc-container {
-         
-         
-        position: fixed;
-         
-        bottom: 21%;
-         
-        right: 60px;
-         
-        background-color: var(--card-background);
-         
-        padding: 10px;
-         
-        border: 1px solid #96979a50;
-        border-radius: var(--card-border-radius);
-         
-        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-         
-        z-index: 9998 !important;
-         
-        max-height: 75vh;
-        overflow-y: auto;
-         
-        width: auto;
-        max-width: 290px;
-    }
-
-    #toggle-toc {
-        position: fixed;
-        bottom: 22%;
-        right: 20px;
-        padding: 10px 10px;
-        z-index: 9998 !important;
-        border: 0px solid #96979a50;
-        border-radius: 7px;
-        box-shadow: var(--shadow-l1);
-        background-color: #00640010;
-        color: #020e1a;
-         
-        display: none;  
-        margin-bottom: -20px;
-        cursor: pointer;
-        font-size: 1.2rem;
-    }
-
-    .widget--toc #TableOfContents {
-        overflow-x: auto;
-        max-height: 66vh;
-        width: auto;
-    }
-
-    @media screen and (max-width: 768px) {
-        .mobile-only {
-            display: block !important;  
-        }
-
-        #toc-container {
-            display: none;  
-        }
-
-        #toggle-toc {
-            display: block;  
-            bottom: 100px;  
-        }
-    }
-
-     
-    @media screen and (min-width: 769px) {
-        #toc-container {
-            display: block !important;  
-            position: static;  
-            border: none;  
-            box-shadow: none;  
-            max-height: none;  
-            overflow-y: visible;  
-            margin-top: 20px;  
-            right: auto;  
-            bottom: auto;  
-            width: auto;  
-            max-width: 100%;  
-            background-color: transparent;  
-            padding: 0;  
-        }
-
-        #toggle-toc {
-            display: none !important;  
-        }
-    }
-</style>
-<script>
-    var toggleButton = document.getElementById('toggle-toc');
-    var tocContainer = document.getElementById('toc-container');
-
-    
-    toggleButton.addEventListener('click', function() {
-        if (tocContainer.style.display === 'none' || tocContainer.style.display === '') {
-            tocContainer.style.display = 'block';
-        } else {
-            tocContainer.style.display = 'none';
-        }
-    });
-
-    
-    toggleButton.addEventListener('mouseover', function() {
-        
-            tocContainer.style.display = 'block';
-        
-    });
-
-    
-    document.addEventListener('click', function(event) {
-        
-            
-            if (!tocContainer.contains(event.target) && event.target !== toggleButton) {
-                
-                tocContainer.style.display = 'none';
-            }
-        
-    });
-</script>
 
             
         
@@ -448,8 +312,20 @@
 
 
             <main class="main full-width">
-    <article class="main-article">
+    <article class="has-image main-article">
     <header class="article-header">
+        <div class="article-image">
+            <a href="/p/ssh/">
+                <img src="/p/ssh/SSH_hu_e44ef5f366afb2ce.png"
+                        srcset="/p/ssh/SSH_hu_e44ef5f366afb2ce.png 800w, /p/ssh/SSH_hu_723eb8d43deb728.png 1600w"
+                        width="800" 
+                        height="451" 
+                        loading="lazy"
+                        alt="Featured image of post SSH配置简介" />
+                
+            </a>
+        </div>
+    
 
     <div class="article-details">
     
@@ -514,7 +390,18 @@
 </h3><p>Tabby是一款现代的终端应用，界面简洁。</p>
 <blockquote>
 <p><em><a class="link" href="https://github.com/Eugeny/tabby"  target="_blank" rel="noopener"
-    >Tabby的Github仓库</a></em></p></blockquote>
+    >Tabby的Github仓库
+    
+    
+    <span style="white-space: nowrap;"><svg width=".7em"
+        height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+        <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+        <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+            fill="currentColor">
+    </svg></span>
+    
+
+</a></em></p></blockquote>
 <h3 id="serverbox">ServerBox
 </h3><p>ServerBox是一款国产的远程服务器监控和操作应用，支持Windows、Linux、Android、MacOS等操作系统。优点是可以监测服务器实时运行状态（包括CPU、内存、温度、网络、硬盘等）。</p>
 <p><img src="/p/ssh/serverbox.png"
@@ -534,7 +421,18 @@
 <p>注意，Serverbox自带的脚本只支持监控Linux系统的运行数据，对于WSL系统，也只能监控部分数据。</p>
 <blockquote>
 <p><em><a class="link" href="https://github.com/lollipopkit/flutter_server_box"  target="_blank" rel="noopener"
-    >ServerBox的Github仓库</a></em></p></blockquote>
+    >ServerBox的Github仓库
+    
+    
+    <span style="white-space: nowrap;"><svg width=".7em"
+        height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+        <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+        <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+            fill="currentColor">
+    </svg></span>
+    
+
+</a></em></p></blockquote>
 <p>以下是各ssh应用程序的功能比较：</p>
 <div class="table-wrapper"><table>
   <thead>
@@ -757,8 +655,12 @@
 </table></div>
 <p>保存时输入管理员密码。重启测试即可。</p>
 <h3 id="termux">Termux
-</h3><p>参见：<a class="link" href="/p/termux/#termux%e5%90%af%e5%8a%a8ssh%e5%8a%9f%e8%83%bd" >Termux启动SSH功能</a></p>
-<h2 id="连接ssh">连接ssh
+</h3><p>参见：<a class="link" href="/p/termux/#termux%e5%90%af%e5%8a%a8ssh%e5%8a%9f%e8%83%bd" >Termux启动SSH功能
+    
+    
+
+</a></p>
+<h2 id="连接-ssh">连接 SSH
 </h2><p>在 Windows 本地测试：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -901,24 +803,13 @@
 
             
                 
-<article class="has-image">
-    <a href="/p/git_help/">
+<article class="">
+    <a href="/p/stack-decorate/">
         
-        
-            <div class="article-image">
-                <img src="/p/git_help/git.061182848171c4951fbd88afb1628088_hu_f828319875602582.jpg" 
-                        width="250" 
-                        height="150" 
-                        loading="lazy"
-                        alt="Featured image of post 玩转Github"
-                        data-key="git_help" 
-                        data-hash="md5-BhGChIFxxJUfvYivsWKAiA==">
-                
-            </div>
         
 
         <div class="article-details">
-            <h2 class="article-title">玩转Github</h2>
+            <h2 class="article-title">Hugo-stack主题装饰</h2>
         </div>
     </a>
 </article>
@@ -1218,6 +1109,52 @@
     })
 </script>
 
+<style>
+    #TableOfContents > ul, ol {
+        ul, ol {
+            display: none;
+        }
+        .open {
+            display: block;
+        }
+    }
+</style>
+
+<script>
+    function initTocHide() {
+        
+        let toc = document.querySelector(".widget--toc");
+        if (!toc) {
+            return;
+        }
+        
+        window.addEventListener('scroll', function() {
+            
+            let openUl = document.querySelectorAll(".open");
+            if (openUl.length > 0) {
+              openUl.forEach((ul) => {
+                ul.classList.remove("open")
+              })
+            }
+            
+            let currentLi = document.querySelector(".active-class");
+            if (!currentLi) {
+                return
+            }
+            
+            if (currentLi.children.length > 1) {
+                currentLi.children[1].classList.add("open")
+            }
+            
+            let ul = currentLi.parentElement;
+            do {
+                ul.classList.add("open");
+                ul = ul.parentElement.parentElement
+            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
+        });
+    }
+    initTocHide()
+</script>
 
 
     

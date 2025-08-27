@@ -267,9 +267,7 @@
         
             
                 
-    
-    <button id="toggle-toc" class="mobile-only">目录</button>
-    <section class="widget archives" id="toc-container">
+    <section class="widget archives">
         <div class="widget-icon">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
@@ -283,7 +281,7 @@
 
         </div>
         <h2 class="widget-title section-title">目录</h2>
-
+        
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
@@ -325,141 +323,6 @@
 </nav>
         </div>
     </section>
-
-
-<style>
-    .container {
-        .right-sidebar {
-             
-            display: flex;
-        }
-    }
-
-     
-    .mobile-only {
-        display: none !important;
-    }
-
-    #toc-container {
-         
-         
-        position: fixed;
-         
-        bottom: 21%;
-         
-        right: 60px;
-         
-        background-color: var(--card-background);
-         
-        padding: 10px;
-         
-        border: 1px solid #96979a50;
-        border-radius: var(--card-border-radius);
-         
-        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-         
-        z-index: 9998 !important;
-         
-        max-height: 75vh;
-        overflow-y: auto;
-         
-        width: auto;
-        max-width: 290px;
-    }
-
-    #toggle-toc {
-        position: fixed;
-        bottom: 22%;
-        right: 20px;
-        padding: 10px 10px;
-        z-index: 9998 !important;
-        border: 0px solid #96979a50;
-        border-radius: 7px;
-        box-shadow: var(--shadow-l1);
-        background-color: #00640010;
-        color: #020e1a;
-         
-        display: none;  
-        margin-bottom: -20px;
-        cursor: pointer;
-        font-size: 1.2rem;
-    }
-
-    .widget--toc #TableOfContents {
-        overflow-x: auto;
-        max-height: 66vh;
-        width: auto;
-    }
-
-    @media screen and (max-width: 768px) {
-        .mobile-only {
-            display: block !important;  
-        }
-
-        #toc-container {
-            display: none;  
-        }
-
-        #toggle-toc {
-            display: block;  
-            bottom: 100px;  
-        }
-    }
-
-     
-    @media screen and (min-width: 769px) {
-        #toc-container {
-            display: block !important;  
-            position: static;  
-            border: none;  
-            box-shadow: none;  
-            max-height: none;  
-            overflow-y: visible;  
-            margin-top: 20px;  
-            right: auto;  
-            bottom: auto;  
-            width: auto;  
-            max-width: 100%;  
-            background-color: transparent;  
-            padding: 0;  
-        }
-
-        #toggle-toc {
-            display: none !important;  
-        }
-    }
-</style>
-<script>
-    var toggleButton = document.getElementById('toggle-toc');
-    var tocContainer = document.getElementById('toc-container');
-
-    
-    toggleButton.addEventListener('click', function() {
-        if (tocContainer.style.display === 'none' || tocContainer.style.display === '') {
-            tocContainer.style.display = 'block';
-        } else {
-            tocContainer.style.display = 'none';
-        }
-    });
-
-    
-    toggleButton.addEventListener('mouseover', function() {
-        
-            tocContainer.style.display = 'block';
-        
-    });
-
-    
-    document.addEventListener('click', function(event) {
-        
-            
-            if (!tocContainer.contains(event.target) && event.target !== toggleButton) {
-                
-                tocContainer.style.display = 'none';
-            }
-        
-    });
-</script>
 
             
         
@@ -631,8 +494,30 @@
   </tbody>
 </table></div>
 <p>Java可从<a class="link" href="https://www.oracle.com/java/technologies/downloads/?er=221886"  target="_blank" rel="noopener"
-    >Oracle官网</a>下载（最新版需要注册账号才可下载）。如果不在意，也可从镜像站例如<a class="link" href="https://adoptium.net/zh-CN"  target="_blank" rel="noopener"
-    >Adoptium</a>下载。</p>
+    >Oracle官网
+    
+    
+    <span style="white-space: nowrap;"><svg width=".7em"
+        height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+        <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+        <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+            fill="currentColor">
+    </svg></span>
+    
+
+</a>下载（最新版需要注册账号才可下载）。如果不在意，也可从镜像站例如<a class="link" href="https://adoptium.net/zh-CN"  target="_blank" rel="noopener"
+    >Adoptium
+    
+    
+    <span style="white-space: nowrap;"><svg width=".7em"
+        height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+        <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+        <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+            fill="currentColor">
+    </svg></span>
+    
+
+</a>下载。</p>
 <p>使用<code>.exe</code>或<code>.msi</code>文件安装的Java一般自动配置好了环境变量，如果使用<code>.zip</code>安装Java则需手动配置。</p>
 <h3 id="服务端启动流程">服务端启动流程
 </h3><p>首先在网络上下载对应的服务端，通常是一个.jar文件。然后新建一个文件夹，将服务端核心放在文件夹内。</p>
@@ -795,7 +680,11 @@
 </h4><h4 id="spiogtyml"><code>spiogt.yml</code>
 </h4><h3 id="安装插件和模组">安装插件和模组
 </h3><h3 id="使用ssh远程连接服务器主机">使用SSH远程连接服务器主机
-</h3><p>参见：<a class="link" href="/p/ssh/" >SSH配置简介</a></p>
+</h3><p>参见：<a class="link" href="/p/ssh/" >SSH配置简介
+    
+    
+
+</a></p>
 <h3 id="使用mysql管理玩家数据">使用MySQL管理玩家数据
 </h3><p>对于多个服务器，如果想不同服务器之间共享玩家数据（如权限、经验等），可以使用MySQL数据库。</p>
 <p>下面以服务端插件PowerRanks为例进行说明。</p>
@@ -1197,6 +1086,52 @@
     })
 </script>
 
+<style>
+    #TableOfContents > ul, ol {
+        ul, ol {
+            display: none;
+        }
+        .open {
+            display: block;
+        }
+    }
+</style>
+
+<script>
+    function initTocHide() {
+        
+        let toc = document.querySelector(".widget--toc");
+        if (!toc) {
+            return;
+        }
+        
+        window.addEventListener('scroll', function() {
+            
+            let openUl = document.querySelectorAll(".open");
+            if (openUl.length > 0) {
+              openUl.forEach((ul) => {
+                ul.classList.remove("open")
+              })
+            }
+            
+            let currentLi = document.querySelector(".active-class");
+            if (!currentLi) {
+                return
+            }
+            
+            if (currentLi.children.length > 1) {
+                currentLi.children[1].classList.add("open")
+            }
+            
+            let ul = currentLi.parentElement;
+            do {
+                ul.classList.add("open");
+                ul = ul.parentElement.parentElement
+            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
+        });
+    }
+    initTocHide()
+</script>
 
 
     

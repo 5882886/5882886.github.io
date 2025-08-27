@@ -468,26 +468,6 @@
 </article>
             
                 <article>
-    <a href="/p/git_help/">
-        <div class="article-details">
-            <h2 class="article-title">玩转Github</h2>
-            <footer class="article-time">
-                <time datetime='2025-08-04T00:00:00Z'>Aug 04, 2025</time>
-            </footer>
-        </div>
-            <div class="article-image">
-                <img src="/p/git_help/git_hu_7f4169e3778dd430.jpg" 
-                        width="120"
-                        height="120" 
-                        alt="玩转Github"
-                        loading="lazy">
-                
-            </div>
-        
-    </a>
-</article>
-            
-                <article>
     <a href="/p/linux_help/">
         <div class="article-details">
             <h2 class="article-title">Linux系统小技巧</h2>
@@ -546,6 +526,15 @@
                 <time datetime='2025-07-31T00:00:00Z'>Jul 31, 2025</time>
             </footer>
         </div>
+            <div class="article-image">
+                <img src="/p/ssh/SSH_hu_a128d6c974ddc0a1.png" 
+                        width="120"
+                        height="120" 
+                        alt="SSH配置简介"
+                        loading="lazy">
+                
+            </div>
+        
     </a>
 </article>
             
@@ -621,6 +610,17 @@
 </article>
             
                 <article>
+    <a href="/p/algorithm/">
+        <div class="article-details">
+            <h2 class="article-title">常用算法</h2>
+            <footer class="article-time">
+                <time datetime='2025-06-01T00:00:00Z'>Jun 01, 2025</time>
+            </footer>
+        </div>
+    </a>
+</article>
+            
+                <article>
     <a href="/p/tju/">
         <div class="article-details">
             <h2 class="article-title">有意思的玩意</h2>
@@ -638,6 +638,26 @@
     <div class="archives-group" id="2024">
         <h2 class="archives-date section-title"><a href="/archives/#2024">2024</a></h2>
         <div class="article-list--compact">
+            
+                <article>
+    <a href="/p/git_help/">
+        <div class="article-details">
+            <h2 class="article-title">玩转Github</h2>
+            <footer class="article-time">
+                <time datetime='2024-11-04T00:00:00Z'>Nov 04, 2024</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                <img src="/p/git_help/git_hu_7f4169e3778dd430.jpg" 
+                        width="120"
+                        height="120" 
+                        alt="玩转Github"
+                        loading="lazy">
+                
+            </div>
+        
+    </a>
+</article>
             
                 <article>
     <a href="/p/minecraft-help/">
@@ -940,6 +960,52 @@
     })
 </script>
 
+<style>
+    #TableOfContents > ul, ol {
+        ul, ol {
+            display: none;
+        }
+        .open {
+            display: block;
+        }
+    }
+</style>
+
+<script>
+    function initTocHide() {
+        
+        let toc = document.querySelector(".widget--toc");
+        if (!toc) {
+            return;
+        }
+        
+        window.addEventListener('scroll', function() {
+            
+            let openUl = document.querySelectorAll(".open");
+            if (openUl.length > 0) {
+              openUl.forEach((ul) => {
+                ul.classList.remove("open")
+              })
+            }
+            
+            let currentLi = document.querySelector(".active-class");
+            if (!currentLi) {
+                return
+            }
+            
+            if (currentLi.children.length > 1) {
+                currentLi.children[1].classList.add("open")
+            }
+            
+            let ul = currentLi.parentElement;
+            do {
+                ul.classList.add("open");
+                ul = ul.parentElement.parentElement
+            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
+        });
+    }
+    initTocHide()
+</script>
 
 
     

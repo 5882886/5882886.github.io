@@ -335,7 +335,18 @@
     
     
     <p>Hugo 是用 Go 编写的一个开源静态站点生成器，可在 [Apache License 2.0.] 下使用。证书参见<a class="link" href="https://github.com/gohugoio/hugo/blob/master/LICENSE"  target="_blank" rel="noopener"
-    >https://github.com/gohugoio/hugo/blob/master/LICENSE</a>。Hugo 支持 TOML、YAML 和 JSON 数据文件类型、Markdown 和 HTML 内容文件，并使用短代码添加丰富的内容。其他实用功能包括分类法、多语言模式、图像处理、自定义输出格式、HTML/CSS/JS 缩小和对 Sass SCSS 工作流程的支持。</p>
+    >https://github.com/gohugoio/hugo/blob/master/LICENSE
+    
+    
+    <span style="white-space: nowrap;"><svg width=".7em"
+        height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+        <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+        <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+            fill="currentColor">
+    </svg></span>
+    
+
+</a>。Hugo 支持 TOML、YAML 和 JSON 数据文件类型、Markdown 和 HTML 内容文件，并使用短代码添加丰富的内容。其他实用功能包括分类法、多语言模式、图像处理、自定义输出格式、HTML/CSS/JS 缩小和对 Sass SCSS 工作流程的支持。</p>
 <p>本网站用于分享本人在技术实践时的经验总结，如有好的建议，欢迎批评指正！</p>
 
 </section>
@@ -668,6 +679,52 @@
     })
 </script>
 
+<style>
+    #TableOfContents > ul, ol {
+        ul, ol {
+            display: none;
+        }
+        .open {
+            display: block;
+        }
+    }
+</style>
+
+<script>
+    function initTocHide() {
+        
+        let toc = document.querySelector(".widget--toc");
+        if (!toc) {
+            return;
+        }
+        
+        window.addEventListener('scroll', function() {
+            
+            let openUl = document.querySelectorAll(".open");
+            if (openUl.length > 0) {
+              openUl.forEach((ul) => {
+                ul.classList.remove("open")
+              })
+            }
+            
+            let currentLi = document.querySelector(".active-class");
+            if (!currentLi) {
+                return
+            }
+            
+            if (currentLi.children.length > 1) {
+                currentLi.children[1].classList.add("open")
+            }
+            
+            let ul = currentLi.parentElement;
+            do {
+                ul.classList.add("open");
+                ul = ul.parentElement.parentElement
+            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
+        });
+    }
+    initTocHide()
+</script>
 
 
     

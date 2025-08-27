@@ -266,9 +266,7 @@
         
             
                 
-    
-    <button id="toggle-toc" class="mobile-only">目录</button>
-    <section class="widget archives" id="toc-container">
+    <section class="widget archives">
         <div class="widget-icon">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
@@ -282,7 +280,7 @@
 
         </div>
         <h2 class="widget-title section-title">目录</h2>
-
+        
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
@@ -415,141 +413,6 @@
         </div>
     </section>
 
-
-<style>
-    .container {
-        .right-sidebar {
-             
-            display: flex;
-        }
-    }
-
-     
-    .mobile-only {
-        display: none !important;
-    }
-
-    #toc-container {
-         
-         
-        position: fixed;
-         
-        bottom: 21%;
-         
-        right: 60px;
-         
-        background-color: var(--card-background);
-         
-        padding: 10px;
-         
-        border: 1px solid #96979a50;
-        border-radius: var(--card-border-radius);
-         
-        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-         
-        z-index: 9998 !important;
-         
-        max-height: 75vh;
-        overflow-y: auto;
-         
-        width: auto;
-        max-width: 290px;
-    }
-
-    #toggle-toc {
-        position: fixed;
-        bottom: 22%;
-        right: 20px;
-        padding: 10px 10px;
-        z-index: 9998 !important;
-        border: 0px solid #96979a50;
-        border-radius: 7px;
-        box-shadow: var(--shadow-l1);
-        background-color: #00640010;
-        color: #020e1a;
-         
-        display: none;  
-        margin-bottom: -20px;
-        cursor: pointer;
-        font-size: 1.2rem;
-    }
-
-    .widget--toc #TableOfContents {
-        overflow-x: auto;
-        max-height: 66vh;
-        width: auto;
-    }
-
-    @media screen and (max-width: 768px) {
-        .mobile-only {
-            display: block !important;  
-        }
-
-        #toc-container {
-            display: none;  
-        }
-
-        #toggle-toc {
-            display: block;  
-            bottom: 100px;  
-        }
-    }
-
-     
-    @media screen and (min-width: 769px) {
-        #toc-container {
-            display: block !important;  
-            position: static;  
-            border: none;  
-            box-shadow: none;  
-            max-height: none;  
-            overflow-y: visible;  
-            margin-top: 20px;  
-            right: auto;  
-            bottom: auto;  
-            width: auto;  
-            max-width: 100%;  
-            background-color: transparent;  
-            padding: 0;  
-        }
-
-        #toggle-toc {
-            display: none !important;  
-        }
-    }
-</style>
-<script>
-    var toggleButton = document.getElementById('toggle-toc');
-    var tocContainer = document.getElementById('toc-container');
-
-    
-    toggleButton.addEventListener('click', function() {
-        if (tocContainer.style.display === 'none' || tocContainer.style.display === '') {
-            tocContainer.style.display = 'block';
-        } else {
-            tocContainer.style.display = 'none';
-        }
-    });
-
-    
-    toggleButton.addEventListener('mouseover', function() {
-        
-            tocContainer.style.display = 'block';
-        
-    });
-
-    
-    document.addEventListener('click', function(event) {
-        
-            
-            if (!tocContainer.contains(event.target) && event.target !== toggleButton) {
-                
-                tocContainer.style.display = 'none';
-            }
-        
-    });
-</script>
-
             
         
     </aside>
@@ -670,7 +533,11 @@ $$ f(x) = \sum_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!}(x - x_0)^k + \frac{f^{(n+1)}(\x
 <p>$\displaystyle (1+x)^{\alpha} = \sum_{n=0}^{\infty} \mathrm{C}_{\alpha}^{n}x^{n} = 1 + \alpha x + \frac{\alpha(\alpha-1)}{2!}x^{2} + \cdots + o(x^{n}), (|x|&lt;1) $</p>
 </li>
 </ol>
-<p>参见：<a class="link" href="/p/math_tips/#%e5%87%bd%e6%95%b0%e5%b1%95%e5%bc%80%e6%88%90%e5%b9%82%e7%ba%a7%e6%95%b0" >函数展开成幂级数</a></p>
+<p>参见：<a class="link" href="/p/math_tips/#%e5%87%bd%e6%95%b0%e5%b1%95%e5%bc%80%e6%88%90%e5%b9%82%e7%ba%a7%e6%95%b0" >函数展开成幂级数
+    
+    
+
+</a></p>
 <h3 id="讨论极限的存在性">讨论极限的存在性
 </h3><ul>
 <li>利用海涅定理</li>
@@ -1262,7 +1129,11 @@ $$\left| \sum_{k=1}^{n} a_k b_k  \right|\leqslant  M \left(\left| b_1 \right| + 
 </ol>
 $$R = \frac{1}{\displaystyle \lim_{n \to \infty} \sqrt[n]{\left| a_n \right|}} = \lim_{n \to \infty} \left| \frac{a_n}{a_{n+1}} \right|$$<h4 id="函数展开成幂级数">函数展开成幂级数
 </h4><p>泰勒系数 $\displaystyle a_n = \frac{f^{(n)}(x_0)}{n!}$</p>
-<p>参见：<a class="link" href="/p/math_tips/#%e9%ba%a6%e5%85%8b%e5%8a%b3%e6%9e%97%e5%85%ac%e5%bc%8f" >麦克劳林公式</a></p>
+<p>参见：<a class="link" href="/p/math_tips/#%e9%ba%a6%e5%85%8b%e5%8a%b3%e6%9e%97%e5%85%ac%e5%bc%8f" >麦克劳林公式
+    
+    
+
+</a></p>
 <h3 id="傅里叶级数">傅里叶级数
 </h3><h4 id="傅里叶系数">傅里叶系数
 </h4>$$\left\{ \begin{array}{c} \begin{align*} a_n &= \displaystyle \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \cos nx \mathrm{d}x，(n=0,1,2,\cdots) \\ \\ \displaystyle b_n &= \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \sin nx \mathrm{d}x，(n=1,2,\cdots) \end{align*} \end{array} \right.$$<h4 id="傅里叶级数-1">傅里叶级数
@@ -1419,6 +1290,19 @@ $$ F_{n} = \frac{1}{\sqrt{5}} \left[\left(\frac{1+\sqrt{5}}{2}\right)^{n+1} - \l
 
         <div class="article-details">
             <h2 class="article-title">熟练掌握数据结构</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/algorithm/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">常用算法</h2>
         </div>
     </a>
 </article>
@@ -1744,6 +1628,52 @@ $$ F_{n} = \frac{1}{\sqrt{5}} \left[\left(\frac{1+\sqrt{5}}{2}\right)^{n+1} - \l
     })
 </script>
 
+<style>
+    #TableOfContents > ul, ol {
+        ul, ol {
+            display: none;
+        }
+        .open {
+            display: block;
+        }
+    }
+</style>
+
+<script>
+    function initTocHide() {
+        
+        let toc = document.querySelector(".widget--toc");
+        if (!toc) {
+            return;
+        }
+        
+        window.addEventListener('scroll', function() {
+            
+            let openUl = document.querySelectorAll(".open");
+            if (openUl.length > 0) {
+              openUl.forEach((ul) => {
+                ul.classList.remove("open")
+              })
+            }
+            
+            let currentLi = document.querySelector(".active-class");
+            if (!currentLi) {
+                return
+            }
+            
+            if (currentLi.children.length > 1) {
+                currentLi.children[1].classList.add("open")
+            }
+            
+            let ul = currentLi.parentElement;
+            do {
+                ul.classList.add("open");
+                ul = ul.parentElement.parentElement
+            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
+        });
+    }
+    initTocHide()
+</script>
 
 
     

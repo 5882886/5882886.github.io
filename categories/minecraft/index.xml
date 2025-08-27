@@ -107,8 +107,30 @@
   &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;Java可从&lt;a class=&#34;link&#34; href=&#34;https://www.oracle.com/java/technologies/downloads/?er=221886&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Oracle官网&lt;/a&gt;下载（最新版需要注册账号才可下载）。如果不在意，也可从镜像站例如&lt;a class=&#34;link&#34; href=&#34;https://adoptium.net/zh-CN&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Adoptium&lt;/a&gt;下载。&lt;/p&gt;
+    &gt;Oracle官网
+    
+    
+    &lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+        height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+        &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+        &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+            fill=&#34;currentColor&#34;&gt;
+    &lt;/svg&gt;&lt;/span&gt;
+    
+
+&lt;/a&gt;下载（最新版需要注册账号才可下载）。如果不在意，也可从镜像站例如&lt;a class=&#34;link&#34; href=&#34;https://adoptium.net/zh-CN&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Adoptium
+    
+    
+    &lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+        height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+        &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+        &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+            fill=&#34;currentColor&#34;&gt;
+    &lt;/svg&gt;&lt;/span&gt;
+    
+
+&lt;/a&gt;下载。&lt;/p&gt;
 &lt;p&gt;使用&lt;code&gt;.exe&lt;/code&gt;或&lt;code&gt;.msi&lt;/code&gt;文件安装的Java一般自动配置好了环境变量，如果使用&lt;code&gt;.zip&lt;/code&gt;安装Java则需手动配置。&lt;/p&gt;
 &lt;h3 id=&#34;服务端启动流程&#34;&gt;服务端启动流程
 &lt;/h3&gt;&lt;p&gt;首先在网络上下载对应的服务端，通常是一个.jar文件。然后新建一个文件夹，将服务端核心放在文件夹内。&lt;/p&gt;
@@ -271,7 +293,11 @@
 &lt;/h4&gt;&lt;h4 id=&#34;spiogtyml&#34;&gt;&lt;code&gt;spiogt.yml&lt;/code&gt;
 &lt;/h4&gt;&lt;h3 id=&#34;安装插件和模组&#34;&gt;安装插件和模组
 &lt;/h3&gt;&lt;h3 id=&#34;使用ssh远程连接服务器主机&#34;&gt;使用SSH远程连接服务器主机
-&lt;/h3&gt;&lt;p&gt;参见：&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/ssh/&#34; &gt;SSH配置简介&lt;/a&gt;&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;参见：&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/ssh/&#34; &gt;SSH配置简介
+    
+    
+
+&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;使用mysql管理玩家数据&#34;&gt;使用MySQL管理玩家数据
 &lt;/h3&gt;&lt;p&gt;对于多个服务器，如果想不同服务器之间共享玩家数据（如权限、经验等），可以使用MySQL数据库。&lt;/p&gt;
 &lt;p&gt;下面以服务端插件PowerRanks为例进行说明。&lt;/p&gt;
@@ -391,7 +417,18 @@
 &lt;/table&gt;
 &lt;blockquote&gt;
 &lt;p&gt;鉴于国内通常无法打开Google网站，如果想体验Minecraft基岩版，可以在&lt;a class=&#34;link&#34; href=&#34;https://klpbbs.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;苦力怕论坛&lt;/a&gt;下载。需注意，论坛中下载的并非正版，请于下载体验后24小时内删除！&lt;/p&gt;&lt;/blockquote&gt;
+    &gt;苦力怕论坛
+    
+    
+    &lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+        height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+        &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+        &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+            fill=&#34;currentColor&#34;&gt;
+    &lt;/svg&gt;&lt;/span&gt;
+    
+
+&lt;/a&gt;下载。需注意，论坛中下载的并非正版，请于下载体验后24小时内删除！&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;minecraft-java版进阶&#34;&gt;Minecraft Java版进阶
 &lt;/h2&gt;&lt;h3 id=&#34;java版游戏文件&#34;&gt;Java版游戏文件
 &lt;/h3&gt;&lt;p&gt;Minecraft Java版对玩家文件管理的要求较高，因此需先了解其文件结构。&lt;/p&gt;
@@ -456,7 +493,18 @@
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;进入&lt;a class=&#34;link&#34; href=&#34;https://files.minecraftforge.net/net/minecraftforge/forge/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Forge官网&lt;/a&gt;，选择需要下载的MC版本。&lt;/p&gt;
+    &gt;Forge官网
+    
+    
+    &lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+        height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+        &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+        &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+            fill=&#34;currentColor&#34;&gt;
+    &lt;/svg&gt;&lt;/span&gt;
+    
+
+&lt;/a&gt;，选择需要下载的MC版本。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;点击Installer，此时将跳转到广告界面。若你的网络状况较好，应当会在界面右上角出现“SKIP”按钮，点击“SKIP”即可下载Forge文件。&lt;/p&gt;
@@ -498,28 +546,94 @@
 &lt;p&gt;将其更改为“手动”，然后打开 IPv4 开关。在“首选 DNS”中输入 8.8.8.8，在“备用 DNS”中输入 8.8.4.4。（这是 Google 的公共 DNS，非常稳定）。&lt;/p&gt;
 &lt;p&gt;保存设置，重新登录。&lt;/p&gt;
 &lt;p&gt;以上解决办法来源&lt;a class=&#34;link&#34; href=&#34;https://learn.microsoft.com/zh-cn/answers/questions/4373928/microsoft-store-mc-minecraft&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;此处&lt;/a&gt;&lt;/p&gt;
+    &gt;此处
+    
+    
+    &lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+        height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+        &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+        &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+            fill=&#34;currentColor&#34;&gt;
+    &lt;/svg&gt;&lt;/span&gt;
+    
+
+&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;链接网站&#34;&gt;链接网站
 &lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.mcmod.cn/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;MC百科&lt;/a&gt;：下载MC Java版mod，整合包等资源。&lt;/p&gt;
+    &gt;MC百科
+    
+    
+    &lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+        height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+        &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+        &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+            fill=&#34;currentColor&#34;&gt;
+    &lt;/svg&gt;&lt;/span&gt;
+    
+
+&lt;/a&gt;：下载MC Java版mod，整合包等资源。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://klpbbs.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;苦力怕论坛&lt;/a&gt;：下载MC基岩版资源包、行为包、材质、光影、地图等。&lt;/p&gt;
+    &gt;苦力怕论坛
+    
+    
+    &lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+        height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+        &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+        &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+            fill=&#34;currentColor&#34;&gt;
+    &lt;/svg&gt;&lt;/span&gt;
+    
+
+&lt;/a&gt;：下载MC基岩版资源包、行为包、材质、光影、地图等。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://littleskin.cn/?lang=zh_CN&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;LittleSkin皮肤站&lt;/a&gt;：托管MC皮肤文件。&lt;/p&gt;
+    &gt;LittleSkin皮肤站
+    
+    
+    &lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+        height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+        &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+        &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+            fill=&#34;currentColor&#34;&gt;
+    &lt;/svg&gt;&lt;/span&gt;
+    
+
+&lt;/a&gt;：托管MC皮肤文件。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.xbox.com/zh-CN/games/store/minecraft-java-bedrock-edition-for-pc/9nxp44l49shj?ocid=storeforweb&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Minecraft捆绑包商店&lt;/a&gt;：购买Minecraft正版。&lt;/p&gt;
+    &gt;Minecraft捆绑包商店
+    
+    
+    &lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+        height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+        &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+        &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+            fill=&#34;currentColor&#34;&gt;
+    &lt;/svg&gt;&lt;/span&gt;
+    
+
+&lt;/a&gt;：购买Minecraft正版。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://modrinth.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Modrinth&lt;/a&gt;：下载MC和MC服务器资源。&lt;/p&gt;
+    &gt;Modrinth
+    
+    
+    &lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+        height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+        &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+        &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+            fill=&#34;currentColor&#34;&gt;
+    &lt;/svg&gt;&lt;/span&gt;
+    
+
+&lt;/a&gt;：下载MC和MC服务器资源。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 </description>

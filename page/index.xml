@@ -22,7 +22,18 @@
         
         <guid>https://5882886.github.io/%E5%85%B3%E4%BA%8E/</guid>
         <description>&lt;p&gt;Hugo 是用 Go 编写的一个开源静态站点生成器，可在 [Apache License 2.0.] 下使用。证书参见&lt;a class=&#34;link&#34; href=&#34;https://github.com/gohugoio/hugo/blob/master/LICENSE&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://github.com/gohugoio/hugo/blob/master/LICENSE&lt;/a&gt;。Hugo 支持 TOML、YAML 和 JSON 数据文件类型、Markdown 和 HTML 内容文件，并使用短代码添加丰富的内容。其他实用功能包括分类法、多语言模式、图像处理、自定义输出格式、HTML/CSS/JS 缩小和对 Sass SCSS 工作流程的支持。&lt;/p&gt;
+    &gt;https://github.com/gohugoio/hugo/blob/master/LICENSE
+    
+    
+    &lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+        height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+        &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+        &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+            fill=&#34;currentColor&#34;&gt;
+    &lt;/svg&gt;&lt;/span&gt;
+    
+
+&lt;/a&gt;。Hugo 支持 TOML、YAML 和 JSON 数据文件类型、Markdown 和 HTML 内容文件，并使用短代码添加丰富的内容。其他实用功能包括分类法、多语言模式、图像处理、自定义输出格式、HTML/CSS/JS 缩小和对 Sass SCSS 工作流程的支持。&lt;/p&gt;
 &lt;p&gt;本网站用于分享本人在技术实践时的经验总结，如有好的建议，欢迎批评指正！&lt;/p&gt;
 </description>
         </item>

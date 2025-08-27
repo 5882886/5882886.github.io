@@ -267,9 +267,7 @@
         
             
                 
-    
-    <button id="toggle-toc" class="mobile-only">目录</button>
-    <section class="widget archives" id="toc-container">
+    <section class="widget archives">
         <div class="widget-icon">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
@@ -283,7 +281,7 @@
 
         </div>
         <h2 class="widget-title section-title">目录</h2>
-
+        
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
@@ -316,141 +314,6 @@
 </nav>
         </div>
     </section>
-
-
-<style>
-    .container {
-        .right-sidebar {
-             
-            display: flex;
-        }
-    }
-
-     
-    .mobile-only {
-        display: none !important;
-    }
-
-    #toc-container {
-         
-         
-        position: fixed;
-         
-        bottom: 21%;
-         
-        right: 60px;
-         
-        background-color: var(--card-background);
-         
-        padding: 10px;
-         
-        border: 1px solid #96979a50;
-        border-radius: var(--card-border-radius);
-         
-        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-         
-        z-index: 9998 !important;
-         
-        max-height: 75vh;
-        overflow-y: auto;
-         
-        width: auto;
-        max-width: 290px;
-    }
-
-    #toggle-toc {
-        position: fixed;
-        bottom: 22%;
-        right: 20px;
-        padding: 10px 10px;
-        z-index: 9998 !important;
-        border: 0px solid #96979a50;
-        border-radius: 7px;
-        box-shadow: var(--shadow-l1);
-        background-color: #00640010;
-        color: #020e1a;
-         
-        display: none;  
-        margin-bottom: -20px;
-        cursor: pointer;
-        font-size: 1.2rem;
-    }
-
-    .widget--toc #TableOfContents {
-        overflow-x: auto;
-        max-height: 66vh;
-        width: auto;
-    }
-
-    @media screen and (max-width: 768px) {
-        .mobile-only {
-            display: block !important;  
-        }
-
-        #toc-container {
-            display: none;  
-        }
-
-        #toggle-toc {
-            display: block;  
-            bottom: 100px;  
-        }
-    }
-
-     
-    @media screen and (min-width: 769px) {
-        #toc-container {
-            display: block !important;  
-            position: static;  
-            border: none;  
-            box-shadow: none;  
-            max-height: none;  
-            overflow-y: visible;  
-            margin-top: 20px;  
-            right: auto;  
-            bottom: auto;  
-            width: auto;  
-            max-width: 100%;  
-            background-color: transparent;  
-            padding: 0;  
-        }
-
-        #toggle-toc {
-            display: none !important;  
-        }
-    }
-</style>
-<script>
-    var toggleButton = document.getElementById('toggle-toc');
-    var tocContainer = document.getElementById('toc-container');
-
-    
-    toggleButton.addEventListener('click', function() {
-        if (tocContainer.style.display === 'none' || tocContainer.style.display === '') {
-            tocContainer.style.display = 'block';
-        } else {
-            tocContainer.style.display = 'none';
-        }
-    });
-
-    
-    toggleButton.addEventListener('mouseover', function() {
-        
-            tocContainer.style.display = 'block';
-        
-    });
-
-    
-    document.addEventListener('click', function(event) {
-        
-            
-            if (!tocContainer.contains(event.target) && event.target !== toggleButton) {
-                
-                tocContainer.style.display = 'none';
-            }
-        
-    });
-</script>
 
             
         
@@ -534,7 +397,18 @@
     
     <h2 id="hugo环境配置">Hugo环境配置
 </h2><p>点击进入<a class="link" href="https://github.com/gohugoio/hugo"  target="_blank" rel="noopener"
-    >Hugo下载地址</a>，下载最新的release文件。</p>
+    >Hugo下载地址
+    
+    
+    <span style="white-space: nowrap;"><svg width=".7em"
+        height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+        <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+        <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+            fill="currentColor">
+    </svg></span>
+    
+
+</a>，下载最新的release文件。</p>
 <h2 id="创建博客网站">创建博客网站
 </h2><h3 id="准备步骤">准备步骤
 </h3><p>在hugo对应的文件夹内打开cmd，输入<code>hugo new site 你的文件夹名</code>，可以看到多出一个新的空文件夹。</p>
@@ -624,7 +498,11 @@
 </div>
 </div><p>执行完成后会在工作区文件夹中出现一个<code>public</code>文件夹，进入该文件夹。</p>
 <h3 id="上传文件至github">上传文件至Github
-</h3><p>参见：<a class="link" href="/p/git_help/" >玩转Github</a></p>
+</h3><p>参见：<a class="link" href="/p/git_help/" >玩转Github
+    
+    
+
+</a></p>
 <p>参考视频：
 
 
@@ -696,7 +574,18 @@
 </div><h3 id="使用绝对路径链接">使用绝对路径链接
 </h3><p>绝对路径是从网站的根目录开始的完整路径。这种方式的好处是不受当前页面位置的影响。</p>
 <p>假设你的网站根目录是 <a class="link" href="https://example.com"  target="_blank" rel="noopener"
-    >https://example.com</a>，目录结构同上。</p>
+    >https://example.com
+    
+    
+    <span style="white-space: nowrap;"><svg width=".7em"
+        height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+        <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+        <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+            fill="currentColor">
+    </svg></span>
+    
+
+</a>，目录结构同上。</p>
 <p>在<code>about.md</code>中链接到 blog/post1.md：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -1198,6 +1087,52 @@
     })
 </script>
 
+<style>
+    #TableOfContents > ul, ol {
+        ul, ol {
+            display: none;
+        }
+        .open {
+            display: block;
+        }
+    }
+</style>
+
+<script>
+    function initTocHide() {
+        
+        let toc = document.querySelector(".widget--toc");
+        if (!toc) {
+            return;
+        }
+        
+        window.addEventListener('scroll', function() {
+            
+            let openUl = document.querySelectorAll(".open");
+            if (openUl.length > 0) {
+              openUl.forEach((ul) => {
+                ul.classList.remove("open")
+              })
+            }
+            
+            let currentLi = document.querySelector(".active-class");
+            if (!currentLi) {
+                return
+            }
+            
+            if (currentLi.children.length > 1) {
+                currentLi.children[1].classList.add("open")
+            }
+            
+            let ul = currentLi.parentElement;
+            do {
+                ul.classList.add("open");
+                ul = ul.parentElement.parentElement
+            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
+        });
+    }
+    initTocHide()
+</script>
 
 
     
