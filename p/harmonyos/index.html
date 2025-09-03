@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/harmonyos/'>
 
-<link rel="stylesheet" href="/scss/style.min.f4e1c40f20213da0bb8e8974f02def2eac10a4f410bf605c20db319d9ef333c5.css"><meta property='og:title' content="HarmonyOS入门">
+<link rel="stylesheet" href="/scss/style.min.d5f0afff969146387d200fea3eb333f0bf05cc9fd465feedf5111202537029d6.css"><meta property='og:title' content="HarmonyOS入门">
 <meta property='og:description' content="进大厂">
 <meta property='og:url' content='https://5882886.github.io/p/harmonyos/'>
 <meta property='og:site_name' content='RunicDolphin806的博客'>
@@ -538,86 +538,41 @@
     
     
     <h2 id="鸿蒙项目结构">鸿蒙项目结构
-</h2><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="l">entry</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">├── preview</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">├── src</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">├── main</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">├── ets        </span><span class="w"> </span><span class="c"># 存放代码文件</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="l">├── entryability</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="l">├── entrybackupability</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="l">├── pages</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="l">├── Index.ets</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">├── resources  </span><span class="w"> </span><span class="c"># 存放资源文件</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>示例文件<code>Index.ets</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kd">@Entry</span>          <span class="c1">// Index文件入口
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">@Component</span>      <span class="c1">// 声明以下为组件
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">struct</span> <span class="nx">Index</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">@State</span> <span class="nx">message</span>: <span class="kt">string</span> <span class="o">=</span> <span class="s1">&#39;Hello World&#39;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nx">build() {</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">RelativeContainer() {</span>
-</span></span><span class="line"><span class="cl">            <span class="nx">Text</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">message</span><span class="p">)</span>    <span class="c1">// 系统组件
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="p">.</span><span class="nx">id</span><span class="p">(</span><span class="s1">&#39;HelloWorld&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                <span class="p">.</span><span class="nx">fontSize</span><span class="p">(</span><span class="nx">$r</span><span class="p">(</span><span class="s1">&#39;app.float.page_text_font_size&#39;</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">                <span class="p">.</span><span class="nx">fontWeight</span><span class="p">(</span><span class="nx">FontWeight</span><span class="p">.</span><span class="nx">Bold</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                <span class="p">.</span><span class="nx">alignRules</span><span class="p">({</span>
-</span></span><span class="line"><span class="cl">                    <span class="nx">center</span><span class="o">:</span> <span class="p">{</span> <span class="nx">anchor</span><span class="o">:</span> <span class="s1">&#39;__container__&#39;</span><span class="p">,</span> <span class="nx">align</span>: <span class="kt">VerticalAlign.Center</span> <span class="p">},</span>
-</span></span><span class="line"><span class="cl">                    <span class="nx">middle</span><span class="o">:</span> <span class="p">{</span> <span class="nx">anchor</span><span class="o">:</span> <span class="s1">&#39;__container__&#39;</span><span class="p">,</span> <span class="nx">align</span>: <span class="kt">HorizontalAlign.Center</span> <span class="p">}</span>
-</span></span><span class="line"><span class="cl">                <span class="p">})</span>
-</span></span><span class="line"><span class="cl">                <span class="p">.</span><span class="nx">onClick</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                    <span class="k">this</span><span class="p">.</span><span class="nx">message</span> <span class="o">=</span> <span class="s1">&#39;Welcome&#39;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">                <span class="p">})</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">            <span class="p">.</span><span class="nx">height</span><span class="p">(</span><span class="s1">&#39;100%&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">            <span class="p">.</span><span class="nx">width</span><span class="p">(</span><span class="s1">&#39;100%&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="变量和数据类型">变量和数据类型
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="l">entry</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="w"></span><span class="l">├── preview</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="w"></span><span class="l">├── src</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="w">    </span><span class="l">├── main</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="w">        </span><span class="l">├── ets        </span><span class="w"> </span><span class="c"># 存放代码文件</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="w">            </span><span class="l">├── entryability</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="w">            </span><span class="l">├── entrybackupability</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="w">            </span><span class="l">├── pages</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="w">                </span><span class="l">├── Index.ets</span><span class="w">
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="w">        </span><span class="l">├── resources  </span><span class="w"> </span><span class="c"># 存放资源文件</span><span class="w">
+</span></span></span></code></pre></div><p>示例文件<code>Index.ets</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kd">@Entry</span>          <span class="c1">// Index文件入口
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="c1"></span><span class="kd">@Component</span>      <span class="c1">// 声明以下为组件
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="c1"></span><span class="nx">struct</span> <span class="nx">Index</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="kd">@State</span> <span class="nx">message</span>: <span class="kt">string</span> <span class="o">=</span> <span class="s1">&#39;Hello World&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="nx">build() {</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">        <span class="nx">RelativeContainer() {</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">            <span class="nx">Text</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">message</span><span class="p">)</span>    <span class="c1">// 系统组件
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="c1"></span>                <span class="p">.</span><span class="nx">id</span><span class="p">(</span><span class="s1">&#39;HelloWorld&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">                <span class="p">.</span><span class="nx">fontSize</span><span class="p">(</span><span class="nx">$r</span><span class="p">(</span><span class="s1">&#39;app.float.page_text_font_size&#39;</span><span class="p">))</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">                <span class="p">.</span><span class="nx">fontWeight</span><span class="p">(</span><span class="nx">FontWeight</span><span class="p">.</span><span class="nx">Bold</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">                <span class="p">.</span><span class="nx">alignRules</span><span class="p">({</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">                    <span class="nx">center</span><span class="o">:</span> <span class="p">{</span> <span class="nx">anchor</span><span class="o">:</span> <span class="s1">&#39;__container__&#39;</span><span class="p">,</span> <span class="nx">align</span>: <span class="kt">VerticalAlign.Center</span> <span class="p">},</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">                    <span class="nx">middle</span><span class="o">:</span> <span class="p">{</span> <span class="nx">anchor</span><span class="o">:</span> <span class="s1">&#39;__container__&#39;</span><span class="p">,</span> <span class="nx">align</span>: <span class="kt">HorizontalAlign.Center</span> <span class="p">}</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">                <span class="p">})</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">                <span class="p">.</span><span class="nx">onClick</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">                    <span class="k">this</span><span class="p">.</span><span class="nx">message</span> <span class="o">=</span> <span class="s1">&#39;Welcome&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">                <span class="p">})</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">            <span class="p">.</span><span class="nx">height</span><span class="p">(</span><span class="s1">&#39;100%&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">            <span class="p">.</span><span class="nx">width</span><span class="p">(</span><span class="s1">&#39;100%&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="变量和数据类型">变量和数据类型
 </h2><h3 id="一般变量">一般变量
 </h3><div class="table-wrapper"><table>
   <thead>
@@ -642,207 +597,92 @@
   </tbody>
 </table></div>
 <p>声明变量：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">parameter</span>: <span class="kt">type</span> <span class="o">=</span> <span class="nx">value</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="数组">数组
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="ln">1</span><span class="cl"><span class="kd">let</span> <span class="nx">parameter</span>: <span class="kt">type</span> <span class="o">=</span> <span class="nx">value</span>
+</span></span></code></pre></div><h3 id="数组">数组
 </h3><p>数组是一种容器，用来存储多个同类型数据。数组中元素的索引从0开始。</p>
 <p>声明数组：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">array</span>: <span class="kt">type</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="nx">data1</span><span class="p">,</span><span class="nx">data2</span><span class="p">,</span><span class="nx">data3</span><span class="p">,...]</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="对象">对象
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="ln">1</span><span class="cl"><span class="kd">let</span> <span class="nx">array</span>: <span class="kt">type</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="nx">data1</span><span class="p">,</span><span class="nx">data2</span><span class="p">,</span><span class="nx">data3</span><span class="p">,...]</span>
+</span></span></code></pre></div><h3 id="对象">对象
 </h3><p>对象可以一次性存储多个不同类型的数据。在HarmonyOS中，使用接口约定对象的结构和类型。</p>
 <p>声明对象：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">interface</span> <span class="nx">Interface</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">parameter1</span>: <span class="kt">type1</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">parameter2</span>: <span class="kt">type2</span>
-</span></span><span class="line"><span class="cl">    <span class="p">...</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">parametern</span>: <span class="kt">typen</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 约定接口后相应对象中应包含接口中的所有数据类型
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="kt">object</span><span class="o">:</span> <span class="nx">Interface</span> <span class="o">=</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">parameter1</span>: <span class="kt">data1</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">parameter2</span>: <span class="kt">data2</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="p">...</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">parametern</span>: <span class="kt">datan</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 访问方法
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">fun</span><span class="p">(</span><span class="kt">object</span><span class="p">.</span><span class="nx">data1</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="函数">函数
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kr">interface</span> <span class="nx">Interface</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="nx">parameter1</span>: <span class="kt">type1</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="nx">parameter2</span>: <span class="kt">type2</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="nx">parametern</span>: <span class="kt">typen</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1">// 约定接口后相应对象中应包含接口中的所有数据类型
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="kt">object</span><span class="o">:</span> <span class="nx">Interface</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="nx">parameter1</span>: <span class="kt">data1</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="nx">parameter2</span>: <span class="kt">data2</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="nx">parametern</span>: <span class="kt">datan</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">
+</span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="c1">// 访问方法
+</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="c1"></span><span class="nx">fun</span><span class="p">(</span><span class="kt">object</span><span class="p">.</span><span class="nx">data1</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="函数">函数
 </h2><h3 id="普通函数">普通函数
 </h3><ol>
 <li>定义函数</li>
 </ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">fun</span> <span class="p">(</span><span class="nx">parameter1</span>: <span class="kt">type1</span><span class="p">,</span> <span class="nx">parameter2</span>: <span class="kt">type2</span><span class="p">,...)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="p">...</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">value</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="2">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="ln">1</span><span class="cl"><span class="kd">function</span> <span class="nx">fun</span> <span class="p">(</span><span class="nx">parameter1</span>: <span class="kt">type1</span><span class="p">,</span> <span class="nx">parameter2</span>: <span class="kt">type2</span><span class="p">,...)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="k">return</span> <span class="nx">value</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ol start="2">
 <li>调用函数</li>
 </ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="nx">fun</span><span class="p">(</span><span class="nx">parameter1</span><span class="p">,</span> <span class="nx">parameter2</span><span class="p">,...)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">//可以使用变量接收函数返回值
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">text</span>: <span class="kt">string</span> <span class="o">=</span> <span class="nx">fun</span><span class="p">()</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="箭头函数">箭头函数
-</h3><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="c1">// 定义函数
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">fun</span> <span class="o">=</span> <span class="p">(</span><span class="nx">parameter1</span>: <span class="kt">type1</span><span class="p">,</span> <span class="nx">parameter2</span>: <span class="kt">type2</span><span class="p">,</span> <span class="p">...)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="p">...</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">value</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 调用函数
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">fun</span><span class="p">(</span><span class="nx">parameter1</span><span class="p">,</span> <span class="nx">parameter2</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="自定义构建函数">自定义构建函数
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="ln">1</span><span class="cl"><span class="nx">fun</span><span class="p">(</span><span class="nx">parameter1</span><span class="p">,</span> <span class="nx">parameter2</span><span class="p">,...)</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1">//可以使用变量接收函数返回值
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">text</span>: <span class="kt">string</span> <span class="o">=</span> <span class="nx">fun</span><span class="p">()</span>
+</span></span></code></pre></div><h3 id="箭头函数">箭头函数
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// 定义函数
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">fun</span> <span class="o">=</span> <span class="p">(</span><span class="nx">parameter1</span>: <span class="kt">type1</span><span class="p">,</span> <span class="nx">parameter2</span>: <span class="kt">type2</span><span class="p">,</span> <span class="p">...)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">    <span class="k">return</span> <span class="nx">value</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl">
+</span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="c1">// 调用函数
+</span></span></span><span class="line"><span class="ln">8</span><span class="cl"><span class="c1"></span><span class="nx">fun</span><span class="p">(</span><span class="nx">parameter1</span><span class="p">,</span> <span class="nx">parameter2</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="自定义构建函数">自定义构建函数
 </h3><p>可以将组件的构建函数封装到<code>@Builder</code>中。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kd">@Entry</span>
-</span></span><span class="line"><span class="cl"><span class="kd">@Component</span>
-</span></span><span class="line"><span class="cl"><span class="nx">struct</span> <span class="nx">Index</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// 定义自定义构建函数
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">@Builder</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">name</span> <span class="p">(</span><span class="nx">parameterList</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">component</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="nx">build() {</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">Column() {</span>
-</span></span><span class="line"><span class="cl">            <span class="c1">// 使用自定义构建函数
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">(</span><span class="nx">parameterList</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="组件">组件
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kd">@Entry</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kd">@Component</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="nx">struct</span> <span class="nx">Index</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="c1">// 定义自定义构建函数
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="c1"></span>    <span class="kd">@Builder</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="nx">name</span> <span class="p">(</span><span class="nx">parameterList</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">        <span class="nx">component</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="nx">build() {</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">        <span class="nx">Column() {</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">            <span class="c1">// 使用自定义构建函数
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="c1"></span>            <span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">(</span><span class="nx">parameterList</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="组件">组件
 </h2><p>ArkUI（方舟开发框架）：构建鸿蒙应用界面的框架</p>
 <p>组件：界面构建与显示的最小单位</p>
 <h3 id="两类基本组件">两类基本组件
 </h3><p>容器组件：控制布局</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="c1">// 写法：组件名() {}
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl"><span class="nx">Cloumn() {</span><span class="p">}</span>   <span class="c1">// 内容竖排
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">Row() {</span><span class="p">}</span>      <span class="c1">// 内容横排
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p><code>build() {}</code> 中只允许存在一个根组件，但组件允许嵌套使用。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// 写法：组件名() {}
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="nx">Cloumn() {</span><span class="p">}</span>   <span class="c1">// 内容竖排
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1"></span><span class="nx">Row() {</span><span class="p">}</span>      <span class="c1">// 内容横排
+</span></span></span></code></pre></div><p><code>build() {}</code> 中只允许存在一个根组件，但组件允许嵌套使用。</p>
 <p>内容组件：内容</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="c1">// 写法：组件名()
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl"><span class="nx">Text</span><span class="p">(</span><span class="s1">&#39;内容&#39;</span><span class="p">)</span>    <span class="c1">// 文本组件
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">Button</span><span class="p">()</span>       <span class="c1">// 按钮组件
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">Image</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span>     <span class="c1">// 图像组件
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">List</span><span class="p">()</span>         <span class="c1">// 可滚动组件
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="通用属性">通用属性
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// 写法：组件名()
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="nx">Text</span><span class="p">(</span><span class="s1">&#39;内容&#39;</span><span class="p">)</span>    <span class="c1">// 文本组件
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1"></span><span class="nx">Button</span><span class="p">()</span>       <span class="c1">// 按钮组件
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="c1"></span><span class="nx">Image</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span>     <span class="c1">// 图像组件
+</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="c1"></span><span class="nx">List</span><span class="p">()</span>         <span class="c1">// 可滚动组件
+</span></span></span></code></pre></div><h3 id="通用属性">通用属性
 </h3><div class="table-wrapper"><table>
   <thead>
       <tr>
@@ -870,43 +710,22 @@
   </tbody>
 </table></div>
 <p>给组件添加属性：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="nx">struct</span> <span class="nx">Index</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">build() {</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">Column() {</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">Text</span><span class="p">(</span><span class="s1">&#39;text&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">            <span class="p">.</span><span class="nx">width</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>     <span class="c1">// 宽度设为100vp
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="p">.</span><span class="nx">height</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>     <span class="c1">// 高度设为50vp
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="p">.</span><span class="nx">backgroundColor</span><span class="p">(</span><span class="nx">Color</span><span class="p">.</span><span class="nx">Orange</span><span class="p">)</span>    <span class="c1">// 背景色设为橙色
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="cm">/*
-</span></span></span><span class="line"><span class="cl"><span class="cm">            HarmonyOS的满屏尺寸：
-</span></span></span><span class="line"><span class="cl"><span class="cm">            .width(360)
-</span></span></span><span class="line"><span class="cl"><span class="cm">            .width(&#39;100%&#39;)
-</span></span></span><span class="line"><span class="cl"><span class="cm">            */</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="文本属性">文本属性
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="nx">struct</span> <span class="nx">Index</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="nx">build() {</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">        <span class="nx">Column() {</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">        <span class="nx">Text</span><span class="p">(</span><span class="s1">&#39;text&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">            <span class="p">.</span><span class="nx">width</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>     <span class="c1">// 宽度设为100vp
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="c1"></span>            <span class="p">.</span><span class="nx">height</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>     <span class="c1">// 高度设为50vp
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1"></span>            <span class="p">.</span><span class="nx">backgroundColor</span><span class="p">(</span><span class="nx">Color</span><span class="p">.</span><span class="nx">Orange</span><span class="p">)</span>    <span class="c1">// 背景色设为橙色
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1"></span>            <span class="cm">/*
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="cm">            HarmonyOS的满屏尺寸：
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="cm">            .width(360)
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="cm">            .width(&#39;100%&#39;)
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="cm">            */</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="文本属性">文本属性
 </h3><div class="table-wrapper"><table>
   <thead>
       <tr>
@@ -934,483 +753,221 @@
   </tbody>
 </table></div>
 <p>示例：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="nx">struct</span> <span class="nx">Index</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">build() {</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">Column() {</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">Text</span><span class="p">(</span><span class="s1">&#39;text&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">            <span class="p">.</span><span class="nx">fontSize</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">            <span class="p">.</span><span class="nx">fontColor</span><span class="p">(</span><span class="nx">Color</span><span class="p">.</span><span class="nx">Red</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">            <span class="p">.</span><span class="nx">fontWeight</span><span class="p">(</span><span class="mi">400</span><span class="p">)</span>    <span class="c1">// 默认粗细为400
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="图像属性">图像属性
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="nx">struct</span> <span class="nx">Index</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="nx">build() {</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">        <span class="nx">Column() {</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">        <span class="nx">Text</span><span class="p">(</span><span class="s1">&#39;text&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">            <span class="p">.</span><span class="nx">fontSize</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">            <span class="p">.</span><span class="nx">fontColor</span><span class="p">(</span><span class="nx">Color</span><span class="p">.</span><span class="nx">Red</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">            <span class="p">.</span><span class="nx">fontWeight</span><span class="p">(</span><span class="mi">400</span><span class="p">)</span>    <span class="c1">// 默认粗细为400
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1"></span>        <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="图像属性">图像属性
 </h3><ol>
 <li>图片路径</li>
 </ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="c1">// 本地路径：设图片在entry/src/main/resource/media文件夹中
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">Image</span><span class="p">(</span><span class="nx">$r</span><span class="p">(</span><span class="s1">&#39;app.media.xx&#39;</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 网络路径
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">Image</span><span class="p">(</span><span class="nx">www</span><span class="p">.</span><span class="nx">example</span><span class="p">.</span><span class="nx">com</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="2">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// 本地路径：设图片在entry/src/main/resource/media文件夹中
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"></span><span class="nx">Image</span><span class="p">(</span><span class="nx">$r</span><span class="p">(</span><span class="s1">&#39;app.media.xx&#39;</span><span class="p">))</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1">// 网络路径
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="c1"></span><span class="nx">Image</span><span class="p">(</span><span class="nx">www</span><span class="p">.</span><span class="nx">example</span><span class="p">.</span><span class="nx">com</span><span class="p">)</span>
+</span></span></code></pre></div><ol start="2">
 <li>图片样式</li>
 </ol>
 <p>可使用通用属性。</p>
 <h3 id="内外边距属性">内外边距属性
 </h3><p>内边距：<code>padding</code>，拉开内容与组件边缘的距离。</p>
 <p>外边距：<code>margin</code>，拉开两个组件之间的距离。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="c1">// 四个方向间距相同
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">component</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nx">padding</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nx">margin</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 间距不同
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">component</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nx">padding</span><span class="p">({</span><span class="nx">top</span>: <span class="kt">10</span><span class="p">,</span> <span class="nx">bottom</span>: <span class="kt">20</span><span class="p">,</span> <span class="nx">left</span>: <span class="kt">30</span><span class="p">,</span> <span class="nx">right</span>: <span class="kt">40</span><span class="p">})</span>
-</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nx">margin</span><span class="p">({</span><span class="nx">top</span>: <span class="kt">10</span><span class="p">,</span> <span class="nx">bottom</span>: <span class="kt">20</span><span class="p">,</span> <span class="nx">left</span>: <span class="kt">30</span><span class="p">,</span> <span class="nx">right</span>: <span class="kt">40</span><span class="p">})</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>示例：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="nx">struct</span> <span class="nx">Index</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">build() {</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">Column() {</span>
-</span></span><span class="line"><span class="cl">            <span class="nx">Button</span><span class="p">(</span><span class="s1">&#39;登录&#39;</span><span class="p">)</span> 
-</span></span><span class="line"><span class="cl">                <span class="p">.</span><span class="nx">width</span><span class="p">(</span><span class="s1">&#39;100%&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                <span class="p">.</span><span class="nx">margin</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">            <span class="nx">Button</span><span class="p">(</span><span class="s1">&#39;注册&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                <span class="p">.</span><span class="nx">width</span><span class="p">(</span><span class="s1">&#39;100%&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">            <span class="p">.</span><span class="nx">backgroundColor</span><span class="p">(</span><span class="s1">&#39;#DDDDDD&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">            <span class="p">.</span><span class="nx">padding</span><span class="p">({</span>
-</span></span><span class="line"><span class="cl">                <span class="nx">top</span>: <span class="kt">10</span><span class="p">,</span> 
-</span></span><span class="line"><span class="cl">                <span class="nx">bottom</span>: <span class="kt">20</span><span class="p">,</span> 
-</span></span><span class="line"><span class="cl">                <span class="nx">left</span>: <span class="kt">30</span><span class="p">,</span> 
-</span></span><span class="line"><span class="cl">                <span class="nx">right</span>: <span class="kt">30</span>
-</span></span><span class="line"><span class="cl">            <span class="p">})</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>  
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="边框属性">边框属性
-</h3><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="nx">component</span><span class="p">()</span> 
-</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nx">border</span><span class="p">({</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">width</span><span class="o">:</span>    <span class="c1">// 粗细
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">color</span><span class="o">:</span>    <span class="c1">// 颜色
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">style</span><span class="o">:</span>    <span class="c1">// 线条样式
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">radius</span><span class="o">:</span>   <span class="c1">// 圆角
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">})</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="实例歌曲列表">实例：歌曲列表
-</h3><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span><span class="lnt">65
-</span><span class="lnt">66
-</span><span class="lnt">67
-</span><span class="lnt">68
-</span><span class="lnt">69
-</span><span class="lnt">70
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kd">@Entry</span>
-</span></span><span class="line"><span class="cl"><span class="kd">@Component</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nx">struct</span> <span class="nx">Index</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">build() {</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">Column() {</span>
-</span></span><span class="line"><span class="cl">            <span class="nx">Text</span><span class="p">(</span><span class="s1">&#39;猜你喜欢&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                <span class="p">.</span><span class="nx">fontColor</span><span class="p">(</span><span class="s1">&#39;#fff&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                <span class="p">.</span><span class="nx">width</span><span class="p">(</span><span class="s1">&#39;100%&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                <span class="p">.</span><span class="nx">margin</span><span class="p">({</span><span class="nx">bottom</span>: <span class="kt">10</span><span class="p">})</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="nx">List() {</span>
-</span></span><span class="line"><span class="cl">                <span class="c1">// 音乐卡片1
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="nx">ListItem() {</span>
-</span></span><span class="line"><span class="cl">                    <span class="nx">Row() {</span>
-</span></span><span class="line"><span class="cl">                        <span class="c1">// 音乐封面
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                        <span class="nx">Image</span><span class="p">(</span><span class="nx">$r</span><span class="p">(</span><span class="s1">&#39;app.media.1&#39;</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">                            <span class="p">.</span><span class="nx">width</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                            <span class="p">.</span><span class="nx">border</span><span class="p">({</span><span class="nx">radius</span>: <span class="kt">8</span><span class="p">})</span>
-</span></span><span class="line"><span class="cl">                            <span class="p">.</span><span class="nx">margin</span><span class="p">({</span><span class="nx">right</span>: <span class="kt">10</span><span class="p">})</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">                        <span class="c1">// 音乐信息
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                        <span class="nx">Column() {</span>
-</span></span><span class="line"><span class="cl">                            <span class="nx">Text</span><span class="p">(</span><span class="s1">&#39;xxx&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                                <span class="p">.</span><span class="nx">fontColor</span><span class="p">(</span><span class="s1">&#39;#F3F3F3&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                                <span class="p">.</span><span class="nx">width</span><span class="p">(</span><span class="s1">&#39;100%&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                                <span class="p">.</span><span class="nx">fontWeight</span><span class="p">(</span><span class="mi">700</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                                <span class="p">.</span><span class="nx">margin</span><span class="p">({</span><span class="nx">bottom</span>: <span class="kt">15</span><span class="p">})</span>
-</span></span><span class="line"><span class="cl">                            <span class="nx">Row() {</span>
-</span></span><span class="line"><span class="cl">                                <span class="nx">Text</span><span class="p">(</span><span class="s1">&#39;VIP&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                                    <span class="p">.</span><span class="nx">fontColor</span><span class="p">(</span><span class="s1">&#39;#9ABE28&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                                    <span class="p">.</span><span class="nx">border</span><span class="p">({</span>
-</span></span><span class="line"><span class="cl">                                        <span class="nx">width</span>: <span class="kt">1</span><span class="p">,</span> <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;#9ABE28&#39;</span><span class="p">,</span> <span class="nx">radius</span>: <span class="kt">12</span>
-</span></span><span class="line"><span class="cl">                                    <span class="p">})</span>
-</span></span><span class="line"><span class="cl">                                    <span class="p">.</span><span class="nx">padding</span><span class="p">({</span>
-</span></span><span class="line"><span class="cl">                                        <span class="nx">left</span>: <span class="kt">5</span><span class="p">,</span> <span class="nx">right</span>: <span class="kt">5</span><span class="p">,</span> <span class="nx">top</span>: <span class="kt">3</span><span class="p">,</span> <span class="nx">bottom</span>: <span class="kt">3</span>
-</span></span><span class="line"><span class="cl">                                    <span class="p">})</span>
-</span></span><span class="line"><span class="cl">                                    <span class="p">.</span><span class="nx">margin</span><span class="p">({</span><span class="nx">right</span>: <span class="kt">10</span><span class="p">})</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">                                <span class="nx">Text</span><span class="p">(</span><span class="s1">&#39;Singer&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                            <span class="p">}</span>
-</span></span><span class="line"><span class="cl">                                <span class="p">.</span><span class="nx">width</span><span class="p">(</span><span class="s1">&#39;100%&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">                            <span class="p">.</span><span class="nx">layoutWeight</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>    <span class="c1">// 占用所有剩余空间
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">                        <span class="c1">// 更多信息
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                        <span class="nx">Image</span><span class="p">(</span><span class="nx">$r</span><span class="p">(</span><span class="s1">&#39;app.media.ic_more&#39;</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">                            <span class="p">.</span><span class="nx">width</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                            <span class="p">.</span><span class="nx">fillColor</span><span class="p">(</span><span class="s1">&#39;#FEFEFE&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">                    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">                        <span class="p">.</span><span class="nx">width</span><span class="p">(</span><span class="s1">&#39;100%&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                        <span class="p">.</span><span class="nx">height</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                        <span class="p">.</span><span class="nx">backgroundColor</span><span class="p">(</span><span class="nx">Color</span><span class="p">.</span><span class="nx">Pink</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                        <span class="p">.</span><span class="nx">margin</span><span class="p">({</span><span class="nx">bottom</span>: <span class="kt">10</span><span class="p">})</span>
-</span></span><span class="line"><span class="cl">                    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">                <span class="p">}</span>
-</span></span><span class="line"><span class="cl">            <span class="p">}</span>
-</span></span><span class="line"><span class="cl">                <span class="p">.</span><span class="nx">width</span><span class="p">(</span><span class="s1">&#39;100%&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                <span class="p">.</span><span class="nx">height</span><span class="p">(</span><span class="s1">&#39;100%&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                <span class="p">.</span><span class="nx">backgroundColor</span><span class="p">(</span><span class="s1">&#39;#131313&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                <span class="p">.</span><span class="nx">padding</span><span class="p">({</span><span class="nx">left</span>: <span class="kt">10</span><span class="p">,</span> <span class="nx">right</span>: <span class="kt">10</span><span class="p">})</span>
-</span></span><span class="line"><span class="cl">                <span class="cm">/* 扩充安全区
-</span></span></span><span class="line"><span class="cl"><span class="cm">                .expandSafeArea(
-</span></span></span><span class="line"><span class="cl"><span class="cm">                    [SafeAreaType.SYSTEM], 
-</span></span></span><span class="line"><span class="cl"><span class="cm">                    [SafeAreaType.TOP, SafeAreaType.BOTTOM]
-</span></span></span><span class="line"><span class="cl"><span class="cm">                ) 
-</span></span></span><span class="line"><span class="cl"><span class="cm">                */</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="控制结构">控制结构
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// 四个方向间距相同
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"></span><span class="nx">component</span><span class="p">()</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="p">.</span><span class="nx">padding</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">    <span class="p">.</span><span class="nx">margin</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">
+</span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="c1">// 间距不同
+</span></span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="c1"></span><span class="nx">component</span><span class="p">()</span>
+</span></span><span class="line"><span class="ln">8</span><span class="cl">    <span class="p">.</span><span class="nx">padding</span><span class="p">({</span><span class="nx">top</span>: <span class="kt">10</span><span class="p">,</span> <span class="nx">bottom</span>: <span class="kt">20</span><span class="p">,</span> <span class="nx">left</span>: <span class="kt">30</span><span class="p">,</span> <span class="nx">right</span>: <span class="kt">40</span><span class="p">})</span>
+</span></span><span class="line"><span class="ln">9</span><span class="cl">    <span class="p">.</span><span class="nx">margin</span><span class="p">({</span><span class="nx">top</span>: <span class="kt">10</span><span class="p">,</span> <span class="nx">bottom</span>: <span class="kt">20</span><span class="p">,</span> <span class="nx">left</span>: <span class="kt">30</span><span class="p">,</span> <span class="nx">right</span>: <span class="kt">40</span><span class="p">})</span>
+</span></span></code></pre></div><p>示例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="nx">struct</span> <span class="nx">Index</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="nx">build() {</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">        <span class="nx">Column() {</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">            <span class="nx">Button</span><span class="p">(</span><span class="s1">&#39;登录&#39;</span><span class="p">)</span> 
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">                <span class="p">.</span><span class="nx">width</span><span class="p">(</span><span class="s1">&#39;100%&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">                <span class="p">.</span><span class="nx">margin</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">            <span class="nx">Button</span><span class="p">(</span><span class="s1">&#39;注册&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">                <span class="p">.</span><span class="nx">width</span><span class="p">(</span><span class="s1">&#39;100%&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">            <span class="p">.</span><span class="nx">backgroundColor</span><span class="p">(</span><span class="s1">&#39;#DDDDDD&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">            <span class="p">.</span><span class="nx">padding</span><span class="p">({</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">                <span class="nx">top</span>: <span class="kt">10</span><span class="p">,</span> 
+</span></span><span class="line"><span class="ln">13</span><span class="cl">                <span class="nx">bottom</span>: <span class="kt">20</span><span class="p">,</span> 
+</span></span><span class="line"><span class="ln">14</span><span class="cl">                <span class="nx">left</span>: <span class="kt">30</span><span class="p">,</span> 
+</span></span><span class="line"><span class="ln">15</span><span class="cl">                <span class="nx">right</span>: <span class="kt">30</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">            <span class="p">})</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="p">}</span>  
+</span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="边框属性">边框属性
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="ln">1</span><span class="cl"><span class="nx">component</span><span class="p">()</span> 
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="p">.</span><span class="nx">border</span><span class="p">({</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">        <span class="nx">width</span><span class="o">:</span>    <span class="c1">// 粗细
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1"></span>        <span class="nx">color</span><span class="o">:</span>    <span class="c1">// 颜色
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="c1"></span>        <span class="nx">style</span><span class="o">:</span>    <span class="c1">// 线条样式
+</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="c1"></span>        <span class="nx">radius</span><span class="o">:</span>   <span class="c1">// 圆角
+</span></span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="c1"></span>    <span class="p">})</span>
+</span></span></code></pre></div><h3 id="实例歌曲列表">实例：歌曲列表
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kd">@Entry</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kd">@Component</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="nx">struct</span> <span class="nx">Index</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="nx">build() {</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">        <span class="nx">Column() {</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">            <span class="nx">Text</span><span class="p">(</span><span class="s1">&#39;猜你喜欢&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">                <span class="p">.</span><span class="nx">fontColor</span><span class="p">(</span><span class="s1">&#39;#fff&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">                <span class="p">.</span><span class="nx">width</span><span class="p">(</span><span class="s1">&#39;100%&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">                <span class="p">.</span><span class="nx">margin</span><span class="p">({</span><span class="nx">bottom</span>: <span class="kt">10</span><span class="p">})</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">
+</span></span><span class="line"><span class="ln">12</span><span class="cl">            <span class="nx">List() {</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">                <span class="c1">// 音乐卡片1
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="c1"></span>                <span class="nx">ListItem() {</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">                    <span class="nx">Row() {</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">                        <span class="c1">// 音乐封面
+</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="c1"></span>                        <span class="nx">Image</span><span class="p">(</span><span class="nx">$r</span><span class="p">(</span><span class="s1">&#39;app.media.1&#39;</span><span class="p">))</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">                            <span class="p">.</span><span class="nx">width</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">                            <span class="p">.</span><span class="nx">border</span><span class="p">({</span><span class="nx">radius</span>: <span class="kt">8</span><span class="p">})</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">                            <span class="p">.</span><span class="nx">margin</span><span class="p">({</span><span class="nx">right</span>: <span class="kt">10</span><span class="p">})</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">
+</span></span><span class="line"><span class="ln">22</span><span class="cl">                        <span class="c1">// 音乐信息
+</span></span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="c1"></span>                        <span class="nx">Column() {</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">                            <span class="nx">Text</span><span class="p">(</span><span class="s1">&#39;xxx&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl">                                <span class="p">.</span><span class="nx">fontColor</span><span class="p">(</span><span class="s1">&#39;#F3F3F3&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">                                <span class="p">.</span><span class="nx">width</span><span class="p">(</span><span class="s1">&#39;100%&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl">                                <span class="p">.</span><span class="nx">fontWeight</span><span class="p">(</span><span class="mi">700</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">                                <span class="p">.</span><span class="nx">margin</span><span class="p">({</span><span class="nx">bottom</span>: <span class="kt">15</span><span class="p">})</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl">                            <span class="nx">Row() {</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl">                                <span class="nx">Text</span><span class="p">(</span><span class="s1">&#39;VIP&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">31</span><span class="cl">                                    <span class="p">.</span><span class="nx">fontColor</span><span class="p">(</span><span class="s1">&#39;#9ABE28&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">32</span><span class="cl">                                    <span class="p">.</span><span class="nx">border</span><span class="p">({</span>
+</span></span><span class="line"><span class="ln">33</span><span class="cl">                                        <span class="nx">width</span>: <span class="kt">1</span><span class="p">,</span> <span class="nx">color</span><span class="o">:</span> <span class="s1">&#39;#9ABE28&#39;</span><span class="p">,</span> <span class="nx">radius</span>: <span class="kt">12</span>
+</span></span><span class="line"><span class="ln">34</span><span class="cl">                                    <span class="p">})</span>
+</span></span><span class="line"><span class="ln">35</span><span class="cl">                                    <span class="p">.</span><span class="nx">padding</span><span class="p">({</span>
+</span></span><span class="line"><span class="ln">36</span><span class="cl">                                        <span class="nx">left</span>: <span class="kt">5</span><span class="p">,</span> <span class="nx">right</span>: <span class="kt">5</span><span class="p">,</span> <span class="nx">top</span>: <span class="kt">3</span><span class="p">,</span> <span class="nx">bottom</span>: <span class="kt">3</span>
+</span></span><span class="line"><span class="ln">37</span><span class="cl">                                    <span class="p">})</span>
+</span></span><span class="line"><span class="ln">38</span><span class="cl">                                    <span class="p">.</span><span class="nx">margin</span><span class="p">({</span><span class="nx">right</span>: <span class="kt">10</span><span class="p">})</span>
+</span></span><span class="line"><span class="ln">39</span><span class="cl">
+</span></span><span class="line"><span class="ln">40</span><span class="cl">                                <span class="nx">Text</span><span class="p">(</span><span class="s1">&#39;Singer&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">41</span><span class="cl">                            <span class="p">}</span>
+</span></span><span class="line"><span class="ln">42</span><span class="cl">                                <span class="p">.</span><span class="nx">width</span><span class="p">(</span><span class="s1">&#39;100%&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">43</span><span class="cl">                        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">44</span><span class="cl">                            <span class="p">.</span><span class="nx">layoutWeight</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>    <span class="c1">// 占用所有剩余空间
+</span></span></span><span class="line"><span class="ln">45</span><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="ln">46</span><span class="cl">                        <span class="c1">// 更多信息
+</span></span></span><span class="line"><span class="ln">47</span><span class="cl"><span class="c1"></span>                        <span class="nx">Image</span><span class="p">(</span><span class="nx">$r</span><span class="p">(</span><span class="s1">&#39;app.media.ic_more&#39;</span><span class="p">))</span>
+</span></span><span class="line"><span class="ln">48</span><span class="cl">                            <span class="p">.</span><span class="nx">width</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">49</span><span class="cl">                            <span class="p">.</span><span class="nx">fillColor</span><span class="p">(</span><span class="s1">&#39;#FEFEFE&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">50</span><span class="cl">
+</span></span><span class="line"><span class="ln">51</span><span class="cl">                    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">52</span><span class="cl">                        <span class="p">.</span><span class="nx">width</span><span class="p">(</span><span class="s1">&#39;100%&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">53</span><span class="cl">                        <span class="p">.</span><span class="nx">height</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">54</span><span class="cl">                        <span class="p">.</span><span class="nx">backgroundColor</span><span class="p">(</span><span class="nx">Color</span><span class="p">.</span><span class="nx">Pink</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">55</span><span class="cl">                        <span class="p">.</span><span class="nx">margin</span><span class="p">({</span><span class="nx">bottom</span>: <span class="kt">10</span><span class="p">})</span>
+</span></span><span class="line"><span class="ln">56</span><span class="cl">                    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">57</span><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="ln">58</span><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="ln">59</span><span class="cl">                <span class="p">.</span><span class="nx">width</span><span class="p">(</span><span class="s1">&#39;100%&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">60</span><span class="cl">                <span class="p">.</span><span class="nx">height</span><span class="p">(</span><span class="s1">&#39;100%&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">61</span><span class="cl">                <span class="p">.</span><span class="nx">backgroundColor</span><span class="p">(</span><span class="s1">&#39;#131313&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">62</span><span class="cl">                <span class="p">.</span><span class="nx">padding</span><span class="p">({</span><span class="nx">left</span>: <span class="kt">10</span><span class="p">,</span> <span class="nx">right</span>: <span class="kt">10</span><span class="p">})</span>
+</span></span><span class="line"><span class="ln">63</span><span class="cl">                <span class="cm">/* 扩充安全区
+</span></span></span><span class="line"><span class="ln">64</span><span class="cl"><span class="cm">                .expandSafeArea(
+</span></span></span><span class="line"><span class="ln">65</span><span class="cl"><span class="cm">                    [SafeAreaType.SYSTEM], 
+</span></span></span><span class="line"><span class="ln">66</span><span class="cl"><span class="cm">                    [SafeAreaType.TOP, SafeAreaType.BOTTOM]
+</span></span></span><span class="line"><span class="ln">67</span><span class="cl"><span class="cm">                ) 
+</span></span></span><span class="line"><span class="ln">68</span><span class="cl"><span class="cm">                */</span>
+</span></span><span class="line"><span class="ln">69</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">70</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="控制结构">控制结构
 </h2><h3 id="分支语句">分支语句
 </h3><ol>
 <li>if分支语句</li>
 </ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nx">condition1</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">code</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">condition2</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">code</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">code</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="2">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nx">condition1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="nx">code</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">condition2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">    <span class="nx">code</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl">    <span class="nx">code</span>
+</span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ol start="2">
 <li>条件表达式</li>
 </ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="nx">condition</span> <span class="o">?</span> <span class="nx">code1</span> : <span class="kt">code2</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="cm">/* 等价于
-</span></span></span><span class="line"><span class="cl"><span class="cm">if (condition) {
-</span></span></span><span class="line"><span class="cl"><span class="cm">    code1
-</span></span></span><span class="line"><span class="cl"><span class="cm">} else {
-</span></span></span><span class="line"><span class="cl"><span class="cm">    code2
-</span></span></span><span class="line"><span class="cl"><span class="cm">}
-</span></span></span><span class="line"><span class="cl"><span class="cm">
-</span></span></span><span class="line"><span class="cl"><span class="cm">可用变量接收：let num: number = a&gt;b ? a : b
-</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="条件渲染">条件渲染
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="nx">condition</span> <span class="o">?</span> <span class="nx">code1</span> : <span class="kt">code2</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="cm">/* 等价于
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="cm">if (condition) {
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="cm">    code1
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="cm">} else {
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="cm">    code2
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="cm">}
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="cm">
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="cm">可用变量接收：let num: number = a&gt;b ? a : b
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="cm">*/</span>
+</span></span></code></pre></div><h3 id="条件渲染">条件渲染
 </h3><p>实现满足某个条件再渲染组件的功能。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nx">condition1</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">component1</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">condition2</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">component2</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">component3</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="循环渲染">循环渲染
-</h3><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="nx">ForEach</span><span class="p">(</span><span class="nx">array</span><span class="p">,</span> <span class="p">(</span><span class="nx">item</span>: <span class="kt">type</span><span class="p">,</span> <span class="nx">index</span>: <span class="kt">number</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">component</span>
-</span></span><span class="line"><span class="cl"><span class="p">})</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// item为数组中的元素，index为数组元素下标
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>示例：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;text1&#39;</span><span class="p">,</span> <span class="s1">&#39;text2&#39;</span><span class="p">,</span> <span class="s1">&#39;text3&#39;</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">@Entry</span>
-</span></span><span class="line"><span class="cl"><span class="kd">@Component</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nx">struct</span> <span class="nx">Index</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">build() {</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">Column() {</span>
-</span></span><span class="line"><span class="cl">            <span class="nx">ForEach</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="p">(</span><span class="nx">item</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">index</span>: <span class="kt">number</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="nx">Text</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span>     
-</span></span><span class="line"><span class="cl">            <span class="p">})</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="状态管理">状态管理
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nx">condition1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="nx">component1</span><span class="p">()</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">condition2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">    <span class="nx">component2</span><span class="p">()</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl">    <span class="nx">component3</span><span class="p">()</span>
+</span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="循环渲染">循环渲染
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="ln">1</span><span class="cl"><span class="nx">ForEach</span><span class="p">(</span><span class="nx">array</span><span class="p">,</span> <span class="p">(</span><span class="nx">item</span>: <span class="kt">type</span><span class="p">,</span> <span class="nx">index</span>: <span class="kt">number</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="nx">component</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="p">})</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">
+</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="c1">// item为数组中的元素，index为数组元素下标
+</span></span></span></code></pre></div><p>示例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kd">let</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;text1&#39;</span><span class="p">,</span> <span class="s1">&#39;text2&#39;</span><span class="p">,</span> <span class="s1">&#39;text3&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="kd">@Entry</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="kd">@Component</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="nx">struct</span> <span class="nx">Index</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="nx">build() {</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">        <span class="nx">Column() {</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">            <span class="nx">ForEach</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="p">(</span><span class="nx">item</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">index</span>: <span class="kt">number</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">                <span class="nx">Text</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span>     
+</span></span><span class="line"><span class="ln">11</span><span class="cl">            <span class="p">})</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="状态管理">状态管理
 </h2><p>应用的运行时状态是参数，当参数改变时，UI渲染刷新。</p>
 <p>状态变量：使用装饰器修饰，状态变量数据改变会引起UI的渲染刷新。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="nx">component</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// 为组件添加事件
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">.</span><span class="nx">event</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">code</span>
-</span></span><span class="line"><span class="cl">    <span class="p">})</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>示例：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="c1">// 启用HarmonyOS的V2状态管理
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">@ComponentV2</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nx">struct</span> <span class="nx">Index</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">@Local</span> <span class="nx">num</span>: <span class="kt">number</span> <span class="o">=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// 状态必须设置数据类型
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// 状态必须设置初始值
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">...</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// 定义事件
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">Text</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">num</span><span class="p">.</span><span class="nx">toString</span><span class="p">())</span>
-</span></span><span class="line"><span class="cl">            <span class="c1">// 添加点击事件
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="p">.</span><span class="nx">onClick</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="k">this</span><span class="p">.</span><span class="nx">num</span> <span class="o">++</span>
-</span></span><span class="line"><span class="cl">            <span class="p">})</span>
-</span></span><span class="line"><span class="cl">    <span class="p">...</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="ln">1</span><span class="cl"><span class="nx">component</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="c1">// 为组件添加事件
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"></span>    <span class="p">.</span><span class="nx">event</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">        <span class="nx">code</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">    <span class="p">})</span>
+</span></span></code></pre></div><p>示例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1">// 启用HarmonyOS的V2状态管理
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="c1"></span><span class="kd">@ComponentV2</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="nx">struct</span> <span class="nx">Index</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="kd">@Local</span> <span class="nx">num</span>: <span class="kt">number</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="c1">// 状态必须设置数据类型
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1"></span>    <span class="c1">// 状态必须设置初始值
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1"></span>    <span class="p">...</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">        <span class="c1">// 定义事件
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="c1"></span>        <span class="nx">Text</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">num</span><span class="p">.</span><span class="nx">toString</span><span class="p">())</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">            <span class="c1">// 添加点击事件
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="c1"></span>            <span class="p">.</span><span class="nx">onClick</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">                <span class="k">this</span><span class="p">.</span><span class="nx">num</span> <span class="o">++</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">            <span class="p">})</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div>
 </section>
 
 
@@ -1638,7 +1195,7 @@
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.eaf1211e4c7db355f37ceea53df13700e1b77fbcc3cfe8c1c1f69e4468a752e1.js" defer></script><script type="text/javascript" src="/ts/custom.f2979a93a325fecf9605263bd141398a311c8e23388ed7dcff74f92f7e632866.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.ff6ce53abf951a5e90047527ccdcb7a54550ecef44d92e069dabdcc5c2171610.js" defer></script><script type="text/javascript" src="/ts/custom.f2979a93a325fecf9605263bd141398a311c8e23388ed7dcff74f92f7e632866.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');
@@ -1687,7 +1244,7 @@
         }, {
             name: '问月',
             artist: '葫芦童声;妞妞合唱团',
-            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VRWGtMS0hmUnE1Tm1ZS09RNll0R2JrQmM2Yk94WWNrZUYwSVVkcHhXekFuOWc_ZT0zQ0pmYTY.jpg',
+            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VRWGtMS0hmUnE1Tm1ZS09RNll0R2JrQmM2Yk94WWNrZUYwSVVkcHhXekFuOWc_ZT1hYVB0S1g.mp3',
             lrc: '/music/问月.lrc',
             cover: '/music.png'
 

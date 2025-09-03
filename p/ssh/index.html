@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/ssh/'>
 
-<link rel="stylesheet" href="/scss/style.min.f4e1c40f20213da0bb8e8974f02def2eac10a4f410bf605c20db319d9ef333c5.css"><meta property='og:title' content="SSH配置简介">
+<link rel="stylesheet" href="/scss/style.min.d5f0afff969146387d200fea3eb333f0bf05cc9fd465feedf5111202537029d6.css"><meta property='og:title' content="SSH配置简介">
 <meta property='og:description' content="配置Linux，Windows，WSL系统的SSH连接">
 <meta property='og:url' content='https://5882886.github.io/p/ssh/'>
 <meta property='og:site_name' content='RunicDolphin806的博客'>
@@ -608,155 +608,62 @@
 <li>启动并配置 SSH 服务</li>
 </ol>
 <p>管理员权限打开Powershell，输入：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">Start-Service</span> <span class="n">sshd</span>
-</span></span><span class="line"><span class="cl"><span class="nb">Set-Service</span> <span class="n">-Name</span> <span class="n">sshd</span> <span class="n">-StartupType</span> <span class="s1">&#39;Automatic&#39;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>然后开放防火墙端口（默认22）：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">New-NetFirewallRule</span> <span class="n">-Name</span> <span class="n">sshd</span> <span class="n">-DisplayName</span> <span class="s1">&#39;OpenSSH Server&#39;</span> <span class="n">-Enabled</span> <span class="n">True</span> <span class="n">-Direction</span> <span class="n">Inbound</span> <span class="n">-Protocol</span> <span class="n">TCP</span> <span class="n">-Action</span> <span class="n">Allow</span> <span class="n">-LocalPort</span> <span class="mf">22</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="linux系统">Linux系统
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">Start-Service</span> <span class="n">sshd</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">Set-Service</span> <span class="n">-Name</span> <span class="n">sshd</span> <span class="n">-StartupType</span> <span class="s1">&#39;Automatic&#39;</span>
+</span></span></code></pre></div><p>然后开放防火墙端口（默认22）：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">New-NetFirewallRule</span> <span class="n">-Name</span> <span class="n">sshd</span> <span class="n">-DisplayName</span> <span class="s1">&#39;OpenSSH Server&#39;</span> <span class="n">-Enabled</span> <span class="n">True</span> <span class="n">-Direction</span> <span class="n">Inbound</span> <span class="n">-Protocol</span> <span class="n">TCP</span> <span class="n">-Action</span> <span class="n">Allow</span> <span class="n">-LocalPort</span> <span class="mf">22</span>
+</span></span></code></pre></div><h3 id="linux系统">Linux系统
 </h3><ol>
 <li>安装 OpenSSH Server
 如果尚未安装，运行：</li>
 </ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt update
-</span></span><span class="line"><span class="cl">sudo apt install openssh-server
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="2">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo apt update
+</span></span><span class="line"><span class="ln">2</span><span class="cl">sudo apt install openssh-server
+</span></span></code></pre></div><ol start="2">
 <li>启动 SSH 服务</li>
 </ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo systemctl start ssh
-</span></span><span class="line"><span class="cl">sudo systemctl <span class="nb">enable</span> ssh  <span class="c1"># 开机自启</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>确认服务正在运行：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo systemctl status ssh
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>输出中应显示 active (running)。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo systemctl start ssh
+</span></span><span class="line"><span class="ln">2</span><span class="cl">sudo systemctl <span class="nb">enable</span> ssh  <span class="c1"># 开机自启</span>
+</span></span></code></pre></div><p>确认服务正在运行：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo systemctl status ssh
+</span></span></code></pre></div><p>输出中应显示 active (running)。</p>
 <ol start="3">
 <li>配置防火墙
 允许 SSH 默认端口（22）：</li>
 </ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo ufw <span class="nb">enable</span>  <span class="c1"># 如果防火墙未启用</span>
-</span></span><span class="line"><span class="cl">sudo ufw allow ssh
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="4">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo ufw <span class="nb">enable</span>  <span class="c1"># 如果防火墙未启用</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">sudo ufw allow ssh
+</span></span></code></pre></div><ol start="4">
 <li>获取服务器的IP地址</li>
 </ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ip a  <span class="c1"># 或 hostname -I</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>找到类似 192.168.x.x 的局域网 IP 或公网 IP（如果适用）。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">ip a  <span class="c1"># 或 hostname -I</span>
+</span></span></code></pre></div><p>找到类似 192.168.x.x 的局域网 IP 或公网 IP（如果适用）。</p>
 <h3 id="wsl系统">WSL系统
 </h3><ol>
 <li>安装 OpenSSH Server
 打开 WSL 中的 Ubuntu 终端，执行：</li>
 </ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt update
-</span></span><span class="line"><span class="cl">sudo apt install openssh-server
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="2">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo apt update
+</span></span><span class="line"><span class="ln">2</span><span class="cl">sudo apt install openssh-server
+</span></span></code></pre></div><ol start="2">
 <li>配置 SSH
 编辑配置文件：</li>
 </ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo nano /etc/ssh/sshd_config
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>确保以下配置项存在且未被注释：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">Port <span class="m">22</span>
-</span></span><span class="line"><span class="cl">PasswordAuthentication yes
-</span></span><span class="line"><span class="cl">PermitRootLogin yes
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="3">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo nano /etc/ssh/sshd_config
+</span></span></code></pre></div><p>确保以下配置项存在且未被注释：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">Port <span class="m">22</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">PasswordAuthentication yes
+</span></span><span class="line"><span class="ln">3</span><span class="cl">PermitRootLogin yes
+</span></span></code></pre></div><ol start="3">
 <li>启动 SSH 服务
 在 WSL 中，不能使用 systemctl，请使用：</li>
 </ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo service ssh start
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>验证服务是否运行：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo service ssh status
-</span></span><span class="line"><span class="cl"><span class="c1"># 或使用</span>
-</span></span><span class="line"><span class="cl">ps aux <span class="p">|</span> grep sshd
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="4">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo service ssh start
+</span></span></code></pre></div><p>验证服务是否运行：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo service ssh status
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"># 或使用</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">ps aux <span class="p">|</span> grep sshd
+</span></span></code></pre></div><ol start="4">
 <li>使用WSL的注意事项</li>
 </ol>
 <p>WSL系统是Windows的子系统，在Windows开机时，WSL的ssh功能默认并不能开启，此时需要将WSL的ssh注册为系统服务实现Windows开机时启用WSL的ssh功能。</p>
@@ -799,39 +706,15 @@
 </a></p>
 <h2 id="连接-ssh">连接 SSH
 </h2><p>在 Windows 本地测试：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh 用户名@localhost
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>从局域网其他设备连接：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh 用户名@&lt;Windows主机IP&gt;
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>VScode的SSH配置文件:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Host xxxx                       # Host的名称，可自定义
-</span></span><span class="line"><span class="cl">    HostName xxx.xxx.xxx.xxx    # SSH服务端的IP地址
-</span></span><span class="line"><span class="cl">    User xxxxx                  # 登录的用户名
-</span></span><span class="line"><span class="cl">    Port xxxxx                  # SSH服务端的IP端口
-</span></span></code></pre></td></tr></table>
-</div>
-</div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">ssh 用户名@localhost
+</span></span></code></pre></div><p>从局域网其他设备连接：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">ssh 用户名@&lt;Windows主机IP&gt;
+</span></span></code></pre></div><p>VScode的SSH配置文件:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">Host xxxx                       # Host的名称，可自定义
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    HostName xxx.xxx.xxx.xxx    # SSH服务端的IP地址
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    User xxxxx                  # 登录的用户名
+</span></span><span class="line"><span class="ln">4</span><span class="cl">    Port xxxxx                  # SSH服务端的IP端口
+</span></span></code></pre></div>
 </section>
 
 
@@ -1059,7 +942,7 @@
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.eaf1211e4c7db355f37ceea53df13700e1b77fbcc3cfe8c1c1f69e4468a752e1.js" defer></script><script type="text/javascript" src="/ts/custom.f2979a93a325fecf9605263bd141398a311c8e23388ed7dcff74f92f7e632866.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.ff6ce53abf951a5e90047527ccdcb7a54550ecef44d92e069dabdcc5c2171610.js" defer></script><script type="text/javascript" src="/ts/custom.f2979a93a325fecf9605263bd141398a311c8e23388ed7dcff74f92f7e632866.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');
@@ -1108,7 +991,7 @@
         }, {
             name: '问月',
             artist: '葫芦童声;妞妞合唱团',
-            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VRWGtMS0hmUnE1Tm1ZS09RNll0R2JrQmM2Yk94WWNrZUYwSVVkcHhXekFuOWc_ZT0zQ0pmYTY.jpg',
+            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VRWGtMS0hmUnE1Tm1ZS09RNll0R2JrQmM2Yk94WWNrZUYwSVVkcHhXekFuOWc_ZT1hYVB0S1g.mp3',
             lrc: '/music/问月.lrc',
             cover: '/music.png'
 

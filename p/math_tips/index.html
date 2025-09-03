@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/math_tips/'>
 
-<link rel="stylesheet" href="/scss/style.min.f4e1c40f20213da0bb8e8974f02def2eac10a4f410bf605c20db319d9ef333c5.css"><meta property='og:title' content="微积分：常用公式">
+<link rel="stylesheet" href="/scss/style.min.d5f0afff969146387d200fea3eb333f0bf05cc9fd465feedf5111202537029d6.css"><meta property='og:title' content="微积分：常用公式">
 <meta property='og:description' content="极限与函数 等价无穷小 等价无穷小 $(x \\to 0)$ $ \\sin x \\sim x$ $ \\tan x \\sim x $ $\\arcsin x \\sim x$ $ \\arctan x \\sim x $ $\\displaystyle \\cos x \\sim 1-\\frac{1}{2}x^{2} $ $ \\mathrm{e}^{x}-1 \\sim x $ $ \\ln(1+x) \\sim x $ $ (1+x)^{\\alpha}-1 \\sim \\alpha x $ 两个重要极限 $\\displaystyle \\lim_{n \\to 0} \\frac{\\sin n}{n} = 1，\\lim_{x \\to 0} \\frac{\\sin x}{x} = 1$.\n">
 <meta property='og:url' content='https://5882886.github.io/p/math_tips/'>
 <meta property='og:site_name' content='RunicDolphin806的博客'>
@@ -383,7 +383,7 @@
         </li>
         <li><a href="#幂级数">幂级数</a>
           <ol>
-            <li><a href="#幂函数的收敛半径">幂函数的收敛半径</a></li>
+            <li><a href="#幂级数的收敛半径">幂级数的收敛半径</a></li>
             <li><a href="#函数展开成幂级数">函数展开成幂级数</a></li>
           </ol>
         </li>
@@ -1008,21 +1008,11 @@ $$ \lambda(A_1x+B_1y+C_1z+D_1) + \mu (A_2x+B_2y+C_2z+D_2) = 0 $$<p> 称为平面
 </h2><h3 id="二重极限">二重极限
 </h3><p>常用方法：</p>
 <ol>
-<li>
-<p>四则运算法则和复合函数运算法则.</p>
-</li>
-<li>
-<p>等价无穷小代换.</p>
-</li>
-<li>
-<p>无穷小量与有界量之积为无穷小量.</p>
-</li>
-<li>
-<p>迫敛准则.</p>
-</li>
-<li>
-<p>重要极限.</p>
-</li>
+<li>四则运算法则和复合函数运算法则.</li>
+<li>等价无穷小代换.</li>
+<li>无穷小量与有界量之积为无穷小量.</li>
+<li>迫敛准则.</li>
+<li>重要极限.</li>
 </ol>
 <h3 id="全微分">全微分
 </h3><ol>
@@ -1247,22 +1237,24 @@ $$\left| \sum_{k=1}^{n} a_k b_k  \right|\leqslant  M \left(\left| b_1 \right| + 
 <p>(4) 阿贝尔判别法</p>
 <p>设数列 $\{ a_n \}$和 $\{ b_n \}$ 满足：$\{ b_n \}$ 单调有界，且 $\displaystyle \sum_{n=0}^{\infty} a_n$ 收敛，则 $\displaystyle \sum_{n=0}^{\infty} a_n b_n $ 收敛.</p>
 <h3 id="幂级数">幂级数
-</h3><h4 id="幂函数的收敛半径">幂函数的收敛半径
+</h3><h4 id="幂级数的收敛半径">幂级数的收敛半径
 </h4><p>对幂级数 $\displaystyle \sum_{n=0}^{\infty} a_n x^{n}$，</p>
 <ol>
-<li>阿贝尔定理</li>
-</ol>
-<p>若在 $x_0 \ne 0$ 处收敛，则它对一切 $\left| x \right| &lt; \left| x_0 \right|$ 绝对收敛；</p>
-<p>若在 $x_1 \ne 0$ 处发散，则它对一切 $\left| x \right| &gt; \left| x_1 \right|$ 绝对收敛；</p>
-<p>$R = \left| x_0 \right|$ 称为幂级数 $\displaystyle \sum_{n=0}^{\infty} a_n x^{n}$ 的收敛半径.</p>
-<ol start="2">
-<li>幂级数收敛的性质</li>
-</ol>
-<p>① $0&lt;R&lt;+\infty$，$\left| x \right| &lt; R$ 时绝对收敛；$\left| x \right| &gt; R$ 时发散.</p>
-<p>② $R = +\infty$，级数在整个数轴上都绝对收敛.</p>
-<p>③ $R = 0$，仅在 $x=0$ 时收敛.</p>
-<ol start="3">
-<li>收敛半径公式</li>
+<li>
+<p>阿贝尔定理 <br>
+若在 $x_0 \ne 0$ 处收敛，则它对一切 $\left| x \right| &lt; \left| x_0 \right|$ 绝对收敛；<br>
+若在 $x_1 \ne 0$ 处发散，则它对一切 $\left| x \right| &gt; \left| x_1 \right|$ 绝对收敛；<br>
+$R = \left| x_0 \right|$ 称为幂级数 $\displaystyle \sum_{n=0}^{\infty} a_n x^{n}$ 的收敛半径.</p>
+</li>
+<li>
+<p>幂级数收敛的性质 <br>
+① $0&lt;R&lt;+\infty$，$\left| x \right| &lt; R$ 时绝对收敛；$\left| x \right| &gt; R$ 时发散. <br>
+② $R = +\infty$，级数在整个数轴上都绝对收敛. <br>
+③ $R = 0$，仅在 $x=0$ 时收敛.</p>
+</li>
+<li>
+<p>收敛半径公式</p>
+</li>
 </ol>
 $$R = \frac{1}{\displaystyle \lim_{n \to \infty} \sqrt[n]{\left| a_n \right|}} = \lim_{n \to \infty} \left| \frac{a_n}{a_{n+1}} \right|$$<h4 id="函数展开成幂级数">函数展开成幂级数
 </h4><p>泰勒系数 $\displaystyle a_n = \frac{f^{(n)}(x_0)}{n!}$</p>
@@ -1289,15 +1281,9 @@ $$P(x,y) \mathrm{d}x + Q(x,y) \mathrm{d}y = 0$$<p> 为全微分方程.</p>
 <p>$P(x,y) \mathrm{d}x + Q(x,y) \mathrm{d}y = 0$ 是全微分方程的充要条件为 $ \displaystyle \frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x} $</p>
 <p>求法：</p>
 <ol>
-<li>
-<p>凑全微分法</p>
-</li>
-<li>
-<p>不定积分法</p>
-</li>
-<li>
-<p>曲线积分法</p>
-</li>
+<li>凑全微分法</li>
+<li>不定积分法</li>
+<li>曲线积分法</li>
 </ol>
 <h3 id="可降阶微分方程">可降阶微分方程
 </h3><ol>
@@ -1578,7 +1564,7 @@ $$ F_{n} = \frac{1}{\sqrt{5}} \left[\left(\frac{1+\sqrt{5}}{2}\right)^{n+1} - \l
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.eaf1211e4c7db355f37ceea53df13700e1b77fbcc3cfe8c1c1f69e4468a752e1.js" defer></script><script type="text/javascript" src="/ts/custom.f2979a93a325fecf9605263bd141398a311c8e23388ed7dcff74f92f7e632866.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.ff6ce53abf951a5e90047527ccdcb7a54550ecef44d92e069dabdcc5c2171610.js" defer></script><script type="text/javascript" src="/ts/custom.f2979a93a325fecf9605263bd141398a311c8e23388ed7dcff74f92f7e632866.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');
@@ -1627,7 +1613,7 @@ $$ F_{n} = \frac{1}{\sqrt{5}} \left[\left(\frac{1+\sqrt{5}}{2}\right)^{n+1} - \l
         }, {
             name: '问月',
             artist: '葫芦童声;妞妞合唱团',
-            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VRWGtMS0hmUnE1Tm1ZS09RNll0R2JrQmM2Yk94WWNrZUYwSVVkcHhXekFuOWc_ZT0zQ0pmYTY.jpg',
+            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VRWGtMS0hmUnE1Tm1ZS09RNll0R2JrQmM2Yk94WWNrZUYwSVVkcHhXekFuOWc_ZT1hYVB0S1g.mp3',
             lrc: '/music/问月.lrc',
             cover: '/music.png'
 

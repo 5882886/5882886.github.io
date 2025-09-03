@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/website/'>
 
-<link rel="stylesheet" href="/scss/style.min.f4e1c40f20213da0bb8e8974f02def2eac10a4f410bf605c20db319d9ef333c5.css"><meta property='og:title' content="使用Hugo搭建网站">
+<link rel="stylesheet" href="/scss/style.min.d5f0afff969146387d200fea3eb333f0bf05cc9fd465feedf5111202537029d6.css"><meta property='og:title' content="使用Hugo搭建网站">
 <meta property='og:description' content="使用开源软件Hugo搭建自己的博客网站">
 <meta property='og:url' content='https://5882886.github.io/p/website/'>
 <meta property='og:site_name' content='RunicDolphin806的博客'>
@@ -557,43 +557,21 @@
 <h3 id="创建自定义内容">创建自定义内容
 </h3><p>Hugo网站的文章内容均在content文件夹中，每篇文章对应一个子文件夹。</p>
 <p>每篇文章均采用Markdown语法书写，通常在文章开头有类似的配置文字：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-md" data-lang="md"><span class="line"><span class="cl">---
-</span></span><span class="line"><span class="cl">title: xxxxx            # 文章的标题
-</span></span><span class="line"><span class="cl">description: xxxxx      # 文章的副标题
-</span></span><span class="line"><span class="cl">date: xxxxx             # 文章的日期
-</span></span><span class="line"><span class="cl">slug: xxxxx             # 文章在静态页面所属的文件夹
-</span></span><span class="line"><span class="cl">categories:
-</span></span><span class="line"><span class="cl">    <span class="k">-</span> xxxxx             # 文章所属类别
-</span></span><span class="line"><span class="cl">---
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>必须包含这些内容网站才会显示对应文章。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-md" data-lang="md"><span class="line"><span class="ln">1</span><span class="cl">---
+</span></span><span class="line"><span class="ln">2</span><span class="cl">title: xxxxx            # 文章的标题
+</span></span><span class="line"><span class="ln">3</span><span class="cl">description: xxxxx      # 文章的副标题
+</span></span><span class="line"><span class="ln">4</span><span class="cl">date: xxxxx             # 文章的日期
+</span></span><span class="line"><span class="ln">5</span><span class="cl">slug: xxxxx             # 文章在静态页面所属的文件夹
+</span></span><span class="line"><span class="ln">6</span><span class="cl">categories:
+</span></span><span class="line"><span class="ln">7</span><span class="cl">    <span class="k">-</span> xxxxx             # 文章所属类别
+</span></span><span class="line"><span class="ln">8</span><span class="cl">---
+</span></span></code></pre></div><p>必须包含这些内容网站才会显示对应文章。</p>
 <p>文章正文参照Markdown语法规则。</p>
 <h3 id="hugo构建命令">Hugo构建命令
 </h3><p>完成网页的编辑后，需执行Hugo的构建命令，方能生成网页文件。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo server -D    <span class="c1">#构建本地网页</span>
-</span></span><span class="line"><span class="cl">hugo              <span class="c1">#构建在线网页</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">hugo server -D    <span class="c1">#构建本地网页</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">hugo              <span class="c1">#构建在线网页</span>
+</span></span></code></pre></div><blockquote>
 <p><em>注意事项</em></p>
 <p><em>使用<code>hugo server -D</code>命令构建的是本地网页，遇到超链接时会重定向到<code>localhost:1313/xxx</code>，不能直接部署到GitHub等服务器上，必须再执行一次<code>hugo</code>命令清除本地链接的内容之后，才能正确部署。</em></p></blockquote>
 <p>参考视频：
@@ -625,15 +603,8 @@
 <p>因此，设置仓库名为<code>你的用户名.github.io</code>可以使网站地址更简洁。</p></blockquote>
 <h3 id="生成静态网页文件">生成静态网页文件
 </h3><p>在命令行中执行</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>执行完成后会在工作区文件夹中出现一个<code>public</code>文件夹，进入该文件夹。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">hugo
+</span></span></code></pre></div><p>执行完成后会在工作区文件夹中出现一个<code>public</code>文件夹，进入该文件夹。</p>
 <h3 id="上传文件至github">上传文件至Github
 </h3><p>参见：<a class="link" href="/p/git_help/" >玩转Github
     
@@ -663,52 +634,19 @@
 </h2><h3 id="使用相对路径链接">使用相对路径链接
 </h3><p>相对路径是根据当前页面的位置来定位目标页面的路径。这是最简单且常用的方式之一。</p>
 <p>假设你的网站目录结构如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">content/
-</span></span><span class="line"><span class="cl">├── about.md
-</span></span><span class="line"><span class="cl">├── blog/
-</span></span><span class="line"><span class="cl">│   ├── post1.md
-</span></span><span class="line"><span class="cl">│   └── post2.md
-</span></span><span class="line"><span class="cl">└── projects.md
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>在<code>about.md</code>中链接到 blog/post1.md：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[访问博客文章](blog/post1)
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>在 blog/post1.md 中链接到<code>projects.md</code>：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[查看项目](../projects)
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>在 blog/post1.md 中链接到同级的<code>post2.md</code>：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[查看另一篇文章](post2)
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="使用绝对路径链接">使用绝对路径链接
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">content/
+</span></span><span class="line"><span class="ln">2</span><span class="cl">├── about.md
+</span></span><span class="line"><span class="ln">3</span><span class="cl">├── blog/
+</span></span><span class="line"><span class="ln">4</span><span class="cl">│   ├── post1.md
+</span></span><span class="line"><span class="ln">5</span><span class="cl">│   └── post2.md
+</span></span><span class="line"><span class="ln">6</span><span class="cl">└── projects.md
+</span></span></code></pre></div><p>在<code>about.md</code>中链接到 blog/post1.md：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">[访问博客文章](blog/post1)
+</span></span></code></pre></div><p>在 blog/post1.md 中链接到<code>projects.md</code>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">[查看项目](../projects)
+</span></span></code></pre></div><p>在 blog/post1.md 中链接到同级的<code>post2.md</code>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">[查看另一篇文章](post2)
+</span></span></code></pre></div><h3 id="使用绝对路径链接">使用绝对路径链接
 </h3><p>绝对路径是从网站的根目录开始的完整路径。这种方式的好处是不受当前页面位置的影响。</p>
 <p>假设你的网站根目录是 <a class="link" href="https://example.com"  target="_blank" rel="noopener"
     >https://example.com
@@ -724,92 +662,32 @@
 
 </a>，目录结构同上。</p>
 <p>在<code>about.md</code>中链接到 blog/post1.md：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[访问博客文章](/blog/post1)
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>在 blog/post1.md 中链接到<code>projects.md</code>：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[查看项目](/projects)
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="使用-hugo-的-ref-和-relref-短代码">使用 Hugo 的 ref 和 relref 短代码
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">[访问博客文章](/blog/post1)
+</span></span></code></pre></div><p>在 blog/post1.md 中链接到<code>projects.md</code>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">[查看项目](/projects)
+</span></span></code></pre></div><h3 id="使用-hugo-的-ref-和-relref-短代码">使用 Hugo 的 ref 和 relref 短代码
 </h3><p>Hugo 提供了 ref 和 relref 短代码，可以更智能地处理内部链接。这些短代码会根据页面的路径自动解析链接。</p>
 <p>ref 短代码：生成绝对路径链接。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">[访问博客文章]({{<span class="p">&lt;</span> <span class="nt">ref</span> <span class="err">&#34;</span><span class="na">blog</span><span class="err">/</span><span class="na">post1</span><span class="err">.</span><span class="na">md</span><span class="err">&#34;</span> <span class="p">&gt;</span>}})
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>relref 短代码：生成相对路径链接。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">[访问博客文章]({{<span class="p">&lt;</span> <span class="nt">relref</span> <span class="err">&#34;</span><span class="na">blog</span><span class="err">/</span><span class="na">post1</span><span class="err">.</span><span class="na">md</span><span class="err">&#34;</span> <span class="p">&gt;</span>}})
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="链接到页面的特定部分">链接到页面的特定部分
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="ln">1</span><span class="cl">[访问博客文章]({{<span class="p">&lt;</span> <span class="nt">ref</span> <span class="err">&#34;</span><span class="na">blog</span><span class="err">/</span><span class="na">post1</span><span class="err">.</span><span class="na">md</span><span class="err">&#34;</span> <span class="p">&gt;</span>}})
+</span></span></code></pre></div><p>relref 短代码：生成相对路径链接。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="ln">1</span><span class="cl">[访问博客文章]({{<span class="p">&lt;</span> <span class="nt">relref</span> <span class="err">&#34;</span><span class="na">blog</span><span class="err">/</span><span class="na">post1</span><span class="err">.</span><span class="na">md</span><span class="err">&#34;</span> <span class="p">&gt;</span>}})
+</span></span></code></pre></div><h3 id="链接到页面的特定部分">链接到页面的特定部分
 </h3><p>如果你希望链接到页面的某个特定部分（例如某个标题），可以通过锚点（anchor）来实现。</p>
 <p>假设<code>post1.md</code>中有一个标题：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## 我的博客文章内容 {#my-section}
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>你可以通过以下方式链接到这个部分：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[查看博客文章的特定部分](/blog/post1#my-section)
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="链接到页面的别名">链接到页面的别名
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">## 我的博客文章内容 {#my-section}
+</span></span></code></pre></div><p>你可以通过以下方式链接到这个部分：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">[查看博客文章的特定部分](/blog/post1#my-section)
+</span></span></code></pre></div><h3 id="链接到页面的别名">链接到页面的别名
 </h3><p>如果某些页面有别名（例如在 frontmatter 中定义了 aliases），你可以直接使用别名来链接。</p>
 <p>假设<code>post1.md</code>的 frontmatter 中定义了别名：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;我的博客文章&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">aliases</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="s2">&#34;/old-post1&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>你可以通过以下方式链接到它：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[访问旧的博客文章](/old-post1)
-</span></span></code></pre></td></tr></table>
-</div>
-</div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln">1</span><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="w"></span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;我的博客文章&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="w"></span><span class="nt">aliases</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="w">  </span>- <span class="s2">&#34;/old-post1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span></code></pre></div><p>你可以通过以下方式链接到它：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">[访问旧的博客文章](/old-post1)
+</span></span></code></pre></div>
 </section>
 
 
@@ -1037,7 +915,7 @@
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.eaf1211e4c7db355f37ceea53df13700e1b77fbcc3cfe8c1c1f69e4468a752e1.js" defer></script><script type="text/javascript" src="/ts/custom.f2979a93a325fecf9605263bd141398a311c8e23388ed7dcff74f92f7e632866.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.ff6ce53abf951a5e90047527ccdcb7a54550ecef44d92e069dabdcc5c2171610.js" defer></script><script type="text/javascript" src="/ts/custom.f2979a93a325fecf9605263bd141398a311c8e23388ed7dcff74f92f7e632866.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');
@@ -1086,7 +964,7 @@
         }, {
             name: '问月',
             artist: '葫芦童声;妞妞合唱团',
-            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VRWGtMS0hmUnE1Tm1ZS09RNll0R2JrQmM2Yk94WWNrZUYwSVVkcHhXekFuOWc_ZT0zQ0pmYTY.jpg',
+            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VRWGtMS0hmUnE1Tm1ZS09RNll0R2JrQmM2Yk94WWNrZUYwSVVkcHhXekFuOWc_ZT1hYVB0S1g.mp3',
             lrc: '/music/问月.lrc',
             cover: '/music.png'
 

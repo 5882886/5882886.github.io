@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/termux/'>
 
-<link rel="stylesheet" href="/scss/style.min.f4e1c40f20213da0bb8e8974f02def2eac10a4f410bf605c20db319d9ef333c5.css"><meta property='og:title' content="Termux使用小技巧">
+<link rel="stylesheet" href="/scss/style.min.d5f0afff969146387d200fea3eb333f0bf05cc9fd465feedf5111202537029d6.css"><meta property='og:title' content="Termux使用小技巧">
 <meta property='og:description' content="在Android系统上启动Linux虚拟机">
 <meta property='og:url' content='https://5882886.github.io/p/termux/'>
 <meta property='og:site_name' content='RunicDolphin806的博客'>
@@ -570,46 +570,22 @@
 <li>安装并启动 SSH 服务
 打开 Termux，依次执行以下命令：</li>
 </ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pkg update <span class="o">&amp;&amp;</span> pkg upgrade -y    <span class="c1"># 更新软件包列表</span>
-</span></span><span class="line"><span class="cl">pkg install openssh -y          <span class="c1"># 安装 OpenSSH</span>
-</span></span><span class="line"><span class="cl">sshd                            <span class="c1"># 启动 SSH 服务（默认端口为 8022）</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">pkg update <span class="o">&amp;&amp;</span> pkg upgrade -y    <span class="c1"># 更新软件包列表</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">pkg install openssh -y          <span class="c1"># 安装 OpenSSH</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">sshd                            <span class="c1"># 启动 SSH 服务（默认端口为 8022）</span>
+</span></span></code></pre></div><blockquote>
 <p>注意：Termux 的 SSH 服务默认监听端口是 8022，不是常见的 22。</p></blockquote>
 <ol start="2">
 <li>查看用户名和 IP 地址</li>
 </ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">whoami      <span class="c1"># 查看用户名（后续连接用）</span>
-</span></span><span class="line"><span class="cl">ifconfig    <span class="c1"># 查看本机 IP 地址（需在局域网内）</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>记下类似 192.168.x.x 的 IP 地址和用户名（如 u0_a123）。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">whoami      <span class="c1"># 查看用户名（后续连接用）</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">ifconfig    <span class="c1"># 查看本机 IP 地址（需在局域网内）</span>
+</span></span></code></pre></div><p>记下类似 192.168.x.x 的 IP 地址和用户名（如 u0_a123）。</p>
 <ol start="3">
 <li>设置登录密码（可选）</li>
 </ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">passwd
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>输入两次密码即可设置完成。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">passwd
+</span></span></code></pre></div><p>输入两次密码即可设置完成。</p>
 <blockquote>
 <p>Termux 默认仅支持密钥登录，密码登录需额外配置。</p></blockquote>
 <p>接下来就可以使用SSH连接工具连接Termux了。</p>
@@ -841,7 +817,7 @@
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.eaf1211e4c7db355f37ceea53df13700e1b77fbcc3cfe8c1c1f69e4468a752e1.js" defer></script><script type="text/javascript" src="/ts/custom.f2979a93a325fecf9605263bd141398a311c8e23388ed7dcff74f92f7e632866.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.ff6ce53abf951a5e90047527ccdcb7a54550ecef44d92e069dabdcc5c2171610.js" defer></script><script type="text/javascript" src="/ts/custom.f2979a93a325fecf9605263bd141398a311c8e23388ed7dcff74f92f7e632866.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');
@@ -890,7 +866,7 @@
         }, {
             name: '问月',
             artist: '葫芦童声;妞妞合唱团',
-            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VRWGtMS0hmUnE1Tm1ZS09RNll0R2JrQmM2Yk94WWNrZUYwSVVkcHhXekFuOWc_ZT0zQ0pmYTY.jpg',
+            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VRWGtMS0hmUnE1Tm1ZS09RNll0R2JrQmM2Yk94WWNrZUYwSVVkcHhXekFuOWc_ZT1hYVB0S1g.mp3',
             lrc: '/music/问月.lrc',
             cover: '/music.png'
 

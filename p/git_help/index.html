@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/git_help/'>
 
-<link rel="stylesheet" href="/scss/style.min.f4e1c40f20213da0bb8e8974f02def2eac10a4f410bf605c20db319d9ef333c5.css"><meta property='og:title' content="玩转Github">
+<link rel="stylesheet" href="/scss/style.min.d5f0afff969146387d200fea3eb333f0bf05cc9fd465feedf5111202537029d6.css"><meta property='og:title' content="玩转Github">
 <meta property='og:description' content="成为开源社区贡献者">
 <meta property='og:url' content='https://5882886.github.io/p/git_help/'>
 <meta property='og:site_name' content='RunicDolphin806的博客'>
@@ -560,15 +560,8 @@
 </h3><ol>
 <li>克隆（clone） 远程仓库到本地</li>
 </ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone https://github.com/user/repo.git
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="2">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git clone https://github.com/user/repo.git
+</span></span></code></pre></div><ol start="2">
 <li>
 <p>在工作区中修改文件。</p>
 </li>
@@ -576,61 +569,26 @@
 <p>暂存（add） 更改到暂存区</p>
 </li>
 </ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git add .
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="4">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git add .
+</span></span></code></pre></div><ol start="4">
 <li>提交（commit） 更改到本地仓库</li>
 </ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git commit -m <span class="s2">&#34;描述信息&#34;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="5">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git commit -m <span class="s2">&#34;描述信息&#34;</span>
+</span></span></code></pre></div><ol start="5">
 <li>推送（push） 到远程仓库</li>
 </ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git push origin main
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="6">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git push origin main
+</span></span></code></pre></div><ol start="6">
 <li>拉取（pull） 获取他人更新</li>
 </ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git pull origin main
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="变更分支">变更分支
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git pull origin main
+</span></span></code></pre></div><h3 id="变更分支">变更分支
 </h3><p>若更改未push到远程仓库中，默认保存在本地工作文件夹的<code>.git</code>文件夹中，此时可以对分支进行任意的修改操作。</p>
 <ol>
 <li>进入工程文件夹，在终端中输入</li>
 </ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git log
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>此命令可以查看当前所有提交的具体信息，包括提交时间、作者、提交ID等。可以使用键盘的“↑”、“↓”键滚动，按q键退出。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git log
+</span></span></code></pre></div><p>此命令可以查看当前所有提交的具体信息，包括提交时间、作者、提交ID等。可以使用键盘的“↑”、“↓”键滚动，按q键退出。</p>
 <ol start="2">
 <li>
 <p>选择需要更改的提交，复制它的ID。</p>
@@ -639,28 +597,14 @@
 <p>退出log，在终端中输入</p>
 </li>
 </ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git rebase -i 复制的提交ID
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>这样会打开一个Nano编辑器（Linux环境下），在要删除的提交前加上<code>#</code>，然后<code>Ctrl+O</code>写入、回车、<code>Ctrl+X</code>保存。系统会自动变更分支结构。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git rebase -i 复制的提交ID
+</span></span></code></pre></div><p>这样会打开一个Nano编辑器（Linux环境下），在要删除的提交前加上<code>#</code>，然后<code>Ctrl+O</code>写入、回车、<code>Ctrl+X</code>保存。系统会自动变更分支结构。</p>
 <ol start="4">
 <li>继续提交新的更改，变更完成。</li>
 </ol>
 <p>若要更改的提交已经push到远程仓库，则只需在最后push时输入</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git pull &lt;分支名&gt; --force
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>强制变更。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git pull &lt;分支名&gt; --force
+</span></span></code></pre></div><p>强制变更。</p>
 <blockquote>
 <p>注意：强制变更时应保证此时没有其他人员的提交，否则会导致分支出错。</p></blockquote>
 <h2 id="github使用教程">Github使用教程
@@ -672,39 +616,18 @@
 <ol>
 <li>生成SSH密钥（如果尚未生成）：</li>
 </ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="s2">&#34;your_email@example.com&#34;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="2">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="s2">&#34;your_email@example.com&#34;</span>
+</span></span></code></pre></div><ol start="2">
 <li>将公钥添加到GitHub账户：</li>
 </ol>
 <p>复制公钥内容：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat ~/.ssh/id_rsa.pub
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>登录GitHub，进入Settings → SSH and GPG keys → New SSH key，粘贴公钥并保存。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">cat ~/.ssh/id_rsa.pub
+</span></span></code></pre></div><p>登录GitHub，进入Settings → SSH and GPG keys → New SSH key，粘贴公钥并保存。</p>
 <ol start="3">
 <li>更新Git远程仓库地址为SSH格式：</li>
 </ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>替换<code>USERNAME</code>和<code>REPOSITORY</code>为你的GitHub用户名和仓库名。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
+</span></span></code></pre></div><p>替换<code>USERNAME</code>和<code>REPOSITORY</code>为你的GitHub用户名和仓库名。</p>
 
 </section>
 
@@ -933,7 +856,7 @@
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.eaf1211e4c7db355f37ceea53df13700e1b77fbcc3cfe8c1c1f69e4468a752e1.js" defer></script><script type="text/javascript" src="/ts/custom.f2979a93a325fecf9605263bd141398a311c8e23388ed7dcff74f92f7e632866.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.ff6ce53abf951a5e90047527ccdcb7a54550ecef44d92e069dabdcc5c2171610.js" defer></script><script type="text/javascript" src="/ts/custom.f2979a93a325fecf9605263bd141398a311c8e23388ed7dcff74f92f7e632866.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');
@@ -982,7 +905,7 @@
         }, {
             name: '问月',
             artist: '葫芦童声;妞妞合唱团',
-            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VRWGtMS0hmUnE1Tm1ZS09RNll0R2JrQmM2Yk94WWNrZUYwSVVkcHhXekFuOWc_ZT0zQ0pmYTY.jpg',
+            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VRWGtMS0hmUnE1Tm1ZS09RNll0R2JrQmM2Yk94WWNrZUYwSVVkcHhXekFuOWc_ZT1hYVB0S1g.mp3',
             lrc: '/music/问月.lrc',
             cover: '/music.png'
 
