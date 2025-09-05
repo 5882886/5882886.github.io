@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Minecraft on RunicDolphin806的博客</title>
-        <link>https://5882886.github.io/categories/minecraft/</link>
+        <link>http://localhost:1313/categories/minecraft/</link>
         <description>Recent content in Minecraft on RunicDolphin806的博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>RunicDolphin806</copyright>
-        <lastBuildDate>Thu, 31 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://5882886.github.io/categories/minecraft/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 31 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/minecraft/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Minecraft服务器</title>
-        <link>https://5882886.github.io/p/minecraft-server/</link>
+        <link>http://localhost:1313/p/minecraft-server/</link>
         <pubDate>Thu, 31 Jul 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/minecraft-server/</guid>
-        <description>&lt;img src="https://5882886.github.io/p/minecraft-server/helena-hertz-wWZzXlDpMog-unsplash.jpg" alt="Featured image of post Minecraft服务器" /&gt;&lt;p&gt;我从2025年2月初开始学习搭建MC服务器，到现在也学到了不少知识。以下是我的开服历程，若能对各位有所帮助，实在是我的荣幸。&lt;/p&gt;
+        <guid>http://localhost:1313/p/minecraft-server/</guid>
+        <description>&lt;img src="http://localhost:1313/p/minecraft-server/helena-hertz-wWZzXlDpMog-unsplash.jpg" alt="Featured image of post Minecraft服务器" /&gt;&lt;p&gt;我从2025年2月初开始学习搭建MC服务器，到现在也学到了不少知识。以下是我的开服历程，若能对各位有所帮助，实在是我的荣幸。&lt;/p&gt;
 &lt;h2 id=&#34;服务端搭建&#34;&gt;服务端搭建
 &lt;/h2&gt;&lt;h3 id=&#34;常见的服务端&#34;&gt;常见的服务端
 &lt;/h3&gt;&lt;p&gt;目前MC服务端主要包括：原版、插件端、模组端和混合端四类。&lt;/p&gt;
@@ -230,7 +230,7 @@
 &lt;/h4&gt;&lt;h4 id=&#34;spiogtyml&#34;&gt;&lt;code&gt;spiogt.yml&lt;/code&gt;
 &lt;/h4&gt;&lt;h3 id=&#34;安装插件和模组&#34;&gt;安装插件和模组
 &lt;/h3&gt;&lt;h3 id=&#34;使用ssh远程连接服务器主机&#34;&gt;使用SSH远程连接服务器主机
-&lt;/h3&gt;&lt;p&gt;参见：&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/ssh/&#34; &gt;SSH配置简介
+&lt;/h3&gt;&lt;p&gt;参见：&lt;a class=&#34;link&#34; href=&#34;http://localhost:1313/p/ssh/&#34; &gt;SSH配置简介
     
     
 
@@ -270,11 +270,11 @@
         </item>
         <item>
         <title>Minecraft教程</title>
-        <link>https://5882886.github.io/p/minecraft-help/</link>
+        <link>http://localhost:1313/p/minecraft-help/</link>
         <pubDate>Sat, 10 Aug 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/minecraft-help/</guid>
-        <description>&lt;img src="https://5882886.github.io/p/minecraft-help/minecraft.jpeg" alt="Featured image of post Minecraft教程" /&gt;&lt;h2 id=&#34;认识minecraft&#34;&gt;认识Minecraft
+        <guid>http://localhost:1313/p/minecraft-help/</guid>
+        <description>&lt;img src="http://localhost:1313/p/minecraft-help/minecraft.jpeg" alt="Featured image of post Minecraft教程" /&gt;&lt;h2 id=&#34;认识minecraft&#34;&gt;认识Minecraft
 &lt;/h2&gt;&lt;p&gt;Minecraft（简称MC），作为全球销量第一的游戏，深受众多玩家喜爱。&lt;/p&gt;
 &lt;p&gt;MC分为Java版、基岩版、主机板（Xbox版）和网易版。&lt;/p&gt;
 &lt;h2 id=&#34;下载minecraft&#34;&gt;下载Minecraft

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>小乐趣 on RunicDolphin806的博客</title>
-        <link>https://5882886.github.io/categories/interesting_things/</link>
+        <link>http://localhost:1313/categories/interesting_things/</link>
         <description>Recent content in 小乐趣 on RunicDolphin806的博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>RunicDolphin806</copyright>
-        <lastBuildDate>Tue, 12 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://5882886.github.io/categories/interesting_things/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 12 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/interesting_things/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>微积分：常用公式</title>
-        <link>https://5882886.github.io/p/math_tips/</link>
+        <link>http://localhost:1313/p/math_tips/</link>
         <pubDate>Tue, 12 Aug 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/math_tips/</guid>
+        <guid>http://localhost:1313/p/math_tips/</guid>
         <description>&lt;h2 id=&#34;极限与函数&#34;&gt;极限与函数
 &lt;/h2&gt;&lt;h3 id=&#34;等价无穷小&#34;&gt;等价无穷小
 &lt;/h3&gt;&lt;table&gt;
@@ -73,7 +73,7 @@ $$ f(x) = \sum_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!}(x - x_0)^k + \frac{f^{(n+1)}(\x
 &lt;p&gt;$\displaystyle (1+x)^{\alpha} = \sum_{n=0}^{\infty} \mathrm{C}_{\alpha}^{n}x^{n} = 1 + \alpha x + \frac{\alpha(\alpha-1)}{2!}x^{2} + \cdots + o(x^{n}), (|x|&amp;lt;1) $&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;参见：&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/math_tips/#%e5%87%bd%e6%95%b0%e5%b1%95%e5%bc%80%e6%88%90%e5%b9%82%e7%ba%a7%e6%95%b0&#34; &gt;函数展开成幂级数
+&lt;p&gt;参见：&lt;a class=&#34;link&#34; href=&#34;http://localhost:1313/p/math_tips/#%e5%87%bd%e6%95%b0%e5%b1%95%e5%bc%80%e6%88%90%e5%b9%82%e7%ba%a7%e6%95%b0&#34; &gt;函数展开成幂级数
     
     
 
@@ -661,7 +661,7 @@ $R = \left| x_0 \right|$ 称为幂级数 $\displaystyle \sum_{n=0}^{\infty} a_n 
 &lt;/ol&gt;
 $$R = \frac{1}{\displaystyle \lim_{n \to \infty} \sqrt[n]{\left| a_n \right|}} = \lim_{n \to \infty} \left| \frac{a_n}{a_{n+1}} \right|$$&lt;h4 id=&#34;函数展开成幂级数&#34;&gt;函数展开成幂级数
 &lt;/h4&gt;&lt;p&gt;泰勒系数 $\displaystyle a_n = \frac{f^{(n)}(x_0)}{n!}$&lt;/p&gt;
-&lt;p&gt;参见：&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/math_tips/#%e9%ba%a6%e5%85%8b%e5%8a%b3%e6%9e%97%e5%85%ac%e5%bc%8f&#34; &gt;麦克劳林公式
+&lt;p&gt;参见：&lt;a class=&#34;link&#34; href=&#34;http://localhost:1313/p/math_tips/#%e9%ba%a6%e5%85%8b%e5%8a%b3%e6%9e%97%e5%85%ac%e5%bc%8f&#34; &gt;麦克劳林公式
     
     
 
@@ -737,10 +737,10 @@ $$ F_{n} = \frac{1}{\sqrt{5}} \left[\left(\frac{1+\sqrt{5}}{2}\right)^{n+1} - \l
         </item>
         <item>
         <title>微积分：题目</title>
-        <link>https://5882886.github.io/p/math_quiz/</link>
+        <link>http://localhost:1313/p/math_quiz/</link>
         <pubDate>Thu, 07 Aug 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/math_quiz/</guid>
+        <guid>http://localhost:1313/p/math_quiz/</guid>
         <description>&lt;h2 id=&#34;极限与函数&#34;&gt;极限与函数
 &lt;/h2&gt;&lt;p&gt;求极限：$\displaystyle \lim_{x \to 0} \left( \frac{a^{x^{2}} + b^{x^{2}}}{a^{x} + b^{x}} \right) ^ {\frac{1}{x}}$&lt;/p&gt;
 &lt;details&gt;
@@ -865,10 +865,10 @@ $$\begin{align*} I &amp;= \int_{0}^{\pi}f(x) \mathrm{d}x = \int_{0}^{\pi} \left(
         </item>
         <item>
         <title>熟练掌握数据结构</title>
-        <link>https://5882886.github.io/p/data-structure/</link>
+        <link>http://localhost:1313/p/data-structure/</link>
         <pubDate>Sun, 06 Jul 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/data-structure/</guid>
+        <guid>http://localhost:1313/p/data-structure/</guid>
         <description>&lt;h2 id=&#34;预备知识&#34;&gt;预备知识
 &lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;typedef&lt;/li&gt;
@@ -1193,10 +1193,10 @@ $$\begin{align*} I &amp;= \int_{0}^{\pi}f(x) \mathrm{d}x = \int_{0}^{\pi} \left(
         </item>
         <item>
         <title>常用算法</title>
-        <link>https://5882886.github.io/p/algorithm/</link>
+        <link>http://localhost:1313/p/algorithm/</link>
         <pubDate>Sun, 01 Jun 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/algorithm/</guid>
+        <guid>http://localhost:1313/p/algorithm/</guid>
         <description>&lt;p&gt;参考资料：&lt;a class=&#34;link&#34; href=&#34;https://www.bilibili.com/video/BV1QV4y1m7oo?spm_id_from=333.788.videopod.sections&amp;amp;vd_source=3f0e843792d165dc47136a5548be81da&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;点击此处
     
@@ -1534,10 +1534,10 @@ $$\begin{align*} I &amp;= \int_{0}^{\pi}f(x) \mathrm{d}x = \int_{0}^{\pi} \left(
         </item>
         <item>
         <title>有意思的玩意</title>
-        <link>https://5882886.github.io/p/tju/</link>
+        <link>http://localhost:1313/p/tju/</link>
         <pubDate>Thu, 09 Jan 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/tju/</guid>
+        <guid>http://localhost:1313/p/tju/</guid>
         <description>&lt;h2 id=&#34;阅读&#34;&gt;阅读
 &lt;/h2&gt;&lt;h3 id=&#34;阅读-1&#34;&gt;阅读Ⅰ
 &lt;/h3&gt;&lt;p&gt;阅读下面的文字，完成1~5题。（本题共5小题，19分）&lt;/p&gt;
@@ -1748,10 +1748,10 @@ D.	全诗语言简明直白，生动地表达作者对天津的喜爱和赞美�
         </item>
         <item>
         <title>十四班学生列传</title>
-        <link>https://5882886.github.io/p/senior_high/</link>
+        <link>http://localhost:1313/p/senior_high/</link>
         <pubDate>Fri, 14 Jun 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/senior_high/</guid>
+        <guid>http://localhost:1313/p/senior_high/</guid>
         <description>&lt;h2 id=&#34;总序&#34;&gt;总序
 &lt;/h2&gt;&lt;p style=&#34;text-indent: 2em;margin-top: 0;margin-bottom: 0;&#34;&gt;金鸡峰下，银蝶湖畔，钟灵毓秀，人才辈出。有黄山松石铸精魂，蕴陶公知行明己身。时维九月，序属三秋，吾班初建，朝气蓬勃。所属虽异，团结如一；群贤毕至，共话宏图。&lt;/p&gt;
 &lt;p style=&#34;text-indent: 2em;margin-top: 0;margin-bottom: 0;&#34;&gt;忆开学之初，历历在目。虽相识不甚明，终同舟以共济。既立班委，又树新规。外出鸣、陆二帅 擎班旗，内命熙、蕾双将 督学风。已有各科班委司其职，更兼班之众生共进步。越明年，政通人和，百业俱兴。立学习小组 ，开制度先河。&lt;/p&gt;

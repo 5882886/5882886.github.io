@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
-    <head><meta charset='utf-8'>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="配置Linux，Windows，WSL系统的SSH连接">
 <title>SSH配置简介</title>
 
-<link rel='canonical' href='https://5882886.github.io/p/ssh/'>
+<link rel='canonical' href='http://localhost:1313/p/ssh/'>
 
 <link rel="stylesheet" href="/scss/style.min.d5f0afff969146387d200fea3eb333f0bf05cc9fd465feedf5111202537029d6.css"><meta property='og:title' content="SSH配置简介">
 <meta property='og:description' content="配置Linux，Windows，WSL系统的SSH连接">
-<meta property='og:url' content='https://5882886.github.io/p/ssh/'>
+<meta property='og:url' content='http://localhost:1313/p/ssh/'>
 <meta property='og:site_name' content='RunicDolphin806的博客'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-07-31T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-07-31T00:00:00&#43;00:00'/><meta property='og:image' content='https://5882886.github.io/p/ssh/SSH.png' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-07-31T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-07-31T00:00:00&#43;00:00'/><meta property='og:image' content='http://localhost:1313/p/ssh/SSH.png' />
 <meta name="twitter:title" content="SSH配置简介">
 <meta name="twitter:description" content="配置Linux，Windows，WSL系统的SSH连接"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://5882886.github.io/p/ssh/SSH.png' />
+    <meta name="twitter:image" content='http://localhost:1313/p/ssh/SSH.png' />
     <link rel="shortcut icon" href="/favicon.ico" />
 
     </head>
@@ -228,9 +228,9 @@
 
                             <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
                                 
-                                    <option value="https://5882886.github.io/en/" >English</option>
+                                    <option value="http://localhost:1313/en/" >English</option>
                                 
-                                    <option value="https://5882886.github.io/" selected>简体中文</option>
+                                    <option value="http://localhost:1313/" selected>简体中文</option>
                                 
                             </select>
                         </li>
@@ -263,7 +263,8 @@
     </ol>
 </aside>
 
-    <aside class="sidebar right-sidebar sticky">
+    
+        <aside class="sidebar right-sidebar sticky">
         
             
                 
@@ -447,9 +448,11 @@
         
     </aside>
 
+    
 
             <main class="main full-width">
-    <article class="has-image main-article">
+    
+        <article class="has-image main-article">
     <header class="article-header">
         <div class="article-image">
             <a href="/p/ssh/">
@@ -555,7 +558,7 @@
 		data-flex-basis="336px"
 	
 ></p>
-<p>注意，Serverbox自带的脚本只支持监控Linux系统的运行数据，对于WSL系统，也只能监控部分数据。</p>
+<p>注意，Serverbox自带的脚本只支持监控Linux系统的运行数据，对于WSL系统，只能监控部分数据。</p>
 <blockquote>
 <p><em><a class="link" href="https://github.com/lollipopkit/flutter_server_box"  target="_blank" rel="noopener"
     >ServerBox的Github仓库
@@ -612,7 +615,22 @@
 </span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">Set-Service</span> <span class="n">-Name</span> <span class="n">sshd</span> <span class="n">-StartupType</span> <span class="s1">&#39;Automatic&#39;</span>
 </span></span></code></pre></div><p>然后开放防火墙端口（默认22）：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">New-NetFirewallRule</span> <span class="n">-Name</span> <span class="n">sshd</span> <span class="n">-DisplayName</span> <span class="s1">&#39;OpenSSH Server&#39;</span> <span class="n">-Enabled</span> <span class="n">True</span> <span class="n">-Direction</span> <span class="n">Inbound</span> <span class="n">-Protocol</span> <span class="n">TCP</span> <span class="n">-Action</span> <span class="n">Allow</span> <span class="n">-LocalPort</span> <span class="mf">22</span>
-</span></span></code></pre></div><h3 id="linux系统">Linux系统
+</span></span><span class="line"><span class="ln">2</span><span class="cl">
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c"># 其中&#39;OpenSSH Server&#39;是协议的名称，可自行修改</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c"># 这样默认同时开启IPV4和IPV6的端口，即“127.0.0.1:22”和“[0:0:0:0]:22”</span>
+</span></span></code></pre></div><p>还可以通过以下方法实现：</p>
+<p>① 打开防火墙高级设置：控制面板 &gt; Windows Defender 防火墙 &gt; 高级设置（或<code>win+R</code>输入<code>wf.msc</code>）。<br>
+② 新建入站规则：右键“入站规则” &gt; 新建规则。<br>
+③ 选择规则类型：选择“端口” &gt; 下一步。<br>
+④ 指定端口和协议：协议类型：选择 TCP（或 UDP，视应用而定）；特定本地端口：输入 22 &gt; 下一步。<br>
+⑤ 选择操作：选择“允许连接” &gt; 下一步。<br>
+⑥ 选择配置文件：默认全选（域、专用、公用）&gt; 下一步。<br>
+⑦ 指定规则名称：如“允许 IPv6 22222 端口” &gt; 完成。<br></p>
+<ol start="3">
+<li>注意事项</li>
+</ol>
+<p>如果有时开放了防火墙但仍无法连接，可尝试重启电脑（我就是这样解决的……）</p>
+<h3 id="linux系统">Linux系统
 </h3><ol>
 <li>安装 OpenSSH Server
 如果尚未安装，运行：</li>
@@ -651,23 +669,32 @@
 </ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo nano /etc/ssh/sshd_config
 </span></span></code></pre></div><p>确保以下配置项存在且未被注释：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">...
+</span></span><span class="line"><span class="ln">2</span><span class="cl">Port <span class="m">22</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">...
+</span></span><span class="line"><span class="ln">4</span><span class="cl">PasswordAuthentication yes
+</span></span><span class="line"><span class="ln">5</span><span class="cl">PermitRootLogin yes
+</span></span></code></pre></div><p>如果要启用IPV6的SSH连接，还应该保持以下内容未被注释：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">Port <span class="m">22</span>
-</span></span><span class="line"><span class="ln">2</span><span class="cl">PasswordAuthentication yes
-</span></span><span class="line"><span class="ln">3</span><span class="cl">PermitRootLogin yes
+</span></span><span class="line"><span class="ln">2</span><span class="cl">AddressFamily any
+</span></span><span class="line"><span class="ln">3</span><span class="cl">ListenAddress 0.0.0.0
+</span></span><span class="line"><span class="ln">4</span><span class="cl">ListenAddress ::
 </span></span></code></pre></div><ol start="3">
-<li>启动 SSH 服务
-在 WSL 中，不能使用 systemctl，请使用：</li>
+<li>启动 SSH 服务</li>
 </ol>
+<p>在 WSL 中，不能使用 systemctl，请使用：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo service ssh start
 </span></span></code></pre></div><p>验证服务是否运行：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo service ssh status
 </span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"># 或使用</span>
 </span></span><span class="line"><span class="ln">3</span><span class="cl">ps aux <span class="p">|</span> grep sshd
 </span></span></code></pre></div><ol start="4">
-<li>使用WSL的注意事项</li>
+<li>使用WSL的注意事项 <br>
+① 必须保证Windows防火墙的22端口已被放行；<br>
+② WSL系统是Windows的子系统，在Windows开机时，WSL的ssh功能默认并不能开启，此时需要将WSL的ssh注册为系统服务实现Windows开机时启用WSL的ssh功能。</li>
 </ol>
-<p>WSL系统是Windows的子系统，在Windows开机时，WSL的ssh功能默认并不能开启，此时需要将WSL的ssh注册为系统服务实现Windows开机时启用WSL的ssh功能。</p>
-<p>下面给出使用任务计划程序（无需第三方程序）的方法</p>
+<details>
+    <summary>下面给出使用任务计划程序（无需第三方程序）的方法：点击展开</summary>
 <p>打开任务计划程序
 <code>Win+R</code> → <code>taskschd.msc</code></p>
 <p>创建任务：</p>
@@ -698,6 +725,7 @@
   </tbody>
 </table></div>
 <p>保存时输入管理员密码。重启测试即可。</p>
+</details>
 <h3 id="termux">Termux
 </h3><p>参见：<a class="link" href="/p/termux/#termux%e5%90%af%e5%8a%a8ssh%e5%8a%9f%e8%83%bd" >Termux启动SSH功能
     
@@ -705,11 +733,17 @@
 
 </a></p>
 <h2 id="连接-ssh">连接 SSH
-</h2><p>在 Windows 本地测试：</p>
+</h2><ol>
+<li>在 Windows 本地测试：</li>
+</ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">ssh 用户名@localhost
-</span></span></code></pre></div><p>从局域网其他设备连接：</p>
+</span></span></code></pre></div><ol start="2">
+<li>从局域网其他设备连接：</li>
+</ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">ssh 用户名@&lt;Windows主机IP&gt;
-</span></span></code></pre></div><p>VScode的SSH配置文件:</p>
+</span></span></code></pre></div><ol start="3">
+<li>VScode的SSH配置文件:</li>
+</ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">Host xxxx                       # Host的名称，可自定义
 </span></span><span class="line"><span class="ln">2</span><span class="cl">    HostName xxx.xxx.xxx.xxx    # SSH服务端的IP地址
 </span></span><span class="line"><span class="ln">3</span><span class="cl">    User xxxxx                  # 登录的用户名
@@ -738,10 +772,9 @@
 
     
 </article>
+        
 
-    
-
-    
+        
 
 <aside class="related-content--wrapper">
     <h2 class="section-title">相关文章</h2>
@@ -839,12 +872,12 @@
     </div>
 </aside>
 
-     
-    
         
-    
+        
+            
+        
 
-    <footer class="site-footer">
+        <footer class="site-footer">
     <section class="copyright">
         &copy; 
         
@@ -858,7 +891,7 @@
 </footer>
 
 
-    
+        
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 
     
@@ -936,13 +969,15 @@
                 href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
             >
 
+    
+
             </main>
         </div>
         <script 
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.ff6ce53abf951a5e90047527ccdcb7a54550ecef44d92e069dabdcc5c2171610.js" defer></script><script type="text/javascript" src="/ts/custom.f2979a93a325fecf9605263bd141398a311c8e23388ed7dcff74f92f7e632866.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.ff8817fc1abda8196fe14ddb4d17df9ae8c217449eda94fc858b611957b8f498.js" defer></script><script type="text/javascript" src="/ts/custom.5ed52cdd956021fd7194109b25dbc5cbe93a1085461b9f29b1284df94c19481c.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');
@@ -1132,7 +1167,7 @@
 
 
     
-    <script src=https://5882886.github.io/js/topbar.min.js></script>
+    <script src=http://localhost:1313/js/topbar.min.js></script>
 
 <script>
     

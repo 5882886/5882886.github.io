@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Posts on RunicDolphin806的博客</title>
-        <link>https://5882886.github.io/post/</link>
+        <link>http://localhost:1313/post/</link>
         <description>Recent content in Posts on RunicDolphin806的博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>RunicDolphin806</copyright>
-        <lastBuildDate>Sun, 17 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://5882886.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 17 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>APlayer</title>
-        <link>https://5882886.github.io/p/aplayer/</link>
+        <link>http://localhost:1313/p/aplayer/</link>
         <pubDate>Sun, 17 Aug 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/aplayer/</guid>
+        <guid>http://localhost:1313/p/aplayer/</guid>
         <description>&lt;p&gt;以下由Hugo的stack主题演示，其他的可作为参考。&lt;/p&gt;
 &lt;p&gt;修改方法来源：&lt;a class=&#34;link&#34; href=&#34;https://letere-gzj.github.io/hugo-stack/p/hugo/pjax/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;莱特雷-letere
@@ -275,10 +275,10 @@
         </item>
         <item>
         <title>Windows系统安装与修复</title>
-        <link>https://5882886.github.io/p/windows/</link>
+        <link>http://localhost:1313/p/windows/</link>
         <pubDate>Sun, 17 Aug 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/windows/</guid>
+        <guid>http://localhost:1313/p/windows/</guid>
         <description>&lt;h2 id=&#34;系统直接安装到u盘&#34;&gt;系统直接安装到U盘
 &lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;
@@ -390,10 +390,10 @@
         </item>
         <item>
         <title>微积分：常用公式</title>
-        <link>https://5882886.github.io/p/math_tips/</link>
+        <link>http://localhost:1313/p/math_tips/</link>
         <pubDate>Tue, 12 Aug 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/math_tips/</guid>
+        <guid>http://localhost:1313/p/math_tips/</guid>
         <description>&lt;h2 id=&#34;极限与函数&#34;&gt;极限与函数
 &lt;/h2&gt;&lt;h3 id=&#34;等价无穷小&#34;&gt;等价无穷小
 &lt;/h3&gt;&lt;table&gt;
@@ -454,7 +454,7 @@ $$ f(x) = \sum_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!}(x - x_0)^k + \frac{f^{(n+1)}(\x
 &lt;p&gt;$\displaystyle (1+x)^{\alpha} = \sum_{n=0}^{\infty} \mathrm{C}_{\alpha}^{n}x^{n} = 1 + \alpha x + \frac{\alpha(\alpha-1)}{2!}x^{2} + \cdots + o(x^{n}), (|x|&amp;lt;1) $&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;参见：&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/math_tips/#%e5%87%bd%e6%95%b0%e5%b1%95%e5%bc%80%e6%88%90%e5%b9%82%e7%ba%a7%e6%95%b0&#34; &gt;函数展开成幂级数
+&lt;p&gt;参见：&lt;a class=&#34;link&#34; href=&#34;http://localhost:1313/p/math_tips/#%e5%87%bd%e6%95%b0%e5%b1%95%e5%bc%80%e6%88%90%e5%b9%82%e7%ba%a7%e6%95%b0&#34; &gt;函数展开成幂级数
     
     
 
@@ -1042,7 +1042,7 @@ $R = \left| x_0 \right|$ 称为幂级数 $\displaystyle \sum_{n=0}^{\infty} a_n 
 &lt;/ol&gt;
 $$R = \frac{1}{\displaystyle \lim_{n \to \infty} \sqrt[n]{\left| a_n \right|}} = \lim_{n \to \infty} \left| \frac{a_n}{a_{n+1}} \right|$$&lt;h4 id=&#34;函数展开成幂级数&#34;&gt;函数展开成幂级数
 &lt;/h4&gt;&lt;p&gt;泰勒系数 $\displaystyle a_n = \frac{f^{(n)}(x_0)}{n!}$&lt;/p&gt;
-&lt;p&gt;参见：&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/math_tips/#%e9%ba%a6%e5%85%8b%e5%8a%b3%e6%9e%97%e5%85%ac%e5%bc%8f&#34; &gt;麦克劳林公式
+&lt;p&gt;参见：&lt;a class=&#34;link&#34; href=&#34;http://localhost:1313/p/math_tips/#%e9%ba%a6%e5%85%8b%e5%8a%b3%e6%9e%97%e5%85%ac%e5%bc%8f&#34; &gt;麦克劳林公式
     
     
 
@@ -1118,11 +1118,11 @@ $$ F_{n} = \frac{1}{\sqrt{5}} \left[\left(\frac{1+\sqrt{5}}{2}\right)^{n+1} - \l
         </item>
         <item>
         <title>Termux使用小技巧</title>
-        <link>https://5882886.github.io/p/termux/</link>
+        <link>http://localhost:1313/p/termux/</link>
         <pubDate>Sun, 10 Aug 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/termux/</guid>
-        <description>&lt;img src="https://5882886.github.io/p/termux/termux.png" alt="Featured image of post Termux使用小技巧" /&gt;&lt;h2 id=&#34;termux简介&#34;&gt;Termux简介
+        <guid>http://localhost:1313/p/termux/</guid>
+        <description>&lt;img src="http://localhost:1313/p/termux/termux.png" alt="Featured image of post Termux使用小技巧" /&gt;&lt;h2 id=&#34;termux简介&#34;&gt;Termux简介
 &lt;/h2&gt;&lt;p&gt;Termux是Android系统上的Linux终端模拟器，能够让用户在未获取root权限的情况下运行Linux虚拟机，并可以安装多个Linux发行版。&lt;/p&gt;
 &lt;h2 id=&#34;termux下载linux发行版&#34;&gt;Termux下载Linux发行版
 &lt;/h2&gt;&lt;h3 id=&#34;方法1使用tmoe工具&#34;&gt;方法1：使用TMOE工具
@@ -1200,10 +1200,10 @@ $$ F_{n} = \frac{1}{\sqrt{5}} \left[\left(\frac{1+\sqrt{5}}{2}\right)^{n+1} - \l
         </item>
         <item>
         <title>微积分：题目</title>
-        <link>https://5882886.github.io/p/math_quiz/</link>
+        <link>http://localhost:1313/p/math_quiz/</link>
         <pubDate>Thu, 07 Aug 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/math_quiz/</guid>
+        <guid>http://localhost:1313/p/math_quiz/</guid>
         <description>&lt;h2 id=&#34;极限与函数&#34;&gt;极限与函数
 &lt;/h2&gt;&lt;p&gt;求极限：$\displaystyle \lim_{x \to 0} \left( \frac{a^{x^{2}} + b^{x^{2}}}{a^{x} + b^{x}} \right) ^ {\frac{1}{x}}$&lt;/p&gt;
 &lt;details&gt;
@@ -1328,11 +1328,11 @@ $$\begin{align*} I &amp;= \int_{0}^{\pi}f(x) \mathrm{d}x = \int_{0}^{\pi} \left(
         </item>
         <item>
         <title>Linux系统小技巧</title>
-        <link>https://5882886.github.io/p/linux_help/</link>
+        <link>http://localhost:1313/p/linux_help/</link>
         <pubDate>Mon, 04 Aug 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/linux_help/</guid>
-        <description>&lt;img src="https://5882886.github.io/p/linux_help/Linux-tips.png" alt="Featured image of post Linux系统小技巧" /&gt;&lt;h2 id=&#34;linux发行版&#34;&gt;Linux发行版
+        <guid>http://localhost:1313/p/linux_help/</guid>
+        <description>&lt;img src="http://localhost:1313/p/linux_help/Linux-tips.png" alt="Featured image of post Linux系统小技巧" /&gt;&lt;h2 id=&#34;linux发行版&#34;&gt;Linux发行版
 &lt;/h2&gt;&lt;table&gt;
   &lt;thead&gt;
       &lt;tr&gt;
@@ -2003,7 +2003,7 @@ $$\begin{align*} I &amp;= \int_{0}^{\pi}f(x) \mathrm{d}x = \int_{0}^{\pi} \left(
   &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2 id=&#34;ssh连接linux系统&#34;&gt;SSH连接Linux系统
-&lt;/h2&gt;&lt;p&gt;参见：&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/ssh/#linux%e7%b3%bb%e7%bb%9f&#34; &gt;SSH配置简介
+&lt;/h2&gt;&lt;p&gt;参见：&lt;a class=&#34;link&#34; href=&#34;http://localhost:1313/p/ssh/#linux%e7%b3%bb%e7%bb%9f&#34; &gt;SSH配置简介
     
     
 
@@ -2012,10 +2012,10 @@ $$\begin{align*} I &amp;= \int_{0}^{\pi}f(x) \mathrm{d}x = \int_{0}^{\pi} \left(
         </item>
         <item>
         <title>Hugo-stack主题装饰</title>
-        <link>https://5882886.github.io/p/stack-decorate/</link>
+        <link>http://localhost:1313/p/stack-decorate/</link>
         <pubDate>Sat, 02 Aug 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/stack-decorate/</guid>
+        <guid>http://localhost:1313/p/stack-decorate/</guid>
         <description>&lt;h2 id=&#34;基本原理&#34;&gt;基本原理
 &lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;Hugo的stack主题提供了自定义样式的接口，主要在&lt;code&gt;layouts/partials/footer/custom.html&lt;/code&gt;和&lt;code&gt;assets/scss/custom.scss&lt;/code&gt;中&lt;/li&gt;
@@ -2330,11 +2330,11 @@ $$\begin{align*} I &amp;= \int_{0}^{\pi}f(x) \mathrm{d}x = \int_{0}^{\pi} \left(
         </item>
         <item>
         <title>使用Hugo搭建网站</title>
-        <link>https://5882886.github.io/p/website/</link>
+        <link>http://localhost:1313/p/website/</link>
         <pubDate>Sat, 02 Aug 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/website/</guid>
-        <description>&lt;img src="https://5882886.github.io/p/website/Hugo.png" alt="Featured image of post 使用Hugo搭建网站" /&gt;&lt;h2 id=&#34;hugo环境配置&#34;&gt;Hugo环境配置
+        <guid>http://localhost:1313/p/website/</guid>
+        <description>&lt;img src="http://localhost:1313/p/website/Hugo.png" alt="Featured image of post 使用Hugo搭建网站" /&gt;&lt;h2 id=&#34;hugo环境配置&#34;&gt;Hugo环境配置
 &lt;/h2&gt;&lt;p&gt;点击进入&lt;a class=&#34;link&#34; href=&#34;https://github.com/gohugoio/hugo&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Hugo下载地址
     
@@ -2408,7 +2408,7 @@ $$\begin{align*} I &amp;= \int_{0}^{\pi}f(x) \mathrm{d}x = \int_{0}^{\pi} \left(
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;hugo
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;执行完成后会在工作区文件夹中出现一个&lt;code&gt;public&lt;/code&gt;文件夹，进入该文件夹。&lt;/p&gt;
 &lt;h3 id=&#34;上传文件至github&#34;&gt;上传文件至Github
-&lt;/h3&gt;&lt;p&gt;参见：&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/git_help/&#34; &gt;玩转Github
+&lt;/h3&gt;&lt;p&gt;参见：&lt;a class=&#34;link&#34; href=&#34;http://localhost:1313/p/git_help/&#34; &gt;玩转Github
     
     
 
@@ -2493,11 +2493,11 @@ $$\begin{align*} I &amp;= \int_{0}^{\pi}f(x) \mathrm{d}x = \int_{0}^{\pi} \left(
         </item>
         <item>
         <title>Minecraft服务器</title>
-        <link>https://5882886.github.io/p/minecraft-server/</link>
+        <link>http://localhost:1313/p/minecraft-server/</link>
         <pubDate>Thu, 31 Jul 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/minecraft-server/</guid>
-        <description>&lt;img src="https://5882886.github.io/p/minecraft-server/helena-hertz-wWZzXlDpMog-unsplash.jpg" alt="Featured image of post Minecraft服务器" /&gt;&lt;p&gt;我从2025年2月初开始学习搭建MC服务器，到现在也学到了不少知识。以下是我的开服历程，若能对各位有所帮助，实在是我的荣幸。&lt;/p&gt;
+        <guid>http://localhost:1313/p/minecraft-server/</guid>
+        <description>&lt;img src="http://localhost:1313/p/minecraft-server/helena-hertz-wWZzXlDpMog-unsplash.jpg" alt="Featured image of post Minecraft服务器" /&gt;&lt;p&gt;我从2025年2月初开始学习搭建MC服务器，到现在也学到了不少知识。以下是我的开服历程，若能对各位有所帮助，实在是我的荣幸。&lt;/p&gt;
 &lt;h2 id=&#34;服务端搭建&#34;&gt;服务端搭建
 &lt;/h2&gt;&lt;h3 id=&#34;常见的服务端&#34;&gt;常见的服务端
 &lt;/h3&gt;&lt;p&gt;目前MC服务端主要包括：原版、插件端、模组端和混合端四类。&lt;/p&gt;
@@ -2714,7 +2714,7 @@ $$\begin{align*} I &amp;= \int_{0}^{\pi}f(x) \mathrm{d}x = \int_{0}^{\pi} \left(
 &lt;/h4&gt;&lt;h4 id=&#34;spiogtyml&#34;&gt;&lt;code&gt;spiogt.yml&lt;/code&gt;
 &lt;/h4&gt;&lt;h3 id=&#34;安装插件和模组&#34;&gt;安装插件和模组
 &lt;/h3&gt;&lt;h3 id=&#34;使用ssh远程连接服务器主机&#34;&gt;使用SSH远程连接服务器主机
-&lt;/h3&gt;&lt;p&gt;参见：&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/ssh/&#34; &gt;SSH配置简介
+&lt;/h3&gt;&lt;p&gt;参见：&lt;a class=&#34;link&#34; href=&#34;http://localhost:1313/p/ssh/&#34; &gt;SSH配置简介
     
     
 
@@ -2754,11 +2754,11 @@ $$\begin{align*} I &amp;= \int_{0}^{\pi}f(x) \mathrm{d}x = \int_{0}^{\pi} \left(
         </item>
         <item>
         <title>SSH配置简介</title>
-        <link>https://5882886.github.io/p/ssh/</link>
+        <link>http://localhost:1313/p/ssh/</link>
         <pubDate>Thu, 31 Jul 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/ssh/</guid>
-        <description>&lt;img src="https://5882886.github.io/p/ssh/SSH.png" alt="Featured image of post SSH配置简介" /&gt;&lt;h2 id=&#34;选择ssh应用程序&#34;&gt;选择SSH应用程序
+        <guid>http://localhost:1313/p/ssh/</guid>
+        <description>&lt;img src="http://localhost:1313/p/ssh/SSH.png" alt="Featured image of post SSH配置简介" /&gt;&lt;h2 id=&#34;选择ssh应用程序&#34;&gt;选择SSH应用程序
 &lt;/h2&gt;&lt;h3 id=&#34;visual-studio-code&#34;&gt;Visual Studio Code
 &lt;/h3&gt;&lt;p&gt;这是目前为止最强大的SSH应用，只需下载VScode并安装Remote-ssh插件，写好配置文件后就能连接。&lt;/p&gt;
 &lt;p&gt;全程免费，而且附带端口转发、文件编辑、下载等功能，绝对好用！&lt;/p&gt;
@@ -2780,10 +2780,10 @@ $$\begin{align*} I &amp;= \int_{0}^{\pi}f(x) \mathrm{d}x = \int_{0}^{\pi} \left(
 &lt;/a&gt;&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;serverbox&#34;&gt;ServerBox
 &lt;/h3&gt;&lt;p&gt;ServerBox是一款国产的远程服务器监控和操作应用，支持Windows、Linux、Android、MacOS等操作系统。优点是可以监测服务器实时运行状态（包括CPU、内存、温度、网络、硬盘等）。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://5882886.github.io/p/ssh/serverbox.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/ssh/serverbox.png&#34;
 	width=&#34;643&#34;
 	height=&#34;459&#34;
-	srcset=&#34;https://5882886.github.io/p/ssh/serverbox_hu_659d8f6a579ef453.png 480w, https://5882886.github.io/p/ssh/serverbox_hu_a21fa07204a654fc.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/p/ssh/serverbox_hu_659d8f6a579ef453.png 480w, http://localhost:1313/p/ssh/serverbox_hu_a21fa07204a654fc.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Serverbox的监测界面&#34;
@@ -2794,7 +2794,7 @@ $$\begin{align*} I &amp;= \int_{0}^{\pi}f(x) \mathrm{d}x = \int_{0}^{\pi} \left(
 		data-flex-basis=&#34;336px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;注意，Serverbox自带的脚本只支持监控Linux系统的运行数据，对于WSL系统，也只能监控部分数据。&lt;/p&gt;
+&lt;p&gt;注意，Serverbox自带的脚本只支持监控Linux系统的运行数据，对于WSL系统，只能监控部分数据。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/lollipopkit/flutter_server_box&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;ServerBox的Github仓库
@@ -2851,7 +2851,22 @@ $$\begin{align*} I &amp;= \int_{0}^{\pi}f(x) \mathrm{d}x = \int_{0}^{\pi} \left(
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;Set-Service&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;-Name&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sshd&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;-StartupType&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;Automatic&amp;#39;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后开放防火墙端口（默认22）：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;New-NetFirewallRule&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;-Name&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sshd&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;-DisplayName&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;OpenSSH Server&amp;#39;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;-Enabled&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;True&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;-Direction&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Inbound&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;-Protocol&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;TCP&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;-Action&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Allow&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;-LocalPort&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;22&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;linux系统&#34;&gt;Linux系统
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;# 其中&amp;#39;OpenSSH Server&amp;#39;是协议的名称，可自行修改&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;# 这样默认同时开启IPV4和IPV6的端口，即“127.0.0.1:22”和“[0:0:0:0]:22”&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;还可以通过以下方法实现：&lt;/p&gt;
+&lt;p&gt;① 打开防火墙高级设置：控制面板 &amp;gt; Windows Defender 防火墙 &amp;gt; 高级设置（或&lt;code&gt;win+R&lt;/code&gt;输入&lt;code&gt;wf.msc&lt;/code&gt;）。&lt;br&gt;
+② 新建入站规则：右键“入站规则” &amp;gt; 新建规则。&lt;br&gt;
+③ 选择规则类型：选择“端口” &amp;gt; 下一步。&lt;br&gt;
+④ 指定端口和协议：协议类型：选择 TCP（或 UDP，视应用而定）；特定本地端口：输入 22 &amp;gt; 下一步。&lt;br&gt;
+⑤ 选择操作：选择“允许连接” &amp;gt; 下一步。&lt;br&gt;
+⑥ 选择配置文件：默认全选（域、专用、公用）&amp;gt; 下一步。&lt;br&gt;
+⑦ 指定规则名称：如“允许 IPv6 22222 端口” &amp;gt; 完成。&lt;br&gt;&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;注意事项&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;如果有时开放了防火墙但仍无法连接，可尝试重启电脑（我就是这样解决的……）&lt;/p&gt;
+&lt;h3 id=&#34;linux系统&#34;&gt;Linux系统
 &lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;安装 OpenSSH Server
 如果尚未安装，运行：&lt;/li&gt;
@@ -2890,23 +2905,32 @@ $$\begin{align*} I &amp;= \int_{0}^{\pi}f(x) \mathrm{d}x = \int_{0}^{\pi} \left(
 &lt;/ol&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo nano /etc/ssh/sshd_config
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;确保以下配置项存在且未被注释：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;Port &lt;span class=&#34;m&#34;&gt;22&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;PasswordAuthentication yes
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;PermitRootLogin yes
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果要启用IPV6的SSH连接，还应该保持以下内容未被注释：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;Port &lt;span class=&#34;m&#34;&gt;22&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;PasswordAuthentication yes
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;PermitRootLogin yes
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;AddressFamily any
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;ListenAddress 0.0.0.0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;ListenAddress ::
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;启动 SSH 服务
-在 WSL 中，不能使用 systemctl，请使用：&lt;/li&gt;
+&lt;li&gt;启动 SSH 服务&lt;/li&gt;
 &lt;/ol&gt;
+&lt;p&gt;在 WSL 中，不能使用 systemctl，请使用：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo service ssh start
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;验证服务是否运行：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo service ssh status
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 或使用&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;ps aux &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; grep sshd
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;使用WSL的注意事项&lt;/li&gt;
+&lt;li&gt;使用WSL的注意事项 &lt;br&gt;
+① 必须保证Windows防火墙的22端口已被放行；&lt;br&gt;
+② WSL系统是Windows的子系统，在Windows开机时，WSL的ssh功能默认并不能开启，此时需要将WSL的ssh注册为系统服务实现Windows开机时启用WSL的ssh功能。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;WSL系统是Windows的子系统，在Windows开机时，WSL的ssh功能默认并不能开启，此时需要将WSL的ssh注册为系统服务实现Windows开机时启用WSL的ssh功能。&lt;/p&gt;
-&lt;p&gt;下面给出使用任务计划程序（无需第三方程序）的方法&lt;/p&gt;
+&lt;details&gt;
+    &lt;summary&gt;下面给出使用任务计划程序（无需第三方程序）的方法：点击展开&lt;/summary&gt;
 &lt;p&gt;打开任务计划程序
 &lt;code&gt;Win+R&lt;/code&gt; → &lt;code&gt;taskschd.msc&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;创建任务：&lt;/p&gt;
@@ -2937,18 +2961,25 @@ $$\begin{align*} I &amp;= \int_{0}^{\pi}f(x) \mathrm{d}x = \int_{0}^{\pi} \left(
   &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;保存时输入管理员密码。重启测试即可。&lt;/p&gt;
+&lt;/details&gt;
 &lt;h3 id=&#34;termux&#34;&gt;Termux
-&lt;/h3&gt;&lt;p&gt;参见：&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/termux/#termux%e5%90%af%e5%8a%a8ssh%e5%8a%9f%e8%83%bd&#34; &gt;Termux启动SSH功能
+&lt;/h3&gt;&lt;p&gt;参见：&lt;a class=&#34;link&#34; href=&#34;http://localhost:1313/p/termux/#termux%e5%90%af%e5%8a%a8ssh%e5%8a%9f%e8%83%bd&#34; &gt;Termux启动SSH功能
     
     
 
 &lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;连接-ssh&#34;&gt;连接 SSH
-&lt;/h2&gt;&lt;p&gt;在 Windows 本地测试：&lt;/p&gt;
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;在 Windows 本地测试：&lt;/li&gt;
+&lt;/ol&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;ssh 用户名@localhost
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;从局域网其他设备连接：&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;从局域网其他设备连接：&lt;/li&gt;
+&lt;/ol&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;ssh 用户名@&amp;lt;Windows主机IP&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;VScode的SSH配置文件:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;VScode的SSH配置文件:&lt;/li&gt;
+&lt;/ol&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;Host xxxx                       # Host的名称，可自定义
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    HostName xxx.xxx.xxx.xxx    # SSH服务端的IP地址
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    User xxxxx                  # 登录的用户名
@@ -2957,11 +2988,11 @@ $$\begin{align*} I &amp;= \int_{0}^{\pi}f(x) \mathrm{d}x = \int_{0}^{\pi} \left(
         </item>
         <item>
         <title>HarmonyOS入门</title>
-        <link>https://5882886.github.io/p/harmonyos/</link>
+        <link>http://localhost:1313/p/harmonyos/</link>
         <pubDate>Mon, 14 Jul 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/harmonyos/</guid>
-        <description>&lt;img src="https://5882886.github.io/p/harmonyos/HarmonyOS.png" alt="Featured image of post HarmonyOS入门" /&gt;&lt;h2 id=&#34;鸿蒙项目结构&#34;&gt;鸿蒙项目结构
+        <guid>http://localhost:1313/p/harmonyos/</guid>
+        <description>&lt;img src="http://localhost:1313/p/harmonyos/HarmonyOS.png" alt="Featured image of post HarmonyOS入门" /&gt;&lt;h2 id=&#34;鸿蒙项目结构&#34;&gt;鸿蒙项目结构
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;l&#34;&gt;entry&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;l&#34;&gt;├── preview&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;l&#34;&gt;├── src&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -3395,11 +3426,11 @@ $$\begin{align*} I &amp;= \int_{0}^{\pi}f(x) \mathrm{d}x = \int_{0}^{\pi} \left(
         </item>
         <item>
         <title>MySQL操作</title>
-        <link>https://5882886.github.io/p/mysql/</link>
+        <link>http://localhost:1313/p/mysql/</link>
         <pubDate>Mon, 14 Jul 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/mysql/</guid>
-        <description>&lt;img src="https://5882886.github.io/p/mysql/mysql.jpg" alt="Featured image of post MySQL操作" /&gt;&lt;p&gt;MySQL是目前流行的数据库管理系统，使用SQL语法操作和管理。&lt;/p&gt;
+        <guid>http://localhost:1313/p/mysql/</guid>
+        <description>&lt;img src="http://localhost:1313/p/mysql/mysql.jpg" alt="Featured image of post MySQL操作" /&gt;&lt;p&gt;MySQL是目前流行的数据库管理系统，使用SQL语法操作和管理。&lt;/p&gt;
 &lt;h2 id=&#34;准备工作&#34;&gt;准备工作
 &lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;启动MySQL服务&lt;/li&gt;
@@ -3511,7 +3542,7 @@ $$\begin{align*} I &amp;= \int_{0}^{\pi}f(x) \mathrm{d}x = \int_{0}^{\pi} \left(
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;...&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;err&#34;&gt;字段&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;err&#34;&gt;字段&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;n类型&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;COMMENT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;字段n注释&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;COMMENT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;表注释&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;参见：&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/mysql/#mysql%e7%9a%84%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b&#34; &gt;MySQL的数据类型
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;参见：&lt;a class=&#34;link&#34; href=&#34;http://localhost:1313/p/mysql/#mysql%e7%9a%84%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b&#34; &gt;MySQL的数据类型
     
     
 
@@ -3887,10 +3918,10 @@ $$\begin{align*} I &amp;= \int_{0}^{\pi}f(x) \mathrm{d}x = \int_{0}^{\pi} \left(
         </item>
         <item>
         <title>熟练掌握数据结构</title>
-        <link>https://5882886.github.io/p/data-structure/</link>
+        <link>http://localhost:1313/p/data-structure/</link>
         <pubDate>Sun, 06 Jul 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/data-structure/</guid>
+        <guid>http://localhost:1313/p/data-structure/</guid>
         <description>&lt;h2 id=&#34;预备知识&#34;&gt;预备知识
 &lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;typedef&lt;/li&gt;
@@ -4215,10 +4246,10 @@ $$\begin{align*} I &amp;= \int_{0}^{\pi}f(x) \mathrm{d}x = \int_{0}^{\pi} \left(
         </item>
         <item>
         <title>常用算法</title>
-        <link>https://5882886.github.io/p/algorithm/</link>
+        <link>http://localhost:1313/p/algorithm/</link>
         <pubDate>Sun, 01 Jun 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/algorithm/</guid>
+        <guid>http://localhost:1313/p/algorithm/</guid>
         <description>&lt;p&gt;参考资料：&lt;a class=&#34;link&#34; href=&#34;https://www.bilibili.com/video/BV1QV4y1m7oo?spm_id_from=333.788.videopod.sections&amp;amp;vd_source=3f0e843792d165dc47136a5548be81da&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;点击此处
     
@@ -4556,10 +4587,10 @@ $$\begin{align*} I &amp;= \int_{0}^{\pi}f(x) \mathrm{d}x = \int_{0}^{\pi} \left(
         </item>
         <item>
         <title>有意思的玩意</title>
-        <link>https://5882886.github.io/p/tju/</link>
+        <link>http://localhost:1313/p/tju/</link>
         <pubDate>Thu, 09 Jan 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/tju/</guid>
+        <guid>http://localhost:1313/p/tju/</guid>
         <description>&lt;h2 id=&#34;阅读&#34;&gt;阅读
 &lt;/h2&gt;&lt;h3 id=&#34;阅读-1&#34;&gt;阅读Ⅰ
 &lt;/h3&gt;&lt;p&gt;阅读下面的文字，完成1~5题。（本题共5小题，19分）&lt;/p&gt;
@@ -4770,11 +4801,11 @@ D.	全诗语言简明直白，生动地表达作者对天津的喜爱和赞美�
         </item>
         <item>
         <title>玩转Github</title>
-        <link>https://5882886.github.io/p/git_help/</link>
+        <link>http://localhost:1313/p/git_help/</link>
         <pubDate>Mon, 04 Nov 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/git_help/</guid>
-        <description>&lt;img src="https://5882886.github.io/p/git_help/git.jpg" alt="Featured image of post 玩转Github" /&gt;&lt;h2 id=&#34;git简介&#34;&gt;git简介
+        <guid>http://localhost:1313/p/git_help/</guid>
+        <description>&lt;img src="http://localhost:1313/p/git_help/git.jpg" alt="Featured image of post 玩转Github" /&gt;&lt;h2 id=&#34;git简介&#34;&gt;git简介
 &lt;/h2&gt;&lt;p&gt;git 是一个开源的分布式版本控制系统（VCS），用于高效、快速地处理从小型到大型项目的所有内容管理。它由 Linus Torvalds（Linux 之父）于 2005 年创建，最初是为了更好地管理 Linux 内核开发。&lt;/p&gt;
 &lt;h3 id=&#34;git基本概念&#34;&gt;git基本概念
 &lt;/h3&gt;&lt;table&gt;
@@ -4891,11 +4922,11 @@ D.	全诗语言简明直白，生动地表达作者对天津的喜爱和赞美�
         </item>
         <item>
         <title>Minecraft教程</title>
-        <link>https://5882886.github.io/p/minecraft-help/</link>
+        <link>http://localhost:1313/p/minecraft-help/</link>
         <pubDate>Sat, 10 Aug 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/minecraft-help/</guid>
-        <description>&lt;img src="https://5882886.github.io/p/minecraft-help/minecraft.jpeg" alt="Featured image of post Minecraft教程" /&gt;&lt;h2 id=&#34;认识minecraft&#34;&gt;认识Minecraft
+        <guid>http://localhost:1313/p/minecraft-help/</guid>
+        <description>&lt;img src="http://localhost:1313/p/minecraft-help/minecraft.jpeg" alt="Featured image of post Minecraft教程" /&gt;&lt;h2 id=&#34;认识minecraft&#34;&gt;认识Minecraft
 &lt;/h2&gt;&lt;p&gt;Minecraft（简称MC），作为全球销量第一的游戏，深受众多玩家喜爱。&lt;/p&gt;
 &lt;p&gt;MC分为Java版、基岩版、主机板（Xbox版）和网易版。&lt;/p&gt;
 &lt;h2 id=&#34;下载minecraft&#34;&gt;下载Minecraft
@@ -5168,10 +5199,10 @@ D.	全诗语言简明直白，生动地表达作者对天津的喜爱和赞美�
         </item>
         <item>
         <title>十四班学生列传</title>
-        <link>https://5882886.github.io/p/senior_high/</link>
+        <link>http://localhost:1313/p/senior_high/</link>
         <pubDate>Fri, 14 Jun 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/senior_high/</guid>
+        <guid>http://localhost:1313/p/senior_high/</guid>
         <description>&lt;h2 id=&#34;总序&#34;&gt;总序
 &lt;/h2&gt;&lt;p style=&#34;text-indent: 2em;margin-top: 0;margin-bottom: 0;&#34;&gt;金鸡峰下，银蝶湖畔，钟灵毓秀，人才辈出。有黄山松石铸精魂，蕴陶公知行明己身。时维九月，序属三秋，吾班初建，朝气蓬勃。所属虽异，团结如一；群贤毕至，共话宏图。&lt;/p&gt;
 &lt;p style=&#34;text-indent: 2em;margin-top: 0;margin-bottom: 0;&#34;&gt;忆开学之初，历历在目。虽相识不甚明，终同舟以共济。既立班委，又树新规。外出鸣、陆二帅 擎班旗，内命熙、蕾双将 督学风。已有各科班委司其职，更兼班之众生共进步。越明年，政通人和，百业俱兴。立学习小组 ，开制度先河。&lt;/p&gt;
@@ -5230,11 +5261,11 @@ D.	全诗语言简明直白，生动地表达作者对天津的喜爱和赞美�
         </item>
         <item>
         <title>Markdown语法</title>
-        <link>https://5882886.github.io/p/markdown%E8%AF%AD%E6%B3%95/</link>
+        <link>http://localhost:1313/p/markdown%E8%AF%AD%E6%B3%95/</link>
         <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/markdown%E8%AF%AD%E6%B3%95/</guid>
-        <description>&lt;img src="https://5882886.github.io/p/markdown%E8%AF%AD%E6%B3%95/pawel-czerwinski-8uZPynIu-rQ-unsplash.jpg" alt="Featured image of post Markdown语法" /&gt;&lt;p&gt;本文提供了可用于 Hugo 内容文件的基本 Markdown 语法示例，还显示了 Hugo 主题中的基本 HTML 元素是否使用 CSS 进行修饰。&lt;/p&gt;
+        <guid>http://localhost:1313/p/markdown%E8%AF%AD%E6%B3%95/</guid>
+        <description>&lt;img src="http://localhost:1313/p/markdown%E8%AF%AD%E6%B3%95/pawel-czerwinski-8uZPynIu-rQ-unsplash.jpg" alt="Featured image of post Markdown语法" /&gt;&lt;p&gt;本文提供了可用于 Hugo 内容文件的基本 Markdown 语法示例，还显示了 Hugo 主题中的基本 HTML 元素是否使用 CSS 进行修饰。&lt;/p&gt;
 &lt;h2 id=&#34;标题&#34;&gt;标题
 &lt;/h2&gt;&lt;p&gt;如下的 &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt;—&lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt; 显示了标题的6个级别， &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt; 级别最高， &lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt; 级别最低.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-md&#34; data-lang=&#34;md&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gh&#34;&gt;# H1
@@ -5844,10 +5875,10 @@ $$ \begin{align*} x_1+x_2 &amp;= \frac{-b+\sqrt{b^{2}-4ac}}{2a} + \frac{-b-\sqrt
         </item>
         <item>
         <title>数学公式输入</title>
-        <link>https://5882886.github.io/p/math-typesetting/</link>
+        <link>http://localhost:1313/p/math-typesetting/</link>
         <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/math-typesetting/</guid>
+        <guid>http://localhost:1313/p/math-typesetting/</guid>
         <description>&lt;p&gt;Hugo项目中的数学符号可以通过使用第三方JavaScript库来启用。&lt;/p&gt;
 &lt;p&gt;这个例子中将会使用 &lt;a class=&#34;link&#34; href=&#34;https://katex.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;KaTeX
@@ -5910,11 +5941,11 @@ $$</description>
         </item>
         <item>
         <title>Emoji Support</title>
-        <link>https://5882886.github.io/p/emoji-support/</link>
+        <link>http://localhost:1313/p/emoji-support/</link>
         <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/emoji-support/</guid>
-        <description>&lt;img src="https://5882886.github.io/p/emoji-support/the-creative-exchange-d2zvqp3fpro-unsplash.jpg" alt="Featured image of post Emoji Support" /&gt;&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;
+        <guid>http://localhost:1313/p/emoji-support/</guid>
+        <description>&lt;img src="http://localhost:1313/p/emoji-support/the-creative-exchange-d2zvqp3fpro-unsplash.jpg" alt="Featured image of post Emoji Support" /&gt;&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;
 &lt;p&gt;The &lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/functions/emojify/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;&lt;code&gt;emojify&lt;/code&gt;
     

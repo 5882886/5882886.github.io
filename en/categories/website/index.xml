@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Website on RunicDolphin806&#39;s Blog</title>
-        <link>https://5882886.github.io/en/categories/website/</link>
+        <link>http://localhost:1313/en/categories/website/</link>
         <description>Recent content in Website on RunicDolphin806&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <copyright>RunicDolphin806</copyright><atom:link href="https://5882886.github.io/en/categories/website/index.xml" rel="self" type="application/rss+xml" />
+        <copyright>RunicDolphin806</copyright><atom:link href="http://localhost:1313/en/categories/website/index.xml" rel="self" type="application/rss+xml" />
     </channel>
 </rss>
