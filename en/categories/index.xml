@@ -2,58 +2,58 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Categories on RunicDolphin806&#39;s Blog</title>
-        <link>http://localhost:1313/en/categories/</link>
+        <link>https://5882886.github.io/en/categories/</link>
         <description>Recent content in Categories on RunicDolphin806&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>RunicDolphin806</copyright>
-        <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/en/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://5882886.github.io/en/categories/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Guide</title>
-        <link>http://localhost:1313/en/categories/guide/</link>
+        <link>https://5882886.github.io/en/categories/guide/</link>
         <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/en/categories/guide/</guid>
+        <guid>https://5882886.github.io/en/categories/guide/</guid>
         <description></description>
         </item>
         <item>
         <title>Test</title>
-        <link>http://localhost:1313/en/categories/test/</link>
+        <link>https://5882886.github.io/en/categories/test/</link>
         <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/en/categories/test/</guid>
-        <description>&lt;img src="http://localhost:1313/categories/test/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post Test" /&gt;</description>
+        <guid>https://5882886.github.io/en/categories/test/</guid>
+        <description>&lt;img src="https://5882886.github.io/categories/test/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post Test" /&gt;</description>
         </item>
         <item>
         <title>Interesting things</title>
-        <link>http://localhost:1313/en/categories/interesting_things/</link>
+        <link>https://5882886.github.io/en/categories/interesting_things/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/en/categories/interesting_things/</guid>
+        <guid>https://5882886.github.io/en/categories/interesting_things/</guid>
         <description></description>
         </item>
         <item>
         <title>Linux</title>
-        <link>http://localhost:1313/en/categories/linux/</link>
+        <link>https://5882886.github.io/en/categories/linux/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/en/categories/linux/</guid>
-        <description>&lt;img src="http://localhost:1313/categories/linux/Linux.jpg" alt="Featured image of post Linux" /&gt;</description>
+        <guid>https://5882886.github.io/en/categories/linux/</guid>
+        <description>&lt;img src="https://5882886.github.io/categories/linux/Linux.jpg" alt="Featured image of post Linux" /&gt;</description>
         </item>
         <item>
         <title>Minecraft</title>
-        <link>http://localhost:1313/en/categories/minecraft/</link>
+        <link>https://5882886.github.io/en/categories/minecraft/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/en/categories/minecraft/</guid>
-        <description>&lt;img src="http://localhost:1313/categories/minecraft/screenshot.png" alt="Featured image of post Minecraft" /&gt;</description>
+        <guid>https://5882886.github.io/en/categories/minecraft/</guid>
+        <description>&lt;img src="https://5882886.github.io/categories/minecraft/screenshot.png" alt="Featured image of post Minecraft" /&gt;</description>
         </item>
         <item>
         <title>Website</title>
-        <link>http://localhost:1313/en/categories/website/</link>
+        <link>https://5882886.github.io/en/categories/website/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/en/categories/website/</guid>
-        <description>&lt;img src="http://localhost:1313/categories/website/Website.jpg" alt="Featured image of post Website" /&gt;</description>
+        <guid>https://5882886.github.io/en/categories/website/</guid>
+        <description>&lt;img src="https://5882886.github.io/categories/website/Website.jpg" alt="Featured image of post Website" /&gt;</description>
         </item>
         
     </channel>

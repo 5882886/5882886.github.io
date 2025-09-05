@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Linux on RunicDolphin806的博客</title>
-        <link>http://localhost:1313/categories/linux/</link>
+        <link>https://5882886.github.io/categories/linux/</link>
         <description>Recent content in Linux on RunicDolphin806的博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>RunicDolphin806</copyright>
-        <lastBuildDate>Sun, 10 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/linux/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 10 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://5882886.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Termux使用小技巧</title>
-        <link>http://localhost:1313/p/termux/</link>
+        <link>https://5882886.github.io/p/termux/</link>
         <pubDate>Sun, 10 Aug 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/termux/</guid>
-        <description>&lt;img src="http://localhost:1313/p/termux/termux.png" alt="Featured image of post Termux使用小技巧" /&gt;&lt;h2 id=&#34;termux简介&#34;&gt;Termux简介
+        <guid>https://5882886.github.io/p/termux/</guid>
+        <description>&lt;img src="https://5882886.github.io/p/termux/termux.png" alt="Featured image of post Termux使用小技巧" /&gt;&lt;h2 id=&#34;termux简介&#34;&gt;Termux简介
 &lt;/h2&gt;&lt;p&gt;Termux是Android系统上的Linux终端模拟器，能够让用户在未获取root权限的情况下运行Linux虚拟机，并可以安装多个Linux发行版。&lt;/p&gt;
 &lt;h2 id=&#34;termux下载linux发行版&#34;&gt;Termux下载Linux发行版
 &lt;/h2&gt;&lt;h3 id=&#34;方法1使用tmoe工具&#34;&gt;方法1：使用TMOE工具
@@ -91,11 +91,11 @@
         </item>
         <item>
         <title>Linux系统小技巧</title>
-        <link>http://localhost:1313/p/linux_help/</link>
+        <link>https://5882886.github.io/p/linux_help/</link>
         <pubDate>Mon, 04 Aug 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/linux_help/</guid>
-        <description>&lt;img src="http://localhost:1313/p/linux_help/Linux-tips.png" alt="Featured image of post Linux系统小技巧" /&gt;&lt;h2 id=&#34;linux发行版&#34;&gt;Linux发行版
+        <guid>https://5882886.github.io/p/linux_help/</guid>
+        <description>&lt;img src="https://5882886.github.io/p/linux_help/Linux-tips.png" alt="Featured image of post Linux系统小技巧" /&gt;&lt;h2 id=&#34;linux发行版&#34;&gt;Linux发行版
 &lt;/h2&gt;&lt;table&gt;
   &lt;thead&gt;
       &lt;tr&gt;
@@ -766,7 +766,7 @@
   &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2 id=&#34;ssh连接linux系统&#34;&gt;SSH连接Linux系统
-&lt;/h2&gt;&lt;p&gt;参见：&lt;a class=&#34;link&#34; href=&#34;http://localhost:1313/p/ssh/#linux%e7%b3%bb%e7%bb%9f&#34; &gt;SSH配置简介
+&lt;/h2&gt;&lt;p&gt;参见：&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/ssh/#linux%e7%b3%bb%e7%bb%9f&#34; &gt;SSH配置简介
     
     
 
