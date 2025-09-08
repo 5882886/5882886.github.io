@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="成为开源社区贡献者">
-<title>玩转Github</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="目标：制作一个32位的操作系统\n什么是NEMU 在PC上运行应用程序\nNEMU：在X86-64处理器的机器上模拟一个32位操作系统。\n任务：\n功能完备的IA-32全系统模拟器 包括4个连贯的实验内容 ① 简易调试器 ② 指令系统 ③ 存储管理 ④ 中断与I/O NEMU启动 定义操作指令集 在nemu/src/monitor/debug/ui.c中定义了调试器的结构：\n">
+<title>NEMU</title>
 
-<link rel='canonical' href='https://5882886.github.io/p/git_help/'>
+<link rel='canonical' href='https://5882886.github.io/p/nemu/'>
 
-<link rel="stylesheet" href="/scss/style.min.d5f0afff969146387d200fea3eb333f0bf05cc9fd465feedf5111202537029d6.css"><meta property='og:title' content="玩转Github">
-<meta property='og:description' content="成为开源社区贡献者">
-<meta property='og:url' content='https://5882886.github.io/p/git_help/'>
+<link rel="stylesheet" href="/scss/style.min.d5f0afff969146387d200fea3eb333f0bf05cc9fd465feedf5111202537029d6.css"><meta property='og:title' content="NEMU">
+<meta property='og:description' content="目标：制作一个32位的操作系统\n什么是NEMU 在PC上运行应用程序\nNEMU：在X86-64处理器的机器上模拟一个32位操作系统。\n任务：\n功能完备的IA-32全系统模拟器 包括4个连贯的实验内容 ① 简易调试器 ② 指令系统 ③ 存储管理 ④ 中断与I/O NEMU启动 定义操作指令集 在nemu/src/monitor/debug/ui.c中定义了调试器的结构：\n">
+<meta property='og:url' content='https://5882886.github.io/p/nemu/'>
 <meta property='og:site_name' content='RunicDolphin806的博客'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-11-04T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-11-04T00:00:00&#43;00:00'/><meta property='og:image' content='https://5882886.github.io/p/git_help/git.jpg' />
-<meta name="twitter:title" content="玩转Github">
-<meta name="twitter:description" content="成为开源社区贡献者"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://5882886.github.io/p/git_help/git.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-09-08T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-09-08T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="NEMU">
+<meta name="twitter:description" content="目标：制作一个32位的操作系统\n什么是NEMU 在PC上运行应用程序\nNEMU：在X86-64处理器的机器上模拟一个32位操作系统。\n任务：\n功能完备的IA-32全系统模拟器 包括4个连贯的实验内容 ① 简易调试器 ② 指令系统 ③ 存储管理 ④ 中断与I/O NEMU启动 定义操作指令集 在nemu/src/monitor/debug/ui.c中定义了调试器的结构：\n">
     <link rel="shortcut icon" href="/favicon.ico" />
 
     </head>
@@ -288,16 +287,12 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#git简介">git简介</a>
+    <li><a href="#什么是nemu">什么是NEMU</a></li>
+    <li><a href="#nemu启动">NEMU启动</a></li>
+    <li><a href="#pa1-简易调试器">PA1 简易调试器</a>
       <ol>
-        <li><a href="#git基本概念">git基本概念</a></li>
-        <li><a href="#git基本操作">git基本操作</a></li>
-        <li><a href="#变更分支">变更分支</a></li>
-      </ol>
-    </li>
-    <li><a href="#github使用教程">Github使用教程</a>
-      <ol>
-        <li><a href="#添加-ssh-密钥">添加 SSH 密钥</a></li>
+        <li><a href="#实现正确的寄存器结构">实现正确的寄存器结构</a></li>
+        <li><a href="#实现调试器的功能">实现调试器的功能</a></li>
       </ol>
     </li>
   </ol>
@@ -448,20 +443,8 @@
 
             <main class="main full-width">
     
-        <article class="has-image main-article">
+        <article class="main-article">
     <header class="article-header">
-        <div class="article-image">
-            <a href="/p/git_help/">
-                <img src="/p/git_help/git_hu_481564a724fac5a6.jpg"
-                        srcset="/p/git_help/git_hu_481564a724fac5a6.jpg 800w, /p/git_help/git_hu_2e42b992a1f5af83.jpg 1600w"
-                        width="800" 
-                        height="450" 
-                        loading="lazy"
-                        alt="Featured image of post 玩转Github" />
-                
-            </a>
-        </div>
-    
 
     <div class="article-details">
     
@@ -471,18 +454,18 @@
                 教程
             </a>
         
+            <a href="/categories/interesting_things/" style="background-color: #2a9d8f; color: #fff;">
+                小乐趣
+            </a>
+        
     </header>
     
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/git_help/">玩转Github</a>
+            <a href="/p/nemu/">NEMU</a>
         </h2>
     
-        
-        <h3 class="article-subtitle">
-            成为开源社区贡献者
-        </h3>
         
     </div>
 
@@ -502,7 +485,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Nov 04, 2024</time>
+                <time class="article-time--published">Sep 08, 2025</time>
             </div>
         
 
@@ -518,123 +501,145 @@
     <section class="article-content">
     
     
-    <h2 id="git简介">git简介
-</h2><p>git 是一个开源的分布式版本控制系统（VCS），用于高效、快速地处理从小型到大型项目的所有内容管理。它由 Linus Torvalds（Linux 之父）于 2005 年创建，最初是为了更好地管理 Linux 内核开发。</p>
-<h3 id="git基本概念">git基本概念
-</h3><div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>术语</th>
-          <th>含义</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>仓库（Repository）</td>
-          <td>存储项目所有文件和历史记录的地方</td>
-      </tr>
-      <tr>
-          <td>工作区（Working Directory）</td>
-          <td>你电脑上实际看到的项目文件夹</td>
-      </tr>
-      <tr>
-          <td>暂存区（Index/Stage）</td>
-          <td>准备提交的更改区域，介于工作区和仓库之间</td>
-      </tr>
-      <tr>
-          <td>提交（Commit）</td>
-          <td>保存项目当前状态为一个版本</td>
-      </tr>
-      <tr>
-          <td>分支（Branch）</td>
-          <td>从主线上分出来的独立开发线，不影响主线</td>
-      </tr>
-      <tr>
-          <td>合并（Merge）</td>
-          <td>将分支的更改整合到另一个分支</td>
-      </tr>
-      <tr>
-          <td>远程仓库（Remote）</td>
-          <td>托管在网络上的仓库，如 GitHub、GitLab</td>
-      </tr>
-  </tbody>
-</table></div>
-<h3 id="git基本操作">git基本操作
-</h3><ol>
-<li>克隆（clone） 远程仓库到本地</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git clone https://github.com/user/repo.git
-</span></span></code></pre></div><ol start="2">
-<li>
-<p>在工作区中修改文件。</p>
-</li>
-<li>
-<p>暂存（add） 更改到暂存区</p>
-</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git add .
-</span></span></code></pre></div><ol start="4">
-<li>提交（commit） 更改到本地仓库</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git commit -m <span class="s2">&#34;描述信息&#34;</span>
-</span></span></code></pre></div><ol start="5">
-<li>推送（push） 到远程仓库</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git push origin main
-</span></span></code></pre></div><ol start="6">
-<li>拉取（pull） 获取他人更新</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git pull origin main
-</span></span></code></pre></div><h3 id="变更分支">变更分支
-</h3><p>若更改未push到远程仓库中，默认保存在本地工作文件夹的<code>.git</code>文件夹中，此时可以对分支进行任意的修改操作。</p>
+    <p>目标：制作一个32位的操作系统</p>
+<h2 id="什么是nemu">什么是NEMU
+</h2><p>在PC上运行应用程序</p>
+<p>NEMU：在X86-64处理器的机器上模拟一个32位操作系统。</p>
+<p>任务：</p>
 <ol>
-<li>进入工程文件夹，在终端中输入</li>
+<li>功能完备的IA-32全系统模拟器</li>
+<li>包括4个连贯的实验内容 <br>
+① 简易调试器 <br>
+② 指令系统 <br>
+③ 存储管理 <br>
+④ 中断与I/O <br></li>
 </ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git log
-</span></span></code></pre></div><p>此命令可以查看当前所有提交的具体信息，包括提交时间、作者、提交ID等。可以使用键盘的“↑”、“↓”键滚动，按q键退出。</p>
+<h2 id="nemu启动">NEMU启动
+</h2><ol>
+<li>定义操作指令集</li>
+</ol>
+<p>在<code>nemu/src/monitor/debug/ui.c</code>中定义了调试器的结构：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">static</span> <span class="k">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">	<span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">	<span class="kt">char</span> <span class="o">*</span><span class="n">description</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">	<span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">handler</span><span class="p">)</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">);</span>     <span class="c1">// 函数指针，可指向*name，*description
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="c1"></span><span class="p">}</span> <span class="n">cmd_table</span> <span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">	<span class="p">{</span> <span class="s">&#34;help&#34;</span><span class="p">,</span> <span class="s">&#34;Display informations about all supported commands&#34;</span><span class="p">,</span> <span class="n">cmd_help</span> <span class="p">},</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">	<span class="p">{</span> <span class="s">&#34;c&#34;</span><span class="p">,</span> <span class="s">&#34;Continue the execution of the program&#34;</span><span class="p">,</span> <span class="n">cmd_c</span> <span class="p">},</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">	<span class="p">{</span> <span class="s">&#34;q&#34;</span><span class="p">,</span> <span class="s">&#34;Exit NEMU&#34;</span><span class="p">,</span> <span class="n">cmd_q</span> <span class="p">},</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">
+</span></span><span class="line"><span class="ln">10</span><span class="cl">	<span class="cm">/* TODO: Add more commands */</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="cm">/* 接下来若想定义新的操作，格式为
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="cm">    { &#34;command name&#34;, &#34;command description&#34;, commamd function},
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="cm">    */</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><h2 id="pa1-简易调试器">PA1 简易调试器
+</h2><h3 id="实现正确的寄存器结构">实现正确的寄存器结构
+</h3><p>在<code>/nemu/include/cpu/reg.h</code>中，原寄存器结构定义为：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="k">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">        <span class="kt">uint32_t</span> <span class="n">_32</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">        <span class="kt">uint16_t</span> <span class="n">_16</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">        <span class="kt">uint8_t</span> <span class="n">_8</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="p">}</span> <span class="n">gpr</span><span class="p">[</span><span class="mi">8</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="cm">/* Do NOT change the order of the GPRs&#39; definitions. */</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="kt">uint32_t</span> <span class="n">eax</span><span class="p">,</span> <span class="n">ecx</span><span class="p">,</span> <span class="n">edx</span><span class="p">,</span> <span class="n">ebx</span><span class="p">,</span> <span class="n">esp</span><span class="p">,</span> <span class="n">ebp</span><span class="p">,</span> <span class="n">esi</span><span class="p">,</span> <span class="n">edi</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="p">...</span> 
+</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="p">}</span> <span class="n">CPU_state</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="p">...</span>
+</span></span></code></pre></div><p>使用结构体，每一个寄存器均独立存在，而X86系统的寄存器是共享的，例如 %eax 的后4位即为 %ax。因此应使用联合体的形式定义寄存器，这样对 %ax 操作时也会相应地改变 %eax 的值。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="k">union</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">        <span class="k">union</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">            <span class="kt">uint32_t</span> <span class="n">_32</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">            <span class="kt">uint16_t</span> <span class="n">_16</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">            <span class="kt">uint8_t</span> <span class="n">_8</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">        <span class="p">}</span> <span class="n">gpr</span><span class="p">[</span><span class="mi">8</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">        <span class="cm">/* Do NOT change the order of the GPRs&#39; definitions. */</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="k">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">            <span class="kt">uint32_t</span> <span class="n">eax</span><span class="p">,</span> <span class="n">ecx</span><span class="p">,</span> <span class="n">edx</span><span class="p">,</span> <span class="n">ebx</span><span class="p">,</span> <span class="n">esp</span><span class="p">,</span> <span class="n">ebp</span><span class="p">,</span> <span class="n">esi</span><span class="p">,</span> <span class="n">edi</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">        <span class="p">};</span>	
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="p">}</span> <span class="n">CPU_state</span><span class="p">;</span>
+</span></span></code></pre></div><h3 id="实现调试器的功能">实现调试器的功能
+</h3><p>回顾<code>nemu/src/monitor/debug/ui.c</code>中对调试器的定义，需增加新的操作指令<code>si</code>，<code>info</code>，<code>x</code>。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">static</span> <span class="k">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">	<span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">	<span class="kt">char</span> <span class="o">*</span><span class="n">description</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">	<span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">handler</span><span class="p">)</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="p">}</span> <span class="n">cmd_table</span> <span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">	<span class="p">...</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="c1">// 定义单步执行操作，关键字为 si，以此类推
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1"></span>    <span class="p">{</span> <span class="s">&#34;si&#34;</span><span class="p">,</span> <span class="s">&#34;Single step execution&#34;</span><span class="p">,</span> <span class="n">cmd_si</span> <span class="p">},</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="p">{</span> <span class="s">&#34;info&#34;</span><span class="p">,</span> <span class="s">&#34;Show register or monitor&#39;s infomation&#34;</span><span class="p">,</span> <span class="n">cmd_info</span> <span class="p">},</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="p">{</span> <span class="s">&#34;x&#34;</span><span class="p">,</span> <span class="s">&#34;Scan Memory&#34;</span><span class="p">,</span> <span class="n">cmd_x</span> <span class="p">},</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><ol>
+<li>单步执行</li>
+</ol>
+<p>在<code>nemu/src/monitor/debug/ui.c</code>中定义新的操作函数：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">static</span> <span class="kt">int</span> <span class="nf">cmd_si</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="kt">char</span> <span class="o">*</span><span class="n">arg</span> <span class="o">=</span> <span class="nf">strtok</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="s">&#34; &#34;</span><span class="p">);</span>  <span class="c1">// 获取第二个字符
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">step</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>   <span class="c1">// 待操作步数
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">   
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">arg</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">        <span class="nf">cpu_exec</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="nf">scanf</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">step</span><span class="p">);</span>  <span class="c1">// 将arg转换为整型数
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="n">step</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">            <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Illegal input!&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">        <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">            <span class="k">for</span><span class="p">(;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">step</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">                <span class="nf">cpu_exec</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><br>
+<details>
+    <summary>报错请查看：</summary>
+<ol>
+<li>使用循环时，循环变量的初始化应在循环结构之前，否则会报错：</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">nemu/src/monitor/debug/ui.c:55: error: <span class="s1">&#39;for&#39;</span> loop initial declarations are only allowed in C99 mode
+</span></span><span class="line"><span class="ln">2</span><span class="cl">nemu/src/monitor/debug/ui.c:55: note: use option -std<span class="o">=</span>c99 or -std<span class="o">=</span>gnu99 to compile your code
+</span></span></code></pre></div><ol start="2">
+<li>读取函数应使用 <code>sscanf</code>。</li>
+</ol>
+<hr>
+</details>
 <ol start="2">
-<li>
-<p>选择需要更改的提交，复制它的ID。</p>
-</li>
-<li>
-<p>退出log，在终端中输入</p>
-</li>
+<li>打印寄存器状态</li>
 </ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git rebase -i 复制的提交ID
-</span></span></code></pre></div><p>这样会打开一个Nano编辑器（Linux环境下），在要删除的提交前加上<code>#</code>，然后<code>Ctrl+O</code>写入、回车、<code>Ctrl+X</code>保存。系统会自动变更分支结构。</p>
-<ol start="4">
-<li>继续提交新的更改，变更完成。</li>
-</ol>
-<p>若要更改的提交已经push到远程仓库，则只需在最后push时输入</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git pull &lt;分支名&gt; --force
-</span></span></code></pre></div><p>强制变更。</p>
-<blockquote>
-<p>注意：强制变更时应保证此时没有其他人员的提交，否则会导致分支出错。</p></blockquote>
-<h2 id="github使用教程">Github使用教程
-</h2><p>Github是当前世界最大的开源网站库，使用git操作管理所有文件。</p>
-<p>注册一个Github账号后即可在Github上免费创建和使用仓库，也可以加入其他开源项目的开发。</p>
-<h3 id="添加-ssh-密钥">添加 SSH 密钥
-</h3><p>一些情况下，使用<code>git push</code>时会提示网络连接超时。这时可以尝试使用SSH协议，为你的Github账户添加 SSH 密钥。</p>
-<p>以下操作均在Linux系统下进行。</p>
-<ol>
-<li>生成SSH密钥（如果尚未生成）：</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="s2">&#34;your_email@example.com&#34;</span>
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"># 引号中填写注册Github时的邮箱地址。</span>
-</span></span></code></pre></div><ol start="2">
-<li>将公钥添加到GitHub账户：</li>
-</ol>
-<p>复制公钥内容：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">cat ~/.ssh/id_rsa.pub
-</span></span></code></pre></div><p>登录GitHub，进入Settings → SSH and GPG keys → New SSH key，粘贴公钥并保存。</p>
-<ol start="3">
-<li>更新Git远程仓库地址为SSH格式：</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
-</span></span></code></pre></div><p>替换<code>USERNAME</code>和<code>REPOSITORY</code>为你的GitHub用户名和仓库名。</p>
-<blockquote>
-<p>如果是Windows系统，则需要首先安装Git Bash，然后在Git Bash中执行上述操作。</p></blockquote>
-
+<p>同理，定义操作函数<code>cmd_info</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">static</span> <span class="kt">int</span> <span class="nf">cmd_info</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="kt">char</span> <span class="o">*</span><span class="n">arg</span> <span class="o">=</span> <span class="nf">strtok</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="s">&#34; &#34;</span><span class="p">);</span>  <span class="c1">// 获取第二个字符
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">*</span><span class="n">arg</span> <span class="o">==</span> <span class="sc">&#39;r&#39;</span><span class="p">)</span> <span class="p">{</span>    <span class="c1">// 参数为&#39;r&#39;时打印寄存器的值
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="c1"></span>        <span class="k">for</span><span class="p">(;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">8</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">            <span class="c1">// 打印eax, ecx, edx, ebx, esp, ebp, esi, edi 8个寄存器
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1"></span>            <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%s</span><span class="se">\t\t</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">regsl</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>     <span class="c1">// 打印寄存器名称
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="c1"></span>            <span class="c1">// 先打印寄存器的16进制值，再打印寄存器的十进制值（仿GDB）
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="c1"></span>            <span class="c1">// &#34;\t&#34; 为制表符，让输出更美观
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="c1"></span>            <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;0x%08x</span><span class="se">\t\t</span><span class="s">%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">cpu</span><span class="p">.</span><span class="n">gpr</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">_32</span><span class="p">,</span> <span class="n">cpu</span><span class="p">.</span><span class="n">gpr</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">_32</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">        <span class="c1">// 打印%eip 寄存器
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="c1"></span>        <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;eip</span><span class="se">\t\t</span><span class="s">0x%08x</span><span class="se">\t\t</span><span class="s">%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">cpu</span><span class="p">.</span><span class="n">eip</span><span class="p">,</span> <span class="n">cpu</span><span class="p">.</span><span class="n">eip</span><span class="p">);</span>  
+</span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">        <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Illegal input!</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">
+</span></span><span class="line"><span class="ln">20</span><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div>
 </section>
 
 
@@ -669,12 +674,12 @@
             
                 
 <article class="">
-    <a href="/p/aplayer/">
+    <a href="/p/math_tips/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">APlayer</h2>
+            <h2 class="article-title">微积分：常用公式</h2>
         </div>
     </a>
 </article>
@@ -682,60 +687,12 @@
             
                 
 <article class="">
-    <a href="/p/windows/">
+    <a href="/p/math_quiz/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">Windows系统安装与修复</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
-    <a href="/p/termux/">
-        
-        
-            <div class="article-image">
-                <img src="/p/termux/termux.ef9c8dc02981dfda7424f6d78125f014_hu_82cffd8a4244ea7f.png" 
-                        width="250" 
-                        height="150" 
-                        loading="lazy"
-                        alt="Featured image of post Termux使用小技巧"
-                        data-key="termux" 
-                        data-hash="md5-75yNwCmB39p0JPbXgSXwFA==">
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Termux使用小技巧</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
-    <a href="/p/linux_help/">
-        
-        
-            <div class="article-image">
-                <img src="/p/linux_help/Linux-tips.85fd86c2433475c11b829eaf0d87d703_hu_4e669f737b95627f.png" 
-                        width="250" 
-                        height="150" 
-                        loading="lazy"
-                        alt="Featured image of post Linux系统小技巧"
-                        data-key="linux_help" 
-                        data-hash="md5-hf2GwkM0dcEbgp6vDYfXAw==">
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Linux系统小技巧</h2>
+            <h2 class="article-title">微积分：题目</h2>
         </div>
     </a>
 </article>
@@ -743,12 +700,38 @@
             
                 
 <article class="">
-    <a href="/p/stack-decorate/">
+    <a href="/p/data-structure/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">Hugo-stack主题装饰</h2>
+            <h2 class="article-title">熟练掌握数据结构</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/algorithm/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">常用算法</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/tju/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">有意思的玩意</h2>
         </div>
     </a>
 </article>

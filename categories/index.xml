@@ -7,12 +7,20 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>RunicDolphin806</copyright>
-        <lastBuildDate>Sun, 17 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://5882886.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 08 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://5882886.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>教程</title>
         <link>https://5882886.github.io/categories/guide/</link>
-        <pubDate>Sun, 17 Aug 2025 00:00:00 +0000</pubDate>
+        <pubDate>Mon, 08 Sep 2025 00:00:00 +0000</pubDate>
         
         <guid>https://5882886.github.io/categories/guide/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>小乐趣</title>
+        <link>https://5882886.github.io/categories/interesting_things/</link>
+        <pubDate>Mon, 08 Sep 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://5882886.github.io/categories/interesting_things/</guid>
         <description></description>
         </item>
         <item>
@@ -22,14 +30,6 @@
         
         <guid>https://5882886.github.io/categories/website/</guid>
         <description>&lt;img src="https://5882886.github.io/categories/website/Website.jpg" alt="Featured image of post 网站" /&gt;</description>
-        </item>
-        <item>
-        <title>小乐趣</title>
-        <link>https://5882886.github.io/categories/interesting_things/</link>
-        <pubDate>Tue, 12 Aug 2025 00:00:00 +0000</pubDate>
-        
-        <guid>https://5882886.github.io/categories/interesting_things/</guid>
-        <description></description>
         </item>
         <item>
         <title>Linux</title>

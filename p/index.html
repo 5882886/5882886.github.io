@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="目标：制作一个32位的操作系统\n什么是NEMU 在PC上运行应用程序\nNEMU：在X86-64处理器的机器上模拟一个32位操作系统。\n任务：\n功能完备的IA-32全系统模拟器 包括4个连贯的实验内容 ① 简易调试器 ② 指令系统 ③ 存储管理 ④ 中断与I/O ">
 <title></title>
 
 <link rel='canonical' href='http://localhost:1313/p/'>
 
-<link rel="stylesheet" href="/scss/style.min.85bbfceec5829bc8cc74528bad656ba31564ad046bbe6f5e6f88234fe96be1d9.css"><meta property='og:title' content="">
-<meta property='og:description' content="">
+<link rel="stylesheet" href="/scss/style.min.d5f0afff969146387d200fea3eb333f0bf05cc9fd465feedf5111202537029d6.css"><meta property='og:title' content="">
+<meta property='og:description' content="目标：制作一个32位的操作系统\n什么是NEMU 在PC上运行应用程序\nNEMU：在X86-64处理器的机器上模拟一个32位操作系统。\n任务：\n功能完备的IA-32全系统模拟器 包括4个连贯的实验内容 ① 简易调试器 ② 指令系统 ③ 存储管理 ④ 中断与I/O ">
 <meta property='og:url' content='http://localhost:1313/p/'>
 <meta property='og:site_name' content='RunicDolphin806的博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' />
 <meta name="twitter:title" content="">
-<meta name="twitter:description" content="">
+<meta name="twitter:description" content="目标：制作一个32位的操作系统\n什么是NEMU 在PC上运行应用程序\nNEMU：在X86-64处理器的机器上模拟一个32位操作系统。\n任务：\n功能完备的IA-32全系统模拟器 包括4个连贯的实验内容 ① 简易调试器 ② 指令系统 ③ 存储管理 ④ 中断与I/O ">
     <link rel="shortcut icon" href="/favicon.ico" />
 
     </head>
@@ -263,9 +263,180 @@
 </aside>
 
     
+        <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    
+    <button id="toggle-toc" class="mobile-only">Toc</button>
+    <section class="widget archives" id="toc-container">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#什么是nemu">什么是NEMU</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+
+<style>
+    .container {
+        .right-sidebar {
+             
+            display: flex;
+        }
+    }
+
+     
+    .mobile-only {
+        display: none !important;
+    }
+
+    #toc-container {
+         
+         
+        position: fixed;
+         
+        bottom: 21%;
+         
+        right: 60px;
+         
+        background-color: var(--card-background);
+         
+        padding: 10px;
+         
+        border: 1px solid #96979a50;
+        border-radius: var(--card-border-radius);
+         
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+         
+        z-index: 9998 !important;
+         
+        max-height: 75vh;
+        overflow-y: auto;
+         
+        width: auto;
+        max-width: 290px;
+    }
+
+    #toggle-toc {
+        position: fixed;
+        bottom: 22%;
+        right: 20px;
+        padding: 10px 10px;
+        z-index: 9998 !important;
+        border: 0px solid #96979a50;
+        border-radius: 7px;
+        box-shadow: var(--shadow-l1);
+        background-color: #00640010;
+        color: #34495e;
+         
+        display: none;  
+        margin-bottom: -20px;
+        cursor: pointer;
+        font-size: 1.2rem;
+    }
+
+    .widget--toc #TableOfContents {
+        overflow-x: auto;
+        max-height: 66vh;
+        width: auto;
+    }
+
+    @media screen and (max-width: 768px) {
+        .mobile-only {
+            display: block !important;  
+        }
+
+        #toc-container {
+            display: none;  
+        }
+
+        #toggle-toc {
+            display: block;  
+            bottom: 100px;  
+        }
+    }
+
+     
+    @media screen and (min-width: 769px) {
+        #toc-container {
+            display: block !important;  
+            position: static;  
+            border: none;  
+            box-shadow: none;  
+            max-height: none;  
+            overflow-y: visible;  
+            margin-top: 20px;  
+            right: auto;  
+            bottom: auto;  
+            width: auto;  
+            max-width: 100%;  
+            background-color: transparent;  
+            padding: 0;  
+        }
+
+        #toggle-toc {
+            display: none !important;  
+        }
+    }
+</style>
+<script>
+    var toggleButton = document.getElementById('toggle-toc');
+    var tocContainer = document.getElementById('toc-container');
+
+    
+    toggleButton.addEventListener('click', function() {
+        if (tocContainer.style.display === 'none' || tocContainer.style.display === '') {
+            tocContainer.style.display = 'block';
+        } else {
+            tocContainer.style.display = 'none';
+        }
+    });
+
+    
+    toggleButton.addEventListener('mouseover', function() {
+        
+            tocContainer.style.display = 'block';
+        
+    });
+
+    
+    document.addEventListener('click', function(event) {
+        
+            
+            if (!tocContainer.contains(event.target) && event.target !== toggleButton) {
+                
+                tocContainer.style.display = 'none';
+            }
+        
+    });
+</script>
+
+            
+        
+    </aside>
+
+    
 
             <main class="main full-width">
-    <article class="main-article">
+    
+        <article class="main-article">
     <header class="article-header">
 
     <div class="article-details">
@@ -292,7 +463,20 @@
     <section class="article-content">
     
     
-    
+    <p>目标：制作一个32位的操作系统</p>
+<h2 id="什么是nemu">什么是NEMU
+</h2><p>在PC上运行应用程序</p>
+<p>NEMU：在X86-64处理器的机器上模拟一个32位操作系统。</p>
+<p>任务：</p>
+<ol>
+<li>功能完备的IA-32全系统模拟器</li>
+<li>包括4个连贯的实验内容 <br>
+① 简易调试器 <br>
+② 指令系统 <br>
+③ 存储管理 <br>
+④ 中断与I/O <br></li>
+</ol>
+
 </section>
 
 
@@ -316,17 +500,16 @@
 
     
 </article>
-
-    
-
-    
-
-     
-    
         
-    
 
-    <footer class="site-footer">
+        
+
+        
+        
+            
+        
+
+        <footer class="site-footer">
     <section class="copyright">
         &copy; 
         
@@ -340,7 +523,7 @@
 </footer>
 
 
-    
+        
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 
     
@@ -418,13 +601,15 @@
                 href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
             >
 
+    
+
             </main>
         </div>
         <script 
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.39a53604e60493c4110ce3c436a555d75dbe8ce2c3608ef20ef537bbab494ef6.js" defer></script><script type="text/javascript" src="/ts/custom.5ed52cdd956021fd7194109b25dbc5cbe93a1085461b9f29b1284df94c19481c.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.ff8817fc1abda8196fe14ddb4d17df9ae8c217449eda94fc858b611957b8f498.js" defer></script><script type="text/javascript" src="/ts/custom.5ed52cdd956021fd7194109b25dbc5cbe93a1085461b9f29b1284df94c19481c.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');
@@ -473,7 +658,7 @@
         }, {
             name: '问月',
             artist: '葫芦童声;妞妞合唱团',
-            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VRWGtMS0hmUnE1Tm1ZS09RNll0R2JrQmM2Yk94WWNrZUYwSVVkcHhXekFuOWc_ZT0zQ0pmYTY.jpg',
+            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VRWGtMS0hmUnE1Tm1ZS09RNll0R2JrQmM2Yk94WWNrZUYwSVVkcHhXekFuOWc_ZT1hYVB0S1g.mp3',
             lrc: '/music/问月.lrc',
             cover: '/music.png'
 
@@ -613,23 +798,27 @@
 
 
 
-<script
-    src="https://cdn.jsdelivr.net/gh/zhixuan2333/gh-blog@v0.1.0/js/nprogress.min.js"
-    integrity="sha384-bHDlAEUFxsRI7JfULv3DTpL2IXbbgn4JHQJibgo5iiXSK6Iu8muwqHANhun74Cqg"
-    crossorigin="anonymous"
-></script>
-<link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/gh/zhixuan2333/gh-blog@v0.1.0/css/nprogress.css"
-    integrity="sha384-KJyhr2syt5+4M9Pz5dipCvTrtvOmLk/olWVdfhAp858UCa64Ia5GFpTN7+G4BWpE"
-    crossorigin="anonymous"
-/>
+    
+    <script src=http://localhost:1313/js/topbar.min.js></script>
+
 <script>
-    NProgress.start();
-    document.addEventListener("readystatechange", () => {
-        if (document.readyState === "interactive") NProgress.inc(0.8);
-        if (document.readyState === "complete") NProgress.done();
-    });
+    
+    topbar.config({
+        barColors: {
+            '0': 'rgba(255,  255, 255, 1)', 
+            '1.0': 'rgba(0, 149, 234,  1)' 
+        }
+    })
+	
+    document.addEventListener('pjax:send', () => {
+        
+        topbar.show();
+    })
+	
+    document.addEventListener('pjax:complete', () => {     
+        
+        topbar.hide();
+    })
 </script>
 
 

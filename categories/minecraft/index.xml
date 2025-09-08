@@ -153,13 +153,13 @@
 &lt;blockquote&gt;
 &lt;p&gt;内网穿透是通过特定技术，将你的内网（如局域网）地址经服务器映射到公网上的过程。此时一个公网IP地址，如：&lt;code&gt;frp-xxx.com:xxxxx&lt;/code&gt;就等同于你的局域网地址&lt;code&gt;192.168.x.x&lt;/code&gt;。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;/details&gt;
-&lt;h3 id=&#34;ipv6连接&#34;&gt;IPV6连接
+&lt;h3 id=&#34;ipv6连接&#34;&gt;IPv6连接
 &lt;/h3&gt;&lt;p&gt;这是目前成本最低，效果最好的连接方式。&lt;/p&gt;
-&lt;p&gt;首先必须确保你和你的伙伴都有IPV6访问，然后&lt;code&gt;win+r&lt;/code&gt;打开cmd，输入&lt;code&gt;ipconfig&lt;/code&gt;，这时应该可以看到一串&lt;code&gt;240e:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx&lt;/code&gt;（必须为&lt;code&gt;240e&lt;/code&gt;开头，这样才是公网IPV6），这时&lt;code&gt;[IPV6地址]:端口号&lt;/code&gt;的形式就是服务器的IP地址。&lt;/p&gt;
+&lt;p&gt;首先必须确保你和你的伙伴都有IPv6访问，然后&lt;code&gt;win+r&lt;/code&gt;打开cmd，输入&lt;code&gt;ipconfig&lt;/code&gt;，这时应该可以看到一串&lt;code&gt;240e:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx&lt;/code&gt;（必须为&lt;code&gt;240e&lt;/code&gt;开头，这样才是公网IPv6），这时&lt;code&gt;[IPV6地址]:端口号&lt;/code&gt;的形式就是服务器的IP地址。&lt;/p&gt;
 &lt;details&gt;
-    &lt;summary&gt;什么是IPV6？&lt;/summary&gt;
+    &lt;summary&gt;什么是IPv6？&lt;/summary&gt;
 &lt;blockquote&gt;
-&lt;p&gt;目前IP技术分为IPV4和IPV6两种。IPV4地址为12个十进制数，每3个数字用“ : ”隔开；IPV6地址为28个16进制数，每4个数字用“ : ”隔开。由此可见，IPV6地址比IPV4多得多，所以每个IPV6地址都可以作为公网使用。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;目前IP技术分为IPv4和IPv6两种。IPv4地址为12个十进制数，每3个数字用“ : ”隔开；IPv6地址为28个16进制数，每4个数字用“ : ”隔开。由此可见，IPv6地址比IPv4多得多，所以每个IPv6地址都可以作为公网使用。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;/details&gt;
 &lt;h2 id=&#34;服务器进阶&#34;&gt;服务器进阶
 &lt;/h2&gt;&lt;h3 id=&#34;修改服务器配置&#34;&gt;修改服务器配置
