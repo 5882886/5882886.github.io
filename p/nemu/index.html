@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="目标：制作一个32位的操作系统\n什么是NEMU 在PC上运行应用程序\nNEMU：在X86-64处理器的机器上模拟一个32位操作系统。\n任务：\n功能完备的IA-32全系统模拟器 包括4个连贯的实验内容 ① 简易调试器 ② 指令系统 ③ 存储管理 ④ 中断与I/O NEMU启动 定义操作指令集 在nemu/src/monitor/debug/ui.c中定义了调试器的结构：\n">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="目标：制作一个32位的操作系统\n什么是NEMU 在PC上运行应用程序\nNEMU：在X86-64处理器的机器上模拟一个32位操作系统。\n功能完备的IA-32全系统模拟器 包括4个连贯的实验内容 ① 简易调试器 ② 指令系统 ③ 存储管理 ④ 中断与I/O 认识NEMU 调试器操作指令集 在nemu/src/monitor/debug/ui.c中定义了调试器的结构：\n">
 <title>NEMU</title>
 
 <link rel='canonical' href='https://5882886.github.io/p/nemu/'>
 
 <link rel="stylesheet" href="/scss/style.min.d5f0afff969146387d200fea3eb333f0bf05cc9fd465feedf5111202537029d6.css"><meta property='og:title' content="NEMU">
-<meta property='og:description' content="目标：制作一个32位的操作系统\n什么是NEMU 在PC上运行应用程序\nNEMU：在X86-64处理器的机器上模拟一个32位操作系统。\n任务：\n功能完备的IA-32全系统模拟器 包括4个连贯的实验内容 ① 简易调试器 ② 指令系统 ③ 存储管理 ④ 中断与I/O NEMU启动 定义操作指令集 在nemu/src/monitor/debug/ui.c中定义了调试器的结构：\n">
+<meta property='og:description' content="目标：制作一个32位的操作系统\n什么是NEMU 在PC上运行应用程序\nNEMU：在X86-64处理器的机器上模拟一个32位操作系统。\n功能完备的IA-32全系统模拟器 包括4个连贯的实验内容 ① 简易调试器 ② 指令系统 ③ 存储管理 ④ 中断与I/O 认识NEMU 调试器操作指令集 在nemu/src/monitor/debug/ui.c中定义了调试器的结构：\n">
 <meta property='og:url' content='https://5882886.github.io/p/nemu/'>
 <meta property='og:site_name' content='RunicDolphin806的博客'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-09-08T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-09-08T00:00:00&#43;00:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-09-08T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-09-08T00:00:00&#43;00:00'/><meta property='og:image' content='https://5882886.github.io/p/nemu/NEMU.png' />
 <meta name="twitter:title" content="NEMU">
-<meta name="twitter:description" content="目标：制作一个32位的操作系统\n什么是NEMU 在PC上运行应用程序\nNEMU：在X86-64处理器的机器上模拟一个32位操作系统。\n任务：\n功能完备的IA-32全系统模拟器 包括4个连贯的实验内容 ① 简易调试器 ② 指令系统 ③ 存储管理 ④ 中断与I/O NEMU启动 定义操作指令集 在nemu/src/monitor/debug/ui.c中定义了调试器的结构：\n">
+<meta name="twitter:description" content="目标：制作一个32位的操作系统\n什么是NEMU 在PC上运行应用程序\nNEMU：在X86-64处理器的机器上模拟一个32位操作系统。\n功能完备的IA-32全系统模拟器 包括4个连贯的实验内容 ① 简易调试器 ② 指令系统 ③ 存储管理 ④ 中断与I/O 认识NEMU 调试器操作指令集 在nemu/src/monitor/debug/ui.c中定义了调试器的结构：\n"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://5882886.github.io/p/nemu/NEMU.png' />
     <link rel="shortcut icon" href="/favicon.ico" />
 
     </head>
@@ -288,7 +289,11 @@
             <nav id="TableOfContents">
   <ol>
     <li><a href="#什么是nemu">什么是NEMU</a></li>
-    <li><a href="#nemu启动">NEMU启动</a></li>
+    <li><a href="#认识nemu">认识NEMU</a>
+      <ol>
+        <li><a href="#调试器操作指令集">调试器操作指令集</a></li>
+      </ol>
+    </li>
     <li><a href="#pa1-简易调试器">PA1 简易调试器</a>
       <ol>
         <li><a href="#实现正确的寄存器结构">实现正确的寄存器结构</a></li>
@@ -443,8 +448,20 @@
 
             <main class="main full-width">
     
-        <article class="main-article">
+        <article class="has-image main-article">
     <header class="article-header">
+        <div class="article-image">
+            <a href="/p/nemu/">
+                <img src="/p/nemu/NEMU_hu_fd4d50148679017f.png"
+                        srcset="/p/nemu/NEMU_hu_fd4d50148679017f.png 800w, /p/nemu/NEMU_hu_efd401b50955d92a.png 1600w"
+                        width="800" 
+                        height="601" 
+                        loading="lazy"
+                        alt="Featured image of post NEMU" />
+                
+            </a>
+        </div>
+    
 
     <div class="article-details">
     
@@ -505,7 +522,6 @@
 <h2 id="什么是nemu">什么是NEMU
 </h2><p>在PC上运行应用程序</p>
 <p>NEMU：在X86-64处理器的机器上模拟一个32位操作系统。</p>
-<p>任务：</p>
 <ol>
 <li>功能完备的IA-32全系统模拟器</li>
 <li>包括4个连贯的实验内容 <br>
@@ -514,11 +530,9 @@
 ③ 存储管理 <br>
 ④ 中断与I/O <br></li>
 </ol>
-<h2 id="nemu启动">NEMU启动
-</h2><ol>
-<li>定义操作指令集</li>
-</ol>
-<p>在<code>nemu/src/monitor/debug/ui.c</code>中定义了调试器的结构：</p>
+<h2 id="认识nemu">认识NEMU
+</h2><h3 id="调试器操作指令集">调试器操作指令集
+</h3><p>在<code>nemu/src/monitor/debug/ui.c</code>中定义了调试器的结构：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">static</span> <span class="k">struct</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 2</span><span class="cl">	<span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl">	<span class="kt">char</span> <span class="o">*</span><span class="n">description</span><span class="p">;</span>
@@ -548,7 +562,7 @@
 </span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="p">...</span> 
 </span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="p">}</span> <span class="n">CPU_state</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="p">...</span>
-</span></span></code></pre></div><p>使用结构体，每一个寄存器均独立存在，而X86系统的寄存器是共享的，例如 %eax 的后4位即为 %ax。因此应使用联合体的形式定义寄存器，这样对 %ax 操作时也会相应地改变 %eax 的值。</p>
+</span></span></code></pre></div><p>使用结构体，每一个寄存器均独立存在，而X86系统的寄存器是共享的，例如 %eax 的后16位即为 %ax。因此应使用联合体的形式定义寄存器，这样对 %ax 操作时也会相应地改变 %eax 的值。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="k">union</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl">        <span class="k">union</span> <span class="p">{</span>
@@ -577,9 +591,9 @@
 </span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="p">{</span> <span class="s">&#34;x&#34;</span><span class="p">,</span> <span class="s">&#34;Scan Memory&#34;</span><span class="p">,</span> <span class="n">cmd_x</span> <span class="p">},</span>
 </span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="p">};</span>
 </span></span></code></pre></div><ol>
-<li>单步执行</li>
+<li>单步执行 <br>
+在<code>nemu/src/monitor/debug/ui.c</code>中定义新的操作函数：</li>
 </ol>
-<p>在<code>nemu/src/monitor/debug/ui.c</code>中定义新的操作函数：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">static</span> <span class="kt">int</span> <span class="nf">cmd_si</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="kt">char</span> <span class="o">*</span><span class="n">arg</span> <span class="o">=</span> <span class="nf">strtok</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="s">&#34; &#34;</span><span class="p">);</span>  <span class="c1">// 获取第二个字符
 </span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">step</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>   <span class="c1">// 待操作步数
@@ -589,7 +603,7 @@
 </span></span><span class="line"><span class="ln"> 7</span><span class="cl">        <span class="nf">cpu_exec</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="k">else</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="nf">scanf</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">step</span><span class="p">);</span>  <span class="c1">// 将arg转换为整型数
+</span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="nf">sscanf</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">step</span><span class="p">);</span>  <span class="c1">// 将arg转换为整型数
 </span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="n">step</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">12</span><span class="cl">            <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Illegal input!&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">13</span><span class="cl">        <span class="p">}</span>
@@ -604,20 +618,20 @@
 </span></span></code></pre></div><br>
 <details>
     <summary>报错请查看：</summary>
-<ol>
+<ul>
 <li>使用循环时，循环变量的初始化应在循环结构之前，否则会报错：</li>
-</ol>
+</ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">nemu/src/monitor/debug/ui.c:55: error: <span class="s1">&#39;for&#39;</span> loop initial declarations are only allowed in C99 mode
 </span></span><span class="line"><span class="ln">2</span><span class="cl">nemu/src/monitor/debug/ui.c:55: note: use option -std<span class="o">=</span>c99 or -std<span class="o">=</span>gnu99 to compile your code
-</span></span></code></pre></div><ol start="2">
+</span></span></code></pre></div><ul>
 <li>读取函数应使用 <code>sscanf</code>。</li>
-</ol>
+</ul>
 <hr>
 </details>
 <ol start="2">
-<li>打印寄存器状态</li>
+<li>打印寄存器状态 <br>
+同理，定义操作函数<code>cmd_info</code></li>
 </ol>
-<p>同理，定义操作函数<code>cmd_info</code></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">static</span> <span class="kt">int</span> <span class="nf">cmd_info</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="kt">char</span> <span class="o">*</span><span class="n">arg</span> <span class="o">=</span> <span class="nf">strtok</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="s">&#34; &#34;</span><span class="p">);</span>  <span class="c1">// 获取第二个字符
 </span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -639,6 +653,41 @@
 </span></span><span class="line"><span class="ln">19</span><span class="cl">
 </span></span><span class="line"><span class="ln">20</span><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ol start="3">
+<li>扫描内存</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">static</span> <span class="kt">int</span> <span class="nf">cmd_x</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="kt">char</span> <span class="o">*</span><span class="n">arg_1</span> <span class="o">=</span> <span class="nf">strtok</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="s">&#34; &#34;</span><span class="p">);</span>	<span class="c1">// 获取第1个参数 N
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="c1"></span>    <span class="kt">char</span> <span class="o">*</span><span class="n">arg_2</span> <span class="o">=</span> <span class="nf">strtok</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="s">&#34; &#34;</span><span class="p">);</span>	<span class="c1">// 获取第2个参数 EXPR
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="kt">int</span> <span class="n">N</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="kt">swaddr_t</span> <span class="n">address</span><span class="p">;</span>	
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="nf">sscanf</span><span class="p">(</span><span class="n">arg_1</span><span class="p">,</span> <span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">N</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="nf">sscanf</span><span class="p">(</span><span class="n">arg_2</span><span class="p">,</span> <span class="s">&#34;%x&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">address</span><span class="p">);</span>	<span class="c1">// 获取起始内存地址
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="c1"></span>    
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="k">for</span><span class="p">(;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">        <span class="c1">// 每行打印4个值
+</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="n">j</span><span class="o">%</span><span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">            <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;0x%x:&#34;</span><span class="p">,</span> <span class="n">address</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">
+</span></span><span class="line"><span class="ln">19</span><span class="cl">        <span class="c1">// 每4字节打印一个值
+</span></span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="c1"></span>        <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;0x%08x &#34;</span><span class="p">,</span> <span class="nf">swaddr_read</span><span class="p">(</span><span class="n">address</span><span class="p">,</span> <span class="mi">4</span><span class="p">));</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">        <span class="n">address</span> <span class="o">+=</span> <span class="mi">4</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">        <span class="n">j</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">
+</span></span><span class="line"><span class="ln">24</span><span class="cl">        <span class="c1">// 4个值后换行
+</span></span></span><span class="line"><span class="ln">25</span><span class="cl"><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="n">j</span><span class="o">%</span><span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">            <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl">
+</span></span><span class="line"><span class="ln">30</span><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">31</span><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">32</span><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div>
 </section>
 

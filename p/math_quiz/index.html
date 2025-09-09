@@ -534,6 +534,32 @@ $$\lim_{n \to \infty} x_n = \sqrt{2a}-1 = \sqrt{2022}-1 $$<blockquote>
 <p>题中所给方程中有 $2(x_n+1)x_{n+1}$，多出一个 $2x_{n+1}$.</p></blockquote>
 </details>
 <hr>
+<p>【例1.62】设函数 $f(x)$ 在 $x=0$ 的某领域内具有二阶连续导数，且 $f(0), f'(0), f''(x)$ 均不为零. 证明：存在唯一的一组实数 $k_1, k_2, k_3$，使得 </p>
+$$\lim_{h \to 0} \frac{k_1 f(h)+k_2 f(2h)+k_3 f(3h) - f(0)}{h^2} = 0$$<details>
+      <summary>点击展开答案</summary>
+<p>解：记分子为 $F(x)$. 由泰勒公式，可知当 $h \to 0$ 时，有：</p>
+$$f(h)=f(0)+f'(0)h+\frac{1}{2}f''(0)h^2+o(h^2)$$<p>
+</p>
+$$f(2h)=f(0)+2f'(0)h+2f''(0)h^2+o(h^2)$$<p>
+</p>
+$$f(3h)=f(0)+3f'(0)h+\frac{9}{2}f''(0)h^2+o(h^2)$$<p>从而有：</p>
+$$F(x) = (k_1+k_2+k_3)f(0)+(k_1+2k_2+3k_3)f'(0)+\frac{1}{2}(k_1+4k_2+9k_3)f''(0) + o(h^2)$$<p>若要使原极限值为0，则只需 $k_1, k_2, k_3$ 满足方程组 </p>
+$$\left\{ \begin{array}{c}  k_1+k_2+k_3 = 0 \\ k_1+2k_2+3k_3 = 0 \\ k_1+4k_2+9k_3 = 0 \end{array} \right.$$<p>易知此方程组的系数行列式 </p>
+$$\left| \begin{matrix}  1 & 1 & 1 \\ 1 & 2 & 3 \\ 1 & 4 & 9 \end{matrix} \right| = 2 \ne 0$$<p>即方程组有解，故存在唯一的一组实数 $k_1, k_2, k_3$ 满足要求.</p>
+<blockquote>
+<p>注意到分母为 $h^2$，联想到二阶泰勒公式.</p></blockquote>
+</details>
+<hr>
+<p>【例1.65】设 $\displaystyle A_n = \frac{n}{n^2+1^2} + \frac{n}{n^2+2^2} + \cdots + \frac{n}{n^2+n^2} $，求极限 $\displaystyle \lim_{n \to \infty} n \left( \frac{\pi}{4}-A_n \right)$</p>
+<details>
+      <summary>点击展开解答</summary>
+<p>解：记 $\displaystyle x_k = \frac{k}{n}$，$\displaystyle f(x)=\frac{1}{1+x^2}$，易知 $\displaystyle \frac{\pi}{4} = \int_{0}^{1} \frac{1}{1+x^2} \mathrm{d}x = \int_{0}^{1} f(x) \mathrm{d}x $，从而有：</p>
+$$\frac{\pi}{4}-A_n = \int_{0}^{1}f(x)\mathrm{d}x - \frac{1}{n} \sum_{k=1}^{n} \frac{1}{1+x_k^2} = \sum_{k=1}^{n} \int_{x_{k-1}}^{x_k} [f(x)-f(x_k)] \mathrm{d}x $$<p>对 $f(x)$ 在区间 $[x,x_k]$ 上运用拉格朗日中值定理，则存在 $\xi_k \in [x,x_k]$，使得 $f(x)-f(x_k)=f'(\xi_k)(x-x_k)$，所以</p>
+$$n\left(\frac{\pi}{4}-A_n\right) = n \sum_{k=1}^{n} \int_{x_{k-1}}^{x_k} [f(x)-f(x_k)] \mathrm{d}x = n \sum_{k=1}^{n} \int_{x_{k-1}}^{x_k} f'(\xi_k)(x-x_k) \mathrm{d}x $$<p>设 $f'(x)$ 在 $[x,x_k]$ 上的最小值与最大值分别为 $m_k, M_k$，注意到 $\displaystyle \int_{x_{k-1}}^{x_k} (x-x_k) \mathrm{d}x = -\frac{1}{2n^2} $，所以</p>
+$$m_k \leqslant 2n^2 \int_{x_{k-1}}^{x_k} f'(\xi_k) (x_k-x) \mathrm{d}x \leqslant M_k$$<p>对 $f'(x)$ 利用连续函数的介值定理，存在 $\eta_k \in [x_{k-1},x_k]$，使得</p>
+$$f'(\eta_k) = 2n^2 \int_{x_{k-1}}^{x_k} f'(\xi_k) (x_k-x) \mathrm{d}x$$<p>代入原式，得</p>
+$$\lim_{n \to \infty} n \left( \frac{\pi}{4}-A_n \right) = -\frac{1}{2} \lim_{n \to \infty} \frac{1}{n} \sum_{k=1}^{n}f'(\eta_k)\mathrm{d}x = -\frac{1}{2} \int_{0}^{1} f'(x)\mathrm{d}x = -\frac{1}{2}[f(1)-f(0)] = \frac{1}{4}$$</details>
+<hr>
 <p>求极限：$\displaystyle \lim_{x \to 0} \left( \frac{a^{x^{2}} + b^{x^{2}}}{a^{x} + b^{x}} \right) ^ {\frac{1}{x}}$</p>
 <details>
       <summary>点击展开解答</summary>
@@ -715,9 +741,20 @@ $$\begin{align*} I &= \int_{0}^{\pi}f(x) \mathrm{d}x = \int_{0}^{\pi} \left( \in
         <div class="flex article-list--tile">
             
                 
-<article class="">
+<article class="has-image">
     <a href="/p/nemu/">
         
+        
+            <div class="article-image">
+                <img src="/p/nemu/NEMU.39c95010deb492edc8b62f4fede6c3bc_hu_b079040960244a08.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post NEMU"
+                        data-key="NEMU" 
+                        data-hash="md5-OclQEN60ku3Iti9P7ebDvA==">
+                
+            </div>
         
 
         <div class="article-details">
