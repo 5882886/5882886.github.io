@@ -581,7 +581,38 @@
 </span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="p">};</span>
 </span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="p">}</span> <span class="n">CPU_state</span><span class="p">;</span>
 </span></span></code></pre></div><h3 id="实现调试器的功能">实现调试器的功能
-</h3><p>回顾<code>nemu/src/monitor/debug/ui.c</code>中对调试器的定义，需增加新的操作指令<code>si</code>，<code>info</code>，<code>x</code>。</p>
+</h3><p>回顾<code>nemu/src/monitor/debug/ui.c</code>中对调试器的定义，需增加新的操作指令。</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>指令名</th>
+          <th>示例</th>
+          <th>功能</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>si</code></td>
+          <td><code>si 10</code></td>
+          <td>单步执行</td>
+      </tr>
+      <tr>
+          <td><code>info</code></td>
+          <td><code>info r</code></td>
+          <td>打印寄存器状态</td>
+      </tr>
+      <tr>
+          <td><code>x</code></td>
+          <td><code>x N EXPR</code></td>
+          <td>扫描内存</td>
+      </tr>
+      <tr>
+          <td><code>p</code></td>
+          <td><code>p EXPR</code></td>
+          <td>表达式求值</td>
+      </tr>
+  </tbody>
+</table></div>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">static</span> <span class="k">struct</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="kt">char</span> <span class="o">*</span><span class="n">description</span><span class="p">;</span>
@@ -592,7 +623,9 @@
 </span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1"></span>    <span class="p">{</span> <span class="s">&#34;si&#34;</span><span class="p">,</span> <span class="s">&#34;Single step execution&#34;</span><span class="p">,</span> <span class="n">cmd_si</span> <span class="p">},</span>
 </span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="p">{</span> <span class="s">&#34;info&#34;</span><span class="p">,</span> <span class="s">&#34;Show register or monitor&#39;s infomation&#34;</span><span class="p">,</span> <span class="n">cmd_info</span> <span class="p">},</span>
 </span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="p">{</span> <span class="s">&#34;x&#34;</span><span class="p">,</span> <span class="s">&#34;Scan Memory&#34;</span><span class="p">,</span> <span class="n">cmd_x</span> <span class="p">},</span>
-</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="p">{</span> <span class="s">&#34;p&#34;</span><span class="p">,</span> <span class="s">&#34;Expression&#34;</span><span class="p">,</span> <span class="n">cmd_p</span> <span class="p">},</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">
+</span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="p">};</span>
 </span></span></code></pre></div><h4 id="单步执行">单步执行
 </h4><p>在<code>nemu/src/monitor/debug/ui.c</code>中定义新的操作函数：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">static</span> <span class="kt">int</span> <span class="nf">cmd_si</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span> <span class="p">{</span>
@@ -686,22 +719,11 @@
 </span></span><span class="line"><span class="ln">31</span><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">32</span><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h4 id="实现表达式求值">实现表达式求值
-</h4><p>在列举类<code>/nemu/src/monitor/debug/expr.c</code>中</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">enum</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="n">NOTYPE</span> <span class="o">=</span> <span class="mi">256</span><span class="p">,</span>
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="n">NUM</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
-</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="n">REGISTER</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="n">HEX</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="n">EQ</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="n">NOTEQ</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="n">OR</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span>
-</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="n">AND</span> <span class="o">=</span> <span class="mi">7</span><span class="p">,</span>
-</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="n">POINT</span><span class="p">,</span> <span class="n">NEG</span>
-</span></span><span class="line"><span class="ln">11</span><span class="cl">
-</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="cm">/* TODO: Add more token types */</span>
-</span></span><span class="line"><span class="ln">13</span><span class="cl">
-</span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="p">};</span>
-</span></span></code></pre></div><p>在<code>/nemu/src/monitor/debug/expr.c</code>中，定义正则表达式：</p>
+</h4><p><strong>阶段1：词法分析</strong></p>
+<ol>
+<li><strong>定义正则表达式</strong></li>
+</ol>
+<p>在<code>/nemu/src/monitor/debug/expr.c</code>中，定义正则表达式：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">static</span> <span class="k">struct</span> <span class="n">rule</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="kt">char</span> <span class="o">*</span><span class="n">regex</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="kt">int</span> <span class="n">token_type</span><span class="p">;</span>
@@ -732,7 +754,370 @@
 </span></span><span class="line"><span class="ln">28</span><span class="cl">    <span class="p">{</span><span class="s">&#34;</span><span class="se">\\</span><span class="s">(&#34;</span><span class="p">,</span> <span class="sc">&#39;(&#39;</span><span class="p">},</span>                   <span class="c1">// 括号
 </span></span></span><span class="line"><span class="ln">29</span><span class="cl"><span class="c1"></span>    <span class="p">{</span><span class="s">&#34;</span><span class="se">\\</span><span class="s">)&#34;</span><span class="p">,</span> <span class="sc">&#39;)&#39;</span><span class="p">},</span>
 </span></span><span class="line"><span class="ln">30</span><span class="cl"><span class="p">};</span>
-</span></span></code></pre></div><h2 id="思考题">思考题
+</span></span></code></pre></div><p>正则表达式的作用是识别当前表达式的具体内容。例如，对于表达式<code>4 + 3 * ( 2 - 1 )</code>，正则表达式的识别结果应为：</p>
+<figure><img src="/p/nemu/token.png" width="500"><figcaption>
+      <h4>识别token</h4>
+    </figcaption>
+</figure>
+
+<ol start="2">
+<li><strong>定义<code>token</code></strong></li>
+</ol>
+<p>在<code>/nemu/src/monitor/debug/expr.c</code>中，观察<code>token</code>结构体，它包含两个数据<code>type</code>和<code>str</code>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="n">token</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="kt">int</span> <span class="n">type</span><span class="p">;</span>       <span class="c1">// 记录token的类型
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"></span>    <span class="kt">char</span> <span class="n">str</span><span class="p">[</span><span class="mi">32</span><span class="p">];</span>   <span class="c1">// 记录token的具体数据
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1"></span><span class="p">}</span> <span class="n">Token</span><span class="p">;</span>
+</span></span></code></pre></div><blockquote>
+<p>容易发现，当<code>token</code>为<code>+, -, &amp;&amp;</code>等运算符时，只需要记录它的<code>type</code>即可，因为它们的<code>type</code>唯一标识了各自的具体数据。</p></blockquote>
+<p>在<code>/nemu/src/monitor/debug/expr.c</code>的列举类中，定义<code>token</code>的类型。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">enum</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="n">NOTYPE</span> <span class="o">=</span> <span class="mi">256</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="n">NUM</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>        <span class="c1">// 10进制数
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="c1"></span>    <span class="n">REGISTER</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>   <span class="c1">// 寄存器
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="c1"></span>    <span class="n">HEX</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>        <span class="c1">// 16进制数
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="c1"></span>    <span class="n">EQ</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>         <span class="c1">// 相等
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1"></span>    <span class="n">NOTEQ</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>      <span class="c1">// 不相等
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1"></span>    <span class="n">OR</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span>         <span class="c1">// 或运算
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="c1"></span>    <span class="n">AND</span> <span class="o">=</span> <span class="mi">7</span><span class="p">,</span>        <span class="c1">// 与运算
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="c1"></span>    <span class="n">POINT</span><span class="p">,</span>          <span class="c1">// 指针
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="c1"></span>    <span class="n">NEG</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="cm">/* TODO: Add more token types */</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">
+</span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p>定义了枚举类后，相应的字段和数字就确定了唯一对应的关系。例如，<code>type = NUM</code>和<code>type = 1</code>均表示10进制整数。</p>
+<ol start="3">
+<li><strong>识别<code>token</code></strong></li>
+</ol>
+<p>在<code>/nemu/src/monitor/debug/expr.c</code>中的<code>make_token</code>函数可以帮助我们实现这一工作。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">static</span> <span class="kt">bool</span> <span class="nf">make_token</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="k">while</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="n">position</span><span class="p">]</span> <span class="o">!=</span> <span class="sc">&#39;\0&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">        <span class="p">...</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">NR_REGEX</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">            <span class="p">...</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">            <span class="c1">// 清空token值，防止每次运算相互干扰
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1"></span>            <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">            <span class="k">for</span><span class="p">(;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">32</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">                <span class="n">tokens</span><span class="p">[</span><span class="n">nr_token</span><span class="p">].</span><span class="n">str</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;\0&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">            
+</span></span><span class="line"><span class="ln">13</span><span class="cl">            <span class="c1">// tokens.type的赋值函数
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="c1"></span>            <span class="k">switch</span><span class="p">(</span><span class="n">rules</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">token_type</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">                <span class="k">case</span> <span class="mi">256</span><span class="o">:</span> 
+</span></span><span class="line"><span class="ln">16</span><span class="cl">                    <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">
+</span></span><span class="line"><span class="ln">18</span><span class="cl">                <span class="c1">// 输入10进制数、寄存器、16进制数
+</span></span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="c1"></span>                <span class="k">case</span> <span class="nl">NUM</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">                    <span class="n">tokens</span><span class="p">[</span><span class="n">nr_token</span><span class="p">].</span><span class="n">type</span> <span class="o">=</span> <span class="n">NUM</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">                    <span class="nf">strncpy</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">nr_token</span><span class="p">].</span><span class="n">str</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">e</span><span class="p">[</span><span class="n">position</span> <span class="o">-</span> <span class="n">substr_len</span><span class="p">],</span> <span class="n">substr_len</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">                    <span class="n">nr_token</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">                    <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">
+</span></span><span class="line"><span class="ln">25</span><span class="cl">                <span class="cm">/*
+</span></span></span><span class="line"><span class="ln">26</span><span class="cl"><span class="cm">                REGISTER，HEX，EQ，NOTEQ，AND，OR与之类似
+</span></span></span><span class="line"><span class="ln">27</span><span class="cl"><span class="cm">                */</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">
+</span></span><span class="line"><span class="ln">29</span><span class="cl">                <span class="p">...</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl">                
+</span></span><span class="line"><span class="ln">31</span><span class="cl">                <span class="c1">// 输入单运算符
+</span></span></span><span class="line"><span class="ln">32</span><span class="cl"><span class="c1"></span>                <span class="k">case</span> <span class="sc">&#39;+&#39;</span><span class="o">:</span>
+</span></span><span class="line"><span class="ln">33</span><span class="cl">                    <span class="n">tokens</span><span class="p">[</span><span class="n">nr_token</span><span class="p">].</span><span class="n">type</span> <span class="o">=</span> <span class="sc">&#39;+&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">34</span><span class="cl">                    <span class="n">nr_token</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">35</span><span class="cl">                    <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">36</span><span class="cl">
+</span></span><span class="line"><span class="ln">37</span><span class="cl">                <span class="cm">/*
+</span></span></span><span class="line"><span class="ln">38</span><span class="cl"><span class="cm">                -, *, /, !, (, ) 与之类似
+</span></span></span><span class="line"><span class="ln">39</span><span class="cl"><span class="cm">                */</span>
+</span></span><span class="line"><span class="ln">40</span><span class="cl">
+</span></span><span class="line"><span class="ln">41</span><span class="cl">                <span class="p">...</span>
+</span></span><span class="line"><span class="ln">42</span><span class="cl">
+</span></span><span class="line"><span class="ln">43</span><span class="cl">                <span class="k">default</span><span class="o">:</span> 
+</span></span><span class="line"><span class="ln">44</span><span class="cl">                    <span class="nf">assert</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">45</span><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="ln">46</span><span class="cl">            <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">47</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">48</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">49</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>以其中一个为例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">case</span> <span class="nl">NUM</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="c1">// token的类型为NUM
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"></span>    <span class="n">tokens</span><span class="p">[</span><span class="n">nr_token</span><span class="p">].</span><span class="n">type</span> <span class="o">=</span> <span class="n">NUM</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">    <span class="c1">// 将sub_strlen长度的值存储到tokens.str
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="c1"></span>    <span class="nf">strncpy</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">nr_token</span><span class="p">].</span><span class="n">str</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">e</span><span class="p">[</span><span class="n">position</span> <span class="o">-</span> <span class="n">substr_len</span><span class="p">],</span> <span class="n">substr_len</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl">    <span class="c1">// 开始读取下一个token
+</span></span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="c1"></span>    <span class="n">nr_token</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">8</span><span class="cl">    <span class="c1">// 跳出switch循环
+</span></span></span><span class="line"><span class="ln">9</span><span class="cl"><span class="c1"></span>    <span class="k">break</span><span class="p">;</span>
+</span></span></code></pre></div><hr>
+<p><strong>阶段2：表达式求值</strong></p>
+<ol>
+<li><strong>判断表达式括号匹配</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">bool</span> <span class="nf">check_parentheses</span><span class="p">(</span><span class="kt">int</span> <span class="n">p</span><span class="p">,</span> <span class="kt">int</span> <span class="n">q</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>          <span class="c1">// 记录表达式token下标
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>   <span class="c1">// 分别记录左、右括号总数
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="c1">// 检查表达式首尾是否为括号
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="c1"></span>    <span class="k">if</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">p</span><span class="p">].</span><span class="n">type</span> <span class="o">==</span> <span class="sc">&#39;(&#39;</span> <span class="o">||</span> <span class="n">tokens</span><span class="p">[</span><span class="n">q</span><span class="p">].</span><span class="n">type</span> <span class="o">==</span> <span class="sc">&#39;)&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span> <span class="n">a</span><span class="o">&lt;=</span><span class="n">q</span><span class="p">;</span> <span class="n">a</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">a</span><span class="p">].</span><span class="n">type</span> <span class="o">==</span> <span class="sc">&#39;(&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">                <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">a</span><span class="p">].</span><span class="n">type</span> <span class="o">==</span> <span class="sc">&#39;)&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">                <span class="n">j</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">a</span> <span class="o">!=</span> <span class="n">q</span> <span class="o">&amp;&amp;</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">                <span class="c1">// 排除例如 (a+b)) 这种情况
+</span></span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="c1"></span>                <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">
+</span></span><span class="line"><span class="ln">20</span><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="n">j</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">            <span class="c1">// 左右括号数量相等，正确
+</span></span></span><span class="line"><span class="ln">22</span><span class="cl"><span class="c1"></span>            <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">        <span class="p">}</span> 
+</span></span><span class="line"><span class="ln">24</span><span class="cl">        <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl">            <span class="c1">// 数量不等，错误
+</span></span></span><span class="line"><span class="ln">26</span><span class="cl"><span class="c1"></span>            <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl">
+</span></span><span class="line"><span class="ln">30</span><span class="cl">    <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">31</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ol start="2">
+<li><strong>寻找主操作符</strong></li>
+</ol>
+<p><code>dominant operator</code>是表达式中最后参与运算的运算符，根据运算符优先级可知：</p>
+<ul>
+<li>非运算符的<code>token</code>不是<code>dominant operator</code>。</li>
+<li>出现在一对括号中的<code>token</code>不是<code>dominant operator</code>。注意到这里不会出现有括号包围整个表达式的情况，因为这种情况已经在<code>check_parentheses()</code>相应的<code>if</code>块中被处理了。</li>
+<li><code>dominant operator</code>的优先级在表达式中是最低的。这是因为<code>dominant operator</code>是最后一步才进行的运算符。</li>
+<li>当有多个运算符的优先级都是最低时，根据结合性，最后被结合的运算符才是<code>dominant operator</code>。一个例子是<code>1 + 2 + 3</code>，它的<code>dominant operator</code>应该是右边的<code>+</code>。</li>
+</ul>
+<p>找到主操作符后，表达式的运算可归结为主操作符两侧数的运算。这也就意味着该问题满足了<strong>分治</strong>的基本条件：一个问题可分解为若干个与原问题结构相同的子问题。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">int</span> <span class="nf">dominant_operator</span><span class="p">(</span><span class="kt">int</span> <span class="n">p</span><span class="p">,</span> <span class="kt">int</span> <span class="n">q</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="kt">int</span> <span class="n">step</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="kt">int</span> <span class="n">op</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  	<span class="c1">// 记录token下标
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">pri</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> 	<span class="c1">// 记录当前操作符优先级
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">q</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">type</span> <span class="o">==</span> <span class="sc">&#39;(&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">            <span class="n">step</span> <span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">type</span> <span class="o">==</span> <span class="sc">&#39;)&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">            <span class="n">step</span> <span class="o">--</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">
+</span></span><span class="line"><span class="ln">15</span><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">step</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">type</span> <span class="o">==</span> <span class="n">OR</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="n">pri</span> <span class="o">&lt;</span> <span class="mi">51</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">                    <span class="n">op</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">                    <span class="n">pri</span> <span class="o">=</span> <span class="mi">51</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">            <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">type</span> <span class="o">==</span> <span class="n">AND</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="n">pri</span> <span class="o">&lt;</span> <span class="mi">50</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">                    <span class="n">op</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl">                    <span class="n">pri</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">            <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">type</span> <span class="o">==</span> <span class="n">EQ</span> <span class="o">||</span> <span class="n">tokens</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">type</span> <span class="o">==</span> <span class="n">NOTEQ</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="n">pri</span> <span class="o">&lt;</span> <span class="mi">49</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl">                    <span class="n">op</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">31</span><span class="cl">                    <span class="n">pri</span> <span class="o">=</span> <span class="mi">49</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">32</span><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="ln">33</span><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="ln">34</span><span class="cl">            <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">type</span> <span class="o">==</span> <span class="sc">&#39;+&#39;</span> <span class="o">||</span> <span class="n">tokens</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">type</span> <span class="o">==</span> <span class="sc">&#39;-&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">35</span><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="n">pri</span> <span class="o">&lt;</span> <span class="mi">48</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">36</span><span class="cl">                    <span class="n">op</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">37</span><span class="cl">                    <span class="n">pri</span> <span class="o">=</span> <span class="mi">48</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">38</span><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="ln">39</span><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="ln">40</span><span class="cl">            <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">type</span> <span class="o">==</span> <span class="sc">&#39;*&#39;</span> <span class="o">||</span> <span class="n">tokens</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">type</span> <span class="o">==</span> <span class="sc">&#39;/&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">41</span><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="n">pri</span> <span class="o">&lt;</span> <span class="mi">46</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">42</span><span class="cl">                    <span class="n">op</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">43</span><span class="cl">                    <span class="n">pri</span> <span class="o">=</span> <span class="mi">46</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">44</span><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="ln">45</span><span class="cl">            <span class="p">}</span>	
+</span></span><span class="line"><span class="ln">46</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">47</span><span class="cl">        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">step</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">48</span><span class="cl">            <span class="k">return</span> <span class="o">-</span><span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">49</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">50</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">51</span><span class="cl">    <span class="k">return</span> <span class="n">op</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">52</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ol start="3">
+<li><strong>递归计算表达式的值</strong></li>
+</ol>
+<p>这里运用的就是<strong>分治</strong>算法。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">  1</span><span class="cl"><span class="kt">uint32_t</span> <span class="nf">eval</span><span class="p">(</span><span class="kt">int</span> <span class="n">p</span><span class="p">,</span> <span class="kt">int</span> <span class="n">q</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">  2</span><span class="cl">    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">  3</span><span class="cl">    <span class="kt">int</span> <span class="n">op</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">  4</span><span class="cl">    <span class="kt">int</span> <span class="n">val1</span><span class="p">,</span> <span class="n">val2</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">  5</span><span class="cl">
+</span></span><span class="line"><span class="ln">  6</span><span class="cl">    <span class="c1">// 表达式左侧超过右侧，错误
+</span></span></span><span class="line"><span class="ln">  7</span><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="n">p</span> <span class="o">&gt;</span> <span class="n">q</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">  8</span><span class="cl">        <span class="nf">assert</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">  9</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 10</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 11</span><span class="cl">    <span class="c1">// 表达式左侧等于右侧，说明为单个数字
+</span></span></span><span class="line"><span class="ln"> 12</span><span class="cl"><span class="c1"></span>    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">p</span> <span class="o">==</span> <span class="n">q</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 13</span><span class="cl">        <span class="c1">// 处理10进制数
+</span></span></span><span class="line"><span class="ln"> 14</span><span class="cl"><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">p</span><span class="p">].</span><span class="n">type</span> <span class="o">==</span> <span class="n">NUM</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 15</span><span class="cl">            <span class="nf">sscanf</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">p</span><span class="p">].</span><span class="n">str</span><span class="p">,</span> <span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">result</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 16</span><span class="cl">            <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 17</span><span class="cl">        <span class="p">}</span> 
+</span></span><span class="line"><span class="ln"> 18</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 19</span><span class="cl">        <span class="c1">// 处理16进制数
+</span></span></span><span class="line"><span class="ln"> 20</span><span class="cl"><span class="c1"></span>        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">p</span><span class="p">].</span><span class="n">type</span> <span class="o">==</span> <span class="n">HEX</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 21</span><span class="cl">            <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 22</span><span class="cl">            <span class="k">while</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">p</span><span class="p">].</span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 23</span><span class="cl">                <span class="n">result</span> <span class="o">*=</span> <span class="mi">16</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 24</span><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">p</span><span class="p">].</span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="sc">&#39;9&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 25</span><span class="cl">                    <span class="n">result</span> <span class="o">+=</span> <span class="n">tokens</span><span class="p">[</span><span class="n">p</span><span class="p">].</span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="sc">&#39;0&#39;</span><span class="p">;</span> 	<span class="c1">// 16进制为0-9
+</span></span></span><span class="line"><span class="ln"> 26</span><span class="cl"><span class="c1"></span>                <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 27</span><span class="cl">                <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 28</span><span class="cl">                    <span class="n">result</span> <span class="o">+=</span> <span class="n">tokens</span><span class="p">[</span><span class="n">p</span><span class="p">].</span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="sc">&#39;a&#39;</span> <span class="o">+</span> <span class="mi">10</span><span class="p">;</span>	<span class="c1">// 16进制为a-f
+</span></span></span><span class="line"><span class="ln"> 29</span><span class="cl"><span class="c1"></span>                <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 30</span><span class="cl">                <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 31</span><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 32</span><span class="cl">            <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 33</span><span class="cl">        <span class="p">}</span> 
+</span></span><span class="line"><span class="ln"> 34</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 35</span><span class="cl">        <span class="c1">// 处理寄存器
+</span></span></span><span class="line"><span class="ln"> 36</span><span class="cl"><span class="c1"></span>        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">p</span><span class="p">].</span><span class="n">type</span> <span class="o">==</span> <span class="n">REGISTER</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 37</span><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nf">strcmp</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">p</span><span class="p">].</span><span class="n">str</span><span class="p">,</span> <span class="s">&#34;$eax&#34;</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 38</span><span class="cl">                <span class="k">return</span> <span class="n">cpu</span><span class="p">.</span><span class="n">eax</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 39</span><span class="cl">            <span class="p">}</span> 
+</span></span><span class="line"><span class="ln"> 40</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 41</span><span class="cl">            <span class="cm">/*
+</span></span></span><span class="line"><span class="ln"> 42</span><span class="cl"><span class="cm">            剩下的寄存器使用相同的处理办法
+</span></span></span><span class="line"><span class="ln"> 43</span><span class="cl"><span class="cm">            */</span>
+</span></span><span class="line"><span class="ln"> 44</span><span class="cl">            
+</span></span><span class="line"><span class="ln"> 45</span><span class="cl">            <span class="p">...</span>
+</span></span><span class="line"><span class="ln"> 46</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 47</span><span class="cl">            <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 48</span><span class="cl">                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 49</span><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 50</span><span class="cl">        <span class="p">}</span> 
+</span></span><span class="line"><span class="ln"> 51</span><span class="cl">        <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 52</span><span class="cl">            <span class="nf">assert</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 53</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 54</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 55</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 56</span><span class="cl">    <span class="c1">// 表达式两侧不等，但是括号匹配，去掉括号
+</span></span></span><span class="line"><span class="ln"> 57</span><span class="cl"><span class="c1"></span>    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nf">check_parentheses</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span> <span class="o">==</span> <span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 58</span><span class="cl">         <span class="k">return</span> <span class="nf">eval</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">q</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 59</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 60</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 61</span><span class="cl">    <span class="c1">// 正常表达式
+</span></span></span><span class="line"><span class="ln"> 62</span><span class="cl"><span class="c1"></span>    <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 63</span><span class="cl">        <span class="c1">// 寻找主操作符
+</span></span></span><span class="line"><span class="ln"> 64</span><span class="cl"><span class="c1"></span>        <span class="n">op</span> <span class="o">=</span> <span class="nf">dominant_operator</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 65</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 66</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">op</span> <span class="o">==</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 67</span><span class="cl">            <span class="nf">assert</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 68</span><span class="cl">        <span class="p">}</span> 
+</span></span><span class="line"><span class="ln"> 69</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 70</span><span class="cl">        <span class="c1">// 处理一元运算符
+</span></span></span><span class="line"><span class="ln"> 71</span><span class="cl"><span class="c1"></span>        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">op</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 72</span><span class="cl">            <span class="c1">// 处理逻辑非运算，如 !1
+</span></span></span><span class="line"><span class="ln"> 73</span><span class="cl"><span class="c1"></span>            <span class="k">if</span> <span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">p</span><span class="p">].</span><span class="n">type</span> <span class="o">==</span> <span class="sc">&#39;!&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 74</span><span class="cl">                <span class="nf">sscanf</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">q</span><span class="p">].</span><span class="n">str</span><span class="p">,</span> <span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">result</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 75</span><span class="cl">                <span class="k">return</span> <span class="o">!</span><span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 76</span><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 77</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 78</span><span class="cl">            <span class="c1">// 处理带负数的表达式，如 1+ -1
+</span></span></span><span class="line"><span class="ln"> 79</span><span class="cl"><span class="c1"></span>            <span class="k">if</span> <span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">p</span><span class="p">].</span><span class="n">type</span> <span class="o">==</span> <span class="n">NEG</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 80</span><span class="cl">                <span class="nf">sscanf</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">q</span><span class="p">].</span><span class="n">str</span><span class="p">,</span> <span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">result</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 81</span><span class="cl">                <span class="k">return</span> <span class="o">-</span><span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 82</span><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 83</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 84</span><span class="cl">            <span class="c1">// 实现指针解引用
+</span></span></span><span class="line"><span class="ln"> 85</span><span class="cl"><span class="c1"></span>            <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">p</span><span class="p">].</span><span class="n">type</span> <span class="o">==</span> <span class="n">POINT</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 86</span><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nf">strcmp</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">p</span> <span class="o">+</span> <span class="mi">2</span><span class="p">].</span><span class="n">str</span><span class="p">,</span> <span class="s">&#34;$eax&#34;</span><span class="p">)){</span>
+</span></span><span class="line"><span class="ln"> 87</span><span class="cl">                    <span class="n">result</span> <span class="o">=</span> <span class="nf">swaddr_read</span><span class="p">(</span><span class="n">cpu</span><span class="p">.</span><span class="n">eax</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 88</span><span class="cl">                    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 89</span><span class="cl">                <span class="p">}</span> 
+</span></span><span class="line"><span class="ln"> 90</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 91</span><span class="cl">                 <span class="cm">/*
+</span></span></span><span class="line"><span class="ln"> 92</span><span class="cl"><span class="cm">                剩下的寄存器使用相同的处理办法
+</span></span></span><span class="line"><span class="ln"> 93</span><span class="cl"><span class="cm">                */</span>
+</span></span><span class="line"><span class="ln"> 94</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 95</span><span class="cl">                <span class="p">...</span>
+</span></span><span class="line"><span class="ln"> 96</span><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 97</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 98</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 99</span><span class="cl">        <span class="c1">// 计算主操作数两侧表达式值
+</span></span></span><span class="line"><span class="ln">100</span><span class="cl"><span class="c1"></span>        
+</span></span><span class="line"><span class="ln">101</span><span class="cl">        <span class="n">val1</span> <span class="o">=</span> <span class="nf">eval</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">op</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>	 	<span class="c1">// 计算主操作数左侧表达式
+</span></span></span><span class="line"><span class="ln">102</span><span class="cl"><span class="c1"></span>        <span class="n">val2</span> <span class="o">=</span> <span class="nf">eval</span><span class="p">(</span><span class="n">op</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">q</span><span class="p">);</span>		<span class="c1">// 计算主操作数右侧表达式
+</span></span></span><span class="line"><span class="ln">103</span><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="ln">104</span><span class="cl">        <span class="k">switch</span> <span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">op</span><span class="p">].</span><span class="n">type</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">105</span><span class="cl">            <span class="k">case</span> <span class="sc">&#39;+&#39;</span> <span class="o">:</span> 
+</span></span><span class="line"><span class="ln">106</span><span class="cl">                <span class="k">return</span> <span class="n">val1</span> <span class="o">+</span> <span class="n">val2</span><span class="p">;</span>	
+</span></span><span class="line"><span class="ln">107</span><span class="cl">
+</span></span><span class="line"><span class="ln">108</span><span class="cl">            <span class="cm">/*
+</span></span></span><span class="line"><span class="ln">109</span><span class="cl"><span class="cm">            -, *, / , OR, AND, EQ, NOTEQ运算以此类推 
+</span></span></span><span class="line"><span class="ln">110</span><span class="cl"><span class="cm">            */</span>    
+</span></span><span class="line"><span class="ln">111</span><span class="cl">            
+</span></span><span class="line"><span class="ln">112</span><span class="cl">            <span class="p">...</span>
+</span></span><span class="line"><span class="ln">113</span><span class="cl">
+</span></span><span class="line"><span class="ln">114</span><span class="cl">            <span class="k">default</span> <span class="o">:</span> 
+</span></span><span class="line"><span class="ln">115</span><span class="cl">                <span class="nf">assert</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">116</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">117</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">118</span><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">119</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>举例：</p>
+<figure><img src="/p/nemu/%E5%88%86%E6%B2%BB%E6%B3%95%E6%B1%82%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E5%80%BC.png" width="600"><figcaption>
+      <h4>分治法求表达式的值</h4>
+    </figcaption>
+</figure>
+
+<ol start="4">
+<li><strong><code>expr</code>函数</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">uint32_t</span> <span class="nf">expr</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">e</span><span class="p">,</span> <span class="kt">bool</span> <span class="o">*</span><span class="n">success</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">	<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nf">make_token</span><span class="p">(</span><span class="n">e</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">		<span class="o">*</span><span class="n">success</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">		<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">	<span class="cm">/* TODO: Insert codes to evaluate the expression. */</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">	<span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">	<span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nr_token</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">		<span class="k">if</span> <span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">type</span> <span class="o">==</span> <span class="sc">&#39;*&#39;</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">].</span><span class="n">type</span> <span class="o">!=</span> <span class="n">NUM</span> <span class="o">&amp;&amp;</span> <span class="n">tokens</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">].</span><span class="n">type</span> <span class="o">!=</span> <span class="n">HEX</span> <span class="o">&amp;&amp;</span> <span class="n">tokens</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">].</span><span class="n">type</span> <span class="o">!=</span> <span class="sc">&#39;)&#39;</span><span class="p">))){</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">			<span class="n">tokens</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">type</span> <span class="o">=</span> <span class="n">POINT</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">		<span class="k">if</span> <span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">type</span> <span class="o">==</span> <span class="sc">&#39;-&#39;</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">].</span><span class="n">type</span> <span class="o">!=</span> <span class="n">NUM</span> <span class="o">&amp;&amp;</span> <span class="n">tokens</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">].</span><span class="n">type</span> <span class="o">!=</span> <span class="n">HEX</span> <span class="o">&amp;&amp;</span> <span class="n">tokens</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">].</span><span class="n">type</span> <span class="o">!=</span> <span class="sc">&#39;)&#39;</span><span class="p">))){</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">			<span class="n">tokens</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">type</span> <span class="o">=</span> <span class="n">NEG</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">	<span class="k">return</span> <span class="nf">eval</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">nr_token</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">
+</span></span><span class="line"><span class="ln">20</span><span class="cl">	<span class="c1">// panic(&#34;please implement me&#34;);
+</span></span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="c1"></span>	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ol start="5">
+<li><strong>最终实现</strong></li>
+</ol>
+<p>在<code>/nemu/src/monitor/debug/ui.c</code>中写入<code>cmd_p</code>函数：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">static</span> <span class="kt">int</span> <span class="nf">cmd_p</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">	<span class="kt">bool</span> <span class="o">*</span><span class="n">success</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">	<span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">	<span class="n">result</span> <span class="o">=</span> <span class="nf">expr</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">success</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">	<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">success</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl">		<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">result</span><span class="p">);</span> 
+</span></span><span class="line"><span class="ln">7</span><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="ln">8</span><span class="cl">	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">9</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>表达式求值功能正式实现。</p>
+<h2 id="思考题">思考题
 </h2><p><strong>思考题1：<code>opcode_table</code>到底是一个什么类型的数组？</strong></p>
 <blockquote>
 <p><code>opcode_table</code>数组是一个函数指针数组。</p></blockquote>
@@ -777,8 +1162,8 @@
 <li><strong>完成 PA1 的内容之后, <code>nemu</code>目录下的所有<code>.c</code>和<code>.h</code>和文件总 共有多少行代码? 你是使用什么命令得到这个结果的？和框架代码相比, 你在PA1中编写了多少行代码？你可以把这条命令写入<code>Makefile</code>中, 随着实验进度的推进, 你可以很方便地统计工程的代码行数, 例如敲入 <code>make count</code>就会自动运行统计代码行数的命令。再来个难一点的, 除去空行之外, <code>nemu</code>目录下的所有<code>.c</code>和<code>.h</code>文件总共有多少行代码？</strong></li>
 </ol>
 <blockquote>
-<p>通过<code>find . -name “*[.h/.c]” | xargs wc -l</code>命令，得到4803行。和框架代码4197行相比, 我在 PA1 中编写了606行代码。</p>
-<p>通过<code>find . -name “*[.h/.c]” | xargs grep “^.” | wc -l</code>命令计算去除空行的所有.c .h文件得到了3900行代码。</p>
+<p>通过<code>find . -name &quot;*[.h/.c]&quot; | xargs wc -l</code>命令，得到4376行。和框架代码4197行相比, 我在 PA1中编写了606行代码。</p>
+<p>通过<code>find . -name &quot;*[.h/.c]&quot; | xargs grep &quot;^.&quot; | wc -l</code>命令计算去除空行的所有.c .h文件得到了3900行代码。</p>
 <p>make count指令如下：</p>
 <p>make count</p>
 <p>​<code>@find nemu/ -name “.c” -o -name “.h” | xargs cat | grep -v ^$$ | wc -l</code></p></blockquote>
@@ -819,6 +1204,19 @@
     <h2 class="section-title">相关文章</h2>
     <div class="related-content">
         <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/regular_expression/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">正则表达式</h2>
+        </div>
+    </a>
+</article>
+
             
                 
 <article class="">
@@ -867,19 +1265,6 @@
 
         <div class="article-details">
             <h2 class="article-title">常用算法</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/p/tju/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">有意思的玩意</h2>
         </div>
     </a>
 </article>
