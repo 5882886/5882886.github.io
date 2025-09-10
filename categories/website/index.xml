@@ -617,10 +617,10 @@
 &lt;p&gt;进入空文件夹，在cmd中输入&lt;code&gt;hugo service build&lt;/code&gt;。可以看到网站在&lt;code&gt;localhost:1313&lt;/code&gt;转发，在浏览器中输入该网址即可看到当前网站的内容。&lt;/p&gt;
 &lt;h3 id=&#34;下载hugo主题&#34;&gt;下载Hugo主题
 &lt;/h3&gt;&lt;p&gt;在Hugo官网上进入Theme，下载需要的主题文件，解压后放入网站文件夹的theme子文件夹。&lt;/p&gt;
-&lt;p&gt;接着在下载的主题文件夹中复制content文件夹和hugo.yaml（或hugo.toml）文件，粘贴到你的网站文件夹中。&lt;/p&gt;
+&lt;p&gt;接着在下载的主题文件夹中复制&lt;code&gt;content&lt;/code&gt;文件夹和&lt;code&gt;hugo.yaml&lt;/code&gt;（或&lt;code&gt;hugo.toml&lt;/code&gt;）文件，粘贴到你的网站文件夹中。&lt;/p&gt;
 &lt;p&gt;打开主题的配置文件，找到&lt;code&gt;theme: hugo-theme-stack&lt;/code&gt;一行，这里标明所使用主题的名称，须保持名称与主题文件夹的名称相同，否则要修改其一。再次执行&lt;code&gt;hugo service build&lt;/code&gt;，即可看到使用了主题的网站。&lt;/p&gt;
 &lt;h3 id=&#34;创建自定义内容&#34;&gt;创建自定义内容
-&lt;/h3&gt;&lt;p&gt;Hugo网站的文章内容均在content文件夹中，每篇文章对应一个子文件夹。&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;Hugo网站的文章内容均在&lt;code&gt;content&lt;/code&gt;文件夹中，每篇文章对应一个子文件夹。&lt;/p&gt;
 &lt;p&gt;每篇文章均采用Markdown语法书写，通常在文章开头有类似的配置文字：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-md&#34; data-lang=&#34;md&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;---
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;title: xxxxx            # 文章的标题
@@ -637,8 +637,8 @@
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;hugo server -D    &lt;span class=&#34;c1&#34;&gt;#构建本地网页&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;hugo              &lt;span class=&#34;c1&#34;&gt;#构建在线网页&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;注意事项&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;使用&lt;code&gt;hugo server -D&lt;/code&gt;命令构建的是本地网页，遇到超链接时会重定向到&lt;code&gt;localhost:1313/xxx&lt;/code&gt;，不能直接部署到GitHub等服务器上，必须再执行一次&lt;code&gt;hugo&lt;/code&gt;命令清除本地链接的内容之后，才能正确部署。&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;注意事项&lt;/p&gt;
+&lt;p&gt;使用&lt;code&gt;hugo server -D&lt;/code&gt;命令构建的是本地网页，遇到超链接时会重定向到&lt;code&gt;localhost:1313/xxx&lt;/code&gt;，不能直接部署到GitHub等服务器上，必须再执行一次&lt;code&gt;hugo&lt;/code&gt;命令清除本地链接的内容之后，才能正确部署。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;参考视频：
 
 
@@ -659,9 +659,9 @@
 &lt;/div&gt;
 &lt;/p&gt;
 &lt;h2 id=&#34;在github上托管网页&#34;&gt;在Github上托管网页
-&lt;/h2&gt;&lt;p&gt;Github网站提供了“Github Pages”功能，允许用户为自己的项目显示一个静态网页。&lt;/p&gt;
+&lt;/h2&gt;&lt;p&gt;Github网站提供了“Github Pages”功能，允许用户为自己的项目部署一个静态网页。&lt;/p&gt;
 &lt;h3 id=&#34;创建网站仓库&#34;&gt;创建网站仓库
-&lt;/h3&gt;&lt;p&gt;注册Github账号，并创建一个新仓库，命名为&lt;code&gt;你的用户名.github.io&lt;/code&gt;&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;注册Github账号，并创建一个新仓库，命名为&lt;code&gt;你的用户名.github.io&lt;/code&gt;。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;为什么命名为&lt;code&gt;你的用户名.github.io&lt;/code&gt;？&lt;/p&gt;
 &lt;p&gt;Github的Pages分为两种，一种为用户Pages，另一种为项目Pages。用户Pages每个账号只能拥有一个，域名为&lt;code&gt;https://你的用户名.github.io&lt;/code&gt;；项目Pages数目不限，域名为&lt;code&gt;https://你的用户名.github.io/你的项目名&lt;/code&gt;.&lt;/p&gt;
@@ -695,7 +695,13 @@
     &lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/p&gt;
-&lt;h2 id=&#34;hugo网站搭建内部链接&#34;&gt;Hugo网站搭建内部链接
+&lt;h2 id=&#34;插入其他资源&#34;&gt;插入其他资源
+&lt;/h2&gt;&lt;h3 id=&#34;插入图片&#34;&gt;插入图片
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;{{&amp;lt; figure src=&amp;#34;图片路径&amp;#34; width=&amp;#34;宽度&amp;#34; height=&amp;#34;高度&amp;#34; title=&amp;#34;图片标题&amp;#34; &amp;gt;}}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;插入视频&#34;&gt;插入视频
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;&amp;lt;!-- 插入Bilibili视频 --&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;{{/* &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;bilibili&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;bv号&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;分p&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;可选&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;/&amp;gt;&lt;/span&gt;}}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;hugo网站搭建内部链接&#34;&gt;Hugo网站搭建内部链接
 &lt;/h2&gt;&lt;h3 id=&#34;使用相对路径链接&#34;&gt;使用相对路径链接
 &lt;/h3&gt;&lt;p&gt;相对路径是根据当前页面的位置来定位目标页面的路径。这是最简单且常用的方式之一。&lt;/p&gt;
 &lt;p&gt;假设你的网站目录结构如下：&lt;/p&gt;

@@ -304,6 +304,12 @@
         <li><a href="#上传文件至github">上传文件至Github</a></li>
       </ol>
     </li>
+    <li><a href="#插入其他资源">插入其他资源</a>
+      <ol>
+        <li><a href="#插入图片">插入图片</a></li>
+        <li><a href="#插入视频">插入视频</a></li>
+      </ol>
+    </li>
     <li><a href="#hugo网站搭建内部链接">Hugo网站搭建内部链接</a>
       <ol>
         <li><a href="#使用相对路径链接">使用相对路径链接</a></li>
@@ -555,10 +561,10 @@
 <p>进入空文件夹，在cmd中输入<code>hugo service build</code>。可以看到网站在<code>localhost:1313</code>转发，在浏览器中输入该网址即可看到当前网站的内容。</p>
 <h3 id="下载hugo主题">下载Hugo主题
 </h3><p>在Hugo官网上进入Theme，下载需要的主题文件，解压后放入网站文件夹的theme子文件夹。</p>
-<p>接着在下载的主题文件夹中复制content文件夹和hugo.yaml（或hugo.toml）文件，粘贴到你的网站文件夹中。</p>
+<p>接着在下载的主题文件夹中复制<code>content</code>文件夹和<code>hugo.yaml</code>（或<code>hugo.toml</code>）文件，粘贴到你的网站文件夹中。</p>
 <p>打开主题的配置文件，找到<code>theme: hugo-theme-stack</code>一行，这里标明所使用主题的名称，须保持名称与主题文件夹的名称相同，否则要修改其一。再次执行<code>hugo service build</code>，即可看到使用了主题的网站。</p>
 <h3 id="创建自定义内容">创建自定义内容
-</h3><p>Hugo网站的文章内容均在content文件夹中，每篇文章对应一个子文件夹。</p>
+</h3><p>Hugo网站的文章内容均在<code>content</code>文件夹中，每篇文章对应一个子文件夹。</p>
 <p>每篇文章均采用Markdown语法书写，通常在文章开头有类似的配置文字：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-md" data-lang="md"><span class="line"><span class="ln">1</span><span class="cl">---
 </span></span><span class="line"><span class="ln">2</span><span class="cl">title: xxxxx            # 文章的标题
@@ -575,8 +581,8 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">hugo server -D    <span class="c1">#构建本地网页</span>
 </span></span><span class="line"><span class="ln">2</span><span class="cl">hugo              <span class="c1">#构建在线网页</span>
 </span></span></code></pre></div><blockquote>
-<p><em>注意事项</em></p>
-<p><em>使用<code>hugo server -D</code>命令构建的是本地网页，遇到超链接时会重定向到<code>localhost:1313/xxx</code>，不能直接部署到GitHub等服务器上，必须再执行一次<code>hugo</code>命令清除本地链接的内容之后，才能正确部署。</em></p></blockquote>
+<p>注意事项</p>
+<p>使用<code>hugo server -D</code>命令构建的是本地网页，遇到超链接时会重定向到<code>localhost:1313/xxx</code>，不能直接部署到GitHub等服务器上，必须再执行一次<code>hugo</code>命令清除本地链接的内容之后，才能正确部署。</p></blockquote>
 <p>参考视频：
 
 
@@ -597,9 +603,9 @@
 </div>
 </p>
 <h2 id="在github上托管网页">在Github上托管网页
-</h2><p>Github网站提供了“Github Pages”功能，允许用户为自己的项目显示一个静态网页。</p>
+</h2><p>Github网站提供了“Github Pages”功能，允许用户为自己的项目部署一个静态网页。</p>
 <h3 id="创建网站仓库">创建网站仓库
-</h3><p>注册Github账号，并创建一个新仓库，命名为<code>你的用户名.github.io</code></p>
+</h3><p>注册Github账号，并创建一个新仓库，命名为<code>你的用户名.github.io</code>。</p>
 <blockquote>
 <p>为什么命名为<code>你的用户名.github.io</code>？</p>
 <p>Github的Pages分为两种，一种为用户Pages，另一种为项目Pages。用户Pages每个账号只能拥有一个，域名为<code>https://你的用户名.github.io</code>；项目Pages数目不限，域名为<code>https://你的用户名.github.io/你的项目名</code>.</p>
@@ -633,7 +639,13 @@
     </iframe>
 </div>
 </p>
-<h2 id="hugo网站搭建内部链接">Hugo网站搭建内部链接
+<h2 id="插入其他资源">插入其他资源
+</h2><h3 id="插入图片">插入图片
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">{{&lt; figure src=&#34;图片路径&#34; width=&#34;宽度&#34; height=&#34;高度&#34; title=&#34;图片标题&#34; &gt;}}
+</span></span></code></pre></div><h3 id="插入视频">插入视频
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="ln">1</span><span class="cl"><span class="c">&lt;!-- 插入Bilibili视频 --&gt;</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">{{/* <span class="p">&lt;</span> <span class="nt">bilibili</span> <span class="na">bv号</span> <span class="na">分p</span><span class="err">(</span><span class="na">可选</span><span class="err">)</span> <span class="err">*</span><span class="p">/&gt;</span>}}
+</span></span></code></pre></div><h2 id="hugo网站搭建内部链接">Hugo网站搭建内部链接
 </h2><h3 id="使用相对路径链接">使用相对路径链接
 </h3><p>相对路径是根据当前页面的位置来定位目标页面的路径。这是最简单且常用的方式之一。</p>
 <p>假设你的网站目录结构如下：</p>

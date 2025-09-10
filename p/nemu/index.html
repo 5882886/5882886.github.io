@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="目标：制作一个32位的操作系统\n什么是NEMU 在PC上运行应用程序\nNEMU：在X86-64处理器的机器上模拟一个32位操作系统。\n功能完备的IA-32全系统模拟器 包括4个连贯的实验内容 ① 简易调试器 ② 指令系统 ③ 存储管理 ④ 中断与I/O 认识NEMU 调试器操作指令集 在nemu/src/monitor/debug/ui.c中定义了调试器的结构：\n">
-<title>NEMU</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="预备知识与PA1">
+<title>NEMU-PART I</title>
 
 <link rel='canonical' href='https://5882886.github.io/p/nemu/'>
 
-<link rel="stylesheet" href="/scss/style.min.d5f0afff969146387d200fea3eb333f0bf05cc9fd465feedf5111202537029d6.css"><meta property='og:title' content="NEMU">
-<meta property='og:description' content="目标：制作一个32位的操作系统\n什么是NEMU 在PC上运行应用程序\nNEMU：在X86-64处理器的机器上模拟一个32位操作系统。\n功能完备的IA-32全系统模拟器 包括4个连贯的实验内容 ① 简易调试器 ② 指令系统 ③ 存储管理 ④ 中断与I/O 认识NEMU 调试器操作指令集 在nemu/src/monitor/debug/ui.c中定义了调试器的结构：\n">
+<link rel="stylesheet" href="/scss/style.min.d5f0afff969146387d200fea3eb333f0bf05cc9fd465feedf5111202537029d6.css"><meta property='og:title' content="NEMU-PART I">
+<meta property='og:description' content="预备知识与PA1">
 <meta property='og:url' content='https://5882886.github.io/p/nemu/'>
 <meta property='og:site_name' content='RunicDolphin806的博客'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-09-08T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-09-08T00:00:00&#43;00:00'/><meta property='og:image' content='https://5882886.github.io/p/nemu/NEMU.png' />
-<meta name="twitter:title" content="NEMU">
-<meta name="twitter:description" content="目标：制作一个32位的操作系统\n什么是NEMU 在PC上运行应用程序\nNEMU：在X86-64处理器的机器上模拟一个32位操作系统。\n功能完备的IA-32全系统模拟器 包括4个连贯的实验内容 ① 简易调试器 ② 指令系统 ③ 存储管理 ④ 中断与I/O 认识NEMU 调试器操作指令集 在nemu/src/monitor/debug/ui.c中定义了调试器的结构：\n"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://5882886.github.io/p/nemu/NEMU.png' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-09-08T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-09-08T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="NEMU-PART I">
+<meta name="twitter:description" content="预备知识与PA1">
     <link rel="shortcut icon" href="/favicon.ico" />
 
     </head>
@@ -297,9 +296,17 @@
     <li><a href="#pa1-简易调试器">PA1 简易调试器</a>
       <ol>
         <li><a href="#实现正确的寄存器结构">实现正确的寄存器结构</a></li>
-        <li><a href="#实现调试器的功能">实现调试器的功能</a></li>
+        <li><a href="#实现调试器的功能">实现调试器的功能</a>
+          <ol>
+            <li><a href="#单步执行">单步执行</a></li>
+            <li><a href="#打印寄存器状态">打印寄存器状态</a></li>
+            <li><a href="#扫描内存">扫描内存</a></li>
+            <li><a href="#实现表达式求值">实现表达式求值</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
+    <li><a href="#思考题">思考题</a></li>
   </ol>
 </nav>
         </div>
@@ -448,20 +455,8 @@
 
             <main class="main full-width">
     
-        <article class="has-image main-article">
+        <article class="main-article">
     <header class="article-header">
-        <div class="article-image">
-            <a href="/p/nemu/">
-                <img src="/p/nemu/NEMU_hu_fd4d50148679017f.png"
-                        srcset="/p/nemu/NEMU_hu_fd4d50148679017f.png 800w, /p/nemu/NEMU_hu_efd401b50955d92a.png 1600w"
-                        width="800" 
-                        height="601" 
-                        loading="lazy"
-                        alt="Featured image of post NEMU" />
-                
-            </a>
-        </div>
-    
 
     <div class="article-details">
     
@@ -469,6 +464,10 @@
         
             <a href="/categories/guide/" style="background-color: #1117d0ff; color: #fff;">
                 教程
+            </a>
+        
+            <a href="/categories/nemu/" style="background-color: #2f0bbeff; color: #fff;">
+                NEMU
             </a>
         
             <a href="/categories/interesting_things/" style="background-color: #2a9d8f; color: #fff;">
@@ -480,9 +479,13 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/nemu/">NEMU</a>
+            <a href="/p/nemu/">NEMU-PART I</a>
         </h2>
     
+        
+        <h3 class="article-subtitle">
+            预备知识与PA1
+        </h3>
         
     </div>
 
@@ -534,15 +537,15 @@
 </h2><h3 id="调试器操作指令集">调试器操作指令集
 </h3><p>在<code>nemu/src/monitor/debug/ui.c</code>中定义了调试器的结构：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">static</span> <span class="k">struct</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 2</span><span class="cl">	<span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl">	<span class="kt">char</span> <span class="o">*</span><span class="n">description</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 4</span><span class="cl">	<span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">handler</span><span class="p">)</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">);</span>     <span class="c1">// 函数指针，可指向*name，*description
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="kt">char</span> <span class="o">*</span><span class="n">description</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">handler</span><span class="p">)</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">);</span>     <span class="c1">// 函数指针，可指向*name，*description
 </span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="c1"></span><span class="p">}</span> <span class="n">cmd_table</span> <span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl">	<span class="p">{</span> <span class="s">&#34;help&#34;</span><span class="p">,</span> <span class="s">&#34;Display informations about all supported commands&#34;</span><span class="p">,</span> <span class="n">cmd_help</span> <span class="p">},</span>
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl">	<span class="p">{</span> <span class="s">&#34;c&#34;</span><span class="p">,</span> <span class="s">&#34;Continue the execution of the program&#34;</span><span class="p">,</span> <span class="n">cmd_c</span> <span class="p">},</span>
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl">	<span class="p">{</span> <span class="s">&#34;q&#34;</span><span class="p">,</span> <span class="s">&#34;Exit NEMU&#34;</span><span class="p">,</span> <span class="n">cmd_q</span> <span class="p">},</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="p">{</span> <span class="s">&#34;help&#34;</span><span class="p">,</span> <span class="s">&#34;Display informations about all supported commands&#34;</span><span class="p">,</span> <span class="n">cmd_help</span> <span class="p">},</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="p">{</span> <span class="s">&#34;c&#34;</span><span class="p">,</span> <span class="s">&#34;Continue the execution of the program&#34;</span><span class="p">,</span> <span class="n">cmd_c</span> <span class="p">},</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="p">{</span> <span class="s">&#34;q&#34;</span><span class="p">,</span> <span class="s">&#34;Exit NEMU&#34;</span><span class="p">,</span> <span class="n">cmd_q</span> <span class="p">},</span>
 </span></span><span class="line"><span class="ln"> 9</span><span class="cl">
-</span></span><span class="line"><span class="ln">10</span><span class="cl">	<span class="cm">/* TODO: Add more commands */</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="cm">/* TODO: Add more commands */</span>
 </span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="cm">/* 接下来若想定义新的操作，格式为
 </span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="cm">    { &#34;command name&#34;, &#34;command description&#34;, commamd function},
 </span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="cm">    */</span>
@@ -580,20 +583,18 @@
 </span></span></code></pre></div><h3 id="实现调试器的功能">实现调试器的功能
 </h3><p>回顾<code>nemu/src/monitor/debug/ui.c</code>中对调试器的定义，需增加新的操作指令<code>si</code>，<code>info</code>，<code>x</code>。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">static</span> <span class="k">struct</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 2</span><span class="cl">	<span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl">	<span class="kt">char</span> <span class="o">*</span><span class="n">description</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 4</span><span class="cl">	<span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">handler</span><span class="p">)</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="kt">char</span> <span class="o">*</span><span class="n">description</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">handler</span><span class="p">)</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="p">}</span> <span class="n">cmd_table</span> <span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl">	<span class="p">...</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="p">...</span>
 </span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="c1">// 定义单步执行操作，关键字为 si，以此类推
 </span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1"></span>    <span class="p">{</span> <span class="s">&#34;si&#34;</span><span class="p">,</span> <span class="s">&#34;Single step execution&#34;</span><span class="p">,</span> <span class="n">cmd_si</span> <span class="p">},</span>
 </span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="p">{</span> <span class="s">&#34;info&#34;</span><span class="p">,</span> <span class="s">&#34;Show register or monitor&#39;s infomation&#34;</span><span class="p">,</span> <span class="n">cmd_info</span> <span class="p">},</span>
 </span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="p">{</span> <span class="s">&#34;x&#34;</span><span class="p">,</span> <span class="s">&#34;Scan Memory&#34;</span><span class="p">,</span> <span class="n">cmd_x</span> <span class="p">},</span>
 </span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="p">};</span>
-</span></span></code></pre></div><ol>
-<li>单步执行 <br>
-在<code>nemu/src/monitor/debug/ui.c</code>中定义新的操作函数：</li>
-</ol>
+</span></span></code></pre></div><h4 id="单步执行">单步执行
+</h4><p>在<code>nemu/src/monitor/debug/ui.c</code>中定义新的操作函数：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">static</span> <span class="kt">int</span> <span class="nf">cmd_si</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="kt">char</span> <span class="o">*</span><span class="n">arg</span> <span class="o">=</span> <span class="nf">strtok</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="s">&#34; &#34;</span><span class="p">);</span>  <span class="c1">// 获取第二个字符
 </span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">step</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>   <span class="c1">// 待操作步数
@@ -628,10 +629,8 @@
 </ul>
 <hr>
 </details>
-<ol start="2">
-<li>打印寄存器状态 <br>
-同理，定义操作函数<code>cmd_info</code></li>
-</ol>
+<h4 id="打印寄存器状态">打印寄存器状态
+</h4><p>同理，定义操作函数<code>cmd_info</code></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">static</span> <span class="kt">int</span> <span class="nf">cmd_info</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="kt">char</span> <span class="o">*</span><span class="n">arg</span> <span class="o">=</span> <span class="nf">strtok</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="s">&#34; &#34;</span><span class="p">);</span>  <span class="c1">// 获取第二个字符
 </span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -653,10 +652,8 @@
 </span></span><span class="line"><span class="ln">19</span><span class="cl">
 </span></span><span class="line"><span class="ln">20</span><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><ol start="3">
-<li>扫描内存</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">static</span> <span class="kt">int</span> <span class="nf">cmd_x</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+</span></span></code></pre></div><h4 id="扫描内存">扫描内存
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">static</span> <span class="kt">int</span> <span class="nf">cmd_x</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="kt">char</span> <span class="o">*</span><span class="n">arg_1</span> <span class="o">=</span> <span class="nf">strtok</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="s">&#34; &#34;</span><span class="p">);</span>	<span class="c1">// 获取第1个参数 N
 </span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="c1"></span>    <span class="kt">char</span> <span class="o">*</span><span class="n">arg_2</span> <span class="o">=</span> <span class="nf">strtok</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="s">&#34; &#34;</span><span class="p">);</span>	<span class="c1">// 获取第2个参数 EXPR
 </span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -688,7 +685,109 @@
 </span></span><span class="line"><span class="ln">30</span><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">31</span><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">32</span><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div>
+</span></span></code></pre></div><h4 id="实现表达式求值">实现表达式求值
+</h4><p>在列举类<code>/nemu/src/monitor/debug/expr.c</code>中</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">enum</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="n">NOTYPE</span> <span class="o">=</span> <span class="mi">256</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="n">NUM</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="n">REGISTER</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="n">HEX</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="n">EQ</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="n">NOTEQ</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="n">OR</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="n">AND</span> <span class="o">=</span> <span class="mi">7</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="n">POINT</span><span class="p">,</span> <span class="n">NEG</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="cm">/* TODO: Add more token types */</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">
+</span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p>在<code>/nemu/src/monitor/debug/expr.c</code>中，定义正则表达式：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">static</span> <span class="k">struct</span> <span class="n">rule</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="kt">char</span> <span class="o">*</span><span class="n">regex</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="kt">int</span> <span class="n">token_type</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="p">}</span> <span class="n">rules</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="cm">/* TODO: Add more rules.
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="cm">     * Pay attention to the precedence level of different rules.
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="p">{</span><span class="s">&#34; +&#34;</span><span class="p">,</span>	<span class="n">NOTYPE</span><span class="p">},</span>                <span class="c1">// spaces 空格
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="p">{</span><span class="s">&#34;</span><span class="se">\\</span><span class="s">+&#34;</span><span class="p">,</span> <span class="sc">&#39;+&#39;</span><span class="p">},</span>                   <span class="c1">// plus 运算符
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="c1"></span>    <span class="p">{</span><span class="s">&#34;</span><span class="se">\\</span><span class="s">-&#34;</span><span class="p">,</span> <span class="sc">&#39;-&#39;</span><span class="p">},</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="p">{</span><span class="s">&#34;</span><span class="se">\\</span><span class="s">*&#34;</span><span class="p">,</span> <span class="sc">&#39;*&#39;</span><span class="p">},</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="p">{</span><span class="s">&#34;</span><span class="se">\\</span><span class="s">/&#34;</span><span class="p">,</span> <span class="sc">&#39;/&#39;</span><span class="p">},</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">
+</span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="p">{</span><span class="s">&#34;</span><span class="se">\\</span><span class="s">$[a-z]+&#34;</span><span class="p">,</span> <span class="n">REGISTER</span><span class="p">},</span>        <span class="c1">// 数据
+</span></span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="c1"></span>    <span class="p">{</span><span class="s">&#34;0x[0-9a-fA-F]+&#34;</span><span class="p">,</span> <span class="n">HEX</span><span class="p">},</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">    <span class="p">{</span><span class="s">&#34;[0-9]+&#34;</span><span class="p">,</span> <span class="n">NUM</span><span class="p">},</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">
+</span></span><span class="line"><span class="ln">21</span><span class="cl">    <span class="p">{</span><span class="s">&#34;==&#34;</span><span class="p">,</span> <span class="n">EQ</span><span class="p">},</span>                     <span class="c1">// equal
+</span></span></span><span class="line"><span class="ln">22</span><span class="cl"><span class="c1"></span>    <span class="p">{</span><span class="s">&#34;!=&#34;</span><span class="p">,</span> <span class="n">NOTEQ</span><span class="p">},</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">
+</span></span><span class="line"><span class="ln">24</span><span class="cl">    <span class="p">{</span><span class="s">&#34;&amp;&amp;&#34;</span><span class="p">,</span> <span class="n">AND</span><span class="p">},</span>                    <span class="c1">// 逻辑运算符
+</span></span></span><span class="line"><span class="ln">25</span><span class="cl"><span class="c1"></span>    <span class="p">{</span><span class="s">&#34;</span><span class="se">\\</span><span class="s">|</span><span class="se">\\</span><span class="s">|&#34;</span><span class="p">,</span> <span class="n">OR</span><span class="p">},</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">    <span class="p">{</span><span class="s">&#34;!&#34;</span><span class="p">,</span> <span class="sc">&#39;!&#39;</span><span class="p">},</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl">
+</span></span><span class="line"><span class="ln">28</span><span class="cl">    <span class="p">{</span><span class="s">&#34;</span><span class="se">\\</span><span class="s">(&#34;</span><span class="p">,</span> <span class="sc">&#39;(&#39;</span><span class="p">},</span>                   <span class="c1">// 括号
+</span></span></span><span class="line"><span class="ln">29</span><span class="cl"><span class="c1"></span>    <span class="p">{</span><span class="s">&#34;</span><span class="se">\\</span><span class="s">)&#34;</span><span class="p">,</span> <span class="sc">&#39;)&#39;</span><span class="p">},</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><h2 id="思考题">思考题
+</h2><p><strong>思考题1：<code>opcode_table</code>到底是一个什么类型的数组？</strong></p>
+<blockquote>
+<p><code>opcode_table</code>数组是一个函数指针数组。</p></blockquote>
+<p><strong>思考题2（1）：在<code>cmd_c()</code>函数中, 调用<code>cpu_exec()</code>的时候传入了参数-1 , 你知道为什么吗?</strong></p>
+<blockquote>
+<p>-1是无符号类型最大的数字，所以函数里的<code>for</code>循环可以执行所有指令。</p></blockquote>
+<p><strong>思考题2（2）：框架代码中定义<code>wp_pool</code>等变量的时候使用了关键字<code>static</code>，<code>static</code>在此处 的含义是什么? 为什么要在此处使用它?</strong></p>
+<blockquote>
+<p><code>static</code>在此处的含义是静态全局变量，该变量只能被本文件中的函数调用，并且是全局变量，而不能被同一程序其他文件中的函数调用，使用<code>static</code>是为了避免它被误修改。</p></blockquote>
+<p><strong>思考题3：</strong></p>
+<ol>
+<li><strong><code>EFLAGS</code>寄存器中的<code>CF</code>位是什么意思?</strong></li>
+</ol>
+<blockquote>
+<p>i386手册里P34页中和参阅附录c提到，CF是进位标志。
+<figure><img src="/p/nemu/%E6%80%9D%E8%80%83%E9%A2%983-1.png" width="600"><figcaption>
+      <h4>EFLAGS寄存器</h4>
+    </figcaption>
+</figure>
+</p></blockquote>
+<ol start="2">
+<li><strong><code>ModR/M</code>字节是什么?</strong></li>
+</ol>
+<blockquote>
+<p>P241-243页。ModR/M 由 Mod，Reg/Opcode，R/M 三个部分组成。 Mod 是前两位，提供寄存器寻址和内存寻址， Reg/Opcode为3-5位，如果是Reg表示使用哪个寄存器，Opcode表示对group属性的Opcode进行补充； R/M为6-8位，与mod结合起来会得到8个寄存器和24个内存寻址。
+<figure><img src="/p/nemu/%E6%80%9D%E8%80%83%E9%A2%983-2.png" width="600"><figcaption>
+      <h4>ModR/M</h4>
+    </figcaption>
+</figure>
+</p></blockquote>
+<ol start="3">
+<li><strong><code>mov</code>指令的具体格式是怎么样的?</strong></li>
+</ol>
+<blockquote>
+<p>P345页，格式是DEST ← SRC。
+<figure><img src="/p/nemu/%E6%80%9D%E8%80%83%E9%A2%983-3.png" width="600"><figcaption>
+      <h4>mov指令</h4>
+    </figcaption>
+</figure>
+</p></blockquote>
+<ol start="4">
+<li><strong>完成 PA1 的内容之后, <code>nemu</code>目录下的所有<code>.c</code>和<code>.h</code>和文件总 共有多少行代码? 你是使用什么命令得到这个结果的？和框架代码相比, 你在PA1中编写了多少行代码？你可以把这条命令写入<code>Makefile</code>中, 随着实验进度的推进, 你可以很方便地统计工程的代码行数, 例如敲入 <code>make count</code>就会自动运行统计代码行数的命令。再来个难一点的, 除去空行之外, <code>nemu</code>目录下的所有<code>.c</code>和<code>.h</code>文件总共有多少行代码？</strong></li>
+</ol>
+<blockquote>
+<p>通过<code>find . -name “*[.h/.c]” | xargs wc -l</code>命令，得到4803行。和框架代码4197行相比, 我在 PA1 中编写了606行代码。</p>
+<p>通过<code>find . -name “*[.h/.c]” | xargs grep “^.” | wc -l</code>命令计算去除空行的所有.c .h文件得到了3900行代码。</p>
+<p>make count指令如下：</p>
+<p>make count</p>
+<p>​<code>@find nemu/ -name “.c” -o -name “.h” | xargs cat | grep -v ^$$ | wc -l</code></p></blockquote>
+<ol start="5">
+<li><strong>打开工程目录下的 Makefile 文件, 你会在 CFLAGS 变量中看到 gcc 的一些编译选项。请解释 gcc 中的-Wall 和-Werror 有什么作用? 为什么要使用-Wall 和-Werror？</strong></li>
+</ol>
+<blockquote>
+<p><code>-Wall</code>使GCC编译后显示所有的警告信息。<code>-Werror</code>会将将所有的警告当成错误进行处理，并且取消编译操作。使用<code>-Wall</code>和<code>-Werror</code>就是为了找出可能存在的错误，尽可能地避免程序运行出错，优化程序。</p></blockquote>
+
 </section>
 
 

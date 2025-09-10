@@ -26,11 +26,19 @@
 &lt;p&gt;在语言选择界面使用小键盘的“↑”、“↓”键选择所需语言。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;center&gt;&lt;img src=&#34;tmoe-language.jpg&#34; width=&#34;400&#34;&gt;&lt;/center&gt;
+&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/termux/tmoe-language.jpg&#34; width=&#34;400&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;语言选择界面&lt;/h4&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
 &lt;ol start=&#34;3&#34;&gt;
 &lt;li&gt;选择第一个proot容器，模拟root环境，按回车继续。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;center&gt;&lt;img src=&#34;tmoe-proot.jpeg&#34; width=&#34;400&#34;&gt;&lt;/center&gt;
+&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/termux/tmoe-proot.jpeg&#34; width=&#34;400&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;环境选择&lt;/h4&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
 &lt;ol start=&#34;4&#34;&gt;
 &lt;li&gt;
 &lt;p&gt;选择终端配色和字体，看个人喜好。&lt;/p&gt;
@@ -42,7 +50,11 @@
 &lt;p&gt;选择DNS解析地址，建议选择阿里（Ali）&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;center&gt;&lt;img src=&#34;tmoe-dns.jpeg&#34; width=&#34;400&#34;&gt;&lt;/center&gt;
+&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/termux/tmoe-dns.jpeg&#34; width=&#34;400&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;DNS设置&lt;/h4&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
 &lt;ol start=&#34;7&#34;&gt;
 &lt;li&gt;是否需要启用“一言”，看个人喜好。&lt;/li&gt;
 &lt;/ol&gt;
@@ -56,7 +68,11 @@
 &lt;p&gt;选择共享sd目录，这个需要慎重考虑，它关系到你的Linux发行版的用户文件目录。尽量不要共享整个sd目录，建议选择自定义路径。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;center&gt;&lt;img src=&#34;tmoe-sd.jpeg&#34; width=&#34;400&#34;&gt;&lt;/center&gt;
+&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/termux/tmoe-sd.jpeg&#34; width=&#34;400&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;共享sd目录&lt;/h4&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
 &lt;ol start=&#34;10&#34;&gt;
 &lt;li&gt;选择共享Home目录，选择默认选项。&lt;/li&gt;
 &lt;/ol&gt;
