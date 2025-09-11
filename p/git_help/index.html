@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/git_help/'>
 
-<link rel="stylesheet" href="/scss/style.min.d5f0afff969146387d200fea3eb333f0bf05cc9fd465feedf5111202537029d6.css"><meta property='og:title' content="玩转Github">
+<link rel="stylesheet" href="/scss/style.min.31dbd802197e67a313be8af6521fcd883f1bb7c4586557c4ab80115129265e74.css"><meta property='og:title' content="玩转Github">
 <meta property='og:description' content="成为开源社区贡献者">
 <meta property='og:url' content='https://5882886.github.io/p/git_help/'>
 <meta property='og:site_name' content='RunicDolphin806的博客'>
@@ -576,11 +576,14 @@
 </span></span></code></pre></div><ol start="4">
 <li>提交（commit） 更改到本地仓库</li>
 </ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git commit -m <span class="s2">&#34;描述信息&#34;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git commit -m <span class="s2">&#34;描述信息&#34;</span> 
+</span></span><span class="line"><span class="ln">2</span><span class="cl">
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"># 若提交时无文件更改</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">git commit -m <span class="s2">&#34;描述信息&#34;</span> --allow-empty
 </span></span></code></pre></div><ol start="5">
 <li>推送（push） 到远程仓库</li>
 </ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git push origin main
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git push 分支名
 </span></span></code></pre></div><ol start="6">
 <li>拉取（pull） 获取他人更新</li>
 </ol>

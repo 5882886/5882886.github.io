@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/nemu/'>
 
-<link rel="stylesheet" href="/scss/style.min.d5f0afff969146387d200fea3eb333f0bf05cc9fd465feedf5111202537029d6.css"><meta property='og:title' content="NEMU-PART I">
+<link rel="stylesheet" href="/scss/style.min.31dbd802197e67a313be8af6521fcd883f1bb7c4586557c4ab80115129265e74.css"><meta property='og:title' content="NEMU-PART I">
 <meta property='og:description' content="预备知识与PA1">
 <meta property='og:url' content='https://5882886.github.io/p/nemu/'>
 <meta property='og:site_name' content='RunicDolphin806的博客'>
@@ -290,19 +290,21 @@
     <li><a href="#什么是nemu">什么是NEMU</a></li>
     <li><a href="#认识nemu">认识NEMU</a>
       <ol>
+        <li><a href="#nemu的结构">NEMU的结构</a></li>
         <li><a href="#调试器操作指令集">调试器操作指令集</a></li>
+        <li><a href="#几个有用的函数">几个有用的函数</a></li>
       </ol>
     </li>
-    <li><a href="#pa1-简易调试器">PA1 简易调试器</a>
+    <li><a href="#pa1简易调试器">PA1：简易调试器</a>
       <ol>
-        <li><a href="#实现正确的寄存器结构">实现正确的寄存器结构</a></li>
+        <li><a href="#实现正确的寄存器结构体">实现正确的寄存器结构体</a></li>
         <li><a href="#实现调试器的功能">实现调试器的功能</a>
           <ol>
             <li><a href="#单步执行">单步执行</a></li>
             <li><a href="#打印寄存器状态">打印寄存器状态</a></li>
             <li><a href="#扫描内存">扫描内存</a></li>
-            <li><a href="#实现表达式求值">实现表达式求值</a></li>
-            <li><a href="#实现监视点池的管理">实现监视点池的管理</a></li>
+            <li><a href="#表达式求值">表达式求值</a></li>
+            <li><a href="#监视点">监视点</a></li>
           </ol>
         </li>
       </ol>
@@ -522,38 +524,108 @@
     <section class="article-content">
     
     
-    <p>目标：制作一个32位的操作系统</p>
+    <blockquote class="alert alert-note">
+    <ol>
+<li>机器永远是对的！</li>
+<li>未经过测试的每行代码永远是错误的！</li>
+<li>RTFM！（阅读手册！）</li>
+</ol></blockquote>
+<center><strong><p style="font-size:32px;">目标：制作一个32位的操作系统</p></strong></center>
 <h2 id="什么是nemu">什么是NEMU
-</h2><p>在PC上运行应用程序</p>
-<p>NEMU：在X86-64处理器的机器上模拟一个32位操作系统。</p>
-<ol>
-<li>功能完备的IA-32全系统模拟器</li>
-<li>包括4个连贯的实验内容 <br>
-① 简易调试器 <br>
-② 指令系统 <br>
-③ 存储管理 <br>
-④ 中断与I/O <br></li>
-</ol>
+</h2><p>在X86-64处理器的机器上模拟一个32位操作系统（<strong>一个用来执行其它程序的程序！</strong>），它包括4个连贯的实验内容：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>阶段</th>
+          <th>任务</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>PA1</td>
+          <td>简易调试器</td>
+      </tr>
+      <tr>
+          <td>PA2</td>
+          <td>指令系统</td>
+      </tr>
+      <tr>
+          <td>PA3</td>
+          <td>存储管理</td>
+      </tr>
+      <tr>
+          <td>PA4</td>
+          <td>中断与I/O</td>
+      </tr>
+  </tbody>
+</table></div>
 <h2 id="认识nemu">认识NEMU
-</h2><h3 id="调试器操作指令集">调试器操作指令集
+</h2><h3 id="nemu的结构">NEMU的结构
+</h3><figure><img src="/p/nemu/NEMU.png" width="650"><figcaption>
+      <h4>NEMU的结构</h4>
+    </figcaption>
+</figure>
+
+<h3 id="调试器操作指令集">调试器操作指令集
 </h3><p>在<code>nemu/src/monitor/debug/ui.c</code>中定义了调试器的结构：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">static</span> <span class="k">struct</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="kt">char</span> <span class="o">*</span><span class="n">description</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">handler</span><span class="p">)</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">);</span>     <span class="c1">// 函数指针，可指向*name，*description
-</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="c1"></span><span class="p">}</span> <span class="n">cmd_table</span> <span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="p">{</span> <span class="s">&#34;help&#34;</span><span class="p">,</span> <span class="s">&#34;Display informations about all supported commands&#34;</span><span class="p">,</span> <span class="n">cmd_help</span> <span class="p">},</span>
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="p">{</span> <span class="s">&#34;c&#34;</span><span class="p">,</span> <span class="s">&#34;Continue the execution of the program&#34;</span><span class="p">,</span> <span class="n">cmd_c</span> <span class="p">},</span>
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="p">{</span> <span class="s">&#34;q&#34;</span><span class="p">,</span> <span class="s">&#34;Exit NEMU&#34;</span><span class="p">,</span> <span class="n">cmd_q</span> <span class="p">},</span>
-</span></span><span class="line"><span class="ln"> 9</span><span class="cl">
-</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="cm">/* TODO: Add more commands */</span>
-</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="cm">/* 接下来若想定义新的操作，格式为
-</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="cm">    { &#34;command name&#34;, &#34;command description&#34;, commamd function},
-</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="cm">    */</span>
-</span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="p">};</span>
-</span></span></code></pre></div><h2 id="pa1-简易调试器">PA1 简易调试器
-</h2><h3 id="实现正确的寄存器结构">实现正确的寄存器结构
-</h3><p>在<code>/nemu/include/cpu/reg.h</code>中，原寄存器结构定义为：</p>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="c1">// 函数指针，可指向*name，*description
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">handler</span><span class="p">)</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">);</span>     
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="p">}</span> <span class="n">cmd_table</span> <span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="p">{</span> <span class="s">&#34;help&#34;</span><span class="p">,</span> <span class="s">&#34;Display informations about all supported commands&#34;</span><span class="p">,</span> <span class="n">cmd_help</span> <span class="p">},</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="p">{</span> <span class="s">&#34;c&#34;</span><span class="p">,</span> <span class="s">&#34;Continue the execution of the program&#34;</span><span class="p">,</span> <span class="n">cmd_c</span> <span class="p">},</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="p">{</span> <span class="s">&#34;q&#34;</span><span class="p">,</span> <span class="s">&#34;Exit NEMU&#34;</span><span class="p">,</span> <span class="n">cmd_q</span> <span class="p">},</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="cm">/* TODO: Add more commands */</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="cm">/* 接下来若想定义新的操作，格式为
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="cm">    { &#34;command name&#34;, &#34;command description&#34;, commamd function},
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="cm">    */</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><h3 id="几个有用的函数">几个有用的函数
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>函数</th>
+          <th>作用</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>Log()</code></td>
+          <td><code>printf()</code>的升级版，专门用来输出调试信息，同时还会输出使用<code>Log()</code>所在的源文件，行号和函数，当输出的调试信息过多的时候，可以很方便地定位到代码中的相关位置</td>
+      </tr>
+      <tr>
+          <td><code>Assert()</code></td>
+          <td><code>assert()</code>的升级版，当测试条件为假时，在<code>assertion fail</code>之前可以输出一些信息</td>
+      </tr>
+      <tr>
+          <td><code>panic()</code></td>
+          <td>用于输出信息并结束程序，相当于无条件的<code>assertion fail</code></td>
+      </tr>
+      <tr>
+          <td><code>swaddr_read()</code> / <code>swaddr_write()</code></td>
+          <td>访问模拟的内存</td>
+      </tr>
+      <tr>
+          <td><code>strtok()</code></td>
+          <td>一个简单的字符串分割工具，用于解析命令</td>
+      </tr>
+      <tr>
+          <td><code>sscanf()</code></td>
+          <td>可以从字符串中读入格式化的内容, 使用它有时候可以很方便地实现字符串的解析</td>
+      </tr>
+  </tbody>
+</table></div>
+<h2 id="pa1简易调试器">PA1：简易调试器
+</h2><h3 id="实现正确的寄存器结构体">实现正确的寄存器结构体
+</h3><figure><img src="/p/nemu/%E5%AF%84%E5%AD%98%E5%99%A8.png" width="650"><figcaption>
+      <h4>寄存器</h4>
+    </figcaption>
+</figure>
+
+<p>在<code>/nemu/include/cpu/reg.h</code>中，原寄存器结构体定义为：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="k">struct</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl">        <span class="kt">uint32_t</span> <span class="n">_32</span><span class="p">;</span>
@@ -687,7 +759,7 @@
 </span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="c1"></span>        <span class="k">for</span><span class="p">(;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">8</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 7</span><span class="cl">            <span class="c1">// 打印eax, ecx, edx, ebx, esp, ebp, esi, edi 8个寄存器
 </span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1"></span>            <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%s</span><span class="se">\t\t</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">regsl</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>     <span class="c1">// 打印寄存器名称
-</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="c1"></span>            <span class="c1">// 先打印寄存器的16进制值，再打印寄存器的十进制值（仿GDB）
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="c1"></span>            <span class="c1">// 先打印16进制值，再打印10进制值（仿GDB）
 </span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="c1"></span>            <span class="c1">// &#34;\t&#34; 为制表符，让输出更美观
 </span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="c1"></span>            <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;0x%08x</span><span class="se">\t\t</span><span class="s">%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">cpu</span><span class="p">.</span><span class="n">gpr</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">_32</span><span class="p">,</span> <span class="n">cpu</span><span class="p">.</span><span class="n">gpr</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">_32</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">12</span><span class="cl">        <span class="p">}</span>
@@ -702,8 +774,8 @@
 </span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h4 id="扫描内存">扫描内存
 </h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">static</span> <span class="kt">int</span> <span class="nf">cmd_x</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="kt">char</span> <span class="o">*</span><span class="n">arg_1</span> <span class="o">=</span> <span class="nf">strtok</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="s">&#34; &#34;</span><span class="p">);</span>	<span class="c1">// 获取第1个参数 N
-</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="c1"></span>    <span class="kt">char</span> <span class="o">*</span><span class="n">arg_2</span> <span class="o">=</span> <span class="nf">strtok</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="s">&#34; &#34;</span><span class="p">);</span>	<span class="c1">// 获取第2个参数 EXPR
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="kt">char</span> <span class="o">*</span><span class="n">arg_1</span> <span class="o">=</span> <span class="nf">strtok</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="s">&#34; &#34;</span><span class="p">);</span>    <span class="c1">// 获取第1个参数 N
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="c1"></span>    <span class="kt">char</span> <span class="o">*</span><span class="n">arg_2</span> <span class="o">=</span> <span class="nf">strtok</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="s">&#34; &#34;</span><span class="p">);</span>    <span class="c1">// 获取第2个参数 EXPR
 </span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln"> 6</span><span class="cl">
@@ -733,9 +805,36 @@
 </span></span><span class="line"><span class="ln">30</span><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">31</span><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">32</span><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h4 id="实现表达式求值">实现表达式求值
+</span></span></code></pre></div><h4 id="表达式求值">表达式求值
 </h4><p><strong>阶段1：词法分析</strong></p>
 <ol>
+<li><strong>定义<code>token</code></strong></li>
+</ol>
+<p>在<code>/nemu/src/monitor/debug/expr.c</code>中，观察<code>token</code>结构体，它包含两个数据<code>type</code>和<code>str</code>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="n">token</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="kt">int</span> <span class="n">type</span><span class="p">;</span>       <span class="c1">// 记录token的类型
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"></span>    <span class="kt">char</span> <span class="n">str</span><span class="p">[</span><span class="mi">32</span><span class="p">];</span>   <span class="c1">// 记录token的具体数据
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1"></span><span class="p">}</span> <span class="n">Token</span><span class="p">;</span>
+</span></span></code></pre></div><blockquote>
+<p>容易发现，当<code>token</code>为<code>+, -, &amp;</code>等单运算符时，只需要记录它的<code>type</code>即可，因为它们的<code>type</code>唯一标识了各自的具体数据。</p></blockquote>
+<p>在<code>/nemu/src/monitor/debug/expr.c</code>的列举类中，定义<code>token</code>的类型。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">enum</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="n">NOTYPE</span> <span class="o">=</span> <span class="mi">256</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="n">NUM</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>        <span class="c1">// 10进制数
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="c1"></span>    <span class="n">REGISTER</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>   <span class="c1">// 寄存器
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="c1"></span>    <span class="n">HEX</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>        <span class="c1">// 16进制数
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="c1"></span>    <span class="n">EQ</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>         <span class="c1">// 相等
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1"></span>    <span class="n">NOTEQ</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>      <span class="c1">// 不相等
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1"></span>    <span class="n">OR</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span>         <span class="c1">// 或运算
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="c1"></span>    <span class="n">AND</span> <span class="o">=</span> <span class="mi">7</span><span class="p">,</span>        <span class="c1">// 与运算
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="c1"></span>    <span class="n">POINT</span><span class="p">,</span>          <span class="c1">// 指针
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="c1"></span>    <span class="n">NEG</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="cm">/* TODO: Add more token types */</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">
+</span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p>定义了枚举类后，相应的字段和数字就确定了唯一对应的关系。例如，<code>type = NUM</code>和<code>type = 1</code>均表示10进制整数。</p>
+<ol start="2">
 <li><strong>定义正则表达式</strong></li>
 </ol>
 <p>在<code>/nemu/src/monitor/debug/expr.c</code>中，定义正则表达式：</p>
@@ -775,33 +874,6 @@
     </figcaption>
 </figure>
 
-<ol start="2">
-<li><strong>定义<code>token</code></strong></li>
-</ol>
-<p>在<code>/nemu/src/monitor/debug/expr.c</code>中，观察<code>token</code>结构体，它包含两个数据<code>type</code>和<code>str</code>：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="n">token</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="kt">int</span> <span class="n">type</span><span class="p">;</span>       <span class="c1">// 记录token的类型
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"></span>    <span class="kt">char</span> <span class="n">str</span><span class="p">[</span><span class="mi">32</span><span class="p">];</span>   <span class="c1">// 记录token的具体数据
-</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1"></span><span class="p">}</span> <span class="n">Token</span><span class="p">;</span>
-</span></span></code></pre></div><blockquote>
-<p>容易发现，当<code>token</code>为<code>+, -, &amp;&amp;</code>等运算符时，只需要记录它的<code>type</code>即可，因为它们的<code>type</code>唯一标识了各自的具体数据。</p></blockquote>
-<p>在<code>/nemu/src/monitor/debug/expr.c</code>的列举类中，定义<code>token</code>的类型。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">enum</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="n">NOTYPE</span> <span class="o">=</span> <span class="mi">256</span><span class="p">,</span>
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="n">NUM</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>        <span class="c1">// 10进制数
-</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="c1"></span>    <span class="n">REGISTER</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>   <span class="c1">// 寄存器
-</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="c1"></span>    <span class="n">HEX</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>        <span class="c1">// 16进制数
-</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="c1"></span>    <span class="n">EQ</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>         <span class="c1">// 相等
-</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1"></span>    <span class="n">NOTEQ</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>      <span class="c1">// 不相等
-</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1"></span>    <span class="n">OR</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span>         <span class="c1">// 或运算
-</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="c1"></span>    <span class="n">AND</span> <span class="o">=</span> <span class="mi">7</span><span class="p">,</span>        <span class="c1">// 与运算
-</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="c1"></span>    <span class="n">POINT</span><span class="p">,</span>          <span class="c1">// 指针
-</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="c1"></span>    <span class="n">NEG</span>
-</span></span><span class="line"><span class="ln">12</span><span class="cl">
-</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="cm">/* TODO: Add more token types */</span>
-</span></span><span class="line"><span class="ln">14</span><span class="cl">
-</span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="p">};</span>
-</span></span></code></pre></div><p>定义了枚举类后，相应的字段和数字就确定了唯一对应的关系。例如，<code>type = NUM</code>和<code>type = 1</code>均表示10进制整数。</p>
 <ol start="3">
 <li><strong>识别<code>token</code></strong></li>
 </ol>
@@ -900,7 +972,7 @@
 </span></span></code></pre></div><ol start="2">
 <li><strong>寻找主操作符</strong></li>
 </ol>
-<p><code>dominant operator</code>是表达式中最后参与运算的运算符，根据运算符优先级可知：</p>
+<p><code>dominant operator</code>（主操作符）是表达式中最后参与运算的运算符，根据运算符优先级可知：</p>
 <ul>
 <li>非运算符的<code>token</code>不是<code>dominant operator</code>。</li>
 <li>出现在一对括号中的<code>token</code>不是<code>dominant operator</code>。注意到这里不会出现有括号包围整个表达式的情况，因为这种情况已经在<code>check_parentheses()</code>相应的<code>if</code>块中被处理了。</li>
@@ -908,6 +980,11 @@
 <li>当有多个运算符的优先级都是最低时，根据结合性，最后被结合的运算符才是<code>dominant operator</code>。一个例子是<code>1 + 2 + 3</code>，它的<code>dominant operator</code>应该是右边的<code>+</code>。</li>
 </ul>
 <p>找到主操作符后，表达式的运算可归结为主操作符两侧数的运算。这也就意味着该问题满足了<strong>分治</strong>的基本条件：一个问题可分解为若干个与原问题结构相同的子问题。</p>
+<p>参阅此处：<a class="link" href="/p/algorithm/#%e5%88%86%e6%b2%bb%e6%b3%95" >分治法
+    
+    
+
+</a></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">int</span> <span class="nf">dominant_operator</span><span class="p">(</span><span class="kt">int</span> <span class="n">p</span><span class="p">,</span> <span class="kt">int</span> <span class="n">q</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="kt">int</span> <span class="n">step</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="kt">int</span> <span class="n">op</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
@@ -1144,7 +1221,7 @@
 </span></span><span class="line"><span class="ln">30</span><span class="cl">    <span class="p">}</span>  
 </span></span><span class="line"><span class="ln">31</span><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></details>
-<h4 id="实现监视点池的管理">实现监视点池的管理
+<h4 id="监视点">监视点
 </h4><ol>
 <li>新建监视点</li>
 </ol>
@@ -1389,6 +1466,7 @@
 </figure>
 </p></blockquote>
 </details>
+<hr>
 <p><strong>思考题3-4： 完成 PA1 的内容之后, <code>nemu</code>目录下的所有<code>.c</code>和<code>.h</code>和文件总共有多少行代码? 你是使用什么命令得到这个结果的？和框架代码相比, 你在PA1中编写了多少行代码？你可以把这条命令写入<code>Makefile</code>中, 随着实验进度的推进, 你可以很方便地统计工程的代码行数, 例如敲入 <code>make count</code>就会自动运行统计代码行数的命令。再来个难一点的, 除去空行之外, <code>nemu</code>目录下的所有<code>.c</code>和<code>.h</code>文件总共有多少行代码？</strong></p>
 <details>
     <summary>解答</summary>
