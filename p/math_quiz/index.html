@@ -14,7 +14,28 @@
 <meta name="twitter:title" content="微积分：题目">
 <meta name="twitter:description" content="极限与函数 【例1.9】求 $\\displaystyle I=\\lim_{x \\to 1^-} \\frac{\\ln (1-x) + \\tan\\dfrac{\\pi}{2}x}{\\mathrm{cot}\\pi x}$\n点击展开解答 解：将原极限拆分成两项极限之和，则可得：\n$$I_1 = \\lim_{x \\to 1^-} \\frac{\\ln(1-x)}{\\mathrm{cot}\\pi x} = \\lim_{x \\to 1^-} \\frac{-\\dfrac{1}{1-x}}{-\\pi \\mathrm{csc}^2 \\pi x} = \\lim_{x \\to 1^-} \\frac{\\sin^2 \\pi x}{\\pi (1-x)} = \\lim_{x \\to 1^-} \\frac{2\\pi \\sin \\pi x \\cos \\pi x}{-\\pi} = 0 $$$$I_2 = \\lim_{x \\to 1^-} \\frac{\\sin \\pi x}{\\cos \\pi x} \\cdot \\lim_{x \\to 1^-} \\frac{\\sin \\dfrac{\\pi}{2}x}{\\cos \\dfrac{\\pi}{2}x} = (-1) \\cdot \\lim_{x \\to 1^-} \\frac{\\sin \\pi x}{\\cos \\dfrac{\\pi}{2}x} = (-1)\\lim_{x \\to 1^-} \\frac{\\pi \\cos \\pi x}{-\\dfrac{\\pi}{2} \\sin \\dfrac{\\pi}{2}x} = -2 $$则 $I=I_1+I_2=-2$\n">
     <link rel="shortcut icon" href="/favicon.ico" />
+<style>
+ 
+@media print {
+     
+    body {
+        width: 100%;
+        max-width: 1200px;  
+        margin: 0 auto;
+    }
 
+     
+    .menu, .footer {
+        display: none !important;
+    }
+
+     
+    .main-container {
+        display: block !important;
+        width: 100% !important;
+    }
+}
+</style>
     </head>
     <body class="
     article-page
