@@ -7,21 +7,34 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>RunicDolphin806</copyright>
-        <lastBuildDate>Wed, 10 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://5882886.github.io/categories/guide/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>正则表达式</title>
-        <link>https://5882886.github.io/p/regular_expression/</link>
-        <pubDate>Wed, 10 Sep 2025 00:00:00 +0000</pubDate>
+        <lastBuildDate>Fri, 12 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://5882886.github.io/categories/guide/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>NEMU-PART II</title>
+        <link>https://5882886.github.io/p/nemu-part-2/</link>
+        <pubDate>Fri, 12 Sep 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/regular_expression/</guid>
-        <description>&lt;h2 id=&#34;&#34;&gt;
-&lt;/h2&gt;</description>
+        <guid>https://5882886.github.io/p/nemu-part-2/</guid>
+        <description>&lt;h2 id=&#34;准备工作&#34;&gt;准备工作
+&lt;/h2&gt;&lt;h3 id=&#34;切换用户程序&#34;&gt;切换用户程序
+&lt;/h3&gt;&lt;p&gt;修改工程目录下的&lt;code&gt;Makefile&lt;/code&gt;文件，更换&lt;code&gt;NEMU&lt;/code&gt;的用户程序：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-diff&#34; data-lang=&#34;diff&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gd&#34;&gt;- USERPROG := obj/testcase/mov
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gd&#34;&gt;&lt;/span&gt;&lt;span class=&#34;gi&#34;&gt;+ USERPROG := obj/testcase/mov-c
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;了解nemu的指令集&#34;&gt;了解NEMU的指令集
+&lt;/h3&gt;&lt;p&gt;要实现一条指令，首先你需要知道这条指令的格式和功能。格式决定如何解释，功能决定如何执行。而这些信息都在 instruction set page（i386 手册第17 章）。&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-2/%E9%80%9A%E7%94%A8%E5%AF%84%E5%AD%98%E5%99%A8%E7%BC%96%E7%A0%81.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;通用寄存器编码&lt;/h4&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;pa2指令系统&#34;&gt;PA2：指令系统
+&lt;/h2&gt;&lt;h3 id=&#34;运行用户程序&#34;&gt;运行用户程序
+&lt;/h3&gt;</description>
         </item>
         <item>
         <title>NEMU-PART I</title>
-        <link>https://5882886.github.io/p/nemu/</link>
+        <link>https://5882886.github.io/p/nemu-part-1/</link>
         <pubDate>Mon, 08 Sep 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/nemu/</guid>
+        <guid>https://5882886.github.io/p/nemu-part-1/</guid>
         <description>&lt;blockquote class=&#34;alert alert-note&#34;&gt;
     &lt;ol&gt;
 &lt;li&gt;机器永远是对的！&lt;/li&gt;
@@ -59,7 +72,7 @@
 &lt;/table&gt;
 &lt;h2 id=&#34;认识nemu&#34;&gt;认识NEMU
 &lt;/h2&gt;&lt;h3 id=&#34;nemu的结构&#34;&gt;NEMU的结构
-&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu/NEMU.png&#34; width=&#34;650&#34;&gt;&lt;figcaption&gt;
+&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-1/NEMU.png&#34; width=&#34;650&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;NEMU的结构&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -78,7 +91,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;cm&#34;&gt;/* TODO: Add more commands */&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;cm&#34;&gt;/* 接下来若想定义新的操作，格式为
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;    { &amp;#34;command name&amp;#34;, &amp;#34;command description&amp;#34;, commamd function},
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;    { &amp;#34;name&amp;#34;, &amp;#34;description&amp;#34;, function},
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;    */&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;几个有用的函数&#34;&gt;几个有用的函数
@@ -118,7 +131,7 @@
 &lt;/table&gt;
 &lt;h2 id=&#34;pa1简易调试器&#34;&gt;PA1：简易调试器
 &lt;/h2&gt;&lt;h3 id=&#34;实现正确的寄存器结构体&#34;&gt;实现正确的寄存器结构体
-&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu/%E5%AF%84%E5%AD%98%E5%99%A8.png&#34; width=&#34;650&#34;&gt;&lt;figcaption&gt;
+&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-1/%E5%AF%84%E5%AD%98%E5%99%A8.png&#34; width=&#34;650&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;寄存器&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -367,7 +380,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\\&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;)&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;sc&#34;&gt;&amp;#39;)&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;正则表达式的作用是识别当前表达式的具体内容。例如，对于表达式&lt;code&gt;4 + 3 * ( 2 - 1 )&lt;/code&gt;，正则表达式的识别结果应为：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu/token.png&#34; width=&#34;500&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-1/token.png&#34; width=&#34;500&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;识别token&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -640,7 +653,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 99&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;100&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;举例：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu/%E5%88%86%E6%B2%BB%E6%B3%95%E6%B1%82%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E5%80%BC.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-1/%E5%88%86%E6%B2%BB%E6%B3%95%E6%B1%82%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E5%80%BC.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;分治法求表达式的值&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -748,7 +761,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;temp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;示意图如下：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu/%E7%9B%91%E8%A7%86%E7%82%B9%E9%93%BE%E8%A1%A8.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-1/%E7%9B%91%E8%A7%86%E7%82%B9%E9%93%BE%E8%A1%A8.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;监视点链表&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -934,7 +947,7 @@
     &lt;summary&gt;解答&lt;/summary&gt;
 &lt;blockquote&gt;
 &lt;p&gt;i386手册里P34页中和参阅附录c提到，CF是进位标志。
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu/%E6%80%9D%E8%80%83%E9%A2%983-1.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-1/%E6%80%9D%E8%80%83%E9%A2%983-1.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;EFLAGS寄存器&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -946,7 +959,7 @@
     &lt;summary&gt;解答&lt;/summary&gt;
 &lt;blockquote&gt;
 &lt;p&gt;P241-243页。ModR/M 由 Mod，Reg/Opcode，R/M 三个部分组成。 Mod 是前两位，提供寄存器寻址和内存寻址， Reg/Opcode为3-5位，如果是Reg表示使用哪个寄存器，Opcode表示对group属性的Opcode进行补充； R/M为6-8位，与mod结合起来会得到8个寄存器和24个内存寻址。
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu/%E6%80%9D%E8%80%83%E9%A2%983-2.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-1/%E6%80%9D%E8%80%83%E9%A2%983-2.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;ModR/M&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -958,7 +971,7 @@
     &lt;summary&gt;解答&lt;/summary&gt;
 &lt;blockquote&gt;
 &lt;p&gt;P345页，格式是DEST ← SRC。
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu/%E6%80%9D%E8%80%83%E9%A2%983-3.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-1/%E6%80%9D%E8%80%83%E9%A2%983-3.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;mov指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -3931,6 +3944,15 @@
 &lt;blockquote&gt;
 &lt;p&gt;如果是Windows系统，则需要首先安装Git Bash，然后在Git Bash中执行上述操作。&lt;/p&gt;&lt;/blockquote&gt;
 </description>
+        </item>
+        <item>
+        <title>正则表达式</title>
+        <link>https://5882886.github.io/p/regular_expression/</link>
+        <pubDate>Thu, 10 Oct 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://5882886.github.io/p/regular_expression/</guid>
+        <description>&lt;h2 id=&#34;&#34;&gt;
+&lt;/h2&gt;</description>
         </item>
         <item>
         <title>Minecraft教程</title>

@@ -449,18 +449,18 @@
         <div class="article-list--compact">
             
                 <article>
-    <a href="/p/regular_expression/">
+    <a href="/p/nemu-part-2/">
         <div class="article-details">
-            <h2 class="article-title">正则表达式</h2>
+            <h2 class="article-title">NEMU-PART II</h2>
             <footer class="article-time">
-                <time datetime='2025-09-10T00:00:00Z'>Sep 10, 2025</time>
+                <time datetime='2025-09-12T00:00:00Z'>Sep 12, 2025</time>
             </footer>
         </div>
     </a>
 </article>
             
                 <article>
-    <a href="/p/nemu/">
+    <a href="/p/nemu-part-1/">
         <div class="article-details">
             <h2 class="article-title">NEMU-PART I</h2>
             <footer class="article-time">
@@ -727,6 +727,17 @@
 </article>
             
                 <article>
+    <a href="/p/regular_expression/">
+        <div class="article-details">
+            <h2 class="article-title">正则表达式</h2>
+            <footer class="article-time">
+                <time datetime='2024-10-10T00:00:00Z'>Oct 10, 2024</time>
+            </footer>
+        </div>
+    </a>
+</article>
+            
+                <article>
     <a href="/p/minecraft-help/">
         <div class="article-details">
             <h2 class="article-title">Minecraft教程</h2>
@@ -830,6 +841,7 @@
     <section class="powerby">
         使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
         主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+
     </section>
 </footer>
 
@@ -982,7 +994,10 @@
     document.addEventListener('pjax:complete', () => {
         
         window.Stack.init();
+        initTocHide();
     })
+
+
 
     document.addEventListener('DOMContentLoaded', function () {
         if (window.pjax) {
@@ -1027,6 +1042,52 @@
     })
 </script>
 
+<style>
+    #TableOfContents > ul, ol {
+        ul, ol {
+            display: none;
+        }
+        .open {
+            display: block;
+        }
+    }
+</style>
+
+<script>
+    function initTocHide() {
+        
+        let toc = document.querySelector(".widget--toc");
+        if (!toc) {
+            return;
+        }
+        
+        window.addEventListener('scroll', function() {
+            
+            let openUl = document.querySelectorAll(".open");
+            if (openUl.length > 0) {
+              openUl.forEach((ul) => {
+                ul.classList.remove("open")
+              })
+            }
+            
+            let currentLi = document.querySelector(".active-class");
+            if (!currentLi) {
+                return
+            }
+            
+            if (currentLi.children.length > 1) {
+                currentLi.children[1].classList.add("open")
+            }
+            
+            let ul = currentLi.parentElement;
+            do {
+                ul.classList.add("open");
+                ul = ul.parentElement.parentElement
+            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
+        });
+    }
+    initTocHide()
+</script>
 
 
     
@@ -1051,7 +1112,6 @@
         topbar.hide();
     })
 </script>
-
 
     </body>
 </html>

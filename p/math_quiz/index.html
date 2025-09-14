@@ -548,7 +548,9 @@ $$\begin{align*} \lim_{n \to \infty} n \left[ \left(1+\frac{1}{n}\right)^n - \ma
 <p>【例1.18】设函数 $f(x)$ 在 $x=0$ 的某领域内存在 $n$ 阶导数，$f(0)=f'(0)=\cdots=f^{(n-1)}(0)=0$，而 $f^{(n)}(0) \ne 0$，求极限 $\displaystyle I=\frac{\displaystyle \int_{0}^{x}(x-t)f(t)\mathrm{d}t}{\displaystyle x\int_{0}^{x}f(x-t)\mathrm{d}t}$</p>
 <details>
       <summary>点击展开解答</summary>
-<p>解：</p>
+<p>解：设 $u=x-t$，则有 $\displaystyle \int_{0}^{x} f(x-t) \mathrm{d}t = \int_{x}^{0} -f(u) \mathrm{d}u = \int_{0}^{x} f(u) \mathrm{d}u = \int_{0}^{x} f(t) \mathrm{d}t $. 则有</p>
+$$\begin{align*} I &= \lim_{x \to 0} \frac{\displaystyle x\int_{0}^{x} f(t) \mathrm{d}t - \int_{0}^{x} tf(t) \mathrm{d}t}{\displaystyle x\int_{0}^{x} f(u)\mathrm{d}u } = 1 - \lim_{x \to 0} \frac{\displaystyle \int_{0}^{x} tf(t) \mathrm{d}t}{\displaystyle x\int_{0}^{x} f(t) \mathrm{d}t} = 1 - \lim_{x \to 0} \frac{\displaystyle xf(x)}{\displaystyle xf(x) + \int_{0}^{x} f(t) \mathrm{d}t}  \\ \\ &= 1 - \frac{1}{1 + \displaystyle \lim_{x \to 0} \dfrac{\displaystyle \int_{0}^{x} f(t) \mathrm{d}t }{xf(x)}} \end{align*}$$<p>而由泰勒公式，$\displaystyle f(x) = \frac{f^{(n)}(0)}{n!}x^n + o(x^n)$，即得 $\displaystyle f'(x) = \frac{f^{n}(0)}{(n-1)!}x^{n-1} + o(x^{n-1})$. 所以</p>
+$$\lim_{x \to 0} \frac{\displaystyle \int_{0}^{x} f(t) \mathrm{d}t}{xf(x)} = \lim_{x \to 0} \frac{f(x)}{f(x) + xf'(x)} = \lim_{x \to 0} \frac{\dfrac{f^{(n)}(0)}{n!}x^n + o(x^n)}{\dfrac{f^{(n)}(0)}{n!}x^n + \dfrac{f^{(n)}(0)}{(n-1)!}x^n + o(x^n)} = \frac{1}{n+1}$$<p>代入得 $\displaystyle I = \frac{1}{n+2}$</p>
 </details>
 <hr>
 <p>【例1.58】设 $x_1=2021$，$x_n^2-2(x_n+1)x_{n+1}+2021=0 \ (n \geqslant 1)$. 证明数列 $\{x_n\}$ 收敛，并求极限 $\displaystyle \lim_{n \to \infty} x_n$.</p>
@@ -769,7 +771,20 @@ $$\begin{align*} I &= \int_{0}^{\pi}f(x) \mathrm{d}x = \int_{0}^{\pi} \left( \in
             
                 
 <article class="">
-    <a href="/p/nemu/">
+    <a href="/p/nemu-part-2/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">NEMU-PART II</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/nemu-part-1/">
         
         
 
@@ -819,19 +834,6 @@ $$\begin{align*} I &= \int_{0}^{\pi}f(x) \mathrm{d}x = \int_{0}^{\pi} \left( \in
 </article>
 
             
-                
-<article class="">
-    <a href="/p/tju/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">有意思的玩意</h2>
-        </div>
-    </a>
-</article>
-
-            
         </div>
     </div>
 </aside>
@@ -851,6 +853,7 @@ $$\begin{align*} I &= \int_{0}^{\pi}f(x) \mathrm{d}x = \int_{0}^{\pi} \left( \in
     <section class="powerby">
         使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
         主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+
     </section>
 </footer>
 
@@ -1083,7 +1086,10 @@ $$\begin{align*} I &= \int_{0}^{\pi}f(x) \mathrm{d}x = \int_{0}^{\pi} \left( \in
     document.addEventListener('pjax:complete', () => {
         
         window.Stack.init();
+        initTocHide();
     })
+
+
 
     document.addEventListener('DOMContentLoaded', function () {
         if (window.pjax) {
@@ -1128,6 +1134,52 @@ $$\begin{align*} I &= \int_{0}^{\pi}f(x) \mathrm{d}x = \int_{0}^{\pi} \left( \in
     })
 </script>
 
+<style>
+    #TableOfContents > ul, ol {
+        ul, ol {
+            display: none;
+        }
+        .open {
+            display: block;
+        }
+    }
+</style>
+
+<script>
+    function initTocHide() {
+        
+        let toc = document.querySelector(".widget--toc");
+        if (!toc) {
+            return;
+        }
+        
+        window.addEventListener('scroll', function() {
+            
+            let openUl = document.querySelectorAll(".open");
+            if (openUl.length > 0) {
+              openUl.forEach((ul) => {
+                ul.classList.remove("open")
+              })
+            }
+            
+            let currentLi = document.querySelector(".active-class");
+            if (!currentLi) {
+                return
+            }
+            
+            if (currentLi.children.length > 1) {
+                currentLi.children[1].classList.add("open")
+            }
+            
+            let ul = currentLi.parentElement;
+            do {
+                ul.classList.add("open");
+                ul = ul.parentElement.parentElement
+            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
+        });
+    }
+    initTocHide()
+</script>
 
 
     
@@ -1152,7 +1204,6 @@ $$\begin{align*} I &= \int_{0}^{\pi}f(x) \mathrm{d}x = \int_{0}^{\pi} \left( \in
         topbar.hide();
     })
 </script>
-
 
     </body>
 </html>

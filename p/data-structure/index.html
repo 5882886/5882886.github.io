@@ -888,7 +888,20 @@
             
                 
 <article class="">
-    <a href="/p/nemu/">
+    <a href="/p/nemu-part-2/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">NEMU-PART II</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/nemu-part-1/">
         
         
 
@@ -938,19 +951,6 @@
 </article>
 
             
-                
-<article class="">
-    <a href="/p/tju/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">有意思的玩意</h2>
-        </div>
-    </a>
-</article>
-
-            
         </div>
     </div>
 </aside>
@@ -970,6 +970,7 @@
     <section class="powerby">
         使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
         主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+
     </section>
 </footer>
 
@@ -1202,7 +1203,10 @@
     document.addEventListener('pjax:complete', () => {
         
         window.Stack.init();
+        initTocHide();
     })
+
+
 
     document.addEventListener('DOMContentLoaded', function () {
         if (window.pjax) {
@@ -1247,6 +1251,52 @@
     })
 </script>
 
+<style>
+    #TableOfContents > ul, ol {
+        ul, ol {
+            display: none;
+        }
+        .open {
+            display: block;
+        }
+    }
+</style>
+
+<script>
+    function initTocHide() {
+        
+        let toc = document.querySelector(".widget--toc");
+        if (!toc) {
+            return;
+        }
+        
+        window.addEventListener('scroll', function() {
+            
+            let openUl = document.querySelectorAll(".open");
+            if (openUl.length > 0) {
+              openUl.forEach((ul) => {
+                ul.classList.remove("open")
+              })
+            }
+            
+            let currentLi = document.querySelector(".active-class");
+            if (!currentLi) {
+                return
+            }
+            
+            if (currentLi.children.length > 1) {
+                currentLi.children[1].classList.add("open")
+            }
+            
+            let ul = currentLi.parentElement;
+            do {
+                ul.classList.add("open");
+                ul = ul.parentElement.parentElement
+            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
+        });
+    }
+    initTocHide()
+</script>
 
 
     
@@ -1271,7 +1321,6 @@
         topbar.hide();
     })
 </script>
-
 
     </body>
 </html>

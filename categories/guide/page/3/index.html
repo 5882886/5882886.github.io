@@ -10,7 +10,7 @@
 <meta property='og:description' content="授人以渔">
 <meta property='og:url' content='https://5882886.github.io/categories/guide/'>
 <meta property='og:site_name' content='RunicDolphin806的博客'>
-<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2025-09-10T00:00:00&#43;00:00 '/>
+<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2025-09-12T00:00:00&#43;00:00 '/>
 <meta name="twitter:title" content="Category: 教程 - RunicDolphin806的博客">
 <meta name="twitter:description" content="授人以渔"><link rel="alternate" type="application/rss&#43;xml" href="https://5882886.github.io/categories/guide/index.xml">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -314,7 +314,7 @@
                     <a href="/archives/#2024">
                         
                             <span class="year">2024</span>
-                            <span class="count">3</span>
+                            <span class="count">4</span>
                         
                     </a> 
                 </div>
@@ -349,12 +349,16 @@
 
     <div class="tagCloud-tags">
         
-            <a href="/categories/guide/" class="font_size_15">
+            <a href="/categories/guide/" class="font_size_16">
                 教程
             </a>
         
-            <a href="/categories/interesting_things/" class="font_size_7">
+            <a href="/categories/interesting_things/" class="font_size_8">
                 小乐趣
+            </a>
+        
+            <a href="/categories/nemu/" class="font_size_3">
+                NEMU
             </a>
         
             <a href="/categories/website/" class="font_size_3">
@@ -367,10 +371,6 @@
         
             <a href="/categories/minecraft/" class="font_size_2">
                 Minecraft
-            </a>
-        
-            <a href="/categories/nemu/" class="font_size_2">
-                NEMU
             </a>
         
             <a href="/categories/test/" class="font_size_1">
@@ -395,7 +395,7 @@
 
         <div class="section-card">
             <div class="section-details">
-                <h3 class="section-count">15 个页面</h3>
+                <h3 class="section-count">16 个页面</h3>
                 <h1 class="section-term">教程</h1>
                 
                     <h2 class="section-description">授人以渔</h2>
@@ -405,6 +405,17 @@
     </header>
     
     <section class="article-list--compact">
+        
+            <article>
+    <a href="/p/regular_expression/">
+        <div class="article-details">
+            <h2 class="article-title">正则表达式</h2>
+            <footer class="article-time">
+                <time datetime='2024-10-10T00:00:00Z'>Oct 10, 2024</time>
+            </footer>
+        </div>
+    </a>
+</article>
         
             <article>
     <a href="/p/minecraft-help/">
@@ -487,6 +498,7 @@
     <section class="powerby">
         使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
         主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+
     </section>
 </footer>
 
@@ -639,7 +651,10 @@
     document.addEventListener('pjax:complete', () => {
         
         window.Stack.init();
+        initTocHide();
     })
+
+
 
     document.addEventListener('DOMContentLoaded', function () {
         if (window.pjax) {
@@ -684,6 +699,52 @@
     })
 </script>
 
+<style>
+    #TableOfContents > ul, ol {
+        ul, ol {
+            display: none;
+        }
+        .open {
+            display: block;
+        }
+    }
+</style>
+
+<script>
+    function initTocHide() {
+        
+        let toc = document.querySelector(".widget--toc");
+        if (!toc) {
+            return;
+        }
+        
+        window.addEventListener('scroll', function() {
+            
+            let openUl = document.querySelectorAll(".open");
+            if (openUl.length > 0) {
+              openUl.forEach((ul) => {
+                ul.classList.remove("open")
+              })
+            }
+            
+            let currentLi = document.querySelector(".active-class");
+            if (!currentLi) {
+                return
+            }
+            
+            if (currentLi.children.length > 1) {
+                currentLi.children[1].classList.add("open")
+            }
+            
+            let ul = currentLi.parentElement;
+            do {
+                ul.classList.add("open");
+                ul = ul.parentElement.parentElement
+            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
+        });
+    }
+    initTocHide()
+</script>
 
 
     
@@ -708,7 +769,6 @@
         topbar.hide();
     })
 </script>
-
 
     </body>
 </html>
