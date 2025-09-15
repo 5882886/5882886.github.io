@@ -312,11 +312,18 @@
       <ol>
         <li><a href="#切换用户程序">切换用户程序</a></li>
         <li><a href="#了解nemu的指令集">了解NEMU的指令集</a></li>
+        <li><a href="#编写指令的流程">编写指令的流程</a></li>
       </ol>
     </li>
     <li><a href="#pa2指令系统">PA2：指令系统</a>
       <ol>
-        <li><a href="#运行用户程序">运行用户程序</a></li>
+        <li><a href="#运行用户程序">运行用户程序</a>
+          <ol>
+            <li><a href="#添加call指令">添加call指令</a></li>
+            <li><a href="#添加test指令">添加test指令</a></li>
+            <li><a href="#添加其他指令">添加其他指令</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
   </ol>
@@ -545,9 +552,173 @@
     </figcaption>
 </figure>
 
+<h3 id="编写指令的流程">编写指令的流程
+</h3><ol>
+<li>
+<p>编写指令模板文件<code>xxx-template.h</code> <br>
+① 在文件头尾分别包含<code>cpu/exec/template-start.h</code>和<code>cpu/exec/template-end.h</code>。<br>
+② 定义宏<code>instr</code>为指令名称。<br>
+③ 定义函数<code>static void do_execute()</code>，实现该指令的通用执行过程。<br>
+④ 定义<code>helper</code>函数<br>
+（1）若指令的译码方式在<code>nemu/include/cpu/decode/decode.h</code>中已经存在，那么可以考虑使用宏 <code>make_instr_helper()</code>来构造<code>helper</code>函数（大部分 helper 函数都可以通过这种方式构造）。<br>
+（2）否则可以考虑添加相应的译码函数或者不使用<code>make_instr_helper()</code>, 而是直接使用<code>make_helper()</code>来定义<code>helper</code>函数，在函数体中直接进行译码，并调用<code>do_execute()</code>（可以参考<code>nemu/src/cpu/exec/data-mov/xchg-template.h</code>中的<code>xchg_a2r</code>指令类型。<br></p>
+</li>
+<li>
+<p>编写指令实例化文件<code>xxx.c</code><br>
+① 包含<code>cpu/exec-helper.h</code>。<br>
+② 通过分别将宏<code>DATA_BYTE</code>定义成 1, 2, 4, 分别对指令模板文件<code>xxx-template.h</code>进行实例化。<br>
+③ 若一个<code>helper</code>函数只会在某些操作数长度中用到，可以在<code>xxx-template.h</code>中通过条件编译的功能来指定（可以参考<code>nemu/src/cpu/exec/data-mov/xchg-template.h</code>中的<code>xchg_a2r</code>指令类型）。<br>
+④ 必要时通过宏<code>make_helper_v()</code>定义相应的重载函数，根据指令的操作数长度前缀确定调用哪一个<code>helper</code>函数。<br></p>
+</li>
+<li>
+<p>编写指令头文件<code>xxx.h</code>，声明<code>helper</code>函数的原型。</p>
+</li>
+<li>
+<p>在<code>nemu/src/cpu/exec/all-instr.h</code>中包含<code>xxx.h</code>。</p>
+</li>
+<li>
+<p>在<code>nemu/src/cpu/exec/exec.c</code>中的<code>opcode_table</code>中填写相应的<code>helper</code>函数</p>
+</li>
+</ol>
+<figure><img src="/p/nemu-part-2/%E7%BC%96%E5%86%99%E6%8C%87%E4%BB%A4%E7%9A%84%E6%B5%81%E7%A8%8B.png" width="700"><figcaption>
+      <h4>编写指令的流程</h4>
+    </figcaption>
+</figure>
+
 <h2 id="pa2指令系统">PA2：指令系统
 </h2><h3 id="运行用户程序">运行用户程序
-</h3>
+</h3><p>任务：编写几条指令的<code>helper</code>函数, 使得第一个简单的C程序可以在NEMU中运行起来。</p>
+<h4 id="添加call指令">添加call指令
+</h4><ol>
+<li>编写<code>call-template.h</code></li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;cpu/exec/template-start.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="cp">#define instr call
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="nf">make_helper</span><span class="p">(</span><span class="nf">concat</span><span class="p">(</span><span class="n">call_i_</span><span class="p">,</span> <span class="n">SUFFIX</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="c1">// 计算指令长度 (include opcode)
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1"></span>	<span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="nf">concat</span><span class="p">(</span><span class="n">decode_i_</span><span class="p">,</span> <span class="n">SUFFIX</span><span class="p">)(</span><span class="n">cpu</span><span class="p">.</span><span class="n">eip</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span> 
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="c1">// 压栈操作 (push)
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="c1"></span>	<span class="nf">reg_l</span><span class="p">(</span><span class="n">R_ESP</span><span class="p">)</span> <span class="o">-=</span> <span class="n">DATA_BYTE</span><span class="p">;</span> 
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="c1">// eip寄存器的下一位地址写入esp (mov)
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="c1"></span>	<span class="nf">swaddr_write</span><span class="p">(</span><span class="nf">reg_l</span><span class="p">(</span><span class="n">R_ESP</span><span class="p">),</span> <span class="mi">4</span><span class="p">,</span> <span class="n">cpu</span><span class="p">.</span><span class="n">eip</span> <span class="o">+</span> <span class="n">len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span> 
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="c1">// length from eip to function
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="c1"></span>	<span class="n">cpu</span><span class="p">.</span><span class="n">eip</span> <span class="o">+=</span> <span class="p">(</span><span class="n">DATA_TYPE_S</span><span class="p">)</span><span class="n">op_src</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">;</span> 
+</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="c1">// 更新eip寄存器
+</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="c1"></span>	<span class="nf">print_asm</span><span class="p">(</span><span class="s">&#34;call: 0x%x&#34;</span><span class="p">,</span> <span class="n">cpu</span><span class="p">.</span><span class="n">eip</span> <span class="o">+</span> <span class="n">len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span> 
+</span></span><span class="line"><span class="ln">16</span><span class="cl">	<span class="k">return</span> <span class="n">len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">
+</span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="nf">make_helper</span><span class="p">(</span><span class="nf">concat</span><span class="p">(</span><span class="n">call_rm_</span><span class="p">,</span> <span class="n">SUFFIX</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">	<span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="nf">concat</span><span class="p">(</span><span class="n">decode_rm_</span><span class="p">,</span> <span class="n">SUFFIX</span><span class="p">)(</span><span class="n">eip</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">	<span class="nf">reg_l</span><span class="p">(</span><span class="n">R_ESP</span><span class="p">)</span> <span class="o">-=</span> <span class="n">DATA_BYTE</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">	<span class="nf">MEM_W</span><span class="p">(</span><span class="nf">reg_l</span><span class="p">(</span><span class="n">R_ESP</span><span class="p">),</span> <span class="n">cpu</span><span class="p">.</span><span class="n">eip</span> <span class="o">+</span> <span class="n">len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">	<span class="n">cpu</span><span class="p">.</span><span class="n">eip</span> <span class="o">=</span> <span class="p">(</span><span class="n">DATA_TYPE_S</span><span class="p">)</span><span class="n">op_src</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">-</span> <span class="n">len</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">	<span class="nf">print_asm</span><span class="p">(</span><span class="s">&#34;call: %s&#34;</span><span class="p">,</span> <span class="n">op_src</span><span class="o">-&gt;</span><span class="n">str</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl">	<span class="k">return</span> <span class="n">len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl">
+</span></span><span class="line"><span class="ln">28</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;cpu/exec/template-end.h&#34;</span><span class="cp">
+</span></span></span></code></pre></div><ol start="2">
+<li>编写<code>call.c</code></li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;cpu/exec/helper.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="cp">#define DATA_BYTE 1
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;call-template.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="cp">#undef DATA_BYTE
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="cp">#define DATA_BYTE 2
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;call-template.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="cp">#undef DATA_BYTE
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="cp">#define DATA_BYTE 4
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;call-template.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="cp">#undef DATA_BYTE
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="nf">make_helper_v</span><span class="p">(</span><span class="n">call_i</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="nf">make_helper_v</span><span class="p">(</span><span class="n">call_rm</span><span class="p">)</span> 
+</span></span></code></pre></div><ol start="3">
+<li>编写<code>call.h</code></li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="cp">#ifndef __CALL_H__
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="cp">#define __CALL_H__
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="nf">make_helper</span><span class="p">(</span><span class="n">call_i_v</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="nf">make_helper</span><span class="p">(</span><span class="n">call_rm_v</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl">
+</span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="cp">#endif
+</span></span></span></code></pre></div><h4 id="添加test指令">添加test指令
+</h4><ol>
+<li>编写<code>test-template.h</code></li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;cpu/exec/template-start.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="cp">#define instr test
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="k">static</span> <span class="kt">void</span> <span class="nf">do_execute</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="c1">// 两个操作数进行与运算
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1"></span>    <span class="n">DATA_TYPE</span> <span class="n">result</span> <span class="o">=</span> <span class="n">op_dest</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">&amp;</span> <span class="n">op_src</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="n">cpu</span><span class="p">.</span><span class="n">eflags</span><span class="p">.</span><span class="n">CF</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="n">cpu</span><span class="p">.</span><span class="n">eflags</span><span class="p">.</span><span class="n">OF</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="c1">// 若为0，ZF置为1
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="c1"></span>    <span class="n">cpu</span><span class="p">.</span><span class="n">eflags</span><span class="p">.</span><span class="n">ZF</span> <span class="o">=</span> <span class="o">!</span><span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="c1">// 若为负数（最高位是1），SF置为1
+</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="c1"></span>    <span class="c1">// result &gt;&gt; (DATA_BYTE * 8 - 1) 获取最高位
+</span></span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="c1"></span>    <span class="n">cpu</span><span class="p">.</span><span class="n">eflags</span><span class="p">.</span><span class="n">SF</span> <span class="o">=</span> <span class="p">(</span><span class="n">result</span> <span class="o">&gt;&gt;</span> <span class="p">(</span><span class="n">DATA_BYTE</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">
+</span></span><span class="line"><span class="ln">18</span><span class="cl">    <span class="c1">// 若为偶数，PF置为1
+</span></span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="c1"></span>    <span class="c1">// result &amp; 1 获取最低位
+</span></span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="c1"></span>    <span class="n">cpu</span><span class="p">.</span><span class="n">eflags</span><span class="p">.</span><span class="n">PF</span> <span class="o">=</span> <span class="o">!</span><span class="p">(</span><span class="n">result</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl"><span class="nf">make_instr_helper</span><span class="p">(</span><span class="n">i2a</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="nf">make_instr_helper</span><span class="p">(</span><span class="n">i2rm</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="nf">make_instr_helper</span><span class="p">(</span><span class="n">r2rm</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl">
+</span></span><span class="line"><span class="ln">26</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;cpu/exec/template-end.h&#34;</span><span class="cp">
+</span></span></span></code></pre></div><ol start="2">
+<li>编写<code>test.c</code></li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;cpu/exec/helper.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="cp">#define DATA_BYTE 1
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;test-template.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="cp">#undef DATA_BYTE
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="cp">#define DATA_BYTE 2
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;test-template.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="cp">#undef DATA_BYTE
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="cp">#define DATA_BYTE 4
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;test-template.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="cp">#undef DATA_BYTE
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="nf">make_helper_v</span><span class="p">(</span><span class="n">test_i2a</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="nf">make_helper_v</span><span class="p">(</span><span class="n">test_i2rm</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="nf">make_helper_v</span><span class="p">(</span><span class="n">test_r2rm</span><span class="p">)</span>
+</span></span></code></pre></div><ol start="3">
+<li>编写<code>test.h</code></li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cp">#ifndef _TEST_H_
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="cp">#define _TEST_H_
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="nf">make_helper</span><span class="p">(</span><span class="n">test_i2a_b</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="nf">make_helper</span><span class="p">(</span><span class="n">test_i2rm_b</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="nf">make_helper</span><span class="p">(</span><span class="n">test_r2rm_b</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="nf">make_helper</span><span class="p">(</span><span class="n">test_i2a_v</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="nf">make_helper</span><span class="p">(</span><span class="n">test_i2rm_v</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="nf">make_helper</span><span class="p">(</span><span class="n">test_r2rm_v</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">
+</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="cp">#endif
+</span></span></span></code></pre></div><h4 id="添加其他指令">添加其他指令
+</h4><ol>
+<li>push指令</li>
+</ol>
+
 </section>
 
 
@@ -898,6 +1069,7 @@
         
         window.Stack.init();
         initTocHide();
+        document.querySelectorAll();
     })
 
 
