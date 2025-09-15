@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/math_tips/'>
 
-<link rel="stylesheet" href="/scss/style.min.31dbd802197e67a313be8af6521fcd883f1bb7c4586557c4ab80115129265e74.css"><meta property='og:title' content="微积分：常用公式">
+<link rel="stylesheet" href="/scss/style.min.51945cd3273d7b64ff6b009b368040793d36773e639a1c20e3656186b54da34f.css"><meta property='og:title' content="微积分：常用公式">
 <meta property='og:description' content=" 尽量上课！ 课下完整看完一本书！ 做题！ 极限与函数 等价无穷小 等价无穷小 $(x \\to 0)$ $ \\sin x \\sim x$ $ \\tan x \\sim x $ $\\arcsin x \\sim x$ $ \\arctan x \\sim x $ $\\displaystyle \\cos x \\sim 1-\\frac{1}{2}x^{2} $ $ \\mathrm{e}^{x}-1 \\sim x $ $ \\ln(1+x) \\sim x $ $ (1+x)^{\\alpha}-1 \\sim \\alpha x $ 重要极限 $\\displaystyle \\lim_{n \\to 0} \\frac{\\sin n}{n} = 1，\\lim_{x \\to 0} \\frac{\\sin x}{x} = 1$.\n">
 <meta property='og:url' content='https://5882886.github.io/p/math_tips/'>
 <meta property='og:site_name' content='RunicDolphin806的博客'>
@@ -955,8 +955,15 @@ $$\int_{a}^{a+T} f(x) \mathrm{d}x = \int_{0}^{T} f(x) \mathrm{d}x$$$$\int_{0}^{n
 <h3 id="常用积分">常用积分
 </h3><ol>
 <li>
-<p>$\displaystyle \int_{0}^{\pi} xf(\sin x) \mathrm{d}x = \frac{\pi}{2} \int_{0}^{\pi} f(\sin x) \mathrm{d}x $</p>
-</li>
+<p>线性换元法：<br>
+</p>
+$$\int_{a}^{b} f(x) \mathrm{d}x = \int_{a}^{b} f(a+b-x) \mathrm{d}x = \frac{1}{2} \int_{a}^{b} [f(x) + f(a+b-x)] \mathrm{d}x $$<p>
+进一步，若 $f(x)$ 关于 $\displaystyle x = \frac{a+b}{2}$ 对称，则有： <br>
+</p>
+$$\int_{a}^{b} xf(x) \mathrm{d}x = \frac{a+b}{2} \int_{a}^{b} f(x) \mathrm{d}x = (a+b) \int_{a}^{\frac{a+b}{2}} f(x) \mathrm{d}x $$<p>
+特别地，有：<br>
+</p>
+$$\int_{0}^{\pi} xf(\sin x) \mathrm{d}x = \frac{\pi}{2} \int_{0}^{\pi} f(\sin x) \mathrm{d}x $$</li>
 <li>
 <p>沃利斯公式：</p>
 $$I_n = \int_{0}^{\frac{\pi}{2}} \sin^{n}x \mathrm{d}x = \int_{0}^{\frac{\pi}{2}} \cos^{n}x \mathrm{d}x = \left\{ \begin{array}{c}  \begin{align*} & \displaystyle \frac{(n-1)!!}{n!!} \quad n = 2k+1 \\ \\ & \displaystyle \frac{(n-1)!!}{n!!} \cdot \frac{\pi}{2} \quad n=2k \\ \end{align*} \end{array} \right.$$</li>

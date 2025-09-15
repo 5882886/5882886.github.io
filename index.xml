@@ -13,7 +13,9 @@
         <pubDate>Fri, 12 Sep 2025 00:00:00 +0000</pubDate>
         
         <guid>https://5882886.github.io/p/nemu-part-2/</guid>
-        <description>&lt;h2 id=&#34;准备工作&#34;&gt;准备工作
+        <description>&lt;blockquote class=&#34;alert alert-warn&#34;&gt;
+    &lt;p&gt;警告：不一定看得懂（Including me）！！！&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;准备工作&#34;&gt;准备工作
 &lt;/h2&gt;&lt;h3 id=&#34;切换用户程序&#34;&gt;切换用户程序
 &lt;/h3&gt;&lt;p&gt;修改工程目录下的&lt;code&gt;Makefile&lt;/code&gt;文件，更换&lt;code&gt;NEMU&lt;/code&gt;的用户程序：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-diff&#34; data-lang=&#34;diff&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gd&#34;&gt;- USERPROG := obj/testcase/mov
@@ -1867,8 +1869,15 @@ $$\int_{a}^{a+T} f(x) \mathrm{d}x = \int_{0}^{T} f(x) \mathrm{d}x$$$$\int_{0}^{n
 &lt;h3 id=&#34;常用积分&#34;&gt;常用积分
 &lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;$\displaystyle \int_{0}^{\pi} xf(\sin x) \mathrm{d}x = \frac{\pi}{2} \int_{0}^{\pi} f(\sin x) \mathrm{d}x $&lt;/p&gt;
-&lt;/li&gt;
+&lt;p&gt;线性换元法：&lt;br&gt;
+&lt;/p&gt;
+$$\int_{a}^{b} f(x) \mathrm{d}x = \int_{a}^{b} f(a+b-x) \mathrm{d}x = \frac{1}{2} \int_{a}^{b} [f(x) + f(a+b-x)] \mathrm{d}x $$&lt;p&gt;
+进一步，若 $f(x)$ 关于 $\displaystyle x = \frac{a+b}{2}$ 对称，则有： &lt;br&gt;
+&lt;/p&gt;
+$$\int_{a}^{b} xf(x) \mathrm{d}x = \frac{a+b}{2} \int_{a}^{b} f(x) \mathrm{d}x = (a+b) \int_{a}^{\frac{a+b}{2}} f(x) \mathrm{d}x $$&lt;p&gt;
+特别地，有：&lt;br&gt;
+&lt;/p&gt;
+$$\int_{0}^{\pi} xf(\sin x) \mathrm{d}x = \frac{\pi}{2} \int_{0}^{\pi} f(\sin x) \mathrm{d}x $$&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;沃利斯公式：&lt;/p&gt;
 $$I_n = \int_{0}^{\frac{\pi}{2}} \sin^{n}x \mathrm{d}x = \int_{0}^{\frac{\pi}{2}} \cos^{n}x \mathrm{d}x = \left\{ \begin{array}{c}  \begin{align*} &amp; \displaystyle \frac{(n-1)!!}{n!!} \quad n = 2k+1 \\ \\ &amp; \displaystyle \frac{(n-1)!!}{n!!} \cdot \frac{\pi}{2} \quad n=2k \\ \end{align*} \end{array} \right.$$&lt;/li&gt;

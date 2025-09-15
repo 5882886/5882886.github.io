@@ -13,7 +13,9 @@
         <pubDate>Fri, 12 Sep 2025 00:00:00 +0000</pubDate>
         
         <guid>https://5882886.github.io/p/nemu-part-2/</guid>
-        <description>&lt;h2 id=&#34;准备工作&#34;&gt;准备工作
+        <description>&lt;blockquote class=&#34;alert alert-warn&#34;&gt;
+    &lt;p&gt;警告：不一定看得懂（Including me）！！！&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;准备工作&#34;&gt;准备工作
 &lt;/h2&gt;&lt;h3 id=&#34;切换用户程序&#34;&gt;切换用户程序
 &lt;/h3&gt;&lt;p&gt;修改工程目录下的&lt;code&gt;Makefile&lt;/code&gt;文件，更换&lt;code&gt;NEMU&lt;/code&gt;的用户程序：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-diff&#34; data-lang=&#34;diff&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gd&#34;&gt;- USERPROG := obj/testcase/mov
