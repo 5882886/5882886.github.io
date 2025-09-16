@@ -20,13 +20,80 @@
 &lt;/h3&gt;&lt;p&gt;修改工程目录下的&lt;code&gt;Makefile&lt;/code&gt;文件，更换&lt;code&gt;NEMU&lt;/code&gt;的用户程序：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-diff&#34; data-lang=&#34;diff&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gd&#34;&gt;- USERPROG := obj/testcase/mov
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gd&#34;&gt;&lt;/span&gt;&lt;span class=&#34;gi&#34;&gt;+ USERPROG := obj/testcase/mov-c
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;了解nemu的指令集&#34;&gt;了解NEMU的指令集
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;同理，将&lt;code&gt;mov-c&lt;/code&gt;更换为&lt;code&gt;testcase/src&lt;/code&gt;目录下的其他文件，例如&lt;code&gt;add&lt;/code&gt;、&lt;code&gt;bubble-sort&lt;/code&gt;等，即可执行对应的用户程序。&lt;/p&gt;
+&lt;h3 id=&#34;了解nemu的指令集&#34;&gt;了解NEMU的指令集
 &lt;/h3&gt;&lt;p&gt;要实现一条指令，首先你需要知道这条指令的格式和功能。格式决定如何解释，功能决定如何执行。而这些信息都在 instruction set page（i386 手册第17 章）。&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-2/%E9%80%9A%E7%94%A8%E5%AF%84%E5%AD%98%E5%99%A8%E7%BC%96%E7%A0%81.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
+&lt;blockquote class=&#34;alert alert-note&#34;&gt;
+    &lt;p&gt;i386 手册中的汇编语言格式都是 Intel 格式，而 objdump（反汇编）的默认格式是 AT&amp;amp;T 格
+式，两者的源操作数和目的操作数位置不一样，千万不要把它们混淆了！&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h4 id=&#34;指令格式&#34;&gt;指令格式
+&lt;/h4&gt;&lt;p&gt;x86指令的一般格式如下：&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-2/x86%E6%8C%87%E4%BB%A4%E7%9A%84%E4%B8%80%E8%88%AC%E6%A0%BC%E5%BC%8F.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;x86指令的一般格式&lt;/h4&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;具有以下特点：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;opcode&lt;/code&gt;（操作码）必定出现，其余组成部分可能不出现。&lt;/li&gt;
+&lt;li&gt;对于某些组成部分，其长度并不是固定的。&lt;/li&gt;
+&lt;li&gt;给定一条具体指令的二进制形式，其组成部分的划分是有办法确定的，不会产生歧义&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;例如对于以下指令：&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-2/%E6%8C%87%E4%BB%A4%E7%A4%BA%E4%BE%8B.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;指令示例&lt;/h4&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;它的划分如下：&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-2/%E7%A4%BA%E4%BE%8B%E6%8C%87%E4%BB%A4%E5%88%92%E5%88%86.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;示例指令划分&lt;/h4&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;ModR/M&lt;/code&gt;部分为什么解析出了&lt;code&gt;disp32[--][--]&lt;/code&gt;？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ModR/M&lt;/code&gt;内部这一个字节的组成，分为了三个部分，具体每个部分的编码都对应着右边表内的含义，以&lt;code&gt;ModR/M&lt;/code&gt;内的编码为基准进行查表就能够解析出对应的含义。&lt;/p&gt;
+&lt;p&gt;例如例子中的&lt;code&gt;ModR/M&lt;/code&gt;部分编码是&lt;code&gt;84&lt;/code&gt;（十六进制），对应二进制就是&lt;code&gt;10000100&lt;/code&gt;，对应回格式中的部分就是&lt;code&gt;Mod&lt;/code&gt;部分为&lt;code&gt;10&lt;/code&gt;，&lt;code&gt;R/M&lt;/code&gt;部分为&lt;code&gt;100&lt;/code&gt;，二者在右边表中可以对应出一行，这一行的对应指令就是&lt;code&gt;disp32[--][--]&lt;/code&gt;。&lt;code&gt;disp32&lt;/code&gt;代表偏移量（displacement）为32位的，两个&lt;code&gt;[--][--]&lt;/code&gt;就代表我们需要解析&lt;code&gt;SIB&lt;/code&gt;中的编码部分才能得到偏移量的具体数值。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h4 id=&#34;阅读opcode-table&#34;&gt;阅读Opcode Table
+&lt;/h4&gt;&lt;p&gt;以&lt;code&gt;mov&lt;/code&gt;指令的第一种形式为例：&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-2/mov%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;mov指令&lt;/h4&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;列数&lt;/th&gt;
+          &lt;th&gt;具体含义&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Description&lt;/td&gt;
+          &lt;td&gt;将一个8位寄存器中的数据传送到8位的寄存器或者内存中，其中&lt;code&gt;r/m&lt;/code&gt;表示“寄存器或内存”。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Opcode&lt;/td&gt;
+          &lt;td&gt;88表示这条指令的&lt;code&gt;opcode&lt;/code&gt;的首字节是&lt;code&gt;0x88&lt;/code&gt;，&lt;code&gt;/r&lt;/code&gt;表示后面跟一个&lt;code&gt;ModR/M&lt;/code&gt;字节，并且 &lt;code&gt;ModR/M&lt;/code&gt;字节中的&lt;code&gt;reg/opcode&lt;/code&gt;域解释成通用寄存器的编码。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Instruction&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;r8&lt;/code&gt;表示8位寄存器；&lt;code&gt;r/m8&lt;/code&gt;表示8位寄存器或内存，具体由&lt;code&gt;mod&lt;/code&gt;字段决定。&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-2/%E9%80%9A%E7%94%A8%E5%AF%84%E5%AD%98%E5%99%A8%E7%BC%96%E7%A0%81.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;通用寄存器编码&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
+&lt;blockquote&gt;
+&lt;p&gt;接下来的两种形式也就不难看懂了：但这两种形式的&lt;code&gt;Opcode&lt;/code&gt;都是一样的，难道不会出现歧义吗？&lt;/p&gt;
+&lt;p&gt;x86是通过指令一般格式中的 &lt;code&gt;operand-size prefix&lt;/code&gt;来区分上面这两种形式的。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Operand-size prefix&lt;/code&gt;的编码是&lt;code&gt;0x66&lt;/code&gt;，作用是指示当前指令需要改变操作数的长度。在 IA-32 中，通常如果这个前缀没有出现，操作数长度默认是 32 位；当这个前缀出现的时候，操作数长度就改变成16位。&lt;/p&gt;
+&lt;p&gt;换句话说，如果把一个开头为&lt;code&gt;89 ...&lt;/code&gt;的比特串解释成指令，它就应该被解释成&lt;code&gt;MOV r/m32, r32&lt;/code&gt;的形式；如果比特串的开头是&lt;code&gt;66 89...&lt;/code&gt;，它就应该被解释成&lt;code&gt;MOV r/m16, r16&lt;/code&gt;。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;编写指令的流程&#34;&gt;编写指令的流程
 &lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;

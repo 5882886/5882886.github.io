@@ -311,7 +311,12 @@
     <li><a href="#准备工作">准备工作</a>
       <ol>
         <li><a href="#切换用户程序">切换用户程序</a></li>
-        <li><a href="#了解nemu的指令集">了解NEMU的指令集</a></li>
+        <li><a href="#了解nemu的指令集">了解NEMU的指令集</a>
+          <ol>
+            <li><a href="#指令格式">指令格式</a></li>
+            <li><a href="#阅读opcode-table">阅读Opcode Table</a></li>
+          </ol>
+        </li>
         <li><a href="#编写指令的流程">编写指令的流程</a></li>
       </ol>
     </li>
@@ -547,13 +552,80 @@
 </h3><p>修改工程目录下的<code>Makefile</code>文件，更换<code>NEMU</code>的用户程序：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-diff" data-lang="diff"><span class="line"><span class="ln">1</span><span class="cl"><span class="gd">- USERPROG := obj/testcase/mov
 </span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="gd"></span><span class="gi">+ USERPROG := obj/testcase/mov-c
-</span></span></span></code></pre></div><h3 id="了解nemu的指令集">了解NEMU的指令集
+</span></span></span></code></pre></div><p>同理，将<code>mov-c</code>更换为<code>testcase/src</code>目录下的其他文件，例如<code>add</code>、<code>bubble-sort</code>等，即可执行对应的用户程序。</p>
+<h3 id="了解nemu的指令集">了解NEMU的指令集
 </h3><p>要实现一条指令，首先你需要知道这条指令的格式和功能。格式决定如何解释，功能决定如何执行。而这些信息都在 instruction set page（i386 手册第17 章）。</p>
-<figure><img src="/p/nemu-part-2/%E9%80%9A%E7%94%A8%E5%AF%84%E5%AD%98%E5%99%A8%E7%BC%96%E7%A0%81.png" width="600"><figcaption>
+<blockquote class="alert alert-note">
+    <p>i386 手册中的汇编语言格式都是 Intel 格式，而 objdump（反汇编）的默认格式是 AT&amp;T 格
+式，两者的源操作数和目的操作数位置不一样，千万不要把它们混淆了！</p></blockquote>
+<h4 id="指令格式">指令格式
+</h4><p>x86指令的一般格式如下：</p>
+<figure><img src="/p/nemu-part-2/x86%E6%8C%87%E4%BB%A4%E7%9A%84%E4%B8%80%E8%88%AC%E6%A0%BC%E5%BC%8F.png" width="600"><figcaption>
+      <h4>x86指令的一般格式</h4>
+    </figcaption>
+</figure>
+
+<p>具有以下特点：</p>
+<ol>
+<li><code>opcode</code>（操作码）必定出现，其余组成部分可能不出现。</li>
+<li>对于某些组成部分，其长度并不是固定的。</li>
+<li>给定一条具体指令的二进制形式，其组成部分的划分是有办法确定的，不会产生歧义</li>
+</ol>
+<p>例如对于以下指令：</p>
+<figure><img src="/p/nemu-part-2/%E6%8C%87%E4%BB%A4%E7%A4%BA%E4%BE%8B.png" width="700"><figcaption>
+      <h4>指令示例</h4>
+    </figcaption>
+</figure>
+
+<p>它的划分如下：</p>
+<figure><img src="/p/nemu-part-2/%E7%A4%BA%E4%BE%8B%E6%8C%87%E4%BB%A4%E5%88%92%E5%88%86.png" width="700"><figcaption>
+      <h4>示例指令划分</h4>
+    </figcaption>
+</figure>
+
+<blockquote>
+<p><strong><code>ModR/M</code>部分为什么解析出了<code>disp32[--][--]</code>？</strong></p>
+<p><code>ModR/M</code>内部这一个字节的组成，分为了三个部分，具体每个部分的编码都对应着右边表内的含义，以<code>ModR/M</code>内的编码为基准进行查表就能够解析出对应的含义。</p>
+<p>例如例子中的<code>ModR/M</code>部分编码是<code>84</code>（十六进制），对应二进制就是<code>10000100</code>，对应回格式中的部分就是<code>Mod</code>部分为<code>10</code>，<code>R/M</code>部分为<code>100</code>，二者在右边表中可以对应出一行，这一行的对应指令就是<code>disp32[--][--]</code>。<code>disp32</code>代表偏移量（displacement）为32位的，两个<code>[--][--]</code>就代表我们需要解析<code>SIB</code>中的编码部分才能得到偏移量的具体数值。</p></blockquote>
+<h4 id="阅读opcode-table">阅读Opcode Table
+</h4><p>以<code>mov</code>指令的第一种形式为例：</p>
+<figure><img src="/p/nemu-part-2/mov%E6%8C%87%E4%BB%A4.png" width="700"><figcaption>
+      <h4>mov指令</h4>
+    </figcaption>
+</figure>
+
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>列数</th>
+          <th>具体含义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Description</td>
+          <td>将一个8位寄存器中的数据传送到8位的寄存器或者内存中，其中<code>r/m</code>表示“寄存器或内存”。</td>
+      </tr>
+      <tr>
+          <td>Opcode</td>
+          <td>88表示这条指令的<code>opcode</code>的首字节是<code>0x88</code>，<code>/r</code>表示后面跟一个<code>ModR/M</code>字节，并且 <code>ModR/M</code>字节中的<code>reg/opcode</code>域解释成通用寄存器的编码。</td>
+      </tr>
+      <tr>
+          <td>Instruction</td>
+          <td><code>r8</code>表示8位寄存器；<code>r/m8</code>表示8位寄存器或内存，具体由<code>mod</code>字段决定。</td>
+      </tr>
+  </tbody>
+</table></div>
+<figure><img src="/p/nemu-part-2/%E9%80%9A%E7%94%A8%E5%AF%84%E5%AD%98%E5%99%A8%E7%BC%96%E7%A0%81.png" width="700"><figcaption>
       <h4>通用寄存器编码</h4>
     </figcaption>
 </figure>
 
+<blockquote>
+<p>接下来的两种形式也就不难看懂了：但这两种形式的<code>Opcode</code>都是一样的，难道不会出现歧义吗？</p>
+<p>x86是通过指令一般格式中的 <code>operand-size prefix</code>来区分上面这两种形式的。</p>
+<p><code>Operand-size prefix</code>的编码是<code>0x66</code>，作用是指示当前指令需要改变操作数的长度。在 IA-32 中，通常如果这个前缀没有出现，操作数长度默认是 32 位；当这个前缀出现的时候，操作数长度就改变成16位。</p>
+<p>换句话说，如果把一个开头为<code>89 ...</code>的比特串解释成指令，它就应该被解释成<code>MOV r/m32, r32</code>的形式；如果比特串的开头是<code>66 89...</code>，它就应该被解释成<code>MOV r/m16, r16</code>。</p></blockquote>
 <h3 id="编写指令的流程">编写指令的流程
 </h3><ol>
 <li>
