@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="PA2">
-<title>NEMU-PART II</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="PA2预备知识">
+<title>NEMU-PART II Pre</title>
 
-<link rel='canonical' href='https://5882886.github.io/p/nemu-part-2/'>
+<link rel='canonical' href='https://5882886.github.io/p/nemu-part-2-pre/'>
 
-<link rel="stylesheet" href="/scss/style.min.51945cd3273d7b64ff6b009b368040793d36773e639a1c20e3656186b54da34f.css"><meta property='og:title' content="NEMU-PART II">
-<meta property='og:description' content="PA2">
-<meta property='og:url' content='https://5882886.github.io/p/nemu-part-2/'>
+<link rel="stylesheet" href="/scss/style.min.51945cd3273d7b64ff6b009b368040793d36773e639a1c20e3656186b54da34f.css"><meta property='og:title' content="NEMU-PART II Pre">
+<meta property='og:description' content="PA2预备知识">
+<meta property='og:url' content='https://5882886.github.io/p/nemu-part-2-pre/'>
 <meta property='og:site_name' content='RunicDolphin806的博客'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-09-17T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-09-17T00:00:00&#43;00:00'/>
-<meta name="twitter:title" content="NEMU-PART II">
-<meta name="twitter:description" content="PA2">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-09-16T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-09-16T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="NEMU-PART II Pre">
+<meta name="twitter:description" content="PA2预备知识">
     <link rel="shortcut icon" href="/favicon.ico" />
 <style>
  
@@ -308,15 +308,28 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#运行用户程序">运行用户程序</a>
+    <li><a href="#切换用户程序">切换用户程序</a></li>
+    <li><a href="#了解nemu的指令集">了解NEMU的指令集</a>
       <ol>
-        <li><a href="#添加call指令">添加call指令</a></li>
-        <li><a href="#添加test指令">添加test指令</a></li>
-        <li><a href="#添加je指令">添加je指令</a></li>
-        <li><a href="#添加其他指令">添加其他指令</a></li>
+        <li><a href="#指令格式">指令格式</a></li>
+        <li><a href="#阅读opcode-table">阅读Opcode Table</a></li>
       </ol>
     </li>
-    <li><a href="#实现更多指令">实现更多指令</a></li>
+    <li><a href="#c语言宏定义">C语言宏定义</a>
+      <ol>
+        <li><a href="#nemu中关键的宏定义">NEMU中关键的宏定义：</a></li>
+      </ol>
+    </li>
+    <li><a href="#nemu的指令周期">NEMU的指令周期</a>
+      <ol>
+        <li><a href="#取指">取指</a></li>
+        <li><a href="#译码">译码</a></li>
+        <li><a href="#执行">执行</a></li>
+        <li><a href="#访存">访存</a></li>
+        <li><a href="#写回">写回</a></li>
+      </ol>
+    </li>
+    <li><a href="#编写指令的流程">编写指令的流程</a></li>
   </ol>
 </nav>
         </div>
@@ -489,12 +502,12 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/nemu-part-2/">NEMU-PART II</a>
+            <a href="/p/nemu-part-2-pre/">NEMU-PART II Pre</a>
         </h2>
     
         
         <h3 class="article-subtitle">
-            PA2
+            PA2预备知识
         </h3>
         
     </div>
@@ -515,7 +528,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Sep 17, 2025</time>
+                <time class="article-time--published">Sep 16, 2025</time>
             </div>
         
 
@@ -531,209 +544,174 @@
     <section class="article-content">
     
     
-    <center><strong><p style="font-size:32px;">PA2：指令系统</p></strong></center>
+    <blockquote class="alert alert-warn">
+    <p>磨刀不误砍柴工！！！</p></blockquote>
 <p>实验目的：</p>
 <ol>
 <li>掌握i386（IA-32）指令格式。</li>
 <li>掌握NEMU平台的指令周期。</li>
 </ol>
-<h2 id="运行用户程序">运行用户程序
-</h2><p>任务：编写几条指令的<code>helper</code>函数, 使得第一个简单的C程序可以在NEMU中运行起来。</p>
-<h3 id="添加call指令">添加call指令
-</h3><p>查找<code>call</code>指令对应的<code>Opcode</code>等信息。</p>
-<figure><img src="/p/nemu-part-2/Opcode/call%E6%8C%87%E4%BB%A4.png" width="700"><figcaption>
-      <h4>call指令</h4>
+<h2 id="切换用户程序">切换用户程序
+</h2><p>修改工程目录下的<code>Makefile</code>文件，更换<code>NEMU</code>的用户程序：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-diff" data-lang="diff"><span class="line"><span class="ln">1</span><span class="cl"><span class="gd">- USERPROG := obj/testcase/mov
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="gd"></span><span class="gi">+ USERPROG := obj/testcase/mov-c
+</span></span></span></code></pre></div><p>同理，将<code>mov-c</code>更换为<code>testcase/src</code>目录下的其他文件，例如<code>add</code>、<code>bubble-sort</code>等，即可执行对应的用户程序。</p>
+<h2 id="了解nemu的指令集">了解NEMU的指令集
+</h2><p>X86系列处理器采用变长指令字结构，各种指令长度随指令功能而异。</p>
+<p>要实现一条指令，首先你需要知道这条指令的格式和功能。格式决定如何解释，功能决定如何执行。这些信息都在 instruction set page（i386 手册第17 章）。</p>
+<blockquote class="alert alert-note">
+    <p>i386 手册中的汇编语言格式都是 Intel 格式，而 objdump（反汇编）的默认格式是 AT&amp;T 格式，两者的源操作数和目的操作数位置不一样，千万不要把它们混淆了！</p></blockquote>
+<h3 id="指令格式">指令格式
+</h3><p>x86指令的一般格式如下：</p>
+<figure><img src="/p/nemu-part-2-pre/x86%E6%8C%87%E4%BB%A4%E7%9A%84%E4%B8%80%E8%88%AC%E6%A0%BC%E5%BC%8F.png" width="600"><figcaption>
+      <h4>x86指令的一般格式</h4>
     </figcaption>
 </figure>
 
-<p>操作码为<code>e8</code>。</p>
+<p>具有以下特点：</p>
 <ol>
-<li>编写<code>call-template.h</code></li>
+<li><code>Opcode</code>（操作码）必定出现，其余组成部分可能不出现。<code>Opcode</code>决定是否出现<code>ModR/M</code>；<code>SIB</code>、<code>Displacement</code>、<code>Immediate</code>由<code>ModR/M</code>决定。</li>
+<li>对于某些组成部分，其长度并不是固定的。</li>
+<li>给定一条具体指令的二进制形式，其组成部分的划分是有办法确定的，不会产生歧义</li>
 </ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;cpu/exec/template-start.h&#34;</span><span class="cp">
-</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="cp">#define instr call
-</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="nf">make_helper</span><span class="p">(</span><span class="nf">concat</span><span class="p">(</span><span class="n">call_i_</span><span class="p">,</span> <span class="n">SUFFIX</span><span class="p">))</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="c1">// 计算指令长度 (include opcode)
-</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="nf">concat</span><span class="p">(</span><span class="n">decode_i_</span><span class="p">,</span> <span class="n">SUFFIX</span><span class="p">)(</span><span class="n">cpu</span><span class="p">.</span><span class="n">eip</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span> 
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="c1">// 压栈操作 (push)
-</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="c1"></span>    <span class="nf">reg_l</span><span class="p">(</span><span class="n">R_ESP</span><span class="p">)</span> <span class="o">-=</span> <span class="n">DATA_BYTE</span><span class="p">;</span> 
-</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="c1">// eip寄存器的下一位地址写入esp (mov)
-</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="c1"></span>    <span class="nf">swaddr_write</span><span class="p">(</span><span class="nf">reg_l</span><span class="p">(</span><span class="n">R_ESP</span><span class="p">),</span> <span class="mi">4</span><span class="p">,</span> <span class="n">cpu</span><span class="p">.</span><span class="n">eip</span> <span class="o">+</span> <span class="n">len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span> 
-</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="c1">// length from eip to function
-</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="c1"></span>    <span class="n">cpu</span><span class="p">.</span><span class="n">eip</span> <span class="o">+=</span> <span class="p">(</span><span class="n">DATA_TYPE_S</span><span class="p">)</span><span class="n">op_src</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">;</span> 
-</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="c1">// 更新eip寄存器
-</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="c1"></span>    <span class="nf">print_asm</span><span class="p">(</span><span class="s">&#34;call: 0x%x&#34;</span><span class="p">,</span> <span class="n">cpu</span><span class="p">.</span><span class="n">eip</span> <span class="o">+</span> <span class="n">len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span> 
-</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="k">return</span> <span class="n">len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="ln">18</span><span class="cl">
-</span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="nf">make_helper</span><span class="p">(</span><span class="nf">concat</span><span class="p">(</span><span class="n">call_rm_</span><span class="p">,</span> <span class="n">SUFFIX</span><span class="p">))</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">20</span><span class="cl">    <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="nf">concat</span><span class="p">(</span><span class="n">decode_rm_</span><span class="p">,</span> <span class="n">SUFFIX</span><span class="p">)(</span><span class="n">eip</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">21</span><span class="cl">    <span class="nf">reg_l</span><span class="p">(</span><span class="n">R_ESP</span><span class="p">)</span> <span class="o">-=</span> <span class="n">DATA_BYTE</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">22</span><span class="cl">    <span class="nf">MEM_W</span><span class="p">(</span><span class="nf">reg_l</span><span class="p">(</span><span class="n">R_ESP</span><span class="p">),</span> <span class="n">cpu</span><span class="p">.</span><span class="n">eip</span> <span class="o">+</span> <span class="n">len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">23</span><span class="cl">    <span class="n">cpu</span><span class="p">.</span><span class="n">eip</span> <span class="o">=</span> <span class="p">(</span><span class="n">DATA_TYPE_S</span><span class="p">)</span><span class="n">op_src</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">-</span> <span class="n">len</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">24</span><span class="cl">    <span class="nf">print_asm</span><span class="p">(</span><span class="s">&#34;call: %s&#34;</span><span class="p">,</span> <span class="n">op_src</span><span class="o">-&gt;</span><span class="n">str</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">25</span><span class="cl">    <span class="k">return</span> <span class="n">len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">26</span><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="ln">27</span><span class="cl">
-</span></span><span class="line"><span class="ln">28</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;cpu/exec/template-end.h&#34;</span><span class="cp">
-</span></span></span></code></pre></div><ol start="2">
-<li>编写<code>call.c</code></li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;cpu/exec/helper.h&#34;</span><span class="cp">
-</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="cp">#define DATA_BYTE 1
-</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;call-template.h&#34;</span><span class="cp">
-</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="cp">#undef DATA_BYTE
-</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="cp">#define DATA_BYTE 2
-</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;call-template.h&#34;</span><span class="cp">
-</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="cp">#undef DATA_BYTE
-</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="cp">#define DATA_BYTE 4
-</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;call-template.h&#34;</span><span class="cp">
-</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="cp">#undef DATA_BYTE
-</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="nf">make_helper_v</span><span class="p">(</span><span class="n">call_i</span><span class="p">)</span>
-</span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="nf">make_helper_v</span><span class="p">(</span><span class="n">call_rm</span><span class="p">)</span> 
-</span></span></code></pre></div><ol start="3">
-<li>编写<code>call.h</code></li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="cp">#ifndef __CALL_H__
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="cp">#define __CALL_H__
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="nf">make_helper</span><span class="p">(</span><span class="n">call_i_v</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="nf">make_helper</span><span class="p">(</span><span class="n">call_rm_v</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">6</span><span class="cl">
-</span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="cp">#endif
-</span></span></span></code></pre></div><h3 id="添加test指令">添加test指令
-</h3><figure><img src="/p/nemu-part-2/Opcode/test%E6%8C%87%E4%BB%A4.png" width="700"><figcaption>
-      <h4>test指令</h4>
+<p>例如对于以下指令：</p>
+<figure><img src="/p/nemu-part-2-pre/%E6%8C%87%E4%BB%A4%E7%A4%BA%E4%BE%8B.png" width="700"><figcaption>
+      <h4>指令示例</h4>
     </figcaption>
 </figure>
 
-<ol>
-<li>编写<code>test-template.h</code></li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;cpu/exec/template-start.h&#34;</span><span class="cp">
-</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="cp">#define instr test
-</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="k">static</span> <span class="kt">void</span> <span class="nf">do_execute</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="c1">// 两个操作数进行与运算
-</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1"></span>    <span class="n">DATA_TYPE</span> <span class="n">result</span> <span class="o">=</span> <span class="n">op_dest</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">&amp;</span> <span class="n">op_src</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl">
-</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="n">cpu</span><span class="p">.</span><span class="n">eflags</span><span class="p">.</span><span class="n">CF</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="n">cpu</span><span class="p">.</span><span class="n">eflags</span><span class="p">.</span><span class="n">OF</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">11</span><span class="cl">
-</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="c1">// 在/nemu/src/cpu/eflags.c中定义的函数
-</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="c1"></span>    <span class="c1">// 可根据结果自动修改eflags寄存器的值
-</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="c1"></span>    <span class="nf">update_eflags_pf_zf_sf</span><span class="p">((</span><span class="n">DATA_TYPE_S</span><span class="p">)</span><span class="n">result</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="nf">print_asm_template1</span><span class="p">();</span>
-</span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="nf">make_instr_helper</span><span class="p">(</span><span class="n">i2a</span><span class="p">)</span>
-</span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="nf">make_instr_helper</span><span class="p">(</span><span class="n">i2rm</span><span class="p">)</span>
-</span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="nf">make_instr_helper</span><span class="p">(</span><span class="n">r2rm</span><span class="p">)</span>
-</span></span><span class="line"><span class="ln">20</span><span class="cl">
-</span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;cpu/exec/template-end.h&#34;</span><span class="cp">
-</span></span></span></code></pre></div><ol start="2">
-<li>编写<code>test.c</code></li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;cpu/exec/helper.h&#34;</span><span class="cp">
-</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="cp">#define DATA_BYTE 1
-</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;test-template.h&#34;</span><span class="cp">
-</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="cp">#undef DATA_BYTE
-</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="cp">#define DATA_BYTE 2
-</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;test-template.h&#34;</span><span class="cp">
-</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="cp">#undef DATA_BYTE
-</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="cp">#define DATA_BYTE 4
-</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;test-template.h&#34;</span><span class="cp">
-</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="cp">#undef DATA_BYTE
-</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="nf">make_helper_v</span><span class="p">(</span><span class="n">test_i2a</span><span class="p">)</span>
-</span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="nf">make_helper_v</span><span class="p">(</span><span class="n">test_i2rm</span><span class="p">)</span>
-</span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="nf">make_helper_v</span><span class="p">(</span><span class="n">test_r2rm</span><span class="p">)</span>
-</span></span></code></pre></div><ol start="3">
-<li>编写<code>test.h</code></li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cp">#ifndef _TEST_H_
-</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="cp">#define _TEST_H_
-</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="nf">make_helper</span><span class="p">(</span><span class="n">test_i2a_b</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="nf">make_helper</span><span class="p">(</span><span class="n">test_i2rm_b</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="nf">make_helper</span><span class="p">(</span><span class="n">test_r2rm_b</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl">
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="nf">make_helper</span><span class="p">(</span><span class="n">test_i2a_v</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="nf">make_helper</span><span class="p">(</span><span class="n">test_i2rm_v</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="nf">make_helper</span><span class="p">(</span><span class="n">test_r2rm_v</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">11</span><span class="cl">
-</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="cp">#endif
-</span></span></span></code></pre></div><h3 id="添加je指令">添加je指令
-</h3><figure><img src="/p/nemu-part-2/Opcode/je%E6%8C%87%E4%BB%A4.png" width="700"><figcaption>
-      <h4>je指令</h4>
+<p>它的划分如下：</p>
+<figure><img src="/p/nemu-part-2-pre/%E7%A4%BA%E4%BE%8B%E6%8C%87%E4%BB%A4%E5%88%92%E5%88%86.png" width="700"><figcaption>
+      <h4>示例指令划分</h4>
     </figcaption>
 </figure>
 
-<h3 id="添加其他指令">添加其他指令
+<blockquote>
+<p><strong><code>ModR/M</code>部分为什么解析出了<code>disp32[--][--]</code>？</strong></p>
+<p><code>ModR/M</code>内部这一个字节的组成，分为了三个部分，具体每个部分的编码都对应着右边表内的含义，以<code>ModR/M</code>内的编码为基准进行查表就能够解析出对应的含义。</p>
+<p>例如例子中的<code>ModR/M</code>部分编码是<code>84</code>（十六进制），对应二进制就是<code>10000100</code>，对应回格式中的部分就是<code>Mod</code>部分为<code>10</code>，<code>R/M</code>部分为<code>100</code>，二者在右边表中可以对应出一行，这一行的对应指令就是<code>disp32[--][--]</code>。<code>disp32</code>代表偏移量（displacement）为32位的，两个<code>[--][--]</code>就代表我们需要解析<code>SIB</code>中的编码部分才能得到偏移量的具体数值。</p></blockquote>
+<h3 id="阅读opcode-table">阅读Opcode Table
+</h3><p>以<code>mov</code>指令的第一种形式为例：</p>
+<figure><img src="/p/nemu-part-2-pre/mov%E6%8C%87%E4%BB%A4.png" width="700"><figcaption>
+      <h4>mov指令</h4>
+    </figcaption>
+</figure>
+
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>列数</th>
+          <th>具体含义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Description</td>
+          <td>将一个8位寄存器中的数据传送到8位的寄存器或者内存中，其中<code>r/m</code>表示“寄存器或内存”。</td>
+      </tr>
+      <tr>
+          <td>Opcode</td>
+          <td>88表示这条指令的<code>opcode</code>的首字节是<code>0x88</code>，<code>/r</code>表示后面跟一个<code>ModR/M</code>字节，并且 <code>ModR/M</code>字节中的<code>reg/opcode</code>域解释成通用寄存器的编码。</td>
+      </tr>
+      <tr>
+          <td>Instruction</td>
+          <td><code>r8</code>表示8位寄存器；<code>r/m8</code>表示8位寄存器或内存，具体由<code>mod</code>字段决定。</td>
+      </tr>
+  </tbody>
+</table></div>
+<figure><img src="/p/nemu-part-2-pre/%E9%80%9A%E7%94%A8%E5%AF%84%E5%AD%98%E5%99%A8%E7%BC%96%E7%A0%81.png" width="700"><figcaption>
+      <h4>通用寄存器编码</h4>
+    </figcaption>
+</figure>
+
+<blockquote>
+<p>接下来的两种形式也就不难看懂了：但这两种形式的<code>Opcode</code>都是一样的，难道不会出现歧义吗？</p>
+<p>x86是通过指令一般格式中的 <code>operand-size prefix</code>来区分上面这两种形式的。</p>
+<p><code>Operand-size prefix</code>的编码是<code>0x66</code>，作用是指示当前指令需要改变操作数的长度。在 IA-32 中，通常如果这个前缀没有出现，操作数长度默认是 32 位；当这个前缀出现的时候，操作数长度就改变成16位。</p>
+<p>换句话说，如果把一个开头为<code>89 ...</code>的比特串解释成指令，它就应该被解释成<code>MOV r/m32, r32</code>的形式；如果比特串的开头是<code>66 89...</code>，它就应该被解释成<code>MOV r/m16, r16</code>。</p></blockquote>
+<h2 id="c语言宏定义">C语言宏定义
+</h2><p>在C语言中，可以使用命令#define来定义宏。宏不负责检查语法的正确性。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// 常规的宏
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"></span><span class="cp">#define PI 3.1415926
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="cp"></span><span class="c1">// 带参数的宏
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1"></span><span class="cp">#define putchar(x) putc(x, stdout)
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="c1">// 使用宏进行连接
+</span></span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="c1"></span><span class="cp">#define concat(x, y)   x ## y
+</span></span></span></code></pre></div><h3 id="nemu中关键的宏定义">NEMU中关键的宏定义：
 </h3><ol>
-<li>push指令</li>
+<li>helper宏</li>
 </ol>
-<figure><img src="/p/nemu-part-2/Opcode/push%E6%8C%87%E4%BB%A4.png" width="700"><figcaption>
-      <h4>push指令</h4>
-    </figcaption>
-</figure>
-
-<p><code>push_r32</code>的操作码为<code>50</code></p>
-<p>操作流程：<br>
-① <code>esp</code>寄存器值减4，表示栈顶指针下移一个地址的长度。<br>
-② 将读入的数据写入地址中，表示数据入栈。<br></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// #define make_helper(name)
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"></span><span class="cp">#define make_helper(name) int name(swaddr_t eip)
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1">// #define make_helper_v(name)
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="c1"></span><span class="cp">#define make_helper_v(name) \
+</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="cp">    make_helper(concat(name, _v)) { \
+</span></span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="cp">        return (ops_decode.is_operand_size_16 ? concat(name, _w) : concat(name, _l)) (eip); \
+</span></span></span><span class="line"><span class="ln">8</span><span class="cl"><span class="cp">    }
+</span></span></span></code></pre></div><blockquote>
+<p>在C语言中，宏必须定义在一行中。</p>
+<p>若需通过换行提高代码可读性，可使用<code>\</code>附在每行末尾。</p></blockquote>
 <ol start="2">
-<li>cmp指令</li>
+<li>instr_helper宏</li>
 </ol>
-<figure><img src="/p/nemu-part-2/Opcode/cmp%E6%8C%87%E4%BB%A4.png" width="700"><figcaption>
-      <h4>cmp指令</h4>
-    </figcaption>
-</figure>
-
-<ol start="3">
-<li>pop指令</li>
+<p><code>exec()</code>函数</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="kt">int</span> <span class="nf">exec</span><span class="p">(</span><span class="kt">swaddr_t</span><span class="p">,</span> <span class="n">eip</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="c1">// 表示读取一个字节的操作码
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"></span>    <span class="n">ops_decoded</span><span class="p">.</span><span class="n">opcode</span> <span class="o">=</span> <span class="nf">instr_fetch</span><span class="p">(</span><span class="n">eip</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">    <span class="c1">// 返回一个函数 
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="c1"></span>    <span class="k">return</span> <span class="n">opcode_table</span><span class="p">[</span><span class="n">ops_decoded</span><span class="p">.</span><span class="n">opcode</span><span class="p">](</span><span class="n">eip</span><span class="p">);</span> 
+</span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="nemu的指令周期">NEMU的指令周期
+</h2><h3 id="取指">取指
+</h3><h3 id="译码">译码
+</h3><h3 id="执行">执行
+</h3><ol>
+<li>对于同一指令的不同形式，它们的执行阶段是相同的。如<code>mov_i2rm</code>和<code>mov_rm2r</code>，它们的执行阶段都是将源操作数存储到目标操作数中。</li>
+<li>对于不同指令的同一种形式，它们的译码阶段是相同的。如<code>mov_i2rm</code>和<code>sub_rm2r</code>，它们的译码阶段都是识别出一个立即数和一个rm操作数。</li>
+<li>对于同一条指令同一种形式的不同长度，它们的译码阶段和执行阶段都非常类似。如<code>mov_i2rm_b</code>，<code>mov_i2rm_w</code>和<code>mov_i2rm_l</code>。它们都是识别出一个立即数和一个rm操作数，然后把立即数存入rm操作数。</li>
 </ol>
-<figure><img src="/p/nemu-part-2/Opcode/pop%E6%8C%87%E4%BB%A4.png" width="700"><figcaption>
-      <h4>pop指令</h4>
-    </figcaption>
-</figure>
-
-<p>操作流程：<br>
-① 向译码出的对象操作数中写入栈顶数据。<br>
-② 栈顶指针加4，回到push前的状态。<br></p>
-<ol start="4">
-<li>ret指令</li>
-</ol>
-<figure><img src="/p/nemu-part-2/Opcode/ret%E6%8C%87%E4%BB%A4.png" width="700"><figcaption>
-      <h4>ret指令</h4>
-    </figcaption>
-</figure>
-
-<p>操作流程：<br>
-① 使eip跳转到esp中存放的地址处。<br>
-② 栈顶指针加4。<br></p>
-<h2 id="实现更多指令">实现更多指令
+<h3 id="访存">访存
+</h3><h3 id="写回">写回
+</h3><h2 id="编写指令的流程">编写指令的流程
 </h2><ol>
-<li>jbe指令</li>
+<li>
+<p>编写指令模板文件<code>xxx-template.h</code> <br>
+① 在文件头尾分别包含<code>cpu/exec/template-start.h</code>和<code>cpu/exec/template-end.h</code>。<br>
+② 定义宏<code>instr</code>为指令名称。<br>
+③ 定义函数<code>static void do_execute()</code>，实现该指令的通用执行过程。<br>
+④ 定义<code>helper</code>函数<br>
+（1）若指令的译码方式在<code>nemu/include/cpu/decode/decode.h</code>中已经存在，那么可以考虑使用宏 <code>make_instr_helper()</code>来构造<code>helper</code>函数（大部分 helper 函数都可以通过这种方式构造）。<br>
+（2）否则可以考虑添加相应的译码函数或者不使用<code>make_instr_helper()</code>, 而是直接使用<code>make_helper()</code>来定义<code>helper</code>函数，在函数体中直接进行译码，并调用<code>do_execute()</code>（可以参考<code>nemu/src/cpu/exec/data-mov/xchg-template.h</code>中的<code>xchg_a2r</code>指令类型。<br></p>
+</li>
+<li>
+<p>编写指令实例化文件<code>xxx.c</code><br>
+① 包含<code>cpu/exec-helper.h</code>。<br>
+② 通过分别将宏<code>DATA_BYTE</code>定义成 1, 2, 4, 分别对指令模板文件<code>xxx-template.h</code>进行实例化。<br>
+③ 若一个<code>helper</code>函数只会在某些操作数长度中用到，可以在<code>xxx-template.h</code>中通过条件编译的功能来指定（可以参考<code>nemu/src/cpu/exec/data-mov/xchg-template.h</code>中的<code>xchg_a2r</code>指令类型）。<br>
+④ 必要时通过宏<code>make_helper_v()</code>定义相应的重载函数，根据指令的操作数长度前缀确定调用哪一个<code>helper</code>函数。<br></p>
+</li>
+<li>
+<p>编写指令头文件<code>xxx.h</code>，声明<code>helper</code>函数的原型。</p>
+</li>
+<li>
+<p>在<code>nemu/src/cpu/exec/all-instr.h</code>中包含<code>xxx.h</code>。</p>
+</li>
+<li>
+<p>在<code>nemu/src/cpu/exec/exec.c</code>中的<code>opcode_table</code>中填写相应的<code>helper</code>函数</p>
+</li>
 </ol>
-<p>在<code>jcc-template.h</code>指令中添加<code>be</code>字段，并在<code>中补充</code></p>
-<ol start="2">
-<li>leave指令</li>
-</ol>
-<figure><img src="/p/nemu-part-2/Opcode/leave%E6%8C%87%E4%BB%A4.png" width="700"><figcaption>
-      <h4>leave指令</h4>
+<figure><img src="/p/nemu-part-2-pre/%E7%BC%96%E5%86%99%E6%8C%87%E4%BB%A4%E7%9A%84%E6%B5%81%E7%A8%8B.png" width="700"><figcaption>
+      <h4>编写指令的流程</h4>
     </figcaption>
 </figure>
 
+<p><a class="link" href="/p/nemu-part-2/" >进入PA2
+    
+    
+
+</a></p>
 
 </section>
 
@@ -769,12 +747,12 @@
             
                 
 <article class="">
-    <a href="/p/nemu-part-2-pre/">
+    <a href="/p/nemu-part-2/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">NEMU-PART II Pre</h2>
+            <h2 class="article-title">NEMU-PART II</h2>
         </div>
     </a>
 </article>

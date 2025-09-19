@@ -344,7 +344,15 @@
             <li><a href="#反函数积分法">反函数积分法</a></li>
           </ol>
         </li>
-        <li><a href="#常用积分">常用积分</a></li>
+        <li><a href="#常用积分">常用积分</a>
+          <ol>
+            <li><a href="#线性换元法">线性换元法</a></li>
+            <li><a href="#沃利斯公式">沃利斯公式</a></li>
+            <li><a href="#高斯积分">高斯积分</a></li>
+            <li><a href="#傅汝兰尼积分公式">傅汝兰尼积分公式</a></li>
+            <li><a href="#柯西积分不等式">柯西积分不等式</a></li>
+          </ol>
+        </li>
         <li><a href="#定积分的应用">定积分的应用</a>
           <ol>
             <li><a href="#曲线的弧长">曲线的弧长</a></li>
@@ -381,22 +389,22 @@
         </li>
       </ol>
     </li>
-    <li><a href="#重积分">重积分</a>
+    <li><a href="#多元函数积分学">多元函数积分学</a>
       <ol>
-        <li><a href="#二重积分">二重积分</a></li>
-        <li><a href="#三重积分">三重积分</a></li>
-        <li><a href="#重积分的应用">重积分的应用</a>
+        <li><a href="#重积分">重积分</a>
           <ol>
-            <li><a href="#物体的质心">物体的质心</a></li>
-            <li><a href="#物体的转动惯量">物体的转动惯量</a></li>
+            <li><a href="#二重积分">二重积分</a></li>
+            <li><a href="#三重积分">三重积分</a></li>
+            <li><a href="#重积分的应用">重积分的应用</a></li>
           </ol>
         </li>
-      </ol>
-    </li>
-    <li><a href="#线面积分">线面积分</a>
-      <ol>
-        <li><a href="#曲线积分">曲线积分</a></li>
-        <li><a href="#曲面积分">曲面积分</a></li>
+        <li><a href="#线面积分">线面积分</a>
+          <ol>
+            <li><a href="#曲线积分">曲线积分</a></li>
+            <li><a href="#曲面积分">曲面积分</a></li>
+            <li><a href="#三大公式">三大公式</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
     <li><a href="#级数">级数</a>
@@ -924,9 +932,12 @@ $$\left\{ \begin{array}{c} \begin{align*} \xi &= x - \dfrac{y'(1+y'^{\ 2})}{y''}
           <td>含有 $\sqrt{ax^{2}+bx+c}$</td>
           <td>可先配方再设</td>
       </tr>
+      <tr>
+          <td>$\displaystyle \int f(\sin x, \cos x) \mathrm{d}x$，其中 $f(u,v)$是有理函数</td>
+          <td>利用代换 $\displaystyle t = \tan \frac{x}{2}$ 可化为有理函数积分</td>
+      </tr>
   </tbody>
 </table></div>
-<p>对于积分式 $\displaystyle \int f(\sin x, \cos x) \mathrm{d}x$，其中 $f(u,v)$是有理函数，利用代换 $\displaystyle t = \tan \frac{x}{2}$ 可化为有理函数积分.</p>
 <ol start="2">
 <li>
 <p>根式代换 <br>
@@ -953,31 +964,20 @@ $$\int_{a}^{a+T} f(x) \mathrm{d}x = \int_{0}^{T} f(x) \mathrm{d}x$$$$\int_{0}^{n
 <h4 id="反函数积分法">反函数积分法
 </h4><p>对于一些定积分，若被积函数较复杂，而其反函数较简单，可利用定积分的几何意义：用积分区间的面积减去被积函数反函数的定积分。</p>
 <h3 id="常用积分">常用积分
-</h3><ol>
-<li>
-<p>线性换元法：<br>
-</p>
-$$\int_{a}^{b} f(x) \mathrm{d}x = \int_{a}^{b} f(a+b-x) \mathrm{d}x = \frac{1}{2} \int_{a}^{b} [f(x) + f(a+b-x)] \mathrm{d}x $$<p>
+</h3><h4 id="线性换元法">线性换元法
+</h4>$$\int_{a}^{b} f(x) \mathrm{d}x = \int_{a}^{b} f(a+b-x) \mathrm{d}x = \frac{1}{2} \int_{a}^{b} [f(x) + f(a+b-x)] \mathrm{d}x $$<p>
 进一步，若 $f(x)$ 关于 $\displaystyle x = \frac{a+b}{2}$ 对称，则有： <br>
 </p>
 $$\int_{a}^{b} xf(x) \mathrm{d}x = \frac{a+b}{2} \int_{a}^{b} f(x) \mathrm{d}x = (a+b) \int_{a}^{\frac{a+b}{2}} f(x) \mathrm{d}x $$<p>
 特别地，有：<br>
 </p>
-$$\int_{0}^{\pi} xf(\sin x) \mathrm{d}x = \frac{\pi}{2} \int_{0}^{\pi} f(\sin x) \mathrm{d}x $$</li>
-<li>
-<p>沃利斯公式：</p>
-$$I_n = \int_{0}^{\frac{\pi}{2}} \sin^{n}x \mathrm{d}x = \int_{0}^{\frac{\pi}{2}} \cos^{n}x \mathrm{d}x = \left\{ \begin{array}{c}  \begin{align*} & \displaystyle \frac{(n-1)!!}{n!!} \quad n = 2k+1 \\ \\ & \displaystyle \frac{(n-1)!!}{n!!} \cdot \frac{\pi}{2} \quad n=2k \\ \end{align*} \end{array} \right.$$</li>
-<li>
-<p>高斯积分：</p>
-$$\int_{0}^{+\infty} \mathrm{e}^{-x^{2}} \mathrm{d}x = \frac{\sqrt{\pi}}{2} $$</li>
-<li>
-<p>傅汝兰尼积分公式：<br>设 $f(x)$ 在 $[0,+\infty)$ 上连续，且 $\displaystyle \int_{A}^{+\infty} \frac{f(x)}{x} \mathrm{d}x$ 收敛，其中常数 $A &gt; 0$，则有 </p>
-$$\int_{0}^{+\infty} \frac{f(ax)-f(bx)}{x} \mathrm{d}x = f(0) \ln \frac{b}{a} \quad (a < b < c) $$</li>
-<li>
-<p>柯西积分不等式：</p>
-$$\left[ \int_{a}^{b} f(x)g(x) \mathrm{d}x \right]^{2} \leqslant \int_{a}^{b} f^{2}(x) \mathrm{d}x \int_{a}^{b} g^{2}(x) \mathrm{d}x $$<p>  其中 $f(x)$，$g(x)$ 均为 $[a,b]$ 上的连续函数.</p>
-</li>
-</ol>
+$$\int_{0}^{\pi} xf(\sin x) \mathrm{d}x = \frac{\pi}{2} \int_{0}^{\pi} f(\sin x) \mathrm{d}x $$<h4 id="沃利斯公式">沃利斯公式
+</h4>$$I_n = \int_{0}^{\frac{\pi}{2}} \sin^{n}x \mathrm{d}x = \int_{0}^{\frac{\pi}{2}} \cos^{n}x \mathrm{d}x = \left\{ \begin{array}{c}  \begin{align*} & \displaystyle \frac{(n-1)!!}{n!!} \quad n = 2k+1 \\ \\ & \displaystyle \frac{(n-1)!!}{n!!} \cdot \frac{\pi}{2} \quad n=2k \\ \end{align*} \end{array} \right.$$<p>进一步：</p>
+$$I(m,n) = \int_{0}^{\frac{\pi}{2}} \sin^{m}x \cos^{n}x \mathrm{d}x = \left\{ \begin{array}{c} \begin{align*} & \displaystyle \frac{(m-1)!! (n-1)!!}{(m+n)!!} \quad m,n 不全为偶 \\ \\ & \displaystyle \frac{(m-1)!! (n-1)!!}{(m+n)!!} \cdot \frac{\pi}{2} \quad m,n 全偶 \\ \end{align*} \end{array} \right.$$<h4 id="高斯积分">高斯积分
+</h4>$$\int_{0}^{+\infty} \mathrm{e}^{-x^{2}} \mathrm{d}x = \frac{\sqrt{\pi}}{2} $$<h4 id="傅汝兰尼积分公式">傅汝兰尼积分公式
+</h4><p>设 $f(x)$ 在 $[0,+\infty)$ 上连续，且 $\displaystyle \int_{A}^{+\infty} \frac{f(x)}{x} \mathrm{d}x$ 收敛，其中常数 $A &gt; 0$，则有 </p>
+$$\int_{0}^{+\infty} \frac{f(ax)-f(bx)}{x} \mathrm{d}x = f(0) \ln \frac{b}{a} \quad (a < b < c) $$<h4 id="柯西积分不等式">柯西积分不等式
+</h4>$$\left[ \int_{a}^{b} f(x)g(x) \mathrm{d}x \right]^{2} \leqslant \int_{a}^{b} f^{2}(x) \mathrm{d}x \int_{a}^{b} g^{2}(x) \mathrm{d}x $$<p>  其中 $f(x)$，$g(x)$ 均为 $[a,b]$ 上的连续函数.</p>
 <h3 id="定积分的应用">定积分的应用
 </h3><h4 id="曲线的弧长">曲线的弧长
 </h4><p>参数方程 </p>
@@ -1224,67 +1224,119 @@ $$ \left\{\begin{array}{c} \begin{align*} L'_x &= 0 \\ L'_y &= 0 \\ L'_\lambda &
 <p>最值</p>
 </li>
 </ol>
-<h2 id="重积分">重积分
-</h2><h3 id="二重积分">二重积分
-</h3><ol>
+<h2 id="多元函数积分学">多元函数积分学
+</h2><h3 id="重积分">重积分
+</h3><h4 id="二重积分">二重积分
+</h4><ol>
 <li>
 <p>积分换序</p>
 </li>
 <li>
-<p>坐标变换</p>
+<p>坐标变换 <br>
+一般坐标变换：令 $x = x(u,v)$，$y = y(u,v)$，则
+</p>
+$$\iint\limits_D f(x,y) \mathrm{d}x \mathrm{d}y = \iint\limits_D f(x(u,v),y(u,v)) \left| \frac{\partial(x,y)}{\partial(u,v)} \right| \mathrm{d}u \mathrm{d}v $$<p>
+其中 </p>
+$$\frac{\partial(x,y)}{\partial(u,v)} = \left| \begin{matrix} \dfrac{\partial x}{\partial u} & \dfrac{\partial x}{\partial v}  \\ \\ \dfrac{\partial y}{\partial u} & \dfrac{\partial y}{\partial v} \\ \end{matrix}  \right|$$<p> <br>
+特别的，有极坐标变换：<br>
+令 $x = \rho \cos \theta$，$y = \rho \sin \theta$，则
+</p>
+$$\iint\limits_D f(x,y) \mathrm{d}x\mathrm{d}y = \iint\limits_D f(\rho \cos \theta,\rho \sin \theta) \rho \mathrm{d}\rho \mathrm{d}\theta$$</li>
+<li>
+<p>轮换对称性 <br>
+若积分区域关于原点对称，则 $x$ 与 $y$ 交换位置后，积分值不变. 即 </p>
+$$\iint\limits_D f(x,y) \mathrm{d}x \mathrm{d}y = \frac{1}{2} \left( \iint\limits_D f(x,y) \mathrm{d}x \mathrm{d}y + \iint\limits_D f(y,x) \mathrm{d}y \mathrm{d}x \right)$$</li>
+</ol>
+<h4 id="三重积分">三重积分
+</h4><ol>
+<li>
+<p>先一后二： $\displaystyle \iiint\limits_\varOmega f(x,y,z) \mathrm{d}V = \iint\limits_{D_{xy}} \mathrm{d}x\mathrm{d}y \int_{z_1(x,y)}^{z_2(x,y)} f(x,y,z) \mathrm{d}z $</p>
+</li>
+<li>
+<p>先二后一：$\displaystyle \iiint\limits_\varOmega f(x,y,z) \mathrm{d}V = \int_{c}^{d} \mathrm{d}z \iint\limits_{D_{xy}} f(x,y,z) \mathrm{d}\sigma $</p>
+</li>
+<li>
+<p>球坐标变换 <br>
+令 </p>
+$$\left\{ \begin{array}{c} \begin{align*} x &= \rho \cos \theta \sin \varphi \\ y &= \rho \sin \theta \sin \varphi \\ z &= \rho \cos \varphi \end{align*} \end{array}\right.$$<p> 则雅可比行列式的绝对值为 $\rho^{2} \sin \theta$</p>
 </li>
 </ol>
-<p>一般坐标变换</p>
-<p>令 $x = x(u,v)$，$y = y(u,v)$，则</p>
-$$\iint\limits_D f(x,y) \mathrm{d}x \mathrm{d}y = \iint\limits_D f(x(u,v),y(u,v)) \left| \frac{\partial(x,y)}{\partial(u,v)} \right| \mathrm{d}u \mathrm{d}v $$<p>其中 </p>
-$$\frac{\partial(x,y)}{\partial(u,v)} = \left| \begin{matrix} \dfrac{\partial x}{\partial u} & \dfrac{\partial x}{\partial v}  \\ \\ \dfrac{\partial y}{\partial u} & \dfrac{\partial y}{\partial v} \\ \end{matrix}  \right|$$<p>$$$$</p>
-<p>特别的，有极坐标变换：</p>
-<p>令 $x = \rho \cos \theta$，$y = \rho \sin \theta$，则</p>
-$$\iint\limits_D f(x,y) \mathrm{d}x\mathrm{d}y = \iint\limits_D f(\rho \cos \theta,\rho \sin \theta) \rho \mathrm{d}\rho \mathrm{d}\theta$$<ol start="3">
-<li>轮换对称性</li>
+<h4 id="重积分的应用">重积分的应用
+</h4><ol>
+<li>物体的质心 <br>
+设物体的密度函数为 $\mu(x,y,z)$，则物体质心坐标为 $$\begin{array}{c} \displaystyle \overline{x} = \frac{1}{m}\iiint\limits_\varOmega x \mu(x,y,z) \mathrm{d}V \\ \\ \displaystyle \overline{y} = \frac{1}{m}\iiint\limits_\varOmega y \mu(x,y,z) \mathrm{d}V \\ \\ \displaystyle \overline{z} = \frac{1}{m}\iiint\limits_\varOmega z \mu(x,y,z) \mathrm{d}V \end{array}$$</li>
 </ol>
-<p>若积分区域关于原点对称，则 $x$ 与 $y$ 交换位置后，积分值不变. 即 </p>
-$$\iint\limits_D f(x,y) \mathrm{d}x \mathrm{d}y = \frac{1}{2} \left( \iint\limits_D f(x,y) \mathrm{d}x \mathrm{d}y + \iint\limits_D f(y,x) \mathrm{d}y \mathrm{d}x \right)$$<h3 id="三重积分">三重积分
-</h3><p>球坐标变换</p>
-<p>令 </p>
-$$\left\{ \begin{array}{c} \begin{align*} x &= \rho \cos \theta \sin \varphi \\ y &= \rho \sin \theta \sin \varphi \\ z &= \rho \cos \varphi \end{align*} \end{array}\right.$$<p> 则雅可比行列式的绝对值为 $\rho^{2} \sin \theta$</p>
-<h3 id="重积分的应用">重积分的应用
-</h3><h4 id="物体的质心">物体的质心
-</h4><p>设物体的密度函数为 $\mu(x,y,z)$，则物体质心坐标为 </p>
-$$\begin{array}{c} \displaystyle \overline{x} = \frac{1}{m}\iiint\limits_\varOmega x \mu(x,y,z) \mathrm{d}V \\ \\ \displaystyle \overline{y} = \frac{1}{m}\iiint\limits_\varOmega y \mu(x,y,z) \mathrm{d}V \\ \\ \displaystyle \overline{z} = \frac{1}{m}\iiint\limits_\varOmega z \mu(x,y,z) \mathrm{d}V \end{array}$$<h4 id="物体的转动惯量">物体的转动惯量
-</h4><p>设物体的密度函数为 $\mu(x,y,z)$，则物体对 $x,y,z$ 轴的转动惯量分别为 </p>
-$$\begin{array}{c} \displaystyle I_x = \iiint\limits_\varOmega (y^{2}+z^{2}) \mu(x,y,z) \mathrm{d}V \\ \\ \displaystyle I_y = \iiint\limits_\varOmega (x^{2}+z^{2}) \mu(x,y,z) \mathrm{d}V \\ \\ \displaystyle I_z =  \iiint\limits_\varOmega (x^{2}+y^{2}) \mu(x,y,z) \mathrm{d}V \end{array}  $$<h2 id="线面积分">线面积分
-</h2><h3 id="曲线积分">曲线积分
-</h3><ol>
-<li>第一类曲线积分</li>
+<blockquote>
+<p>特别地，若物体质量均匀，即 $\mu(x,y,z) = C$，则物体的质心即为物体的形心。</p>
+$$\begin{array}{c} \displaystyle \overline{x} = \iiint\limits_\varOmega x \mathrm{d}V ，\displaystyle \overline{y} = \iiint\limits_\varOmega y \mathrm{d}V ，\displaystyle \overline{z} = \iiint\limits_\varOmega z \mathrm{d}V \end{array}$$</blockquote>
+<ol start="2">
+<li>物体的转动惯量 <br>
+设物体的密度函数为 $\mu(x,y,z)$，则物体对 $x,y,z$ 轴的转动惯量分别为 $$\begin{array}{c} \displaystyle I_x = \iiint\limits_\varOmega (y^{2}+z^{2}) \mu(x,y,z) \mathrm{d}V \\ \\ \displaystyle I_y = \iiint\limits_\varOmega (x^{2}+z^{2}) \mu(x,y,z) \mathrm{d}V \\ \\ \displaystyle I_z =  \iiint\limits_\varOmega (x^{2}+y^{2}) \mu(x,y,z) \mathrm{d}V \end{array}  $$</li>
 </ol>
-<p>对于由参数方程 </p>
-$$\left\{ \begin{array}{c} x=x(t) \\ y=y(t) \\ z=z(t) \\ \end{array} \right. t \in [a,b] $$<p> 确定的曲线，有 </p>
-$$\int_{L} f(x,y,z) \mathrm{d}s = \int_{a}^{b} f(x(t),y(t),z(t))\sqrt{x'^{\ 2}(t) + y'^{\ 2}(t) + z'^{\ 2}(t)} \mathrm{d}t$$<ol start="2">
-<li>第二类曲线积分</li>
+<h3 id="线面积分">线面积分
+</h3><h4 id="曲线积分">曲线积分
+</h4><ol>
+<li>第一类曲线积分 <br>
+对于由参数方程 $$\left\{ \begin{array}{c} x=x(t) \\ y=y(t) \\ z=z(t) \\ \end{array} \right. t \in [a,b] $$ 确定的曲线，有 $$\int_{L} f(x,y,z) \mathrm{d}s = \int_{a}^{b} f(x(t),y(t),z(t))\sqrt{x'^{\ 2}(t) + y'^{\ 2}(t) + z'^{\ 2}(t)} \mathrm{d}t$$</li>
 </ol>
-<p>对于由参数方程 </p>
+<blockquote>
+<p>利用第一类曲线积分求柱体侧面积</p>
+<p>母线平行于 $z$ 轴的柱面 $S: f(x,y) = 0$ 上介于两曲线弧 </p>
+$$l_1: \left\{ \begin{array}{c} z=z_1(x,y) \\ \\ f(x,y) = 0 \end{array} \right.，l_2: \left\{ \begin{array}{c} z=z_2(x,y) \\ \\ f(x,y) = 0 \end{array} \right.，z_1(x,y) \geqslant z_2(x,y)$$<p> 之间的曲面面积为
+</p>
+$$S = \int_L [z_1(x,y)-z_2(x,y)] \mathrm{d}l $$</blockquote>
+<ol start="2">
+<li>
+<p>第二类曲线积分 <br>
+对于由参数方程 </p>
 $$\left\{ \begin{array}{c} x=x(t) \\ y=y(t) \\ z=z(t) \\ \end{array} \right. t \in [a,b] $$<p> 确定的曲线，向量值函数 $\bm{A} = P(x,y,z)\bm{i} + Q(x,y,z)\bm{j} + R(x,y,z)\bm{k} $， 有 </p>
-$$\begin{align*} \int_{L} \bm{A} \cdot \mathrm{d} \bm{r} &= \int_{L} P(x,y,z) \mathrm{d}x + \int_{L} Q(x,y,z) \mathrm{d}y + \int_{L} R(x,y,z) \mathrm{d}z \\ &= \int_{a}^{b} [P(x(t),y(t),z(t))x'(t) + Q(x(t),y(t),z(t))y'(t) \\ & \qquad + R(x(t),y(t),z(t))z'(t)] \mathrm{d}t \end{align*}$$<ol start="3">
-<li>两类曲线积分之间的联系</li>
+$$\begin{align*} \int_{L} \bm{A} \cdot \mathrm{d} \bm{r} &= \int_{L} P(x,y,z) \mathrm{d}x + \int_{L} Q(x,y,z) \mathrm{d}y + \int_{L} R(x,y,z) \mathrm{d}z \\ &= \int_{a}^{b} [P(x(t),y(t),z(t))x'(t) + Q(x(t),y(t),z(t))y'(t) \\ & \qquad + R(x(t),y(t),z(t))z'(t)] \mathrm{d}t \end{align*}$$</li>
+<li>
+<p>两类曲线积分之间的联系</p>
+</li>
 </ol>
 $$\int_{L} P \mathrm{d}x + Q \mathrm{d}y + R \mathrm{d}z = \int_{L} [P\cos \alpha + Q\cos \beta + R\cos \gamma] \mathrm{d}s $$<ol start="4">
-<li>格林公式</li>
+<li><a class="link" href="/p/math_tips/#%e4%b8%89%e5%a4%a7%e5%85%ac%e5%bc%8f" >格林公式
+    
+    
+
+</a></li>
 </ol>
-$$\oint_{L} P \mathrm{d}x + Q \mathrm{d}y = \iint\limits_{D} \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) \mathrm{d}\sigma $$<h3 id="曲面积分">曲面积分
-</h3><ol>
-<li>第一类曲线积分</li>
+<h4 id="曲面积分">曲面积分
+</h4><ol>
+<li>
+<p>第一类曲面积分（一投二代三根号） <br>
+对于曲面 $z=z(x,y)$，有 </p>
+$$\iint\limits_{\varSigma} f(x,y,z) \mathrm{d}S = \iint\limits_{D_{xy}} f(x,y,z(x,y)) \sqrt{1+z_x^{'\ 2}(x,y) + z_y^{'\ 2}(x,y)} \mathrm{d}\sigma $$</li>
+<li>
+<p>第二类曲面积分（一投二代三符号） <br>
+对于曲面 $z=z(x,y)$，有 </p>
+$$\begin{array}{c} \displaystyle \iint\limits_{\varSigma} R(x,y,z) \mathrm{d}x\mathrm{d}y = \pm \iint\limits_{D_{xy}} R(x,y,z(x,y)) \mathrm{d}\sigma \\ \\ \displaystyle \iint\limits_{\varSigma} P(x,y,z) \mathrm{d}y\mathrm{d}z = \pm \iint\limits_{D_{yz}} P(x(y,z),y,z) \mathrm{d}\sigma \\ \\ \displaystyle \iint\limits_{\varSigma} Q(x,y,z) \mathrm{d}x\mathrm{d}z = \pm \iint\limits_{D_{xz}} Q(x,y(x,z),z) \mathrm{d}\sigma \end{array}$$<p>
+其中正负号由积分曲面的方向决定.</p>
+</li>
+<li>
+<p><a class="link" href="/p/math_tips/#%e4%b8%89%e5%a4%a7%e5%85%ac%e5%bc%8f" >高斯公式
+    
+    
+
+</a></p>
+</li>
 </ol>
-<p>对于曲面 $z=z(x,y)$，有 </p>
-$$\iint\limits_{\varSigma} f(x,y,z) \mathrm{d}S = \iint\limits_{D_{xy}} f(x,y,z(x,y)) \sqrt{1+z_x^{'\ 2}(x,y) + z_y^{'\ 2}(x,y)} \mathrm{d}\sigma $$<ol start="2">
-<li>第二类曲线积分</li>
+<h4 id="三大公式">三大公式
+</h4><ol>
+<li>
+<p>格林公式
+</p>
+$$\oint_{L} P \mathrm{d}x + Q \mathrm{d}y = \iint\limits_{D} \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) \mathrm{d}\sigma $$</li>
+<li>
+<p>高斯公式
+</p>
+$$\oiint\limits_{\varSigma} P \mathrm{d}y\mathrm{d}z + Q \mathrm{d}x\mathrm{d}z + R \mathrm{d}x\mathrm{d}y = \iiint\limits_{\varOmega} \left( \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z} \right) \mathrm{d}V $$</li>
+<li>
+<p>斯托克斯公式</p>
+</li>
 </ol>
-<p>对于曲面 $z=z(x,y)$，有 </p>
-$$\begin{array}{c} \displaystyle \iint\limits_{\varSigma} R(x,y,z) \mathrm{d}x\mathrm{d}y = \pm \iint\limits_{D_{xy}} R(x,y,z(x,y)) \mathrm{d}\sigma \\ \\ \displaystyle \iint\limits_{\varSigma} P(x,y,z) \mathrm{d}y\mathrm{d}z = \pm \iint\limits_{D_{yz}} P(x(y,z),y,z) \mathrm{d}\sigma \\ \\ \displaystyle \iint\limits_{\varSigma} Q(x,y,z) \mathrm{d}x\mathrm{d}z = \pm \iint\limits_{D_{xz}} Q(x,y(x,z),z) \mathrm{d}\sigma \end{array}$$<p>其中正负号由积分曲面的方向决定.</p>
-<ol start="3">
-<li>高斯公式</li>
-</ol>
-$$\oiint\limits_{\varSigma} P \mathrm{d}y\mathrm{d}z + Q \mathrm{d}x\mathrm{d}z + R \mathrm{d}x\mathrm{d}y = \iiint\limits_{\varOmega} \left( \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z} \right) \mathrm{d}V $$<h2 id="级数">级数
+<h2 id="级数">级数
 </h2><h3 id="数项级数">数项级数
 </h3><h4 id="数项级数收敛的条件">数项级数收敛的条件
 </h4><p>若 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛，则 $\displaystyle \lim_{n \to \infty} a_n = 0$；反之，若 $\displaystyle \lim_{n \to \infty} a_n \ne 0$，则 $\displaystyle \sum_{n=1}^{\infty} a_n $ 发散，</p>
@@ -1526,6 +1578,19 @@ $$ F_{n} = \frac{1}{\sqrt{5}} \left[\left(\frac{1+\sqrt{5}}{2}\right)^{n+1} - \l
             
                 
 <article class="">
+    <a href="/p/nemu-part-2-pre/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">NEMU-PART II Pre</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
     <a href="/p/nemu-part-1/">
         
         
@@ -1558,19 +1623,6 @@ $$ F_{n} = \frac{1}{\sqrt{5}} \left[\left(\frac{1+\sqrt{5}}{2}\right)^{n+1} - \l
 
         <div class="article-details">
             <h2 class="article-title">熟练掌握数据结构</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/p/algorithm/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">常用算法</h2>
         </div>
     </a>
 </article>
