@@ -539,14 +539,22 @@
 </ol>
 <h2 id="运行用户程序">运行用户程序
 </h2><p>任务：编写几条指令的<code>helper</code>函数, 使得第一个简单的C程序可以在NEMU中运行起来。</p>
+<p>流程：</p>
+<ol>
+<li><code>make run</code>运行NEMU。</li>
+<li>按<code>c</code>执行程序。</li>
+<li>查看报错信息，观察出现未知指令的内存地址和对应操作码。</li>
+<li>编写对应的指令文件<code>xxx-template.h</code>，<code>xxx.h</code>，<code>xxx.c</code>。</li>
+<li>在<code>all-instr.h</code>中添加对应的头文件。</li>
+<li>在<code>exec.c</code>中对应位置添加操作名称。</li>
+</ol>
 <h3 id="添加call指令">添加call指令
-</h3><p>查找<code>call</code>指令对应的<code>Opcode</code>等信息。</p>
+</h3><p>查找<code>call</code>指令对应的<code>Opcode</code>等信息，可知操作码为<code>e8</code>。</p>
 <figure><img src="/p/nemu-part-2/Opcode/call%E6%8C%87%E4%BB%A4.png" width="700"><figcaption>
       <h4>call指令</h4>
     </figcaption>
 </figure>
 
-<p>操作码为<code>e8</code>。</p>
 <ol>
 <li>编写<code>call-template.h</code></li>
 </ol>
@@ -554,31 +562,39 @@
 </span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="cp"></span>
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="cp">#define instr call
 </span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="nf">make_helper</span><span class="p">(</span><span class="nf">concat</span><span class="p">(</span><span class="n">call_i_</span><span class="p">,</span> <span class="n">SUFFIX</span><span class="p">))</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="c1">// 计算指令长度 (include opcode)
-</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="nf">concat</span><span class="p">(</span><span class="n">decode_i_</span><span class="p">,</span> <span class="n">SUFFIX</span><span class="p">)(</span><span class="n">cpu</span><span class="p">.</span><span class="n">eip</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span> 
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="c1">// 压栈操作 (push)
-</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="c1"></span>    <span class="nf">reg_l</span><span class="p">(</span><span class="n">R_ESP</span><span class="p">)</span> <span class="o">-=</span> <span class="n">DATA_BYTE</span><span class="p">;</span> 
-</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="c1">// eip寄存器的下一位地址写入esp (mov)
-</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="c1"></span>    <span class="nf">swaddr_write</span><span class="p">(</span><span class="nf">reg_l</span><span class="p">(</span><span class="n">R_ESP</span><span class="p">),</span> <span class="mi">4</span><span class="p">,</span> <span class="n">cpu</span><span class="p">.</span><span class="n">eip</span> <span class="o">+</span> <span class="n">len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span> 
-</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="c1">// length from eip to function
-</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="c1"></span>    <span class="n">cpu</span><span class="p">.</span><span class="n">eip</span> <span class="o">+=</span> <span class="p">(</span><span class="n">DATA_TYPE_S</span><span class="p">)</span><span class="n">op_src</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">;</span> 
-</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="c1">// 更新eip寄存器
-</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="c1"></span>    <span class="nf">print_asm</span><span class="p">(</span><span class="s">&#34;call: 0x%x&#34;</span><span class="p">,</span> <span class="n">cpu</span><span class="p">.</span><span class="n">eip</span> <span class="o">+</span> <span class="n">len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span> 
-</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="k">return</span> <span class="n">len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="ln">18</span><span class="cl">
-</span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="nf">make_helper</span><span class="p">(</span><span class="nf">concat</span><span class="p">(</span><span class="n">call_rm_</span><span class="p">,</span> <span class="n">SUFFIX</span><span class="p">))</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">20</span><span class="cl">    <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="nf">concat</span><span class="p">(</span><span class="n">decode_rm_</span><span class="p">,</span> <span class="n">SUFFIX</span><span class="p">)(</span><span class="n">eip</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">21</span><span class="cl">    <span class="nf">reg_l</span><span class="p">(</span><span class="n">R_ESP</span><span class="p">)</span> <span class="o">-=</span> <span class="n">DATA_BYTE</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">22</span><span class="cl">    <span class="nf">MEM_W</span><span class="p">(</span><span class="nf">reg_l</span><span class="p">(</span><span class="n">R_ESP</span><span class="p">),</span> <span class="n">cpu</span><span class="p">.</span><span class="n">eip</span> <span class="o">+</span> <span class="n">len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">23</span><span class="cl">    <span class="n">cpu</span><span class="p">.</span><span class="n">eip</span> <span class="o">=</span> <span class="p">(</span><span class="n">DATA_TYPE_S</span><span class="p">)</span><span class="n">op_src</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">-</span> <span class="n">len</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">24</span><span class="cl">    <span class="nf">print_asm</span><span class="p">(</span><span class="s">&#34;call: %s&#34;</span><span class="p">,</span> <span class="n">op_src</span><span class="o">-&gt;</span><span class="n">str</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">25</span><span class="cl">    <span class="k">return</span> <span class="n">len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">26</span><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="ln">27</span><span class="cl">
-</span></span><span class="line"><span class="ln">28</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;cpu/exec/template-end.h&#34;</span><span class="cp">
-</span></span></span></code></pre></div><ol start="2">
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="c1">// call + 相对偏移量（视为一个立即数）
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="c1"></span><span class="nf">make_helper</span><span class="p">(</span><span class="nf">concat</span><span class="p">(</span><span class="n">call_i_</span><span class="p">,</span> <span class="n">SUFFIX</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="c1">// 解码偏移量（立即数）
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="nf">concat</span><span class="p">(</span><span class="n">decode_i_</span><span class="p">,</span> <span class="n">SUFFIX</span><span class="p">)(</span><span class="n">cpu</span><span class="p">.</span><span class="n">eip</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span> 
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="c1">// 压栈操作 (push)
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="c1"></span>    <span class="nf">reg_l</span><span class="p">(</span><span class="n">R_ESP</span><span class="p">)</span> <span class="o">-=</span> <span class="n">DATA_BYTE</span><span class="p">;</span> 
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="c1">// eip寄存器的下一位地址写入esp (mov)
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="c1"></span>    <span class="nf">MEM_W</span><span class="p">(</span><span class="nf">reg_l</span><span class="p">(</span><span class="n">R_ESP</span><span class="p">),</span> <span class="n">cpu</span><span class="p">.</span><span class="n">eip</span> <span class="o">+</span> <span class="n">len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span> 
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="c1">// 加上立即数偏移量，实现跳转
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="c1"></span>    <span class="n">cpu</span><span class="p">.</span><span class="n">eip</span> <span class="o">+=</span> <span class="p">(</span><span class="n">DATA_TYPE_S</span><span class="p">)</span><span class="n">op_src</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">;</span> 
+</span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="c1">// 更新eip寄存器
+</span></span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="c1"></span>    <span class="nf">print_asm</span><span class="p">(</span><span class="s">&#34;call: 0x%x&#34;</span><span class="p">,</span> <span class="n">cpu</span><span class="p">.</span><span class="n">eip</span> <span class="o">+</span> <span class="n">len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span> 
+</span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="k">return</span> <span class="n">len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">
+</span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="c1">// call + 寄存器
+</span></span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="c1"></span><span class="nf">make_helper</span><span class="p">(</span><span class="nf">concat</span><span class="p">(</span><span class="n">call_rm_</span><span class="p">,</span> <span class="n">SUFFIX</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">    <span class="c1">// 解码寄存器/内存
+</span></span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="nf">concat</span><span class="p">(</span><span class="n">decode_rm_</span><span class="p">,</span> <span class="n">SUFFIX</span><span class="p">)(</span><span class="n">eip</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">    <span class="nf">reg_l</span><span class="p">(</span><span class="n">R_ESP</span><span class="p">)</span> <span class="o">-=</span> <span class="n">DATA_BYTE</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl">    <span class="nf">MEM_W</span><span class="p">(</span><span class="nf">reg_l</span><span class="p">(</span><span class="n">R_ESP</span><span class="p">),</span> <span class="n">cpu</span><span class="p">.</span><span class="n">eip</span> <span class="o">+</span> <span class="n">len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">    <span class="n">cpu</span><span class="p">.</span><span class="n">eip</span> <span class="o">=</span> <span class="p">(</span><span class="n">DATA_TYPE_S</span><span class="p">)</span><span class="n">op_src</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">-</span> <span class="n">len</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl">    <span class="nf">print_asm</span><span class="p">(</span><span class="s">&#34;call: %s&#34;</span><span class="p">,</span> <span class="n">op_src</span><span class="o">-&gt;</span><span class="n">str</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">    <span class="k">return</span> <span class="n">len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl">
+</span></span><span class="line"><span class="ln">31</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;cpu/exec/template-end.h&#34;</span><span class="cp">
+</span></span></span></code></pre></div><figure><img src="/p/nemu-part-2/details/call%E6%8C%87%E4%BB%A4.png" width="700"><figcaption>
+      <h4>call指令示意</h4>
+    </figcaption>
+</figure>
+
+<ol start="2">
 <li>编写<code>call.c</code></li>
 </ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;cpu/exec/helper.h&#34;</span><span class="cp">
@@ -607,12 +623,62 @@
 </span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="nf">make_helper</span><span class="p">(</span><span class="n">call_rm_v</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">6</span><span class="cl">
 </span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="cp">#endif
-</span></span></span></code></pre></div><h3 id="添加test指令">添加test指令
+</span></span></span></code></pre></div><ol start="4">
+<li>在<code>nemu/src/cpu/exec/all-instr.h</code>中包含<code>call.h</code>，并在<code>nemu/src/cpu/exec/exec.c</code>中的<code>opcode_table</code>中填写相应的<code>helper</code>函数。</li>
+</ol>
+<h3 id="添加test指令">添加test指令
 </h3><figure><img src="/p/nemu-part-2/Opcode/test%E6%8C%87%E4%BB%A4.png" width="700"><figcaption>
       <h4>test指令</h4>
     </figcaption>
 </figure>
 
+<p><code>test</code>指令其实相当于进行<code>AND</code>按位与操作，但是<code>test</code>是不会改变操作数的，只会改变<code>EFLAGS</code>寄存器中的标志位。</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>标志位</th>
+          <th>名称</th>
+          <th>功能</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>CF</td>
+          <td>进位标志</td>
+          <td>如果运算的结果最高位产生了进位或借位，其值为1，否则为0。</td>
+      </tr>
+      <tr>
+          <td>PF</td>
+          <td>奇偶标志</td>
+          <td>计算运算结果里1的奇偶性，偶数为1，否则为0。</td>
+      </tr>
+      <tr>
+          <td>ZF</td>
+          <td>零标志</td>
+          <td>相关指令结束后判断是否为0，结果为0，其值为1，否则为0。</td>
+      </tr>
+      <tr>
+          <td>SF</td>
+          <td>符号标志</td>
+          <td>相关指令结束后判断正负，结果为负，其值为1，否则为0。</td>
+      </tr>
+      <tr>
+          <td>I</td>
+          <td>中断使能标志</td>
+          <td>表示能否响应外部中断，若能响应外部中断，其值为1，否则为0。</td>
+      </tr>
+      <tr>
+          <td>DF</td>
+          <td>方向标志</td>
+          <td>当DF为1，ESI、EDI自动递减，否则自动递增。</td>
+      </tr>
+      <tr>
+          <td>OF</td>
+          <td>溢出标志</td>
+          <td>反映有符号数运算结果是否溢出，如果溢出，其值为1，否则为0。</td>
+      </tr>
+  </tbody>
+</table></div>
 <ol>
 <li>编写<code>test-template.h</code></li>
 </ol>
@@ -637,7 +703,11 @@
 </span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="nf">make_instr_helper</span><span class="p">(</span><span class="n">r2rm</span><span class="p">)</span>
 </span></span><span class="line"><span class="ln">20</span><span class="cl">
 </span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;cpu/exec/template-end.h&#34;</span><span class="cp">
-</span></span></span></code></pre></div><ol start="2">
+</span></span></span></code></pre></div><blockquote>
+<p>程序中经常使用一些缩写，并已成为约定俗成的惯例。</p>
+<p>例如，为了方便理解，通常把<code>to</code>用<code>2</code>代替。因此<code>i2rm</code>表示立即数传到寄存器/内存中，<code>r2rm</code>表示寄存器传到寄存器/内存中。</p>
+<p><code>i18n</code>与此类似，是<code>internationalization</code>的缩写，表示“国际化”。</p></blockquote>
+<ol start="2">
 <li>编写<code>test.c</code></li>
 </ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;cpu/exec/helper.h&#34;</span><span class="cp">
@@ -678,6 +748,27 @@
     </figcaption>
 </figure>
 
+<blockquote>
+<p>添加je指令有两种方法，一种是参考普通指令的执行方式，用<code>static void do_execute</code>创建函数并使用<code>make_instr_helper()</code>；另一种是直接定义一个新的<code>make_jcc_helper()</code>宏。这里采用后者，因为这样所有条件跳转如<code>jne</code>，<code>jg</code>，<code>jge</code>等都可以用<code>make_jcc_helper()</code>的宏实现。</p></blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;cpu/exec/template-start.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="cp"></span> 
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="c1">// 条件跳转指令译码过程复杂，make_instr_helper无法使用，需要重新定义
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="c1"></span><span class="cp">#define make_jcc_helper(cc) \
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="cp">    make_helper(concat4(j, cc, _, SUFFIX)) { \
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="cp">        int len = concat(decode_si_, SUFFIX)(eip + 1); \
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="cp">        print_asm(str(concat(j,cc)) &#34; %x&#34;,cpu.eip+op_src-&gt;val+1+len+(DATA_BYTE == 4)); \
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="cp">        if (concat(check_cc_, cc)()) { \
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="cp">            cpu.eip += op_src-&gt;val; \
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="cp">        } \
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="cp">        return len + 1; \
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="cp">    }
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;cpu/exec/template-end.h&#34;</span><span class="cp">
+</span></span></span></code></pre></div><p>在<code>include/cpu/eflags.h</code>中定义比较函数：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">static</span> <span class="kr">inline</span> <span class="kt">bool</span> <span class="nf">check_cc_e</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="k">return</span> <span class="n">cpu</span><span class="p">.</span><span class="n">eflags</span><span class="p">.</span><span class="n">ZF</span> <span class="o">==</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>这样在调用<code>make_je_helper</code>时就会使用<code>check_cc_e</code>函数判断是否更新<code>eflags</code>寄存器的值。</p>
 <h3 id="添加其他指令">添加其他指令
 </h3><ol>
 <li>push指令</li>
@@ -687,7 +778,6 @@
     </figcaption>
 </figure>
 
-<p><code>push_r32</code>的操作码为<code>50</code></p>
 <p>操作流程：<br>
 ① <code>esp</code>寄存器值减4，表示栈顶指针下移一个地址的长度。<br>
 ② 将读入的数据写入地址中，表示数据入栈。<br></p>
@@ -699,6 +789,9 @@
     </figcaption>
 </figure>
 
+<p>操作流程：<br>
+① 记录源操作数-目标操作数的值。<br>
+② 用所得的值更新<code>eflags</code>寄存器。<br></p>
 <ol start="3">
 <li>pop指令</li>
 </ol>
@@ -725,7 +818,7 @@
 </h2><ol>
 <li>jbe指令</li>
 </ol>
-<p>在<code>jcc-template.h</code>指令中添加<code>be</code>字段，并在<code>中补充</code></p>
+<p>在<code>jcc-template.h</code>指令中添加<code>be</code>字段，并在<code>eflags.h</code>中补充<code>check_cc_be</code>函数。</p>
 <ol start="2">
 <li>leave指令</li>
 </ol>
@@ -734,6 +827,13 @@
     </figcaption>
 </figure>
 
+<p>操作流程：<br>
+① 使esp指向ebp（栈底）所指的位置。<br>
+② ebp指向esp所存的地址。<br>
+③ 栈顶指针加4。<br></p>
+<ol start="3">
+<li>add指令</li>
+</ol>
 
 </section>
 
