@@ -6,10 +6,10 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/nemu-part-2/'>
 
-<link rel="stylesheet" href="/scss/style.min.813d0f0d6c9b3a5bf580f6d4c170d71b04da9dc3dd75dec0db1661a6057270ff.css"><meta property='og:title' content="NEMU-PART II">
+<link rel="stylesheet" href="/scss/style.min.5615ffd66d63efee744c60133c98d2008861f9cf705984d73773f6d33c659ca3.css"><meta property='og:title' content="NEMU-PART II">
 <meta property='og:description' content="PA2">
 <meta property='og:url' content='https://5882886.github.io/p/nemu-part-2/'>
-<meta property='og:site_name' content='RunicDolphin806的博客'>
+<meta property='og:site_name' content='RunicDolphin806'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-09-17T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-09-17T00:00:00&#43;00:00'/>
 <meta name="twitter:title" content="NEMU-PART II">
 <meta name="twitter:description" content="PA2">
@@ -92,7 +92,7 @@
         
         
         <div class="site-meta">
-            <h1 class="site-name"><a href="/">RunicDolphin806的博客</a></h1>
+            <h1 class="site-name"><a href="/">RunicDolphin806</a></h1>
             <h2 class="site-description">技术备忘录</h2>
         </div>
     </header><ol class="menu-social">
@@ -317,6 +317,9 @@
       </ol>
     </li>
     <li><a href="#实现更多指令">实现更多指令</a></li>
+    <li><a href="#实现浮点数定点化">实现浮点数定点化</a></li>
+    <li><a href="#为简易调试器增加变量支持">为简易调试器增加变量支持</a></li>
+    <li><a href="#实现kernel加载">实现kernel加载</a></li>
   </ol>
 </nav>
         </div>
@@ -834,7 +837,83 @@
 <ol start="3">
 <li>add指令</li>
 </ol>
-
+<h2 id="实现浮点数定点化">实现浮点数定点化
+</h2><p>在<code>lib-common/FLOAT.h</code>中定义定点数与整型的基本运算：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">static</span> <span class="kr">inline</span> <span class="kt">int</span> <span class="nf">F2int</span><span class="p">(</span><span class="n">FLOAT</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">	<span class="c1">// 将定点数转换为整型
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="c1"></span>	<span class="k">return</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="mi">16</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="k">static</span> <span class="kr">inline</span> <span class="n">FLOAT</span> <span class="nf">int2F</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">	<span class="c1">// 将整型转换为定点数
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1"></span>	<span class="k">return</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="mi">16</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">
+</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="k">static</span> <span class="kr">inline</span> <span class="n">FLOAT</span> <span class="nf">F_mul_int</span><span class="p">(</span><span class="n">FLOAT</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">	<span class="c1">// 定点数与整型相乘
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="c1"></span>	<span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">
+</span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="k">static</span> <span class="kr">inline</span> <span class="n">FLOAT</span> <span class="nf">F_div_int</span><span class="p">(</span><span class="n">FLOAT</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">	<span class="c1">// 定点数与整型相除
+</span></span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="c1"></span>	<span class="k">return</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>在<code>lib-common/FLOAT/FLOAT.c</code>中定义浮点数到定点数的转化和定点数的运算：</p>
+<ol>
+<li>定义浮点数结构</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// 接收IEEE编码的浮点数
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"></span><span class="k">typedef</span> <span class="k">union</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">	<span class="k">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">		<span class="kt">uint32_t</span> <span class="nl">m</span> <span class="p">:</span> <span class="mi">23</span><span class="p">;</span>	<span class="c1">// 尾数位
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="c1"></span>		<span class="kt">uint32_t</span> <span class="nl">e</span> <span class="p">:</span> <span class="mi">8</span><span class="p">;</span>		<span class="c1">// 指数位
+</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="c1"></span>		<span class="kt">uint32_t</span> <span class="nl">s</span> <span class="p">:</span> <span class="mi">1</span><span class="p">;</span>		<span class="c1">// 符号位
+</span></span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="c1"></span>	<span class="p">};</span>
+</span></span><span class="line"><span class="ln">8</span><span class="cl">	<span class="kt">uint32_t</span> <span class="n">val</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">9</span><span class="cl"><span class="p">}</span> <span class="n">Float</span><span class="p">;</span>
+</span></span></code></pre></div><ol start="2">
+<li>将浮点数转化为定点数</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="n">FLOAT</span> <span class="nf">f2F</span><span class="p">(</span><span class="kt">float</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">	<span class="cm">/* You should figure out how to convert `a&#39; into FLOAT without
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="cm">	 * introducing x87 floating point instructions. Else you can
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="cm">	 * not run this code in NEMU before implementing x87 floating
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="cm">	 * point instructions, which is contrary to our expectation.
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="cm">	 *
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="cm">	 * Hint: The bit representation of `a&#39; is already on the
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="cm">	 * stack. How do you retrieve it to another variable without
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="cm">	 * performing arithmetic operations on it directly?
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="cm">	 */</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">
+</span></span><span class="line"><span class="ln">12</span><span class="cl">	<span class="n">Float</span> <span class="n">f</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">	<span class="kt">void</span> <span class="o">*</span><span class="n">temp</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">	<span class="n">f</span><span class="p">.</span><span class="n">val</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="o">*</span><span class="p">)</span> <span class="n">temp</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">
+</span></span><span class="line"><span class="ln">16</span><span class="cl">	<span class="kt">uint32_t</span> <span class="n">m</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="n">m</span> <span class="o">|</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">23</span><span class="p">);</span>	<span class="c1">// 为尾数位添加1
+</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="c1"></span>	<span class="c1">// 计算偏置值
+</span></span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="c1"></span>	<span class="kt">int</span> <span class="n">bias</span> <span class="o">=</span> <span class="p">(</span><span class="mi">127</span><span class="o">+</span><span class="mi">23</span><span class="o">-</span><span class="mi">16</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">f</span><span class="p">.</span><span class="n">e</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">	
+</span></span><span class="line"><span class="ln">20</span><span class="cl">	<span class="c1">// 对m执行偏移操作
+</span></span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="c1"></span>	<span class="k">if</span><span class="p">(</span><span class="n">bias</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">		<span class="n">m</span> <span class="o">&lt;&lt;=</span> <span class="p">(</span><span class="o">-</span><span class="n">bias</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">	<span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl">		<span class="n">m</span> <span class="o">&gt;&gt;=</span> <span class="n">bias</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl">
+</span></span><span class="line"><span class="ln">28</span><span class="cl">	<span class="k">return</span> <span class="p">(</span><span class="nf">__sign</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">val</span><span class="p">)</span> <span class="o">?</span> <span class="o">-</span><span class="nl">m</span> <span class="p">:</span> <span class="n">m</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ol start="3">
+<li>
+<p>实现定点数的运算</p>
+</li>
+<li>
+<p>运行<code>integral</code>和<code>quadratic-eq</code>，补充缺失指令</p>
+</li>
+</ol>
+<h2 id="为简易调试器增加变量支持">为简易调试器增加变量支持
+</h2><h2 id="实现kernel加载">实现kernel加载
+</h2>
 </section>
 
 

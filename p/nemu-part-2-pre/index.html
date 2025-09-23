@@ -6,10 +6,10 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/nemu-part-2-pre/'>
 
-<link rel="stylesheet" href="/scss/style.min.813d0f0d6c9b3a5bf580f6d4c170d71b04da9dc3dd75dec0db1661a6057270ff.css"><meta property='og:title' content="NEMU-PART II Pre">
+<link rel="stylesheet" href="/scss/style.min.5615ffd66d63efee744c60133c98d2008861f9cf705984d73773f6d33c659ca3.css"><meta property='og:title' content="NEMU-PART II Pre">
 <meta property='og:description' content="PA2预备知识">
 <meta property='og:url' content='https://5882886.github.io/p/nemu-part-2-pre/'>
-<meta property='og:site_name' content='RunicDolphin806的博客'>
+<meta property='og:site_name' content='RunicDolphin806'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-09-16T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-09-16T00:00:00&#43;00:00'/>
 <meta name="twitter:title" content="NEMU-PART II Pre">
 <meta name="twitter:description" content="PA2预备知识">
@@ -92,7 +92,7 @@
         
         
         <div class="site-meta">
-            <h1 class="site-name"><a href="/">RunicDolphin806的博客</a></h1>
+            <h1 class="site-name"><a href="/">RunicDolphin806</a></h1>
             <h2 class="site-description">技术备忘录</h2>
         </div>
     </header><ol class="menu-social">
@@ -315,11 +315,7 @@
         <li><a href="#阅读opcode-table">阅读Opcode Table</a></li>
       </ol>
     </li>
-    <li><a href="#c语言宏定义">C语言宏定义</a>
-      <ol>
-        <li><a href="#nemu中关键的宏定义">NEMU中关键的宏定义</a></li>
-      </ol>
-    </li>
+    <li><a href="#c语言宏定义">C语言宏定义</a></li>
     <li><a href="#nemu的指令周期">NEMU的指令周期</a>
       <ol>
         <li><a href="#取指">取指</a></li>
@@ -637,43 +633,77 @@
 </span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="cp"></span>
 </span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="c1">// 使用宏进行连接
 </span></span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="c1"></span><span class="cp">#define concat(x, y)   x ## y
-</span></span></span></code></pre></div><h3 id="nemu中关键的宏定义">NEMU中关键的宏定义
-</h3><ol>
-<li>helper宏</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// #define make_helper(name)
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"></span><span class="cp">#define make_helper(name) int name(swaddr_t eip)
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1">// #define make_helper_v(name)
-</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="c1"></span><span class="cp">#define make_helper_v(name) \
-</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="cp">    make_helper(concat(name, _v)) { \
-</span></span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="cp">        return (ops_decode.is_operand_size_16 ? concat(name, _w) : concat(name, _l)) (eip); \
-</span></span></span><span class="line"><span class="ln">8</span><span class="cl"><span class="cp">    }
-</span></span></span></code></pre></div><blockquote>
+</span></span></span></code></pre></div><p>例如：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="cp">#define make_helper(name) int name(swaddr_t eip)
+</span></span></span></code></pre></div><p>这个宏定义就代表了以下的两行代码是同一个代码，我们使用的时候看到的是上面部分函数，但是程序执行的时候实际上是在执行下面的函数（实际上就是同一个函数）：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="nf">make_helper</span><span class="p">(</span><span class="n">exec</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="kt">int</span> <span class="nf">exec</span><span class="p">(</span><span class="kt">swaddr_t</span> <span class="n">eip</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
 <p>在C语言中，宏必须定义在一行中。</p>
 <p>若需通过换行提高代码可读性，可使用<code>\</code>附在每行末尾。</p></blockquote>
-<ol start="2">
-<li>instr_helper宏</li>
-</ol>
-<p><code>exec()</code>函数</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="kt">int</span> <span class="nf">exec</span><span class="p">(</span><span class="kt">swaddr_t</span><span class="p">,</span> <span class="n">eip</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="c1">// 表示读取一个字节的操作码
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"></span>    <span class="n">ops_decoded</span><span class="p">.</span><span class="n">opcode</span> <span class="o">=</span> <span class="nf">instr_fetch</span><span class="p">(</span><span class="n">eip</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">4</span><span class="cl">    <span class="c1">// 返回一个函数 
-</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="c1"></span>    <span class="k">return</span> <span class="n">opcode_table</span><span class="p">[</span><span class="n">ops_decoded</span><span class="p">.</span><span class="n">opcode</span><span class="p">](</span><span class="n">eip</span><span class="p">);</span> 
-</span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h2 id="nemu的指令周期">NEMU的指令周期
+<h2 id="nemu的指令周期">NEMU的指令周期
 </h2><h3 id="取指">取指
-</h3><h3 id="译码">译码
-</h3><h3 id="执行">执行
+</h3><p>核心流程</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">void</span> <span class="nf">cpu_exec</span><span class="p">(</span><span class="k">volatile</span> <span class="kt">uint32_t</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="k">for</span><span class="p">(;</span> <span class="n">n</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">;</span> <span class="n">n</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">        <span class="kt">int</span> <span class="n">instr_len</span> <span class="o">=</span> <span class="nf">exec</span><span class="p">(</span><span class="n">cpu</span><span class="p">.</span><span class="n">eip</span><span class="p">);</span>  <span class="c1">// 执行当前%eip所指向的指令
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="c1"></span>        <span class="n">cpu</span><span class="p">.</span><span class="n">eip</span> <span class="o">+=</span> <span class="n">instr_len</span><span class="p">;</span>           <span class="c1">// %eip指向下一条指令
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>函数<code>exec</code>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="nf">make_helper</span><span class="p">(</span><span class="n">exec</span><span class="p">)</span> <span class="p">{</span>     <span class="c1">//等价于 int exec(swaddr_t eip)
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"></span>    <span class="n">ops_decoded</span><span class="p">.</span><span class="n">opcode</span> <span class="o">=</span> <span class="nf">instr_fetch</span><span class="p">(</span><span class="n">eip</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>       <span class="c1">// 表示读取一个字节的操作码
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"></span>    <span class="k">return</span> <span class="n">opcode_table</span><span class="p">[</span><span class="n">ops_decoded</span><span class="p">.</span><span class="n">opcode</span><span class="p">](</span><span class="n">eip</span><span class="p">);</span>   <span class="c1">// 返回一个函数 
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></div><p>其中，函数<code>instr_fetch()</code>负责取指：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">static</span> <span class="kr">inline</span> <span class="kt">uint32_t</span> <span class="nf">instr_fetch</span><span class="p">(</span><span class="kt">swaddr_t</span> <span class="n">addr</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">len</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="k">return</span> <span class="nf">swaddr_read</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><code>instr_fetch()</code>从<code>eip</code>处提取<code>Opcode</code>，存储到<code>ops_decoded.opcode</code>中。</p>
+<h3 id="译码">译码
+</h3><p>所有指令的规则如下：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>内容</th>
+          <th>规则</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>指令</td>
+          <td>指令名称，具体由i386手册确定</td>
+      </tr>
+      <tr>
+          <td>形式</td>
+          <td><code>i2r</code>，将立即数移动到寄存器 <br> <code>i2rm</code>，将立即数移动到寄存器或内存 <br> <code>r2rm</code>，将寄存器移动到寄存器或内存</td>
+      </tr>
+      <tr>
+          <td>操作数后缀</td>
+          <td><code>b</code>表示操作数长度为8，<code>v</code>表示无法确定操作数长度，可能是16或32</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>通过<code>opcode_table</code>，根据提取到的<code>Opcode</code>找到对应的指令处理函数（如<code>mov_i2r_v</code>）。</p>
+<h3 id="执行">执行
 </h3><ol>
 <li>对于同一指令的不同形式，它们的执行阶段是相同的。如<code>mov_i2rm</code>和<code>mov_rm2r</code>，它们的执行阶段都是将源操作数存储到目标操作数中。</li>
 <li>对于不同指令的同一种形式，它们的译码阶段是相同的。如<code>mov_i2rm</code>和<code>sub_rm2r</code>，它们的译码阶段都是识别出一个立即数和一个rm操作数。</li>
 <li>对于同一条指令同一种形式的不同长度，它们的译码阶段和执行阶段都非常类似。如<code>mov_i2rm_b</code>，<code>mov_i2rm_w</code>和<code>mov_i2rm_l</code>。它们都是识别出一个立即数和一个rm操作数，然后把立即数存入rm操作数。</li>
 </ol>
 <h3 id="访存">访存
-</h3><h3 id="写回">写回
-</h3><h2 id="编写指令的流程">编写指令的流程
+</h3><figure><img src="/p/nemu-part-2-pre/%E8%AE%BF%E5%AD%98.png" width="700"><figcaption>
+      <h4>访存指令</h4>
+    </figcaption>
+</figure>
+
+<h3 id="写回">写回
+</h3><p>指令执行完后，<code>eip</code>指向下一条指令。</p>
+<h2 id="编写指令的流程">编写指令的流程
 </h2><ol>
 <li>
 <p>编写指令模板文件<code>xxx-template.h</code> <br>
@@ -706,7 +736,7 @@
     </figcaption>
 </figure>
 
-<p><a class="link" href="/p/nemu-part-2/" ><div style="text-align: right;">进入PA2</div>
+<p><a class="link" href="/p/nemu-part-2/" ><div style="text-align: right;">进入PA2 →</div>
     
     
 
