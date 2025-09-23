@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/nemu-part-1/'>
 
-<link rel="stylesheet" href="/scss/style.min.51945cd3273d7b64ff6b009b368040793d36773e639a1c20e3656186b54da34f.css"><meta property='og:title' content="NEMU-PART I">
+<link rel="stylesheet" href="/scss/style.min.813d0f0d6c9b3a5bf580f6d4c170d71b04da9dc3dd75dec0db1661a6057270ff.css"><meta property='og:title' content="NEMU-PART I">
 <meta property='og:description' content="预备知识与PA1">
 <meta property='og:url' content='https://5882886.github.io/p/nemu-part-1/'>
 <meta property='og:site_name' content='RunicDolphin806的博客'>
@@ -545,12 +545,8 @@
     <section class="article-content">
     
     
-    <blockquote class="alert alert-note">
-    <ol>
-<li>机器永远是对的！</li>
-<li>未经过测试的每行代码永远是错误的！</li>
-<li>RTFM！（阅读手册！）</li>
-</ol></blockquote>
+    <blockquote>
+<p>你说得对，但是<code>NEMU</code>是一个基于X86-64处理器模拟的IA-32操作系统。NEMU运行在一个被称作<code>Docker</code>的容器，在这里，被容器选中的人将被授予<code>gcc</code>，导引C语言之力。你将扮演一为名为<code>Debug</code>的神秘用户，编写众多C语言程序，在调试中找出<code>FATAL</code>的原因，同时逐步发掘<code>Hit Bad Trap</code>的真相。</p></blockquote>
 <center><strong><p style="font-size:32px;">目标：制作一个32位的操作系统</p></strong></center>
 <h2 id="什么是nemu">什么是NEMU
 </h2><p>在X86-64处理器的机器上模拟一个32位操作系统（<strong>一个用来执行其它程序的程序！</strong>），它包括4个连贯的实验内容：</p>
@@ -640,7 +636,13 @@
   </tbody>
 </table></div>
 <h2 id="pa1简易调试器">PA1：简易调试器
-</h2><h3 id="实现正确的寄存器结构体">实现正确的寄存器结构体
+</h2><blockquote class="alert alert-note">
+    <ol>
+<li>机器永远是对的！</li>
+<li>未经过测试的每行代码永远是错误的！</li>
+<li>RTFM！（阅读手册！）</li>
+</ol></blockquote>
+<h3 id="实现正确的寄存器结构体">实现正确的寄存器结构体
 </h3><figure><img src="/p/nemu-part-1/%E5%AF%84%E5%AD%98%E5%99%A8.png" width="650"><figcaption>
       <h4>寄存器</h4>
     </figcaption>
@@ -1507,6 +1509,12 @@
 </details>
 <br>
 <center><strong><p style="font-size:32px;">至此，PA1全部完成</p></strong></center>
+<p><a class="link" href="/p/nemu-part-2-pre" ><div style="text-align: right;">PA2预备知识</div>
+    
+    
+
+</a></p>
+
 </section>
 
 

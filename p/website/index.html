@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/website/'>
 
-<link rel="stylesheet" href="/scss/style.min.51945cd3273d7b64ff6b009b368040793d36773e639a1c20e3656186b54da34f.css"><meta property='og:title' content="使用Hugo搭建网站">
+<link rel="stylesheet" href="/scss/style.min.813d0f0d6c9b3a5bf580f6d4c170d71b04da9dc3dd75dec0db1661a6057270ff.css"><meta property='og:title' content="使用Hugo搭建网站">
 <meta property='og:description' content="使用开源软件Hugo搭建自己的博客网站">
 <meta property='og:url' content='https://5882886.github.io/p/website/'>
 <meta property='og:site_name' content='RunicDolphin806的博客'>
@@ -601,6 +601,7 @@
 </h3><p>完成网页的编辑后，需执行Hugo的构建命令，方能生成网页文件。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">hugo server -D    <span class="c1">#构建本地网页</span>
 </span></span><span class="line"><span class="ln">2</span><span class="cl">hugo              <span class="c1">#构建在线网页</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">hugo --cleanDestinationDir  <span class="c1">#清理构建文件夹</span>
 </span></span></code></pre></div><blockquote>
 <p>注意事项</p>
 <p>使用<code>hugo server -D</code>命令构建的是本地网页，遇到超链接时会重定向到<code>localhost:1313/xxx</code>，不能直接部署到GitHub等服务器上，必须再执行一次<code>hugo</code>命令清除本地链接的内容之后，才能正确部署。</p></blockquote>

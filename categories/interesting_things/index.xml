@@ -417,7 +417,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 使用宏进行连接
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;#define concat(x, y)   x ## y
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;nemu中关键的宏定义&#34;&gt;NEMU中关键的宏定义：
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;nemu中关键的宏定义&#34;&gt;NEMU中关键的宏定义
 &lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;helper宏&lt;/li&gt;
 &lt;/ol&gt;
@@ -486,7 +486,7 @@
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/nemu-part-2/&#34; &gt;进入PA2
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/nemu-part-2/&#34; &gt;&lt;div style=&#34;text-align: right;&#34;&gt;进入PA2&lt;/div&gt;
     
     
 
@@ -499,12 +499,8 @@
         <pubDate>Mon, 08 Sep 2025 00:00:00 +0000</pubDate>
         
         <guid>https://5882886.github.io/p/nemu-part-1/</guid>
-        <description>&lt;blockquote class=&#34;alert alert-note&#34;&gt;
-    &lt;ol&gt;
-&lt;li&gt;机器永远是对的！&lt;/li&gt;
-&lt;li&gt;未经过测试的每行代码永远是错误的！&lt;/li&gt;
-&lt;li&gt;RTFM！（阅读手册！）&lt;/li&gt;
-&lt;/ol&gt;&lt;/blockquote&gt;
+        <description>&lt;blockquote&gt;
+&lt;p&gt;你说得对，但是&lt;code&gt;NEMU&lt;/code&gt;是一个基于X86-64处理器模拟的IA-32操作系统。NEMU运行在一个被称作&lt;code&gt;Docker&lt;/code&gt;的容器，在这里，被容器选中的人将被授予&lt;code&gt;gcc&lt;/code&gt;，导引C语言之力。你将扮演一为名为&lt;code&gt;Debug&lt;/code&gt;的神秘用户，编写众多C语言程序，在调试中找出&lt;code&gt;FATAL&lt;/code&gt;的原因，同时逐步发掘&lt;code&gt;Hit Bad Trap&lt;/code&gt;的真相。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;center&gt;&lt;strong&gt;&lt;p style=&#34;font-size:32px;&#34;&gt;目标：制作一个32位的操作系统&lt;/p&gt;&lt;/strong&gt;&lt;/center&gt;
 &lt;h2 id=&#34;什么是nemu&#34;&gt;什么是NEMU
 &lt;/h2&gt;&lt;p&gt;在X86-64处理器的机器上模拟一个32位操作系统（&lt;strong&gt;一个用来执行其它程序的程序！&lt;/strong&gt;），它包括4个连贯的实验内容：&lt;/p&gt;
@@ -594,7 +590,13 @@
   &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2 id=&#34;pa1简易调试器&#34;&gt;PA1：简易调试器
-&lt;/h2&gt;&lt;h3 id=&#34;实现正确的寄存器结构体&#34;&gt;实现正确的寄存器结构体
+&lt;/h2&gt;&lt;blockquote class=&#34;alert alert-note&#34;&gt;
+    &lt;ol&gt;
+&lt;li&gt;机器永远是对的！&lt;/li&gt;
+&lt;li&gt;未经过测试的每行代码永远是错误的！&lt;/li&gt;
+&lt;li&gt;RTFM！（阅读手册！）&lt;/li&gt;
+&lt;/ol&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;实现正确的寄存器结构体&#34;&gt;实现正确的寄存器结构体
 &lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-1/%E5%AF%84%E5%AD%98%E5%99%A8.png&#34; width=&#34;650&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;寄存器&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -1460,7 +1462,13 @@
 &lt;p&gt;&lt;code&gt;-Wall&lt;/code&gt;使GCC编译后显示所有的警告信息。&lt;code&gt;-Werror&lt;/code&gt;会将将所有的警告当成错误进行处理，并且取消编译操作。使用&lt;code&gt;-Wall&lt;/code&gt;和&lt;code&gt;-Werror&lt;/code&gt;就是为了找出可能存在的错误，尽可能地避免程序运行出错，优化程序。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;/details&gt;
 &lt;br&gt;
-&lt;center&gt;&lt;strong&gt;&lt;p style=&#34;font-size:32px;&#34;&gt;至此，PA1全部完成&lt;/p&gt;&lt;/strong&gt;&lt;/center&gt;</description>
+&lt;center&gt;&lt;strong&gt;&lt;p style=&#34;font-size:32px;&#34;&gt;至此，PA1全部完成&lt;/p&gt;&lt;/strong&gt;&lt;/center&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/nemu-part-2-pre&#34; &gt;&lt;div style=&#34;text-align: right;&#34;&gt;PA2预备知识&lt;/div&gt;
+    
+    
+
+&lt;/a&gt;&lt;/p&gt;
+</description>
         </item>
         <item>
         <title>微积分：常用公式</title>
@@ -1696,7 +1704,7 @@ $$f(x) = f(x_0) + f&#39;(x_0)(x-x_0) + \frac{1}{2!} f&#39;&#39;(x_0)(x-x_0)^2 + 
 &lt;/h4&gt;&lt;p&gt;参数方程 $\left\{ \begin{array}{c} x = \varphi(t) \\ y = \psi(t) \ \end{array} \right. t \in [a,b]$ 确定的平面曲线的曲率 &lt;/p&gt;
 $$ K = \frac{\left| \varphi&#39;(t) \psi&#39;&#39;(t) - \varphi&#39;&#39;(t) \psi&#39;(t) \right|}{[\varphi&#39;^{\ 2}(t)+\psi&#39;^{\ 2}(t)]^{\frac{3}{2}}} $$&lt;p&gt;曲线 $y=y(x)$ 的曲率中心 &lt;/p&gt;
 $$\left\{ \begin{array}{c} \begin{align*} \xi &amp;= x - \dfrac{y&#39;(1+y&#39;^{\ 2})}{y&#39;&#39;} \\ \eta &amp;= y + \dfrac{1+y&#39;^{\ 2}}{y&#39;&#39;} \end{align*} \end{array} \right.$$&lt;h2 id=&#34;一元函数积分学&#34;&gt;一元函数积分学
-&lt;/h2&gt;&lt;h3 id=&#34;积分方法&#34;&gt;积分方法
+&lt;/h2&gt;&lt;h3 id=&#34;常规积分方法&#34;&gt;常规积分方法
 &lt;/h3&gt;&lt;h4 id=&#34;凑微分法&#34;&gt;凑微分法
 &lt;/h4&gt;&lt;ol&gt;
 &lt;li&gt;
@@ -1776,7 +1784,16 @@ $$\left\{ \begin{array}{c} \begin{align*} \xi &amp;= x - \dfrac{y&#39;(1+y&#39;^
 &lt;h4 id=&#34;分部积分法&#34;&gt;分部积分法
 &lt;/h4&gt;&lt;p&gt;设 $u(x)$，$v(x)$ 具有连续导数，则有分部积分公式&lt;/p&gt;
 $$ \int u(x)v&#39;(x) \mathrm{d}x = u(x)v(x) - \int u&#39;(x)v(x) \mathrm{d}x $$&lt;p&gt;或简记为：$\displaystyle \int u \mathrm{d}v = uv - \int v \mathrm{d}u$&lt;/p&gt;
-&lt;h4 id=&#34;区间再现法&#34;&gt;区间再现法
+&lt;blockquote&gt;
+&lt;p&gt;分部积分法适用情境：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;函数乘积的积分。&lt;/li&gt;
+&lt;li&gt;含有对数、反三角函数的积分。&lt;/li&gt;
+&lt;li&gt;含有 $\mathrm{e}^x \sin x$ 函数的积分。&lt;/li&gt;
+&lt;li&gt;证明递推关系式。&lt;/li&gt;
+&lt;/ol&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;特殊积分方法&#34;&gt;特殊积分方法
+&lt;/h3&gt;&lt;h4 id=&#34;区间再现法&#34;&gt;区间再现法
 &lt;/h4&gt;&lt;p&gt;对于周期函数，若知道其周期，可使用区间再现法求定积分。&lt;/p&gt;
 &lt;p&gt;例如，若 $f(x+T)=f(x)$，则有&lt;/p&gt;
 $$\int_{a}^{a+T} f(x) \mathrm{d}x = \int_{0}^{T} f(x) \mathrm{d}x$$$$\int_{0}^{nT} f(x) \mathrm{d}x = n\int_{0}^{T} f(x) \mathrm{d}x$$&lt;h4 id=&#34;组合积分法&#34;&gt;组合积分法
@@ -2218,16 +2235,16 @@ $$\frac{a_n}{a_{n+1}} = 1 + \frac{1}{n} + \frac{\beta}{n \ln n} + o\left( \frac{
 &lt;/ol&gt;
 &lt;p&gt;设交错级数 $\displaystyle \sum_{n=1}^{\infty} (-1)^{n} a_n$，$a_n &amp;gt;0$，若 $\{a_n\}$ 递减趋于0，则 $\displaystyle \sum_{n=1}^{\infty} (-1)^{n} a_n$ 收敛.&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;阿贝尔和狄利克雷判别法&lt;/li&gt;
+&lt;li&gt;阿贝尔和狄利克雷判别法 &lt;br&gt;
+(1) 分部求和公式 &lt;br&gt;
+设数列 $\{ a_n \}$和 $\{ b_n \}$，记 $\displaystyle S_k = \sum_{i=1}^{k} a_i$，$S_0 = 0$，则 $$\sum_{k=1}^{n} a_k b_k = \sum_{k=1}^{n-1}S_k(b_k-b_{k+1})+S_n b_n $$
+(2) 阿贝尔引理 &lt;br&gt;
+设数列 $\{b_n \}$ 单调，$\displaystyle S_k = \sum_{i=1}^{k} a_i$，若 $|S_k| \leqslant M (k=1,2,\cdots,n)$，则 $$\left| \sum_{k=1}^{n} a_k b_k  \right|\leqslant  M \left(\left| b_1 \right| + 2 \left| b_n \right| \right)$$
+(3) 狄利克雷判别法 &lt;br&gt;
+设数列 $\{ a_n \}$和 $\{ b_n \}$，记 $\displaystyle S_k = \sum_{i=1}^{k} a_i$，若它们满足：$\{b_n\}$ 单调且 $\displaystyle b_n = 0$，$\{S_k\}$ 有界，则 $\displaystyle \sum_{n=0}^{\infty} a_n b_n $ 收敛. &lt;br&gt;
+(4) 阿贝尔判别法 &lt;br&gt;
+设数列 $\{ a_n \}$和 $\{ b_n \}$ 满足：$\{ b_n \}$ 单调有界，且 $\displaystyle \sum_{n=0}^{\infty} a_n$ 收敛，则 $\displaystyle \sum_{n=0}^{\infty} a_n b_n $ 收敛.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;(1) 分部求和公式&lt;/p&gt;
-&lt;p&gt;设数列 $\{ a_n \}$和 $\{ b_n \}$，记 $\displaystyle S_k = \sum_{i=1}^{k} a_i$，$S_0 = 0$，则 &lt;/p&gt;
-$$\sum_{k=1}^{n} a_k b_k = \sum_{k=1}^{n-1}S_k(b_k-b_{k+1})+S_n b_n $$&lt;p&gt;(2) 阿贝尔引理&lt;/p&gt;
-&lt;p&gt;设数列 $\{b_n \}$ 单调，$\displaystyle S_k = \sum_{i=1}^{k} a_i$，若 $|S_k| \leqslant M (k=1,2,\cdots,n)$，则 &lt;/p&gt;
-$$\left| \sum_{k=1}^{n} a_k b_k  \right|\leqslant  M \left(\left| b_1 \right| + 2 \left| b_n \right| \right)$$&lt;p&gt;(3) 狄利克雷判别法&lt;/p&gt;
-&lt;p&gt;设数列 $\{ a_n \}$和 $\{ b_n \}$，记 $\displaystyle S_k = \sum_{i=1}^{k} a_i$，若它们满足：$\{b_n\}$ 单调且 $\displaystyle b_n = 0$，$\{S_k\}$ 有界，则 $\displaystyle \sum_{n=0}^{\infty} a_n b_n $ 收敛.&lt;/p&gt;
-&lt;p&gt;(4) 阿贝尔判别法&lt;/p&gt;
-&lt;p&gt;设数列 $\{ a_n \}$和 $\{ b_n \}$ 满足：$\{ b_n \}$ 单调有界，且 $\displaystyle \sum_{n=0}^{\infty} a_n$ 收敛，则 $\displaystyle \sum_{n=0}^{\infty} a_n b_n $ 收敛.&lt;/p&gt;
 &lt;h3 id=&#34;幂级数&#34;&gt;幂级数
 &lt;/h3&gt;&lt;h4 id=&#34;幂级数的收敛半径&#34;&gt;幂级数的收敛半径
 &lt;/h4&gt;&lt;p&gt;对幂级数 $\displaystyle \sum_{n=0}^{\infty} a_n x^{n}$，&lt;/p&gt;
@@ -2504,11 +2521,18 @@ $$\iint\limits_{D_1} \mathrm{sgn}(x+y) \mathrm{e}^{x^2+y^2} \mathrm{d}x\mathrm{d
 &lt;p&gt;【例7.30】 计算：$\displaystyle I = \iint\limits_{D} \left| \frac{x+y}{\sqrt{2}}-x^2-y^2 \right| \mathrm{d}x\mathrm{d}y$，其中 $D: x^2+y^2 \leqslant 1$.&lt;/p&gt;
 &lt;details&gt;
       &lt;summary&gt;点击展开解答&lt;/summary&gt;
-&lt;p&gt;解：令 $x=r\cos \theta, y=r\sin \theta$，则 $\displaystyle I = \int_{0}^{2\pi} \mathrm{d}\theta \int_{0}^{1} \left| r \sin (\theta+\frac{\pi}{4}) - r^2 \right| \mathrm{d}r$，记 $\displaystyle \varphi = \theta+\frac{\pi}{4}$，则 $\displaystyle I=\int_{0}^{2\pi} \mathrm{d}\varphi \int_{0}^{1} \left| J(\sin \varphi) \right| \mathrm{d}r$&lt;/p&gt;
+&lt;p&gt;解：&lt;/p&gt;
+&lt;p&gt;方法1：令 $x=r\cos \theta, y=r\sin \theta$，则 $\displaystyle I = \int_{0}^{2\pi} \mathrm{d}\theta \int_{0}^{1} \left| r \sin (\theta+\frac{\pi}{4}) - r^2 \right| \mathrm{d}r$，记 $\displaystyle \varphi = \theta+\frac{\pi}{4}$，则 $\displaystyle I=\int_{0}^{2\pi} \mathrm{d}\varphi \int_{0}^{1} \left| J(\sin \varphi) \right| \mathrm{d}r$&lt;/p&gt;
 &lt;p&gt;① 当 $\sin \varphi &amp;gt; 0$，即 $\varphi \in [0,\pi]$ 时，有：&lt;/p&gt;
 $$I_1 = \int_{0}^{\pi} \mathrm{d}\varphi \int_{0}^{\sin \varphi} \left(r^2 \sin \varphi - r^3 \right) \mathrm{d}r = \frac{1}{12} \int_{0}^{\pi} \sin^{4} \varphi \mathrm{d}\varphi $$$$I_2 = \int_{0}^{\pi} \mathrm{d}\varphi \int_{\sin \varphi}^{1} \left(r^3 - r^2 \sin \varphi \right) \mathrm{d}r = \int_{0}^{\pi} \left( \frac{1}{4} - \frac{\sin \varphi}{3} + \frac{1}{12} \sin^{4} \varphi \right) \mathrm{d}\varphi$$&lt;p&gt;② 当 $\sin \varphi &amp;lt; 0$，即 $\varphi \in [\pi,2\pi]$ 时，有：&lt;/p&gt;
 $$I_3 = \int_{\pi}^{2\pi} \mathrm{d}\varphi \int_{0}^{1} \left(r^3 - r^2 \sin \varphi \right) \mathrm{d}r = \int_{\pi}^{2\pi} \left( \frac{1}{4} - \frac{\sin \varphi}{3} \right) \mathrm{d}\varphi $$&lt;p&gt;则 $\displaystyle I=I_1+I_2+I_3=\int_{0}^{\pi} \frac{\sin^{4}\varphi}{6} \mathrm{d}\varphi + \int_{0}^{2\pi} \left( \frac{1}{4}-\frac{\sin \varphi}{3} \right) \mathrm{d}\varphi = \frac{9\pi}{16}$&lt;/p&gt;
-&lt;/details&gt;
+&lt;hr&gt;
+&lt;p&gt;方法2：由题意，$\displaystyle f(x,y) = \frac{x+y}{2}-x^2-y^2 = \frac{1}{4}-\left( x-\frac{1}{2\sqrt{2}} \right)^2-\left( y-\frac{1}{2\sqrt{2}} \right)^2$.&lt;/p&gt;
+&lt;p&gt;故单位圆 $D: x^2+y^2 \leqslant 1$ 被分成两部分：$D_1=\{(x,y)| f(x,y) \geqslant 0 \}, D_2=D-D_1$，因此&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/math_quiz/%E4%BE%8B7.30.png&#34; width=&#34;400&#34;&gt;
+&lt;/figure&gt;
+
+$$\begin{align*} I &amp;=\iint\limits_{D} \left| f(x,y) \right| \mathrm{d}x\mathrm{d}y = \iint\limits_{D_1} f(x,y) \mathrm{d}x\mathrm{d}y - \iint\limits_{D_2} f(x,y) \mathrm{d}x\mathrm{d}y \\ &amp;= 2\iint\limits_{D_1} f(x,y) \mathrm{d}x\mathrm{d}y -\iint\limits_{D_1+D_2} f(x,y) \mathrm{d}x\mathrm{d}y = 2 \iint\limits_{D_1} f(x,y) \mathrm{d}x\mathrm{d}y - \iint\limits_{D} f(x,y) \mathrm{d}x\mathrm{d}y \\ &amp;= 2 \iint\limits_{D_1} \left[ \frac{1}{4}-\left( x-\frac{1}{2\sqrt{2}} \right)^2-\left( y-\frac{1}{2\sqrt{2}} \right)^2 \right] \mathrm{d}x\mathrm{d}y - \iint\limits_{D} \left( \frac{x+y}{2}-x^2-y^2 \right) \mathrm{d}x\mathrm{d}y \\ &amp;= 2 \int_{0}^{2\pi} \mathrm{d}\theta \int_{0}^{\frac{1}{2}} \left( \frac{1}{4} - \rho^2 \right) \rho \mathrm{d}\rho + \int_{0}^{2\pi} \mathrm{d} \theta \int_{0}^{1} \rho^3 \mathrm{d}\rho = 4\pi \left( \frac{1}{32}-\frac{1}{64} \right) + \frac{\pi}{2} = \frac{9\pi}{16} \end{align*}$$&lt;/details&gt;
 &lt;hr&gt;
 &lt;p&gt;【例7.37】设 $\displaystyle f(x)=\int_{0}^{x} \frac{\sin t}{\pi-t} \mathrm{d}t$，计算：$\displaystyle I=\int_{0}^{\pi} f(x) \mathrm{d}x$&lt;/p&gt;
 &lt;details&gt;

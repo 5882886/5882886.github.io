@@ -417,7 +417,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 使用宏进行连接
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;#define concat(x, y)   x ## y
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;nemu中关键的宏定义&#34;&gt;NEMU中关键的宏定义：
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;nemu中关键的宏定义&#34;&gt;NEMU中关键的宏定义
 &lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;helper宏&lt;/li&gt;
 &lt;/ol&gt;
@@ -486,7 +486,7 @@
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/nemu-part-2/&#34; &gt;进入PA2
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/nemu-part-2/&#34; &gt;&lt;div style=&#34;text-align: right;&#34;&gt;进入PA2&lt;/div&gt;
     
     
 
@@ -499,12 +499,8 @@
         <pubDate>Mon, 08 Sep 2025 00:00:00 +0000</pubDate>
         
         <guid>https://5882886.github.io/p/nemu-part-1/</guid>
-        <description>&lt;blockquote class=&#34;alert alert-note&#34;&gt;
-    &lt;ol&gt;
-&lt;li&gt;机器永远是对的！&lt;/li&gt;
-&lt;li&gt;未经过测试的每行代码永远是错误的！&lt;/li&gt;
-&lt;li&gt;RTFM！（阅读手册！）&lt;/li&gt;
-&lt;/ol&gt;&lt;/blockquote&gt;
+        <description>&lt;blockquote&gt;
+&lt;p&gt;你说得对，但是&lt;code&gt;NEMU&lt;/code&gt;是一个基于X86-64处理器模拟的IA-32操作系统。NEMU运行在一个被称作&lt;code&gt;Docker&lt;/code&gt;的容器，在这里，被容器选中的人将被授予&lt;code&gt;gcc&lt;/code&gt;，导引C语言之力。你将扮演一为名为&lt;code&gt;Debug&lt;/code&gt;的神秘用户，编写众多C语言程序，在调试中找出&lt;code&gt;FATAL&lt;/code&gt;的原因，同时逐步发掘&lt;code&gt;Hit Bad Trap&lt;/code&gt;的真相。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;center&gt;&lt;strong&gt;&lt;p style=&#34;font-size:32px;&#34;&gt;目标：制作一个32位的操作系统&lt;/p&gt;&lt;/strong&gt;&lt;/center&gt;
 &lt;h2 id=&#34;什么是nemu&#34;&gt;什么是NEMU
 &lt;/h2&gt;&lt;p&gt;在X86-64处理器的机器上模拟一个32位操作系统（&lt;strong&gt;一个用来执行其它程序的程序！&lt;/strong&gt;），它包括4个连贯的实验内容：&lt;/p&gt;
@@ -594,7 +590,13 @@
   &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2 id=&#34;pa1简易调试器&#34;&gt;PA1：简易调试器
-&lt;/h2&gt;&lt;h3 id=&#34;实现正确的寄存器结构体&#34;&gt;实现正确的寄存器结构体
+&lt;/h2&gt;&lt;blockquote class=&#34;alert alert-note&#34;&gt;
+    &lt;ol&gt;
+&lt;li&gt;机器永远是对的！&lt;/li&gt;
+&lt;li&gt;未经过测试的每行代码永远是错误的！&lt;/li&gt;
+&lt;li&gt;RTFM！（阅读手册！）&lt;/li&gt;
+&lt;/ol&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;实现正确的寄存器结构体&#34;&gt;实现正确的寄存器结构体
 &lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-1/%E5%AF%84%E5%AD%98%E5%99%A8.png&#34; width=&#34;650&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;寄存器&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -1460,7 +1462,13 @@
 &lt;p&gt;&lt;code&gt;-Wall&lt;/code&gt;使GCC编译后显示所有的警告信息。&lt;code&gt;-Werror&lt;/code&gt;会将将所有的警告当成错误进行处理，并且取消编译操作。使用&lt;code&gt;-Wall&lt;/code&gt;和&lt;code&gt;-Werror&lt;/code&gt;就是为了找出可能存在的错误，尽可能地避免程序运行出错，优化程序。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;/details&gt;
 &lt;br&gt;
-&lt;center&gt;&lt;strong&gt;&lt;p style=&#34;font-size:32px;&#34;&gt;至此，PA1全部完成&lt;/p&gt;&lt;/strong&gt;&lt;/center&gt;</description>
+&lt;center&gt;&lt;strong&gt;&lt;p style=&#34;font-size:32px;&#34;&gt;至此，PA1全部完成&lt;/p&gt;&lt;/strong&gt;&lt;/center&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/nemu-part-2-pre&#34; &gt;&lt;div style=&#34;text-align: right;&#34;&gt;PA2预备知识&lt;/div&gt;
+    
+    
+
+&lt;/a&gt;&lt;/p&gt;
+</description>
         </item>
         <item>
         <title>正则表达式</title>

@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/math_tips/'>
 
-<link rel="stylesheet" href="/scss/style.min.51945cd3273d7b64ff6b009b368040793d36773e639a1c20e3656186b54da34f.css"><meta property='og:title' content="微积分：常用公式">
+<link rel="stylesheet" href="/scss/style.min.813d0f0d6c9b3a5bf580f6d4c170d71b04da9dc3dd75dec0db1661a6057270ff.css"><meta property='og:title' content="微积分：常用公式">
 <meta property='og:description' content=" 尽量上课！ 课下完整看完一本书！ 做题！ 极限与函数 等价无穷小 等价无穷小 $(x \\to 0)$ $ \\sin x \\sim x$ $ \\tan x \\sim x $ $\\arcsin x \\sim x$ $ \\arctan x \\sim x $ $\\displaystyle \\cos x \\sim 1-\\frac{1}{2}x^{2} $ $ \\mathrm{e}^{x}-1 \\sim x $ $ \\ln(1+x) \\sim x $ $ (1+x)^{\\alpha}-1 \\sim \\alpha x $ 重要极限 $\\displaystyle \\lim_{n \\to 0} \\frac{\\sin n}{n} = 1，\\lim_{x \\to 0} \\frac{\\sin x}{x} = 1$.\n">
 <meta property='og:url' content='https://5882886.github.io/p/math_tips/'>
 <meta property='og:site_name' content='RunicDolphin806的博客'>
@@ -334,11 +334,15 @@
     </li>
     <li><a href="#一元函数积分学">一元函数积分学</a>
       <ol>
-        <li><a href="#积分方法">积分方法</a>
+        <li><a href="#常规积分方法">常规积分方法</a>
           <ol>
             <li><a href="#凑微分法">凑微分法</a></li>
             <li><a href="#换元积分法">换元积分法</a></li>
             <li><a href="#分部积分法">分部积分法</a></li>
+          </ol>
+        </li>
+        <li><a href="#特殊积分方法">特殊积分方法</a>
+          <ol>
             <li><a href="#区间再现法">区间再现法</a></li>
             <li><a href="#组合积分法">组合积分法</a></li>
             <li><a href="#反函数积分法">反函数积分法</a></li>
@@ -876,7 +880,7 @@ $$f(x) = f(x_0) + f'(x_0)(x-x_0) + \frac{1}{2!} f''(x_0)(x-x_0)^2 + \cdots + \fr
 </h4><p>参数方程 $\left\{ \begin{array}{c} x = \varphi(t) \\ y = \psi(t) \ \end{array} \right. t \in [a,b]$ 确定的平面曲线的曲率 </p>
 $$ K = \frac{\left| \varphi'(t) \psi''(t) - \varphi''(t) \psi'(t) \right|}{[\varphi'^{\ 2}(t)+\psi'^{\ 2}(t)]^{\frac{3}{2}}} $$<p>曲线 $y=y(x)$ 的曲率中心 </p>
 $$\left\{ \begin{array}{c} \begin{align*} \xi &= x - \dfrac{y'(1+y'^{\ 2})}{y''} \\ \eta &= y + \dfrac{1+y'^{\ 2}}{y''} \end{align*} \end{array} \right.$$<h2 id="一元函数积分学">一元函数积分学
-</h2><h3 id="积分方法">积分方法
+</h2><h3 id="常规积分方法">常规积分方法
 </h3><h4 id="凑微分法">凑微分法
 </h4><ol>
 <li>
@@ -956,7 +960,16 @@ $$\left\{ \begin{array}{c} \begin{align*} \xi &= x - \dfrac{y'(1+y'^{\ 2})}{y''}
 <h4 id="分部积分法">分部积分法
 </h4><p>设 $u(x)$，$v(x)$ 具有连续导数，则有分部积分公式</p>
 $$ \int u(x)v'(x) \mathrm{d}x = u(x)v(x) - \int u'(x)v(x) \mathrm{d}x $$<p>或简记为：$\displaystyle \int u \mathrm{d}v = uv - \int v \mathrm{d}u$</p>
-<h4 id="区间再现法">区间再现法
+<blockquote>
+<p>分部积分法适用情境：</p>
+<ol>
+<li>函数乘积的积分。</li>
+<li>含有对数、反三角函数的积分。</li>
+<li>含有 $\mathrm{e}^x \sin x$ 函数的积分。</li>
+<li>证明递推关系式。</li>
+</ol></blockquote>
+<h3 id="特殊积分方法">特殊积分方法
+</h3><h4 id="区间再现法">区间再现法
 </h4><p>对于周期函数，若知道其周期，可使用区间再现法求定积分。</p>
 <p>例如，若 $f(x+T)=f(x)$，则有</p>
 $$\int_{a}^{a+T} f(x) \mathrm{d}x = \int_{0}^{T} f(x) \mathrm{d}x$$$$\int_{0}^{nT} f(x) \mathrm{d}x = n\int_{0}^{T} f(x) \mathrm{d}x$$<h4 id="组合积分法">组合积分法
@@ -1398,16 +1411,16 @@ $$\frac{a_n}{a_{n+1}} = 1 + \frac{1}{n} + \frac{\beta}{n \ln n} + o\left( \frac{
 </ol>
 <p>设交错级数 $\displaystyle \sum_{n=1}^{\infty} (-1)^{n} a_n$，$a_n &gt;0$，若 $\{a_n\}$ 递减趋于0，则 $\displaystyle \sum_{n=1}^{\infty} (-1)^{n} a_n$ 收敛.</p>
 <ol start="2">
-<li>阿贝尔和狄利克雷判别法</li>
+<li>阿贝尔和狄利克雷判别法 <br>
+(1) 分部求和公式 <br>
+设数列 $\{ a_n \}$和 $\{ b_n \}$，记 $\displaystyle S_k = \sum_{i=1}^{k} a_i$，$S_0 = 0$，则 $$\sum_{k=1}^{n} a_k b_k = \sum_{k=1}^{n-1}S_k(b_k-b_{k+1})+S_n b_n $$
+(2) 阿贝尔引理 <br>
+设数列 $\{b_n \}$ 单调，$\displaystyle S_k = \sum_{i=1}^{k} a_i$，若 $|S_k| \leqslant M (k=1,2,\cdots,n)$，则 $$\left| \sum_{k=1}^{n} a_k b_k  \right|\leqslant  M \left(\left| b_1 \right| + 2 \left| b_n \right| \right)$$
+(3) 狄利克雷判别法 <br>
+设数列 $\{ a_n \}$和 $\{ b_n \}$，记 $\displaystyle S_k = \sum_{i=1}^{k} a_i$，若它们满足：$\{b_n\}$ 单调且 $\displaystyle b_n = 0$，$\{S_k\}$ 有界，则 $\displaystyle \sum_{n=0}^{\infty} a_n b_n $ 收敛. <br>
+(4) 阿贝尔判别法 <br>
+设数列 $\{ a_n \}$和 $\{ b_n \}$ 满足：$\{ b_n \}$ 单调有界，且 $\displaystyle \sum_{n=0}^{\infty} a_n$ 收敛，则 $\displaystyle \sum_{n=0}^{\infty} a_n b_n $ 收敛.</li>
 </ol>
-<p>(1) 分部求和公式</p>
-<p>设数列 $\{ a_n \}$和 $\{ b_n \}$，记 $\displaystyle S_k = \sum_{i=1}^{k} a_i$，$S_0 = 0$，则 </p>
-$$\sum_{k=1}^{n} a_k b_k = \sum_{k=1}^{n-1}S_k(b_k-b_{k+1})+S_n b_n $$<p>(2) 阿贝尔引理</p>
-<p>设数列 $\{b_n \}$ 单调，$\displaystyle S_k = \sum_{i=1}^{k} a_i$，若 $|S_k| \leqslant M (k=1,2,\cdots,n)$，则 </p>
-$$\left| \sum_{k=1}^{n} a_k b_k  \right|\leqslant  M \left(\left| b_1 \right| + 2 \left| b_n \right| \right)$$<p>(3) 狄利克雷判别法</p>
-<p>设数列 $\{ a_n \}$和 $\{ b_n \}$，记 $\displaystyle S_k = \sum_{i=1}^{k} a_i$，若它们满足：$\{b_n\}$ 单调且 $\displaystyle b_n = 0$，$\{S_k\}$ 有界，则 $\displaystyle \sum_{n=0}^{\infty} a_n b_n $ 收敛.</p>
-<p>(4) 阿贝尔判别法</p>
-<p>设数列 $\{ a_n \}$和 $\{ b_n \}$ 满足：$\{ b_n \}$ 单调有界，且 $\displaystyle \sum_{n=0}^{\infty} a_n$ 收敛，则 $\displaystyle \sum_{n=0}^{\infty} a_n b_n $ 收敛.</p>
 <h3 id="幂级数">幂级数
 </h3><h4 id="幂级数的收敛半径">幂级数的收敛半径
 </h4><p>对幂级数 $\displaystyle \sum_{n=0}^{\infty} a_n x^{n}$，</p>
