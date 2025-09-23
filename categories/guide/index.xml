@@ -610,7 +610,7 @@
         
         <guid>https://5882886.github.io/p/nemu-part-1/</guid>
         <description>&lt;blockquote&gt;
-&lt;p&gt;你说得对，但是&lt;code&gt;NEMU&lt;/code&gt;是一个基于X86-64处理器模拟的IA-32操作系统。NEMU运行在一个被称作&lt;code&gt;Docker&lt;/code&gt;的容器，在这里，被容器选中的人将被授予&lt;code&gt;gcc&lt;/code&gt;，导引C语言之力。你将扮演一为名为&lt;code&gt;Debug&lt;/code&gt;的神秘用户，编写众多C语言程序，在调试中找出&lt;code&gt;FATAL&lt;/code&gt;的原因，同时逐步发掘&lt;code&gt;Hit Bad Trap&lt;/code&gt;的真相。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;你说得对，但是&lt;code&gt;NEMU&lt;/code&gt;是一个基于X86-64处理器模拟的IA-32操作系统。NEMU运行在一个被称作&lt;code&gt;Docker&lt;/code&gt;的容器，在这里，被容器选中的人将被授予&lt;code&gt;gcc&lt;/code&gt;，导引C语言之力。你将扮演一位名为&lt;code&gt;Debug&lt;/code&gt;的神秘用户，编写众多C语言程序，在调试中找出&lt;code&gt;FATAL&lt;/code&gt;的原因，同时逐步发掘&lt;code&gt;Hit Bad Trap&lt;/code&gt;的真相。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;center&gt;&lt;strong&gt;&lt;p style=&#34;font-size:32px;&#34;&gt;目标：制作一个32位的操作系统&lt;/p&gt;&lt;/strong&gt;&lt;/center&gt;
 &lt;h2 id=&#34;什么是nemu&#34;&gt;什么是NEMU
 &lt;/h2&gt;&lt;p&gt;在X86-64处理器的机器上模拟一个32位操作系统（&lt;strong&gt;一个用来执行其它程序的程序！&lt;/strong&gt;），它包括4个连贯的实验内容：&lt;/p&gt;
