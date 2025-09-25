@@ -372,7 +372,12 @@
         <li><a href="#向量基本定理">向量基本定理</a></li>
         <li><a href="#用向量表示几何元素">用向量表示几何元素</a></li>
         <li><a href="#用方程表示几何元素">用方程表示几何元素</a></li>
-        <li><a href="#空间中的距离">空间中的距离</a></li>
+        <li><a href="#常见的空间几何问题">常见的空间几何问题</a>
+          <ol>
+            <li><a href="#投影直线的方程">投影直线的方程</a></li>
+            <li><a href="#空间中的距离">空间中的距离</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
     <li><a href="#多元函数微分学">多元函数微分学</a>
@@ -1157,8 +1162,18 @@ $$ \lambda(A_1x+B_1y+C_1z+D_1) + \mu (A_2x+B_2y+C_2z+D_2) = 0 $$<p> 称为平面
 <li>旋转曲面方程 <br>
 坐标面上曲线 $\displaystyle \left\{ \begin{array}{c} F(y,z) = 0 \\  x = 0 \end{array} \right.$ 绕坐标轴（如 $z$ 轴）旋转一周而成的旋转曲面方程：$F(\pm\sqrt{x^2+y^2}, z) = 0$</li>
 </ol>
-<h3 id="空间中的距离">空间中的距离
-</h3><ol>
+<h3 id="常见的空间几何问题">常见的空间几何问题
+</h3><h4 id="投影直线的方程">投影直线的方程
+</h4><p>已知直线 $l: \left\{ \begin{array}{c} A_1x+B_1y+C_1z+D_1=0 \\  A_2x+B_2y+C_2z+D_2=0 \end{array} \right.$，求其在平面 $\varPi: Ax+By+Cz+D=0$ 上的投影直线的方程：</p>
+<figure><img src="/p/math_tips/images/%E6%8A%95%E5%BD%B1%E7%9B%B4%E7%BA%BF.png" width="700"><figcaption>
+      <h4>投影直线</h4>
+    </figcaption>
+</figure>
+
+<p>设平面束方程 $(A_1x+B_1y+C_1z+D_1) + \mu (A_2x+B_2y+C_2z+D_2) = 0$，求出其方向向量 $\bm{n}_1$. 由几何性质可知，过该投影直线的平面应与 $Ax+By+Cz+D=0$ 垂直. 而目标平面法向量为 $\bm{n}_2$，由 $\bm{n}_1 \times \bm{n_2} = 0$ 可解得参数 $\mu$. 则 </p>
+$$\left\{ \begin{array}{c} \begin{align*} & A_1x+B_1y+C_1z+D_1+\mu(A_2x+B_2y+C_2z+D_2)=0 \\ & Ax+By+Cz+D=0 \end{align*} \end{array} \right.$$<p> 即为所求投影直线的方程.</p>
+<h4 id="空间中的距离">空间中的距离
+</h4><ol>
 <li>
 <p>点到平面的距离 <br>
 已知点 $M_0(x_0,y_0,z_0) \notin \varPi$，平面 $\varPi: Ax+By+Cz+D=0$，则有：</p>
@@ -1169,8 +1184,8 @@ $$d = \frac{| Ax_0 + By_0 + Cz_0 + D |}{\sqrt{A^2 + B^2 + C^2}}$$</li>
 $$d = \frac{ |\bm{s} \times \overrightarrow{M_0 M_1} |}{| \bm{s} |}$$</li>
 <li>
 <p>两条异面直线间的距离 <br>
-已知直线 $\displaystyle L_1: \frac{x-x_1}{m_1} + \frac{y-y_1}{n_1} + \frac{z-z_1}{p_1}$，直线 $\displaystyle L_2: \frac{x-x_2}{m_2} + \frac{y-y_2}{n_2} + \frac{z-z_2}{p_2}$，且两直线为异面直线，$M_1(x_1,y_1,z_1) \in L_1$，$M_2(x_2,y_2,z_2) \in L_2$. $\bm{s_1}=(m_1,n_1,p_1)$，$\bm{s_2}=(m_2,n_2,p_2)$. 则有 </p>
-$$d = \frac{|(\bm{s_1} \times \bm{s_2}) \cdot \overrightarrow{M_1 M_2}|}{|\bm{s_1} \times \bm{s_2}|}$$</li>
+已知直线 $\displaystyle L_1: \frac{x-x_1}{m_1} + \frac{y-y_1}{n_1} + \frac{z-z_1}{p_1}$，直线 $\displaystyle L_2: \frac{x-x_2}{m_2} + \frac{y-y_2}{n_2} + \frac{z-z_2}{p_2}$，且两直线为异面直线，$M_1(x_1,y_1,z_1) \in L_1$，$M_2(x_2,y_2,z_2) \in L_2$. $\bm{s}_1=(m_1,n_1,p_1)$，$\bm{s}_2=(m_2,n_2,p_2)$. 则有 </p>
+$$d = \frac{|(\bm{s}_1 \times \bm{s}_2) \cdot \overrightarrow{M_1 M_2}|}{|\bm{s}_1 \times \bm{s}_2|}$$</li>
 </ol>
 <h2 id="多元函数微分学">多元函数微分学
 </h2><h3 id="二重极限">二重极限
@@ -1377,8 +1392,9 @@ $$\oint_{L} P \mathrm{d}x + Q \mathrm{d}y = \iint\limits_{D} \left( \frac{\parti
 </p>
 $$\oiint\limits_{\varSigma} P \mathrm{d}y\mathrm{d}z + Q \mathrm{d}x\mathrm{d}z + R \mathrm{d}x\mathrm{d}y = \iiint\limits_{\varOmega} \left( \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z} \right) \mathrm{d}V $$</li>
 <li>
-<p>斯托克斯公式</p>
-</li>
+<p>斯托克斯公式
+</p>
+$$\begin{align*} \oint_{\varGamma} (P \mathrm{d}x + Q \mathrm{d}y + R \mathrm{d}z) &= \iint\limits_{\varSigma} \left[ \left( \frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z} \right) \mathrm{d}y\mathrm{d}z + \left( \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x} \right) \mathrm{d}z\mathrm{d}x + \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) \mathrm{d}x\mathrm{d}y \right] \\ &= \iint\limits_{\varSigma} \left| \begin{matrix} \mathrm{d}y\mathrm{d}z & \mathrm{d}z\mathrm{d}x & \mathrm{d}x\mathrm{d}y \\\\ \dfrac{\partial}{\partial x} & \dfrac{\partial}{\partial y} & \dfrac{\partial}{\partial z} \\\\ P & Q & R \end{matrix} \right| \end{align*}$$</li>
 </ol>
 <h2 id="级数">级数
 </h2><h3 id="数项级数">数项级数
@@ -1479,7 +1495,7 @@ $$\left| \sum_{k=1}^{n} a_k b_k  \right|\leqslant  M \left(\left| b_1 \right| + 
 <li>
 <p>阿贝尔定理 <br>
 若在 $x_0 \ne 0$ 处收敛，则它对一切 $\left| x \right| &lt; \left| x_0 \right|$ 绝对收敛；<br>
-若在 $x_1 \ne 0$ 处发散，则它对一切 $\left| x \right| &gt; \left| x_1 \right|$ 绝对收敛；<br>
+若在 $x_1 \ne 0$ 处发散，则它对一切 $\left| x \right| &gt; \left| x_1 \right|$ 发散；<br>
 $R = \left| x_0 \right|$ 称为幂级数 $\displaystyle \sum_{n=0}^{\infty} a_n x^{n}$ 的收敛半径.</p>
 </li>
 <li>
