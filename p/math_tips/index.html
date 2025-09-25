@@ -372,6 +372,7 @@
         <li><a href="#向量基本定理">向量基本定理</a></li>
         <li><a href="#用向量表示几何元素">用向量表示几何元素</a></li>
         <li><a href="#用方程表示几何元素">用方程表示几何元素</a></li>
+        <li><a href="#空间中的距离">空间中的距离</a></li>
       </ol>
     </li>
     <li><a href="#多元函数微分学">多元函数微分学</a>
@@ -448,6 +449,7 @@
     <li><a href="#小知识">小知识</a>
       <ol>
         <li><a href="#斐波那契数列">斐波那契数列</a></li>
+        <li><a href="#坐标旋转变换">坐标旋转变换</a></li>
       </ol>
     </li>
   </ol>
@@ -746,7 +748,7 @@ $$ f(x) = \sum_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!}(x - x_0)^k + \frac{f^{(n+1)}(\x
 <ul>
 <li>柯西收敛准则</li>
 </ul>
-<p>数列 $\{u_n\}$ 的极限存在 $\Leftrightarrow$ $\forall \epsilon &gt; 0, \exist N &gt; 0$，使得当 $n &gt; N(\varepsilon)$ 时，对任意的正整数 $p$，有 $| u_{n+p}-u_{n} |  &lt; \varepsilon$ 恒成立.</p>
+<p>数列 $\{u_n\}$ 的极限存在 $\Leftrightarrow$ $\forall \varepsilon &gt; 0, \exist N &gt; 0$，使得当 $n &gt; N(\varepsilon)$ 时，对任意的正整数 $p$，有 $| u_{n+p}-u_{n} | &lt; \varepsilon$ 恒成立.</p>
 <h2 id="一元函数微分学">一元函数微分学
 </h2><h3 id="求导方法">求导方法
 </h3><ol>
@@ -846,9 +848,9 @@ $$ \left\{ \begin{array}{c} u=f(x) \\ v=g(x) \\ \end{array} \right. $$<p> 可以
 ② $\displaystyle \frac{f'(\xi)}{g'(\xi)}$ 表示曲线上某点切线的斜率.<br>
 柯西中值定理可理解为：用参数方程表示的曲线上至少有一点，在这一点处的切线平行于连接两个端点的弦. <br></p></blockquote>
 <ol start="5">
-<li><strong>泰勒中值定理</strong>：如果函数 $f(x)$ 在含有 $x_0$ 的某个开区间 $(a,b)$ 内具有直到 $n+1$ 阶的导数，则当 $x \in (a,b)$ 时，$f(x)$ 可表示为：</li>
+<li><strong>泰勒中值定理</strong>：如果函数 $f(x)$ 在含有 $x_0$ 的某个开区间 $(a,b)$ 内具有直到 $n+1$ 阶的导数，则当 $x \in (a,b)$ 时，$f(x)$ 可表示为：
+$$f(x) = f(x_0) + f'(x_0)(x-x_0) + \frac{1}{2!} f''(x_0)(x-x_0)^2 + \cdots + \frac{1}{n!}f^{(n)}(x_0)(x-x_0)^n + R_n(x)$$ 其中 $\displaystyle R_n(x) = \frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}$，$\xi$ 介于 $x_0$ 和 $x$ 之间.</li>
 </ol>
-$$f(x) = f(x_0) + f'(x_0)(x-x_0) + \frac{1}{2!} f''(x_0)(x-x_0)^2 + \cdots + \frac{1}{n!}f^{(n)}(x_0)(x-x_0)^n + R_n(x)$$<p>其中 $\displaystyle R_n(x) = \frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}$，$\xi$ 介于 $x_0$ 和 $x$ 之间.</p>
 <blockquote>
 <p>出现二阶及以上导数时可考虑使用泰勒中值定理.</p></blockquote>
 <h3 id="导数的应用">导数的应用
@@ -996,6 +998,11 @@ $$I(m,n) = \int_{0}^{\frac{\pi}{2}} \sin^{m}x \cos^{n}x \mathrm{d}x = \left\{ \b
 </h4><p>设 $f(x)$ 在 $[0,+\infty)$ 上连续，且 $\displaystyle \int_{A}^{+\infty} \frac{f(x)}{x} \mathrm{d}x$ 收敛，其中常数 $A &gt; 0$，则有 </p>
 $$\int_{0}^{+\infty} \frac{f(ax)-f(bx)}{x} \mathrm{d}x = f(0) \ln \frac{b}{a} \quad (a < b < c) $$<h4 id="柯西积分不等式">柯西积分不等式
 </h4>$$\left[ \int_{a}^{b} f(x)g(x) \mathrm{d}x \right]^{2} \leqslant \int_{a}^{b} f^{2}(x) \mathrm{d}x \int_{a}^{b} g^{2}(x) \mathrm{d}x $$<p>  其中 $f(x)$，$g(x)$ 均为 $[a,b]$ 上的连续函数.</p>
+<p><a class="link" href="/p/math_quiz/#%e8%af%81%e6%98%8e%e6%9f%af%e8%a5%bf%e7%a7%af%e5%88%86%e4%b8%8d%e7%ad%89%e5%bc%8f" >证明过程
+    
+    
+
+</a></p>
 <h3 id="定积分的应用">定积分的应用
 </h3><h4 id="曲线的弧长">曲线的弧长
 </h4><p>参数方程 </p>
@@ -1146,6 +1153,25 @@ $$ \lambda(A_1x+B_1y+C_1z+D_1) + \mu (A_2x+B_2y+C_2z+D_2) = 0 $$<p> 称为平面
       </tr>
   </tbody>
 </table></div>
+<ol start="4">
+<li>旋转曲面方程 <br>
+坐标面上曲线 $\displaystyle \left\{ \begin{array}{c} F(y,z) = 0 \\  x = 0 \end{array} \right.$ 绕坐标轴（如 $z$ 轴）旋转一周而成的旋转曲面方程：$F(\pm\sqrt{x^2+y^2}, z) = 0$</li>
+</ol>
+<h3 id="空间中的距离">空间中的距离
+</h3><ol>
+<li>
+<p>点到平面的距离 <br>
+已知点 $M_0(x_0,y_0,z_0) \notin \varPi$，平面 $\varPi: Ax+By+Cz+D=0$，则有：</p>
+$$d = \frac{| Ax_0 + By_0 + Cz_0 + D |}{\sqrt{A^2 + B^2 + C^2}}$$</li>
+<li>
+<p>点到直线的距离 <br>
+已知点 $M_0(x_0,y_0,z_0)$ ，直线 $\displaystyle L: \frac{x-x_1}{m} + \frac{y-y_1}{n} + \frac{z-z_1}{p}$，$M_1(x_1,y_1,z_1) \in L$，$\bm{s}=(m,n,p)$，则有 </p>
+$$d = \frac{ |\bm{s} \times \overrightarrow{M_0 M_1} |}{| \bm{s} |}$$</li>
+<li>
+<p>两条异面直线间的距离 <br>
+已知直线 $\displaystyle L_1: \frac{x-x_1}{m_1} + \frac{y-y_1}{n_1} + \frac{z-z_1}{p_1}$，直线 $\displaystyle L_2: \frac{x-x_2}{m_2} + \frac{y-y_2}{n_2} + \frac{z-z_2}{p_2}$，且两直线为异面直线，$M_1(x_1,y_1,z_1) \in L_1$，$M_2(x_2,y_2,z_2) \in L_2$. $\bm{s_1}=(m_1,n_1,p_1)$，$\bm{s_2}=(m_2,n_2,p_2)$. 则有 </p>
+$$d = \frac{|(\bm{s_1} \times \bm{s_2}) \cdot \overrightarrow{M_1 M_2}|}{|\bm{s_1} \times \bm{s_2}|}$$</li>
+</ol>
 <h2 id="多元函数微分学">多元函数微分学
 </h2><h3 id="二重极限">二重极限
 </h3><p>常用方法：</p>
@@ -1359,72 +1385,92 @@ $$\oiint\limits_{\varSigma} P \mathrm{d}y\mathrm{d}z + Q \mathrm{d}x\mathrm{d}z 
 </h3><h4 id="数项级数收敛的条件">数项级数收敛的条件
 </h4><p>若 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛，则 $\displaystyle \lim_{n \to \infty} a_n = 0$；反之，若 $\displaystyle \lim_{n \to \infty} a_n \ne 0$，则 $\displaystyle \sum_{n=1}^{\infty} a_n $ 发散，</p>
 <h4 id="基本数项级数">基本数项级数
-</h4><ol>
-<li>
-<p>几何级数：$\displaystyle \sum_{n=0}^{\infty} q^{n} $，当 $|q|&lt;1$ 时收敛，和 $\displaystyle S = \frac{1}{1-q}$.</p>
-</li>
-<li>
-<p>$p$ 级数：$\displaystyle \sum_{n=0}^{\infty} \frac{1}{n^{p}} $，当 $p&gt;1$ 时收敛；当 $p \leqslant 1$ 时发散.</p>
-</li>
-<li>
-<p>调和级数：$\displaystyle \sum_{n=1}^{\infty} \frac{1}{n}$ 发散.</p>
-</li>
-</ol>
+</h4><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>级数</th>
+          <th>形式</th>
+          <th>收敛条件</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>几何级数</td>
+          <td>$\displaystyle \sum_{n=0}^{\infty} q^{n} $</td>
+          <td>当 $|q|&lt;1$ 时收敛，和 $\displaystyle S = \frac{1}{1-q}$</td>
+      </tr>
+      <tr>
+          <td>$p$ 级数</td>
+          <td>$\displaystyle \sum_{n=0}^{\infty} \frac{1}{n^{p}} $</td>
+          <td>当 $p&gt;1$ 时收敛；当 $p \leqslant 1$ 时发散</td>
+      </tr>
+      <tr>
+          <td>调和级数</td>
+          <td>$\displaystyle \sum_{n=1}^{\infty} \frac{1}{n}$</td>
+          <td>发散</td>
+      </tr>
+  </tbody>
+</table></div>
 <h4 id="正项级数收敛的判断">正项级数收敛的判断
 </h4><ol>
-<li>比较判别法</li>
+<li>比较判别法 <br>
+设 $\exists N$，当 $n&gt;N$ 时，$0 \leqslant a_n \leqslant b_n$，若 $\displaystyle \sum_{n=1}^{\infty} b_n$ 收敛，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；若 $\displaystyle \sum_{n=1}^{\infty} a_n$ 发散，则 $\displaystyle \sum_{n=1}^{\infty} b_n$ 发散.</li>
 </ol>
-<p>设 $\exists N$，当 $n&gt;N$ 时，$0 \leqslant a_n \leqslant b_n$，若 $\displaystyle \sum_{n=1}^{\infty} b_n$ 收敛，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；若 $\displaystyle \sum_{n=1}^{\infty} a_n$ 发散，则 $\displaystyle \sum_{n=1}^{\infty} b_n$ 发散.</p>
 <blockquote>
 <p>极限形式：对两个正项级数 $\displaystyle \sum_{n=1}^{\infty} a_n$ 和 $\displaystyle \sum_{n=1}^{\infty} b_n$，设 $\displaystyle \lim_{n \to \infty} \frac{a_n}{b_n} = l$，若 $0&lt;l&lt;+\infty$，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 和 $\displaystyle \sum_{n=1}^{\infty} b_n$ 同敛散.</p></blockquote>
 <blockquote>
 <p>推论：设 $a_n \geqslant 0$，$b_n \geqslant 0$，若 $n \geqslant n_0$ 时有 $\displaystyle \frac{a_{n+1}}{a_{n}} \leqslant \frac{b_{n+1}}{b_{n}}$，则有：若$\displaystyle \sum_{n=1}^{\infty} b_n$ 收敛，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；若 $\displaystyle \sum_{n=1}^{\infty} a_n$ 发散，则 $\displaystyle \sum_{n=1}^{\infty} b_n$ 发散.</p></blockquote>
 <ol start="2">
-<li>比值判别法</li>
+<li>比值判别法 <br>
+设 $a_n&gt;0$，$n=1,2,\cdots$. 当 $n \geqslant n_0$ 时，若 $\displaystyle \frac{a_{n+1}}{a_n} \leqslant q &lt; 1$，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；若 $\displaystyle \frac{a_{n+1}}{a_n} \geqslant 1$，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 发散.</li>
 </ol>
-<p>设 $a_n&gt;0$，$n=1,2,\cdots$. 当 $n \geqslant n_0$ 时，若 $\displaystyle \frac{a_{n+1}}{a_n} \leqslant q &lt; 1$，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；若 $\displaystyle \frac{a_{n+1}}{a_n} \geqslant 1$，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 发散.</p>
 <blockquote>
 <p>极限形式：若 $\displaystyle \lim_{n \to \infty} \frac{a_{n+1}}{a_n} = q$，则当 $q&lt;1$ 时，$\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；当 $q&gt;1$ 时，$\displaystyle \sum_{n=1}^{\infty} a_n$ 发散.</p></blockquote>
 <ol start="3">
-<li>根值判别法</li>
+<li>根值判别法 <br>
+设 $a_n \geqslant 0$，若 $\exists N \in \textbf{N}$，使得 $n&gt;N$ 时，有 $\sqrt[n]{a_n} \leqslant q &lt; 1$，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；若对无穷多个 $n$，有 $\sqrt[n]{a_n} \geqslant 1$，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 发散.</li>
 </ol>
-<p>设 $a_n \geqslant 0$，若 $\exists N \in \textbf{N}$，使得 $n&gt;N$ 时，有 $\sqrt[n]{a_n} \leqslant q &lt; 1$，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；若对无穷多个 $n$，有 $\sqrt[n]{a_n} \geqslant 1$，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 发散.</p>
 <blockquote>
 <p>极限形式：若 $\displaystyle \lim_{n \to \infty} \sqrt[n]{a_n} = q$，则当 $q&lt;1$ 时，$\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；$q&gt;1$ 时，$\displaystyle \sum_{n=1}^{\infty} a_n$ 发散.</p></blockquote>
 <ol start="4">
-<li>积分判别法</li>
+<li>
+<p>积分判别法 <br>
+设 $x \geqslant 1$ 时，$f(x) \geqslant 0$ 且单调递减，则无穷级数 $\displaystyle \sum_{n=1}^{\infty} f(n)$ 与无穷积分 $\displaystyle \int_{1}^{\infty} f(x) \mathrm{d}x $ 同敛散.</p>
+</li>
+<li>
+<p>Rabbe判别法 <br>
+设 $a_n &gt; 0$，$n=1,2,\cdots$. <br>
+①若 $n &gt; n_0$ 时，$\displaystyle n \left( \frac{a_n}{a_{n+1}} - 1 \right) \leqslant 1$，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 发散. <br>
+②若 $n &gt; n_0$ 时，$\displaystyle n \left( \frac{a_n}{a_{n+1}} - 1 \right) \geqslant r &gt; 1$，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛.</p>
+</li>
 </ol>
-<p>设 $x \geqslant 1$ 时，$f(x) \geqslant 0$ 且单调递减，则无穷级数 $\displaystyle \sum_{n=1}^{\infty} f(n)$ 与无穷积分 $\displaystyle \int_{1}^{\infty} f(x) \mathrm{d}x $ 同敛散.</p>
-<ol start="5">
-<li>Rabbe判别法</li>
-</ol>
-<p>设 $a_n &gt; 0$，$n=1,2,\cdots$.</p>
-<p>①若 $n &gt; n_0$ 时，$\displaystyle n \left( \frac{a_n}{a_{n+1}} - 1 \right) \leqslant 1$，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 发散.</p>
-<p>②若 $n &gt; n_0$ 时，$\displaystyle n \left( \frac{a_n}{a_{n+1}} - 1 \right) \geqslant r &gt; 1$，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛.</p>
 <blockquote>
 <p>极限形式：若 $\displaystyle \lim_{n \to \infty} n \left( \frac{a_n}{a_{n+1}}-1 \right) = l$，则当 $l&gt;1$ 时，级数 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；当 $l&lt;1$ 时，级数 $\displaystyle \sum_{n=1}^{\infty} a_n$ 发散.</p></blockquote>
 <ol start="6">
-<li>Gauss判别法</li>
+<li>Gauss判别法 <br>
+设 $a_n &gt; 0$，满足 $$\frac{a_n}{a_{n+1}} = 1 + \frac{1}{n} + \frac{\beta}{n \ln n} + o\left( \frac{1}{n \ln n} \right)，n \to \infty$$ 则当 $\beta &gt; 1$ 时 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；当 $\beta &lt; 1$ 时 $\displaystyle \sum_{n=1}^{\infty} a_n$ 发散.</li>
 </ol>
-<p>设 $a_n &gt; 0$，满足 </p>
-$$\frac{a_n}{a_{n+1}} = 1 + \frac{1}{n} + \frac{\beta}{n \ln n} + o\left( \frac{1}{n \ln n} \right)，n \to \infty$$<p> 则当 $\beta &gt; 1$ 时 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；当 $\beta &lt; 1$ 时 $\displaystyle \sum_{n=1}^{\infty} a_n$ 发散.</p>
 <blockquote>
 <p>极限形式：若 $\displaystyle \lim_{n \to \infty} n \ln n \left( \frac{a_n}{a_{n+1}}-1 - \frac{1}{n} \right) = \beta$，则当 $\beta&gt;1$ 时，级数 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；当 $\beta&lt;1$ 时，级数 $\displaystyle \sum_{n=1}^{\infty} a_n$ 发散.</p></blockquote>
 <h4 id="一般级数收敛的判断">一般级数收敛的判断
 </h4><ol>
-<li>莱布尼茨判别法</li>
-</ol>
-<p>设交错级数 $\displaystyle \sum_{n=1}^{\infty} (-1)^{n} a_n$，$a_n &gt;0$，若 $\{a_n\}$ 递减趋于0，则 $\displaystyle \sum_{n=1}^{\infty} (-1)^{n} a_n$ 收敛.</p>
-<ol start="2">
-<li>阿贝尔和狄利克雷判别法 <br>
+<li>
+<p>莱布尼茨判别法 <br>
+设交错级数 $\displaystyle \sum_{n=1}^{\infty} (-1)^{n} a_n$，$a_n &gt;0$，若 $\{a_n\}$ 递减趋于0，则 $\displaystyle \sum_{n=1}^{\infty} (-1)^{n} a_n$ 收敛.</p>
+</li>
+<li>
+<p>阿贝尔和狄利克雷判别法 <br>
 (1) 分部求和公式 <br>
-设数列 $\{ a_n \}$和 $\{ b_n \}$，记 $\displaystyle S_k = \sum_{i=1}^{k} a_i$，$S_0 = 0$，则 $$\sum_{k=1}^{n} a_k b_k = \sum_{k=1}^{n-1}S_k(b_k-b_{k+1})+S_n b_n $$
+设数列 $\{ a_n \}$和 $\{ b_n \}$，记 $\displaystyle S_k = \sum_{i=1}^{k} a_i$，$S_0 = 0$，则 </p>
+$$\sum_{k=1}^{n} a_k b_k = \sum_{k=1}^{n-1}S_k(b_k-b_{k+1})+S_n b_n $$<p>
 (2) 阿贝尔引理 <br>
-设数列 $\{b_n \}$ 单调，$\displaystyle S_k = \sum_{i=1}^{k} a_i$，若 $|S_k| \leqslant M (k=1,2,\cdots,n)$，则 $$\left| \sum_{k=1}^{n} a_k b_k  \right|\leqslant  M \left(\left| b_1 \right| + 2 \left| b_n \right| \right)$$
+设数列 $\{b_n \}$ 单调，$\displaystyle S_k = \sum_{i=1}^{k} a_i$，若 $|S_k| \leqslant M (k=1,2,\cdots,n)$，则 </p>
+$$\left| \sum_{k=1}^{n} a_k b_k  \right|\leqslant  M \left(\left| b_1 \right| + 2 \left| b_n \right| \right)$$<p>
 (3) 狄利克雷判别法 <br>
 设数列 $\{ a_n \}$和 $\{ b_n \}$，记 $\displaystyle S_k = \sum_{i=1}^{k} a_i$，若它们满足：$\{b_n\}$ 单调且 $\displaystyle b_n = 0$，$\{S_k\}$ 有界，则 $\displaystyle \sum_{n=0}^{\infty} a_n b_n $ 收敛. <br>
 (4) 阿贝尔判别法 <br>
-设数列 $\{ a_n \}$和 $\{ b_n \}$ 满足：$\{ b_n \}$ 单调有界，且 $\displaystyle \sum_{n=0}^{\infty} a_n$ 收敛，则 $\displaystyle \sum_{n=0}^{\infty} a_n b_n $ 收敛.</li>
+设数列 $\{ a_n \}$和 $\{ b_n \}$ 满足：$\{ b_n \}$ 单调有界，且 $\displaystyle \sum_{n=0}^{\infty} a_n$ 收敛，则 $\displaystyle \sum_{n=0}^{\infty} a_n b_n $ 收敛.</p>
+</li>
 </ol>
 <h3 id="幂级数">幂级数
 </h3><h4 id="幂级数的收敛半径">幂级数的收敛半径
@@ -1520,7 +1566,22 @@ $$\bm{\xi}_{1} = \left[\begin{array}{c}  1 \\    -\lambda_{2} \end{array}\right]
 $$\bm{A} = \bm{T} \left[\begin{matrix}  \lambda_1 & \\ & \lambda_2 \\  \end{matrix}\right] \bm{T}^{-1} $$<p>于是
 </p>
 $$\begin{align*} \bm{A}^{n} &= \bm{T} \left[\begin{matrix} \lambda_{1}^{n} & \\ & \lambda_{2}^{n} \\ \end{matrix}\right] \bm{T}^{-1} = \left[\begin{matrix} 1& 1 \\ -\lambda_{2}& -\lambda_{1} \\ \end{matrix}\right] \left[\begin{matrix} \lambda_{1}^{n}& \\ & \lambda_{2}^{n} \\ \end{matrix}\right]  \left[\begin{matrix} 1& 1 \\ -\lambda_{2}& -\lambda_{1} \\ \end{matrix}\right]^{-1} \\ &= \frac{1}{\sqrt{5}} \left[\begin{matrix} \lambda_{2}^{n+1} - \lambda_{1}^{n+1}& \lambda_{2}^{n}-  \lambda_{1}^{n} \\ \lambda_{2}^{n}-  \lambda_{1}^{n}& \lambda_{2}^{n-1} - \lambda_{1}^{n-1} \\ \end{matrix}\right] \end{align*}$$<p>最后将 $ \bm{A}^{n} $ 代入 $\boldsymbol{D}_n = \boldsymbol{A}^{n} \boldsymbol{D}_0$. 并注意到 $\boldsymbol{D}_0 = [1,1]^{\mathrm{T}} $ 且 $\lambda_1$ 与 $\lambda_2$ 是 $\lambda^{2} = \lambda + 1$ 的根，即得</p>
-$$ F_{n} = \frac{1}{\sqrt{5}} \left[\left(\frac{1+\sqrt{5}}{2}\right)^{n+1} - \left(\frac{1-\sqrt{5}}{2}\right)^{n+1} \right] $$
+$$ F_{n} = \frac{1}{\sqrt{5}} \left[\left(\frac{1+\sqrt{5}}{2}\right)^{n+1} - \left(\frac{1-\sqrt{5}}{2}\right)^{n+1} \right] $$<h3 id="坐标旋转变换">坐标旋转变换
+</h3><p>空间直角坐标系如果其原点不动，绕着某一个轴旋转而构成新的坐标系，这个过程就叫做坐标旋转。新旧坐标之间存在一定的转换关系，可以用旋转矩阵表示。</p>
+<p>设坐标系 $Oxyz$ 绕 $z$ 轴逆时针（向着 $z$ 轴正方向看）旋转 $\theta$ 角，新坐标为 $(x', y', z')$。易知 $z$ 分量不变，简化为在 $xOy$ 平面讨论：</p>
+<figure><img src="/p/math_tips/images/%E5%9D%90%E6%A0%87%E6%97%8B%E8%BD%AC%E5%8F%98%E6%8D%A2.png" width="700"><figcaption>
+      <h4>坐标旋转变换</h4>
+    </figcaption>
+</figure>
+
+<p>点 $M_x$ 和点 $M_{x'}$ 分别是点 $M$ 在 $x$ 轴和 $x'$ 轴下的投影。则有：</p>
+$$\begin{align*} & \left\{ \begin{array}{c} x = OM_x = OM \cos \angle MOM_x = OM \cos(\varphi-\theta) \\ y = MM_x = OM \sin \angle MOM_x = OM \sin(\varphi-\theta) \end{array} \right. \tag{1} \\ \\ & \left\{ \begin{array}{c} x' = OM_{x'} = OM \cos \angle MOM_{x'} = OM \cos\varphi \\ y' = MM_{x'} = OM \sin \angle MOM_{x'} = OM \sin\varphi \end{array} \right. \tag{2} \end{align*}$$<p>把（1）式按照三角函数展开得：</p>
+$$\left\{ \begin{array}{c} x = OM \cos\varphi\cos\theta + OM \sin\varphi\sin\theta \\ y = OM \sin\varphi\cos\theta - OM \cos\varphi\sin\theta \end{array} \right.$$<p>把（2）式代入（3）式得：</p>
+$$\left\{ \begin{align*} x &= x'\cos\theta + y'\sin\theta \\ y &= -x'\sin\theta + y'\cos\theta \end{align*} \right. $$<p>坐标中的 $z$ 分量不变，即 $z=z'$。这样坐标变换可写成如下形式：</p>
+$$\left\{ \begin{align*} x &= x'\cos\theta + y'\sin\theta \\ y &= -x'\sin\theta + y'\cos\theta \\ z &= z' \end{align*} \right.$$<p>将其用矩阵表示为：</p>
+$$\left[ \begin{array}{c} x \\ y \\ z \end{array} \right] = \bm{R}_Z(\bm{\theta}) \left[ \begin{array}{c} x' \\ y' \\ z' \end{array} \right] $$<p>其中 </p>
+$$\bm{R}_Z(\bm{\theta}) = \left[ \begin{matrix} \cos\theta & \sin\theta & 0 \\ -\sin\theta & \cos\theta &  0 \\ 0 & 0 & 1 \end{matrix} \right] $$<p>同理可知 </p>
+$$\bm{R}_X(\bm{\theta}) = \left[ \begin{matrix} 1 & 0 & 0 \\ 0 & \cos\theta &  \sin\theta \\ 0 & -\sin\theta & \cos\theta \end{matrix} \right]，\bm{R}_Y(\bm{\theta}) = \left[ \begin{matrix} \cos\theta & 0 & -\sin\theta \\ 0 & 1 & 0 \\ \sin\theta & 0 & \cos\theta \end{matrix} \right]$$
 </section>
 
 

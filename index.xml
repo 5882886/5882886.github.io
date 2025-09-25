@@ -317,7 +317,18 @@
 &lt;li&gt;add指令&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;实现浮点数定点化&#34;&gt;实现浮点数定点化
-&lt;/h2&gt;&lt;p&gt;在&lt;code&gt;lib-common/FLOAT.h&lt;/code&gt;中定义定点数与整型的基本运算：&lt;/p&gt;
+&lt;/h2&gt;&lt;h3 id=&#34;什么是定点化&#34;&gt;什么是定点化
+&lt;/h3&gt;&lt;p&gt;我们约定最高位为符号位，接下来的15位表示整数部分，低16位表示小数部分，即约定小数点在第15和第16位之间（从第0位开始）。从这个约定可以看到，&lt;code&gt;FLOAT&lt;/code&gt;类型其实是实数的一种定点表示。&lt;/p&gt;
+&lt;p&gt;更通俗的解释是：定点化数的小数点位置是固定的；或者说，定点化数的小数位数是确定的。&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-2/details/%E5%AE%9A%E7%82%B9%E6%95%B0.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;定点数&lt;/h4&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;由这个定义，可以得出以下结论：&lt;/p&gt;
+&lt;p&gt;对于一个实数a，它的&lt;code&gt;FLOAT&lt;/code&gt;类型表示&lt;code&gt;A = a * 2^16 = a &amp;lt;&amp;lt; 16&lt;/code&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;定点数的运算&#34;&gt;定点数的运算
+&lt;/h3&gt;&lt;p&gt;在&lt;code&gt;lib-common/FLOAT.h&lt;/code&gt;中定义定点数与整型的基本运算：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;kr&#34;&gt;inline&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;F2int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;FLOAT&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;c1&#34;&gt;// 将定点数转换为整型
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
@@ -353,6 +364,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;将浮点数转化为定点数&lt;/li&gt;
 &lt;/ol&gt;
+&lt;p&gt;回忆浮点数的计算公式：对于一段32位长的浮点数编码，它对应的浮点数值为：$V = (-1)^s \times M \times 2^E$&lt;/p&gt;
+&lt;p&gt;其中 $E = 1 - bias$，$M = 1 + f$&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;FLOAT&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;f2F&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;float&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;cm&#34;&gt;/* You should figure out how to convert `a&amp;#39; into FLOAT without
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;	 * introducing x87 floating point instructions. Else you can
@@ -366,23 +379,28 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;Float&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;temp&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;val&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;uint32_t&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;temp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;val&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;uint32_t&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;temp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;     &lt;span class=&#34;c1&#34;&gt;// 联合体val接收IEEE编码
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;kt&#34;&gt;uint32_t&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;m&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;m&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;23&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;	&lt;span class=&#34;c1&#34;&gt;// 为尾数位添加1
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;c1&#34;&gt;// 计算偏置值
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;bias&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;127&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;23&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;c1&#34;&gt;// 计算偏移量
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;shift&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;e&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;127&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;23&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;c1&#34;&gt;// 对m执行偏移操作
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;bias&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;n&#34;&gt;m&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;bias&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;shift&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;n&#34;&gt;m&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;shift&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;n&#34;&gt;m&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;bias&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;n&#34;&gt;m&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;shift&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;__sign&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;val&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;?&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;nl&#34;&gt;m&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-2/details/%E6%B5%AE%E7%82%B9%E6%95%B0%E8%BD%AC%E5%AE%9A%E7%82%B9%E6%95%B0.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;浮点数转定点数&lt;/h4&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;ol start=&#34;3&#34;&gt;
 &lt;li&gt;
 &lt;p&gt;实现定点数的运算&lt;/p&gt;
 &lt;/li&gt;
@@ -391,8 +409,54 @@
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;为简易调试器增加变量支持&#34;&gt;为简易调试器增加变量支持
-&lt;/h2&gt;&lt;h2 id=&#34;实现kernel加载&#34;&gt;实现kernel加载
-&lt;/h2&gt;</description>
+&lt;/h2&gt;&lt;p&gt;在&lt;code&gt;nemu/src/monitor/debug/elf.c&lt;/code&gt;文件中：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//sym是我们需要匹配的符号名称，success指针用于设置是否匹配成功
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;uint32_t&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;look_up_symtab&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sym&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;//遍历符号表逐个匹配符号
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;nr_symtab_entry&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;c1&#34;&gt;//逐个提取符号信息中的符号类别
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;kt&#34;&gt;uint8_t&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;type&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;ELF32_ST_TYPE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;symtab&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;].&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;st_info&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;c1&#34;&gt;//当遇到类别为FUNC或者OBJECT时候匹配符号名
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;type&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;STT_FUNC&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;||&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;type&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;STT_OBJECT&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;strcmp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;strtab&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;symtab&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;].&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;st_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sym&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;c1&#34;&gt;//匹配成功后返回符号的地址
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;symtab&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;].&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;st_value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nf&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;No sym found&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;实现kernel加载&#34;&gt;实现kernel加载
+&lt;/h2&gt;&lt;p&gt;kernel/src/elf/elf.c&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;cm&#34;&gt;/* TODO: fix the magic number with the correct one */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;//修改为elf文件的魔数
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;k&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;uint32_t&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;elf_magic&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;0x464c457f&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;kt&#34;&gt;uint32_t&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p_magic&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;buf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;nf&#34;&gt;nemu_assert&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p_magic&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;elf_magic&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;cm&#34;&gt;/* Load each program segment */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;//初始化ph指向program header开头，buf指向elf文件的开头，e_phoff为program header偏移量
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;ph&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;buf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;elf&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;e_phoff&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;//eph指向program header的末尾，e_phnum为program header中segment的数量
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;//遍历program header表，加载需要加载的segment
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Elf32_Phdr&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;eph&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ph&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;elf&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;e_phnum&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ph&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;eph&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ph&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;cm&#34;&gt;/* Scan the program header table, load each segment into memory */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ph&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p_type&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;PT_LOAD&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;kt&#34;&gt;uint32_t&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;addr&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ph&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p_vaddr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//存储segment加载到的目标地址
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;			&lt;span class=&#34;cm&#34;&gt;/* TODO: read the content of the segment from the ELF file 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;			 * to the memory region [VirtAddr, VirtAddr + FileSiz)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;			 */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;c1&#34;&gt;//利用函数从当前segment中读取filesiz大小的数据到目标地址
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;         &lt;span class=&#34;nf&#34;&gt;ramdisk_read&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;addr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ELF_OFFSET_IN_DISK&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ph&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p_offset&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ph&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p_filesz&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;			
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;			&lt;span class=&#34;cm&#34;&gt;/* TODO: zero the memory region 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;			 * [VirtAddr + FileSiz, VirtAddr + MemSiz)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;			 */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;         &lt;span class=&#34;c1&#34;&gt;//通过函数将未初始化的数据置0
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;         &lt;span class=&#34;nf&#34;&gt;memset&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;addr&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ph&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p_filesz&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ph&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p_memsz&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ph&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p_filesz&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
         </item>
         <item>
         <title>NEMU-PART II Pre</title>
@@ -610,7 +674,7 @@
         
         <guid>https://5882886.github.io/p/nemu-part-1/</guid>
         <description>&lt;blockquote&gt;
-&lt;p&gt;你说得对，但是&lt;code&gt;NEMU&lt;/code&gt;是一个基于X86-64处理器模拟的IA-32操作系统。NEMU运行在一个被称作&lt;code&gt;Docker&lt;/code&gt;的容器，在这里，被容器选中的人将被授予&lt;code&gt;gcc&lt;/code&gt;，导引C语言之力。你将扮演一位名为&lt;code&gt;Debug&lt;/code&gt;的神秘用户，编写众多C语言程序，在调试中找出&lt;code&gt;FATAL&lt;/code&gt;的原因，同时逐步发掘&lt;code&gt;Hit Bad Trap&lt;/code&gt;的真相。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;你说得对，但是&lt;code&gt;NEMU&lt;/code&gt;是一个基于X86-64处理器模拟的IA-32操作系统。NEMU运行在一个被称作&lt;code&gt;Docker&lt;/code&gt;的容器，在这里，被容器选中的人将被授予&lt;code&gt;gcc&lt;/code&gt;，导引C语言之力。你将扮演一位名为&lt;code&gt;Debug&lt;/code&gt;的神秘用户，编写众多C语言程序，在调试中找出&lt;code&gt;FAIL&lt;/code&gt;的原因，同时逐步发掘&lt;code&gt;Hit Bad Trap&lt;/code&gt;的真相。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;center&gt;&lt;strong&gt;&lt;p style=&#34;font-size:32px;&#34;&gt;目标：制作一个32位的操作系统&lt;/p&gt;&lt;/strong&gt;&lt;/center&gt;
 &lt;h2 id=&#34;什么是nemu&#34;&gt;什么是NEMU
 &lt;/h2&gt;&lt;p&gt;在X86-64处理器的机器上模拟一个32位操作系统（&lt;strong&gt;一个用来执行其它程序的程序！&lt;/strong&gt;），它包括4个连贯的实验内容：&lt;/p&gt;
@@ -2064,7 +2128,7 @@ $$ f(x) = \sum_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!}(x - x_0)^k + \frac{f^{(n+1)}(\x
 &lt;ul&gt;
 &lt;li&gt;柯西收敛准则&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;数列 $\{u_n\}$ 的极限存在 $\Leftrightarrow$ $\forall \epsilon &amp;gt; 0, \exist N &amp;gt; 0$，使得当 $n &amp;gt; N(\varepsilon)$ 时，对任意的正整数 $p$，有 $| u_{n+p}-u_{n} |  &amp;lt; \varepsilon$ 恒成立.&lt;/p&gt;
+&lt;p&gt;数列 $\{u_n\}$ 的极限存在 $\Leftrightarrow$ $\forall \varepsilon &amp;gt; 0, \exist N &amp;gt; 0$，使得当 $n &amp;gt; N(\varepsilon)$ 时，对任意的正整数 $p$，有 $| u_{n+p}-u_{n} | &amp;lt; \varepsilon$ 恒成立.&lt;/p&gt;
 &lt;h2 id=&#34;一元函数微分学&#34;&gt;一元函数微分学
 &lt;/h2&gt;&lt;h3 id=&#34;求导方法&#34;&gt;求导方法
 &lt;/h3&gt;&lt;ol&gt;
@@ -2164,9 +2228,9 @@ $$ \left\{ \begin{array}{c} u=f(x) \\ v=g(x) \\ \end{array} \right. $$&lt;p&gt; 
 ② $\displaystyle \frac{f&#39;(\xi)}{g&#39;(\xi)}$ 表示曲线上某点切线的斜率.&lt;br&gt;
 柯西中值定理可理解为：用参数方程表示的曲线上至少有一点，在这一点处的切线平行于连接两个端点的弦. &lt;br&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;ol start=&#34;5&#34;&gt;
-&lt;li&gt;&lt;strong&gt;泰勒中值定理&lt;/strong&gt;：如果函数 $f(x)$ 在含有 $x_0$ 的某个开区间 $(a,b)$ 内具有直到 $n+1$ 阶的导数，则当 $x \in (a,b)$ 时，$f(x)$ 可表示为：&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;泰勒中值定理&lt;/strong&gt;：如果函数 $f(x)$ 在含有 $x_0$ 的某个开区间 $(a,b)$ 内具有直到 $n+1$ 阶的导数，则当 $x \in (a,b)$ 时，$f(x)$ 可表示为：
+$$f(x) = f(x_0) + f&#39;(x_0)(x-x_0) + \frac{1}{2!} f&#39;&#39;(x_0)(x-x_0)^2 + \cdots + \frac{1}{n!}f^{(n)}(x_0)(x-x_0)^n + R_n(x)$$ 其中 $\displaystyle R_n(x) = \frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}$，$\xi$ 介于 $x_0$ 和 $x$ 之间.&lt;/li&gt;
 &lt;/ol&gt;
-$$f(x) = f(x_0) + f&#39;(x_0)(x-x_0) + \frac{1}{2!} f&#39;&#39;(x_0)(x-x_0)^2 + \cdots + \frac{1}{n!}f^{(n)}(x_0)(x-x_0)^n + R_n(x)$$&lt;p&gt;其中 $\displaystyle R_n(x) = \frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}$，$\xi$ 介于 $x_0$ 和 $x$ 之间.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;出现二阶及以上导数时可考虑使用泰勒中值定理.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;导数的应用&#34;&gt;导数的应用
@@ -2314,6 +2378,11 @@ $$I(m,n) = \int_{0}^{\frac{\pi}{2}} \sin^{m}x \cos^{n}x \mathrm{d}x = \left\{ \b
 &lt;/h4&gt;&lt;p&gt;设 $f(x)$ 在 $[0,+\infty)$ 上连续，且 $\displaystyle \int_{A}^{+\infty} \frac{f(x)}{x} \mathrm{d}x$ 收敛，其中常数 $A &amp;gt; 0$，则有 &lt;/p&gt;
 $$\int_{0}^{+\infty} \frac{f(ax)-f(bx)}{x} \mathrm{d}x = f(0) \ln \frac{b}{a} \quad (a &lt; b &lt; c) $$&lt;h4 id=&#34;柯西积分不等式&#34;&gt;柯西积分不等式
 &lt;/h4&gt;$$\left[ \int_{a}^{b} f(x)g(x) \mathrm{d}x \right]^{2} \leqslant \int_{a}^{b} f^{2}(x) \mathrm{d}x \int_{a}^{b} g^{2}(x) \mathrm{d}x $$&lt;p&gt;  其中 $f(x)$，$g(x)$ 均为 $[a,b]$ 上的连续函数.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/math_quiz/#%e8%af%81%e6%98%8e%e6%9f%af%e8%a5%bf%e7%a7%af%e5%88%86%e4%b8%8d%e7%ad%89%e5%bc%8f&#34; &gt;证明过程
+    
+    
+
+&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;定积分的应用&#34;&gt;定积分的应用
 &lt;/h3&gt;&lt;h4 id=&#34;曲线的弧长&#34;&gt;曲线的弧长
 &lt;/h4&gt;&lt;p&gt;参数方程 &lt;/p&gt;
@@ -2464,6 +2533,25 @@ $$ \lambda(A_1x+B_1y+C_1z+D_1) + \mu (A_2x+B_2y+C_2z+D_2) = 0 $$&lt;p&gt; 称为
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;旋转曲面方程 &lt;br&gt;
+坐标面上曲线 $\displaystyle \left\{ \begin{array}{c} F(y,z) = 0 \\  x = 0 \end{array} \right.$ 绕坐标轴（如 $z$ 轴）旋转一周而成的旋转曲面方程：$F(\pm\sqrt{x^2+y^2}, z) = 0$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;空间中的距离&#34;&gt;空间中的距离
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;点到平面的距离 &lt;br&gt;
+已知点 $M_0(x_0,y_0,z_0) \notin \varPi$，平面 $\varPi: Ax+By+Cz+D=0$，则有：&lt;/p&gt;
+$$d = \frac{| Ax_0 + By_0 + Cz_0 + D |}{\sqrt{A^2 + B^2 + C^2}}$$&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;点到直线的距离 &lt;br&gt;
+已知点 $M_0(x_0,y_0,z_0)$ ，直线 $\displaystyle L: \frac{x-x_1}{m} + \frac{y-y_1}{n} + \frac{z-z_1}{p}$，$M_1(x_1,y_1,z_1) \in L$，$\bm{s}=(m,n,p)$，则有 &lt;/p&gt;
+$$d = \frac{ |\bm{s} \times \overrightarrow{M_0 M_1} |}{| \bm{s} |}$$&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;两条异面直线间的距离 &lt;br&gt;
+已知直线 $\displaystyle L_1: \frac{x-x_1}{m_1} + \frac{y-y_1}{n_1} + \frac{z-z_1}{p_1}$，直线 $\displaystyle L_2: \frac{x-x_2}{m_2} + \frac{y-y_2}{n_2} + \frac{z-z_2}{p_2}$，且两直线为异面直线，$M_1(x_1,y_1,z_1) \in L_1$，$M_2(x_2,y_2,z_2) \in L_2$. $\bm{s_1}=(m_1,n_1,p_1)$，$\bm{s_2}=(m_2,n_2,p_2)$. 则有 &lt;/p&gt;
+$$d = \frac{|(\bm{s_1} \times \bm{s_2}) \cdot \overrightarrow{M_1 M_2}|}{|\bm{s_1} \times \bm{s_2}|}$$&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h2 id=&#34;多元函数微分学&#34;&gt;多元函数微分学
 &lt;/h2&gt;&lt;h3 id=&#34;二重极限&#34;&gt;二重极限
 &lt;/h3&gt;&lt;p&gt;常用方法：&lt;/p&gt;
@@ -2677,72 +2765,92 @@ $$\oiint\limits_{\varSigma} P \mathrm{d}y\mathrm{d}z + Q \mathrm{d}x\mathrm{d}z 
 &lt;/h3&gt;&lt;h4 id=&#34;数项级数收敛的条件&#34;&gt;数项级数收敛的条件
 &lt;/h4&gt;&lt;p&gt;若 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛，则 $\displaystyle \lim_{n \to \infty} a_n = 0$；反之，若 $\displaystyle \lim_{n \to \infty} a_n \ne 0$，则 $\displaystyle \sum_{n=1}^{\infty} a_n $ 发散，&lt;/p&gt;
 &lt;h4 id=&#34;基本数项级数&#34;&gt;基本数项级数
-&lt;/h4&gt;&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;几何级数：$\displaystyle \sum_{n=0}^{\infty} q^{n} $，当 $|q|&amp;lt;1$ 时收敛，和 $\displaystyle S = \frac{1}{1-q}$.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;$p$ 级数：$\displaystyle \sum_{n=0}^{\infty} \frac{1}{n^{p}} $，当 $p&amp;gt;1$ 时收敛；当 $p \leqslant 1$ 时发散.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;调和级数：$\displaystyle \sum_{n=1}^{\infty} \frac{1}{n}$ 发散.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
+&lt;/h4&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;级数&lt;/th&gt;
+          &lt;th&gt;形式&lt;/th&gt;
+          &lt;th&gt;收敛条件&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;几何级数&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \sum_{n=0}^{\infty} q^{n} $&lt;/td&gt;
+          &lt;td&gt;当 $|q|&amp;lt;1$ 时收敛，和 $\displaystyle S = \frac{1}{1-q}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$p$ 级数&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \sum_{n=0}^{\infty} \frac{1}{n^{p}} $&lt;/td&gt;
+          &lt;td&gt;当 $p&amp;gt;1$ 时收敛；当 $p \leqslant 1$ 时发散&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;调和级数&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \sum_{n=1}^{\infty} \frac{1}{n}$&lt;/td&gt;
+          &lt;td&gt;发散&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 &lt;h4 id=&#34;正项级数收敛的判断&#34;&gt;正项级数收敛的判断
 &lt;/h4&gt;&lt;ol&gt;
-&lt;li&gt;比较判别法&lt;/li&gt;
+&lt;li&gt;比较判别法 &lt;br&gt;
+设 $\exists N$，当 $n&amp;gt;N$ 时，$0 \leqslant a_n \leqslant b_n$，若 $\displaystyle \sum_{n=1}^{\infty} b_n$ 收敛，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；若 $\displaystyle \sum_{n=1}^{\infty} a_n$ 发散，则 $\displaystyle \sum_{n=1}^{\infty} b_n$ 发散.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;设 $\exists N$，当 $n&amp;gt;N$ 时，$0 \leqslant a_n \leqslant b_n$，若 $\displaystyle \sum_{n=1}^{\infty} b_n$ 收敛，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；若 $\displaystyle \sum_{n=1}^{\infty} a_n$ 发散，则 $\displaystyle \sum_{n=1}^{\infty} b_n$ 发散.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;极限形式：对两个正项级数 $\displaystyle \sum_{n=1}^{\infty} a_n$ 和 $\displaystyle \sum_{n=1}^{\infty} b_n$，设 $\displaystyle \lim_{n \to \infty} \frac{a_n}{b_n} = l$，若 $0&amp;lt;l&amp;lt;+\infty$，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 和 $\displaystyle \sum_{n=1}^{\infty} b_n$ 同敛散.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;blockquote&gt;
 &lt;p&gt;推论：设 $a_n \geqslant 0$，$b_n \geqslant 0$，若 $n \geqslant n_0$ 时有 $\displaystyle \frac{a_{n+1}}{a_{n}} \leqslant \frac{b_{n+1}}{b_{n}}$，则有：若$\displaystyle \sum_{n=1}^{\infty} b_n$ 收敛，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；若 $\displaystyle \sum_{n=1}^{\infty} a_n$ 发散，则 $\displaystyle \sum_{n=1}^{\infty} b_n$ 发散.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;比值判别法&lt;/li&gt;
+&lt;li&gt;比值判别法 &lt;br&gt;
+设 $a_n&amp;gt;0$，$n=1,2,\cdots$. 当 $n \geqslant n_0$ 时，若 $\displaystyle \frac{a_{n+1}}{a_n} \leqslant q &amp;lt; 1$，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；若 $\displaystyle \frac{a_{n+1}}{a_n} \geqslant 1$，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 发散.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;设 $a_n&amp;gt;0$，$n=1,2,\cdots$. 当 $n \geqslant n_0$ 时，若 $\displaystyle \frac{a_{n+1}}{a_n} \leqslant q &amp;lt; 1$，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；若 $\displaystyle \frac{a_{n+1}}{a_n} \geqslant 1$，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 发散.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;极限形式：若 $\displaystyle \lim_{n \to \infty} \frac{a_{n+1}}{a_n} = q$，则当 $q&amp;lt;1$ 时，$\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；当 $q&amp;gt;1$ 时，$\displaystyle \sum_{n=1}^{\infty} a_n$ 发散.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;根值判别法&lt;/li&gt;
+&lt;li&gt;根值判别法 &lt;br&gt;
+设 $a_n \geqslant 0$，若 $\exists N \in \textbf{N}$，使得 $n&amp;gt;N$ 时，有 $\sqrt[n]{a_n} \leqslant q &amp;lt; 1$，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；若对无穷多个 $n$，有 $\sqrt[n]{a_n} \geqslant 1$，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 发散.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;设 $a_n \geqslant 0$，若 $\exists N \in \textbf{N}$，使得 $n&amp;gt;N$ 时，有 $\sqrt[n]{a_n} \leqslant q &amp;lt; 1$，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；若对无穷多个 $n$，有 $\sqrt[n]{a_n} \geqslant 1$，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 发散.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;极限形式：若 $\displaystyle \lim_{n \to \infty} \sqrt[n]{a_n} = q$，则当 $q&amp;lt;1$ 时，$\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；$q&amp;gt;1$ 时，$\displaystyle \sum_{n=1}^{\infty} a_n$ 发散.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;积分判别法&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;积分判别法 &lt;br&gt;
+设 $x \geqslant 1$ 时，$f(x) \geqslant 0$ 且单调递减，则无穷级数 $\displaystyle \sum_{n=1}^{\infty} f(n)$ 与无穷积分 $\displaystyle \int_{1}^{\infty} f(x) \mathrm{d}x $ 同敛散.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Rabbe判别法 &lt;br&gt;
+设 $a_n &amp;gt; 0$，$n=1,2,\cdots$. &lt;br&gt;
+①若 $n &amp;gt; n_0$ 时，$\displaystyle n \left( \frac{a_n}{a_{n+1}} - 1 \right) \leqslant 1$，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 发散. &lt;br&gt;
+②若 $n &amp;gt; n_0$ 时，$\displaystyle n \left( \frac{a_n}{a_{n+1}} - 1 \right) \geqslant r &amp;gt; 1$，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛.&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;设 $x \geqslant 1$ 时，$f(x) \geqslant 0$ 且单调递减，则无穷级数 $\displaystyle \sum_{n=1}^{\infty} f(n)$ 与无穷积分 $\displaystyle \int_{1}^{\infty} f(x) \mathrm{d}x $ 同敛散.&lt;/p&gt;
-&lt;ol start=&#34;5&#34;&gt;
-&lt;li&gt;Rabbe判别法&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;设 $a_n &amp;gt; 0$，$n=1,2,\cdots$.&lt;/p&gt;
-&lt;p&gt;①若 $n &amp;gt; n_0$ 时，$\displaystyle n \left( \frac{a_n}{a_{n+1}} - 1 \right) \leqslant 1$，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 发散.&lt;/p&gt;
-&lt;p&gt;②若 $n &amp;gt; n_0$ 时，$\displaystyle n \left( \frac{a_n}{a_{n+1}} - 1 \right) \geqslant r &amp;gt; 1$，则 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;极限形式：若 $\displaystyle \lim_{n \to \infty} n \left( \frac{a_n}{a_{n+1}}-1 \right) = l$，则当 $l&amp;gt;1$ 时，级数 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；当 $l&amp;lt;1$ 时，级数 $\displaystyle \sum_{n=1}^{\infty} a_n$ 发散.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;ol start=&#34;6&#34;&gt;
-&lt;li&gt;Gauss判别法&lt;/li&gt;
+&lt;li&gt;Gauss判别法 &lt;br&gt;
+设 $a_n &amp;gt; 0$，满足 $$\frac{a_n}{a_{n+1}} = 1 + \frac{1}{n} + \frac{\beta}{n \ln n} + o\left( \frac{1}{n \ln n} \right)，n \to \infty$$ 则当 $\beta &amp;gt; 1$ 时 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；当 $\beta &amp;lt; 1$ 时 $\displaystyle \sum_{n=1}^{\infty} a_n$ 发散.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;设 $a_n &amp;gt; 0$，满足 &lt;/p&gt;
-$$\frac{a_n}{a_{n+1}} = 1 + \frac{1}{n} + \frac{\beta}{n \ln n} + o\left( \frac{1}{n \ln n} \right)，n \to \infty$$&lt;p&gt; 则当 $\beta &amp;gt; 1$ 时 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；当 $\beta &amp;lt; 1$ 时 $\displaystyle \sum_{n=1}^{\infty} a_n$ 发散.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;极限形式：若 $\displaystyle \lim_{n \to \infty} n \ln n \left( \frac{a_n}{a_{n+1}}-1 - \frac{1}{n} \right) = \beta$，则当 $\beta&amp;gt;1$ 时，级数 $\displaystyle \sum_{n=1}^{\infty} a_n$ 收敛；当 $\beta&amp;lt;1$ 时，级数 $\displaystyle \sum_{n=1}^{\infty} a_n$ 发散.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h4 id=&#34;一般级数收敛的判断&#34;&gt;一般级数收敛的判断
 &lt;/h4&gt;&lt;ol&gt;
-&lt;li&gt;莱布尼茨判别法&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;设交错级数 $\displaystyle \sum_{n=1}^{\infty} (-1)^{n} a_n$，$a_n &amp;gt;0$，若 $\{a_n\}$ 递减趋于0，则 $\displaystyle \sum_{n=1}^{\infty} (-1)^{n} a_n$ 收敛.&lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;阿贝尔和狄利克雷判别法 &lt;br&gt;
+&lt;li&gt;
+&lt;p&gt;莱布尼茨判别法 &lt;br&gt;
+设交错级数 $\displaystyle \sum_{n=1}^{\infty} (-1)^{n} a_n$，$a_n &amp;gt;0$，若 $\{a_n\}$ 递减趋于0，则 $\displaystyle \sum_{n=1}^{\infty} (-1)^{n} a_n$ 收敛.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;阿贝尔和狄利克雷判别法 &lt;br&gt;
 (1) 分部求和公式 &lt;br&gt;
-设数列 $\{ a_n \}$和 $\{ b_n \}$，记 $\displaystyle S_k = \sum_{i=1}^{k} a_i$，$S_0 = 0$，则 $$\sum_{k=1}^{n} a_k b_k = \sum_{k=1}^{n-1}S_k(b_k-b_{k+1})+S_n b_n $$
+设数列 $\{ a_n \}$和 $\{ b_n \}$，记 $\displaystyle S_k = \sum_{i=1}^{k} a_i$，$S_0 = 0$，则 &lt;/p&gt;
+$$\sum_{k=1}^{n} a_k b_k = \sum_{k=1}^{n-1}S_k(b_k-b_{k+1})+S_n b_n $$&lt;p&gt;
 (2) 阿贝尔引理 &lt;br&gt;
-设数列 $\{b_n \}$ 单调，$\displaystyle S_k = \sum_{i=1}^{k} a_i$，若 $|S_k| \leqslant M (k=1,2,\cdots,n)$，则 $$\left| \sum_{k=1}^{n} a_k b_k  \right|\leqslant  M \left(\left| b_1 \right| + 2 \left| b_n \right| \right)$$
+设数列 $\{b_n \}$ 单调，$\displaystyle S_k = \sum_{i=1}^{k} a_i$，若 $|S_k| \leqslant M (k=1,2,\cdots,n)$，则 &lt;/p&gt;
+$$\left| \sum_{k=1}^{n} a_k b_k  \right|\leqslant  M \left(\left| b_1 \right| + 2 \left| b_n \right| \right)$$&lt;p&gt;
 (3) 狄利克雷判别法 &lt;br&gt;
 设数列 $\{ a_n \}$和 $\{ b_n \}$，记 $\displaystyle S_k = \sum_{i=1}^{k} a_i$，若它们满足：$\{b_n\}$ 单调且 $\displaystyle b_n = 0$，$\{S_k\}$ 有界，则 $\displaystyle \sum_{n=0}^{\infty} a_n b_n $ 收敛. &lt;br&gt;
 (4) 阿贝尔判别法 &lt;br&gt;
-设数列 $\{ a_n \}$和 $\{ b_n \}$ 满足：$\{ b_n \}$ 单调有界，且 $\displaystyle \sum_{n=0}^{\infty} a_n$ 收敛，则 $\displaystyle \sum_{n=0}^{\infty} a_n b_n $ 收敛.&lt;/li&gt;
+设数列 $\{ a_n \}$和 $\{ b_n \}$ 满足：$\{ b_n \}$ 单调有界，且 $\displaystyle \sum_{n=0}^{\infty} a_n$ 收敛，则 $\displaystyle \sum_{n=0}^{\infty} a_n b_n $ 收敛.&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;幂级数&#34;&gt;幂级数
 &lt;/h3&gt;&lt;h4 id=&#34;幂级数的收敛半径&#34;&gt;幂级数的收敛半径
@@ -2838,7 +2946,22 @@ $$\bm{\xi}_{1} = \left[\begin{array}{c}  1 \\    -\lambda_{2} \end{array}\right]
 $$\bm{A} = \bm{T} \left[\begin{matrix}  \lambda_1 &amp; \\ &amp; \lambda_2 \\  \end{matrix}\right] \bm{T}^{-1} $$&lt;p&gt;于是
 &lt;/p&gt;
 $$\begin{align*} \bm{A}^{n} &amp;= \bm{T} \left[\begin{matrix} \lambda_{1}^{n} &amp; \\ &amp; \lambda_{2}^{n} \\ \end{matrix}\right] \bm{T}^{-1} = \left[\begin{matrix} 1&amp; 1 \\ -\lambda_{2}&amp; -\lambda_{1} \\ \end{matrix}\right] \left[\begin{matrix} \lambda_{1}^{n}&amp; \\ &amp; \lambda_{2}^{n} \\ \end{matrix}\right]  \left[\begin{matrix} 1&amp; 1 \\ -\lambda_{2}&amp; -\lambda_{1} \\ \end{matrix}\right]^{-1} \\ &amp;= \frac{1}{\sqrt{5}} \left[\begin{matrix} \lambda_{2}^{n+1} - \lambda_{1}^{n+1}&amp; \lambda_{2}^{n}-  \lambda_{1}^{n} \\ \lambda_{2}^{n}-  \lambda_{1}^{n}&amp; \lambda_{2}^{n-1} - \lambda_{1}^{n-1} \\ \end{matrix}\right] \end{align*}$$&lt;p&gt;最后将 $ \bm{A}^{n} $ 代入 $\boldsymbol{D}_n = \boldsymbol{A}^{n} \boldsymbol{D}_0$. 并注意到 $\boldsymbol{D}_0 = [1,1]^{\mathrm{T}} $ 且 $\lambda_1$ 与 $\lambda_2$ 是 $\lambda^{2} = \lambda + 1$ 的根，即得&lt;/p&gt;
-$$ F_{n} = \frac{1}{\sqrt{5}} \left[\left(\frac{1+\sqrt{5}}{2}\right)^{n+1} - \left(\frac{1-\sqrt{5}}{2}\right)^{n+1} \right] $$</description>
+$$ F_{n} = \frac{1}{\sqrt{5}} \left[\left(\frac{1+\sqrt{5}}{2}\right)^{n+1} - \left(\frac{1-\sqrt{5}}{2}\right)^{n+1} \right] $$&lt;h3 id=&#34;坐标旋转变换&#34;&gt;坐标旋转变换
+&lt;/h3&gt;&lt;p&gt;空间直角坐标系如果其原点不动，绕着某一个轴旋转而构成新的坐标系，这个过程就叫做坐标旋转。新旧坐标之间存在一定的转换关系，可以用旋转矩阵表示。&lt;/p&gt;
+&lt;p&gt;设坐标系 $Oxyz$ 绕 $z$ 轴逆时针（向着 $z$ 轴正方向看）旋转 $\theta$ 角，新坐标为 $(x&#39;, y&#39;, z&#39;)$。易知 $z$ 分量不变，简化为在 $xOy$ 平面讨论：&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/math_tips/images/%E5%9D%90%E6%A0%87%E6%97%8B%E8%BD%AC%E5%8F%98%E6%8D%A2.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;坐标旋转变换&lt;/h4&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;点 $M_x$ 和点 $M_{x&#39;}$ 分别是点 $M$ 在 $x$ 轴和 $x&#39;$ 轴下的投影。则有：&lt;/p&gt;
+$$\begin{align*} &amp; \left\{ \begin{array}{c} x = OM_x = OM \cos \angle MOM_x = OM \cos(\varphi-\theta) \\ y = MM_x = OM \sin \angle MOM_x = OM \sin(\varphi-\theta) \end{array} \right. \tag{1} \\ \\ &amp; \left\{ \begin{array}{c} x&#39; = OM_{x&#39;} = OM \cos \angle MOM_{x&#39;} = OM \cos\varphi \\ y&#39; = MM_{x&#39;} = OM \sin \angle MOM_{x&#39;} = OM \sin\varphi \end{array} \right. \tag{2} \end{align*}$$&lt;p&gt;把（1）式按照三角函数展开得：&lt;/p&gt;
+$$\left\{ \begin{array}{c} x = OM \cos\varphi\cos\theta + OM \sin\varphi\sin\theta \\ y = OM \sin\varphi\cos\theta - OM \cos\varphi\sin\theta \end{array} \right.$$&lt;p&gt;把（2）式代入（3）式得：&lt;/p&gt;
+$$\left\{ \begin{align*} x &amp;= x&#39;\cos\theta + y&#39;\sin\theta \\ y &amp;= -x&#39;\sin\theta + y&#39;\cos\theta \end{align*} \right. $$&lt;p&gt;坐标中的 $z$ 分量不变，即 $z=z&#39;$。这样坐标变换可写成如下形式：&lt;/p&gt;
+$$\left\{ \begin{align*} x &amp;= x&#39;\cos\theta + y&#39;\sin\theta \\ y &amp;= -x&#39;\sin\theta + y&#39;\cos\theta \\ z &amp;= z&#39; \end{align*} \right.$$&lt;p&gt;将其用矩阵表示为：&lt;/p&gt;
+$$\left[ \begin{array}{c} x \\ y \\ z \end{array} \right] = \bm{R}_Z(\bm{\theta}) \left[ \begin{array}{c} x&#39; \\ y&#39; \\ z&#39; \end{array} \right] $$&lt;p&gt;其中 &lt;/p&gt;
+$$\bm{R}_Z(\bm{\theta}) = \left[ \begin{matrix} \cos\theta &amp; \sin\theta &amp; 0 \\ -\sin\theta &amp; \cos\theta &amp;  0 \\ 0 &amp; 0 &amp; 1 \end{matrix} \right] $$&lt;p&gt;同理可知 &lt;/p&gt;
+$$\bm{R}_X(\bm{\theta}) = \left[ \begin{matrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; \cos\theta &amp;  \sin\theta \\ 0 &amp; -\sin\theta &amp; \cos\theta \end{matrix} \right]，\bm{R}_Y(\bm{\theta}) = \left[ \begin{matrix} \cos\theta &amp; 0 &amp; -\sin\theta \\ 0 &amp; 1 &amp; 0 \\ \sin\theta &amp; 0 &amp; \cos\theta \end{matrix} \right]$$</description>
         </item>
         <item>
         <title>Termux使用小技巧</title>
@@ -3095,7 +3218,7 @@ $$I =\int_{0}^{7} \left( \sqrt[3]{x-\sqrt{x^{2}-1}}+\sqrt[3]{x+\sqrt{x^{2}+1}}\r
 &lt;p&gt;解得 $\displaystyle x = \frac{y^{3}+3y}{2}$，则令 $ x = 7$，得 $ y^{3} + 3y = 14$，解得 $y = 2$. 则：&lt;/p&gt;
 $$ I = 2 \cdot 7 - \int_{0}^{2} \frac{x^{3}+3x}{2} \mathrm{d}x = 14 - \left( \frac{x^{4}}{8} + \frac{3x^{2}}{4} \right) \Bigg|_{0}^{2}  = 9$$&lt;/details&gt;
 &lt;hr&gt;
-&lt;p&gt;【例3.79】证明柯西积分不等式 &lt;/p&gt;
+&lt;p&gt;【例3.79】&lt;a id=&#34;证明柯西积分不等式&#34;&gt;&lt;/a&gt;证明柯西积分不等式 &lt;/p&gt;
 $$\left[ \int_{a}^{b} f(x)g(x) \mathrm{d}x \right]^{2} \leqslant \int_{a}^{b} f^{2}(x) \mathrm{d}x \int_{a}^{b} g^{2}(x) \mathrm{d}x $$&lt;p&gt;  其中 $f(x)$，$g(x)$ 均为 $[a,b]$ 上的连续函数.&lt;/p&gt;
 &lt;details&gt;
       &lt;summary&gt;点击展开解答&lt;/summary&gt;
