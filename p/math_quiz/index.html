@@ -312,6 +312,12 @@
     <li><a href="#微分中值定理">微分中值定理</a></li>
     <li><a href="#一元函数积分学">一元函数积分学</a></li>
     <li><a href="#多元函数积分学">多元函数积分学</a></li>
+    <li><a href="#真题">真题</a>
+      <ol>
+        <li><a href="#第十五届非数a">第十五届非数A</a></li>
+        <li><a href="#第十六届非数a">第十六届非数A</a></li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -724,8 +730,32 @@ $$f'_x(x_0,y_0)(x-x_0) + f'_y(x_0,y_0)(y-y_0) \leqslant \sqrt{\left( f'_x \right
 $$\left| \iint\limits_{D} f(x,y) \mathrm{d}x\mathrm{d}y \right| \leqslant \iint\limits_{D} \left| f(x,y) \right| \mathrm{d}x\mathrm{d}y \leqslant \underset{(x,y)\in D}{\mathrm{max}} \sqrt{\left( f'_x \right)^2 + \left( f'_y \right)^2} \cdot \iint\limits_{D} (a-r) \mathrm{d}\sigma $$<p>而又因为 </p>
 $$\iint\limits_{D} (a-r) \mathrm{d}\sigma = \int_{0}^{2\pi} \mathrm{d}\theta \int_{0}^{a} r(a-r) \mathrm{d}r = \frac{1}{3} \pi a^3 $$<p>故 </p>
 $$ \left| \iint\limits_{D} f(x,y) \mathrm{d}x\mathrm{d}y \right| \leqslant \frac{1}{3} \pi a^3 \cdot \underset{(x,y)\in D}{\mathrm{max}} \sqrt{\left( f'_x \right)^2 + \left( f'_y \right)^2} $$</details>
+<h2 id="真题">真题
+</h2><h3 id="第十五届非数a">第十五届非数A
+</h3><p>设 $\displaystyle I_n = n \int_{1}^{a} \frac{\mathrm{d}x}{1+x^n}$，其中 $a&gt;1$. 求极限 $\displaystyle \lim_{n \to \infty} I_n$</p>
 <details>
       <summary>点击展开解答</summary>
+<p>解：设 $\displaystyle t = \frac{1}{x}$，记 $b=\frac{1}{a}$，代入原式得：
+</p>
+$$\begin{align*} I_n &= n \int_{1}^{b} - \frac{t^{n-2}}{t^n+1} \mathrm{d}t = \int_{b}^{1} \frac{\mathrm{d}(\ln (1+t^n))}{t} = \frac{t^n+1}{t}\Big|_{b}^{1} + \int_{b}^{1} \frac{\ln(1+t^n)}{t^2} \mathrm{d}t \\ &=  \ln 2 - \frac{\ln(1+b^n)}{b} + \int_{b}^{1} \frac{\ln(1+t^n)}{t^2} \mathrm{d}t \end{align*}$$<p>
+当 $n \to \infty$ 时，$\displaystyle \frac{\ln(1+b^n)}{b} \to 0$，下面计算 $\displaystyle \lim_{n \to \infty} \int_{b}^{1} \frac{\ln(1+t^n)}{t^2} \mathrm{d}t$.</p>
+<p>易知当 $t \in (b,1)$ 时，$\ln(1+t^n) &lt; t^n$，则有 </p>
+$$0 < \frac{\ln(1+t^n)}{t^2} < t^{n-2}$$<p> 即 </p>
+$$0 < \int_{b}^{1} \frac{\ln(1+t^n)}{t^2} \mathrm{d}t < \int_{b}^{1} t^{n-2} = \frac{1-b^{n-1}}{n-1}$$<p>
+当 $n \to \infty$ 时，$\displaystyle \lim_{n \to \infty} = \frac{1-b^{n-1}}{n-1} = 0$，则由迫敛准则可知 $\displaystyle \lim_{n \to \infty} \int_{b}^{1} \frac{\ln(1+t^n)}{t^2} \mathrm{d}t = 0$，故 $\displaystyle \lim_{n \to \infty} I_n = \ln 2$</p>
+</details>
+<h3 id="第十六届非数a">第十六届非数A
+</h3><p>设 $f(x)$ 是 $(-\infty,+\infty)$ 上具有连续导数的非负函数，且存在 $M&gt;0$ 使得对任意的 $x,y \in (-\infty,+\infty)$，有 $|f'(x)-f'(y)| \leqslant M|x-y|$. 证明：对任意实数 $x$，恒有 $(f'(x))^2 \leqslant 2Mf(x)$.</p>
+<details>
+      <summary>点击展开解答</summary>
+<p>证：$\forall x \in (-\infty,+\infty)$，对 $\forall h \in (-\infty,+\infty)$ 且 $h \ne 0$，则有：
+</p>
+$$ 0 \leqslant f(h+x) = f(x) + \int_{0}^{h} f'(x+t) \mathrm{d}t = f(x) + \int_{0}^{h} [f'(x+t)-f'(x)] \mathrm{d}t + f'(x)h $$<p>
+取 $h$ 使得 $hf'(x)  \leqslant 0$，则 </p>
+$$ -hf'(x) \leqslant f(x) + \int_{0}^{h} [f'(x+t)-f'(x)] \mathrm{d}t \leqslant f(x) + M \frac{h^2}{2} $$<p>
+两边同时取绝对值，则有 </p>
+$$|f'(x)| \leqslant \frac{f(x)}{|h|} + M \cdot \frac{|h|}{2} \leqslant 2 \sqrt{\frac{f(x)}{|h|} \cdot M \cdot \frac{|h|}{2}} = \sqrt{2Mf(x)} $$<p>
+当且仅当 $\displaystyle |h| = \sqrt{\frac{2f(x)}{M}}$ 时等号成立. 两边平方可得 $(f'(x))^2 \leqslant 2Mf(x)$.</p>
 </details>
 <ul>
 <li></li>
