@@ -453,6 +453,7 @@
     </li>
     <li><a href="#小知识">小知识</a>
       <ol>
+        <li><a href="#三角公式">三角公式</a></li>
         <li><a href="#斐波那契数列">斐波那契数列</a></li>
         <li><a href="#坐标旋转变换">坐标旋转变换</a></li>
       </ol>
@@ -1571,7 +1572,82 @@ $$\lambda^{2} + a\lambda + b = 0$$<p> 得出 $\lambda_1$，$\lambda_2$ 两个根
 </li>
 </ol>
 <h2 id="小知识">小知识
-</h2><h3 id="斐波那契数列">斐波那契数列
+</h2><h3 id="三角公式">三角公式
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>诱导公式</th>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>$\sin(x+2k\pi) = \sin x$</td>
+          <td>$\sin(\pi \pm x) = \mp \sin x $</td>
+          <td>$\displaystyle \sin \left(\frac{\pi}{2} \pm x \right) = \cos x $</td>
+      </tr>
+      <tr>
+          <td>$\cos(x+2k\pi) = \cos x$</td>
+          <td>$\cos(\pi \pm x) = -\cos x $</td>
+          <td>$\displaystyle \cos \left(\frac{\pi}{2} \pm x \right) = \mp \sin x $</td>
+      </tr>
+      <tr>
+          <td>$\tan(x+k\pi) = \tan x$</td>
+          <td>$\tan(\pi \pm x) = \pm \tan x$</td>
+          <td>$ \displaystyle \tan \left(\frac{\pi}{2} \pm x \right) = \mp \cot x $</td>
+      </tr>
+  </tbody>
+</table></div>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>两角和差与二倍角公式</th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>$\cos(\alpha \pm \beta) = \cos\alpha\cos\beta \mp \sin\alpha\sin\beta$</td>
+          <td>$\cos(2\alpha) = \cos^2 \alpha - \sin^2 \alpha = 2\cos^2\alpha-1$</td>
+      </tr>
+      <tr>
+          <td>$\sin(\alpha \pm \beta) = \sin\alpha\cos\beta \pm \cos\alpha\sin\beta$</td>
+          <td>$\sin(2\alpha) = 2\sin\alpha\cos\alpha$</td>
+      </tr>
+      <tr>
+          <td>$\displaystyle \tan(\alpha \pm \beta) = \frac{\tan\alpha \pm \tan\beta}{1 \mp \tan\alpha\tan\beta}$</td>
+          <td>$\displaystyle \tan(2\alpha) = \frac{2\tan\alpha}{1-\tan^2\alpha}$</td>
+      </tr>
+  </tbody>
+</table></div>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>和差化积与积化和差公式</th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>$\displaystyle \sin\alpha+\sin\beta = 2\sin\frac{\alpha+\beta}{2} \cdot \cos\frac{\alpha-\beta}{2}$</td>
+          <td>$\displaystyle \sin\alpha-\sin\beta = 2\cos\frac{\alpha+\beta}{2} \cdot \sin\frac{\alpha-\beta}{2}$</td>
+      </tr>
+      <tr>
+          <td>$\displaystyle \cos\alpha+\cos\beta = 2\cos\frac{\alpha+\beta}{2} \cdot \cos\frac{\alpha-\beta}{2}$</td>
+          <td>$\displaystyle \cos\alpha-\cos\beta = -2\sin\frac{\alpha+\beta}{2} \cdot \sin\frac{\alpha-\beta}{2}$</td>
+      </tr>
+      <tr>
+          <td>$\displaystyle \sin\alpha\cos\beta = \frac{1}{2} \left[\sin(\alpha+\beta) + \sin(\alpha-\beta) \right] $</td>
+          <td>$\displaystyle \cos\alpha\sin\beta = \frac{1}{2} \left[\sin(\alpha+\beta) - \sin(\alpha-\beta) \right] $</td>
+      </tr>
+      <tr>
+          <td>$\displaystyle \cos\alpha\cos\beta = \frac{1}{2} \left[\cos(\alpha+\beta) + \cos(\alpha-\beta) \right] $</td>
+          <td>$\displaystyle \sin\alpha\sin\beta = -\frac{1}{2} \left[\cos(\alpha+\beta) - \cos(\alpha-\beta) \right] $</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="斐波那契数列">斐波那契数列
 </h3><p>递推公式：$F_{n} = F_{n-1} + F_{n-2}$，用矩阵表示为 </p>
 $$\left[\begin{array}{c}  F_{n+1}  \\ F_{n} \\  \end{array} \right] = \left[\begin{matrix}  1& 1 \\  1& 0 \\  \end{matrix}\right] \left[\begin{array}{c}  F_{n} \\  F_{n-1} \\ \end{array} \right] $$<p>记 </p>
 $$\bm{A} = \left[\begin{matrix}  1& 1 \\  1& 0 \\\end{matrix} \right] ， \bm{D}_{n} = \left[\begin{array}{c}  F_{n+1} \\  F_{n} \\ \end{array}\right] $$<p>则 </p>
