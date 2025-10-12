@@ -552,7 +552,7 @@
     
 
 </a>下载<code>x86_64-15.2.0-release-win32-seh-ucrt-rt_v13-rev0.7z</code>版本。下载完成后解压。</p>
-<p>另一种获取编译器的方法是先下载一个IDE，如DevC++，小熊猫C++等。在其程序目录下通常会有编译器文件，可之后直接使用。</p>
+<p>另一种获取编译器的方法是先下载一个IDE，如Dev-C++，小熊猫C++等。在其程序目录下通常会有编译器文件，可之后直接使用。</p>
 <figure><img src="/p/c_for_vscode/images/IDE.png" width="700"><figcaption>
       <h4>IDE附赠的编译器</h4>
     </figcaption>
@@ -618,7 +618,7 @@
 <h3 id="配置运行环境">配置运行环境
 </h3><ol>
 <li>
-<p>创建新文件夹<code>workspace</code>作为工作区，在<code>workspace</code>文件夹内再创建文件夹<code>.vscode</code></p>
+<p>创建新文件夹<code>workspace</code>作为工作区，在<code>workspace</code>文件夹内再创建文件夹<code>.vscode</code>和<code>bin</code></p>
 </li>
 <li>
 <p>在<code>.vscode</code>文件夹内再创建文件，分别命名为<code>tasks.json</code>和<code>launch.json</code></p>
@@ -644,10 +644,7 @@
 </table></div>
 <blockquote>
 <p>也就是说，如果只是要构建和运行C/C++程序，可以只用写<code>tasks.json</code>。</p></blockquote>
-<ol start="3">
-<li><code>tasks.json</code>文件</li>
-</ol>
-<p><code>tasks.json</code>中写入以下内容：</p>
+<p><code>tasks.json</code>文件写入以下内容：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="nt">&#34;version&#34;</span><span class="p">:</span> <span class="s2">&#34;2.0.0&#34;</span><span class="p">,</span>     <span class="c1">// 版本号，建议保持不变
 </span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="c1"></span>    <span class="nt">&#34;tasks&#34;</span><span class="p">:</span> <span class="p">[</span>
@@ -710,10 +707,7 @@
     </figcaption>
 </figure>
 
-<ol start="4">
-<li><code>launch.json</code>文件（可选）</li>
-</ol>
-<p><code>launch.json</code>中写入以下内容：</p>
+<p><code>launch.json</code>文件（可选）写入以下内容：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="nt">&#34;version&#34;</span><span class="p">:</span> <span class="s2">&#34;0.2.0&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="nt">&#34;configurations&#34;</span><span class="p">:</span> <span class="p">[</span>
@@ -739,8 +733,24 @@
 </span></span><span class="line"><span class="ln">23</span><span class="cl">    <span class="p">]</span>
 </span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>配置完成后，点击 <code>运行</code>→<code>启动调试</code> 即可开始调试。或直接按<code>F5</code>运行。</p>
-<p>之后，所有新建的<code>C++</code>文件都应在有配置文件的工作区中，这样可以直接在VScode中测试。</p>
-
+<ol start="3">
+<li>之后，所有新建的<code>C++</code>文件都应在有配置文件的工作区中，这样可以直接在VScode中测试。</li>
+</ol>
+<p>如果按照以上方法配置，工作区的文件结构应该如下所示：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="l">workspace/</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="w"></span><span class="l">├── .vscode/           </span><span class="w"> </span><span class="c"># 存放配置文件</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="w"></span><span class="l">│   ├── launch.json</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="w"></span><span class="l">│   └── tasks.json</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="w"></span><span class="l">│</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="w"></span><span class="l">├── bin/               </span><span class="w"> </span><span class="c"># 存放构建的exe文件</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="w"></span><span class="l">│   ├── HelloWorld.exe</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="w"></span><span class="l">│   ├── Number.exe</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="w"></span><span class="l">│   └── {name}.exe</span><span class="w">
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="w"></span><span class="l">│</span><span class="w">
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="w"></span><span class="l">├── HelloWorld.cpp     </span><span class="w"> </span><span class="c"># 存放源代码</span><span class="w">
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="w"></span><span class="l">├── Number.cpp</span><span class="w">
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="w"></span><span class="l">└── {name}.cpp</span><span class="w">
+</span></span></span></code></pre></div>
 </section>
 
 
