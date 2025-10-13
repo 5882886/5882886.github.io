@@ -7,7 +7,73 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>RunicDolphin806</copyright>
-        <lastBuildDate>Wed, 17 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://5882886.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 12 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://5882886.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>图像处理的数学原理</title>
+        <link>https://5882886.github.io/p/math_in_images/</link>
+        <pubDate>Sun, 12 Oct 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://5882886.github.io/p/math_in_images/</guid>
+        <description>&lt;h2 id=&#34;图像的表示&#34;&gt;图像的表示
+&lt;/h2&gt;&lt;p&gt;在计算机（实际上是任何电子产品）中，图像的本质是一个分块矩阵。&lt;/p&gt;
+$$ \bm{Image} = \left[\begin{matrix}  \bm{P}_{11} &amp; \bm{P}_{12} &amp; \cdots &amp; \bm{P}_{1n} \\ \bm{P}_{21} &amp; \bm{P}_{22} &amp; \cdots &amp; \bm{P}_{2n} \\ \vdots &amp; \vdots &amp; &amp; \vdots \\ \bm{P}_{m1} &amp; \bm{P}_{m2} &amp; \cdots &amp; \bm{P}_{mn}  \end{matrix}\right] $$&lt;p&gt;其中每个小矩阵 $\bm{P}_{ij}$ 以 $RGB$ 的格式存储了该处的颜色信息。&lt;/p&gt;
+&lt;h3 id=&#34;像素&#34;&gt;像素
+&lt;/h3&gt;&lt;p&gt;像素是构成数字图像的最小、最基本的单位。可以把它想象成一块块微小的、带有颜色的“马赛克”或“积木”。&lt;/p&gt;
+&lt;p&gt;例如，对于这一张图片：&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/math_in_images/icon.jpg&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;示例图片&lt;/h4&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;当将其放大到一定倍数后，将出现这个情况：&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/math_in_images/%E6%94%BE%E5%A4%A7%E7%BB%93%E6%9E%9C.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;示例图片放大&lt;/h4&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;可以看出，图片变成了一个个排列整齐的色块。我们把这些色块称作&lt;strong&gt;像素块&lt;/strong&gt;。每个像素块对应上述的每个小矩阵 $\bm{P}_{ij}$。它具有以下几个性质：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;像素块是排列整齐、均匀的正方形区域。&lt;/li&gt;
+&lt;li&gt;每个像素块只能有一种颜色。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote class=&#34;alert alert-note&#34;&gt;
+    &lt;p&gt;由性质2，像素块还可以看作是：图像中不可再分的最小颜色区域。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;我们日常生活中常见的图片是 $a*b$ 像素，就表示图片的长有 $a$ 个像素块，宽（或常称作高）有 $b$ 个像素块。由此可见，当 $a$ 和 $b$ 的数值越大，图片可容纳的像素块就越多，表示的信息就越丰富；相应地，占用的存储空间也就越大。&lt;/p&gt;
+&lt;h3 id=&#34;色值&#34;&gt;色值
+&lt;/h3&gt;&lt;p&gt;色值表示了像素块储存的颜色信息，目前最流行的色值表示方法为 $RGB$ 色值。&lt;/p&gt;
+&lt;p&gt;每个 $RGB$ 色值有3个信息位，分别表示 红色（Red）、绿色（Green）、蓝色（Blue），取值范围均为 $[0,255]$ 的整数。相应的数值越大，表明该颜色在总颜色的占比越高。&lt;/p&gt;
+&lt;p&gt;例如 $[255,0,0]$ 就表示纯红色，$[255,255,255]$ 表示白色，$[0,0,0]$ 表示黑色。所以，上述的每个小矩阵&lt;/p&gt;
+$$\bm{P_{ij}} = [R,G,B]$$&lt;p&gt;其中 $R$，$G$，$B$ 分别是取值 $[0,255]$ 的整数。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;红、绿、蓝是光的三基色，因此将此三种颜色按一定比例混合就可以产生我们可见的所有颜色。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;在一些图像处理软件中，$RGB$ 的范围被定义成 $[0,1]$。实际上，这就是 $[0,255]$ 到 $[0,1]$ 上的一个压缩映射。这时，$10$ 就表示 $\displaystyle \frac{10}{255}$；$255$ 就表示 $1$。&lt;/p&gt;
+&lt;h2 id=&#34;基本操作&#34;&gt;基本操作
+&lt;/h2&gt;&lt;p&gt;由图像的表示原理可知，所有图像的操作本质上是对像素块的操作。&lt;/p&gt;
+&lt;h3 id=&#34;正片叠底&#34;&gt;正片叠底
+&lt;/h3&gt;&lt;p&gt;正片叠底，简单而言就是将两张图像合并为一张图像的过程。具体操作就是取两个图像对应的像素块，对其 $RGB$ 色值分别相乘，再除以 $255$。&lt;/p&gt;
+&lt;p&gt;定义新运算 $*$ 称为正片叠底运算：&lt;/p&gt;
+&lt;p&gt;对任意两个图像矩阵 $I_1$，$I_2$，取其重叠部分，有&lt;/p&gt;
+$$\begin{align*} \bm{I_1} * \bm{I_2} &amp;= \left[\begin{matrix}  \bm{A}_{11} &amp; \bm{A_{12}} &amp; \cdots &amp; \bm{A}_{1n} \\ \bm{A}_{21} &amp; \bm{A}_{22} &amp; \cdots &amp; \bm{A}_{2n} \\ \vdots &amp; \vdots &amp; &amp; \vdots \\ \bm{A}_{m1} &amp; \bm{A}_{m2} &amp; \cdots &amp; \bm{A}_{mn}  \end{matrix}\right] * \left[\begin{matrix}  \bm{B}_{11} &amp; \bm{B}_{12} &amp; \cdots &amp; \bm{B}_{1n} \\ \bm{B}_{21} &amp; \bm{B}_{22} &amp; \cdots &amp; \bm{B}_{2n} \\ \vdots &amp; \vdots &amp; &amp; \vdots \\ \bm{B}_{m1} &amp; \bm{B}_{m2} &amp; \cdots &amp; \bm{B}_{mn}  \end{matrix}\right] \\ \\ &amp;= \left[\begin{matrix}  \bm{A}_{11} \cdot \bm{B}_{11} &amp; \bm{A}_{12} \cdot \bm{B}_{12} &amp; \cdots &amp; \bm{A}_{1n} \cdot \bm{B}_{1n} \\ \bm{A}_{21} \cdot \bm{B}_{21} &amp; \bm{A}_{22} \cdot \bm{B}_{22} &amp; \cdots &amp; \bm{A}_{2n} \cdot \bm{B}_{2n} \\ \vdots &amp; \vdots &amp; &amp; \vdots \\ \bm{A}_{m1} \cdot \bm{B}_{m1} &amp; \bm{A}_{m2} \cdot \bm{B}_{m2} &amp; \cdots &amp; \bm{A}_{mn} \cdot\bm{B}_{mn}  \end{matrix}\right] \end{align*}$$&lt;p&gt;其中 $\displaystyle \bm{A}_{ij} \cdot \bm{B}_{ij} = \frac{1}{255} [R_A R_B, G_A G_B, B_A B_B]$&lt;/p&gt;
+&lt;blockquote class=&#34;alert alert-note&#34;&gt;
+    &lt;p&gt;容易知道，对于运算 $*$，满足以下性质：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;封闭性：任何两张图像正片叠底后仍是一张图像（这不废话么……）。&lt;/li&gt;
+&lt;li&gt;可结合性：多张图像正片叠底，最终效果与正片叠底顺序无关。&lt;/li&gt;
+&lt;li&gt;可交换性：两张图像正片叠底，最终效果与哪张图像作为底图无关。&lt;/li&gt;
+&lt;li&gt;具有零元 $$ \bm{\theta} = \left[\begin{matrix}  \bm{O} &amp; \bm{O} &amp; \cdots &amp; \bm{O} \\ \bm{O} &amp; \bm{O} &amp; \cdots &amp; \bm{O} \\ \vdots &amp; \vdots &amp; &amp; \vdots \\ \bm{O} &amp; \bm{O} &amp; \cdots &amp; \bm{O}  \end{matrix}\right] $$ 其中 $\bm{O} = [0,0,0]$。 &lt;br&gt; 即任何一张图像与纯黑图像正片叠底，都将得到纯黑图像。&lt;/li&gt;
+&lt;li&gt;具有幺元（单位元）$$ \bm{e} = \left[\begin{matrix}  \bm{E} &amp; \bm{E} &amp; \cdots &amp; \bm{E} \\ \bm{E} &amp; \bm{E} &amp; \cdots &amp; \bm{E} \\ \vdots &amp; \vdots &amp; &amp; \vdots \\ \bm{E} &amp; \bm{E} &amp; \cdots &amp; \bm{E}  \end{matrix}\right] $$ 其中 $\bm{E} = [255,255,255]$。&lt;br&gt; 即任何一张图像与纯白图像正片叠底，都将得到原图像。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;因此运算 $*$ 构成一个独异点（雾）。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;由上述性质可知，正片叠底实现了“去白留黑”。&lt;/p&gt;
+&lt;h3 id=&#34;反色&#34;&gt;反色
+&lt;/h3&gt;&lt;p&gt;反色，通俗地讲就是将图像颜色“反转”，也就是每个像素块的颜色都变成 $[255-R,255-G,255-B]$。&lt;/p&gt;
+&lt;p&gt;称运算 $\bm{e}-\bm{Image}$ 为反色运算，则&lt;/p&gt;
+$$ \bm{e}-\bm{Image} = \left[\begin{matrix}  \bm{E}-\bm{P}_{11} &amp; \bm{E}-\bm{P}_{12} &amp; \cdots &amp; \bm{E}-\bm{P}_{1n} \\ \bm{E}-\bm{P}_{21} &amp; \bm{E}-\bm{P}_{22} &amp; \cdots &amp; \bm{E}-\bm{P}_{2n} \\ \vdots &amp; \vdots &amp; &amp; \vdots \\ \bm{E}-\bm{P}_{m1} &amp; \bm{E}-\bm{P}_{m2} &amp; \cdots &amp; \bm{E}-\bm{P}_{mn}  \end{matrix}\right] $$&lt;p&gt;经过反色操作，图像的黑色会变成白色，白色会变成黑色。&lt;/p&gt;
+&lt;h3 id=&#34;滤色&#34;&gt;滤色
+&lt;/h3&gt;&lt;p&gt;滤色计算公式为：$\bm{e}-(\bm{e}-\bm{A})*(\bm{e}-\bm{B})$&lt;/p&gt;
+&lt;p&gt;由上述公式可知，滤色实现了“去黑留白”。&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>NEMU-PART II</title>
         <link>https://5882886.github.io/p/nemu-part-2/</link>
         <pubDate>Wed, 17 Sep 2025 00:00:00 +0000</pubDate>
@@ -8523,10 +8589,10 @@ $$</description>
         </item>
         <item>
         <title>关于</title>
-        <link>https://5882886.github.io/%E5%85%B3%E4%BA%8E/</link>
+        <link>https://5882886.github.io/about/</link>
         <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/%E5%85%B3%E4%BA%8E/</guid>
+        <guid>https://5882886.github.io/about/</guid>
         <description>&lt;p&gt;Hugo 是用 Go 编写的一个开源静态站点生成器，可在 [Apache License 2.0.] 下使用。证书参见&lt;a class=&#34;link&#34; href=&#34;https://github.com/gohugoio/hugo/blob/master/LICENSE&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://github.com/gohugoio/hugo/blob/master/LICENSE
     
@@ -8545,10 +8611,10 @@ $$</description>
         </item>
         <item>
         <title>链接</title>
-        <link>https://5882886.github.io/%E9%93%BE%E6%8E%A5/</link>
+        <link>https://5882886.github.io/links/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/%E9%93%BE%E6%8E%A5/</guid>
+        <guid>https://5882886.github.io/links/</guid>
         <description></description>
         </item>
         <item>

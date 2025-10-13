@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://5882886.github.io/</loc>
-    <lastmod>2025-09-17T00:00:00+00:00</lastmod>
+    <lastmod>2025-10-12T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -16,7 +16,7 @@
                 />
   </url><url>
     <loc>https://5882886.github.io/categories/</loc>
-    <lastmod>2025-09-17T00:00:00+00:00</lastmod>
+    <lastmod>2025-10-12T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -26,6 +26,35 @@
                 rel="alternate"
                 hreflang="zh-cn"
                 href="https://5882886.github.io/categories/"
+                />
+  </url><url>
+    <loc>https://5882886.github.io/post/</loc>
+    <lastmod>2025-10-12T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://5882886.github.io/en/post/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://5882886.github.io/post/"
+                />
+  </url><url>
+    <loc>https://5882886.github.io/p/math_in_images/</loc>
+    <lastmod>2025-10-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://5882886.github.io/categories/interesting_things/</loc>
+    <lastmod>2025-10-12T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://5882886.github.io/en/categories/interesting_things/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://5882886.github.io/categories/interesting_things/"
                 />
   </url><url>
     <loc>https://5882886.github.io/categories/nemu/</loc>
@@ -44,19 +73,6 @@
     <loc>https://5882886.github.io/p/nemu-part-2/</loc>
     <lastmod>2025-09-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://5882886.github.io/post/</loc>
-    <lastmod>2025-09-17T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://5882886.github.io/en/post/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://5882886.github.io/post/"
-                />
-  </url><url>
     <loc>https://5882886.github.io/categories/guide/</loc>
     <lastmod>2025-09-17T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -68,19 +84,6 @@
                 rel="alternate"
                 hreflang="zh-cn"
                 href="https://5882886.github.io/categories/guide/"
-                />
-  </url><url>
-    <loc>https://5882886.github.io/categories/interesting_things/</loc>
-    <lastmod>2025-09-17T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://5882886.github.io/en/categories/interesting_things/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://5882886.github.io/categories/interesting_things/"
                 />
   </url><url>
     <loc>https://5882886.github.io/p/nemu-part-2-pre/</loc>
@@ -344,7 +347,7 @@
                 href="https://5882886.github.io/categories/test/"
                 />
   </url><url>
-    <loc>https://5882886.github.io/%E5%85%B3%E4%BA%8E/</loc>
+    <loc>https://5882886.github.io/about/</loc>
     <lastmod>2020-10-09T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
@@ -354,10 +357,10 @@
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://5882886.github.io/%E5%85%B3%E4%BA%8E/"
+                href="https://5882886.github.io/about/"
                 />
   </url><url>
-    <loc>https://5882886.github.io/%E9%93%BE%E6%8E%A5/</loc>
+    <loc>https://5882886.github.io/links/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -366,7 +369,7 @@
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://5882886.github.io/%E9%93%BE%E6%8E%A5/"
+                href="https://5882886.github.io/links/"
                 />
   </url><url>
     <loc>https://5882886.github.io/search/</loc>

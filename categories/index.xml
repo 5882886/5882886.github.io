@@ -7,7 +7,15 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>RunicDolphin806</copyright>
-        <lastBuildDate>Wed, 17 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://5882886.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 12 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://5882886.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>小乐趣</title>
+        <link>https://5882886.github.io/categories/interesting_things/</link>
+        <pubDate>Sun, 12 Oct 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://5882886.github.io/categories/interesting_things/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>NEMU</title>
         <link>https://5882886.github.io/categories/nemu/</link>
         <pubDate>Wed, 17 Sep 2025 00:00:00 +0000</pubDate>
@@ -21,14 +29,6 @@
         <pubDate>Wed, 17 Sep 2025 00:00:00 +0000</pubDate>
         
         <guid>https://5882886.github.io/categories/guide/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>小乐趣</title>
-        <link>https://5882886.github.io/categories/interesting_things/</link>
-        <pubDate>Wed, 17 Sep 2025 00:00:00 +0000</pubDate>
-        
-        <guid>https://5882886.github.io/categories/interesting_things/</guid>
         <description></description>
         </item>
         <item>
