@@ -314,11 +314,12 @@
         <li><a href="#色值">色值</a></li>
       </ol>
     </li>
-    <li><a href="#基本操作">基本操作</a>
+    <li><a href="#图像混合">图像混合</a>
       <ol>
         <li><a href="#正片叠底">正片叠底</a></li>
         <li><a href="#反色">反色</a></li>
         <li><a href="#滤色">滤色</a></li>
+        <li><a href="#变亮变暗">变亮&amp;变暗</a></li>
       </ol>
     </li>
   </ol>
@@ -551,7 +552,8 @@ $$ \bm{Image} = \left[\begin{matrix}  \bm{P}_{11} & \bm{P}_{12} & \cdots & \bm{P
 </ol>
 <blockquote class="alert alert-note">
     <p>由性质2，像素块还可以看作是：图像中不可再分的最小颜色区域。</p></blockquote>
-<p>我们日常生活中常见的图片是 $a*b$ 像素，就表示图片的长有 $a$ 个像素块，宽（或常称作高）有 $b$ 个像素块。由此可见，当 $a$ 和 $b$ 的数值越大，图片可容纳的像素块就越多，表示的信息就越丰富；相应地，占用的存储空间也就越大。</p>
+<p>我们日常生活中常见的图片是 $n*m$ 像素，就表示图片的长有 $n$ 个像素块，宽（或常称作高）有 $m$ 个像素块。其中 $m$ 和 $n$ 分别代表图像矩阵的行数和列数。</p>
+<p>由此可见，当 $n$ 和 $m$ 的数值越大，图片可容纳的像素块就越多，表示的信息就越丰富；相应地，占用的存储空间也就越大。</p>
 <h3 id="色值">色值
 </h3><p>色值表示了像素块储存的颜色信息，目前最流行的色值表示方法为 $RGB$ 色值。</p>
 <p>每个 $RGB$ 色值有3个信息位，分别表示 红色（Red）、绿色（Green）、蓝色（Blue），取值范围均为 $[0,255]$ 的整数。相应的数值越大，表明该颜色在总颜色的占比越高。</p>
@@ -560,32 +562,41 @@ $$\bm{P_{ij}} = [R,G,B]$$<p>其中 $R$，$G$，$B$ 分别是取值 $[0,255]$ 的
 <blockquote>
 <p>红、绿、蓝是光的三基色，因此将此三种颜色按一定比例混合就可以产生我们可见的所有颜色。</p></blockquote>
 <p>在一些图像处理软件中，$RGB$ 的范围被定义成 $[0,1]$。实际上，这就是 $[0,255]$ 到 $[0,1]$ 上的一个压缩映射。这时，$10$ 就表示 $\displaystyle \frac{10}{255}$；$255$ 就表示 $1$。</p>
-<h2 id="基本操作">基本操作
+<blockquote class="alert alert-note">
+    <p>$RGB$ 色值还有一种表示方法，即通过 <code># + 6位16进制数</code> 表示。因为10进制的 $[0,255]$ 恰好对应16进制的 $[00,FF]$，所以需要6个数位表示。</p>
+<p>例如 $\# 000000$ 对应 $[0,0,0]$，$\# FFFFFF$ 对应 $[255,255,255]$。</p></blockquote>
+<h2 id="图像混合">图像混合
 </h2><p>由图像的表示原理可知，所有图像的操作本质上是对像素块的操作。</p>
 <h3 id="正片叠底">正片叠底
 </h3><p>正片叠底，简单而言就是将两张图像合并为一张图像的过程。具体操作就是取两个图像对应的像素块，对其 $RGB$ 色值分别相乘，再除以 $255$。</p>
 <p>定义新运算 $*$ 称为正片叠底运算：</p>
-<p>对任意两个图像矩阵 $I_1$，$I_2$，取其重叠部分，有</p>
-$$\begin{align*} \bm{I_1} * \bm{I_2} &= \left[\begin{matrix}  \bm{A}_{11} & \bm{A_{12}} & \cdots & \bm{A}_{1n} \\ \bm{A}_{21} & \bm{A}_{22} & \cdots & \bm{A}_{2n} \\ \vdots & \vdots & & \vdots \\ \bm{A}_{m1} & \bm{A}_{m2} & \cdots & \bm{A}_{mn}  \end{matrix}\right] * \left[\begin{matrix}  \bm{B}_{11} & \bm{B}_{12} & \cdots & \bm{B}_{1n} \\ \bm{B}_{21} & \bm{B}_{22} & \cdots & \bm{B}_{2n} \\ \vdots & \vdots & & \vdots \\ \bm{B}_{m1} & \bm{B}_{m2} & \cdots & \bm{B}_{mn}  \end{matrix}\right] \\ \\ &= \left[\begin{matrix}  \bm{A}_{11} \cdot \bm{B}_{11} & \bm{A}_{12} \cdot \bm{B}_{12} & \cdots & \bm{A}_{1n} \cdot \bm{B}_{1n} \\ \bm{A}_{21} \cdot \bm{B}_{21} & \bm{A}_{22} \cdot \bm{B}_{22} & \cdots & \bm{A}_{2n} \cdot \bm{B}_{2n} \\ \vdots & \vdots & & \vdots \\ \bm{A}_{m1} \cdot \bm{B}_{m1} & \bm{A}_{m2} \cdot \bm{B}_{m2} & \cdots & \bm{A}_{mn} \cdot\bm{B}_{mn}  \end{matrix}\right] \end{align*}$$<p>其中 $\displaystyle \bm{A}_{ij} \cdot \bm{B}_{ij} = \frac{1}{255} [R_A R_B, G_A G_B, B_A B_B]$</p>
-<blockquote class="alert alert-note">
-    <p>容易知道，对于运算 $*$，满足以下性质：</p>
+<p>对任意两个图像矩阵 $\bm{I}_1$，$\bm{I}_2$，取其重叠部分，有</p>
+$$\begin{align*} \bm{I_1} * \bm{I_2} &= \left[\begin{matrix}  \bm{A}_{11} & \bm{A}_{12} & \cdots & \bm{A}_{1n} \\ \bm{A}_{21} & \bm{A}_{22} & \cdots & \bm{A}_{2n} \\ \vdots & \vdots & & \vdots \\ \bm{A}_{m1} & \bm{A}_{m2} & \cdots & \bm{A}_{mn}  \end{matrix}\right] * \left[\begin{matrix}  \bm{B}_{11} & \bm{B}_{12} & \cdots & \bm{B}_{1n} \\ \bm{B}_{21} & \bm{B}_{22} & \cdots & \bm{B}_{2n} \\ \vdots & \vdots & & \vdots \\ \bm{B}_{m1} & \bm{B}_{m2} & \cdots & \bm{B}_{mn}  \end{matrix}\right] \\ \\ &= \frac{1}{255} \left[\begin{matrix}  \bm{A}_{11} \cdot \bm{B}_{11} & \bm{A}_{12} \cdot \bm{B}_{12} & \cdots & \bm{A}_{1n} \cdot \bm{B}_{1n} \\ \bm{A}_{21} \cdot \bm{B}_{21} & \bm{A}_{22} \cdot \bm{B}_{22} & \cdots & \bm{A}_{2n} \cdot \bm{B}_{2n} \\ \vdots & \vdots & & \vdots \\ \bm{A}_{m1} \cdot \bm{B}_{m1} & \bm{A}_{m2} \cdot \bm{B}_{m2} & \cdots & \bm{A}_{mn} \cdot\bm{B}_{mn}  \end{matrix}\right] \end{align*}$$<p>容易知道，对于运算 $*$，满足以下性质：</p>
 <ol>
 <li>封闭性：任何两张图像正片叠底后仍是一张图像（这不废话么……）。</li>
-<li>可结合性：多张图像正片叠底，最终效果与正片叠底顺序无关。</li>
-<li>可交换性：两张图像正片叠底，最终效果与哪张图像作为底图无关。</li>
-<li>具有零元 $$ \bm{\theta} = \left[\begin{matrix}  \bm{O} & \bm{O} & \cdots & \bm{O} \\ \bm{O} & \bm{O} & \cdots & \bm{O} \\ \vdots & \vdots & & \vdots \\ \bm{O} & \bm{O} & \cdots & \bm{O}  \end{matrix}\right] $$ 其中 $\bm{O} = [0,0,0]$。 <br> 即任何一张图像与纯黑图像正片叠底，都将得到纯黑图像。</li>
-<li>具有幺元（单位元）$$ \bm{e} = \left[\begin{matrix}  \bm{E} & \bm{E} & \cdots & \bm{E} \\ \bm{E} & \bm{E} & \cdots & \bm{E} \\ \vdots & \vdots & & \vdots \\ \bm{E} & \bm{E} & \cdots & \bm{E}  \end{matrix}\right] $$ 其中 $\bm{E} = [255,255,255]$。<br> 即任何一张图像与纯白图像正片叠底，都将得到原图像。</li>
+<li>可结合性：$$(\bm{A}*\bm{B})*\bm{C} = \bm{A}*(\bm{B}*\bm{C})$$ 即<strong>多张图像正片叠底，最终效果与正片叠底顺序无关</strong>。</li>
+<li>可交换性：$$\bm{A}*\bm{B} = \bm{B}*\bm{A}$$ 即<strong>两张图像正片叠底，最终效果与哪张图像作为底图无关</strong>。</li>
+<li>具有零元 $$ \bm{\theta} = \left[\begin{matrix}  \bm{O} & \bm{O} & \cdots & \bm{O} \\ \bm{O} & \bm{O} & \cdots & \bm{O} \\ \vdots & \vdots & & \vdots \\ \bm{O} & \bm{O} & \cdots & \bm{O}  \end{matrix}\right] $$ 其中 $\bm{O} = [0,0,0]$。 <br> 即<strong>任何一张图像与纯黑图像正片叠底，都将得到纯黑图像</strong>。</li>
+<li>具有幺元（单位元）$$ \bm{e} = \left[\begin{matrix}  \bm{E} & \bm{E} & \cdots & \bm{E} \\ \bm{E} & \bm{E} & \cdots & \bm{E} \\ \vdots & \vdots & & \vdots \\ \bm{E} & \bm{E} & \cdots & \bm{E}  \end{matrix}\right] $$ 其中 $\bm{E} = [255,255,255]$。<br> 即<strong>任何一张图像与纯白图像正片叠底，都将得到原图像</strong>。</li>
 </ol>
+<blockquote>
 <p>因此运算 $*$ 构成一个独异点（雾）。</p></blockquote>
-<p>由上述性质可知，正片叠底实现了“去白留黑”。</p>
+<p>由性质4和5可知，正片叠底实现了“去白留黑”。</p>
+<blockquote class="alert alert-note">
+    <p>容易看出，图层混合是对图像对应的像素块做相同的操作，定义图层混合运算仅需给出对于像素块的操作。</p></blockquote>
 <h3 id="反色">反色
 </h3><p>反色，通俗地讲就是将图像颜色“反转”，也就是每个像素块的颜色都变成 $[255-R,255-G,255-B]$。</p>
-<p>称运算 $\bm{e}-\bm{Image}$ 为反色运算，则</p>
-$$ \bm{e}-\bm{Image} = \left[\begin{matrix}  \bm{E}-\bm{P}_{11} & \bm{E}-\bm{P}_{12} & \cdots & \bm{E}-\bm{P}_{1n} \\ \bm{E}-\bm{P}_{21} & \bm{E}-\bm{P}_{22} & \cdots & \bm{E}-\bm{P}_{2n} \\ \vdots & \vdots & & \vdots \\ \bm{E}-\bm{P}_{m1} & \bm{E}-\bm{P}_{m2} & \cdots & \bm{E}-\bm{P}_{mn}  \end{matrix}\right] $$<p>经过反色操作，图像的黑色会变成白色，白色会变成黑色。</p>
+<p>定义运算 $!$ 为反色运算，则</p>
+$$ !\bm{Image} = \bm{e}-\bm{Image} = [255-R,255-G,255-B] $$<p>特别地，有：</p>
+$$!\bm{e} = \bm{\theta} \\ !\bm{\theta} = \bm{e}$$<p>经过反色操作，图像的黑色会变成白色，白色会变成黑色。</p>
 <h3 id="滤色">滤色
-</h3><p>滤色计算公式为：$\bm{e}-(\bm{e}-\bm{A})*(\bm{e}-\bm{B})$</p>
-<p>由上述公式可知，滤色实现了“去黑留白”。</p>
-
+</h3><p>滤色计算公式为：$!((!\bm{A}) * (!\bm{B})) = \bm{e}-(\bm{e}-\bm{A})*(\bm{e}-\bm{B})$</p>
+<p>特别地，取 $\bm{B} = \bm{e}$，即与纯白图片滤色，则有</p>
+$$!((!\bm{A}) * (!\bm{B})) = \bm{e}-\bm{\theta} * (\bm{e}-\bm{A}) = \bm{e}-\bm{\theta} = \bm{e}$$<p>取 $\bm{B} = \bm{\theta}$，即与纯黑图片滤色，则有</p>
+$$!((!\bm{A}) * (!\bm{B})) = \bm{e}-\bm{e} * (\bm{e}-\bm{A}) = \bm{e}-(\bm{e}-\bm{A}) = \bm{A}$$<p>由上述公式可知，滤色实现了“去黑留白”。</p>
+<h3 id="变亮变暗">变亮&amp;变暗
+</h3><p>定义运算 $\mathrm{MAX}$ 为变亮运算，$\mathrm{MIN}$ 为变暗运算。分析每一个像素块，则：</p>
+$$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &= [\mathrm{max}(R_1,R_2),\mathrm{max}(G_1,G_2),\mathrm{max}(B_1,B_2)] \\ \\ \mathrm{MIN}(\bm{A}, \bm{B}) &= [\mathrm{min}(R_1,R_2),\mathrm{min}(G_1,G_2),\mathrm{min}(B_1,B_2)] \end{align*}$$
 </section>
 
 
