@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/tju/'>
 
-<link rel="stylesheet" href="/scss/style.min.5615ffd66d63efee744c60133c98d2008861f9cf705984d73773f6d33c659ca3.css"><meta property='og:title' content="有意思的玩意">
+<link rel="stylesheet" href="/scss/style.min.5c6b7caa4fe5f0e4817eb13bf0a5e507c7756619748e91f86b9ae07d7e62c8fa.css"><meta property='og:title' content="有意思的玩意">
 <meta property='og:description' content="请看正文">
 <meta property='og:url' content='https://5882886.github.io/p/tju/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -458,7 +458,6 @@
         
     });
 </script>
-
             
         
     </aside>
@@ -966,31 +965,31 @@ D.	全诗语言简明直白，生动地表达作者对天津的喜爱和赞美�
             artist: '中央乐队合唱团',
             url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0Vja0Vlc3NaV2tGTmlKdGdkY1Atd0tjQl9KWGNMSlM1TTZtTm4wNjNZUm9Zd2c_ZT1PVGFYZ2k.mp3',
             lrc: '/music/国际歌.lrc',
-            cover: '/music.png'
+            cover: '/music/music.png'
         }, {
             name: 'School song',
             artist: 'Various Artists',
             url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VkN0ZBOGl6cWNWR3FsUC1reFFoLW9RQnQyYmdPTEdkbXlNZS0xSnl0b1EyTVE_ZT1Oa1JYQm0.mp3',
             lrc: '/music/天津大学校歌.lrc',
-            cover: '/music.png'
+            cover: '/music/music.png'
 
 		}, {
             name: '一笑江湖（交响乐版）',
             artist: '蜩與學鸠',
             url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VSeFRkc2tRYW1kUG9hNllSNGVmdUpRQmV5cVdhMXd0WE92WXI5N0kxd1pEdXc.mp3',
-            cover: '/music.png'
+            cover: '/music/music.png'
         }, {
             name: '五四特别版错位时空',
             artist: '共青团中央',
             url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VldlEwZ3EzZzI5SG1SVURHRzFNdUhJQllZbm1ycDZDbXNHOVF0MzVLZ3RjeXc_ZT1iRXpZdzI.mp3',
             lrc: '/music/五四特别版错位时空.lrc',
-            cover: '/music.png'
+            cover: '/music/music.png'
         }, {
             name: '问月',
             artist: '葫芦童声;妞妞合唱团',
             url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VRWGtMS0hmUnE1Tm1ZS09RNll0R2JrQmM2Yk94WWNrZUYwSVVkcHhXekFuOWc_ZT1hYVB0S1g.mp3',
             lrc: '/music/问月.lrc',
-            cover: '/music.png'
+            cover: '/music/music.png'
 
         }, {
             name: '夜空中最亮的星',
@@ -1057,7 +1056,8 @@ D.	全诗语言简明直白，生动地表达作者对天津的喜爱和赞美�
 <script>
     var pjax = new Pjax({
         selectors: [
-            ".main-container"
+            ".main-container",
+            ".quote-box"
         ]
     })
 
@@ -1083,15 +1083,9 @@ D.	全诗语言简明直白，生动地表达作者对天津的喜爱和赞美�
         window.Stack.init();
         initTocHide();
         document.querySelectorAll();
+        showQuote();
     })
 
-
-
-    document.addEventListener('DOMContentLoaded', function () {
-        if (window.pjax) {
-            window.pjax.options.cacheBust = false; 
-        }
-    });
 </script>
 
 <script>

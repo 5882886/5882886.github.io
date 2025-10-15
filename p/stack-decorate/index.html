@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/stack-decorate/'>
 
-<link rel="stylesheet" href="/scss/style.min.5615ffd66d63efee744c60133c98d2008861f9cf705984d73773f6d33c659ca3.css"><meta property='og:title' content="Hugo-stack主题装饰">
+<link rel="stylesheet" href="/scss/style.min.5c6b7caa4fe5f0e4817eb13bf0a5e507c7756619748e91f86b9ae07d7e62c8fa.css"><meta property='og:title' content="Hugo-stack主题装饰">
 <meta property='og:description' content="基本原理 Hugo的stack主题提供了自定义样式的接口，主要在layouts/partials/footer/custom.html和assets/scss/custom.scss中 Hugo的文件可以实现文件覆盖。只要文件位置与themes文件夹中的相同，就会先加载自定义文件。 页面布局 增加首页欢迎栏 在/layouts/index.html里加入： 1&lt;!-- 首页欢迎字幅 --&gt; 2&lt;div class=&#34;welcome&#34;&gt; 3 &lt;p style=&#34;font-size: 2rem; text-align: center; font-weight: bold&#34;&gt; 4 &lt;span class=&#34;shake&#34;&gt;👋&lt;/span&gt; 5 &lt;span class=&#34;jump-text1&#34; &gt; Welcome&lt;/span&gt; 6 &lt;span class=&#34;jump-text2&#34;&gt; To &lt;/span&gt; 7 &lt;span class=&#34;jump-text3&#34; style=&#34;color:#e99312&#34;&gt;Wei Qi&lt;/span&gt; 8 &lt;span class=&#34;jump-text9&#34; style=&#34;color:#e99312&#34;&gt;Blog&lt;/span&gt; 9 &lt;/p&gt; 10&lt;/div&gt; 11&lt;!-- 首页欢迎字幅 --&gt; 在/assets/scss/custom.scss里边，加入 1//首页欢迎板块样式 2.welcome { 3 color: var(--card-text-color-main); 4 background: var(--card-background); 5 box-shadow: var(--shadow-l2); 6 border-radius: 30px; 7 display: inline-block; 8} 9 10// 👋emoji实现摆动效果 11.shake { 12 display: inline-block; 13 animation: shake 1s; 14 animation-duration: 1s; 15 animation-timing-function: ease; 16 animation-delay: 0s; 17 animation-iteration-count: 1; 18 animation-direction: normal; 19 animation-fill-mode: none; 20 animation-play-state: running; 21 animation-name: shake; 22 animation-timeline: auto; 23 animation-range-start: normal; 24 animation-range-end: normal; 25 animation-delay: 2s; 26 @keyframes shake { 27 0% { 28 transform: rotate(0); 29 } 30 25% { 31 transform: rotate(45deg) scale(1.2); 32 } 33 50% { 34 transform: rotate(0) scale(1.2); 35 } 36 75% { 37 transform: rotate(45deg) scale(1.2); 38 } 39 100% { 40 transform: rotate(0); 41 } 42 } 43} 44 45// 实现字符跳动动画 46.jump-text1 { 47 display: inline-block; 48 animation: jump 0.5s 1; 49} 50 51.jump-text2 { 52 display: inline-block; 53 animation: jump 0.5s 1; 54 animation-delay: 0.1s; 55} 56 57.jump-text3 { 58 display: inline-block; 59 animation: jump 0.5s 1; 60 animation-delay: 0.2s; 61} 62 63.jump-text4 { 64 display: inline-block; 65 animation: jump 0.5s 1; 66 animation-delay: 0.3s; 67} 68 69.jump-text5 { 70 display: inline-block; 71 animation: jump 0.5s 1; 72 animation-delay: 0.4s; 73} 74 75.jump-text6 { 76 display: inline-block; 77 animation: jump 0.5s 1; 78 animation-delay: 0.5s; 79} 80 81.jump-text7 { 82 display: inline-block; 83 animation: jump 0.5s 1; 84 animation-delay: 0.6s; 85} 86 87.jump-text8 { 88 display: inline-block; 89 animation: jump 0.5s 1; 90 animation-delay: 0.7s; 91} 92 93.jump-text9 { 94 display: inline-block; 95 animation: jump 0.5s 1; 96 animation-delay: 0.9s; 97} 98 99@keyframes jump { 100 0% { 101 transform: translateY(0); 102 } 103 50% { 104 transform: translateY(-20px); 105 } 106 100% { 107 transform: translateY(0); 108 } 109} 首页文章样式 在/assets/scss/custom.scss加入\n">
 <meta property='og:url' content='https://5882886.github.io/p/stack-decorate/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -463,7 +463,6 @@
         
     });
 </script>
-
             
         
     </aside>
@@ -1108,31 +1107,31 @@
             artist: '中央乐队合唱团',
             url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0Vja0Vlc3NaV2tGTmlKdGdkY1Atd0tjQl9KWGNMSlM1TTZtTm4wNjNZUm9Zd2c_ZT1PVGFYZ2k.mp3',
             lrc: '/music/国际歌.lrc',
-            cover: '/music.png'
+            cover: '/music/music.png'
         }, {
             name: 'School song',
             artist: 'Various Artists',
             url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VkN0ZBOGl6cWNWR3FsUC1reFFoLW9RQnQyYmdPTEdkbXlNZS0xSnl0b1EyTVE_ZT1Oa1JYQm0.mp3',
             lrc: '/music/天津大学校歌.lrc',
-            cover: '/music.png'
+            cover: '/music/music.png'
 
 		}, {
             name: '一笑江湖（交响乐版）',
             artist: '蜩與學鸠',
             url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VSeFRkc2tRYW1kUG9hNllSNGVmdUpRQmV5cVdhMXd0WE92WXI5N0kxd1pEdXc.mp3',
-            cover: '/music.png'
+            cover: '/music/music.png'
         }, {
             name: '五四特别版错位时空',
             artist: '共青团中央',
             url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VldlEwZ3EzZzI5SG1SVURHRzFNdUhJQllZbm1ycDZDbXNHOVF0MzVLZ3RjeXc_ZT1iRXpZdzI.mp3',
             lrc: '/music/五四特别版错位时空.lrc',
-            cover: '/music.png'
+            cover: '/music/music.png'
         }, {
             name: '问月',
             artist: '葫芦童声;妞妞合唱团',
             url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VRWGtMS0hmUnE1Tm1ZS09RNll0R2JrQmM2Yk94WWNrZUYwSVVkcHhXekFuOWc_ZT1hYVB0S1g.mp3',
             lrc: '/music/问月.lrc',
-            cover: '/music.png'
+            cover: '/music/music.png'
 
         }, {
             name: '夜空中最亮的星',
@@ -1199,7 +1198,8 @@
 <script>
     var pjax = new Pjax({
         selectors: [
-            ".main-container"
+            ".main-container",
+            ".quote-box"
         ]
     })
 
@@ -1225,15 +1225,9 @@
         window.Stack.init();
         initTocHide();
         document.querySelectorAll();
+        showQuote();
     })
 
-
-
-    document.addEventListener('DOMContentLoaded', function () {
-        if (window.pjax) {
-            window.pjax.options.cacheBust = false; 
-        }
-    });
 </script>
 
 <script>
