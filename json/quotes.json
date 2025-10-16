@@ -1,5 +1,15 @@
 [
     {
+        "quote": "在数学中，正和负，微分和积分。\n 在力学中，作用和反作用。\n 在物理学中，阳电和阴电。\n 在化学中，原子的化合和分解。\n 在社会科学中，阶级斗争。",
+        "author": "列宁《谈谈辩证法问题》"
+    },
+    {
+        "quote": "谁是我们的敌人？谁是我们的朋友？这个问题是革命的首要问题。",
+        "author": "毛泽东《中国社会各阶级的分析》"
+    },
+    
+
+    {
         "quote": "$\\displaystyle f(x) = \\sum_{k=0}^{n} \\frac{f^{(k)}(0)}{k!} x^{k} + o(x^{n})$",
         "author": "泰勒公式"
     },
@@ -8,14 +18,29 @@
         "author": "格林公式"
     },
     {
+        "quote": "$\\displaystyle \\oiint\\limits_{\\varSigma} P \\mathrm{d}y\\mathrm{d}z + Q \\mathrm{d}x\\mathrm{d}z + R \\mathrm{d}x\\mathrm{d}y = \\iiint\\limits_{\\varOmega} \\left( \\frac{\\partial P}{\\partial x} + \\frac{\\partial Q}{\\partial y} + \\frac{\\partial R}{\\partial z} \\right) \\mathrm{d}V $",
+        "author": "高斯公式"
+    },
+    {
         "quote": "如果 $f(x)$ 在 $[a,b]$上连续，在 $(a,b)$ 内可导，那么至少存在一点 $\\xi \\in(a,b)$，使得 $f(b)-f(a)=f'(\\xi)(b-a)$",
         "author": "拉格朗日中值定理"
     },
-
-    
     {
-        "quote": "在数学中，正和负，微分和积分。\n 在力学中，作用和反作用。\n 在物理学中，阳电和阴电。\n 在化学中，原子的化合和分解。\n 在社会科学中，阶级斗争。",
-        "author": "列宁《谈谈辩证法问题》"
+        "quote": "$\\displaystyle \\frac{\\mathrm{d}y}{\\mathrm{d}x} + P(x)y = Q(x)$ \n 通解：$\\displaystyle y = \\mathrm{e}^{-\\int P(x) \\mathrm{d}x} \\cdot \\left[ \\int Q(x) \\mathrm{e}^{\\int P(x) \\mathrm{d}x} \\mathrm{d}x + C \\right] $",
+        "author": "一阶线性微分方程"
+    },
+    {
+        "quote": "$\\displaystyle \\sin\\alpha+\\sin\\beta = 2\\sin\\frac{\\alpha+\\beta}{2} \\cdot \\cos\\frac{\\alpha-\\beta}{2}$ \n $\\displaystyle \\sin\\alpha-\\sin\\beta = 2\\cos\\frac{\\alpha+\\beta}{2} \\cdot \\sin\\frac{\\alpha-\\beta}{2}$ \n $\\displaystyle \\cos\\alpha+\\cos\\beta = 2\\cos\\frac{\\alpha+\\beta}{2} \\cdot \\cos\\frac{\\alpha-\\beta}{2}$ \n $\\displaystyle \\cos\\alpha-\\cos\\beta = -2\\sin\\frac{\\alpha+\\beta}{2} \\cdot \\sin\\frac{\\alpha-\\beta}{2}$",
+        "author": "和差化积公式"
+    },
+
+
+    {
+        "quote":" 减法公式：$P(A-B) = P(A\\overline{B}) = P(A)-P(AB)$ \n 单调性：若 $A \\subset B$，则 $P(A) \\leqslant P(B)$ \n 加法公式：$P(A \\cup B) = P(A) + P(B) - P(AB)$ ",
+        "author": "概率基本公式"
+    },
+    {
+        "quote": "全概率公式：$\\displaystyle P(B) = \\sum_{i=1}^{n} P(A_i B) = \\sum_{i=1}^{n} P(A_i)P(B|A_i)$ \n 贝叶斯公式：$\\displaystyle P(A_i | B) = \\frac{P(A_i B)}{P(B)} = \\frac{P(A_i)P(B|A_i)}{\\displaystyle \\sum_{k=1}^{n} P(A_k)P(B|A_k)} $",
+        "author":"全概率公式与贝叶斯公式" 
     }
-    
 ]

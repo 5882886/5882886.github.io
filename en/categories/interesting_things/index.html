@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/en/categories/interesting_things/'>
 
-<link rel="stylesheet" href="/scss/style.min.5c6b7caa4fe5f0e4817eb13bf0a5e507c7756619748e91f86b9ae07d7e62c8fa.css"><meta property='og:title' content="Category: Interesting things - RunicDolphin806">
+<link rel="stylesheet" href="/scss/style.min.5615ffd66d63efee744c60133c98d2008861f9cf705984d73773f6d33c659ca3.css"><meta property='og:title' content="Category: Interesting things - RunicDolphin806">
 <meta property='og:description' content="These are something interesting">
 <meta property='og:url' content='https://5882886.github.io/en/categories/interesting_things/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -25,7 +25,7 @@
     }
 
      
-    .menu, .footer {
+    .menu, .footer, .sidebar.right-sidebar {
         display: none !important;
     }
 
@@ -346,132 +346,6 @@
 
             
         
-            
-                
-
-
-<!DOCTYPE html>
-<html lang="zh_cn">
-    <head>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>文字生成器</title>
-        <style>
-             
-            .quote-box {
-                background-color: var(--card-background);
-                width: 100%;
-                margin: var(--card-margin) 0;
-                padding: var(--card-padding);
-                border-radius: 24px;
-                box-shadow: var(--shadow-l1);
-            }
-
-             
-            .quote-text {
-                color: var(--card-text-color-main);
-                font-size: 16px;
-                font-style: normal;
-                line-height: var(--article-line-height);
-                margin-bottom: 20px;
-            }
-            .quote-author {
-                color: var(--card-text-color-main);
-                font-size: 16px;
-                text-align: right;
-            }
-
-             
-            #new-quote {
-                background-color: #4caf50;
-                color: #fff;
-                border: none;
-                padding: 10px 20px;
-                margin-top: 20px;
-                border-radius: 5px;
-                cursor: pointer;
-            }
-
-            .tweet-quote {
-                display: block;
-                text-align: right;
-                margin-top: 10px;
-                color: #4caf50;
-            }
-        </style>
-      </head>
-
-
-    <body>
-        <h2 class="widget-title section-title">Tips</h2>
-        <div class="quote-box">
-            <div class="quote-text">Text</div>
-            <div class="quote-author">——Author</div>
-            <button id="new-quote">换一条</button>
-        </div>
-    </body>
-
-
-    
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
-        onload="renderMathInElement(document.body, {
-            delimiters: [
-                {left: '$$', right: '$$', display: true},
-                {left: '$', right: '$', display: false},
-                {left: '\\[', right: '\\]', display: true},
-                {left: '\\(', right: '\\)', display: false}
-            ]
-        });">
-    </script>
-
-    <script>
-        
-        let quotes = [];
-
-        
-        async function loadQuotes() {
-            const res = await fetch('/json/quotes.json');    
-            quotes = await res.json();
-            showQuotes();                               
-        }
-
-        
-        function showQuotes() {
-            
-            const quote = quotes[Math.floor(Math.random() * quotes.length)];
-            
-            
-            const textElement = document.querySelector(".quote-text");
-            const authorElement = document.querySelector(".quote-author");
-
-            textElement.innerText = quote.quote;
-            authorElement.innerText = `—— ${quote.author}`;
-
-            
-            renderMathInElement(textElement, {
-                delimiters: [
-                    {left: '$$', right: '$$', display: true},
-                    {left: '$', right: '$', display: false},
-                    {left: '\\[', right: '\\]', display: true},
-                    {left: '\\(', right: '\\)', display: false}
-                ]
-            });
-        };
-
-        
-        document.querySelector("#new-quote").addEventListener("click", showQuotes);
-
-        loadQuotes();
-        showQuotes();
-        
-        
-    </script>
-</html>
-            
-        
     </aside>
 
 
@@ -785,7 +659,6 @@
 </script>
 
 <script>
-
     
     async function loadQuotes() {
         const res = await fetch('/json/quotes.json');    
@@ -797,7 +670,6 @@
     function showQuotes() {
         
         const quote = quotes[Math.floor(Math.random() * quotes.length)];
-        
         
         const textElement = document.querySelector(".quote-text");
         const authorElement = document.querySelector(".quote-author");

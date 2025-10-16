@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/tju/'>
 
-<link rel="stylesheet" href="/scss/style.min.5c6b7caa4fe5f0e4817eb13bf0a5e507c7756619748e91f86b9ae07d7e62c8fa.css"><meta property='og:title' content="有意思的玩意">
+<link rel="stylesheet" href="/scss/style.min.5615ffd66d63efee744c60133c98d2008861f9cf705984d73773f6d33c659ca3.css"><meta property='og:title' content="有意思的玩意">
 <meta property='og:description' content="请看正文">
 <meta property='og:url' content='https://5882886.github.io/p/tju/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -25,7 +25,7 @@
     }
 
      
-    .menu, .footer {
+    .menu, .footer, .sidebar.right-sidebar {
         display: none !important;
     }
 
@@ -481,8 +481,9 @@
                 width: 100%;
                 margin: var(--card-margin) 0;
                 padding: var(--card-padding);
-                border-radius: 24px;
+                border-radius: 10px;
                 box-shadow: var(--shadow-l1);
+                box-shadow: inset 0 20px 20px var(--body-background);
             }
 
              
@@ -490,6 +491,7 @@
                 color: var(--card-text-color-main);
                 font-size: 16px;
                 font-style: normal;
+                margin-top: 20px;
                 line-height: var(--article-line-height);
                 margin-bottom: 20px;
             }
@@ -517,17 +519,17 @@
                 color: #4caf50;
             }
         </style>
-      </head>
+    </head>
 
-
-    <body>
-        <h2 class="widget-title section-title">Tips</h2>
+    
+    <section class="quote">
+        <h2 class="widget-title section-title">随机文字生成</h2>
         <div class="quote-box">
             <div class="quote-text">Text</div>
             <div class="quote-author">——Author</div>
             <button id="new-quote">换一条</button>
         </div>
-    </body>
+    </section>
 
 
     
@@ -582,8 +584,6 @@
 
         loadQuotes();
         showQuotes();
-        
-        
     </script>
 </html>
             
@@ -1332,7 +1332,6 @@ D.	全诗语言简明直白，生动地表达作者对天津的喜爱和赞美�
 </script>
 
 <script>
-
     
     async function loadQuotes() {
         const res = await fetch('/json/quotes.json');    
@@ -1344,7 +1343,6 @@ D.	全诗语言简明直白，生动地表达作者对天津的喜爱和赞美�
     function showQuotes() {
         
         const quote = quotes[Math.floor(Math.random() * quotes.length)];
-        
         
         const textElement = document.querySelector(".quote-text");
         const authorElement = document.querySelector(".quote-author");

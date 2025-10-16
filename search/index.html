@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/search/'>
 
-<link rel="stylesheet" href="/scss/style.min.5c6b7caa4fe5f0e4817eb13bf0a5e507c7756619748e91f86b9ae07d7e62c8fa.css"><meta property='og:title' content="搜索">
+<link rel="stylesheet" href="/scss/style.min.5615ffd66d63efee744c60133c98d2008861f9cf705984d73773f6d33c659ca3.css"><meta property='og:title' content="搜索">
 <meta property='og:description' content="">
 <meta property='og:url' content='https://5882886.github.io/search/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -25,7 +25,7 @@
     }
 
      
-    .menu, .footer {
+    .menu, .footer, .sidebar.right-sidebar {
         display: none !important;
     }
 
@@ -596,7 +596,6 @@
 </script>
 
 <script>
-
     
     async function loadQuotes() {
         const res = await fetch('/json/quotes.json');    
@@ -608,7 +607,6 @@
     function showQuotes() {
         
         const quote = quotes[Math.floor(Math.random() * quotes.length)];
-        
         
         const textElement = document.querySelector(".quote-text");
         const authorElement = document.querySelector(".quote-author");
