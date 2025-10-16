@@ -354,7 +354,6 @@
 <html lang="zh_cn">
     <head>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -371,14 +370,14 @@
             }
 
              
-            .text {
+            .quote-text {
                 color: var(--card-text-color-main);
                 font-size: 16px;
                 font-style: normal;
                 line-height: var(--article-line-height);
                 margin-bottom: 20px;
             }
-            .author {
+            .quote-author {
                 color: var(--card-text-color-main);
                 font-size: 16px;
                 text-align: right;
@@ -408,8 +407,8 @@
     <body>
         <h2 class="widget-title section-title">Tips</h2>
         <div class="quote-box">
-            <div class="text">Text</div>
-            <div class="author">——Author</div>
+            <div class="quote-text">Text</div>
+            <div class="quote-author">——Author</div>
             <button id="new-quote">换一条</button>
         </div>
     </body>
@@ -445,8 +444,8 @@
             const quote = quotes[Math.floor(Math.random() * quotes.length)];
             
             
-            const textElement = document.querySelector(".text");
-            const authorElement = document.querySelector(".author");
+            const textElement = document.querySelector(".quote-text");
+            const authorElement = document.querySelector(".quote-author");
 
             textElement.innerText = quote.quote;
             authorElement.innerText = `—— ${quote.author}`;
@@ -464,16 +463,12 @@
 
         
         document.querySelector("#new-quote").addEventListener("click", showQuotes);
+
+        loadQuotes();
+        showQuotes();
         
-        window.addEventListener('DOMContentLoaded', loadQuotes);
-
-
-        document.addEventListener('pjax:complete', function () {
-            showQuote();          
-        });
         
     </script>
-
 </html>
             
         
@@ -674,8 +669,7 @@
 <script>
     var pjax = new Pjax({
         selectors: [
-            ".main-container",
-            ".quote-box"
+            ".main-container"
         ]
     })
 
@@ -699,10 +693,14 @@
     document.addEventListener('pjax:complete', () => {
         
         window.Stack.init();
-        initTocHide();
         document.querySelectorAll();
-        showQuote();
     })
+
+    document.addEventListener('DOMContentLoaded', function () {
+        if (window.pjax) {
+            window.pjax.options.cacheBust = false; 
+        }
+    });
 
 </script>
 
@@ -786,7 +784,12 @@
             } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
         });
     }
-    initTocHide()
+
+    document.addEventListener('pjax:complete', () => {
+        initTocHide();
+
+    })
+    
 </script>
 
 
@@ -813,5 +816,44 @@
     })
 </script>
 
+<script>
+
+    
+    async function loadQuotes() {
+        const res = await fetch('/json/quotes.json');    
+        quotes = await res.json();
+        showQuotes();                               
+    }
+
+    
+    function showQuotes() {
+        
+        const quote = quotes[Math.floor(Math.random() * quotes.length)];
+        
+        
+        const textElement = document.querySelector(".quote-text");
+        const authorElement = document.querySelector(".quote-author");
+
+        textElement.innerText = quote.quote;
+        authorElement.innerText = `—— ${quote.author}`;
+
+        
+        renderMathInElement(textElement, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: '\\[', right: '\\]', display: true},
+                {left: '\\(', right: '\\)', display: false}
+            ]
+        });
+    };
+
+    document.addEventListener('pjax:complete', () => {
+        loadQuotes();
+        showQuotes();
+        document.querySelector("#new-quote").addEventListener("click", showQuotes);
+    })
+
+</script>
     </body>
 </html>
