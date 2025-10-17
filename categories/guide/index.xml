@@ -4719,7 +4719,7 @@
   &lt;tbody&gt;
       &lt;tr&gt;
           &lt;td&gt;&lt;code&gt;tasks.json&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;终端任务文件，定义了在终端执行的任务。在这里用于C/C++可执行文件的构建和运行&lt;/td&gt;
+          &lt;td&gt;终端任务文件，定义在终端执行的任务。在这里用于C/C++可执行文件的构建和运行&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;&lt;code&gt;launch.json&lt;/code&gt;&lt;/td&gt;

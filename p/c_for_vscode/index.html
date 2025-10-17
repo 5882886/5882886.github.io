@@ -827,7 +827,7 @@
   <tbody>
       <tr>
           <td><code>tasks.json</code></td>
-          <td>终端任务文件，定义了在终端执行的任务。在这里用于C/C++可执行文件的构建和运行</td>
+          <td>终端任务文件，定义在终端执行的任务。在这里用于C/C++可执行文件的构建和运行</td>
       </tr>
       <tr>
           <td><code>launch.json</code></td>
@@ -1528,5 +1528,24 @@
     })
 
 </script>
+<div id="particles-js"></div>
+
+<script src=https://5882886.github.io/background/particles.min.js ></script>
+<script>
+    particlesJS.load('particles-js', "https://5882886.github.io/background/particlesjs-config.json", function() {
+        console.log('particles.js loaded - callback');
+    });
+</script>
+
+<style>
+    #particles-js {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: -1;
+    }
+</style>
+
     </body>
 </html>
