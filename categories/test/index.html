@@ -731,10 +731,61 @@
     }
 
     
+    
     function showQuotes() {
         
-        const quote = quotes[Math.floor(Math.random() * quotes.length)];
+        index = Math.floor(Math.random() * quotes.length)
+        const quote = quotes[index];
+            
         
+        const textElement = document.querySelector(".quote-text");
+        const authorElement = document.querySelector(".quote-author");
+
+        textElement.innerText = quote.quote;
+        authorElement.innerText = `—— ${quote.author}`;
+
+        
+        renderMathInElement(textElement, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: '\\[', right: '\\]', display: true},
+                {left: '\\(', right: '\\)', display: false}
+            ]
+        });
+    };
+
+    function showNextQuote() {
+        index ++;
+        if(index >= quotes.length) {
+            index = 0;
+        }
+
+        const quote = quotes[index];
+        const textElement = document.querySelector(".quote-text");
+        const authorElement = document.querySelector(".quote-author");
+
+        textElement.innerText = quote.quote;
+        authorElement.innerText = `—— ${quote.author}`;
+
+        
+        renderMathInElement(textElement, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: '\\[', right: '\\]', display: true},
+                {left: '\\(', right: '\\)', display: false}
+            ]
+        });  
+    };
+
+    function showPreQuote() {
+        index --;
+        if(index < 0 ) {
+            index = quotes.length-1;
+        }
+        
+        const quote = quotes[index];
         const textElement = document.querySelector(".quote-text");
         const authorElement = document.querySelector(".quote-author");
 
@@ -756,6 +807,8 @@
         loadQuotes();
         showQuotes();
         document.querySelector("#new-quote").addEventListener("click", showQuotes);
+        document.querySelector("#pre-quote").addEventListener("click", showPreQuote);
+        document.querySelector("#next-quote").addEventListener("click", showNextQuote);
     })
 
 </script>

@@ -33,6 +33,10 @@
         "quote": "$\\displaystyle \\sin\\alpha+\\sin\\beta = 2\\sin\\frac{\\alpha+\\beta}{2} \\cdot \\cos\\frac{\\alpha-\\beta}{2}$ \n $\\displaystyle \\sin\\alpha-\\sin\\beta = 2\\cos\\frac{\\alpha+\\beta}{2} \\cdot \\sin\\frac{\\alpha-\\beta}{2}$ \n $\\displaystyle \\cos\\alpha+\\cos\\beta = 2\\cos\\frac{\\alpha+\\beta}{2} \\cdot \\cos\\frac{\\alpha-\\beta}{2}$ \n $\\displaystyle \\cos\\alpha-\\cos\\beta = -2\\sin\\frac{\\alpha+\\beta}{2} \\cdot \\sin\\frac{\\alpha-\\beta}{2}$",
         "author": "和差化积公式"
     },
+    {
+        "quote": "$\\displaystyle 2\\sin\\alpha\\cos\\beta = \\sin(\\alpha+\\beta) + \\sin(\\alpha-\\beta) $ \n $\\displaystyle 2\\cos\\alpha\\sin\\beta = \\sin(\\alpha+\\beta) - \\sin(\\alpha-\\beta) $ \n $\\displaystyle 2\\cos\\alpha\\cos\\beta = \\cos(\\alpha+\\beta) + \\cos(\\alpha-\\beta) $ \n $\\displaystyle 2\\sin\\alpha\\sin\\beta = -\\cos(\\alpha+\\beta) - \\cos(\\alpha-\\beta) $ ",
+        "author": "积化和差公式"
+    },
 
 
     {
