@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/math_tips/'>
 
-<link rel="stylesheet" href="/scss/style.min.5615ffd66d63efee744c60133c98d2008861f9cf705984d73773f6d33c659ca3.css"><meta property='og:title' content="微积分：常用公式">
+<link rel="stylesheet" href="/scss/style.min.e832aece47f82ee0b98e2dba2918b1a38120c979a24f1425f0a03965fb99d55e.css"><meta property='og:title' content="微积分：常用公式">
 <meta property='og:description' content="一些简单的练习 → 尽量上课！ 课下完整看完一本书！ 做题！ 极限与函数 等价无穷小 等价无穷小 $(x \\to 0)$ $ \\sin x \\sim x$ $ \\tan x \\sim x $ $\\arcsin x \\sim x$ $ \\arctan x \\sim x $ $\\displaystyle \\cos x \\sim 1-\\frac{1}{2}x^{2} $ $ \\mathrm{e}^{x}-1 \\sim x $ $ \\ln(1+x) \\sim x $ $ (1+x)^{\\alpha}-1 \\sim \\alpha x $ 重要极限 $\\displaystyle \\lim_{n \\to 0} \\frac{\\sin n}{n} = 1，\\lim_{x \\to 0} \\frac{\\sin x}{x} = 1$.\n">
 <meta property='og:url' content='https://5882886.github.io/p/math_tips/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -623,6 +623,10 @@
                 border-radius: 10px;
                 box-shadow: var(--shadow-l1);
                 box-shadow: inset 0 20px 20px var(--body-background);
+                 
+                max-height: 35vh;
+                overflow-x: hidden;
+                overflow-y: auto;
             }
 
              
@@ -665,12 +669,20 @@
                 border-radius: 5px;
                 cursor: pointer;
             }
+
+             
+            .widget-icon {
+                color: var(--body-text-color);
+            }
         </style>
     </head>
 
     
-    <section class="quote">
-        <h2 class="widget-title section-title">随机文字生成</h2>
+    <section class="widget quote">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrows-shuffle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 4l3 3l-3 3" /><path d="M18 20l3 -3l-3 -3" /><path d="M3 7h3a5 5 0 0 1 5 5a5 5 0 0 0 5 5h5" /><path d="M21 7h-5a4.978 4.978 0 0 0 -3 1m-4 8a4.984 4.984 0 0 1 -3 1h-3" /></svg>
+        </div>
+        <h2 class="widget-title section-title">随机文字</h2>
         <div class="quote-box">
             <div class="quote-text">Text</div>
             <div class="quote-author">——Author</div>
@@ -1088,32 +1100,44 @@ $$ K = \frac{\left| \varphi'(t) \psi''(t) - \varphi''(t) \psi'(t) \right|}{[\var
 $$\left\{ \begin{array}{c} \begin{align*} \xi &= x - \dfrac{y'(1+y'^{\ 2})}{y''} \\ \eta &= y + \dfrac{1+y'^{\ 2}}{y''} \end{align*} \end{array} \right.$$<h2 id="一元函数积分学">一元函数积分学
 </h2><h3 id="常规积分方法">常规积分方法
 </h3><h4 id="凑微分法">凑微分法
-</h4><ol>
-<li>
-<p>$\displaystyle \mathrm{e}^{x} \mathrm{d}x = \mathrm{d} (\mathrm{e}^{x})$</p>
-</li>
-<li>
-<p>$\displaystyle x^{n-1} \mathrm{d}x = \frac{1}{na} \mathrm{d} (ax^{n}+b)$</p>
-</li>
-<li>
-<p>$\displaystyle \frac{\mathrm{d}x}{x} = \mathrm{d}(\ln x)$</p>
-</li>
-<li>
-<p>$\displaystyle \frac{\mathrm{d}x}{1+x^{2}} = \mathrm{d} (\arctan x)$</p>
-</li>
-<li>
-<p>$\displaystyle \frac{\mathrm{d}x}{\cos ^{2}x} = \mathrm{d} (\tan x)$</p>
-</li>
-<li>
-<p>$\displaystyle \sin x \mathrm{d}x = - \mathrm{d}(\cos x)$</p>
-</li>
-<li>
-<p>$\displaystyle \cos x \mathrm{d}x = \mathrm{d}(\sin x)$</p>
-</li>
-<li>
-<p>$\displaystyle \frac{\mathrm{d}x}{\sqrt{1-x^{2}}} = \mathrm{d}(\arcsin x)$</p>
-</li>
-</ol>
+</h4><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>基本凑微分法</th>
+          <th></th>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>$\displaystyle \mathrm{e}^{x} \mathrm{d}x = \mathrm{d} (\mathrm{e}^{x})$</td>
+          <td>$\displaystyle x^{n-1} \mathrm{d}x = \frac{1}{na} \mathrm{d} (ax^{n}+b)$</td>
+          <td>$\displaystyle \frac{\mathrm{d}x}{x} = \mathrm{d}(\ln x)$</td>
+          <td>$\displaystyle \frac{\mathrm{d}x}{1+x^{2}} = \mathrm{d} (\arctan x)$</td>
+      </tr>
+      <tr>
+          <td>$\displaystyle \frac{\mathrm{d}x}{\cos ^{2}x} = \mathrm{d} (\tan x)$</td>
+          <td>$\displaystyle \sin x \mathrm{d}x = - \mathrm{d}(\cos x)$</td>
+          <td>$\displaystyle \cos x \mathrm{d}x = \mathrm{d}(\sin x)$</td>
+          <td>$\displaystyle \frac{\mathrm{d}x}{\sqrt{1-x^{2}}} = \mathrm{d}(\arcsin x)$</td>
+      </tr>
+  </tbody>
+</table></div>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>特殊凑微分法</th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>$\displaystyle y\mathrm{d}x - x\mathrm{d}y = \frac{1}{y^2}\mathrm{d} \left(\frac{x}{y} \right)$</td>
+          <td></td>
+      </tr>
+  </tbody>
+</table></div>
 <h4 id="换元积分法">换元积分法
 </h4><ol>
 <li>三角代换</li>
@@ -2336,9 +2360,10 @@ $$\bm{R}_X(\bm{\theta}) = \left[ \begin{matrix} 1 & 0 & 0 \\ 0 & \cos\theta &  \
         });
     }
 
+    initTocHide();
+
     document.addEventListener('pjax:complete', () => {
         initTocHide();
-
     })
     
 </script>

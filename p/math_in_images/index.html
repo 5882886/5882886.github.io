@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/math_in_images/'>
 
-<link rel="stylesheet" href="/scss/style.min.5615ffd66d63efee744c60133c98d2008861f9cf705984d73773f6d33c659ca3.css"><meta property='og:title' content="图像处理的数学原理">
+<link rel="stylesheet" href="/scss/style.min.e832aece47f82ee0b98e2dba2918b1a38120c979a24f1425f0a03965fb99d55e.css"><meta property='og:title' content="图像处理的数学原理">
 <meta property='og:description' content="似曾相识……">
 <meta property='og:url' content='https://5882886.github.io/p/math_in_images/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -487,6 +487,10 @@
                 border-radius: 10px;
                 box-shadow: var(--shadow-l1);
                 box-shadow: inset 0 20px 20px var(--body-background);
+                 
+                max-height: 35vh;
+                overflow-x: hidden;
+                overflow-y: auto;
             }
 
              
@@ -529,12 +533,20 @@
                 border-radius: 5px;
                 cursor: pointer;
             }
+
+             
+            .widget-icon {
+                color: var(--body-text-color);
+            }
         </style>
     </head>
 
     
-    <section class="quote">
-        <h2 class="widget-title section-title">随机文字生成</h2>
+    <section class="widget quote">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrows-shuffle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 4l3 3l-3 3" /><path d="M18 20l3 -3l-3 -3" /><path d="M3 7h3a5 5 0 0 1 5 5a5 5 0 0 0 5 5h5" /><path d="M21 7h-5a4.978 4.978 0 0 0 -3 1m-4 8a4.984 4.984 0 0 1 -3 1h-3" /></svg>
+        </div>
+        <h2 class="widget-title section-title">随机文字</h2>
         <div class="quote-box">
             <div class="quote-text">Text</div>
             <div class="quote-author">——Author</div>
@@ -1259,9 +1271,10 @@ $$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &= [\mathrm{max}(R_1,R_2),\mathrm
         });
     }
 
+    initTocHide();
+
     document.addEventListener('pjax:complete', () => {
         initTocHide();
-
     })
     
 </script>
