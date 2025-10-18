@@ -283,357 +283,6 @@
     </ol>
 </aside>
 
-    
-        <aside class="sidebar right-sidebar sticky">
-        
-            
-                
-
-<style>
-    .container {
-        .right-sidebar {
-             
-            display: flex;
-        }
-    }
-
-     
-    .mobile-only {
-        display: none !important;
-    }
-
-    #toc-container {
-         
-         
-        position: fixed;
-         
-        bottom: 21%;
-         
-        right: 60px;
-         
-        background-color: var(--card-background);
-         
-        padding: 10px;
-         
-        border: 1px solid #96979a50;
-        border-radius: var(--card-border-radius);
-         
-        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-         
-        z-index: 9998 !important;
-         
-        max-height: 75vh;
-        overflow-y: auto;
-         
-        width: auto;
-        max-width: 290px;
-    }
-
-    #toggle-toc {
-        position: fixed;
-        bottom: 22%;
-        right: 20px;
-        padding: 10px 10px;
-        z-index: 9998 !important;
-        border: 0px solid #96979a50;
-        border-radius: 7px;
-        box-shadow: var(--shadow-l1);
-        background-color: #00640010;
-        color: #34495e;
-         
-        display: none;  
-        margin-bottom: -20px;
-        cursor: pointer;
-        font-size: 1.2rem;
-    }
-
-    .widget--toc #TableOfContents {
-        overflow-x: auto;
-        max-height: 66vh;
-        width: auto;
-    }
-
-    @media screen and (max-width: 768px) {
-        .mobile-only {
-            display: block !important;  
-        }
-
-        #toc-container {
-            display: none;  
-        }
-
-        #toggle-toc {
-            display: block;  
-            bottom: 100px;  
-        }
-    }
-
-     
-    @media screen and (min-width: 769px) {
-        #toc-container {
-            display: block !important;  
-            position: static;  
-            border: none;  
-            box-shadow: none;  
-            max-height: none;  
-            overflow-y: visible;  
-            margin-top: 20px;  
-            right: auto;  
-            bottom: auto;  
-            width: auto;  
-            max-width: 100%;  
-            background-color: transparent;  
-            padding: 0;  
-        }
-
-        #toggle-toc {
-            display: none !important;  
-        }
-    }
-</style>
-<script>
-    var toggleButton = document.getElementById('toggle-toc');
-    var tocContainer = document.getElementById('toc-container');
-
-    
-    toggleButton.addEventListener('click', function() {
-        if (tocContainer.style.display === 'none' || tocContainer.style.display === '') {
-            tocContainer.style.display = 'block';
-        } else {
-            tocContainer.style.display = 'none';
-        }
-    });
-
-    
-    toggleButton.addEventListener('mouseover', function() {
-        
-            tocContainer.style.display = 'block';
-        
-    });
-
-    
-    document.addEventListener('click', function(event) {
-        
-            
-            if (!tocContainer.contains(event.target) && event.target !== toggleButton) {
-                
-                tocContainer.style.display = 'none';
-            }
-        
-    });
-</script>
-
-
-            
-        
-            
-                
-
-
-<!DOCTYPE html>
-<html lang="zh_cn">
-    <head>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>文字生成器</title>
-        <style>
-             
-            .quote-box {
-                background-color: var(--card-background);
-                width: 100%;
-                margin: var(--card-margin) 0;
-                padding: var(--card-padding);
-                border-radius: 10px;
-                box-shadow: var(--shadow-l1);
-                box-shadow: inset 0 20px 20px var(--body-background);
-                 
-                max-height: 35vh;
-                overflow-x: hidden;
-                overflow-y: auto;
-            }
-
-             
-            .quote-text {
-                color: var(--card-text-color-main);
-                font-size: 16px;
-                font-style: normal;
-                margin-top: 20px;
-                line-height: var(--article-line-height);
-                margin-bottom: 20px;
-            }
-            .quote-author {
-                color: var(--card-text-color-main);
-                font-size: 16px;
-                text-align: right;
-            }
-
-             
-            .row {
-                display: flex;           
-            }
-
-            #new-quote {
-                background-color: #4caf50;
-                color: #fff;
-                border: none;
-                padding: 10px 20px;
-                margin-top: 20px;
-                margin-right: auto;
-                border-radius: 5px;
-                cursor: pointer;
-            }
-            #next-quote, #pre-quote {
-                background-color: #4caf50;
-                color: #fff;
-                border: none;
-                padding: 10px 20px;
-                margin-top: 20px;
-                margin-left: 8px;
-                border-radius: 5px;
-                cursor: pointer;
-            }
-
-             
-            .widget-icon {
-                color: var(--body-text-color);
-            }
-        </style>
-    </head>
-
-    
-    <section class="widget quote">
-        <div class="widget-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrows-shuffle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 4l3 3l-3 3" /><path d="M18 20l3 -3l-3 -3" /><path d="M3 7h3a5 5 0 0 1 5 5a5 5 0 0 0 5 5h5" /><path d="M21 7h-5a4.978 4.978 0 0 0 -3 1m-4 8a4.984 4.984 0 0 1 -3 1h-3" /></svg>
-        </div>
-        <h2 class="widget-title section-title">随机文字</h2>
-        <div class="quote-box">
-            <div class="quote-text">Text</div>
-            <div class="quote-author">——Author</div>
-            <div class="row">
-                <button id="new-quote">Random</button>
-                <button id="pre-quote">Pre</button>
-                <button id="next-quote">Next</button>
-            </div>
-        </div>
-    </section>
-
-
-    
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
-        onload="renderMathInElement(document.body, {
-            delimiters: [
-                {left: '$$', right: '$$', display: true},
-                {left: '$', right: '$', display: false},
-                {left: '\\[', right: '\\]', display: true},
-                {left: '\\(', right: '\\)', display: false}
-            ]
-        });">
-    </script>
-
-    <script>
-        
-        let quotes = [];
-        let index = 0;
-
-        
-        async function loadQuotes() {
-            const res = await fetch('/json/quotes.json');    
-            quotes = await res.json();
-            showQuotes();                               
-        }
-
-        
-        
-        function showQuotes() {
-            
-            index = Math.floor(Math.random() * quotes.length)
-            const quote = quotes[index];
-             
-            
-            const textElement = document.querySelector(".quote-text");
-            const authorElement = document.querySelector(".quote-author");
-
-            textElement.innerText = quote.quote;
-            authorElement.innerText = `—— ${quote.author}`;
-
-            
-            renderMathInElement(textElement, {
-                delimiters: [
-                    {left: '$$', right: '$$', display: true},
-                    {left: '$', right: '$', display: false},
-                    {left: '\\[', right: '\\]', display: true},
-                    {left: '\\(', right: '\\)', display: false}
-                ]
-            });
-        };
-
-        function showNextQuote() {
-            index ++;
-            if(index >= quotes.length) {
-                index = 0;
-            }
-
-            const quote = quotes[index];
-            const textElement = document.querySelector(".quote-text");
-            const authorElement = document.querySelector(".quote-author");
-
-            textElement.innerText = quote.quote;
-            authorElement.innerText = `—— ${quote.author}`;
-
-            
-            renderMathInElement(textElement, {
-                delimiters: [
-                    {left: '$$', right: '$$', display: true},
-                    {left: '$', right: '$', display: false},
-                    {left: '\\[', right: '\\]', display: true},
-                    {left: '\\(', right: '\\)', display: false}
-                ]
-            });  
-        };
-
-        function showPreQuote() {
-            index --;
-            if(index < 0 ) {
-                index = quotes.length-1;
-            }
-
-            const quote = quotes[index];
-            const textElement = document.querySelector(".quote-text");
-            const authorElement = document.querySelector(".quote-author");
-
-            textElement.innerText = quote.quote;
-            authorElement.innerText = `—— ${quote.author}`;
-
-            
-            renderMathInElement(textElement, {
-                delimiters: [
-                    {left: '$$', right: '$$', display: true},
-                    {left: '$', right: '$', display: false},
-                    {left: '\\[', right: '\\]', display: true},
-                    {left: '\\(', right: '\\)', display: false}
-                ]
-            });
-        };
-
-        
-        document.querySelector("#new-quote").addEventListener("click", showQuotes);
-        document.querySelector("#pre-quote").addEventListener("click", showPreQuote);
-        document.querySelector("#next-quote").addEventListener("click", showNextQuote);
-
-        loadQuotes();
-        showQuotes();
-
-    </script>
-</html>
-            
-        
-    </aside>
-
-    
-
             <main class="main full-width">
     
         <article class="main-article">
@@ -964,60 +613,33 @@
 <div id="aplayer"></div>
 <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
 
+<style>
+    .aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -70px !important;
+         
+    }
+
+    .aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0 !important;
+         
+    }
+</style>
+
 <script>
-    const ap = new APlayer({
-        container: document.getElementById('aplayer'),
-        fixed: true,
-        listFolded: true,
-        lrcType: 3,
-		audio: [{
-            name: 'The Internationale',
-            artist: '中央乐队合唱团',
-            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0Vja0Vlc3NaV2tGTmlKdGdkY1Atd0tjQl9KWGNMSlM1TTZtTm4wNjNZUm9Zd2c_ZT1PVGFYZ2k.mp3',
-            lrc: '/music/国际歌.lrc',
-            cover: '/music/music.png'
-        }, {
-            name: 'School song',
-            artist: 'Various Artists',
-            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VkN0ZBOGl6cWNWR3FsUC1reFFoLW9RQnQyYmdPTEdkbXlNZS0xSnl0b1EyTVE_ZT1Oa1JYQm0.mp3',
-            lrc: '/music/天津大学校歌.lrc',
-            cover: '/music/music.png'
-
-		}, {
-            name: '一笑江湖（交响乐版）',
-            artist: '蜩與學鸠',
-            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VSeFRkc2tRYW1kUG9hNllSNGVmdUpRQmV5cVdhMXd0WE92WXI5N0kxd1pEdXc.mp3',
-            cover: '/music/music.png'
-        }, {
-            name: '五四特别版错位时空',
-            artist: '共青团中央',
-            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VldlEwZ3EzZzI5SG1SVURHRzFNdUhJQllZbm1ycDZDbXNHOVF0MzVLZ3RjeXc_ZT1iRXpZdzI.mp3',
-            lrc: '/music/五四特别版错位时空.lrc',
-            cover: '/music/music.png'
-        }, {
-            name: '问月',
-            artist: '葫芦童声;妞妞合唱团',
-            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VRWGtMS0hmUnE1Tm1ZS09RNll0R2JrQmM2Yk94WWNrZUYwSVVkcHhXekFuOWc_ZT1hYVB0S1g.mp3',
-            lrc: '/music/问月.lrc',
-            cover: '/music/music.png'
-
-        }, {
-            name: '夜空中最亮的星',
-            artist: '逃跑计划',
-            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VhTDhBUEZoSnZCQW8weVd4bHo1SmxBQktpVWZtRzFORkxGeFVtWXA3bTFmTUE_ZT1oZmg0a0w.mp3',
-            lrc: '/music/夜空中最亮的星.lrc',
-            cover: '/music.png'
-        }, {
-            name: '少年游',
-            artist: '灰太狼办公室',
-            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VmbEdBTnYxdVdGQ3FBMWFvbkt4dF9BQlppNzgtZDcyenhGNXVnVmphOGx3NlE_ZT04Q1ZoZlU.mp3',
-            lrc: '/music/少年游-完整版.lrc',
-            cover: '/music.png'
-        }]
+    
+    fetch('/json/music.json')
+        .then(r => r.json())    
+        .then(list => {
+            const ap = new APlayer({ 
+                container: document.getElementById('aplayer'), 
+                fixed: true,
+                listFolded: true,
+                lrcType: 3,
+                audio: list 
+            });
     });
 
 	
-
     window.onbeforeunload = () => {
         
         const playInfo = {
@@ -1029,7 +651,6 @@
     };
 
     
-
     window.onload = () => {
         
         const playInfo = JSON.parse(localStorage.getItem("playInfo"));
@@ -1048,20 +669,9 @@
             }
         }, 500);
     };
-    
 </script>
 
-<style>
-    .aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -70px !important;
-         
-    }
 
-    .aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0 !important;
-         
-    }
-</style>
 <script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
 <script>
     var pjax = new Pjax({
@@ -1160,7 +770,7 @@
             
             let openUl = document.querySelectorAll(".open");
             if (openUl.length > 0) {
-              openUl.forEach((ul) => {
+                openUl.forEach((ul) => {
                 ul.classList.remove("open")
               })
             }
@@ -1306,9 +916,9 @@
 </script>
 <div id="particles-js"></div>
 
-<script src=https://5882886.github.io/background/particles.min.js ></script>
+<script src="https://5882886.github.io/background/particles.min.js" ></script>
 <script>
-    particlesJS.load('particles-js', "https://5882886.github.io/background/particlesjs-config.json", function() {
+    particlesJS.load('particles-js', 'https:\/\/5882886.github.io\/background\/particlesjs-config.json', function() {
         console.log('particles.js loaded - callback');
     });
 </script>
@@ -1318,6 +928,7 @@
         position: fixed;
         top: 0;
         left: 0;
+        height: 100%;
         width: 100%;
         z-index: -1;
     }

@@ -1677,60 +1677,33 @@
 <div id="aplayer"></div>
 <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
 
+<style>
+    .aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -70px !important;
+         
+    }
+
+    .aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0 !important;
+         
+    }
+</style>
+
 <script>
-    const ap = new APlayer({
-        container: document.getElementById('aplayer'),
-        fixed: true,
-        listFolded: true,
-        lrcType: 3,
-		audio: [{
-            name: 'The Internationale',
-            artist: '中央乐队合唱团',
-            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0Vja0Vlc3NaV2tGTmlKdGdkY1Atd0tjQl9KWGNMSlM1TTZtTm4wNjNZUm9Zd2c_ZT1PVGFYZ2k.mp3',
-            lrc: '/music/国际歌.lrc',
-            cover: '/music/music.png'
-        }, {
-            name: 'School song',
-            artist: 'Various Artists',
-            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VkN0ZBOGl6cWNWR3FsUC1reFFoLW9RQnQyYmdPTEdkbXlNZS0xSnl0b1EyTVE_ZT1Oa1JYQm0.mp3',
-            lrc: '/music/天津大学校歌.lrc',
-            cover: '/music/music.png'
-
-		}, {
-            name: '一笑江湖（交响乐版）',
-            artist: '蜩與學鸠',
-            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VSeFRkc2tRYW1kUG9hNllSNGVmdUpRQmV5cVdhMXd0WE92WXI5N0kxd1pEdXc.mp3',
-            cover: '/music/music.png'
-        }, {
-            name: '五四特别版错位时空',
-            artist: '共青团中央',
-            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VldlEwZ3EzZzI5SG1SVURHRzFNdUhJQllZbm1ycDZDbXNHOVF0MzVLZ3RjeXc_ZT1iRXpZdzI.mp3',
-            lrc: '/music/五四特别版错位时空.lrc',
-            cover: '/music/music.png'
-        }, {
-            name: '问月',
-            artist: '葫芦童声;妞妞合唱团',
-            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VRWGtMS0hmUnE1Tm1ZS09RNll0R2JrQmM2Yk94WWNrZUYwSVVkcHhXekFuOWc_ZT1hYVB0S1g.mp3',
-            lrc: '/music/问月.lrc',
-            cover: '/music/music.png'
-
-        }, {
-            name: '夜空中最亮的星',
-            artist: '逃跑计划',
-            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VhTDhBUEZoSnZCQW8weVd4bHo1SmxBQktpVWZtRzFORkxGeFVtWXA3bTFmTUE_ZT1oZmg0a0w.mp3',
-            lrc: '/music/夜空中最亮的星.lrc',
-            cover: '/music.png'
-        }, {
-            name: '少年游',
-            artist: '灰太狼办公室',
-            url: 'https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy81Y2ZkYjY0NmNhMDRlNGI2L0VmbEdBTnYxdVdGQ3FBMWFvbkt4dF9BQlppNzgtZDcyenhGNXVnVmphOGx3NlE_ZT04Q1ZoZlU.mp3',
-            lrc: '/music/少年游-完整版.lrc',
-            cover: '/music.png'
-        }]
+    
+    fetch('/json/music.json')
+        .then(r => r.json())    
+        .then(list => {
+            const ap = new APlayer({ 
+                container: document.getElementById('aplayer'), 
+                fixed: true,
+                listFolded: true,
+                lrcType: 3,
+                audio: list 
+            });
     });
 
 	
-
     window.onbeforeunload = () => {
         
         const playInfo = {
@@ -1742,7 +1715,6 @@
     };
 
     
-
     window.onload = () => {
         
         const playInfo = JSON.parse(localStorage.getItem("playInfo"));
@@ -1761,20 +1733,9 @@
             }
         }, 500);
     };
-    
 </script>
 
-<style>
-    .aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -70px !important;
-         
-    }
 
-    .aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0 !important;
-         
-    }
-</style>
 <script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
 <script>
     var pjax = new Pjax({
@@ -1873,7 +1834,7 @@
             
             let openUl = document.querySelectorAll(".open");
             if (openUl.length > 0) {
-              openUl.forEach((ul) => {
+                openUl.forEach((ul) => {
                 ul.classList.remove("open")
               })
             }
@@ -2019,9 +1980,9 @@
 </script>
 <div id="particles-js"></div>
 
-<script src=https://5882886.github.io/background/particles.min.js ></script>
+<script src="https://5882886.github.io/background/particles.min.js" ></script>
 <script>
-    particlesJS.load('particles-js', "https://5882886.github.io/background/particlesjs-config.json", function() {
+    particlesJS.load('particles-js', 'https:\/\/5882886.github.io\/background\/particlesjs-config.json', function() {
         console.log('particles.js loaded - callback');
     });
 </script>
@@ -2031,6 +1992,7 @@
         position: fixed;
         top: 0;
         left: 0;
+        height: 100%;
         width: 100%;
         z-index: -1;
     }
