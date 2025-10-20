@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/senior_high/'>
 
-<link rel="stylesheet" href="/scss/style.min.f0935af8e69a67850173a54e80621c1d5bf5d28a56cc59228adbbc171a5e4f65.css"><meta property='og:title' content="十四班学生列传">
+<link rel="stylesheet" href="/scss/style.min.6b749cce0a38064419623b106b029e31982eff833de70de4bc590000f5f885c7.css"><meta property='og:title' content="十四班学生列传">
 <meta property='og:description' content="纪念我的高中生活">
 <meta property='og:url' content='https://5882886.github.io/p/senior_high/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -703,11 +703,12 @@
                 color: var(--body-text-color);
             }
 
-            .article-content {
-                display: none;
+             
+            .main-article {
+                visibility: hidden;
             }
-            #TableOfContents {
-                display: none;
+            .widget--toc {
+                max-height: 0;
             }
         </style>
     </head>
@@ -746,23 +747,22 @@
         function checkPassword() {
             const input = document.getElementById("password-input").value;
             const correctPassword = "0.013888";
-            if (input === correctPassword) {
-                document.getElementById("TableOfContents").style.display = "block";
-                
-                const elements = document.querySelectorAll(".article-content");
-                elements.forEach(el => {
-                    el.style.display = "block";
+            if (input == correctPassword) {
+                document.querySelectorAll(".main-article").forEach(e => {
+                    e.style.visibility = "visible";
                 });
 
-                const elements_2 = document.querySelectorAll(".password-box");
-                elements_2.forEach(el => {
-                    el.style.display = "none";
+                document.querySelectorAll(".widget--toc").forEach(e => {
+                    e.style.maxHeight = "40vh";
+                });
+
+                document.querySelectorAll(".password-box").forEach(e => {
+                    e.style.display = "none";
                 });
             }
             else {
                 alert("密码错误！");
             }
-            
         }
 
         document.querySelector("#check").addEventListener("click", checkPassword);
