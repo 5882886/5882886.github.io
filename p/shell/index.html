@@ -957,9 +957,12 @@
 </span></span><span class="line"><span class="ln">15</span><span class="cl">        <span class="nf">listjobs</span><span class="p">(</span><span class="n">jobs</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">16</span><span class="cl">        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="ln">18</span><span class="cl">    
-</span></span><span class="line"><span class="ln">19</span><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>     <span class="cm">/* not a builtin command */</span>
-</span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nf">strcmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">&#34;&amp;&#34;</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">    
+</span></span><span class="line"><span class="ln">22</span><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>     <span class="cm">/* not a builtin command */</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="waitfg函数"><code>waitfg</code>函数
 </h3><p>阻塞终端直至前台任务完成意味着主程序需要显式地等待某个信号处理程序运行，一种合适的解决方法是使用<code>sigsuspend</code>函数。</p>
 <blockquote>

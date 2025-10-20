@@ -673,7 +673,6 @@
     
         
 
-
 <!DOCTYPE html>
 <html lang="zh_cn">
     <head>
@@ -724,7 +723,7 @@
             <button id="check">提交</button>
             <div class="cloze" style="display: block;">
                 <p>密码为以下题目答案（保留6位小数）：</p>
-                <p>计算三重积分 $\displaystyle \iiint\limits_{\varOmega} \frac{xyz}{x^2+y^2} \mathrm{d}x\mathrm{d}y\mathrm{d}z$，其中 $\varOmega$ 是由曲面 $(x^2+y^2+z^2) = 2xy$ 围成的区域在第一卦限的部分. </p>
+                <p>计算三重积分 $\displaystyle \iiint\limits_{\varOmega} \frac{xyz}{x^2+y^2} \mathrm{d}x\mathrm{d}y\mathrm{d}z$，其中 $\varOmega$ 是由曲面 $(x^2+y^2+z^2)^2 = 2xy$ 围成的区域在第一卦限的部分. </p>
             </div>
         </div>
     </section>
@@ -762,11 +761,12 @@
             }
             else {
                 alert("密码错误！");
-            }    
+            }
+            
         }
 
         document.querySelector("#check").addEventListener("click", checkPassword);
-
+        
     </script>
 </html>
      
