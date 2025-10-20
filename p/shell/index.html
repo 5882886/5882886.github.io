@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="纪念我的高中生活">
-<title>十四班学生列传</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="完成一个简易的Shell程序">
+<title>Shell实验</title>
 
-<link rel='canonical' href='https://5882886.github.io/p/senior_high/'>
+<link rel='canonical' href='https://5882886.github.io/p/shell/'>
 
-<link rel="stylesheet" href="/scss/style.min.f0935af8e69a67850173a54e80621c1d5bf5d28a56cc59228adbbc171a5e4f65.css"><meta property='og:title' content="十四班学生列传">
-<meta property='og:description' content="纪念我的高中生活">
-<meta property='og:url' content='https://5882886.github.io/p/senior_high/'>
+<link rel="stylesheet" href="/scss/style.min.f0935af8e69a67850173a54e80621c1d5bf5d28a56cc59228adbbc171a5e4f65.css"><meta property='og:title' content="Shell实验">
+<meta property='og:description' content="完成一个简易的Shell程序">
+<meta property='og:url' content='https://5882886.github.io/p/shell/'>
 <meta property='og:site_name' content='RunicDolphin806'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-06-14T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-06-14T00:00:00&#43;00:00'/>
-<meta name="twitter:title" content="十四班学生列传">
-<meta name="twitter:description" content="纪念我的高中生活">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-10-19T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-10-19T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Shell实验">
+<meta name="twitter:description" content="完成一个简易的Shell程序">
     <link rel="shortcut icon" href="/favicon.ico" />
 <style>
      
@@ -307,18 +307,15 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#总序">总序</a></li>
-    <li><a href="#朱天鸣传">朱天鸣传</a></li>
-    <li><a href="#徐陆传">徐陆传</a></li>
-    <li><a href="#陈敬旻传">陈敬旻传</a></li>
-    <li><a href="#王扬熙传">王扬熙传</a></li>
-    <li><a href="#涂子航传">涂子航传</a></li>
-    <li><a href="#张雨乐传">张雨乐传</a></li>
-    <li><a href="#程建卓传">程建卓传</a></li>
-    <li><a href="#朱敏浩传">朱敏浩传</a></li>
-    <li><a href="#陈雨传">陈雨传</a></li>
-    <li><a href="#江子恒传">江子恒传</a></li>
-    <li><a href="#李奕冉传">李奕冉传</a></li>
+    <li><a href="#实验目的">实验目的</a></li>
+    <li><a href="#shell介绍">Shell介绍</a></li>
+    <li><a href="#函数实现">函数实现</a>
+      <ol>
+        <li><a href="#eval函数"><code>eval</code>函数</a></li>
+        <li><a href="#builtin_cmd函数"><code>builtin_cmd</code>函数</a></li>
+        <li><a href="#waitfg函数"><code>waitfg</code>函数</a></li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -670,105 +667,6 @@
 
 
             <main class="main full-width">
-    
-        
-
-
-<!DOCTYPE html>
-<html lang="zh_cn">
-    <head>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>密码</title>
-        <style>
-             
-            .password-box {
-                background-color: var(--card-background);
-                width: 100%;
-                margin: var(--card-margin) 0;
-                padding: var(--card-padding);
-                border-radius: 10px;
-                 
-                max-height: 35vh;
-                overflow-x: hidden;
-                overflow-y: auto;
-            }
-
-            .cloze {
-                color: var(--card-text-color-main);
-            }
-             
-            .widget-icon {
-                color: var(--body-text-color);
-            }
-
-            .article-content {
-                display: none;
-            }
-            #TableOfContents {
-                display: none;
-            }
-        </style>
-    </head>
-
-    
-    <section class="widget password"> 
-        <div class="password-box">
-            <div class="widget-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-lock"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6z" /><path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" /><path d="M8 11v-4a4 4 0 1 1 8 0v4" /></svg>
-            </div>
-            <div class="password-guide"><p>请输入密码以查看内容：</p></div>
-            <input id="password-input" type="password"  />
-            <button id="check">提交</button>
-            <div class="cloze" style="display: block;">
-                <p>密码为以下题目答案（保留6位小数）：</p>
-                <p>计算三重积分 $\displaystyle \iiint\limits_{\varOmega} \frac{xyz}{x^2+y^2} \mathrm{d}x\mathrm{d}y\mathrm{d}z$，其中 $\varOmega$ 是由曲面 $(x^2+y^2+z^2) = 2xy$ 围成的区域在第一卦限的部分. </p>
-            </div>
-        </div>
-    </section>
-
-
-    
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
-        onload="renderMathInElement(document.body, {
-            delimiters: [
-                {left: '$$', right: '$$', display: true},
-                {left: '$', right: '$', display: false},
-                {left: '\\[', right: '\\]', display: true},
-                {left: '\\(', right: '\\)', display: false}
-            ]
-        });">
-    </script>
-
-    <script>
-        function checkPassword() {
-            const input = document.getElementById("password-input").value;
-            const correctPassword = "0.013888";
-            if (input === correctPassword) {
-                document.getElementById("TableOfContents").style.display = "block";
-                
-                const elements = document.querySelectorAll(".article-content");
-                elements.forEach(el => {
-                    el.style.display = "block";
-                });
-
-                const elements_2 = document.querySelectorAll(".password-box");
-                elements_2.forEach(el => {
-                    el.style.display = "none";
-                });
-            }
-            else {
-                alert("密码错误！");
-            }    
-        }
-
-        document.querySelector("#check").addEventListener("click", checkPassword);
-
-    </script>
-</html>
      
     
     <article class="main-article">
@@ -787,12 +685,12 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/senior_high/">十四班学生列传</a>
+            <a href="/p/shell/">Shell实验</a>
         </h2>
     
         
         <h3 class="article-subtitle">
-            纪念我的高中生活
+            完成一个简易的Shell程序
         </h3>
         
     </div>
@@ -813,7 +711,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Jun 14, 2024</time>
+                <time class="article-time--published">Oct 19, 2025</time>
             </div>
         
 
@@ -829,60 +727,247 @@
     <section class="article-content">
     
     
-    <h2 id="总序">总序
-</h2><p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;">金鸡峰下，银蝶湖畔，钟灵毓秀，人才辈出。有黄山松石铸精魂，蕴陶公知行明己身。时维九月，序属三秋，吾班初建，朝气蓬勃。所属虽异，团结如一；群贤毕至，共话宏图。</p>
-<p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;">忆开学之初，历历在目。虽相识不甚明，终同舟以共济。既立班委，又树新规。外出鸣、陆二帅 擎班旗，内命熙、蕾双将 督学风。已有各科班委司其职，更兼班之众生共进步。越明年，政通人和，百业俱兴。立学习小组 ，开制度先河。</p>
-<p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;">吾班凡五十有六，均性情殊异，各具风格，如若毂之共辐，屋之砖瓦。昔日成就，非独几人之功；尔后传奇，而赖众人合作。所以撰此《列传》，以记班人之名；作本短序，聊表敬佩之心。能得相聚，实乃佳缘。共事之日不足年。真挚情谊实可贵。敢竭鄙怀，恭疏短引；传世之作，仍待众才。请洒潘江，各倾陆海。</p>
-<p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;">文虽短小，情尤真切。倘成众之回忆，余当不胜感激。</p>
-<p style="text-align: right; margin-top: 0; margin-bottom: 0;">本传编写组</p>
-<p style="text-align: right; margin-top: 0; margin-bottom: 0;">二〇二四年六月作于屯溪一中</p>
-<h2 id="朱天鸣传">朱天鸣传
-</h2><p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;">朱天鸣者，安徽屯溪人也，任屯溪一中2024届14班班长。盖因其父为军，鸣自幼尚武，好军事，亦勤勉于学，世人赞云：“鸣文武双全，当世公瑾也。”</p>
-<p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;">时二〇二一年，鸣始任班长。因其善治，班主任甚厚之，遂连任至今。鸣性情豁达，待人宽厚，心系班级，与同窗交往甚洽，无不待之如亲朋，爱之如兄弟。久之，人皆心悦诚服，积极于世事矣。</p>
-<p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;">“鸣”者，一鸣惊人也。鸣于每次考试，皆蓄力，尚未见其大功大名。然于二〇二三年“江南” 联考，鸣之厚积薄发尽显，进步数十名，夺班之探花如探囊取物。未数月，于一、二模再展雄姿 ，是可谓“一鸣惊人”也乎。	</p>
-<h2 id="徐陆传">徐陆传
-</h2><p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;">徐陆者，安徽黄山区人也，任屯溪一中2024届14班副班长，兼“超能陆战队”组长，后至领航班 。</p>
-<p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;">陆素以才思敏捷、文理兼通闻名于校。高一，深为师长重 ，至于高二三，更是然也。陆为副班长，行事之果断，办公之严明，首屈一指。陆亦善书，班之文字皆出其手，体有颜筋柳骨，迹可入木三分。</p>
-<p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;">陆尝谓同学曰：“吾名之‘陆’者，‘六’也，吾父肇锡余以此名，求平安顺遂之意。”言毕，众人相视而笑。再思之，确乎其理也。陆成绩优异，每逢大考定名列前茅。或问，必具以答，众人皆敬服之，结友甚广。于竞赛亦颇有深究，尤好物、生，并多取佳绩 。至于体育文艺，更是然也。</p>
-<p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;">昔人言：陆全面发展，诸多领域皆有建树。今观之，确为此乎哉！</p>
-<h2 id="陈敬旻传">陈敬旻传
-</h2><p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;">陈敬旻者，安徽屯溪人也，任屯溪一中2024届14班团支部书记，权化学课代表。</p>
-<p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;">旻身量虽小，志气尤高。凡遇展演，旻略无怯意，侃侃而谈。其文纵论古今，横贯中外；其音铿锵且美，众人无不陶醉称奇。旻之笑语声甚锐，尝引龙 驻足以学其声。旻性情爽朗，好交游，友朋遍全校。倘遇活动，必出力极多，常获称赞。</p>
-<p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;">时公元二〇二三六月一日，适儿童节，旻以黄庭坚之《登快阁》抒人生之志，说理透彻，语句隽永。既毕，掌声如雷鸣不绝。徐陆赞云：“旻之讲演，赋深意于黄诗也。广诗情，开诗境，以古人之志抒己心，借先辈之情砺后生。甚善，吾实为敬服。”</p>
-<p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;">旻之气度不凡，令人惊异，可造之才也。</p>
-<h2 id="王扬熙传">王扬熙传
-</h2><p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;">王扬熙者，安徽屯溪人也，任屯溪一中2024届14班学习委员，分管竞赛事务，兼“名扬都城”组长，后至领航班。</p>
-<p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;">熙专精化竞 ，无机之变幻莫测，有机之繁复原理，结构之精细工巧，众皆迷惘不知，唯熙善拨云见日，解之易如反掌。陈雨尝与之试，竟甘拜下风。</p>
-<p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;">熙性憨厚，为人不拘小节。人尝云：“熙甚疏懒。虽见菜汤沾其衣，置之不理，仍行其道；或食饼，碎末近半遗地，竟不察也。”然瑕不掩瑜，熙众科皆强，化、英二者尤是。虽有如此成绩，熙不以为然，每日但见其之憨笑不止。熙亦通音律，明晓琴术，已谱成班歌一首，然曲高和寡，至今尚未得词。</p>
-<p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;">熙，实乃高人也。</p>
-<h2 id="涂子航传">涂子航传
-</h2><p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;">涂子航者，安徽屯溪人也，任屯溪一中2024届14班纪律委员。航之竞选演讲，文辞之恳切，声情之并茂，言语之铿锵，令众人动容。</p>
-<p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;">航深谙纪律之要，无规矩不可成方圆，班守班规方能戮力同心，行稳致远。是故课前之纪律维持，航贡献颇多，尤以眼保健操为要。凡遇碎言，必斥之，其声如洪钟，闻者虽无所过，尚胆战心惊，不敢出一言以复。</p>
-<p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;">航既司纪律，尤好学习。近几考，尽皆进步可观。假以时日，必成大器也。</p>
-<h2 id="张雨乐传">张雨乐传
-</h2><p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;">张雨乐者，安徽黄山 人也，任屯溪一中2024届14班体育委员。乐名当其职，凡遇运动会，必于赛场驰骋，斩金摘银实繁，为班级总分贡献甚多，获二〇二三年校“体育之星”，众望所归也。</p>
-<p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;">然乐若在课堂，其弊则见。不知何故，嗜睡，尤以化学课为甚。坤校 讲至动情处，忽停，众不解其因。尔后惊闻“张雨乐”三字，皆知乐又睡矣。</p>
-<p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;">嗟夫！乐有过人之才，却困于嗜睡之症。倘能克其短，则又可获一栋梁哉！</p>
-<h2 id="程建卓传">程建卓传
-</h2><p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;">程建卓者，安徽屯溪人也，曾任屯溪一中2024届14班劳动委员 。卓视此职甚重，虽未得校“劳动之星”，仍为众人所敬。</p>
-<p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;">卓尝于语文演讲饰曹公。其言语行为，莫不神似，有英雄之风，故世人呼之以“曹孟德”。卓闻之，欣然曰：“甚善，名我固当。”卓恪尽职守，每逢劳动，事必躬亲，管理甚苛。凡值日者皆惧卓之盛威。或曰：“尝闻卓之怒斥值日生玩忽职守，冷气直冲天门，两股战战，不敢直视。”卓之威可于此一窥矣。</p>
-<p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;">二〇二三年五月廿三，适吾班足球赛。卓以一人之力连取六球，众人无不惊叹万分，传为佳话。世人慨叹曰：“得建卓者，近可扫一屋，远能平天下。”	</p>
-<h2 id="朱敏浩传">朱敏浩传
-</h2><p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;">朱敏浩者，安徽休宁人也。初虽未序屯溪一中2024届14班班委之列 ，班主任视如心腹，常委以重任 ，甚得用也。</p>
-<p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;">浩为人朴实敦厚，行事不遗余力。凡为班级事务，皆不辞辛苦，身体力行。其诚恳坚韧，有目共睹。然二〇二三年五月十二，浩罹患新冠，身婴疾病。症之重，前人未见有也。而浩终不为所困，每日勤入网课而学，不曾废离。浩于生竞 缺席一事，未尝不慨叹惋惜。然天道轮回，此番缺憾，必有喜讯相报。</p>
-<p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;">浩立志入年纪前十。古人云：“有志者，事竟成。”以浩之力，定能成矣。语未毕，浩于2023年A10开年考取年级第八。	</p>
-<h2 id="陈雨传">陈雨传
-</h2><p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;">陈雨者，安徽黄山区人也，任屯溪一中2024届14班数学课代表，兼“数学再爱一次我”组长，后至领航班。与徐陆交往甚厚，情同手足。其聪敏异常，解数学如有神助，龙因厚遇之。</p>
-<p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;">雨嗜数学竟成魔。凡遇，皆怀一数学题册。视题面数秒，稍思，即得解于众惑之际，人常奇之。雨亦身怀转物奇功，手中物皆可转，其速之迅，平衡之巧，无人能及。人常笑曰：“雨可转其子也 。”</p>
-<p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;">雨既为理学之圣，然略拙于语文，尤以古诗文背诵为甚。班主任常劝之，收效甚微。如其能于语文稍下苦功，则功成名就之时，指日可待与。	</p>
-<h2 id="江子恒传">江子恒传
-</h2><p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;">江子恒者，安徽屯溪人也，任屯溪一中2024届14班物理课代表，迁领航班。甚聪慧，好音游，班主任寄以厚望。</p>
-<p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;">初入学，恒即崭露头角。然高二上之期中，恒仅取年级三十余名。班主任甚怒，叱之，恒默听而不言。尔后，恒暗自发奋，及期末，进步数十名，皆刮目相待。虽然，恒日益勤奋，至课下视之，苦读积分学兼概率论。适二〇二三年四月A10联盟，已入年级前十。未盈月，于“江南十校”再创佳绩。至于高三，则势如破竹，凡遇大小测试，不出年级前十，且获2023年高中数学联赛省三。</p>
-<p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;">恒学习之刻苦，进取心之坚定，可为众人之楷模乎！</p>
-<h2 id="李奕冉传">李奕冉传
-</h2><p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;">李奕冉者，李家村人氏。初入平行班，以其刻苦有功，高一获“校园之星”，高二得晋。</p>
-<p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;">冉身形健美，思维灵活，素好锻炼刷卷。高二暑假未逾二十日，刷卷四十张，人皆谓之“自律哥”，冉笑而不语。视冉之卷，工整清晰，如阅珍品，他学者虽窥伺效慕，莫能如也。高三以来，冉逢考必进，“最后一卷”已入年级二十，传为佳话。</p>
-<p style="text-indent: 2em;margin-top: 0;margin-bottom: 0;">冉通晓军事，各式兵器，如数家珍。世界大事亦了然于胸，或问之，纵横捭阖，有将帅之风。冉，李家之高人哉。	</p>
+    <div id="password-prompt">
+    <div class="password-guide">由于一些原因，输入密码方可查看代码：</div>
+    <input type="password" id="password-input" />
+    <button onclick="checkPassword()">提交</button>
+</div>
+<style>
+    .highlight {
+        display: none;
+    }
+</style>
+<script>
+    function checkPassword() {
+        const input = document.getElementById("password-input").value;
+        const correctPassword = "0.013888";
+        if (input === correctPassword) {
+            document.getElementById("password-prompt").style.display = "none";
+            
+            const elements = document.querySelectorAll(".highlight");
+            elements.forEach(el => {
+                el.style.display = "block";
+            });
+        } else {
+            alert("密码错误！");
+        }
+    }
+</script>
+<p>感谢<a class="link" href="https://www.cnblogs.com/zhiyiYo/p/16297819.html"  target="_blank" rel="noopener"
+    >之一Yo大佬
+    
+    
+    <span style="white-space: nowrap;"><svg width=".7em"
+        height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+        <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+        <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+            fill="currentColor">
+    </svg></span>
+    
+
+</a>提供的思路！</p>
+<h2 id="实验目的">实验目的
+</h2><p>更加熟悉进程控制和信号的概念。你将通过编写一个简单的Unix shell程序来实现这一目标，实现对作业的控制。</p>
+<h2 id="shell介绍">Shell介绍
+</h2><details>
+    <summary>详细介绍（太长不看）</summary>
+<blockquote>
+<p>Shell是一个交互式命令行解释器，代表用户运行程序。Shell重复地打印提示符，等待stdin上输入的命令行，然后根据命令行的内容执行一些操作。</p>
+<p>命令行是一系列由空白分隔的ASCII文本单词。命令行中的第一个单词要么是内置命令的名称，要么是可执行文件的路径名。其余的单词是命令行参数。如果第一个单词是内置命令，Shell立即在当前进程中执行该命令。否则，该单词被假定为可执行程序的路径名。在这种情况下，Shell创建一个子进程，然后在子进程的上下文中加载并运行程序。作为解释单个命令行的结果创建的子进程总称为作业。一般来说，一个作业可以由通过Unix管道连接的多个子进程组成。</p>
+<p>如果命令行以一个 &ldquo;&amp;&rdquo; 结尾，那么作业在后台运行，这意味着Shell在打印提示并等待下一个命令行之前不等待作业终止。否则，作业在前台运行，这意味着Shell等待作业终止后才等待下一个命令行。因此，在任何时候，最多只能有一个作业在前台运行。但是，任意数量的作业可以在后台运行。</p></blockquote>
+</details>
+<p>本篇博客将会详细介绍 CSAPP 的 ShellLab 完成过程，实现一个简易（lou）的 shell。tsh 拥有以下功能：</p>
+<ol>
+<li>可以执行外部程序</li>
+<li>支持四个内建命令，名称和功能为：</li>
+</ol>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>名称</th>
+          <th>功能</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>quit</code></td>
+          <td>退出终端</td>
+      </tr>
+      <tr>
+          <td><code>jobs</code></td>
+          <td>列出所有后台作业</td>
+      </tr>
+      <tr>
+          <td><code>bg &lt;job&gt;</code></td>
+          <td>继续在后台运行一个处于停止状态的后台作业，<code>&lt;job&gt;</code> 可以是 <code>PID</code> 或者 <code>%JID</code> 形式</td>
+      </tr>
+      <tr>
+          <td><code>fg &lt;job&gt;</code></td>
+          <td>将一个处于运行或者停止状态的后台作业转移到前台继续运行</td>
+      </tr>
+      <tr>
+          <td>按下 <kbd>ctrl</kbd> + <kbd>c</kbd></td>
+          <td>终止前台作业</td>
+      </tr>
+      <tr>
+          <td>按下 <kbd>ctrl</kbd> + <kbd>z</kbd></td>
+          <td>停止前台作业</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>实验材料中已经写好了一些函数，只要求我们实现下列核心函数：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>名称</th>
+          <th>功能</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>eval</code></td>
+          <td>解析并执行指令</td>
+      </tr>
+      <tr>
+          <td><code>builtin_cmd</code></td>
+          <td>识别并执行内建指令</td>
+      </tr>
+      <tr>
+          <td><code>do_bgfg</code></td>
+          <td>执行 <code>fg</code> 和 <code>bg</code> 指令</td>
+      </tr>
+      <tr>
+          <td><code>waitfg</code></td>
+          <td>阻塞终端直至前台任务完成</td>
+      </tr>
+      <tr>
+          <td><code>sigchld_handler</code></td>
+          <td>捕获 <code>SIGCHLD</code> 信号</td>
+      </tr>
+      <tr>
+          <td><code>sigint_handler</code></td>
+          <td>捕获 <code>SIGINT</code> 信号</td>
+      </tr>
+      <tr>
+          <td><code>sigtstp_handler</code></td>
+          <td>捕获 <code>SIGTSTP</code> 信号</td>
+      </tr>
+  </tbody>
+</table></div>
+<h2 id="函数实现">函数实现
+</h2><h3 id="eval函数"><code>eval</code>函数
+</h3><p>在《深入理解计算机系统》第525页给出了<code>eval</code>函数的核心代码：</p>
+<figure><img src="/p/shell/images/eval%E5%87%BD%E6%95%B0.png" width="700"><figcaption>
+      <h4>eval函数</h4>
+    </figcaption>
+</figure>
+
+<p>但是在 Shell 实验中，还应当满足以下要求：</p>
+<ol>
+<li>父进程在<code>fork</code>子进程之前必须使用<code>sigprocmask</code>阻塞<code>SIGCHLD</code>信号，然后在通过调用<code>addjob</code>将子进程添加到作业列表后，再次使用<code>sigprocmask</code>解除对这些信号的阻塞。</li>
+<li>由于子进程继承了其父进程的阻塞向量，子进程必须确保在执行新程序之前解除对<code>SIGCHLD</code>信号的阻塞。父进程需要以这种方式阻塞<code>SIGCHLD</code>信号，以避免在父进程调用<code>addjob</code>之前，子进程被<code>sigchld_handler</code>收回（因此从作业列表中删除）的竞争条件。</li>
+<li>在<code>fork</code>之后但在<code>execve</code>之前，子进程应调用<code>setpgid(0, 0)</code>，将子进程放入一个新的进程组，其组<code>ID</code>与子进程的<code>PID</code>相同。这确保在前台进程组中只有一个进程，即shell。</li>
+</ol>
+<blockquote>
+<p><code>setpgid</code>函数将进程<code>pid</code>的进程组改为<code>pgid</code>。如果<code>pid</code>是 0, 那么就使用当前进程的<code>PID</code>。 如果<code>pgid</code>是 0，那么就用<code>pid</code>指定的进程的<code>PID</code>作为进程组 ID。</p>
+<p>例如，如果进程 15213 是调用进程，那么<code>setpgid(0, 0)</code>会创建一个新的进程组，其进程组 ID 是 15213，并且把进程 15213 加人到这个新的进程
+组中。</p></blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">void</span> <span class="nf">eval</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">cmdline</span><span class="p">)</span> 
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[</span><span class="n">MAXARGS</span><span class="p">];</span>    <span class="c1">// 命令参数
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="c1"></span>    <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="n">MAXLINE</span><span class="p">];</span>      <span class="c1">// 保存命令行
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">bg</span><span class="p">;</span>                 <span class="c1">// 判断 job 运行在 bg 还是 fg
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="c1"></span>    <span class="kt">pid_t</span> <span class="n">pid</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="kt">sigset_t</span> <span class="n">mask_all</span><span class="p">,</span> <span class="n">mask_one</span><span class="p">,</span> <span class="n">prev_mask</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="nf">sigfillset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mask_all</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="nf">sigemptyset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mask_one</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="nf">sigaddset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mask_one</span><span class="p">,</span> <span class="n">SIGCHLD</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="nf">strcpy</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">cmdline</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="n">bg</span> <span class="o">=</span> <span class="nf">parseline</span><span class="p">(</span><span class="n">cmdline</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">
+</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="c1">// 忽略空指令
+</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">        <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">
+</span></span><span class="line"><span class="ln">20</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nf">builtin_cmd</span><span class="p">(</span><span class="n">argv</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">        <span class="c1">// 创建子进程前阻塞SIGCHLD信号
+</span></span></span><span class="line"><span class="ln">22</span><span class="cl"><span class="c1"></span>        <span class="nf">sigprocmask</span><span class="p">(</span><span class="n">SIG_BLOCK</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">mask_one</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">prev_mask</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">        <span class="k">if</span> <span class="p">((</span><span class="n">pid</span> <span class="o">=</span> <span class="nf">Fork</span><span class="p">())</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">            <span class="c1">// 子进程必须确保在执行新程序之前解除对SIGCHLD信号的阻塞
+</span></span></span><span class="line"><span class="ln">25</span><span class="cl"><span class="c1"></span>            <span class="nf">sigprocmask</span><span class="p">(</span><span class="n">SIG_SETMASK</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">prev_mask</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">            <span class="c1">// 将子进程放入一个新的进程组
+</span></span></span><span class="line"><span class="ln">27</span><span class="cl"><span class="c1"></span>            <span class="nf">setpgid</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="nf">execve</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">argv</span><span class="p">,</span> <span class="n">environ</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl">                <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%s: Command not found.</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl">                <span class="nf">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">31</span><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="ln">32</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">33</span><span class="cl">
+</span></span><span class="line"><span class="ln">34</span><span class="cl">        <span class="cm">/*
+</span></span></span><span class="line"><span class="ln">35</span><span class="cl"><span class="cm">          父进程需要阻塞SIGCHLD信号，以避免在父进程调用addjob之前，
+</span></span></span><span class="line"><span class="ln">36</span><span class="cl"><span class="cm">          子进程被sigchld_handler收回
+</span></span></span><span class="line"><span class="ln">37</span><span class="cl"><span class="cm">        */</span>
+</span></span><span class="line"><span class="ln">38</span><span class="cl">        <span class="nf">sigprocmask</span><span class="p">(</span><span class="n">SIG_BLOCK</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">mask_one</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">39</span><span class="cl">        <span class="c1">// 将子进程添加到作业列表
+</span></span></span><span class="line"><span class="ln">40</span><span class="cl"><span class="c1"></span>        <span class="nf">addjob</span><span class="p">(</span><span class="n">jobs</span><span class="p">,</span> <span class="n">pid</span><span class="p">,</span> <span class="n">bg</span> <span class="o">?</span> <span class="nl">BG</span> <span class="p">:</span> <span class="n">FG</span><span class="p">,</span> <span class="n">cmdline</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">41</span><span class="cl">        
+</span></span><span class="line"><span class="ln">42</span><span class="cl">
+</span></span><span class="line"><span class="ln">43</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">bg</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">44</span><span class="cl">            <span class="nf">waitfg</span><span class="p">(</span><span class="n">pid</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">45</span><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">46</span><span class="cl">            <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;[%d] (%d) %s&#34;</span><span class="p">,</span> <span class="nf">pid2jid</span><span class="p">(</span><span class="n">pid</span><span class="p">),</span> <span class="n">pid</span><span class="p">,</span> <span class="n">cmdline</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">47</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">48</span><span class="cl">
+</span></span><span class="line"><span class="ln">49</span><span class="cl">        <span class="c1">// 再次使用sigprocmask解除对这些信号的阻塞
+</span></span></span><span class="line"><span class="ln">50</span><span class="cl"><span class="c1"></span>        <span class="nf">sigprocmask</span><span class="p">(</span><span class="n">SIG_SETMASK</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">prev_mask</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">51</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">52</span><span class="cl">    
+</span></span><span class="line"><span class="ln">53</span><span class="cl">    <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">54</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>其中<code>Fork()</code>函数定义可以在《深入理解计算机系统》第512页找到：</p>
+<figure><img src="/p/shell/images/Fork%E5%87%BD%E6%95%B0.png" width="700"><figcaption>
+      <h4>Fork函数</h4>
+    </figcaption>
+</figure>
+
+<h3 id="builtin_cmd函数"><code>builtin_cmd</code>函数
+</h3><p>在《深入理解计算机系统》第525页同样给出了<code>builtin_cmd</code>函数的核心代码：</p>
+<figure><img src="/p/shell/images/builtin_cmd%E5%87%BD%E6%95%B0.png" width="700"><figcaption>
+      <h4>builtin_cmd函数</h4>
+    </figcaption>
+</figure>
+
+<p>Shell 程序要实现的<code>builtin_cmd</code>比这个要多一些分支语句，主要用来判断<code>quit</code>、<code>jobs</code>、<code>bg</code>和<code>fg</code>命令。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">int</span> <span class="nf">builtin_cmd</span><span class="p">(</span><span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span> 
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="c1">// 识别和解释内置命令：quit、fg、bg和jobs
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="c1"></span>    <span class="c1">// 指令 tsh &gt; quit 
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="c1"></span>    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nf">strcmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">&#34;quit&#34;</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">        <span class="nf">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="c1">// 指令 tsh &gt; fg 和 tsh &gt; bg
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="c1"></span>    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nf">strcmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">&#34;fg&#34;</span><span class="p">)</span> <span class="o">||</span> <span class="o">!</span><span class="nf">strcmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">&#34;bg&#34;</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="nf">do_bgfg</span><span class="p">(</span><span class="n">argv</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="c1">// 指令 tsh &gt; jobs
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="c1"></span>    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nf">strcmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">&#34;jobs&#34;</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">        <span class="nf">listjobs</span><span class="p">(</span><span class="n">jobs</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">    
+</span></span><span class="line"><span class="ln">19</span><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>     <span class="cm">/* not a builtin command */</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="waitfg函数"><code>waitfg</code>函数
+</h3><p>阻塞终端直至前台任务完成意味着主程序需要显式地等待某个信号处理程序运行，一种合适的解决方法是使用<code>sigsuspend</code>函数。</p>
+<blockquote>
+<p>还有一种思路是使用<code>sleep</code>函数。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">pid</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="nf">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>当这段代码正确执行时，它太慢了。如果在<code>while</code>之后<code>pause</code>之前收到信号，程序必须等相当长的一段时间才会再次检查循环的终止条件。使用像 <code>nanosleep</code>这样更髙精度的休眠函数也是不可接受的，因为没有很好的方法来确定休眠的间隔。间隔太小，循环会太浪费；间隔太大，程序又会太慢。</p></blockquote>
 
 </section>
 
@@ -947,18 +1032,6 @@
             
                 
 <article class="">
-    <a href="/p/shell/">
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Shell实验</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
     <a href="/p/math_in_images/">
         
 
@@ -1000,6 +1073,18 @@
 
         <div class="article-details">
             <h2 class="article-title">NEMU-PART I</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/math_tips/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">微积分：常用公式</h2>
         </div>
     </a>
 </article>

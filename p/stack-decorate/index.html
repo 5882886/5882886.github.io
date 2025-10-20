@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/stack-decorate/'>
 
-<link rel="stylesheet" href="/scss/style.min.e832aece47f82ee0b98e2dba2918b1a38120c979a24f1425f0a03965fb99d55e.css"><meta property='og:title' content="Hugo-stack主题装饰">
+<link rel="stylesheet" href="/scss/style.min.f0935af8e69a67850173a54e80621c1d5bf5d28a56cc59228adbbc171a5e4f65.css"><meta property='og:title' content="Hugo-stack主题装饰">
 <meta property='og:description' content="基本原理 Hugo的stack主题提供了自定义样式的接口，主要在layouts/partials/footer/custom.html和assets/scss/custom.scss中 Hugo的文件可以实现文件覆盖。只要文件位置与themes文件夹中的相同，就会先加载自定义文件。 页面布局 增加首页欢迎栏 在/layouts/index.html里加入： 1&lt;!-- 首页欢迎字幅 --&gt; 2&lt;div class=&#34;welcome&#34;&gt; 3 &lt;p style=&#34;font-size: 2rem; text-align: center; font-weight: bold&#34;&gt; 4 &lt;span class=&#34;shake&#34;&gt;👋&lt;/span&gt; 5 &lt;span class=&#34;jump-text1&#34; &gt; Welcome&lt;/span&gt; 6 &lt;span class=&#34;jump-text2&#34;&gt; To &lt;/span&gt; 7 &lt;span class=&#34;jump-text3&#34; style=&#34;color:#e99312&#34;&gt;Wei Qi&lt;/span&gt; 8 &lt;span class=&#34;jump-text9&#34; style=&#34;color:#e99312&#34;&gt;Blog&lt;/span&gt; 9 &lt;/p&gt; 10&lt;/div&gt; 11&lt;!-- 首页欢迎字幅 --&gt; 在/assets/scss/custom.scss里边，加入 1//首页欢迎板块样式 2.welcome { 3 color: var(--card-text-color-main); 4 background: var(--card-background); 5 box-shadow: var(--shadow-l2); 6 border-radius: 30px; 7 display: inline-block; 8} 9 10// 👋emoji实现摆动效果 11.shake { 12 display: inline-block; 13 animation: shake 1s; 14 animation-duration: 1s; 15 animation-timing-function: ease; 16 animation-delay: 0s; 17 animation-iteration-count: 1; 18 animation-direction: normal; 19 animation-fill-mode: none; 20 animation-play-state: running; 21 animation-name: shake; 22 animation-timeline: auto; 23 animation-range-start: normal; 24 animation-range-end: normal; 25 animation-delay: 2s; 26 @keyframes shake { 27 0% { 28 transform: rotate(0); 29 } 30 25% { 31 transform: rotate(45deg) scale(1.2); 32 } 33 50% { 34 transform: rotate(0) scale(1.2); 35 } 36 75% { 37 transform: rotate(45deg) scale(1.2); 38 } 39 100% { 40 transform: rotate(0); 41 } 42 } 43} 44 45// 实现字符跳动动画 46.jump-text1 { 47 display: inline-block; 48 animation: jump 0.5s 1; 49} 50 51.jump-text2 { 52 display: inline-block; 53 animation: jump 0.5s 1; 54 animation-delay: 0.1s; 55} 56 57.jump-text3 { 58 display: inline-block; 59 animation: jump 0.5s 1; 60 animation-delay: 0.2s; 61} 62 63.jump-text4 { 64 display: inline-block; 65 animation: jump 0.5s 1; 66 animation-delay: 0.3s; 67} 68 69.jump-text5 { 70 display: inline-block; 71 animation: jump 0.5s 1; 72 animation-delay: 0.4s; 73} 74 75.jump-text6 { 76 display: inline-block; 77 animation: jump 0.5s 1; 78 animation-delay: 0.5s; 79} 80 81.jump-text7 { 82 display: inline-block; 83 animation: jump 0.5s 1; 84 animation-delay: 0.6s; 85} 86 87.jump-text8 { 88 display: inline-block; 89 animation: jump 0.5s 1; 90 animation-delay: 0.7s; 91} 92 93.jump-text9 { 94 display: inline-block; 95 animation: jump 0.5s 1; 96 animation-delay: 0.9s; 97} 98 99@keyframes jump { 100 0% { 101 transform: translateY(0); 102 } 103 50% { 104 transform: translateY(-20px); 105 } 106 100% { 107 transform: translateY(0); 108 } 109} 首页文章样式 在/assets/scss/custom.scss加入\n">
 <meta property='og:url' content='https://5882886.github.io/p/stack-decorate/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -15,26 +15,26 @@
 <meta name="twitter:description" content="基本原理 Hugo的stack主题提供了自定义样式的接口，主要在layouts/partials/footer/custom.html和assets/scss/custom.scss中 Hugo的文件可以实现文件覆盖。只要文件位置与themes文件夹中的相同，就会先加载自定义文件。 页面布局 增加首页欢迎栏 在/layouts/index.html里加入： 1&lt;!-- 首页欢迎字幅 --&gt; 2&lt;div class=&#34;welcome&#34;&gt; 3 &lt;p style=&#34;font-size: 2rem; text-align: center; font-weight: bold&#34;&gt; 4 &lt;span class=&#34;shake&#34;&gt;👋&lt;/span&gt; 5 &lt;span class=&#34;jump-text1&#34; &gt; Welcome&lt;/span&gt; 6 &lt;span class=&#34;jump-text2&#34;&gt; To &lt;/span&gt; 7 &lt;span class=&#34;jump-text3&#34; style=&#34;color:#e99312&#34;&gt;Wei Qi&lt;/span&gt; 8 &lt;span class=&#34;jump-text9&#34; style=&#34;color:#e99312&#34;&gt;Blog&lt;/span&gt; 9 &lt;/p&gt; 10&lt;/div&gt; 11&lt;!-- 首页欢迎字幅 --&gt; 在/assets/scss/custom.scss里边，加入 1//首页欢迎板块样式 2.welcome { 3 color: var(--card-text-color-main); 4 background: var(--card-background); 5 box-shadow: var(--shadow-l2); 6 border-radius: 30px; 7 display: inline-block; 8} 9 10// 👋emoji实现摆动效果 11.shake { 12 display: inline-block; 13 animation: shake 1s; 14 animation-duration: 1s; 15 animation-timing-function: ease; 16 animation-delay: 0s; 17 animation-iteration-count: 1; 18 animation-direction: normal; 19 animation-fill-mode: none; 20 animation-play-state: running; 21 animation-name: shake; 22 animation-timeline: auto; 23 animation-range-start: normal; 24 animation-range-end: normal; 25 animation-delay: 2s; 26 @keyframes shake { 27 0% { 28 transform: rotate(0); 29 } 30 25% { 31 transform: rotate(45deg) scale(1.2); 32 } 33 50% { 34 transform: rotate(0) scale(1.2); 35 } 36 75% { 37 transform: rotate(45deg) scale(1.2); 38 } 39 100% { 40 transform: rotate(0); 41 } 42 } 43} 44 45// 实现字符跳动动画 46.jump-text1 { 47 display: inline-block; 48 animation: jump 0.5s 1; 49} 50 51.jump-text2 { 52 display: inline-block; 53 animation: jump 0.5s 1; 54 animation-delay: 0.1s; 55} 56 57.jump-text3 { 58 display: inline-block; 59 animation: jump 0.5s 1; 60 animation-delay: 0.2s; 61} 62 63.jump-text4 { 64 display: inline-block; 65 animation: jump 0.5s 1; 66 animation-delay: 0.3s; 67} 68 69.jump-text5 { 70 display: inline-block; 71 animation: jump 0.5s 1; 72 animation-delay: 0.4s; 73} 74 75.jump-text6 { 76 display: inline-block; 77 animation: jump 0.5s 1; 78 animation-delay: 0.5s; 79} 80 81.jump-text7 { 82 display: inline-block; 83 animation: jump 0.5s 1; 84 animation-delay: 0.6s; 85} 86 87.jump-text8 { 88 display: inline-block; 89 animation: jump 0.5s 1; 90 animation-delay: 0.7s; 91} 92 93.jump-text9 { 94 display: inline-block; 95 animation: jump 0.5s 1; 96 animation-delay: 0.9s; 97} 98 99@keyframes jump { 100 0% { 101 transform: translateY(0); 102 } 103 50% { 104 transform: translateY(-20px); 105 } 106 100% { 107 transform: translateY(0); 108 } 109} 首页文章样式 在/assets/scss/custom.scss加入\n">
     <link rel="shortcut icon" href="/favicon.ico" />
 <style>
- 
-@media print {
      
-    body {
-        width: 100%;
-        max-width: 1200px;  
-        margin: 0 auto;
-    }
+    @media print {
+         
+        body {
+            width: 100%;
+            max-width: 1200px;  
+            margin: 0 auto;
+        }
 
-     
-    .menu, .footer, .sidebar.right-sidebar {
-        display: none !important;
-    }
+         
+        .menu, .footer, .sidebar.right-sidebar {
+            display: none !important;
+        }
 
-     
-    .main-container {
-        display: block !important;
-        width: 100% !important;
+         
+        .main-container {
+            display: block !important;
+            width: 100% !important;
+        }
     }
-}
 </style>
     </head>
     <body class="
@@ -283,8 +283,7 @@
     </ol>
 </aside>
 
-    
-        <aside class="sidebar right-sidebar sticky">
+    <aside class="sidebar right-sidebar sticky">
         
             
                 
@@ -673,11 +672,11 @@
         
     </aside>
 
-    
 
             <main class="main full-width">
+     
     
-        <article class="main-article">
+    <article class="main-article">
     <header class="article-header">
 
     <div class="article-details">
@@ -1069,9 +1068,10 @@
 
     
 </article>
-        
 
-        
+    
+
+    
 
 <aside class="related-content--wrapper">
     <h2 class="section-title">相关文章</h2>
@@ -1081,7 +1081,6 @@
                 
 <article class="">
     <a href="/p/aplayer/">
-        
         
 
         <div class="article-details">
@@ -1094,7 +1093,6 @@
                 
 <article class="has-image">
     <a href="/p/website/">
-        
         
             <div class="article-image">
                 <img src="/p/website/Hugo.12632854668e7159c4501891346184b7_hu_8fd9f38fb9bdc44d.png" 
@@ -1119,7 +1117,6 @@
 <article class="">
     <a href="/p/windows/">
         
-        
 
         <div class="article-details">
             <h2 class="article-title">Windows系统安装与修复</h2>
@@ -1131,7 +1128,6 @@
                 
 <article class="has-image">
     <a href="/p/termux/">
-        
         
             <div class="article-image">
                 <img src="/p/termux/termux.ef9c8dc02981dfda7424f6d78125f014_hu_82cffd8a4244ea7f.png" 
@@ -1156,7 +1152,6 @@
 <article class="has-image">
     <a href="/p/linux_help/">
         
-        
             <div class="article-image">
                 <img src="/p/linux_help/Linux-tips.85fd86c2433475c11b829eaf0d87d703_hu_4e669f737b95627f.png" 
                         width="250" 
@@ -1180,12 +1175,12 @@
     </div>
 </aside>
 
+     
+    
         
-        
-            
-        
+    
 
-        <footer class="site-footer">
+    <footer class="site-footer">
     <section class="copyright">
         &copy; 
         
@@ -1200,7 +1195,7 @@
 </footer>
 
 
-        
+    
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 
     
@@ -1277,8 +1272,6 @@
                 rel="stylesheet" 
                 href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
             >
-        
-    
 
             </main>
         </div>
@@ -1485,8 +1478,7 @@
 
     document.addEventListener('pjax:complete', () => {
         initTocHide();
-    })
-    
+    })   
 </script>
 
 
