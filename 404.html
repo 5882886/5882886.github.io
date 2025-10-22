@@ -229,6 +229,18 @@
             </a>
         </li>
         
+        
+        <li >
+            <a href='/exercises/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-text-scan-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 8v-2a2 2 0 0 1 2 -2h2" /><path d="M4 16v2a2 2 0 0 0 2 2h2" /><path d="M16 4h2a2 2 0 0 1 2 2v2" /><path d="M16 20h2a2 2 0 0 0 2 -2v-2" /><path d="M8 12h8" /><path d="M8 9h6" /><path d="M8 15h4" /></svg>
+                
+                <span>壹题</span>
+            </a>
+        </li>
+        
         <li class="menu-bottom-section">
             <ol class="menu">
                     
@@ -455,6 +467,23 @@
 </script>
 
 <script>
+    document.addEventListener('pjax:complete', () => {
+        loadQuestion();
+        showQuestion();
+        document.querySelector("#Change").addEventListener("click", showQuestion);
+        document.querySelector("#ShowAnswer").addEventListener("click", showAnswer);
+        document.querySelector("#HideAnswer").addEventListener("click", hideAnswer);  
+    })
+
+    document.addEventListener('pjax:complete', () => {
+        loadQuotes();
+        showQuotes();
+        document.querySelector("#new-quote").addEventListener("click", showQuotes);
+        document.querySelector("#pre-quote").addEventListener("click", showPreQuote);
+        document.querySelector("#next-quote").addEventListener("click", showNextQuote);
+    })
+</script>
+<script>
     async function renderKaTeX() {
         
         let katex = document.querySelector(".math-katex");
@@ -566,96 +595,6 @@
     })
 </script>
 
-<script>
-    
-    async function loadQuotes() {
-        const res = await fetch('/json/quotes.json');    
-        quotes = await res.json();
-        showQuotes();                               
-    }
-
-    
-    
-    function showQuotes() {
-        
-        index = Math.floor(Math.random() * quotes.length)
-        const quote = quotes[index];
-            
-        
-        const textElement = document.querySelector(".quote-text");
-        const authorElement = document.querySelector(".quote-author");
-
-        textElement.innerText = quote.quote;
-        authorElement.innerText = `—— ${quote.author}`;
-
-        
-        renderMathInElement(textElement, {
-            delimiters: [
-                {left: '$$', right: '$$', display: true},
-                {left: '$', right: '$', display: false},
-                {left: '\\[', right: '\\]', display: true},
-                {left: '\\(', right: '\\)', display: false}
-            ]
-        });
-    };
-
-    function showNextQuote() {
-        index ++;
-        if(index >= quotes.length) {
-            index = 0;
-        }
-
-        const quote = quotes[index];
-        const textElement = document.querySelector(".quote-text");
-        const authorElement = document.querySelector(".quote-author");
-
-        textElement.innerText = quote.quote;
-        authorElement.innerText = `—— ${quote.author}`;
-
-        
-        renderMathInElement(textElement, {
-            delimiters: [
-                {left: '$$', right: '$$', display: true},
-                {left: '$', right: '$', display: false},
-                {left: '\\[', right: '\\]', display: true},
-                {left: '\\(', right: '\\)', display: false}
-            ]
-        });  
-    };
-
-    function showPreQuote() {
-        index --;
-        if(index < 0 ) {
-            index = quotes.length-1;
-        }
-        
-        const quote = quotes[index];
-        const textElement = document.querySelector(".quote-text");
-        const authorElement = document.querySelector(".quote-author");
-
-        textElement.innerText = quote.quote;
-        authorElement.innerText = `—— ${quote.author}`;
-
-        
-        renderMathInElement(textElement, {
-            delimiters: [
-                {left: '$$', right: '$$', display: true},
-                {left: '$', right: '$', display: false},
-                {left: '\\[', right: '\\]', display: true},
-                {left: '\\(', right: '\\)', display: false}
-            ]
-        });
-    };
-
-    document.addEventListener('pjax:complete', () => {
-        loadQuotes();
-        showQuotes();
-        document.querySelector("#new-quote").addEventListener("click", showQuotes);
-        document.querySelector("#pre-quote").addEventListener("click", showPreQuote);
-        document.querySelector("#next-quote").addEventListener("click", showNextQuote);
-    })
-
-</script>
 <div id="particles-js"></div>
 
 <script src="https://5882886.github.io/background/particles.min.js" ></script>
@@ -675,6 +614,7 @@
         z-index: -1;
     }
 </style>
+
 
     </body>
 </html>

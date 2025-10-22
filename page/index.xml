@@ -16,6 +16,127 @@
         <description></description>
         </item>
         <item>
+        <title>壹题</title>
+        <link>https://5882886.github.io/exercises/</link>
+        <pubDate>Thu, 31 Jul 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://5882886.github.io/exercises/</guid>
+        <description>&lt;style&gt;
+    /* 文字样式 */
+    .QuestionBox {
+        color: var(--card-text-color-main);
+        font-size: 20px;
+        font-style: normal;
+        font-weight: bold;
+        margin-top: 20px;
+        line-height: var(--article-line-height);
+        margin-bottom: 20px;
+    }
+    .AnswerBox {
+        color: var(--card-text-color-main);
+        font-size: 16px;
+        display: none;
+    }
+
+
+    #ShowAnswer {
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        margin-top: 20px;
+        margin-right: auto;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    #HideAnswer {
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        margin-top: 20px;
+        margin-right: auto;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    #Change {
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        margin-top: 20px;
+        margin-right: auto;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+&lt;/style&gt;
+&lt;div class=&#34;ExerciseBox&#34;&gt;
+    &lt;div class=&#34;QuestionBox&#34;&gt;
+        &lt;p&gt;Question&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;AnswerBox&#34;&gt;
+        &lt;p&gt;Answer&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;AnswerToggle&#34;&gt;
+        &lt;button id=&#34;ShowAnswer&#34;&gt;Show Answer&lt;/button&gt;
+        &lt;button id=&#34;HideAnswer&#34;&gt;Hide Answer&lt;/button&gt;
+        &lt;button id=&#34;Change&#34;&gt;Change&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;
+    let exercises = [];
+    let num = 0;
+
+    async function loadQuestion() {
+        const res = await fetch(&#39;/json/exercises.json&#39;);    // 指定目录
+        exercises = await res.json();
+        showQuestion();
+    }
+
+    function showQuestion() {
+        num = Math.floor(Math.random() * exercises.length);
+        const exercise = exercises[num];
+        
+        const textElement = document.querySelector(&#34;.QuestionBox&#34;);
+        const authorElement = document.querySelector(&#34;.AnswerBox&#34;);
+
+        textElement.innerHTML = exercise.question;
+        authorElement.innerHTML = exercise.answer;
+    };
+
+    function showAnswer() {
+        document.querySelectorAll(&#34;.AnswerBox&#34;).forEach(e =&gt; {
+            e.style.display = &#34;block&#34;;
+        });
+    }
+
+     function hideAnswer() {
+        document.querySelectorAll(&#34;.AnswerBox&#34;).forEach(e =&gt; {
+            e.style.display = &#34;none&#34;;
+        });
+    }
+
+
+    document.querySelector(&#34;#Change&#34;).addEventListener(&#34;click&#34;, showQuestion);
+    document.querySelector(&#34;#ShowAnswer&#34;).addEventListener(&#34;click&#34;, showAnswer);
+    document.querySelector(&#34;#HideAnswer&#34;).addEventListener(&#34;click&#34;, hideAnswer);
+    
+    loadQuestion();
+    showQuestion();
+
+
+    document.addEventListener(&#39;pjax:complete&#39;, () =&gt; {
+        loadQuestion();
+        showQuestion();
+        document.querySelector(&#34;#Change&#34;).addEventListener(&#34;click&#34;, showQuestion);
+        document.querySelector(&#34;#ShowAnswer&#34;).addEventListener(&#34;click&#34;, showAnswer);
+        document.querySelector(&#34;#HideAnswer&#34;).addEventListener(&#34;click&#34;, hideAnswer);  
+    })
+
+&lt;/script&gt;</description>
+        </item>
+        <item>
         <title>关于</title>
         <link>https://5882886.github.io/about/</link>
         <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
