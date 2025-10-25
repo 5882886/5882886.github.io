@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/aplayer/'>
 
-<link rel="stylesheet" href="/scss/style.min.6b749cce0a38064419623b106b029e31982eff833de70de4bc590000f5f885c7.css"><meta property='og:title' content="APlayer">
+<link rel="stylesheet" href="/scss/style.min.23aa89118c0b922cc584244b7cc90309a3b5197f2dd8b0e27311feedbd5e4c44.css"><meta property='og:title' content="APlayer">
 <meta property='og:description' content="使用APlayer引入网站音乐播放器">
 <meta property='og:url' content='https://5882886.github.io/p/aplayer/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -392,18 +392,12 @@
         border-radius: 7px;
         box-shadow: var(--shadow-l1);
         background-color: #00640010;
-        color: #34495e;
+        color: var(--card-text-color-main);
          
-        display: none;  
+        display: none;       
         margin-bottom: -20px;
         cursor: pointer;
         font-size: 1.2rem;
-    }
-
-    .widget--toc #TableOfContents {
-        overflow-x: auto;
-        max-height: 66vh;
-        width: auto;
     }
 
     @media screen and (max-width: 768px) {
@@ -1360,6 +1354,10 @@
 
 <script>
     document.addEventListener('pjax:complete', () => {
+        initTocHide();
+    }) 
+
+    document.addEventListener('pjax:complete', () => {
         loadQuestion();
         showQuestion();
         document.querySelector("#Change").addEventListener("click", showQuestion);
@@ -1456,11 +1454,7 @@
         });
     }
 
-    initTocHide();
-
-    document.addEventListener('pjax:complete', () => {
-        initTocHide();
-    })   
+    initTocHide(); 
 </script>
 
 

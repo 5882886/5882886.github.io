@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/en/links/'>
 
-<link rel="stylesheet" href="/scss/style.min.6b749cce0a38064419623b106b029e31982eff833de70de4bc590000f5f885c7.css"><meta property='og:title' content="Links">
+<link rel="stylesheet" href="/scss/style.min.23aa89118c0b922cc584244b7cc90309a3b5197f2dd8b0e27311feedbd5e4c44.css"><meta property='og:title' content="Links">
 <meta property='og:description' content="">
 <meta property='og:url' content='https://5882886.github.io/en/links/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -296,8 +296,7 @@
 </aside>
 
             <main class="main full-width">
-    
-        <article class="main-article">
+    <article class="main-article">
     <header class="article-header">
 
     <div class="article-details">
@@ -367,8 +366,8 @@
 
     
 </article>
-        
-            <div class="article-list--compact links">
+    
+        <div class="article-list--compact links">
     
         <article>
             <a href="https://github.com" target="_blank" rel="noopener">
@@ -501,14 +500,14 @@
         </article>
     
 </div>
-        
+    
 
-        
+    
 
-        
-        
+    
+    
 
-        <footer class="site-footer">
+    <footer class="site-footer">
     <section class="copyright">
         &copy; 
         
@@ -523,7 +522,7 @@
 </footer>
 
 
-        
+    
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 
     
@@ -600,8 +599,6 @@
                 rel="stylesheet" 
                 href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
             >
-        
-    
 
             </main>
         </div>
@@ -725,6 +722,10 @@
 
 <script>
     document.addEventListener('pjax:complete', () => {
+        initTocHide();
+    }) 
+
+    document.addEventListener('pjax:complete', () => {
         loadQuestion();
         showQuestion();
         document.querySelector("#Change").addEventListener("click", showQuestion);
@@ -821,11 +822,7 @@
         });
     }
 
-    initTocHide();
-
-    document.addEventListener('pjax:complete', () => {
-        initTocHide();
-    })   
+    initTocHide(); 
 </script>
 
 

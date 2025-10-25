@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/shell/'>
 
-<link rel="stylesheet" href="/scss/style.min.6b749cce0a38064419623b106b029e31982eff833de70de4bc590000f5f885c7.css"><meta property='og:title' content="Shell实验">
+<link rel="stylesheet" href="/scss/style.min.23aa89118c0b922cc584244b7cc90309a3b5197f2dd8b0e27311feedbd5e4c44.css"><meta property='og:title' content="Shell实验">
 <meta property='og:description' content="完成一个简易的Shell程序">
 <meta property='og:url' content='https://5882886.github.io/p/shell/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -326,8 +326,10 @@
         <li><a href="#eval函数"><code>eval</code>函数</a></li>
         <li><a href="#builtin_cmd函数"><code>builtin_cmd</code>函数</a></li>
         <li><a href="#waitfg函数"><code>waitfg</code>函数</a></li>
+        <li><a href="#信号处理">信号处理</a></li>
       </ol>
     </li>
+    <li><a href="#总结">总结</a></li>
   </ol>
 </nav>
         </div>
@@ -384,18 +386,12 @@
         border-radius: 7px;
         box-shadow: var(--shadow-l1);
         background-color: #00640010;
-        color: #34495e;
+        color: var(--card-text-color-main);
          
-        display: none;  
+        display: none;       
         margin-bottom: -20px;
         cursor: pointer;
         font-size: 1.2rem;
-    }
-
-    .widget--toc #TableOfContents {
-        overflow-x: auto;
-        max-height: 66vh;
-        width: auto;
     }
 
     @media screen and (max-width: 768px) {
@@ -688,7 +684,7 @@
     
     <header class="article-category">
         
-            <a href="/categories/interesting_things/" style="background-color: #2a9d8f; color: #fff;">
+            <a href="/categories/interesting/" style="background-color: #2a9d8f; color: #fff;">
                 小乐趣
             </a>
         
@@ -764,6 +760,7 @@
             elements.forEach(el => {
                 el.style.display = "block";
             });
+            initTocHide();
         } else {
             alert("密码错误！");
         }
@@ -822,11 +819,11 @@
           <td>将一个处于运行或者停止状态的后台作业转移到前台继续运行</td>
       </tr>
       <tr>
-          <td>按下 <kbd>ctrl</kbd> + <kbd>c</kbd></td>
+          <td>按下 <kbd>Ctrl</kbd> + <kbd>C</kbd></td>
           <td>终止前台作业</td>
       </tr>
       <tr>
-          <td>按下 <kbd>ctrl</kbd> + <kbd>z</kbd></td>
+          <td>按下 <kbd>Ctrl</kbd> + <kbd>Z</kbd></td>
           <td>停止前台作业</td>
       </tr>
   </tbody>
@@ -981,13 +978,73 @@
 </span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="waitfg函数"><code>waitfg</code>函数
 </h3><p>阻塞终端直至前台任务完成意味着主程序需要显式地等待某个信号处理程序运行，一种合适的解决方法是使用<code>sigsuspend</code>函数。</p>
-<blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">void</span> <span class="nf">waitfg</span><span class="p">(</span><span class="kt">pid_t</span> <span class="n">pid</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">   <span class="c1">// 等待前台作业完成
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="c1"></span>    <span class="kt">sigset_t</span> <span class="n">mask</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="nf">sigemptyset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mask</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="c1">// sigsuspend函数提高执行效率
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1"></span>    <span class="k">while</span><span class="p">(</span><span class="nf">fgpid</span><span class="p">(</span><span class="n">jobs</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">        <span class="nf">sigsuspend</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mask</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><blockquote>
 <p>还有一种思路是使用<code>sleep</code>函数。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">pid</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="nf">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>当这段代码正确执行时，它太慢了。如果在<code>while</code>之后<code>pause</code>之前收到信号，程序必须等相当长的一段时间才会再次检查循环的终止条件。使用像 <code>nanosleep</code>这样更髙精度的休眠函数也是不可接受的，因为没有很好的方法来确定休眠的间隔。间隔太小，循环会太浪费；间隔太大，程序又会太慢。</p></blockquote>
-
+<h3 id="信号处理">信号处理
+</h3><ol>
+<li>
+<p><code>bgfg</code>函数</p>
+</li>
+<li>
+<p>处理<kbd>Ctrl</kbd> + <kbd>C</kbd></p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">void</span> <span class="nf">sigint_handler</span><span class="p">(</span><span class="kt">int</span> <span class="n">sig</span><span class="p">)</span> 
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="c1">// 获取SIGINT（ctrl-c）信号
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">olderrno</span> <span class="o">=</span> <span class="n">errno</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="c1">// 获取当前正在前台的任务的PID
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1"></span>    <span class="kt">pid_t</span> <span class="n">pid</span> <span class="o">=</span> <span class="nf">fgpid</span><span class="p">(</span><span class="n">jobs</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="c1">// 判断任务是否存在
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="c1"></span>    <span class="k">if</span><span class="p">(</span><span class="n">pid</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="c1">// -pid表示进程组 |pid| 的所有进程
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="c1"></span>        <span class="nf">kill</span><span class="p">(</span><span class="o">-</span><span class="n">pid</span><span class="p">,</span> <span class="n">SIGKILL</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="n">errno</span> <span class="o">=</span> <span class="n">olderrno</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><blockquote>
+<p><code>kill</code>函数的定义位于《深入理解计算机系统》第530页：</p>
+<figure><img src="/p/shell/images/kill%E5%87%BD%E6%95%B0.png" width="700"><figcaption>
+      <h4>kill函数</h4>
+    </figcaption>
+</figure>
+</blockquote>
+<ol start="3">
+<li>处理<kbd>Ctrl</kbd> + <kbd>Z</kbd> <br>
+同理可得：</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">void</span> <span class="nf">sigtstp_handler</span><span class="p">(</span><span class="kt">int</span> <span class="n">sig</span><span class="p">)</span> 
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">     <span class="c1">// 获取SIGTSTP（ctrl-z）信号
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">olderrno</span> <span class="o">=</span> <span class="n">errno</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="kt">pid_t</span> <span class="n">pid</span> <span class="o">=</span> <span class="nf">fgpid</span><span class="p">(</span><span class="n">jobs</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">pid</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">        <span class="nf">kill</span><span class="p">(</span><span class="o">-</span><span class="n">pid</span><span class="p">,</span> <span class="n">SIGTSTP</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="n">errno</span> <span class="o">=</span> <span class="n">olderrno</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="总结">总结
+</h2>
 </section>
 
 
@@ -1333,6 +1390,10 @@
 
 <script>
     document.addEventListener('pjax:complete', () => {
+        initTocHide();
+    }) 
+
+    document.addEventListener('pjax:complete', () => {
         loadQuestion();
         showQuestion();
         document.querySelector("#Change").addEventListener("click", showQuestion);
@@ -1429,11 +1490,7 @@
         });
     }
 
-    initTocHide();
-
-    document.addEventListener('pjax:complete', () => {
-        initTocHide();
-    })   
+    initTocHide(); 
 </script>
 
 

@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/exercises/'>
 
-<link rel="stylesheet" href="/scss/style.min.6b749cce0a38064419623b106b029e31982eff833de70de4bc590000f5f885c7.css"><meta property='og:title' content="壹题">
+<link rel="stylesheet" href="/scss/style.min.23aa89118c0b922cc584244b7cc90309a3b5197f2dd8b0e27311feedbd5e4c44.css"><meta property='og:title' content="壹题">
 <meta property='og:description' content="每日一题">
 <meta property='og:url' content='https://5882886.github.io/exercises/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -350,18 +350,12 @@
         border-radius: 7px;
         box-shadow: var(--shadow-l1);
         background-color: #00640010;
-        color: #34495e;
+        color: var(--card-text-color-main);
          
-        display: none;  
+        display: none;       
         margin-bottom: -20px;
         cursor: pointer;
         font-size: 1.2rem;
-    }
-
-    .widget--toc #TableOfContents {
-        overflow-x: auto;
-        max-height: 66vh;
-        width: auto;
     }
 
     @media screen and (max-width: 768px) {
@@ -645,7 +639,6 @@
 
 
             <main class="main full-width">
-     
     
     <article class="main-article">
     <header class="article-header">
@@ -716,120 +709,7 @@
     <section class="article-content">
     
     
-    <style>
-    /* 文字样式 */
-    .QuestionBox {
-        color: var(--card-text-color-main);
-        font-size: 20px;
-        font-style: normal;
-        font-weight: bold;
-        margin-top: 20px;
-        line-height: var(--article-line-height);
-        margin-bottom: 20px;
-    }
-    .AnswerBox {
-        color: var(--card-text-color-main);
-        font-size: 16px;
-        display: none;
-    }
-
-
-    #ShowAnswer {
-        background-color: #4caf50;
-        color: #fff;
-        border: none;
-        padding: 10px 20px;
-        margin-top: 20px;
-        margin-right: auto;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    #HideAnswer {
-        background-color: #4caf50;
-        color: #fff;
-        border: none;
-        padding: 10px 20px;
-        margin-top: 20px;
-        margin-right: auto;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    #Change {
-        background-color: #4caf50;
-        color: #fff;
-        border: none;
-        padding: 10px 20px;
-        margin-top: 20px;
-        margin-right: auto;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-</style>
-<div class="ExerciseBox">
-    <div class="QuestionBox">
-        <p>Question</p>
-    </div>
-    <div class="AnswerBox">
-        <p>Answer</p>
-    </div>
-    <div class="AnswerToggle">
-        <button id="ShowAnswer">Show Answer</button>
-        <button id="HideAnswer">Hide Answer</button>
-        <button id="Change">Change</button>
-    </div>
-</div>
-<script>
-    let exercises = [];
-    let num = 0;
-
-    async function loadQuestion() {
-        const res = await fetch('/json/exercises.json');    // 指定目录
-        exercises = await res.json();
-        showQuestion();
-    }
-
-    function showQuestion() {
-        num = Math.floor(Math.random() * exercises.length);
-        const exercise = exercises[num];
-        
-        const textElement = document.querySelector(".QuestionBox");
-        const authorElement = document.querySelector(".AnswerBox");
-
-        textElement.innerHTML = exercise.question;
-        authorElement.innerHTML = exercise.answer;
-    };
-
-    function showAnswer() {
-        document.querySelectorAll(".AnswerBox").forEach(e => {
-            e.style.display = "block";
-        });
-    }
-
-     function hideAnswer() {
-        document.querySelectorAll(".AnswerBox").forEach(e => {
-            e.style.display = "none";
-        });
-    }
-
-
-    document.querySelector("#Change").addEventListener("click", showQuestion);
-    document.querySelector("#ShowAnswer").addEventListener("click", showAnswer);
-    document.querySelector("#HideAnswer").addEventListener("click", hideAnswer);
     
-    loadQuestion();
-    showQuestion();
-
-
-    document.addEventListener('pjax:complete', () => {
-        loadQuestion();
-        showQuestion();
-        document.querySelector("#Change").addEventListener("click", showQuestion);
-        document.querySelector("#ShowAnswer").addEventListener("click", showAnswer);
-        document.querySelector("#HideAnswer").addEventListener("click", hideAnswer);  
-    })
-
-</script>
 </section>
 
 
@@ -853,12 +733,159 @@
 
     
 </article>
-
     
 
     
 
-     
+<!DOCTYPE html>
+<html lang="zh_cn">
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>问答</title>
+        <style>
+             
+            .ExercisesBox {
+                background-color: var(--card-background);
+                width: 100%;
+                margin: var(--card-margin) 0;
+                padding: var(--card-padding);
+                border-radius: 10px;
+            }
+            .QuestionBox {
+                color: var(--card-text-color-main);
+                font-size: 20px;
+                font-weight: bold;
+                margin-top: 20px;
+                line-height: var(--article-line-height);
+                margin-bottom: 20px;
+            }
+            .AnswerBox {
+                color: var(--card-text-color-main);
+                margin-top: 20px; 
+                line-height: var(--article-line-height);
+                margin-bottom: 20px;
+                display: none;
+            }
+
+
+            #ShowAnswer {
+                background-color: #4caf50;
+                color: #fff;
+                border: none;
+                padding: 10px 20px;
+                margin-top: 20px;
+                margin-right: auto;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            #HideAnswer {
+                background-color: #470808ff;
+                color: #fff;
+                border: none;
+                padding: 10px 20px;
+                margin-top: 20px;
+                margin-right: auto;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            #Change {
+                background-color: #4caf50;
+                color: #fff;
+                border: none;
+                padding: 10px 20px;
+                margin-top: 20px;
+                margin-right: auto;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+
+    
+    <section class="widget exercises"> 
+        <div class="ExercisesBox">
+            <div class="widget-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-file-description"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" /><path d="M9 17h6" /><path d="M9 13h6" /></svg>
+            </div>
+            <h2 class="widget-title section-title">每日一题</h2>
+            <div class="QuestionBox article-content"><p>Question</p></div>
+            <div class="AnswerBox article-content"><p>Answer</p></div>
+            <div class="AnswerToggle">
+                <button id="ShowAnswer">显示解答</button>
+                <button id="HideAnswer">隐藏解答</button>
+                <button id="Change">换一个</button>
+            </div>
+        </div>
+    </section>
+
+
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: '\\[', right: '\\]', display: true},
+                {left: '\\(', right: '\\)', display: false}
+            ]
+        });">
+    </script>
+
+    <script>
+        let exercises = [];
+        let num = 0;
+
+        async function loadQuestion() {
+            const res = await fetch('/json/exercises.json');    
+            exercises = await res.json();
+            showQuestion();
+        }
+
+        
+        function showQuestion() {
+            num = Math.floor(Math.random() * exercises.length);
+            const exercise = exercises[num];
+            
+            const textElement = document.querySelector(".QuestionBox");
+            const authorElement = document.querySelector(".AnswerBox");
+
+            textElement.innerHTML = exercise.question;
+            authorElement.innerHTML = exercise.answer;
+
+            hideAnswer();
+        };
+
+        
+        function showAnswer() {
+            document.querySelector(".AnswerBox").style.display = "block";
+            document.querySelector("#ShowAnswer").style.backgroundColor = "#470808ff";
+            document.querySelector("#HideAnswer").style.backgroundColor = "#4caf50";
+        }
+
+        
+        function hideAnswer() {
+            document.querySelector(".AnswerBox").style.display = "none";
+            document.querySelector("#HideAnswer").style.backgroundColor = "#470808ff";
+            document.querySelector("#ShowAnswer").style.backgroundColor = "#4caf50";
+        }
+
+
+        document.querySelector("#Change").addEventListener("click", showQuestion);
+        document.querySelector("#ShowAnswer").addEventListener("click", showAnswer);
+        document.querySelector("#HideAnswer").addEventListener("click", hideAnswer);
+        
+        loadQuestion();
+        showQuestion();
+        
+    </script>
+</html>
+    
+
+    
     
         
     
@@ -955,6 +982,7 @@
                 rel="stylesheet" 
                 href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
             >
+
 
             </main>
         </div>
@@ -1078,6 +1106,10 @@
 
 <script>
     document.addEventListener('pjax:complete', () => {
+        initTocHide();
+    }) 
+
+    document.addEventListener('pjax:complete', () => {
         loadQuestion();
         showQuestion();
         document.querySelector("#Change").addEventListener("click", showQuestion);
@@ -1174,11 +1206,7 @@
         });
     }
 
-    initTocHide();
-
-    document.addEventListener('pjax:complete', () => {
-        initTocHide();
-    })   
+    initTocHide(); 
 </script>
 
 

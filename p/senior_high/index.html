@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/senior_high/'>
 
-<link rel="stylesheet" href="/scss/style.min.6b749cce0a38064419623b106b029e31982eff833de70de4bc590000f5f885c7.css"><meta property='og:title' content="十四班学生列传">
+<link rel="stylesheet" href="/scss/style.min.23aa89118c0b922cc584244b7cc90309a3b5197f2dd8b0e27311feedbd5e4c44.css"><meta property='og:title' content="十四班学生列传">
 <meta property='og:description' content="纪念我的高中生活">
 <meta property='og:url' content='https://5882886.github.io/p/senior_high/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -387,18 +387,12 @@
         border-radius: 7px;
         box-shadow: var(--shadow-l1);
         background-color: #00640010;
-        color: #34495e;
+        color: var(--card-text-color-main);
          
-        display: none;  
+        display: none;       
         margin-bottom: -20px;
         cursor: pointer;
         font-size: 1.2rem;
-    }
-
-    .widget--toc #TableOfContents {
-        overflow-x: auto;
-        max-height: 66vh;
-        width: auto;
     }
 
     @media screen and (max-width: 768px) {
@@ -706,10 +700,13 @@
                 overflow-x: hidden;
                 overflow-y: auto;
             }
-
+            .password-guide {
+                color: var(--card-text-color-main);
+            }
             .cloze {
                 color: var(--card-text-color-main);
             }
+            
              
             .widget-icon {
                 color: var(--body-text-color);
@@ -790,7 +787,7 @@
     
     <header class="article-category">
         
-            <a href="/categories/interesting_things/" style="background-color: #2a9d8f; color: #fff;">
+            <a href="/categories/interesting/" style="background-color: #2a9d8f; color: #fff;">
                 小乐趣
             </a>
         
@@ -1241,6 +1238,10 @@
 
 <script>
     document.addEventListener('pjax:complete', () => {
+        initTocHide();
+    }) 
+
+    document.addEventListener('pjax:complete', () => {
         loadQuestion();
         showQuestion();
         document.querySelector("#Change").addEventListener("click", showQuestion);
@@ -1337,11 +1338,7 @@
         });
     }
 
-    initTocHide();
-
-    document.addEventListener('pjax:complete', () => {
-        initTocHide();
-    })   
+    initTocHide(); 
 </script>
 
 
