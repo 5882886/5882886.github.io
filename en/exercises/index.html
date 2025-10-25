@@ -753,6 +753,8 @@
                 margin: var(--card-margin) 0;
                 padding: var(--card-padding);
                 border-radius: 10px;
+                box-shadow: var(--shadow-l1);
+                box-shadow: inset 0 20px 20px var(--body-background);
             }
             .QuestionBox {
                 color: var(--card-text-color-main);
@@ -770,6 +772,9 @@
                 display: none;
             }
 
+            .AnswerToggle {
+                display: flex;
+            }
 
             #ShowAnswer {
                 background-color: #4caf50;
@@ -777,7 +782,7 @@
                 border: none;
                 padding: 10px 20px;
                 margin-top: 20px;
-                margin-right: auto;
+                margin-right: 8px;
                 border-radius: 5px;
                 cursor: pointer;
             }
@@ -787,7 +792,7 @@
                 border: none;
                 padding: 10px 20px;
                 margin-top: 20px;
-                margin-right: auto;
+                margin-right: 8px;
                 border-radius: 5px;
                 cursor: pointer;
             }
@@ -801,22 +806,35 @@
                 border-radius: 5px;
                 cursor: pointer;
             }
+
+            #Next, #Pre {
+                background-color: #4caf50;
+                color: #fff;
+                border: none;
+                padding: 10px 20px;
+                margin-top: 20px;
+                margin-left: 8px;
+                border-radius: 5px;
+                cursor: pointer;
+            }
         </style>
     </head>
 
     
     <section class="widget exercises"> 
-        <div class="ExercisesBox">
-            <div class="widget-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-file-description"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" /><path d="M9 17h6" /><path d="M9 13h6" /></svg>
-            </div>
-            <h2 class="widget-title section-title">Daily Exercises</h2>
-            <div class="QuestionBox article-content"><p>Question</p></div>
-            <div class="AnswerBox article-content"><p>Answer</p></div>
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-file-description"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" /><path d="M9 17h6" /><path d="M9 13h6" /></svg>
+        </div>
+        <h2 class="widget-title section-title">Daily Exercises</h2>
+        <div class="ExercisesBox article-content">
+            <div class="QuestionBox"><h2>Question</h2></div>
+            <div class="AnswerBox"><p>Answer</p></div>
             <div class="AnswerToggle">
                 <button id="ShowAnswer">Show Answer</button>
                 <button id="HideAnswer">Hide Answer</button>
                 <button id="Change">Change</button>
+                <button id="Pre">Pre</button>
+                <button id="Next">Next</button>
             </div>
         </div>
     </section>
@@ -837,17 +855,17 @@
 
     <script>
         let exercises = [];
-        let num = 0;
+        let num = 0;    
 
+        
         async function loadQuestion() {
             const res = await fetch('/json/exercises.json');    
             exercises = await res.json();
-            showQuestion();
+            RandomQuestion();
         }
 
         
         function showQuestion() {
-            num = Math.floor(Math.random() * exercises.length);
             const exercise = exercises[num];
             
             const textElement = document.querySelector(".QuestionBox");
@@ -857,7 +875,31 @@
             authorElement.innerHTML = exercise.answer;
 
             hideAnswer();
-        };
+        }
+
+        
+        function showPreQuestion() {
+            num --;
+            if(num < 0 ) {
+                num = exercises.length-1;
+            }
+            showQuestion();
+        }
+
+        
+        function showNextQuestion() {
+            num ++;
+            if(num >= exercises.length) {
+                num = 0;
+            }
+            showQuestion();
+        }
+
+        
+        function RandomQuestion() {
+            num = Math.floor(Math.random() * exercises.length);
+            showQuestion();
+        }
 
         
         function showAnswer() {
@@ -874,13 +916,14 @@
         }
 
 
-        document.querySelector("#Change").addEventListener("click", showQuestion);
+        document.querySelector("#Change").addEventListener("click", RandomQuestion);
+        document.querySelector("#Pre").addEventListener("click", showPreQuestion);
+        document.querySelector("#Next").addEventListener("click", showNextQuestion);
         document.querySelector("#ShowAnswer").addEventListener("click", showAnswer);
         document.querySelector("#HideAnswer").addEventListener("click", hideAnswer);
         
         loadQuestion();
-        showQuestion();
-        
+
     </script>
 </html>
     
@@ -1111,10 +1154,11 @@
 
     document.addEventListener('pjax:complete', () => {
         loadQuestion();
-        showQuestion();
-        document.querySelector("#Change").addEventListener("click", showQuestion);
+        document.querySelector("#Change").addEventListener("click", RandomQuestion);
+        document.querySelector("#Pre").addEventListener("click", showPreQuestion);
+        document.querySelector("#Next").addEventListener("click", showNextQuestion);
         document.querySelector("#ShowAnswer").addEventListener("click", showAnswer);
-        document.querySelector("#HideAnswer").addEventListener("click", hideAnswer);  
+        document.querySelector("#HideAnswer").addEventListener("click", hideAnswer);
     })
 
     document.addEventListener('pjax:complete', () => {

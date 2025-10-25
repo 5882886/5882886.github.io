@@ -1769,10 +1769,11 @@ $$ \begin{align*} x_1+x_2 &= \frac{-b+\sqrt{b^{2}-4ac}}{2a} + \frac{-b-\sqrt{b^{
 
     document.addEventListener('pjax:complete', () => {
         loadQuestion();
-        showQuestion();
-        document.querySelector("#Change").addEventListener("click", showQuestion);
+        document.querySelector("#Change").addEventListener("click", RandomQuestion);
+        document.querySelector("#Pre").addEventListener("click", showPreQuestion);
+        document.querySelector("#Next").addEventListener("click", showNextQuestion);
         document.querySelector("#ShowAnswer").addEventListener("click", showAnswer);
-        document.querySelector("#HideAnswer").addEventListener("click", hideAnswer);  
+        document.querySelector("#HideAnswer").addEventListener("click", hideAnswer);
     })
 
     document.addEventListener('pjax:complete', () => {
