@@ -326,6 +326,7 @@
         <li><a href="#eval函数"><code>eval</code>函数</a></li>
         <li><a href="#builtin_cmd函数"><code>builtin_cmd</code>函数</a></li>
         <li><a href="#waitfg函数"><code>waitfg</code>函数</a></li>
+        <li><a href="#do_bgfg函数"><code>do_bgfg</code>函数</a></li>
         <li><a href="#信号处理">信号处理</a></li>
       </ol>
     </li>
@@ -426,7 +427,6 @@
             background-color: transparent;  
             padding: 0;  
         }
-
         #toggle-toc {
             display: none !important;  
         }
@@ -463,8 +463,6 @@
         
     });
 </script>
-
-
             
         
             
@@ -675,6 +673,101 @@
 
 
             <main class="main full-width">
+    
+        
+
+<!DOCTYPE html>
+<html lang="zh_cn">
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>密码</title>
+        <style>
+             
+            .password-box {
+                background-color: var(--card-background);
+                width: 100%;
+                margin: var(--card-margin) 0;
+                padding: var(--card-padding);
+                border-radius: 10px;
+                 
+                max-height: 35vh;
+                overflow-x: hidden;
+                overflow-y: auto;
+            }
+            .password-guide {
+                color: var(--card-text-color-main);
+            }
+            .cloze {
+                color: var(--card-text-color-main);
+            }
+            
+             
+            .widget-icon {
+                color: var(--body-text-color);
+            }
+
+             
+            .main-article {
+                height: 0;
+            }
+            .widget--toc {
+                max-height: 0;
+            }
+        </style>
+    </head>
+
+    
+    <section class="widget password"> 
+        <div class="password-box">
+            <div class="widget-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-lock"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6z" /><path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" /><path d="M8 11v-4a4 4 0 1 1 8 0v4" /></svg>
+            </div>
+            <div class="password-guide"><p>请输入密码以查看内容：</p></div>
+            <input id="password-input" type="password"  />
+            <button id="check">提交</button>
+            <div class="cloze" style="display: block;">
+                <p>密码为以下题目答案（保留6位小数）：</p>
+                <p>计算三重积分 $\displaystyle \iiint\limits_{\varOmega} \frac{xyz}{x^2+y^2} \mathrm{d}x\mathrm{d}y\mathrm{d}z$，其中 $\varOmega$ 是由曲面 $(x^2+y^2+z^2)^2 = 2xy$ 围成的区域在第一卦限的部分. </p>
+            </div>
+        </div>
+    </section>
+
+
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: '\\[', right: '\\]', display: true},
+                {left: '\\(', right: '\\)', display: false}
+            ]
+        });">
+    </script>
+
+    <script>
+        function checkPassword() {
+            const input = document.getElementById("password-input").value;
+            const correctPassword = "0.013888";
+            if (input == correctPassword) {
+                document.querySelector(".main-article").style.height = "auto";
+                document.querySelector(".widget--toc").style.maxHeight = "40vh";
+                document.querySelector(".password-box").style.display = "none";
+            }
+            else {
+                alert("密码错误！");
+            }
+            window.Stack.init();
+        }
+
+        document.querySelector("#check").addEventListener("click", checkPassword);
+        
+    </script>
+</html>
      
     
     <article class="main-article">
@@ -739,34 +832,7 @@
     <section class="article-content">
     
     
-    <div id="password-prompt">
-    <div class="password-guide">由于一些原因，输入密码方可查看代码：</div>
-    <input type="password" id="password-input" />
-    <button onclick="checkPassword()">提交</button>
-</div>
-<style>
-    .highlight {
-        display: none;
-    }
-</style>
-<script>
-    function checkPassword() {
-        const input = document.getElementById("password-input").value;
-        const correctPassword = "0.013888";
-        if (input === correctPassword) {
-            document.getElementById("password-prompt").style.display = "none";
-            
-            const elements = document.querySelectorAll(".highlight");
-            elements.forEach(el => {
-                el.style.display = "block";
-            });
-            initTocHide();
-        } else {
-            alert("密码错误！");
-        }
-    }
-</script>
-<p>感谢<a class="link" href="https://www.cnblogs.com/zhiyiYo/p/16297819.html"  target="_blank" rel="noopener"
+    <p>感谢<a class="link" href="https://www.cnblogs.com/zhiyiYo/p/16297819.html"  target="_blank" rel="noopener"
     >之一Yo大佬
     
     
@@ -996,14 +1062,101 @@
 </span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="nf">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>当这段代码正确执行时，它太慢了。如果在<code>while</code>之后<code>pause</code>之前收到信号，程序必须等相当长的一段时间才会再次检查循环的终止条件。使用像 <code>nanosleep</code>这样更髙精度的休眠函数也是不可接受的，因为没有很好的方法来确定休眠的间隔。间隔太小，循环会太浪费；间隔太大，程序又会太慢。</p></blockquote>
-<h3 id="信号处理">信号处理
+<h3 id="do_bgfg函数"><code>do_bgfg</code>函数
+</h3><p>在<code>builtin_cmd</code>中最重要的就是<code>do_bgfg</code>函数，负责作业的状态转换。</p>
+<p>首先获取任务的<code>PID</code>，若为空则报错；否则发送<code>SIGCONT</code>信号给进程组中的每一个进程。</p>
+<p>为了做到将<code>SIGCONT</code>信号发送给进程组中的每一个进程，需要将<code>kill</code>函数的<code>pid</code>参数取负值，不然就只发给指定的进程了。具体可参见<code>kill</code>函数在《深入理解计算机系统》第530页的定义：</p>
+<blockquote>
+<p><code>kill</code>函数的定义位于《深入理解计算机系统》第530页：</p>
+<figure><img src="/p/shell/images/kill%E5%87%BD%E6%95%B0.png" width="700"><figcaption>
+      <h4>kill函数</h4>
+    </figcaption>
+</figure>
+</blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">void</span> <span class="nf">do_bgfg</span><span class="p">(</span><span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span> 
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="kt">char</span><span class="o">*</span> <span class="n">cmd</span> <span class="o">=</span> <span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="kt">char</span><span class="o">*</span> <span class="n">id</span> <span class="o">=</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="k">struct</span> <span class="kt">job_t</span><span class="o">*</span> <span class="n">job</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">id</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">        <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%s command requires PID or %%jobid argument</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">cmd</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">        <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="c1">// 根据 jid/pid 获取作业
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="n">id</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="sc">&#39;%&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">        <span class="k">if</span> <span class="p">((</span><span class="n">job</span> <span class="o">=</span> <span class="nf">getjobjid</span><span class="p">(</span><span class="n">jobs</span><span class="p">,</span> <span class="nf">atoi</span><span class="p">(</span><span class="n">id</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)))</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">            <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%s: No such job</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">id</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">            <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">    <span class="p">}</span> 
+</span></span><span class="line"><span class="ln">19</span><span class="cl">    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nf">atoi</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">        <span class="k">if</span> <span class="p">((</span><span class="n">job</span> <span class="o">=</span> <span class="nf">getjobpid</span><span class="p">(</span><span class="n">jobs</span><span class="p">,</span> <span class="nf">atoi</span><span class="p">(</span><span class="n">id</span><span class="p">)))</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">            <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;(%d): No such process</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="nf">atoi</span><span class="p">(</span><span class="n">id</span><span class="p">));</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">            <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">    <span class="p">}</span> 
+</span></span><span class="line"><span class="ln">25</span><span class="cl">    <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">        <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%s: argument must be a PID or %%jobid</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">cmd</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl">        <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl">
+</span></span><span class="line"><span class="ln">30</span><span class="cl">    <span class="c1">// 状态转移
+</span></span></span><span class="line"><span class="ln">31</span><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nf">strcmp</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="s">&#34;fg&#34;</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">32</span><span class="cl">        <span class="n">job</span><span class="o">-&gt;</span><span class="n">state</span> <span class="o">=</span> <span class="n">FG</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">33</span><span class="cl">        <span class="nf">kill</span><span class="p">(</span><span class="o">-</span><span class="n">job</span><span class="o">-&gt;</span><span class="n">pid</span><span class="p">,</span> <span class="n">SIGCONT</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">34</span><span class="cl">        <span class="nf">waitfg</span><span class="p">(</span><span class="n">job</span><span class="o">-&gt;</span><span class="n">pid</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">35</span><span class="cl">    <span class="p">}</span> 
+</span></span><span class="line"><span class="ln">36</span><span class="cl">    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nf">strcmp</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="s">&#34;bg&#34;</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">37</span><span class="cl">        <span class="n">job</span><span class="o">-&gt;</span><span class="n">state</span> <span class="o">=</span> <span class="n">BG</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">38</span><span class="cl">        <span class="nf">kill</span><span class="p">(</span><span class="o">-</span><span class="n">job</span><span class="o">-&gt;</span><span class="n">pid</span><span class="p">,</span> <span class="n">SIGCONT</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">39</span><span class="cl">        <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;[%d] (%d) %s&#34;</span><span class="p">,</span> <span class="n">job</span><span class="o">-&gt;</span><span class="n">jid</span><span class="p">,</span> <span class="n">job</span><span class="o">-&gt;</span><span class="n">pid</span><span class="p">,</span> <span class="n">job</span><span class="o">-&gt;</span><span class="n">cmdline</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">40</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">41</span><span class="cl">    <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">42</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="信号处理">信号处理
 </h3><ol>
-<li>
-<p><code>bgfg</code>函数</p>
-</li>
-<li>
-<p>处理<kbd>Ctrl</kbd> + <kbd>C</kbd></p>
-</li>
+<li><code>sigchld_handler</code>函数</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">void</span> <span class="nf">sigchld_handler</span><span class="p">(</span><span class="kt">int</span> <span class="n">sig</span><span class="p">)</span> 
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="kt">int</span> <span class="n">old_errno</span> <span class="o">=</span> <span class="n">errno</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="kt">pid_t</span> <span class="n">pid</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="kt">int</span> <span class="n">status</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="kt">sigset_t</span> <span class="n">mask_all</span><span class="p">,</span> <span class="n">prev_mask</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="nf">sigfillset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mask_all</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="k">while</span> <span class="p">((</span><span class="n">pid</span> <span class="o">=</span> <span class="nf">waitpid</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">status</span><span class="p">,</span> <span class="n">WNOHANG</span> <span class="o">|</span> <span class="n">WUNTRACED</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="c1">// 终止作业
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="nf">WIFEXITED</span><span class="p">(</span><span class="n">status</span><span class="p">)</span> <span class="o">||</span> <span class="nf">WIFSIGNALED</span><span class="p">(</span><span class="n">status</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">            <span class="nf">sigprocmask</span><span class="p">(</span><span class="n">SIG_BLOCK</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">mask_all</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">prev_mask</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">
+</span></span><span class="line"><span class="ln">14</span><span class="cl">            <span class="c1">// ctrl-c 终止
+</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="c1"></span>            <span class="k">if</span> <span class="p">(</span><span class="nf">WIFSIGNALED</span><span class="p">(</span><span class="n">status</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">                <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Job [%d] (%d) terminated by signal 2</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="nf">pid2jid</span><span class="p">(</span><span class="n">pid</span><span class="p">),</span> <span class="n">pid</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">
+</span></span><span class="line"><span class="ln">19</span><span class="cl">            <span class="nf">deletejob</span><span class="p">(</span><span class="n">jobs</span><span class="p">,</span> <span class="n">pid</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">            <span class="nf">sigprocmask</span><span class="p">(</span><span class="n">SIG_SETMASK</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">prev_mask</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">        <span class="c1">// 停止作业
+</span></span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="c1"></span>        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nf">WIFSTOPPED</span><span class="p">(</span><span class="n">status</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">            <span class="nf">sigprocmask</span><span class="p">(</span><span class="n">SIG_BLOCK</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">mask_all</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">prev_mask</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl">
+</span></span><span class="line"><span class="ln">26</span><span class="cl">            <span class="k">struct</span> <span class="kt">job_t</span><span class="o">*</span> <span class="n">job</span> <span class="o">=</span> <span class="nf">getjobpid</span><span class="p">(</span><span class="n">jobs</span><span class="p">,</span> <span class="n">pid</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl">            <span class="n">job</span><span class="o">-&gt;</span><span class="n">state</span> <span class="o">=</span> <span class="n">ST</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">            <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Job [%d] (%d) stopped by signal 20</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">job</span><span class="o">-&gt;</span><span class="n">jid</span><span class="p">,</span> <span class="n">job</span><span class="o">-&gt;</span><span class="n">pid</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl">
+</span></span><span class="line"><span class="ln">30</span><span class="cl">            <span class="nf">sigprocmask</span><span class="p">(</span><span class="n">SIG_SETMASK</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">prev_mask</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">31</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">32</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">33</span><span class="cl">
+</span></span><span class="line"><span class="ln">34</span><span class="cl">    <span class="n">errno</span> <span class="o">=</span> <span class="n">old_errno</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">35</span><span class="cl">    <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">36</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ol start="2">
+<li>处理<kbd>Ctrl</kbd> + <kbd>C</kbd></li>
 </ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">void</span> <span class="nf">sigint_handler</span><span class="p">(</span><span class="kt">int</span> <span class="n">sig</span><span class="p">)</span> 
 </span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="p">{</span>
@@ -1020,14 +1173,7 @@
 </span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="n">errno</span> <span class="o">=</span> <span class="n">olderrno</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="k">return</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><blockquote>
-<p><code>kill</code>函数的定义位于《深入理解计算机系统》第530页：</p>
-<figure><img src="/p/shell/images/kill%E5%87%BD%E6%95%B0.png" width="700"><figcaption>
-      <h4>kill函数</h4>
-    </figcaption>
-</figure>
-</blockquote>
-<ol start="3">
+</span></span></code></pre></div><ol start="3">
 <li>处理<kbd>Ctrl</kbd> + <kbd>Z</kbd> <br>
 同理可得：</li>
 </ol>
@@ -1044,7 +1190,9 @@
 </span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="k">return</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h2 id="总结">总结
-</h2>
+</h2><p>通过这次实验，我加深了对进程控制和信号处理的理解，同时对于并发现象有了更直观的认识。即使是一个简易的Shell程序，也需要考虑任务的排队、信号阻塞等问题，要在心中有整体设计观念。同时在完成实验的过程中我大量参考了书本内容，也提醒我在今后的学习和实验中要注重书本的工具作用。</p>
+<p>另外，在评测平台测试时，第一次测试时由于在<code>Command not found</code>后多加了一个句点而导致判错。这启示我在编程时应当小心谨慎，认真阅读要求，并且仔细检查，方能提高正确率和效率。</p>
+
 </section>
 
 
@@ -1374,25 +1522,12 @@
         }
     }
 
-    document.addEventListener('pjax:complete', () => {
-        
-        window.Stack.init();
-        document.querySelectorAll();
-    })
-
-    document.addEventListener('DOMContentLoaded', function () {
-        if (window.pjax) {
-            window.pjax.options.cacheBust = false; 
-        }
-    });
-
-</script>
-
-<script>
+    
     document.addEventListener('pjax:complete', () => {
         initTocHide();
     }) 
 
+    
     document.addEventListener('pjax:complete', () => {
         loadQuestion();
         document.querySelector("#Change").addEventListener("click", RandomQuestion);
@@ -1402,6 +1537,7 @@
         document.querySelector("#HideAnswer").addEventListener("click", hideAnswer);
     })
 
+    
     document.addEventListener('pjax:complete', () => {
         loadQuotes();
         showQuotes();
@@ -1409,7 +1545,20 @@
         document.querySelector("#pre-quote").addEventListener("click", showPreQuote);
         document.querySelector("#next-quote").addEventListener("click", showNextQuote);
     })
+
+    document.addEventListener('DOMContentLoaded', function () {
+        if (window.pjax) {
+            window.pjax.options.cacheBust = false; 
+        }
+    });
+
+    document.addEventListener('pjax:complete', () => {
+        
+        window.Stack.init();
+        document.querySelectorAll();
+    })
 </script>
+
 <script>
     async function renderKaTeX() {
         
@@ -1537,6 +1686,7 @@
         z-index: -1;
     }
 </style>
+
 
 
     </body>

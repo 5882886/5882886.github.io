@@ -427,7 +427,6 @@
             background-color: transparent;  
             padding: 0;  
         }
-
         #toggle-toc {
             display: none !important;  
         }
@@ -464,8 +463,6 @@
         
     });
 </script>
-
-
             
         
             
@@ -757,21 +754,14 @@
             const input = document.getElementById("password-input").value;
             const correctPassword = "0.013888";
             if (input == correctPassword) {
-                document.querySelectorAll(".main-article").forEach(e => {
-                    e.style.height = "auto";
-                });
-
-                document.querySelectorAll(".widget--toc").forEach(e => {
-                    e.style.maxHeight = "40vh";
-                });
-
-                document.querySelectorAll(".password-box").forEach(e => {
-                    e.style.display = "none";
-                });
+                document.querySelector(".main-article").style.height = "auto";
+                document.querySelector(".widget--toc").style.maxHeight = "40vh";
+                document.querySelector(".password-box").style.display = "none";
             }
             else {
                 alert("密码错误！");
             }
+            window.Stack.init();
         }
 
         document.querySelector("#check").addEventListener("click", checkPassword);
@@ -1222,25 +1212,12 @@
         }
     }
 
-    document.addEventListener('pjax:complete', () => {
-        
-        window.Stack.init();
-        document.querySelectorAll();
-    })
-
-    document.addEventListener('DOMContentLoaded', function () {
-        if (window.pjax) {
-            window.pjax.options.cacheBust = false; 
-        }
-    });
-
-</script>
-
-<script>
+    
     document.addEventListener('pjax:complete', () => {
         initTocHide();
     }) 
 
+    
     document.addEventListener('pjax:complete', () => {
         loadQuestion();
         document.querySelector("#Change").addEventListener("click", RandomQuestion);
@@ -1250,6 +1227,7 @@
         document.querySelector("#HideAnswer").addEventListener("click", hideAnswer);
     })
 
+    
     document.addEventListener('pjax:complete', () => {
         loadQuotes();
         showQuotes();
@@ -1257,7 +1235,20 @@
         document.querySelector("#pre-quote").addEventListener("click", showPreQuote);
         document.querySelector("#next-quote").addEventListener("click", showNextQuote);
     })
+
+    document.addEventListener('DOMContentLoaded', function () {
+        if (window.pjax) {
+            window.pjax.options.cacheBust = false; 
+        }
+    });
+
+    document.addEventListener('pjax:complete', () => {
+        
+        window.Stack.init();
+        document.querySelectorAll();
+    })
 </script>
+
 <script>
     async function renderKaTeX() {
         
@@ -1385,6 +1376,7 @@
         z-index: -1;
     }
 </style>
+
 
 
     </body>

@@ -458,7 +458,6 @@
             background-color: transparent;  
             padding: 0;  
         }
-
         #toggle-toc {
             display: none !important;  
         }
@@ -495,8 +494,6 @@
         
     });
 </script>
-
-
             
         
             
@@ -1588,25 +1585,12 @@ $$ACN = \frac{1}{n} \sum_{i=0}^{n-1} (i+1) = \frac{1}{n} (1+2+\cdots+n) = \frac{
         }
     }
 
-    document.addEventListener('pjax:complete', () => {
-        
-        window.Stack.init();
-        document.querySelectorAll();
-    })
-
-    document.addEventListener('DOMContentLoaded', function () {
-        if (window.pjax) {
-            window.pjax.options.cacheBust = false; 
-        }
-    });
-
-</script>
-
-<script>
+    
     document.addEventListener('pjax:complete', () => {
         initTocHide();
     }) 
 
+    
     document.addEventListener('pjax:complete', () => {
         loadQuestion();
         document.querySelector("#Change").addEventListener("click", RandomQuestion);
@@ -1616,6 +1600,7 @@ $$ACN = \frac{1}{n} \sum_{i=0}^{n-1} (i+1) = \frac{1}{n} (1+2+\cdots+n) = \frac{
         document.querySelector("#HideAnswer").addEventListener("click", hideAnswer);
     })
 
+    
     document.addEventListener('pjax:complete', () => {
         loadQuotes();
         showQuotes();
@@ -1623,7 +1608,20 @@ $$ACN = \frac{1}{n} \sum_{i=0}^{n-1} (i+1) = \frac{1}{n} (1+2+\cdots+n) = \frac{
         document.querySelector("#pre-quote").addEventListener("click", showPreQuote);
         document.querySelector("#next-quote").addEventListener("click", showNextQuote);
     })
+
+    document.addEventListener('DOMContentLoaded', function () {
+        if (window.pjax) {
+            window.pjax.options.cacheBust = false; 
+        }
+    });
+
+    document.addEventListener('pjax:complete', () => {
+        
+        window.Stack.init();
+        document.querySelectorAll();
+    })
 </script>
+
 <script>
     async function renderKaTeX() {
         
@@ -1751,6 +1749,7 @@ $$ACN = \frac{1}{n} \sum_{i=0}^{n-1} (i+1) = \frac{1}{n} (1+2+\cdots+n) = \frac{
         z-index: -1;
     }
 </style>
+
 
 
     </body>

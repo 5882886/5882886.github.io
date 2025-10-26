@@ -420,7 +420,6 @@
             background-color: transparent;  
             padding: 0;  
         }
-
         #toggle-toc {
             display: none !important;  
         }
@@ -457,8 +456,6 @@
         
     });
 </script>
-
-
             
         
             
@@ -1106,25 +1103,12 @@ $$
         }
     }
 
-    document.addEventListener('pjax:complete', () => {
-        
-        window.Stack.init();
-        document.querySelectorAll();
-    })
-
-    document.addEventListener('DOMContentLoaded', function () {
-        if (window.pjax) {
-            window.pjax.options.cacheBust = false; 
-        }
-    });
-
-</script>
-
-<script>
+    
     document.addEventListener('pjax:complete', () => {
         initTocHide();
     }) 
 
+    
     document.addEventListener('pjax:complete', () => {
         loadQuestion();
         document.querySelector("#Change").addEventListener("click", RandomQuestion);
@@ -1134,6 +1118,7 @@ $$
         document.querySelector("#HideAnswer").addEventListener("click", hideAnswer);
     })
 
+    
     document.addEventListener('pjax:complete', () => {
         loadQuotes();
         showQuotes();
@@ -1141,7 +1126,20 @@ $$
         document.querySelector("#pre-quote").addEventListener("click", showPreQuote);
         document.querySelector("#next-quote").addEventListener("click", showNextQuote);
     })
+
+    document.addEventListener('DOMContentLoaded', function () {
+        if (window.pjax) {
+            window.pjax.options.cacheBust = false; 
+        }
+    });
+
+    document.addEventListener('pjax:complete', () => {
+        
+        window.Stack.init();
+        document.querySelectorAll();
+    })
 </script>
+
 <script>
     async function renderKaTeX() {
         
@@ -1269,6 +1267,7 @@ $$
         z-index: -1;
     }
 </style>
+
 
 
     </body>
