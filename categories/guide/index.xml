@@ -464,7 +464,9 @@
         <pubDate>Tue, 16 Sep 2025 00:00:00 +0000</pubDate>
         
         <guid>https://5882886.github.io/p/nemu-part-2-pre/</guid>
-        <description>&lt;blockquote class=&#34;alert alert-warn&#34;&gt;
+        <description>
+
+&lt;blockquote class=&#34;alert alert-warn&#34;&gt;
     &lt;p&gt;磨刀不误砍柴工！！！&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;实验目的：&lt;/p&gt;
 &lt;ol&gt;
@@ -479,6 +481,8 @@
 &lt;h2 id=&#34;了解nemu的指令集&#34;&gt;了解NEMU的指令集
 &lt;/h2&gt;&lt;p&gt;X86系列处理器采用变长指令字结构，各种指令长度随指令功能而异。&lt;/p&gt;
 &lt;p&gt;要实现一条指令，首先你需要知道这条指令的格式和功能。格式决定如何解释，功能决定如何执行。这些信息都在 instruction set page（i386 手册第17 章）。&lt;/p&gt;
+
+
 &lt;blockquote class=&#34;alert alert-note&#34;&gt;
     &lt;p&gt;i386 手册中的汇编语言格式都是 Intel 格式，而 objdump（反汇编）的默认格式是 AT&amp;amp;T 格式，两者的源操作数和目的操作数位置不一样，千万不要把它们混淆了！&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;指令格式&#34;&gt;指令格式
@@ -764,7 +768,9 @@
   &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2 id=&#34;pa1简易调试器&#34;&gt;PA1：简易调试器
-&lt;/h2&gt;&lt;blockquote class=&#34;alert alert-note&#34;&gt;
+&lt;/h2&gt;
+
+&lt;blockquote class=&#34;alert alert-note&#34;&gt;
     &lt;ol&gt;
 &lt;li&gt;机器永远是对的！&lt;/li&gt;
 &lt;li&gt;未经过测试的每行代码永远是错误的！&lt;/li&gt;

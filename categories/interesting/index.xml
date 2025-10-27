@@ -403,6 +403,8 @@ $$ \bm{Image} = \left[\begin{matrix}  \bm{P}_{11} &amp; \bm{P}_{12} &amp; \cdots
 &lt;li&gt;像素块是排列整齐、均匀的正方形区域。&lt;/li&gt;
 &lt;li&gt;每个像素块只能有一种颜色。&lt;/li&gt;
 &lt;/ol&gt;
+
+
 &lt;blockquote class=&#34;alert alert-note&#34;&gt;
     &lt;p&gt;由性质2，像素块还可以看作是：图像中不可再分的最小颜色区域。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;我们日常生活中常见的图片是 $n*m$ 像素，就表示图片的长有 $n$ 个像素块，宽（或常称作高）有 $m$ 个像素块。其中 $m$ 和 $n$ 分别代表图像矩阵的行数和列数。&lt;/p&gt;
@@ -415,6 +417,8 @@ $$\bm{P_{ij}} = [R,G,B]$$&lt;p&gt;其中 $R$，$G$，$B$ 分别是取值 $[0,255
 &lt;blockquote&gt;
 &lt;p&gt;红、绿、蓝是光的三基色，因此将此三种颜色按一定比例混合就可以产生我们可见的所有颜色。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;在一些图像处理软件中，$RGB$ 的范围被定义成 $[0,1]$。实际上，这就是 $[0,255]$ 到 $[0,1]$ 上的一个压缩映射。这时，$10$ 就表示 $\displaystyle \frac{10}{255}$；$255$ 就表示 $1$。&lt;/p&gt;
+
+
 &lt;blockquote class=&#34;alert alert-note&#34;&gt;
     &lt;p&gt;$RGB$ 色值还有一种表示方法，即通过 &lt;code&gt;# + 6位16进制数&lt;/code&gt; 表示。因为10进制的 $[0,255]$ 恰好对应16进制的 $[00,FF]$，所以需要6个数位表示。&lt;/p&gt;
 &lt;p&gt;例如 $\# 000000$ 对应 $[0,0,0]$，$\# FFFFFF$ 对应 $[255,255,255]$。&lt;/p&gt;&lt;/blockquote&gt;
@@ -435,6 +439,8 @@ $$\begin{align*} \bm{I_1} * \bm{I_2} &amp;= \left[\begin{matrix}  \bm{A}_{11} &a
 &lt;blockquote&gt;
 &lt;p&gt;因此运算 $*$ 构成一个独异点（雾）。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;由性质4和5可知，正片叠底实现了“去白留黑”。&lt;/p&gt;
+
+
 &lt;blockquote class=&#34;alert alert-note&#34;&gt;
     &lt;p&gt;容易看出，图层混合是对图像对应的像素块做相同的操作，定义图层混合运算仅需给出对于像素块的操作。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;反色&#34;&gt;反色
@@ -908,7 +914,9 @@ $$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &amp;= [\mathrm{max}(R_1,R_2),\ma
         <pubDate>Tue, 16 Sep 2025 00:00:00 +0000</pubDate>
         
         <guid>https://5882886.github.io/p/nemu-part-2-pre/</guid>
-        <description>&lt;blockquote class=&#34;alert alert-warn&#34;&gt;
+        <description>
+
+&lt;blockquote class=&#34;alert alert-warn&#34;&gt;
     &lt;p&gt;磨刀不误砍柴工！！！&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;实验目的：&lt;/p&gt;
 &lt;ol&gt;
@@ -923,6 +931,8 @@ $$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &amp;= [\mathrm{max}(R_1,R_2),\ma
 &lt;h2 id=&#34;了解nemu的指令集&#34;&gt;了解NEMU的指令集
 &lt;/h2&gt;&lt;p&gt;X86系列处理器采用变长指令字结构，各种指令长度随指令功能而异。&lt;/p&gt;
 &lt;p&gt;要实现一条指令，首先你需要知道这条指令的格式和功能。格式决定如何解释，功能决定如何执行。这些信息都在 instruction set page（i386 手册第17 章）。&lt;/p&gt;
+
+
 &lt;blockquote class=&#34;alert alert-note&#34;&gt;
     &lt;p&gt;i386 手册中的汇编语言格式都是 Intel 格式，而 objdump（反汇编）的默认格式是 AT&amp;amp;T 格式，两者的源操作数和目的操作数位置不一样，千万不要把它们混淆了！&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;指令格式&#34;&gt;指令格式
@@ -1208,7 +1218,9 @@ $$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &amp;= [\mathrm{max}(R_1,R_2),\ma
   &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2 id=&#34;pa1简易调试器&#34;&gt;PA1：简易调试器
-&lt;/h2&gt;&lt;blockquote class=&#34;alert alert-note&#34;&gt;
+&lt;/h2&gt;
+
+&lt;blockquote class=&#34;alert alert-note&#34;&gt;
     &lt;ol&gt;
 &lt;li&gt;机器永远是对的！&lt;/li&gt;
 &lt;li&gt;未经过测试的每行代码永远是错误的！&lt;/li&gt;
@@ -2104,6 +2116,8 @@ $$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &amp;= [\mathrm{max}(R_1,R_2),\ma
     
 
 &lt;/a&gt;&lt;/p&gt;
+
+
 &lt;blockquote class=&#34;alert alert-note&#34;&gt;
     &lt;ol&gt;
 &lt;li&gt;尽量上课！&lt;/li&gt;
@@ -3137,6 +3151,8 @@ $$\bm{R}_X(\bm{\theta}) = \left[ \begin{matrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; \co
     
 
 &lt;/a&gt;&lt;/p&gt;
+
+
 &lt;blockquote class=&#34;alert alert-note&#34;&gt;
     &lt;p&gt;题目编号依据红宝书2023年版&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;极限与函数&#34;&gt;极限与函数
