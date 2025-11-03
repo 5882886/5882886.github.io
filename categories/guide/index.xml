@@ -7,7 +7,88 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>RunicDolphin806</copyright>
-        <lastBuildDate>Wed, 17 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://5882886.github.io/categories/guide/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 29 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://5882886.github.io/categories/guide/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Tex排版</title>
+        <link>https://5882886.github.io/p/texstudio/</link>
+        <pubDate>Wed, 29 Oct 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://5882886.github.io/p/texstudio/</guid>
+        <description>&lt;h2 id=&#34;排版与排版工具&#34;&gt;排版与排版工具
+&lt;/h2&gt;&lt;p&gt;排版是指对文字、图片等元素的布局处理，使之符合我们的阅读习惯。&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;排版工具&lt;/th&gt;
+          &lt;th&gt;特点&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Word&lt;/td&gt;
+          &lt;td&gt;所见即所得&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;方正书版&lt;/td&gt;
+          &lt;td&gt;暂时未知（没用过）&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\LaTeX$&lt;/td&gt;
+          &lt;td&gt;使用 $\TeX$ 语句编辑&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;tex环境配置&#34;&gt;TeX环境配置
+&lt;/h2&gt;&lt;p&gt;本文使用Tex Live为例。&lt;/p&gt;
+&lt;h3 id=&#34;texlive介绍&#34;&gt;TeXLive介绍
+&lt;/h3&gt;&lt;p&gt;TeXLive 是目前 Windows 平台和 Linux 平台上最主流的 $\LaTeX$ 发行版。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$\LaTeX$ 发行版，是指将 $\LaTeX$ 编译引擎（如 &lt;code&gt;pdflatex&lt;/code&gt;、&lt;code&gt;xelatex&lt;/code&gt;、&lt;code&gt;lualatex&lt;/code&gt; 等）、宏包（如 &lt;code&gt;beamer&lt;/code&gt;、&lt;code&gt;pgf/tikz&lt;/code&gt; 等）、模板（比如一些学校的毕业论文模板）、字体、配套工具（如 &lt;code&gt;tlmgr&lt;/code&gt;、&lt;code&gt;texworks&lt;/code&gt; 等）打包在一起的、开箱即用的 $\LaTeX$ 套件。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;下载texlive镜像&#34;&gt;下载TeXLive镜像
+&lt;/h3&gt;&lt;p&gt;到某个国内的 CTAN 镜像站下载最新版的 TeXLive 镜像，比如：&lt;a class=&#34;link&#34; href=&#34;https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;清华大学开源软件镜像站
+    
+    
+    &lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+        height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+        &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+        &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+            fill=&#34;currentColor&#34;&gt;
+    &lt;/svg&gt;&lt;/span&gt;
+    
+
+&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;目前最新的 TeXLive 版本为 2025，该文件夹下包含3个&lt;code&gt;.iso&lt;/code&gt;文件，它们仅有文件名不同，内容完全相同，可以任选一个下载。该文件夹下还包含有&lt;code&gt;md5&lt;/code&gt;摘要文件，也可以下载下来以备校验。&lt;/p&gt;
+&lt;details&gt; 
+    &lt;summary&gt;校验安装镜像（可选）：&lt;/summary&gt;
+&lt;p&gt;进入到 TeXLive 和&lt;code&gt;md5&lt;/code&gt;文件所在的文件夹，执行命令&lt;/p&gt;
+&lt;p&gt;Windows系统：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;certutil -hashfile texlive2025.iso md5
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Linux系统：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;md5sum texlive2025.iso
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;你应该可以得到 TeXLive 2025 镜像文件的&lt;code&gt;md5&lt;/code&gt;值：&lt;code&gt;69b4a8882983d9ea521730b5f42175e7&lt;/code&gt;。&lt;/p&gt;
+&lt;/details&gt;
+&lt;h3 id=&#34;挂载镜像并启动安装程序&#34;&gt;挂载镜像并启动安装程序
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Windows系统&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;找到 TeXLive 文件，右击并选择“挂载”选项，可以看到磁盘管理器中出现新的盘符（如&lt;code&gt;E:&lt;/code&gt;）。&lt;/p&gt;
+&lt;p&gt;然后打开&lt;code&gt;PowerShell&lt;/code&gt;或&lt;code&gt;cmd&lt;/code&gt;，运行：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bat&#34; data-lang=&#34;bat&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;Z&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;nl&#34;&gt;\install-tl-windows.bat&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt; --no-gui&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;或者直接点击&lt;code&gt;install-tl-windows.bat&lt;/code&gt;启动安装程序。&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Linux系统&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;在&lt;code&gt;Shell&lt;/code&gt;中执行&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo mkdir /mnt/texlive
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo mount &lt;span class=&#34;s2&#34;&gt;&amp;#34;TeXLive文件位置&amp;#34;&lt;/span&gt; /mnt/texlive
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;安装texlive&#34;&gt;安装TeXLive
+&lt;/h3&gt;&lt;h2 id=&#34;tex语法&#34;&gt;TeX语法
+&lt;/h2&gt;&lt;h3 id=&#34;宏包&#34;&gt;宏包
+&lt;/h3&gt;&lt;p&gt;$\TeX$ 中的宏包类似于“扩展组件”，提供原生 $\TeX$ 中没有的功能。&lt;/p&gt;
+&lt;h3 id=&#34;文档元素&#34;&gt;文档元素
+&lt;/h3&gt;</description>
+        </item>
+        <item>
         <title>NEMU-PART II</title>
         <link>https://5882886.github.io/p/nemu-part-2/</link>
         <pubDate>Wed, 17 Sep 2025 00:00:00 +0000</pubDate>
