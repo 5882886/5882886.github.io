@@ -372,7 +372,26 @@
     </li>
     <li><a href="#队列">队列</a>
       <ol>
+        <li><a href="#双向队列">双向队列</a></li>
         <li><a href="#循环队列">循环队列</a></li>
+      </ol>
+    </li>
+    <li><a href="#串">串</a>
+      <ol>
+        <li><a href="#基本概念">基本概念</a></li>
+        <li><a href="#串的存储">串的存储</a>
+          <ol>
+            <li><a href="#定长顺序存储">定长顺序存储</a></li>
+            <li><a href="#堆分配存储">堆分配存储</a></li>
+            <li><a href="#链式存储">链式存储</a></li>
+          </ol>
+        </li>
+        <li><a href="#串的模式匹配">串的模式匹配</a>
+          <ol>
+            <li><a href="#朴素匹配算法">朴素匹配算法</a></li>
+            <li><a href="#kmp算法">KMP算法</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
   </ol>
@@ -1394,8 +1413,69 @@ $$ACN = \frac{1}{n} \sum_{i=0}^{n-1} (i+1) = \frac{1}{n} (1+2+\cdots+n) = \frac{
 </h2><p>定义：只允许在表的一段进行插入，在另一端删除元素的线性表。</p>
 <p>在队列中，允许插入的一端称作队头，允许删除的一端称作队尾。</p>
 <p>特点：先进先出（FIFO）</p>
-<h3 id="循环队列">循环队列
-</h3>
+<h3 id="双向队列">双向队列
+</h3><h3 id="循环队列">循环队列
+</h3><p>将队列首尾相连。</p>
+<h2 id="串">串
+</h2><h3 id="基本概念">基本概念
+</h3><p>串是 $n$ $n&gt;0$ 个字符的有限序列，记作<code>S: 'c1c2c3...cn'</code></p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>概念</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>空串</td>
+          <td>含0个字符的串</td>
+      </tr>
+      <tr>
+          <td>空格串</td>
+          <td>只含有空格的串</td>
+      </tr>
+      <tr>
+          <td>串的长度</td>
+          <td>串中所含字符的个数</td>
+      </tr>
+      <tr>
+          <td>两个字符串相等</td>
+          <td>两个串的长度相等且对应字符也相同</td>
+      </tr>
+      <tr>
+          <td>子串</td>
+          <td>一个串中任意连续个字符组成的子序列</td>
+      </tr>
+      <tr>
+          <td>主串</td>
+          <td>包含主串的串</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="串的存储">串的存储
+</h3><h4 id="定长顺序存储">定长顺序存储
+</h4><p>用一组地址连续的存储单元存储串值</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="cp">#define MAXSTRLEN 255
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="cp"></span><span class="k">typedef</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">sstring</span><span class="p">[</span><span class="n">MAXSTRLEN</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span>     <span class="c1">// 0号单元存串长
+</span></span></span></code></pre></div><h4 id="堆分配存储">堆分配存储
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="nc">HString</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="kt">char</span> <span class="o">*</span><span class="n">ch</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="kt">int</span> <span class="n">length</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>其中<code>Hstring.ch</code>使用<code>malloc</code>和<code>free</code>分配存储空间。</p>
+<h4 id="链式存储">链式存储
+</h4><p>用链表存储串。每个节点存储串的<code>n</code>个字符。当串长不是<code>n</code>的整数倍时，最后一个结点的剩余位置用<code>#</code>补齐。</p>
+<h3 id="串的模式匹配">串的模式匹配
+</h3><h4 id="朴素匹配算法">朴素匹配算法
+</h4><p>两个指针<code>i</code>和<code>j</code>分别指向主串和模式串，当匹配失败时，<code>i</code>加1，同时<code>j</code>指向模式串开头，重新开始匹配。</p>
+<h4 id="kmp算法">KMP算法
+</h4><p>参见<a class="link" href="/p/algorithm/#kmp%e7%ae%97%e6%b3%95" >【此处】
+    
+    
+
+</a></p>
+
 </section>
 
 
