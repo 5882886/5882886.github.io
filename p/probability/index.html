@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="使用开源软件Hugo搭建自己的博客网站">
-<title>使用Hugo搭建网站</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="基本公式">
+<title>概率论与数理统计</title>
 
-<link rel='canonical' href='https://5882886.github.io/p/website/'>
+<link rel='canonical' href='https://5882886.github.io/p/probability/'>
 
-<link rel="stylesheet" href="/scss/style.min.0e6bc03942b50ec5bed72a4d50a4c0115346cf4a04f5d6640353dcedf4df852f.css"><meta property='og:title' content="使用Hugo搭建网站">
-<meta property='og:description' content="使用开源软件Hugo搭建自己的博客网站">
-<meta property='og:url' content='https://5882886.github.io/p/website/'>
+<link rel="stylesheet" href="/scss/style.min.0e6bc03942b50ec5bed72a4d50a4c0115346cf4a04f5d6640353dcedf4df852f.css"><meta property='og:title' content="概率论与数理统计">
+<meta property='og:description' content="基本公式">
+<meta property='og:url' content='https://5882886.github.io/p/probability/'>
 <meta property='og:site_name' content='RunicDolphin806'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-08-02T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-08-02T00:00:00&#43;00:00'/><meta property='og:image' content='https://5882886.github.io/p/website/Hugo.png' />
-<meta name="twitter:title" content="使用Hugo搭建网站">
-<meta name="twitter:description" content="使用开源软件Hugo搭建自己的博客网站"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://5882886.github.io/p/website/Hugo.png' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-11-07T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-11-07T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="概率论与数理统计">
+<meta name="twitter:description" content="基本公式">
     <link rel="shortcut icon" href="/favicon.ico" />
 <style>
      
@@ -320,37 +319,15 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#hugo环境配置">Hugo环境配置</a></li>
-    <li><a href="#创建博客网站">创建博客网站</a>
+    <li><a href="#随机事件与概率">随机事件与概率</a>
       <ol>
-        <li><a href="#准备步骤">准备步骤</a></li>
-        <li><a href="#下载hugo主题">下载Hugo主题</a></li>
-        <li><a href="#创建自定义内容">创建自定义内容</a></li>
-        <li><a href="#hugo构建命令">Hugo构建命令</a></li>
+        <li><a href="#随机事件的关系与运算">随机事件的关系与运算</a></li>
+        <li><a href="#概率及其性质">概率及其性质</a></li>
+        <li><a href="#古典概型与几何概型">古典概型与几何概型</a></li>
       </ol>
     </li>
-    <li><a href="#在github上托管网页">在Github上托管网页</a>
-      <ol>
-        <li><a href="#创建网站仓库">创建网站仓库</a></li>
-        <li><a href="#生成静态网页文件">生成静态网页文件</a></li>
-        <li><a href="#上传文件至github">上传文件至Github</a></li>
-      </ol>
-    </li>
-    <li><a href="#插入其他资源">插入其他资源</a>
-      <ol>
-        <li><a href="#插入图片">插入图片</a></li>
-        <li><a href="#插入视频">插入视频</a></li>
-      </ol>
-    </li>
-    <li><a href="#hugo网站搭建内部链接">Hugo网站搭建内部链接</a>
-      <ol>
-        <li><a href="#使用相对路径链接">使用相对路径链接</a></li>
-        <li><a href="#使用绝对路径链接">使用绝对路径链接</a></li>
-        <li><a href="#使用-hugo-的-ref-和-relref-短代码">使用 Hugo 的 ref 和 relref 短代码</a></li>
-        <li><a href="#链接到页面的特定部分">链接到页面的特定部分</a></li>
-        <li><a href="#链接到页面的别名">链接到页面的别名</a></li>
-      </ol>
-    </li>
+    <li><a href="#随机变量及其分布">随机变量及其分布</a></li>
+    <li><a href="#多维随机变量及其分布">多维随机变量及其分布</a></li>
   </ol>
 </nav>
         </div>
@@ -695,31 +672,15 @@
             <main class="main full-width">
      
     
-    <article class="has-image main-article">
+    <article class="main-article">
     <header class="article-header">
-        <div class="article-image">
-            <a href="/p/website/">
-                <img src="/p/website/Hugo_hu_bad826032478639d.png"
-                        srcset="/p/website/Hugo_hu_bad826032478639d.png 800w, /p/website/Hugo_hu_be220b24a53a39f2.png 1600w"
-                        width="800" 
-                        height="263" 
-                        loading="lazy"
-                        alt="Featured image of post 使用Hugo搭建网站" />
-                
-            </a>
-        </div>
-    
 
     <div class="article-details">
     
     <header class="article-category">
         
-            <a href="/categories/website/" style="background-color: #007acc; color: #fff;">
-                网站
-            </a>
-        
-            <a href="/categories/guide/" style="background-color: #1117d0ff; color: #fff;">
-                教程
+            <a href="/categories/interesting/" style="background-color: #2a9d8f; color: #fff;">
+                小乐趣
             </a>
         
     </header>
@@ -727,12 +688,12 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/website/">使用Hugo搭建网站</a>
+            <a href="/p/probability/">概率论与数理统计</a>
         </h2>
     
         
         <h3 class="article-subtitle">
-            使用开源软件Hugo搭建自己的博客网站
+            基本公式
         </h3>
         
     </div>
@@ -753,7 +714,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Aug 02, 2025</time>
+                <time class="article-time--published">Nov 07, 2025</time>
             </div>
         
 
@@ -769,169 +730,113 @@
     <section class="article-content">
     
     
-    <h2 id="hugo环境配置">Hugo环境配置
-</h2><p>点击进入<a class="link" href="https://github.com/gohugoio/hugo"  target="_blank" rel="noopener"
-    >Hugo下载地址
-    
-    
-    <span style="white-space: nowrap;"><svg width=".7em"
-        height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
-        <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
-        <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
-            fill="currentColor">
-    </svg></span>
-    
-
-</a>，下载最新的release文件。</p>
-<h2 id="创建博客网站">创建博客网站
-</h2><h3 id="准备步骤">准备步骤
-</h3><p>在hugo对应的文件夹内打开cmd，输入<code>hugo new site 你的文件夹名</code>，可以看到多出一个新的空文件夹。</p>
-<p>进入空文件夹，在cmd中输入<code>hugo service build</code>。可以看到网站在<code>localhost:1313</code>转发，在浏览器中输入该网址即可看到当前网站的内容。</p>
-<h3 id="下载hugo主题">下载Hugo主题
-</h3><p>在Hugo官网上进入Theme，下载需要的主题文件，解压后放入网站文件夹的theme子文件夹。</p>
-<p>接着在下载的主题文件夹中复制<code>content</code>文件夹和<code>hugo.yaml</code>（或<code>hugo.toml</code>）文件，粘贴到你的网站文件夹中。</p>
-<p>打开主题的配置文件，找到<code>theme: hugo-theme-stack</code>一行，这里标明所使用主题的名称，须保持名称与主题文件夹的名称相同，否则要修改其一。再次执行<code>hugo service build</code>，即可看到使用了主题的网站。</p>
-<h3 id="创建自定义内容">创建自定义内容
-</h3><p>Hugo网站的文章内容均在<code>content</code>文件夹中，每篇文章对应一个子文件夹。</p>
-<p>每篇文章均采用Markdown语法书写，通常在文章开头有类似的配置文字：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-md" data-lang="md"><span class="line"><span class="ln">1</span><span class="cl">---
-</span></span><span class="line"><span class="ln">2</span><span class="cl">title: xxxxx            # 文章的标题
-</span></span><span class="line"><span class="ln">3</span><span class="cl">description: xxxxx      # 文章的副标题
-</span></span><span class="line"><span class="ln">4</span><span class="cl">date: xxxxx             # 文章的日期
-</span></span><span class="line"><span class="ln">5</span><span class="cl">slug: xxxxx             # 文章在静态页面所属的文件夹
-</span></span><span class="line"><span class="ln">6</span><span class="cl">categories:
-</span></span><span class="line"><span class="ln">7</span><span class="cl">    <span class="k">-</span> xxxxx             # 文章所属类别
-</span></span><span class="line"><span class="ln">8</span><span class="cl">---
-</span></span></code></pre></div><p>必须包含这些内容网站才会显示对应文章。</p>
-<p>文章正文参照Markdown语法规则。</p>
-<h3 id="hugo构建命令">Hugo构建命令
-</h3><p>完成网页的编辑后，需执行Hugo的构建命令，方能生成网页文件。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">hugo server -D    <span class="c1">#构建本地网页</span>
-</span></span><span class="line"><span class="ln">2</span><span class="cl">hugo              <span class="c1">#构建在线网页</span>
-</span></span><span class="line"><span class="ln">3</span><span class="cl">hugo --cleanDestinationDir  <span class="c1">#清理构建文件夹</span>
-</span></span></code></pre></div><blockquote>
-<p>注意事项</p>
-<p>使用<code>hugo server -D</code>命令构建的是本地网页，遇到超链接时会重定向到<code>localhost:1313/xxx</code>，不能直接部署到GitHub等服务器上，必须再执行一次<code>hugo</code>命令清除本地链接的内容之后，才能正确部署。</p></blockquote>
-<p>参考视频：
-
-
-
-
-
-    
-
-
-<div class="video-wrapper">
-    <iframe src="https://player.bilibili.com/player.html?as_wide=1&amp;high_quality=1&amp;page=1&bvid=BV1bovfeaEtQ"
-            scrolling="no"
-            frameborder="no"
-            framespacing="0"
-            allowfullscreen="true"
-    >
-    </iframe>
-</div>
-</p>
-<h2 id="在github上托管网页">在Github上托管网页
-</h2><p>Github网站提供了“Github Pages”功能，允许用户为自己的项目部署一个静态网页。</p>
-<h3 id="创建网站仓库">创建网站仓库
-</h3><p>注册Github账号，并创建一个新仓库，命名为<code>你的用户名.github.io</code>。</p>
-<blockquote>
-<p>为什么命名为<code>你的用户名.github.io</code>？</p>
-<p>Github的Pages分为两种，一种为用户Pages，另一种为项目Pages。用户Pages每个账号只能拥有一个，域名为<code>https://你的用户名.github.io</code>；项目Pages数目不限，域名为<code>https://你的用户名.github.io/你的项目名</code>.</p>
-<p>因此，设置仓库名为<code>你的用户名.github.io</code>可以使网站地址更简洁。</p></blockquote>
-<h3 id="生成静态网页文件">生成静态网页文件
-</h3><p>在命令行中执行</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">hugo
-</span></span></code></pre></div><p>执行完成后会在工作区文件夹中出现一个<code>public</code>文件夹，进入该文件夹。</p>
-<h3 id="上传文件至github">上传文件至Github
-</h3><p>参见：<a class="link" href="/p/git_help/" >玩转Github
-    
-    
-
-</a></p>
-<p>参考视频：
-
-
-
-
-
-    
-
-
-<div class="video-wrapper">
-    <iframe src="https://player.bilibili.com/player.html?as_wide=1&amp;high_quality=1&amp;page=3&bvid=BV1bovfeaEtQ"
-            scrolling="no"
-            frameborder="no"
-            framespacing="0"
-            allowfullscreen="true"
-    >
-    </iframe>
-</div>
-</p>
-<h2 id="插入其他资源">插入其他资源
-</h2><h3 id="插入图片">插入图片
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">{{&lt; figure src=&#34;图片路径&#34; width=&#34;宽度&#34; height=&#34;高度&#34; title=&#34;图片标题&#34; &gt;}}
-</span></span></code></pre></div><h3 id="插入视频">插入视频
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="ln">1</span><span class="cl"><span class="c">&lt;!-- 插入Bilibili视频 --&gt;</span>
-</span></span><span class="line"><span class="ln">2</span><span class="cl">{{/* <span class="p">&lt;</span> <span class="nt">bilibili</span> <span class="na">bv号</span> <span class="na">分p</span><span class="err">(</span><span class="na">可选</span><span class="err">)</span> <span class="err">*</span><span class="p">/&gt;</span>}}
-</span></span></code></pre></div><h2 id="hugo网站搭建内部链接">Hugo网站搭建内部链接
-</h2><h3 id="使用相对路径链接">使用相对路径链接
-</h3><p>相对路径是根据当前页面的位置来定位目标页面的路径。这是最简单且常用的方式之一。</p>
-<p>假设你的网站目录结构如下：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">content/
-</span></span><span class="line"><span class="ln">2</span><span class="cl">├── about.md
-</span></span><span class="line"><span class="ln">3</span><span class="cl">├── blog/
-</span></span><span class="line"><span class="ln">4</span><span class="cl">│   ├── post1.md
-</span></span><span class="line"><span class="ln">5</span><span class="cl">│   └── post2.md
-</span></span><span class="line"><span class="ln">6</span><span class="cl">└── projects.md
-</span></span></code></pre></div><p>在<code>about.md</code>中链接到 blog/post1.md：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">[访问博客文章](blog/post1)
-</span></span></code></pre></div><p>在 blog/post1.md 中链接到<code>projects.md</code>：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">[查看项目](../projects)
-</span></span></code></pre></div><p>在 blog/post1.md 中链接到同级的<code>post2.md</code>：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">[查看另一篇文章](post2)
-</span></span></code></pre></div><h3 id="使用绝对路径链接">使用绝对路径链接
-</h3><p>绝对路径是从网站的根目录开始的完整路径。这种方式的好处是不受当前页面位置的影响。</p>
-<p>假设你的网站根目录是 <a class="link" href="https://example.com"  target="_blank" rel="noopener"
-    >https://example.com
-    
-    
-    <span style="white-space: nowrap;"><svg width=".7em"
-        height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
-        <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
-        <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
-            fill="currentColor">
-    </svg></span>
-    
-
-</a>，目录结构同上。</p>
-<p>在<code>about.md</code>中链接到 blog/post1.md：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">[访问博客文章](/blog/post1)
-</span></span></code></pre></div><p>在 blog/post1.md 中链接到<code>projects.md</code>：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">[查看项目](/projects)
-</span></span></code></pre></div><h3 id="使用-hugo-的-ref-和-relref-短代码">使用 Hugo 的 ref 和 relref 短代码
-</h3><p>Hugo 提供了 ref 和 relref 短代码，可以更智能地处理内部链接。这些短代码会根据页面的路径自动解析链接。</p>
-<p>ref 短代码：生成绝对路径链接。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="ln">1</span><span class="cl">[访问博客文章]({{<span class="p">&lt;</span> <span class="nt">ref</span> <span class="err">&#34;</span><span class="na">blog</span><span class="err">/</span><span class="na">post1</span><span class="err">.</span><span class="na">md</span><span class="err">&#34;</span> <span class="p">&gt;</span>}})
-</span></span></code></pre></div><p>relref 短代码：生成相对路径链接。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="ln">1</span><span class="cl">[访问博客文章]({{<span class="p">&lt;</span> <span class="nt">relref</span> <span class="err">&#34;</span><span class="na">blog</span><span class="err">/</span><span class="na">post1</span><span class="err">.</span><span class="na">md</span><span class="err">&#34;</span> <span class="p">&gt;</span>}})
-</span></span></code></pre></div><h3 id="链接到页面的特定部分">链接到页面的特定部分
-</h3><p>如果你希望链接到页面的某个特定部分（例如某个标题），可以通过锚点（anchor）来实现。</p>
-<p>假设<code>post1.md</code>中有一个标题：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">## 我的博客文章内容 {#my-section}
-</span></span></code></pre></div><p>你可以通过以下方式链接到这个部分：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">[查看博客文章的特定部分](/blog/post1#my-section)
-</span></span></code></pre></div><h3 id="链接到页面的别名">链接到页面的别名
-</h3><p>如果某些页面有别名（例如在 frontmatter 中定义了 aliases），你可以直接使用别名来链接。</p>
-<p>假设<code>post1.md</code>的 frontmatter 中定义了别名：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln">1</span><span class="cl"><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="w"></span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;我的博客文章&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="w"></span><span class="nt">aliases</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="w">  </span>- <span class="s2">&#34;/old-post1&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
-</span></span></span></code></pre></div><p>你可以通过以下方式链接到它：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">[访问旧的博客文章](/old-post1)
-</span></span></code></pre></div>
+    <h2 id="随机事件与概率">随机事件与概率
+</h2><h3 id="随机事件的关系与运算">随机事件的关系与运算
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>关系</th>
+          <th>表示</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>包含</td>
+          <td>$B \subset A$</td>
+      </tr>
+      <tr>
+          <td>相等</td>
+          <td>$B = A$</td>
+      </tr>
+      <tr>
+          <td>并</td>
+          <td>$A \cup B$</td>
+      </tr>
+      <tr>
+          <td>交</td>
+          <td>$A \cap B = AB$</td>
+      </tr>
+      <tr>
+          <td>互斥</td>
+          <td>$AB = \varnothing$</td>
+      </tr>
+      <tr>
+          <td>对立</td>
+          <td>$\overline{A}$</td>
+      </tr>
+      <tr>
+          <td>差</td>
+          <td>$A-B$</td>
+      </tr>
+  </tbody>
+</table></div>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>运算</th>
+          <th>表示</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>交换律</td>
+          <td>$A \cap B = AB$，$AB = BA$</td>
+      </tr>
+      <tr>
+          <td>结合律</td>
+          <td>$(A \cap B) \cap C = A \cap (B \cap C)$，$AB = BA$</td>
+      </tr>
+      <tr>
+          <td>分配律</td>
+          <td>$(A \cap B) \cup C = (AC) \cup (BC)$，$(A \cup B) \cup C = (A \cup C) \cap (B \cup C)$</td>
+      </tr>
+      <tr>
+          <td>对偶律</td>
+          <td>$\overline{A \cup B} = \overline{A}\overline{B}$，$\overline{AB} = \overline{A} \cup \overline{B}$</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="概率及其性质">概率及其性质
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>性质</th>
+          <th>表示</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>有限可加性</td>
+          <td>$\displaystyle P\left(\bigcup_{i=1}^{n} A_i \right)= \sum_{i=1}^{n} P(A_i)$</td>
+      </tr>
+      <tr>
+          <td>对立事件</td>
+          <td>$P\left(\overline{A}\right) = 1-P(A)$</td>
+      </tr>
+      <tr>
+          <td>减法公式</td>
+          <td>$P(A-B) = P(A\overline{B}) = P(A) - P(AB)$</td>
+      </tr>
+      <tr>
+          <td>单调性</td>
+          <td>若 $A \subset B$，则 $P(A) \leqslant P(B)$</td>
+      </tr>
+      <tr>
+          <td>容斥原理</td>
+          <td>对任意两个事件 $A$,$B$，有 $P(A \cup B) = P(A) + P(B) - P(AB)$ <br> 一般的，对于 $n$ 个事件 $A_i$，有 $\displaystyle P\left(\bigcup_{i=1}^{n} A_i \right) = \sum_{i=1}^{n} P(A_i) - \sum_{1 \leqslant i &lt; j \leqslant n} P(A_i A_j) + \sum_{1 \leqslant i &lt; j &lt; k \leqslant n} P(A_i A_j A_k) - \cdots + (-1)^{n-1} P(A_1 A_2 \cdots A_n)$</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="古典概型与几何概型">古典概型与几何概型
+</h3><ol>
+<li>古典概型</li>
+</ol>
+$$P(A) = \frac{k}{n} = \frac{\text{事件}A\text{中所含样本点的个数}}{\text{样本空间}\varOmega\text{中所含样本点总数}}$$<ol start="2">
+<li>几何概型</li>
+</ol>
+$$P(A) = \frac{A \text{的度量}}{\varOmega \text{的度量}}$$<h2 id="随机变量及其分布">随机变量及其分布
+</h2><h2 id="多维随机变量及其分布">多维随机变量及其分布
+</h2>
 </section>
 
 
@@ -995,12 +900,12 @@
             
                 
 <article class="">
-    <a href="/p/aplayer/">
+    <a href="/p/texstudio/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">APlayer</h2>
+            <h2 class="article-title">Tex排版</h2>
         </div>
     </a>
 </article>
@@ -1008,12 +913,12 @@
             
                 
 <article class="">
-    <a href="/p/stack-decorate/">
+    <a href="/p/shell/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">Hugo-stack主题装饰</h2>
+            <h2 class="article-title">Shell实验</h2>
         </div>
     </a>
 </article>
@@ -1021,60 +926,38 @@
             
                 
 <article class="">
-    <a href="/p/windows/">
+    <a href="/p/math_in_images/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">Windows系统安装与修复</h2>
+            <h2 class="article-title">图像处理的数学原理</h2>
         </div>
     </a>
 </article>
 
             
                 
-<article class="has-image">
-    <a href="/p/termux/">
+<article class="">
+    <a href="/p/nemu-part-2/">
         
-        
-            <div class="article-image">
-                <img src="/p/termux/termux.ef9c8dc02981dfda7424f6d78125f014_hu_82cffd8a4244ea7f.png" 
-                        width="250" 
-                        height="150" 
-                        loading="lazy"
-                        alt="Featured image of post Termux使用小技巧"
-                        data-key="termux" 
-                        data-hash="md5-75yNwCmB39p0JPbXgSXwFA==">
-                
-            </div>
         
 
         <div class="article-details">
-            <h2 class="article-title">Termux使用小技巧</h2>
+            <h2 class="article-title">NEMU-PART II</h2>
         </div>
     </a>
 </article>
 
             
                 
-<article class="has-image">
-    <a href="/p/linux_help/">
+<article class="">
+    <a href="/p/nemu-part-2-pre/">
         
-        
-            <div class="article-image">
-                <img src="/p/linux_help/Linux-tips.85fd86c2433475c11b829eaf0d87d703_hu_4e669f737b95627f.png" 
-                        width="250" 
-                        height="150" 
-                        loading="lazy"
-                        alt="Featured image of post Linux系统小技巧"
-                        data-key="linux_help" 
-                        data-hash="md5-hf2GwkM0dcEbgp6vDYfXAw==">
-                
-            </div>
         
 
         <div class="article-details">
-            <h2 class="article-title">Linux系统小技巧</h2>
+            <h2 class="article-title">NEMU-PART II Pre</h2>
         </div>
     </a>
 </article>

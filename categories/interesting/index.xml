@@ -7,7 +7,121 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>RunicDolphin806</copyright>
-        <lastBuildDate>Wed, 29 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://5882886.github.io/categories/interesting/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 07 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://5882886.github.io/categories/interesting/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>概率论与数理统计</title>
+        <link>https://5882886.github.io/p/probability/</link>
+        <pubDate>Fri, 07 Nov 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://5882886.github.io/p/probability/</guid>
+        <description>&lt;h2 id=&#34;随机事件与概率&#34;&gt;随机事件与概率
+&lt;/h2&gt;&lt;h3 id=&#34;随机事件的关系与运算&#34;&gt;随机事件的关系与运算
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;关系&lt;/th&gt;
+          &lt;th&gt;表示&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;包含&lt;/td&gt;
+          &lt;td&gt;$B \subset A$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;相等&lt;/td&gt;
+          &lt;td&gt;$B = A$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;并&lt;/td&gt;
+          &lt;td&gt;$A \cup B$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;交&lt;/td&gt;
+          &lt;td&gt;$A \cap B = AB$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;互斥&lt;/td&gt;
+          &lt;td&gt;$AB = \varnothing$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;对立&lt;/td&gt;
+          &lt;td&gt;$\overline{A}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;差&lt;/td&gt;
+          &lt;td&gt;$A-B$&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;运算&lt;/th&gt;
+          &lt;th&gt;表示&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;交换律&lt;/td&gt;
+          &lt;td&gt;$A \cap B = AB$，$AB = BA$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;结合律&lt;/td&gt;
+          &lt;td&gt;$(A \cap B) \cap C = A \cap (B \cap C)$，$AB = BA$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;分配律&lt;/td&gt;
+          &lt;td&gt;$(A \cap B) \cup C = (AC) \cup (BC)$，$(A \cup B) \cup C = (A \cup C) \cap (B \cup C)$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;对偶律&lt;/td&gt;
+          &lt;td&gt;$\overline{A \cup B} = \overline{A}\overline{B}$，$\overline{AB} = \overline{A} \cup \overline{B}$&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;概率及其性质&#34;&gt;概率及其性质
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;性质&lt;/th&gt;
+          &lt;th&gt;表示&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;有限可加性&lt;/td&gt;
+          &lt;td&gt;$\displaystyle P\left(\bigcup_{i=1}^{n} A_i \right)= \sum_{i=1}^{n} P(A_i)$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;对立事件&lt;/td&gt;
+          &lt;td&gt;$P\left(\overline{A}\right) = 1-P(A)$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;减法公式&lt;/td&gt;
+          &lt;td&gt;$P(A-B) = P(A\overline{B}) = P(A) - P(AB)$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;单调性&lt;/td&gt;
+          &lt;td&gt;若 $A \subset B$，则 $P(A) \leqslant P(B)$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;容斥原理&lt;/td&gt;
+          &lt;td&gt;对任意两个事件 $A$,$B$，有 $P(A \cup B) = P(A) + P(B) - P(AB)$ &lt;br&gt; 一般的，对于 $n$ 个事件 $A_i$，有 $\displaystyle P\left(\bigcup_{i=1}^{n} A_i \right) = \sum_{i=1}^{n} P(A_i) - \sum_{1 \leqslant i &amp;lt; j \leqslant n} P(A_i A_j) + \sum_{1 \leqslant i &amp;lt; j &amp;lt; k \leqslant n} P(A_i A_j A_k) - \cdots + (-1)^{n-1} P(A_1 A_2 \cdots A_n)$&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;古典概型与几何概型&#34;&gt;古典概型与几何概型
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;古典概型&lt;/li&gt;
+&lt;/ol&gt;
+$$P(A) = \frac{k}{n} = \frac{\text{事件}A\text{中所含样本点的个数}}{\text{样本空间}\varOmega\text{中所含样本点总数}}$$&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;几何概型&lt;/li&gt;
+&lt;/ol&gt;
+$$P(A) = \frac{A \text{的度量}}{\varOmega \text{的度量}}$$&lt;h2 id=&#34;随机变量及其分布&#34;&gt;随机变量及其分布
+&lt;/h2&gt;&lt;h2 id=&#34;多维随机变量及其分布&#34;&gt;多维随机变量及其分布
+&lt;/h2&gt;</description>
+        </item>
+        <item>
         <title>Tex排版</title>
         <link>https://5882886.github.io/p/texstudio/</link>
         <pubDate>Wed, 29 Oct 2025 00:00:00 +0000</pubDate>
@@ -2182,7 +2296,7 @@ $$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &amp;= [\mathrm{max}(R_1,R_2),\ma
 </description>
         </item>
         <item>
-        <title>微积分：常用公式</title>
+        <title>微积分</title>
         <link>https://5882886.github.io/p/math_tips/</link>
         <pubDate>Tue, 12 Aug 2025 00:00:00 +0000</pubDate>
         
@@ -3488,7 +3602,7 @@ $$|f&#39;(x)| \leqslant \frac{f(x)}{|h|} + M \cdot \frac{|h|}{2} \leqslant 2 \sq
         <pubDate>Sun, 06 Jul 2025 00:00:00 +0000</pubDate>
         
         <guid>https://5882886.github.io/p/data-structure/</guid>
-        <description>&lt;center&gt;&lt;strong&gt;&lt;p style=&#34;font-size:32px;&#34;&gt;程序 = 数据结构 + 算法&lt;/p&gt;&lt;/strong&gt;&lt;/center&gt;
+        <description>&lt;center&gt;&lt;strong&gt;&lt;p style=&#34;font-size:32px;&#34;&gt;程序 = 数据结构 + &lt;a href=&#34;https://5882886.github.io/p/algorithm/&#34;&gt;算法&lt;/a&gt;&lt;/p&gt;&lt;/strong&gt;&lt;/center&gt;
 &lt;h2 id=&#34;c语言补充知识&#34;&gt;C语言补充知识
 &lt;/h2&gt;&lt;h3 id=&#34;typedef&#34;&gt;typedef
 &lt;/h3&gt;&lt;p&gt;typedef可以给变量起一个别名，例如：&lt;/p&gt;
@@ -4175,7 +4289,7 @@ $$ACN = \frac{1}{n} \sum_{i=0}^{n-1} (i+1) = \frac{1}{n} (1+2+\cdots+n) = \frac{
         <pubDate>Sun, 01 Jun 2025 00:00:00 +0000</pubDate>
         
         <guid>https://5882886.github.io/p/algorithm/</guid>
-        <description>&lt;center&gt;&lt;strong&gt;&lt;p style=&#34;font-size:32px;&#34;&gt;程序 = 数据结构 + 算法&lt;/p&gt;&lt;/strong&gt;&lt;/center&gt;
+        <description>&lt;center&gt;&lt;strong&gt;&lt;p style=&#34;font-size:32px;&#34;&gt;程序 = &lt;a href=&#34;https://5882886.github.io/p/data-structure/&#34;&gt;数据结构&lt;/a&gt; + 算法&lt;/p&gt;&lt;/strong&gt;&lt;/center&gt;
 &lt;p&gt;参考资料：&lt;a class=&#34;link&#34; href=&#34;https://www.bilibili.com/video/BV1QV4y1m7oo?spm_id_from=333.788.videopod.sections&amp;amp;vd_source=3f0e843792d165dc47136a5548be81da&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;点击此处
     
@@ -4311,11 +4425,11 @@ $$ n! = \left\{ \begin{array}{c} 1, &amp; n = 0 \\ n \cdot (n-1)!, &amp; n \geqs
 
 &lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;让计算机求出 $a^b$，暴力相乘的话，电脑要计算 $b$ 次。用快速幂，计算次数在 $\mathrm{log}_{2} b$ 级别，很实用。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;原理：&lt;br&gt;
-① 如果将 $a$ 自乘一次，就会变成 $a^2$。再把 $a^2$ 自乘一次就会变成 $a^4$，然后是 $a^8$……自乘 $n$ 次的结果是 $a^{2^n}$。&lt;br&gt;
-② $a^x \cdot a^y = a^{x+y}$。&lt;br&gt;
-③ 将 $b$ 转化为二进制看一下：比如 $b=(11)_{10}=(1011)_2$，从左到右，这些 1 分别代表十进制的 8,2,1。可以说 $a^{11}=a^8 \cdot a^2 \cdot a^1$。&lt;/li&gt;
+&lt;h3 id=&#34;原理&#34;&gt;原理：
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;如果将 $a$ 自乘一次，就会变成 $a^2$。再把 $a^2$ 自乘一次就会变成 $a^4$，然后是 $a^8$……自乘 $n$ 次的结果是 $a^{2^n}$。&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;$a^x \cdot a^y = a^{x+y}$。&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;将 $b$ 转化为二进制看一下：比如 $b=(11)_{10}=(1011)_2$，从左到右，这些 1 分别代表十进制的 8,2,1。可以说 $a^{11}=a^8 \cdot a^2 \cdot a^1$。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;blockquote&gt;
 &lt;p&gt;为什么要这样表示？&lt;/p&gt;
@@ -4356,10 +4470,8 @@ $$ n! = \left\{ \begin{array}{c} 1, &amp; n = 0 \\ n \cdot (n-1)!, &amp; n \geqs
 &lt;p&gt;总的来说，如果 b 在二进制上的某一位是 1，我们就把答案乘上对应的 $a^{2^n}$。&lt;/p&gt;
 &lt;hr&gt;
 &lt;/details&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;代码&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//求a的b次方
+&lt;h3 id=&#34;代码&#34;&gt;代码
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//求a的b次方
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;quickPower&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ans&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;base&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;// ans为答案，base为a^(2^n)
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;b&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
@@ -4628,7 +4740,7 @@ $$ n! = \left\{ \begin{array}{c} 1, &amp; n = 0 \\ n \cdot (n-1)!, &amp; n \geqs
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;h3 id=&#34;代码&#34;&gt;代码
+&lt;h3 id=&#34;代码-1&#34;&gt;代码
 &lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// KMP算法主体
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;KMP&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;S&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;T&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pos&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pos&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
