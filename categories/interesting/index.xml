@@ -106,7 +106,7 @@
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;容斥原理&lt;/td&gt;
-          &lt;td&gt;对任意两个事件 $A$,$B$，有 $P(A \cup B) = P(A) + P(B) - P(AB)$ &lt;br&gt; 一般的，对于 $n$ 个事件 $A_i$，有 $\displaystyle P\left(\bigcup_{i=1}^{n} A_i \right) = \sum_{i=1}^{n} P(A_i) - \sum_{1 \leqslant i &amp;lt; j \leqslant n} P(A_i A_j) + \sum_{1 \leqslant i &amp;lt; j &amp;lt; k \leqslant n} P(A_i A_j A_k) - \cdots + (-1)^{n-1} P(A_1 A_2 \cdots A_n)$&lt;/td&gt;
+          &lt;td&gt;对任意两个事件 $A，B$，有 $P(A \cup B) = P(A) + P(B) - P(AB)$ &lt;br&gt; 一般的，对于 $n$ 个事件 $A_i$，有 $$\begin{align*} P\left(\bigcup_{i=1}^{n} A_i \right) = \sum_{i=1}^{n} P(A_i) &amp;- \sum_{1 \leqslant i &lt; j \leqslant n} P(A_i A_j) \\ &amp;+ \sum_{1 \leqslant i &lt; j &lt; k \leqslant n} P(A_i A_j A_k) - \cdots + (-1)^{n-1} P(A_1 A_2 \cdots A_n) \end{align*}$$&lt;/td&gt;
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -117,8 +117,214 @@
 $$P(A) = \frac{k}{n} = \frac{\text{事件}A\text{中所含样本点的个数}}{\text{样本空间}\varOmega\text{中所含样本点总数}}$$&lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;几何概型&lt;/li&gt;
 &lt;/ol&gt;
-$$P(A) = \frac{A \text{的度量}}{\varOmega \text{的度量}}$$&lt;h2 id=&#34;随机变量及其分布&#34;&gt;随机变量及其分布
-&lt;/h2&gt;&lt;h2 id=&#34;多维随机变量及其分布&#34;&gt;多维随机变量及其分布
+$$P(A) = \frac{A \text{的度量}}{\varOmega \text{的度量}}$$&lt;h3 id=&#34;条件概率与乘法公式&#34;&gt;条件概率与乘法公式
+&lt;/h3&gt;&lt;h4 id=&#34;条件概率&#34;&gt;条件概率
+&lt;/h4&gt;$$P(B|A) = \frac{P(AB)}{P(A)}$$&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;性质&lt;/th&gt;
+          &lt;th&gt;表示&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;①&lt;/td&gt;
+          &lt;td&gt;$P(\overline{B} |A) = 1 - P(B|A) $&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;②&lt;/td&gt;
+          &lt;td&gt;$P(B_1 \cup B_2 | A) = P(B_1 | A) + P(B_2 | A) - P(B_1 B_2 | A) $&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;乘法公式&#34;&gt;乘法公式
+&lt;/h4&gt;$$ P(AB) = P(A) P(B|A) $$&lt;p&gt;
+&lt;/p&gt;
+$$P(A_1 A_2 \cdots A_n) = P(A_1) P(A_2|A_1) P(A_3|A_1 A_2) \cdots P(A_n|A_1 A_2 \cdots A_{n-1})$$&lt;h4 id=&#34;全概率公式&#34;&gt;全概率公式
+&lt;/h4&gt;&lt;p&gt;若 $A_1，A_2，\cdots A_n，B$ 是 $E$ 中的事件，且满足 $A_1 \cup A_2 \cup \cdots \cup A_n = \varOmega$，则 &lt;/p&gt;
+$$P(B) = \sum_{i=1}^{n} P(A_i) P(B|A_i)$$&lt;h4 id=&#34;贝叶斯公式&#34;&gt;贝叶斯公式
+&lt;/h4&gt;$$P(A_i |B) = \frac{P(A_i B)}{P(B)} = \frac{P(A_i)P(B|A_i)}{\displaystyle \sum_{i=1}^{n} P(A_i)P(B|A_i)}$$&lt;h3 id=&#34;事件的独立性&#34;&gt;事件的独立性
+&lt;/h3&gt;&lt;p&gt;设 $n$ 个事件 $A_1，A_2，\cdots，A_n$，若对任意 $k=2，3，\cdots，n$ 和任意一组 $1 \leqslant i_1 &amp;lt; i_2 &amp;lt; \cdots &amp;lt; i_k \leqslant n$，都有
+&lt;/p&gt;
+$$P(A_{i_1} A_{i_2} \cdots A_{i_k}) = P(A_{i_1}) P(A_{i_2}) \cdots P(A_{i_k})$$&lt;p&gt; 则称事件 $A_1，A_2，\cdots，A_n$ 相互独立.&lt;/p&gt;
+&lt;h2 id=&#34;随机变量及其分布&#34;&gt;随机变量及其分布
+&lt;/h2&gt;&lt;h3 id=&#34;概率分布函数&#34;&gt;概率分布函数
+&lt;/h3&gt;&lt;p&gt;设 $X$ 是随机变量，对任意给定实数 $x \in (-\infty, +\infty)$，令 &lt;/p&gt;
+$$F(x) = P\{X \leqslant x\}$$&lt;p&gt; 则称 $F(x)$ 为随机变量 $X$ 的概率分布函数.&lt;/p&gt;
+&lt;p&gt;分布函数 $F(x)$ 具有以下性质：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;性质&lt;/th&gt;
+          &lt;th&gt;表示&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;非负性&lt;/td&gt;
+          &lt;td&gt;对任意实数 $x$，都有 $0 \leqslant F(x) \leqslant 1$，且 $\displaystyle F(-\infty) = \lim_{x \to -\infty} F(x) = 0$，$\displaystyle F(+\infty) = \lim_{x \to +\infty} F(x) = 1$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;单调不减性&lt;/td&gt;
+          &lt;td&gt;$\forall x_1 &amp;lt; x_2$，有 $F(x_1) \leqslant F(x_2)$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;右连续性&lt;/td&gt;
+          &lt;td&gt;$\forall a \in \textbf{R}$，有 $\displaystyle \lim_{x \to a^+} F(x) = F(a+0) = F(a)$&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;区间概率: $P\{x_1 &amp;lt; X \leqslant x_2\} = P\{X \leqslant x_2\} - P\{X \leqslant x_1\} = F(x_2) - F(x_1)$&lt;/p&gt;
+&lt;p&gt;样本点概率：$P\{X = a\} = F(a+0) - F(a-0)$&lt;/p&gt;
+&lt;h3 id=&#34;离散型随机变量的分布&#34;&gt;离散型随机变量的分布
+&lt;/h3&gt;&lt;h4 id=&#34;概率分布律&#34;&gt;概率分布律
+&lt;/h4&gt;&lt;p&gt;设离散型随机变量所有可能取值为 $x_k，k=1,2,\cdots$，则称 $X$ 取各个可能值的概率 &lt;/p&gt;
+$$P\{X = x_k\} = p_k$$&lt;p&gt; 为随机变量 $X$ 的概率分布律. 可用表格表示为&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;$X$&lt;/th&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;$x_1$&lt;/th&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;$x_2$&lt;/th&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;$\cdots$&lt;/th&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;$x_k$&lt;/th&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;$\cdots$&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$P_X$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$p_1$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$p_2$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\cdots$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$p_k$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\cdots$&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;且有：$\displaystyle \sum_{i=0}^{\infty} p_k = 1$&lt;/p&gt;
+&lt;h4 id=&#34;常用离散型随机变量的分布&#34;&gt;常用离散型随机变量的分布
+&lt;/h4&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;类型&lt;/th&gt;
+          &lt;th&gt;概率分布律&lt;/th&gt;
+          &lt;th&gt;记法&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;两点分布&lt;/td&gt;
+          &lt;td&gt;$P\{X = 0\} = 1-p，P\{X = 1\} = p$&lt;/td&gt;
+          &lt;td&gt;$X \sim B(1,p)$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;二项分布&lt;/td&gt;
+          &lt;td&gt;$\displaystyle P\{X=k\} = \mathrm{C}_{n}^{k} p^k (1-p)^{n-k}，k=0,1,2,\cdots,n \quad (0&amp;lt;p&amp;lt;1)$&lt;/td&gt;
+          &lt;td&gt;$X \sim B(n,p)$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;泊松分布&lt;/td&gt;
+          &lt;td&gt;$\displaystyle P\{X=k\} = \frac{\lambda^k \mathrm{e}^{-\lambda}}{k!}，k=0,1,2,\cdots,n$&lt;/td&gt;
+          &lt;td&gt;$X \sim P(\lambda)$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;超几何分布&lt;/td&gt;
+          &lt;td&gt;$\displaystyle P\{X=k\} = \frac{\mathrm{C}_M^k \mathrm{C}_{N-M}^{n-k}}{\mathrm{C}_{N}^{n}}，k=0,1,2,\cdots,\text{min}\{n,M\}$&lt;/td&gt;
+          &lt;td&gt;$X \sim H(N,M,n)$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;几何分布&lt;/td&gt;
+          &lt;td&gt;$P\{X=k\} = (1-p)^{k-1}p，k=0,1,2,\cdots$&lt;/td&gt;
+          &lt;td&gt;$X \sim G(p)$&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;连续型随机变量的分布&#34;&gt;连续型随机变量的分布
+&lt;/h3&gt;&lt;h4 id=&#34;概率密度函数&#34;&gt;概率密度函数
+&lt;/h4&gt;&lt;p&gt;设随机变量 $X$ 的分布函数为 $F(x)$，若存在非负函数 $f(x)$，使得对任意实数 $x \in \textbf{R}$，均有 &lt;/p&gt;
+$$F(x) = \int_{-\infty}^{x} f(t) \mathrm{d}t$$&lt;p&gt; 则称随机变量 $X$ 为连续型随机变量，称 $f(x)$ 为概率密度函数.&lt;/p&gt;
+&lt;h4 id=&#34;常用连续型随机变量的分布&#34;&gt;常用连续型随机变量的分布
+&lt;/h4&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;类型&lt;/th&gt;
+          &lt;th&gt;概率密度函数&lt;/th&gt;
+          &lt;th&gt;记法&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;均匀分布&lt;/td&gt;
+          &lt;td&gt;$\displaystyle f(x) = \left\{ \begin{matrix} \displaystyle \frac{1}{b-a}，&amp;amp; a \leqslant x \leqslant b \\ \\ 0，&amp;amp; 其他 \end{matrix} \right.$&lt;/td&gt;
+          &lt;td&gt;$X \sim U(a,b)$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;指数分布&lt;/td&gt;
+          &lt;td&gt;$\displaystyle f(x) = \left\{ \begin{matrix} 1-\mathrm{e}^{-\lambda x}，&amp;amp; x \geqslant b \\ \\ 0，&amp;amp; 其他 \end{matrix} \right.$&lt;/td&gt;
+          &lt;td&gt;$X \sim Exp(\lambda)$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;正态分布&lt;/td&gt;
+          &lt;td&gt;$\displaystyle f(x) = \frac{1}{\sqrt{2\pi} \sigma} \mathrm{e}^{-\frac{(x-\mu)^2}{2\sigma^2}}，-\infty &amp;lt; x &amp;lt; \infty$&lt;/td&gt;
+          &lt;td&gt;$X \sim N(\mu,\sigma^2)$&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;正态分布的性质&#34;&gt;正态分布的性质
+&lt;/h4&gt;&lt;p&gt;正态分布的概率密度函数 $f(x)$ 以 $x=\mu$ 为对称轴，因此 $\displaystyle F(\mu) = \frac{1}{2}，F(\mu-x) = 1-F(\mu+x)$&lt;/p&gt;
+&lt;p&gt;特别地，称 $\mu=0，\sigma=1$ 的正态分布为标准正态分布，其概率密度函数记作 $\varphi(x)$，分布函数记作 $\varPhi(x)$. 则对任意正态分布 $N(\mu,\sigma^2)$，有 &lt;/p&gt;
+$$P\{x_1 &lt; X \leqslant x_2\} = F(x_2) - F(x_1) = \varPhi(\frac{x_2-\mu}{\sigma}) - \varPhi(\frac{x_1-\mu}{\sigma}) $$&lt;h3 id=&#34;随机变量函数的分布&#34;&gt;随机变量函数的分布
+&lt;/h3&gt;&lt;h4 id=&#34;离散型随机变量函数的分布&#34;&gt;离散型随机变量函数的分布
+&lt;/h4&gt;&lt;p&gt;若 $y_k = g(x_k)$，且已知&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;$X$&lt;/th&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;$x_1$&lt;/th&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;$x_2$&lt;/th&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;$\cdots$&lt;/th&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;$x_k$&lt;/th&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;$\cdots$&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$P_X$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$p_1$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$p_2$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\cdots$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$p_k$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\cdots$&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;则可直接写出 $Y$ 的概率分布律：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;$Y$&lt;/th&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;$y_1=g(x_1)$&lt;/th&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;$y_2=g(x_2)$&lt;/th&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;$\cdots$&lt;/th&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;$y_k=g(x_k)$&lt;/th&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;$\cdots$&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$P_Y$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$p_1$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$p_2$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\cdots$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$p_k$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\cdots$&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;连续型随机变量函数的分布&#34;&gt;连续型随机变量函数的分布
+&lt;/h4&gt;&lt;p&gt;若 $X$ 是连续型随机变量，$y=g(x)$ 是单值实函数，则先求 $Y$ 的分布函数 $F_Y(y)$，再对 $F_Y(y)$ 求导得随机变量 $Y$ 的概率密度函数 $f_Y(y)$.&lt;/p&gt;
+&lt;h2 id=&#34;多维随机变量及其分布&#34;&gt;多维随机变量及其分布
 &lt;/h2&gt;</description>
         </item>
         <item>

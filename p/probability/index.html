@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/probability/'>
 
-<link rel="stylesheet" href="/scss/style.min.0e6bc03942b50ec5bed72a4d50a4c0115346cf4a04f5d6640353dcedf4df852f.css"><meta property='og:title' content="概率论与数理统计">
+<link rel="stylesheet" href="/scss/style.min.8103b62532f6d908539ba619bec7b92c543b25612d2ce5178236ae321128c975.css"><meta property='og:title' content="概率论与数理统计">
 <meta property='og:description' content="基本公式">
 <meta property='og:url' content='https://5882886.github.io/p/probability/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -324,9 +324,41 @@
         <li><a href="#随机事件的关系与运算">随机事件的关系与运算</a></li>
         <li><a href="#概率及其性质">概率及其性质</a></li>
         <li><a href="#古典概型与几何概型">古典概型与几何概型</a></li>
+        <li><a href="#条件概率与乘法公式">条件概率与乘法公式</a>
+          <ol>
+            <li><a href="#条件概率">条件概率</a></li>
+            <li><a href="#乘法公式">乘法公式</a></li>
+            <li><a href="#全概率公式">全概率公式</a></li>
+            <li><a href="#贝叶斯公式">贝叶斯公式</a></li>
+          </ol>
+        </li>
+        <li><a href="#事件的独立性">事件的独立性</a></li>
       </ol>
     </li>
-    <li><a href="#随机变量及其分布">随机变量及其分布</a></li>
+    <li><a href="#随机变量及其分布">随机变量及其分布</a>
+      <ol>
+        <li><a href="#概率分布函数">概率分布函数</a></li>
+        <li><a href="#离散型随机变量的分布">离散型随机变量的分布</a>
+          <ol>
+            <li><a href="#概率分布律">概率分布律</a></li>
+            <li><a href="#常用离散型随机变量的分布">常用离散型随机变量的分布</a></li>
+          </ol>
+        </li>
+        <li><a href="#连续型随机变量的分布">连续型随机变量的分布</a>
+          <ol>
+            <li><a href="#概率密度函数">概率密度函数</a></li>
+            <li><a href="#常用连续型随机变量的分布">常用连续型随机变量的分布</a></li>
+            <li><a href="#正态分布的性质">正态分布的性质</a></li>
+          </ol>
+        </li>
+        <li><a href="#随机变量函数的分布">随机变量函数的分布</a>
+          <ol>
+            <li><a href="#离散型随机变量函数的分布">离散型随机变量函数的分布</a></li>
+            <li><a href="#连续型随机变量函数的分布">连续型随机变量函数的分布</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
     <li><a href="#多维随机变量及其分布">多维随机变量及其分布</a></li>
   </ol>
 </nav>
@@ -823,7 +855,7 @@
       </tr>
       <tr>
           <td>容斥原理</td>
-          <td>对任意两个事件 $A$,$B$，有 $P(A \cup B) = P(A) + P(B) - P(AB)$ <br> 一般的，对于 $n$ 个事件 $A_i$，有 $\displaystyle P\left(\bigcup_{i=1}^{n} A_i \right) = \sum_{i=1}^{n} P(A_i) - \sum_{1 \leqslant i &lt; j \leqslant n} P(A_i A_j) + \sum_{1 \leqslant i &lt; j &lt; k \leqslant n} P(A_i A_j A_k) - \cdots + (-1)^{n-1} P(A_1 A_2 \cdots A_n)$</td>
+          <td>对任意两个事件 $A，B$，有 $P(A \cup B) = P(A) + P(B) - P(AB)$ <br> 一般的，对于 $n$ 个事件 $A_i$，有 $$\begin{align*} P\left(\bigcup_{i=1}^{n} A_i \right) = \sum_{i=1}^{n} P(A_i) &- \sum_{1 \leqslant i < j \leqslant n} P(A_i A_j) \\ &+ \sum_{1 \leqslant i < j < k \leqslant n} P(A_i A_j A_k) - \cdots + (-1)^{n-1} P(A_1 A_2 \cdots A_n) \end{align*}$$</td>
       </tr>
   </tbody>
 </table></div>
@@ -834,8 +866,214 @@
 $$P(A) = \frac{k}{n} = \frac{\text{事件}A\text{中所含样本点的个数}}{\text{样本空间}\varOmega\text{中所含样本点总数}}$$<ol start="2">
 <li>几何概型</li>
 </ol>
-$$P(A) = \frac{A \text{的度量}}{\varOmega \text{的度量}}$$<h2 id="随机变量及其分布">随机变量及其分布
-</h2><h2 id="多维随机变量及其分布">多维随机变量及其分布
+$$P(A) = \frac{A \text{的度量}}{\varOmega \text{的度量}}$$<h3 id="条件概率与乘法公式">条件概率与乘法公式
+</h3><h4 id="条件概率">条件概率
+</h4>$$P(B|A) = \frac{P(AB)}{P(A)}$$<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>性质</th>
+          <th>表示</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>①</td>
+          <td>$P(\overline{B} |A) = 1 - P(B|A) $</td>
+      </tr>
+      <tr>
+          <td>②</td>
+          <td>$P(B_1 \cup B_2 | A) = P(B_1 | A) + P(B_2 | A) - P(B_1 B_2 | A) $</td>
+      </tr>
+  </tbody>
+</table></div>
+<h4 id="乘法公式">乘法公式
+</h4>$$ P(AB) = P(A) P(B|A) $$<p>
+</p>
+$$P(A_1 A_2 \cdots A_n) = P(A_1) P(A_2|A_1) P(A_3|A_1 A_2) \cdots P(A_n|A_1 A_2 \cdots A_{n-1})$$<h4 id="全概率公式">全概率公式
+</h4><p>若 $A_1，A_2，\cdots A_n，B$ 是 $E$ 中的事件，且满足 $A_1 \cup A_2 \cup \cdots \cup A_n = \varOmega$，则 </p>
+$$P(B) = \sum_{i=1}^{n} P(A_i) P(B|A_i)$$<h4 id="贝叶斯公式">贝叶斯公式
+</h4>$$P(A_i |B) = \frac{P(A_i B)}{P(B)} = \frac{P(A_i)P(B|A_i)}{\displaystyle \sum_{i=1}^{n} P(A_i)P(B|A_i)}$$<h3 id="事件的独立性">事件的独立性
+</h3><p>设 $n$ 个事件 $A_1，A_2，\cdots，A_n$，若对任意 $k=2，3，\cdots，n$ 和任意一组 $1 \leqslant i_1 &lt; i_2 &lt; \cdots &lt; i_k \leqslant n$，都有
+</p>
+$$P(A_{i_1} A_{i_2} \cdots A_{i_k}) = P(A_{i_1}) P(A_{i_2}) \cdots P(A_{i_k})$$<p> 则称事件 $A_1，A_2，\cdots，A_n$ 相互独立.</p>
+<h2 id="随机变量及其分布">随机变量及其分布
+</h2><h3 id="概率分布函数">概率分布函数
+</h3><p>设 $X$ 是随机变量，对任意给定实数 $x \in (-\infty, +\infty)$，令 </p>
+$$F(x) = P\{X \leqslant x\}$$<p> 则称 $F(x)$ 为随机变量 $X$ 的概率分布函数.</p>
+<p>分布函数 $F(x)$ 具有以下性质：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>性质</th>
+          <th>表示</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>非负性</td>
+          <td>对任意实数 $x$，都有 $0 \leqslant F(x) \leqslant 1$，且 $\displaystyle F(-\infty) = \lim_{x \to -\infty} F(x) = 0$，$\displaystyle F(+\infty) = \lim_{x \to +\infty} F(x) = 1$</td>
+      </tr>
+      <tr>
+          <td>单调不减性</td>
+          <td>$\forall x_1 &lt; x_2$，有 $F(x_1) \leqslant F(x_2)$</td>
+      </tr>
+      <tr>
+          <td>右连续性</td>
+          <td>$\forall a \in \textbf{R}$，有 $\displaystyle \lim_{x \to a^+} F(x) = F(a+0) = F(a)$</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>区间概率: $P\{x_1 &lt; X \leqslant x_2\} = P\{X \leqslant x_2\} - P\{X \leqslant x_1\} = F(x_2) - F(x_1)$</p>
+<p>样本点概率：$P\{X = a\} = F(a+0) - F(a-0)$</p>
+<h3 id="离散型随机变量的分布">离散型随机变量的分布
+</h3><h4 id="概率分布律">概率分布律
+</h4><p>设离散型随机变量所有可能取值为 $x_k，k=1,2,\cdots$，则称 $X$ 取各个可能值的概率 </p>
+$$P\{X = x_k\} = p_k$$<p> 为随机变量 $X$ 的概率分布律. 可用表格表示为</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: center">$X$</th>
+          <th style="text-align: center">$x_1$</th>
+          <th style="text-align: center">$x_2$</th>
+          <th style="text-align: center">$\cdots$</th>
+          <th style="text-align: center">$x_k$</th>
+          <th style="text-align: center">$\cdots$</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">$P_X$</td>
+          <td style="text-align: center">$p_1$</td>
+          <td style="text-align: center">$p_2$</td>
+          <td style="text-align: center">$\cdots$</td>
+          <td style="text-align: center">$p_k$</td>
+          <td style="text-align: center">$\cdots$</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>且有：$\displaystyle \sum_{i=0}^{\infty} p_k = 1$</p>
+<h4 id="常用离散型随机变量的分布">常用离散型随机变量的分布
+</h4><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>类型</th>
+          <th>概率分布律</th>
+          <th>记法</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>两点分布</td>
+          <td>$P\{X = 0\} = 1-p，P\{X = 1\} = p$</td>
+          <td>$X \sim B(1,p)$</td>
+      </tr>
+      <tr>
+          <td>二项分布</td>
+          <td>$\displaystyle P\{X=k\} = \mathrm{C}_{n}^{k} p^k (1-p)^{n-k}，k=0,1,2,\cdots,n \quad (0&lt;p&lt;1)$</td>
+          <td>$X \sim B(n,p)$</td>
+      </tr>
+      <tr>
+          <td>泊松分布</td>
+          <td>$\displaystyle P\{X=k\} = \frac{\lambda^k \mathrm{e}^{-\lambda}}{k!}，k=0,1,2,\cdots,n$</td>
+          <td>$X \sim P(\lambda)$</td>
+      </tr>
+      <tr>
+          <td>超几何分布</td>
+          <td>$\displaystyle P\{X=k\} = \frac{\mathrm{C}_M^k \mathrm{C}_{N-M}^{n-k}}{\mathrm{C}_{N}^{n}}，k=0,1,2,\cdots,\text{min}\{n,M\}$</td>
+          <td>$X \sim H(N,M,n)$</td>
+      </tr>
+      <tr>
+          <td>几何分布</td>
+          <td>$P\{X=k\} = (1-p)^{k-1}p，k=0,1,2,\cdots$</td>
+          <td>$X \sim G(p)$</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="连续型随机变量的分布">连续型随机变量的分布
+</h3><h4 id="概率密度函数">概率密度函数
+</h4><p>设随机变量 $X$ 的分布函数为 $F(x)$，若存在非负函数 $f(x)$，使得对任意实数 $x \in \textbf{R}$，均有 </p>
+$$F(x) = \int_{-\infty}^{x} f(t) \mathrm{d}t$$<p> 则称随机变量 $X$ 为连续型随机变量，称 $f(x)$ 为概率密度函数.</p>
+<h4 id="常用连续型随机变量的分布">常用连续型随机变量的分布
+</h4><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>类型</th>
+          <th>概率密度函数</th>
+          <th>记法</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>均匀分布</td>
+          <td>$\displaystyle f(x) = \left\{ \begin{matrix} \displaystyle \frac{1}{b-a}，&amp; a \leqslant x \leqslant b \\ \\ 0，&amp; 其他 \end{matrix} \right.$</td>
+          <td>$X \sim U(a,b)$</td>
+      </tr>
+      <tr>
+          <td>指数分布</td>
+          <td>$\displaystyle f(x) = \left\{ \begin{matrix} 1-\mathrm{e}^{-\lambda x}，&amp; x \geqslant b \\ \\ 0，&amp; 其他 \end{matrix} \right.$</td>
+          <td>$X \sim Exp(\lambda)$</td>
+      </tr>
+      <tr>
+          <td>正态分布</td>
+          <td>$\displaystyle f(x) = \frac{1}{\sqrt{2\pi} \sigma} \mathrm{e}^{-\frac{(x-\mu)^2}{2\sigma^2}}，-\infty &lt; x &lt; \infty$</td>
+          <td>$X \sim N(\mu,\sigma^2)$</td>
+      </tr>
+  </tbody>
+</table></div>
+<h4 id="正态分布的性质">正态分布的性质
+</h4><p>正态分布的概率密度函数 $f(x)$ 以 $x=\mu$ 为对称轴，因此 $\displaystyle F(\mu) = \frac{1}{2}，F(\mu-x) = 1-F(\mu+x)$</p>
+<p>特别地，称 $\mu=0，\sigma=1$ 的正态分布为标准正态分布，其概率密度函数记作 $\varphi(x)$，分布函数记作 $\varPhi(x)$. 则对任意正态分布 $N(\mu,\sigma^2)$，有 </p>
+$$P\{x_1 < X \leqslant x_2\} = F(x_2) - F(x_1) = \varPhi(\frac{x_2-\mu}{\sigma}) - \varPhi(\frac{x_1-\mu}{\sigma}) $$<h3 id="随机变量函数的分布">随机变量函数的分布
+</h3><h4 id="离散型随机变量函数的分布">离散型随机变量函数的分布
+</h4><p>若 $y_k = g(x_k)$，且已知</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: center">$X$</th>
+          <th style="text-align: center">$x_1$</th>
+          <th style="text-align: center">$x_2$</th>
+          <th style="text-align: center">$\cdots$</th>
+          <th style="text-align: center">$x_k$</th>
+          <th style="text-align: center">$\cdots$</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">$P_X$</td>
+          <td style="text-align: center">$p_1$</td>
+          <td style="text-align: center">$p_2$</td>
+          <td style="text-align: center">$\cdots$</td>
+          <td style="text-align: center">$p_k$</td>
+          <td style="text-align: center">$\cdots$</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>则可直接写出 $Y$ 的概率分布律：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: center">$Y$</th>
+          <th style="text-align: center">$y_1=g(x_1)$</th>
+          <th style="text-align: center">$y_2=g(x_2)$</th>
+          <th style="text-align: center">$\cdots$</th>
+          <th style="text-align: center">$y_k=g(x_k)$</th>
+          <th style="text-align: center">$\cdots$</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">$P_Y$</td>
+          <td style="text-align: center">$p_1$</td>
+          <td style="text-align: center">$p_2$</td>
+          <td style="text-align: center">$\cdots$</td>
+          <td style="text-align: center">$p_k$</td>
+          <td style="text-align: center">$\cdots$</td>
+      </tr>
+  </tbody>
+</table></div>
+<h4 id="连续型随机变量函数的分布">连续型随机变量函数的分布
+</h4><p>若 $X$ 是连续型随机变量，$y=g(x)$ 是单值实函数，则先求 $Y$ 的分布函数 $F_Y(y)$，再对 $F_Y(y)$ 求导得随机变量 $Y$ 的概率密度函数 $f_Y(y)$.</p>
+<h2 id="多维随机变量及其分布">多维随机变量及其分布
 </h2>
 </section>
 
