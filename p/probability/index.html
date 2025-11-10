@@ -342,12 +342,15 @@
           <ol>
             <li><a href="#概率分布律">概率分布律</a></li>
             <li><a href="#常用离散型随机变量的分布">常用离散型随机变量的分布</a></li>
+            <li><a href="#泊松定理">泊松定理</a></li>
+            <li><a href="#几何分布的无记忆性">几何分布的无记忆性</a></li>
           </ol>
         </li>
         <li><a href="#连续型随机变量的分布">连续型随机变量的分布</a>
           <ol>
             <li><a href="#概率密度函数">概率密度函数</a></li>
             <li><a href="#常用连续型随机变量的分布">常用连续型随机变量的分布</a></li>
+            <li><a href="#指数分布的性质">指数分布的性质</a></li>
             <li><a href="#正态分布的性质">正态分布的性质</a></li>
           </ol>
         </li>
@@ -359,7 +362,25 @@
         </li>
       </ol>
     </li>
-    <li><a href="#多维随机变量及其分布">多维随机变量及其分布</a></li>
+    <li><a href="#多维随机变量及其分布">多维随机变量及其分布</a>
+      <ol>
+        <li><a href="#联合分布函数与边缘分布函数">联合分布函数与边缘分布函数</a>
+          <ol>
+            <li><a href="#联合分布函数">联合分布函数</a></li>
+            <li><a href="#边缘分布函数">边缘分布函数</a></li>
+            <li><a href="#二维随机变量的独立性">二维随机变量的独立性</a></li>
+          </ol>
+        </li>
+        <li><a href="#二维离散型随机变量及其分布">二维离散型随机变量及其分布</a>
+          <ol>
+            <li><a href="#联合概率分布律">联合概率分布律</a></li>
+            <li><a href="#边缘概率分布律">边缘概率分布律</a></li>
+            <li><a href="#条件概率分布律">条件概率分布律</a></li>
+            <li><a href="#独立性">独立性</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -989,7 +1010,11 @@ $$P\{X = x_k\} = p_k$$<p> 为随机变量 $X$ 的概率分布律. 可用表格�
       </tr>
   </tbody>
 </table></div>
-<h3 id="连续型随机变量的分布">连续型随机变量的分布
+<h4 id="泊松定理">泊松定理
+</h4><p>设 $\displaystyle p_n = \frac{\lambda}{n}$，$\lambda &gt; 0$ 是常数，则对任一非负整数 $k$，有 </p>
+$$\lim_{n \to \infty} \mathrm{C}_n^k p_n^k(1-p_n)^{n-k} = \frac{\lambda^k \mathrm{e}^{-\lambda}}{k!}$$<h4 id="几何分布的无记忆性">几何分布的无记忆性
+</h4><p>如果 $X \sim G(p)$，则对任意正整数 $m$，$n$，都有 </p>
+$$P\{X>m+n \ |\  X>m\} = P\{X>n\}$$<h3 id="连续型随机变量的分布">连续型随机变量的分布
 </h3><h4 id="概率密度函数">概率密度函数
 </h4><p>设随机变量 $X$ 的分布函数为 $F(x)$，若存在非负函数 $f(x)$，使得对任意实数 $x \in \textbf{R}$，均有 </p>
 $$F(x) = \int_{-\infty}^{x} f(t) \mathrm{d}t$$<p> 则称随机变量 $X$ 为连续型随机变量，称 $f(x)$ 为概率密度函数.</p>
@@ -1020,10 +1045,21 @@ $$F(x) = \int_{-\infty}^{x} f(t) \mathrm{d}t$$<p> 则称随机变量 $X$ 为连�
       </tr>
   </tbody>
 </table></div>
-<h4 id="正态分布的性质">正态分布的性质
-</h4><p>正态分布的概率密度函数 $f(x)$ 以 $x=\mu$ 为对称轴，因此 $\displaystyle F(\mu) = \frac{1}{2}，F(\mu-x) = 1-F(\mu+x)$</p>
+<h4 id="指数分布的性质">指数分布的性质
+</h4><p><strong>无记忆性</strong>：如果 $X \sim Exp(\lambda)$，则对任意 $s&gt;0$，$t&gt;0$，都有 </p>
+$$P\{X>s+t \ |\  X>s\} = P\{X>t\}$$<h4 id="正态分布的性质">正态分布的性质
+</h4><ol>
+<li>
+<p>正态分布的概率密度函数 $f(x)$ 以 $x=\mu$ 为对称轴，因此 $\displaystyle F(\mu) = \frac{1}{2}，F(\mu-x) = 1-F(\mu+x)$.</p>
+</li>
+<li>
 <p>特别地，称 $\mu=0，\sigma=1$ 的正态分布为标准正态分布，其概率密度函数记作 $\varphi(x)$，分布函数记作 $\varPhi(x)$. 则对任意正态分布 $N(\mu,\sigma^2)$，有 </p>
-$$P\{x_1 < X \leqslant x_2\} = F(x_2) - F(x_1) = \varPhi(\frac{x_2-\mu}{\sigma}) - \varPhi(\frac{x_1-\mu}{\sigma}) $$<h3 id="随机变量函数的分布">随机变量函数的分布
+$$P\{x_1 < X \leqslant x_2\} = F(x_2) - F(x_1) = \varPhi\left(\frac{x_2-\mu}{\sigma}\right) - \varPhi\left(\frac{x_1-\mu}{\sigma}\right) $$</li>
+<li>
+<p>若 $X \sim N(\mu, \sigma^2)$，令 $Y=aX+b$，则随机变量 $Y \sim N(a\mu+b,(a\sigma)^2)$.</p>
+</li>
+</ol>
+<h3 id="随机变量函数的分布">随机变量函数的分布
 </h3><h4 id="离散型随机变量函数的分布">离散型随机变量函数的分布
 </h4><p>若 $y_k = g(x_k)$，且已知</p>
 <div class="table-wrapper"><table>
@@ -1074,7 +1110,180 @@ $$P\{x_1 < X \leqslant x_2\} = F(x_2) - F(x_1) = \varPhi(\frac{x_2-\mu}{\sigma})
 <h4 id="连续型随机变量函数的分布">连续型随机变量函数的分布
 </h4><p>若 $X$ 是连续型随机变量，$y=g(x)$ 是单值实函数，则先求 $Y$ 的分布函数 $F_Y(y)$，再对 $F_Y(y)$ 求导得随机变量 $Y$ 的概率密度函数 $f_Y(y)$.</p>
 <h2 id="多维随机变量及其分布">多维随机变量及其分布
-</h2>
+</h2><h3 id="联合分布函数与边缘分布函数">联合分布函数与边缘分布函数
+</h3><h4 id="联合分布函数">联合分布函数
+</h4><p>设 $(X,Y)$ 是二维随机变量，对于任意实数 $x,y \in \textbf{R}$，称二元函数 </p>
+$$F(x,y) = P\{X \leqslant x,Y\leqslant y\}$$<p> 为 $(X,Y)$ 的联合分布函数.</p>
+<p>$F(x,y)$ 具有以下性质：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>性质</th>
+          <th>表示</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>非负性</td>
+          <td>对任意 $(x,y) \in \textbf{R}^2$，有 $0 \leqslant F(x,y) \leqslant 1$；$F(-\infty,-\infty) = 0$，$F(+\infty,+\infty) = 1$</td>
+      </tr>
+      <tr>
+          <td>单调不减性</td>
+          <td>$F(x,y)$ 分别关于 $x$ 和 $y$ 单调不减</td>
+      </tr>
+      <tr>
+          <td>右连续性</td>
+          <td>$F(x,y)$ 分别关于 $x$ 和 $y$ 右连续</td>
+      </tr>
+      <tr>
+          <td>恒等式</td>
+          <td>$\forall x_1 &lt; x_2，y_1 &lt; y_2$，有 $$P\{ x_1 < X \leqslant x_2,y_1 < Y \leqslant y_2 \} = F(x_2,y_2) - F(x_1,y_2) - F(x_2,y_1) + F(x_1,y_1) \geqslant 0$$</td>
+      </tr>
+  </tbody>
+</table></div>
+<h4 id="边缘分布函数">边缘分布函数
+</h4><p>$X$ 的边缘分布函数 $\displaystyle F_X(x) = P\{X \leqslant x\} = F(x,+\infty) = \lim_{y \to +\infty} F(x,y)$</p>
+<p>$Y$ 的边缘分布函数 $\displaystyle F_Y(x) = P\{Y \leqslant y\} = F(+\infty,y) = \lim_{x \to +\infty} F(x,y)$</p>
+<h4 id="二维随机变量的独立性">二维随机变量的独立性
+</h4><p>设 $(X,Y)$ 是二维随机变量，联合分布函数为 $F(x,y)$，边缘分布函数分别为 $F_X(x)，F_Y(y)$. 若对于任意 $(x,y) \in \textbf{R}^2$，都有 </p>
+$$F(x,y)  = F_X(x) F_Y(y)$$<p> 则称随机变量 $X$ 和 $Y$ 相互独立.</p>
+<blockquote>
+<p>两个随机变量相互独立等价于由 $X$ 表示的任一事件与由 $Y$ 表示的任一事件都相互独立.</p></blockquote>
+<h3 id="二维离散型随机变量及其分布">二维离散型随机变量及其分布
+</h3><h4 id="联合概率分布律">联合概率分布律
+</h4><p>设二维离散型随机变量 $(X,Y)$ 的所有可能取值为 $(x_i,y_j)$，则称 </p>
+$$P\{X=x,\ Y=y\}=p_{ij}$$<p> 为随机变量 $(X,Y)$ 的联合概率分布律，可用表格表示为：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: center">$Y$ \ $X$</th>
+          <th style="text-align: center">$x_1$</th>
+          <th style="text-align: center">$x_2$</th>
+          <th style="text-align: center">$\cdots$</th>
+          <th style="text-align: center">$x_i$</th>
+          <th style="text-align: center">$\cdots$</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">$y_1$</td>
+          <td style="text-align: center">$p_{11}$</td>
+          <td style="text-align: center">$p_{21}$</td>
+          <td style="text-align: center">$\cdots$</td>
+          <td style="text-align: center">$p_{i1}$</td>
+          <td style="text-align: center">$\cdots$</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">$y_2$</td>
+          <td style="text-align: center">$p_{12}$</td>
+          <td style="text-align: center">$p_{22}$</td>
+          <td style="text-align: center">$\cdots$</td>
+          <td style="text-align: center">$p_{i2}$</td>
+          <td style="text-align: center">$\cdots$</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">$\vdots$</td>
+          <td style="text-align: center">$\vdots$</td>
+          <td style="text-align: center">$\vdots$</td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">$\vdots$</td>
+          <td style="text-align: center">$\vdots$</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">$y_j$</td>
+          <td style="text-align: center">$p_{1j}$</td>
+          <td style="text-align: center">$p_{2j}$</td>
+          <td style="text-align: center">$\cdots$</td>
+          <td style="text-align: center">$p_{ij}$</td>
+          <td style="text-align: center">$\cdots$</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">$\vdots$</td>
+          <td style="text-align: center">$\vdots$</td>
+          <td style="text-align: center">$\vdots$</td>
+          <td style="text-align: center">$\vdots$</td>
+          <td style="text-align: center">$\vdots$</td>
+          <td style="text-align: center">$\vdots$</td>
+      </tr>
+  </tbody>
+</table></div>
+<h4 id="边缘概率分布律">边缘概率分布律
+</h4><p>随机变量 $X$ 的边缘概率分布律：$\displaystyle P\{X=x_i\} = \sum_{i=1}^{+\infty} p_{ij} = p_{i \cdot}$</p>
+<p>随机变量 $Y$ 的边缘概率分布律：$\displaystyle P\{Y=y_j\} = \sum_{j=1}^{+\infty} p_{ij} = p_{\cdot j}$</p>
+<p>可以表示在表格中：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: center">$Y$ \ $X$</th>
+          <th style="text-align: center">$x_1$</th>
+          <th style="text-align: center">$x_2$</th>
+          <th style="text-align: center">$\cdots$</th>
+          <th style="text-align: center">$x_i$</th>
+          <th style="text-align: center">$\cdots$</th>
+          <th style="text-align: center">$P\{Y=y_j\}$</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">$y_1$</td>
+          <td style="text-align: center">$p_{11}$</td>
+          <td style="text-align: center">$p_{21}$</td>
+          <td style="text-align: center">$\cdots$</td>
+          <td style="text-align: center">$p_{i1}$</td>
+          <td style="text-align: center">$\cdots$</td>
+          <td style="text-align: center">$p_{\cdot 1}$</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">$y_2$</td>
+          <td style="text-align: center">$p_{12}$</td>
+          <td style="text-align: center">$p_{22}$</td>
+          <td style="text-align: center">$\cdots$</td>
+          <td style="text-align: center">$p_{i2}$</td>
+          <td style="text-align: center">$\cdots$</td>
+          <td style="text-align: center">$p_{\cdot 2}$</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">$\vdots$</td>
+          <td style="text-align: center">$\vdots$</td>
+          <td style="text-align: center">$\vdots$</td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">$\vdots$</td>
+          <td style="text-align: center">$\vdots$</td>
+          <td style="text-align: center">$\vdots$</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">$y_j$</td>
+          <td style="text-align: center">$p_{1j}$</td>
+          <td style="text-align: center">$p_{2j}$</td>
+          <td style="text-align: center">$\cdots$</td>
+          <td style="text-align: center">$p_{ij}$</td>
+          <td style="text-align: center">$\cdots$</td>
+          <td style="text-align: center">$p_{\cdot j}$</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">$\vdots$</td>
+          <td style="text-align: center">$\vdots$</td>
+          <td style="text-align: center">$\vdots$</td>
+          <td style="text-align: center">$\vdots$</td>
+          <td style="text-align: center">$\vdots$</td>
+          <td style="text-align: center">$\vdots$</td>
+          <td style="text-align: center">$\vdots$</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">$P\{X=x_i\}$</td>
+          <td style="text-align: center">$p_{1 \cdot}$</td>
+          <td style="text-align: center">$p_{2 \cdot}$</td>
+          <td style="text-align: center">$\cdots$</td>
+          <td style="text-align: center">$p_{i \cdot}$</td>
+          <td style="text-align: center">$\cdots$</td>
+          <td style="text-align: center">$1$</td>
+      </tr>
+  </tbody>
+</table></div>
+<h4 id="条件概率分布律">条件概率分布律
+</h4>$$P\{X=x_i \ |\ Y=y_j\} = \frac{p_{ij}}{p_{\cdot j}}$$<h4 id="独立性">独立性
+</h4><p>对于二元离散型随机变量 $(X,Y)$，则 $X$ 与 $Y$ 相互独立等价于对任意的 $i,j = 1,2,\cdots,$ 都有 </p>
+$$P\{X=x_i \ |\ Y=y_j\} = p_{i \cdot} p_{\cdot j}$$
 </section>
 
 

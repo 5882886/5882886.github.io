@@ -882,10 +882,8 @@
     
 
 </a></p>
-
-
-<blockquote class="alert alert-note">
-    <ol>
+<blockquote>
+<ol>
 <li>尽量上课！</li>
 <li>课下完整看完一本书！</li>
 <li>做题！</li>
@@ -984,12 +982,33 @@ $$ f(x) = \sum_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!}(x - x_0)^k + \frac{f^{(n+1)}(\x
 <p>数列 $\{u_n\}$ 的极限存在 $\Leftrightarrow$ $\forall \varepsilon &gt; 0, \exist N &gt; 0$，使得当 $n &gt; N(\varepsilon)$ 时，对任意的正整数 $p$，有 $| u_{n+p}-u_{n} | &lt; \varepsilon$ 恒成立.</p>
 <h2 id="一元函数微分学">一元函数微分学
 </h2><h3 id="求导方法">求导方法
-</h3><ol>
-<li>利用导数定义:</li>
-</ol>
-$$\displaystyle f'(x_{0}) = \lim_{x \to x_{0}} \frac{f(x)-f(x_{0})}{x-x_{0}}$$<ol start="2">
-<li>常用求导公式：</li>
-</ol>
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>方法</th>
+          <th>公式</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>利用导数定义</td>
+          <td>$$\displaystyle f'(x_{0}) = \lim_{x \to x_{0}} \frac{f(x)-f(x_{0})}{x-x_{0}}$$</td>
+      </tr>
+      <tr>
+          <td>隐函数求导</td>
+          <td>$$\left[ f^{-1}(x) \right]' = \frac{1}{f'(y)} \quad 或 \quad \frac{\mathrm{d}y}{\mathrm{d}x}= \frac{1}{\dfrac{\mathrm{d}x}{\mathrm{d}y}}$$</td>
+      </tr>
+      <tr>
+          <td>莱布尼茨公式</td>
+          <td>对于函数$u=u(x)$和$v=v(x)$的乘积，有：$$(uv)^{(n)} = \mathrm{C}_{n}^{0}u^{(n)}v + \mathrm{C}_{n}^{1}u^{(n-1)}v'+\cdots + \mathrm{C}_{n}^{n-1}u'v^{(n-1)} + \mathrm{C}_{n}^{n}uv^{(n)}.$$</td>
+      </tr>
+      <tr>
+          <td>泰勒公式</td>
+          <td>由泰勒公式可知：$$f(x) = \sum_{k=0}^{n} \frac{f^{(k)}(0)}{k!} x^{k} + o(x^{n}).$$ 比较同次幂系数可得 $f^{(k)}(0) = k!a_{k}, k=0,1,2,\cdots,n$.</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>常用求导公式：</p>
 <ul>
 <li>
 <p>$(\mathrm{e}^x) ^ {(n)} = \mathrm{e}^x$；</p>
@@ -1007,23 +1026,6 @@ $$\displaystyle f'(x_{0}) = \lim_{x \to x_{0}} \frac{f(x)-f(x_{0})}{x-x_{0}}$$<o
 <p>$(x^{\alpha})^{(n)} = \alpha (\alpha-1) \cdots (\alpha-n+1)x^{\alpha - n}$，（$\alpha$是任意常数）</p>
 </li>
 </ul>
-<ol start="3">
-<li>隐函数求导</li>
-</ol>
-$$\left[ f^{-1}(x) \right]' = \frac{1}{f'(y)} \quad 或 \quad \frac{\mathrm{d}y}{\mathrm{d}x}= \frac{1}{\dfrac{\mathrm{d}x}{\mathrm{d}y}}$$<ol start="4">
-<li>
-<p>莱布尼茨公式 <br>
-对于函数$u=u(x)$和$v=v(x)$的乘积，有：
-</p>
-$$(uv)^{(n)} = \mathrm{C}_{n}^{0}u^{(n)}v + \mathrm{C}_{n}^{1}u^{(n-1)}v'+\cdots + \mathrm{C}_{n}^{n-1}u'v^{(n-1)} + \mathrm{C}_{n}^{n}uv^{(n)}.$$</li>
-<li>
-<p>泰勒公式 <br>
-由泰勒公式可知：
-</p>
-$$f(x) = \sum_{k=0}^{n} \frac{f^{(k)}(0)}{k!} x^{k} + o(x^{n}).$$<p>
-比较同次幂系数可得 $f^{(k)}(0) = k!a_{k}, k=0,1,2,\cdots,n$.</p>
-</li>
-</ol>
 <h3 id="微分中值定理">微分中值定理
 </h3><ol>
 <li>

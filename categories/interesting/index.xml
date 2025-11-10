@@ -240,7 +240,11 @@ $$P\{X = x_k\} = p_k$$&lt;p&gt; 为随机变量 $X$ 的概率分布律. 可用�
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;连续型随机变量的分布&#34;&gt;连续型随机变量的分布
+&lt;h4 id=&#34;泊松定理&#34;&gt;泊松定理
+&lt;/h4&gt;&lt;p&gt;设 $\displaystyle p_n = \frac{\lambda}{n}$，$\lambda &amp;gt; 0$ 是常数，则对任一非负整数 $k$，有 &lt;/p&gt;
+$$\lim_{n \to \infty} \mathrm{C}_n^k p_n^k(1-p_n)^{n-k} = \frac{\lambda^k \mathrm{e}^{-\lambda}}{k!}$$&lt;h4 id=&#34;几何分布的无记忆性&#34;&gt;几何分布的无记忆性
+&lt;/h4&gt;&lt;p&gt;如果 $X \sim G(p)$，则对任意正整数 $m$，$n$，都有 &lt;/p&gt;
+$$P\{X&gt;m+n \ |\  X&gt;m\} = P\{X&gt;n\}$$&lt;h3 id=&#34;连续型随机变量的分布&#34;&gt;连续型随机变量的分布
 &lt;/h3&gt;&lt;h4 id=&#34;概率密度函数&#34;&gt;概率密度函数
 &lt;/h4&gt;&lt;p&gt;设随机变量 $X$ 的分布函数为 $F(x)$，若存在非负函数 $f(x)$，使得对任意实数 $x \in \textbf{R}$，均有 &lt;/p&gt;
 $$F(x) = \int_{-\infty}^{x} f(t) \mathrm{d}t$$&lt;p&gt; 则称随机变量 $X$ 为连续型随机变量，称 $f(x)$ 为概率密度函数.&lt;/p&gt;
@@ -271,10 +275,21 @@ $$F(x) = \int_{-\infty}^{x} f(t) \mathrm{d}t$$&lt;p&gt; 则称随机变量 $X$ �
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h4 id=&#34;正态分布的性质&#34;&gt;正态分布的性质
-&lt;/h4&gt;&lt;p&gt;正态分布的概率密度函数 $f(x)$ 以 $x=\mu$ 为对称轴，因此 $\displaystyle F(\mu) = \frac{1}{2}，F(\mu-x) = 1-F(\mu+x)$&lt;/p&gt;
+&lt;h4 id=&#34;指数分布的性质&#34;&gt;指数分布的性质
+&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;无记忆性&lt;/strong&gt;：如果 $X \sim Exp(\lambda)$，则对任意 $s&amp;gt;0$，$t&amp;gt;0$，都有 &lt;/p&gt;
+$$P\{X&gt;s+t \ |\  X&gt;s\} = P\{X&gt;t\}$$&lt;h4 id=&#34;正态分布的性质&#34;&gt;正态分布的性质
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;正态分布的概率密度函数 $f(x)$ 以 $x=\mu$ 为对称轴，因此 $\displaystyle F(\mu) = \frac{1}{2}，F(\mu-x) = 1-F(\mu+x)$.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
 &lt;p&gt;特别地，称 $\mu=0，\sigma=1$ 的正态分布为标准正态分布，其概率密度函数记作 $\varphi(x)$，分布函数记作 $\varPhi(x)$. 则对任意正态分布 $N(\mu,\sigma^2)$，有 &lt;/p&gt;
-$$P\{x_1 &lt; X \leqslant x_2\} = F(x_2) - F(x_1) = \varPhi(\frac{x_2-\mu}{\sigma}) - \varPhi(\frac{x_1-\mu}{\sigma}) $$&lt;h3 id=&#34;随机变量函数的分布&#34;&gt;随机变量函数的分布
+$$P\{x_1 &lt; X \leqslant x_2\} = F(x_2) - F(x_1) = \varPhi\left(\frac{x_2-\mu}{\sigma}\right) - \varPhi\left(\frac{x_1-\mu}{\sigma}\right) $$&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;若 $X \sim N(\mu, \sigma^2)$，令 $Y=aX+b$，则随机变量 $Y \sim N(a\mu+b,(a\sigma)^2)$.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;随机变量函数的分布&#34;&gt;随机变量函数的分布
 &lt;/h3&gt;&lt;h4 id=&#34;离散型随机变量函数的分布&#34;&gt;离散型随机变量函数的分布
 &lt;/h4&gt;&lt;p&gt;若 $y_k = g(x_k)$，且已知&lt;/p&gt;
 &lt;table&gt;
@@ -325,7 +340,180 @@ $$P\{x_1 &lt; X \leqslant x_2\} = F(x_2) - F(x_1) = \varPhi(\frac{x_2-\mu}{\sigm
 &lt;h4 id=&#34;连续型随机变量函数的分布&#34;&gt;连续型随机变量函数的分布
 &lt;/h4&gt;&lt;p&gt;若 $X$ 是连续型随机变量，$y=g(x)$ 是单值实函数，则先求 $Y$ 的分布函数 $F_Y(y)$，再对 $F_Y(y)$ 求导得随机变量 $Y$ 的概率密度函数 $f_Y(y)$.&lt;/p&gt;
 &lt;h2 id=&#34;多维随机变量及其分布&#34;&gt;多维随机变量及其分布
-&lt;/h2&gt;</description>
+&lt;/h2&gt;&lt;h3 id=&#34;联合分布函数与边缘分布函数&#34;&gt;联合分布函数与边缘分布函数
+&lt;/h3&gt;&lt;h4 id=&#34;联合分布函数&#34;&gt;联合分布函数
+&lt;/h4&gt;&lt;p&gt;设 $(X,Y)$ 是二维随机变量，对于任意实数 $x,y \in \textbf{R}$，称二元函数 &lt;/p&gt;
+$$F(x,y) = P\{X \leqslant x,Y\leqslant y\}$$&lt;p&gt; 为 $(X,Y)$ 的联合分布函数.&lt;/p&gt;
+&lt;p&gt;$F(x,y)$ 具有以下性质：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;性质&lt;/th&gt;
+          &lt;th&gt;表示&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;非负性&lt;/td&gt;
+          &lt;td&gt;对任意 $(x,y) \in \textbf{R}^2$，有 $0 \leqslant F(x,y) \leqslant 1$；$F(-\infty,-\infty) = 0$，$F(+\infty,+\infty) = 1$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;单调不减性&lt;/td&gt;
+          &lt;td&gt;$F(x,y)$ 分别关于 $x$ 和 $y$ 单调不减&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;右连续性&lt;/td&gt;
+          &lt;td&gt;$F(x,y)$ 分别关于 $x$ 和 $y$ 右连续&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;恒等式&lt;/td&gt;
+          &lt;td&gt;$\forall x_1 &amp;lt; x_2，y_1 &amp;lt; y_2$，有 $$P\{ x_1 &lt; X \leqslant x_2,y_1 &lt; Y \leqslant y_2 \} = F(x_2,y_2) - F(x_1,y_2) - F(x_2,y_1) + F(x_1,y_1) \geqslant 0$$&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;边缘分布函数&#34;&gt;边缘分布函数
+&lt;/h4&gt;&lt;p&gt;$X$ 的边缘分布函数 $\displaystyle F_X(x) = P\{X \leqslant x\} = F(x,+\infty) = \lim_{y \to +\infty} F(x,y)$&lt;/p&gt;
+&lt;p&gt;$Y$ 的边缘分布函数 $\displaystyle F_Y(x) = P\{Y \leqslant y\} = F(+\infty,y) = \lim_{x \to +\infty} F(x,y)$&lt;/p&gt;
+&lt;h4 id=&#34;二维随机变量的独立性&#34;&gt;二维随机变量的独立性
+&lt;/h4&gt;&lt;p&gt;设 $(X,Y)$ 是二维随机变量，联合分布函数为 $F(x,y)$，边缘分布函数分别为 $F_X(x)，F_Y(y)$. 若对于任意 $(x,y) \in \textbf{R}^2$，都有 &lt;/p&gt;
+$$F(x,y)  = F_X(x) F_Y(y)$$&lt;p&gt; 则称随机变量 $X$ 和 $Y$ 相互独立.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;两个随机变量相互独立等价于由 $X$ 表示的任一事件与由 $Y$ 表示的任一事件都相互独立.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;二维离散型随机变量及其分布&#34;&gt;二维离散型随机变量及其分布
+&lt;/h3&gt;&lt;h4 id=&#34;联合概率分布律&#34;&gt;联合概率分布律
+&lt;/h4&gt;&lt;p&gt;设二维离散型随机变量 $(X,Y)$ 的所有可能取值为 $(x_i,y_j)$，则称 &lt;/p&gt;
+$$P\{X=x,\ Y=y\}=p_{ij}$$&lt;p&gt; 为随机变量 $(X,Y)$ 的联合概率分布律，可用表格表示为：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;$Y$ \ $X$&lt;/th&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;$x_1$&lt;/th&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;$x_2$&lt;/th&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;$\cdots$&lt;/th&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;$x_i$&lt;/th&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;$\cdots$&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$y_1$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$p_{11}$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$p_{21}$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\cdots$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$p_{i1}$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\cdots$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$y_2$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$p_{12}$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$p_{22}$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\cdots$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$p_{i2}$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\cdots$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\vdots$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\vdots$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\vdots$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\vdots$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\vdots$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$y_j$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$p_{1j}$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$p_{2j}$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\cdots$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$p_{ij}$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\cdots$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\vdots$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\vdots$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\vdots$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\vdots$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\vdots$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\vdots$&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;边缘概率分布律&#34;&gt;边缘概率分布律
+&lt;/h4&gt;&lt;p&gt;随机变量 $X$ 的边缘概率分布律：$\displaystyle P\{X=x_i\} = \sum_{i=1}^{+\infty} p_{ij} = p_{i \cdot}$&lt;/p&gt;
+&lt;p&gt;随机变量 $Y$ 的边缘概率分布律：$\displaystyle P\{Y=y_j\} = \sum_{j=1}^{+\infty} p_{ij} = p_{\cdot j}$&lt;/p&gt;
+&lt;p&gt;可以表示在表格中：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;$Y$ \ $X$&lt;/th&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;$x_1$&lt;/th&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;$x_2$&lt;/th&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;$\cdots$&lt;/th&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;$x_i$&lt;/th&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;$\cdots$&lt;/th&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;$P\{Y=y_j\}$&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$y_1$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$p_{11}$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$p_{21}$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\cdots$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$p_{i1}$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\cdots$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$p_{\cdot 1}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$y_2$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$p_{12}$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$p_{22}$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\cdots$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$p_{i2}$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\cdots$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$p_{\cdot 2}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\vdots$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\vdots$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\vdots$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\vdots$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\vdots$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\vdots$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$y_j$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$p_{1j}$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$p_{2j}$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\cdots$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$p_{ij}$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\cdots$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$p_{\cdot j}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\vdots$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\vdots$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\vdots$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\vdots$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\vdots$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\vdots$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\vdots$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$P\{X=x_i\}$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$p_{1 \cdot}$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$p_{2 \cdot}$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\cdots$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$p_{i \cdot}$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$\cdots$&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;$1$&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;条件概率分布律&#34;&gt;条件概率分布律
+&lt;/h4&gt;$$P\{X=x_i \ |\ Y=y_j\} = \frac{p_{ij}}{p_{\cdot j}}$$&lt;h4 id=&#34;独立性&#34;&gt;独立性
+&lt;/h4&gt;&lt;p&gt;对于二元离散型随机变量 $(X,Y)$，则 $X$ 与 $Y$ 相互独立等价于对任意的 $i,j = 1,2,\cdots,$ 都有 &lt;/p&gt;
+$$P\{X=x_i \ |\ Y=y_j\} = p_{i \cdot} p_{\cdot j}$$</description>
         </item>
         <item>
         <title>Tex排版</title>
@@ -804,10 +992,8 @@ $$ \bm{Image} = \left[\begin{matrix}  \bm{P}_{11} &amp; \bm{P}_{12} &amp; \cdots
 &lt;li&gt;像素块是排列整齐、均匀的正方形区域。&lt;/li&gt;
 &lt;li&gt;每个像素块只能有一种颜色。&lt;/li&gt;
 &lt;/ol&gt;
-
-
-&lt;blockquote class=&#34;alert alert-note&#34;&gt;
-    &lt;p&gt;由性质2，像素块还可以看作是：图像中不可再分的最小颜色区域。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;由性质2，像素块还可以看作是：图像中不可再分的最小颜色区域。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;我们日常生活中常见的图片是 $n*m$ 像素，就表示图片的长有 $n$ 个像素块，宽（或常称作高）有 $m$ 个像素块。其中 $m$ 和 $n$ 分别代表图像矩阵的行数和列数。&lt;/p&gt;
 &lt;p&gt;由此可见，当 $n$ 和 $m$ 的数值越大，图片可容纳的像素块就越多，表示的信息就越丰富；相应地，占用的存储空间也就越大。&lt;/p&gt;
 &lt;h3 id=&#34;色值&#34;&gt;色值
@@ -818,10 +1004,8 @@ $$\bm{P_{ij}} = [R,G,B]$$&lt;p&gt;其中 $R$，$G$，$B$ 分别是取值 $[0,255
 &lt;blockquote&gt;
 &lt;p&gt;红、绿、蓝是光的三基色，因此将此三种颜色按一定比例混合就可以产生我们可见的所有颜色。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;在一些图像处理软件中，$RGB$ 的范围被定义成 $[0,1]$。实际上，这就是 $[0,255]$ 到 $[0,1]$ 上的一个压缩映射。这时，$10$ 就表示 $\displaystyle \frac{10}{255}$；$255$ 就表示 $1$。&lt;/p&gt;
-
-
-&lt;blockquote class=&#34;alert alert-note&#34;&gt;
-    &lt;p&gt;$RGB$ 色值还有一种表示方法，即通过 &lt;code&gt;# + 6位16进制数&lt;/code&gt; 表示。因为10进制的 $[0,255]$ 恰好对应16进制的 $[00,FF]$，所以需要6个数位表示。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$RGB$ 色值还有一种表示方法，即通过 &lt;code&gt;# + 6位16进制数&lt;/code&gt; 表示。因为10进制的 $[0,255]$ 恰好对应16进制的 $[00,FF]$，所以需要6个数位表示。&lt;/p&gt;
 &lt;p&gt;例如 $\# 000000$ 对应 $[0,0,0]$，$\# FFFFFF$ 对应 $[255,255,255]$。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;图像混合&#34;&gt;图像混合
 &lt;/h2&gt;&lt;p&gt;由图像的表示原理可知，所有图像的操作本质上是对像素块的操作。&lt;/p&gt;
@@ -840,10 +1024,8 @@ $$\begin{align*} \bm{I_1} * \bm{I_2} &amp;= \left[\begin{matrix}  \bm{A}_{11} &a
 &lt;blockquote&gt;
 &lt;p&gt;因此运算 $*$ 构成一个独异点（雾）。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;由性质4和5可知，正片叠底实现了“去白留黑”。&lt;/p&gt;
-
-
-&lt;blockquote class=&#34;alert alert-note&#34;&gt;
-    &lt;p&gt;容易看出，图层混合是对图像对应的像素块做相同的操作，定义图层混合运算仅需给出对于像素块的操作。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;容易看出，图层混合是对图像对应的像素块做相同的操作，定义图层混合运算仅需给出对于像素块的操作。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;反色&#34;&gt;反色
 &lt;/h3&gt;&lt;p&gt;反色，通俗地讲就是将图像颜色“反转”，也就是每个像素块的颜色都变成 $[255-R,255-G,255-B]$。&lt;/p&gt;
 &lt;p&gt;定义运算 $!$ 为反色运算，则&lt;/p&gt;
@@ -2512,10 +2694,8 @@ $$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &amp;= [\mathrm{max}(R_1,R_2),\ma
     
 
 &lt;/a&gt;&lt;/p&gt;
-
-
-&lt;blockquote class=&#34;alert alert-note&#34;&gt;
-    &lt;ol&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
 &lt;li&gt;尽量上课！&lt;/li&gt;
 &lt;li&gt;课下完整看完一本书！&lt;/li&gt;
 &lt;li&gt;做题！&lt;/li&gt;
@@ -2614,12 +2794,33 @@ $$ f(x) = \sum_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!}(x - x_0)^k + \frac{f^{(n+1)}(\x
 &lt;p&gt;数列 $\{u_n\}$ 的极限存在 $\Leftrightarrow$ $\forall \varepsilon &amp;gt; 0, \exist N &amp;gt; 0$，使得当 $n &amp;gt; N(\varepsilon)$ 时，对任意的正整数 $p$，有 $| u_{n+p}-u_{n} | &amp;lt; \varepsilon$ 恒成立.&lt;/p&gt;
 &lt;h2 id=&#34;一元函数微分学&#34;&gt;一元函数微分学
 &lt;/h2&gt;&lt;h3 id=&#34;求导方法&#34;&gt;求导方法
-&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;利用导数定义:&lt;/li&gt;
-&lt;/ol&gt;
-$$\displaystyle f&#39;(x_{0}) = \lim_{x \to x_{0}} \frac{f(x)-f(x_{0})}{x-x_{0}}$$&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;常用求导公式：&lt;/li&gt;
-&lt;/ol&gt;
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;方法&lt;/th&gt;
+          &lt;th&gt;公式&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;利用导数定义&lt;/td&gt;
+          &lt;td&gt;$$\displaystyle f&#39;(x_{0}) = \lim_{x \to x_{0}} \frac{f(x)-f(x_{0})}{x-x_{0}}$$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;隐函数求导&lt;/td&gt;
+          &lt;td&gt;$$\left[ f^{-1}(x) \right]&#39; = \frac{1}{f&#39;(y)} \quad 或 \quad \frac{\mathrm{d}y}{\mathrm{d}x}= \frac{1}{\dfrac{\mathrm{d}x}{\mathrm{d}y}}$$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;莱布尼茨公式&lt;/td&gt;
+          &lt;td&gt;对于函数$u=u(x)$和$v=v(x)$的乘积，有：$$(uv)^{(n)} = \mathrm{C}_{n}^{0}u^{(n)}v + \mathrm{C}_{n}^{1}u^{(n-1)}v&#39;+\cdots + \mathrm{C}_{n}^{n-1}u&#39;v^{(n-1)} + \mathrm{C}_{n}^{n}uv^{(n)}.$$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;泰勒公式&lt;/td&gt;
+          &lt;td&gt;由泰勒公式可知：$$f(x) = \sum_{k=0}^{n} \frac{f^{(k)}(0)}{k!} x^{k} + o(x^{n}).$$ 比较同次幂系数可得 $f^{(k)}(0) = k!a_{k}, k=0,1,2,\cdots,n$.&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;常用求导公式：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;$(\mathrm{e}^x) ^ {(n)} = \mathrm{e}^x$；&lt;/p&gt;
@@ -2637,23 +2838,6 @@ $$\displaystyle f&#39;(x_{0}) = \lim_{x \to x_{0}} \frac{f(x)-f(x_{0})}{x-x_{0}}
 &lt;p&gt;$(x^{\alpha})^{(n)} = \alpha (\alpha-1) \cdots (\alpha-n+1)x^{\alpha - n}$，（$\alpha$是任意常数）&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;隐函数求导&lt;/li&gt;
-&lt;/ol&gt;
-$$\left[ f^{-1}(x) \right]&#39; = \frac{1}{f&#39;(y)} \quad 或 \quad \frac{\mathrm{d}y}{\mathrm{d}x}= \frac{1}{\dfrac{\mathrm{d}x}{\mathrm{d}y}}$$&lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;
-&lt;p&gt;莱布尼茨公式 &lt;br&gt;
-对于函数$u=u(x)$和$v=v(x)$的乘积，有：
-&lt;/p&gt;
-$$(uv)^{(n)} = \mathrm{C}_{n}^{0}u^{(n)}v + \mathrm{C}_{n}^{1}u^{(n-1)}v&#39;+\cdots + \mathrm{C}_{n}^{n-1}u&#39;v^{(n-1)} + \mathrm{C}_{n}^{n}uv^{(n)}.$$&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;泰勒公式 &lt;br&gt;
-由泰勒公式可知：
-&lt;/p&gt;
-$$f(x) = \sum_{k=0}^{n} \frac{f^{(k)}(0)}{k!} x^{k} + o(x^{n}).$$&lt;p&gt;
-比较同次幂系数可得 $f^{(k)}(0) = k!a_{k}, k=0,1,2,\cdots,n$.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
 &lt;h3 id=&#34;微分中值定理&#34;&gt;微分中值定理
 &lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;
