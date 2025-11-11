@@ -319,13 +319,6 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#c语言补充知识">C语言补充知识</a>
-      <ol>
-        <li><a href="#typedef">typedef</a></li>
-        <li><a href="#输入输出函数">输入输出函数</a></li>
-        <li><a href="#动态内存分配">动态内存分配</a></li>
-      </ol>
-    </li>
     <li><a href="#顺序表">顺序表</a>
       <ol>
         <li><a href="#定义与初始化">定义与初始化</a></li>
@@ -386,12 +379,30 @@
             <li><a href="#链式存储">链式存储</a></li>
           </ol>
         </li>
-        <li><a href="#串的模式匹配">串的模式匹配</a>
+        <li><a href="#串的模式匹配">串的模式匹配</a></li>
+      </ol>
+    </li>
+    <li><a href="#数组和广义表">数组和广义表</a>
+      <ol>
+        <li><a href="#数组的表示">数组的表示</a></li>
+        <li><a href="#矩阵的压缩存储">矩阵的压缩存储</a>
           <ol>
-            <li><a href="#朴素匹配算法">朴素匹配算法</a></li>
-            <li><a href="#kmp算法">KMP算法</a></li>
+            <li><a href="#特殊矩阵">特殊矩阵</a></li>
+            <li><a href="#稀疏矩阵">稀疏矩阵</a></li>
           </ol>
         </li>
+      </ol>
+    </li>
+    <li><a href="#树">树</a>
+      <ol>
+        <li><a href="#二叉树">二叉树</a></li>
+      </ol>
+    </li>
+    <li><a href="#c语言补充知识">C语言补充知识</a>
+      <ol>
+        <li><a href="#typedef">typedef</a></li>
+        <li><a href="#输入输出函数">输入输出函数</a></li>
+        <li><a href="#动态内存分配">动态内存分配</a></li>
       </ol>
     </li>
   </ol>
@@ -797,150 +808,6 @@
     
     
     <center><strong><p style="font-size:32px;">程序 = 数据结构 + <a href="/p/algorithm/">算法</a></p></strong></center>
-<h2 id="c语言补充知识">C语言补充知识
-</h2><h3 id="typedef">typedef
-</h3><p>typedef可以给变量起一个别名，例如：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">typedef</span> <span class="kt">int</span> <span class="n">ElemType</span>
-</span></span></code></pre></div><p>此后可以用<code>ElemType</code>代替<code>int</code>。</p>
-<h3 id="输入输出函数">输入输出函数
-</h3><p>一般而言，C语言的输入输出函数比<code>cin</code>，<code>cout</code>更高效。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">int</span> <span class="n">num</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kt">float</span> <span class="n">fnum</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="kt">double</span> <span class="n">dnum</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="kt">char</span> <span class="n">str</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl">
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="c1">// 输入
-</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1"></span>    <span class="nf">scanf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">num</span><span class="p">);</span>      <span class="c1">// 整数
-</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="c1"></span>    <span class="nf">scanf</span><span class="p">(</span><span class="s">&#34;%f&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">fnum</span><span class="p">);</span>     <span class="c1">// float类型浮点数
-</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="c1"></span>    <span class="nf">scanf</span><span class="p">(</span><span class="s">&#34;%lf&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">dnum</span><span class="p">);</span>    <span class="c1">// double类型浮点数
-</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="c1"></span>    <span class="nf">scanf</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">,</span> <span class="n">str</span><span class="p">);</span>       <span class="c1">// 字符串
-</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="c1">//输出
-</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="c1"></span>    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="n">num</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%f&#34;</span><span class="p">,</span> <span class="n">fnum</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">16</span><span class="cl">
-</span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>C语言的格式符：</p>
-<div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>格式符</th>
-          <th>含义</th>
-          <th>示例代码</th>
-          <th>输出示例</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>%d</code></td>
-          <td>十进制整数</td>
-          <td><code>printf(&quot;%d&quot;, 123);</code></td>
-          <td><code>123</code></td>
-      </tr>
-      <tr>
-          <td><code>%f</code></td>
-          <td>浮点数</td>
-          <td><code>printf(&quot;%f&quot;, 3.14);</code></td>
-          <td><code>3.140000</code></td>
-      </tr>
-      <tr>
-          <td><code>%c</code></td>
-          <td>字符</td>
-          <td><code>printf(&quot;%c&quot;, 'A');</code></td>
-          <td><code>A</code></td>
-      </tr>
-      <tr>
-          <td><code>%s</code></td>
-          <td>字符串</td>
-          <td><code>printf(&quot;%s&quot;, &quot;hello&quot;);</code></td>
-          <td><code>hello</code></td>
-      </tr>
-      <tr>
-          <td><code>%x</code></td>
-          <td>十六进制整数（小写）</td>
-          <td><code>printf(&quot;%x&quot;, 255);</code></td>
-          <td><code>ff</code></td>
-      </tr>
-      <tr>
-          <td><code>%X</code></td>
-          <td>十六进制整数（大写）</td>
-          <td><code>printf(&quot;%X&quot;, 255);</code></td>
-          <td><code>FF</code></td>
-      </tr>
-      <tr>
-          <td><code>%o</code></td>
-          <td>八进制整数</td>
-          <td><code>printf(&quot;%o&quot;, 8);</code></td>
-          <td><code>10</code></td>
-      </tr>
-      <tr>
-          <td><code>%p</code></td>
-          <td>指针地址</td>
-          <td><code>printf(&quot;%p&quot;, ptr);</code></td>
-          <td><code>0x7ffeefbff5a0</code></td>
-      </tr>
-      <tr>
-          <td><code>%e</code></td>
-          <td>科学计数法（小写e）</td>
-          <td><code>printf(&quot;%e&quot;, 1234.5);</code></td>
-          <td><code>1.234500e+03</code></td>
-      </tr>
-      <tr>
-          <td><code>%E</code></td>
-          <td>科学计数法（大写E）</td>
-          <td><code>printf(&quot;%E&quot;, 1234.5);</code></td>
-          <td><code>1.234500E+03</code></td>
-      </tr>
-      <tr>
-          <td><code>%g</code></td>
-          <td>自动选 <code>%f</code> 或 <code>%e</code>（更短）</td>
-          <td><code>printf(&quot;%g&quot;, 0.00001);</code></td>
-          <td><code>1e-05</code></td>
-      </tr>
-      <tr>
-          <td><code>%u</code></td>
-          <td>无符号十进制整数</td>
-          <td><code>printf(&quot;%u&quot;, -1);</code></td>
-          <td><code>4294967295</code></td>
-      </tr>
-  </tbody>
-</table></div>
-<h3 id="动态内存分配">动态内存分配
-</h3><div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>函数</th>
-          <th>作用</th>
-          <th>返回</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>malloc</code></td>
-          <td>申请<strong>未初始化</strong>的连续字节</td>
-          <td><code>void *</code>（成功）或 <code>NULL</code>（失败）</td>
-      </tr>
-      <tr>
-          <td><code>calloc</code></td>
-          <td>申请<strong>已清零</strong>的连续元素</td>
-          <td>同上</td>
-      </tr>
-      <tr>
-          <td><code>realloc</code></td>
-          <td><strong>扩容/缩容</strong>已申请的块</td>
-          <td>同上</td>
-      </tr>
-      <tr>
-          <td><code>free</code></td>
-          <td><strong>归还</strong>内存</td>
-          <td><code>void</code></td>
-      </tr>
-  </tbody>
-</table></div>
-<blockquote>
-<p>申请要判空，用完必释放，扩容用临时，释放后置 NULL。</p></blockquote>
 <h2 id="顺序表">顺序表
 </h2><p>定义：用一段物理地址连续的存储单元依次存储数据元素的线性结构。</p>
 <h3 id="定义与初始化">定义与初始化
@@ -1418,7 +1285,7 @@ $$ACN = \frac{1}{n} \sum_{i=0}^{n-1} (i+1) = \frac{1}{n} (1+2+\cdots+n) = \frac{
 </h3><p>将队列首尾相连。</p>
 <h2 id="串">串
 </h2><h3 id="基本概念">基本概念
-</h3><p>串是 $n$ $n&gt;0$ 个字符的有限序列，记作<code>S: 'c1c2c3...cn'</code></p>
+</h3><p>串是 $n$ $(n&gt;0)$ 个字符的有限序列，记作<code>S: 'c1c2c3...cn'</code></p>
 <div class="table-wrapper"><table>
   <thead>
       <tr>
@@ -1467,14 +1334,210 @@ $$ACN = \frac{1}{n} \sum_{i=0}^{n-1} (i+1) = \frac{1}{n} (1+2+\cdots+n) = \frac{
 <h4 id="链式存储">链式存储
 </h4><p>用链表存储串。每个节点存储串的<code>n</code>个字符。当串长不是<code>n</code>的整数倍时，最后一个结点的剩余位置用<code>#</code>补齐。</p>
 <h3 id="串的模式匹配">串的模式匹配
-</h3><h4 id="朴素匹配算法">朴素匹配算法
-</h4><p>两个指针<code>i</code>和<code>j</code>分别指向主串和模式串，当匹配失败时，<code>i</code>加1，同时<code>j</code>指向模式串开头，重新开始匹配。</p>
-<h4 id="kmp算法">KMP算法
-</h4><p>参见<a class="link" href="/p/algorithm/#kmp%e7%ae%97%e6%b3%95" >【此处】
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>算法模式</th>
+          <th>具体操作</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>朴素匹配算法</td>
+          <td>两个指针<code>i</code>和<code>j</code>分别指向主串和模式串，当匹配失败时，<code>i</code>加1，同时<code>j</code>指向模式串开头，重新开始匹配。</td>
+      </tr>
+      <tr>
+          <td>KMP算法</td>
+          <td>参见<a class="link" href="/p/algorithm/#kmp%e7%ae%97%e6%b3%95" >【此处】
     
     
 
-</a></p>
+</a></td>
+      </tr>
+  </tbody>
+</table></div>
+<h2 id="数组和广义表">数组和广义表
+</h2><h3 id="数组的表示">数组的表示
+</h3><p>对于数组，一旦规定了它的维数和各维度的长度，便可为它分配存储空间。反之，只要给出一组下标便可求出相应数组元素的存储位置。</p>
+<p>设每个数据元素占 $L$ 个存储单元，则二维数组 <code>A[m][n]</code> 中任一元素 <code>a[i][j]</code> 的存储位置为：</p>
+$$\mathrm{LOC}(i,j) = \mathrm{LOC}(0,0) + (n \times i + j)$$<blockquote>
+<p>推广到一般情况，可得 $n$ 维数组的元素 <code>a[j1][j2]...[jn]</code> 的存储位置：</p>
+$$\mathrm{LOC}(j_1,j_2,\cdots,j_n) = \mathrm{LOC}(0,0,\cdots,0) + \sum_{i=1}^{n}c_i j_i$$<p>
+其中 $c_n = L，c_{i-1}=b_i \times c_i$</p></blockquote>
+<p>数组元素的存储位置与其下标存在一一对应的关系，所以存取数组中任一元素的时间均相等。我们称具有这一特点的存储结构为随机存储结构。</p>
+<h3 id="矩阵的压缩存储">矩阵的压缩存储
+</h3><h4 id="特殊矩阵">特殊矩阵
+</h4><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>类型</th>
+          <th>存储方法</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>对称矩阵</td>
+          <td>为每一对对称元素分配一个存储空间，则可将 $n^2$ 个元素压缩到 $\displaystyle \frac{n(n+1)}{2}$ 个元素的空间中。以一维数组 <code>sa[n(n+1)/2]</code> 存储，则 <code>sa[k]</code> 与 <code>a[i][j]</code> 之间存在对应关系：$$k=\left\{\begin{matrix} \displaystyle \frac{i(i-1)}{2}+j-1 & i \geqslant j \\\\ \displaystyle \frac{j(j-1)}{2} + i - 1 & i < j \end{matrix} \right.$$</td>
+      </tr>
+      <tr>
+          <td>三角矩阵</td>
+          <td>与对称矩阵相同，只需再分配一个元素的空间存储常数 $c$ 即可</td>
+      </tr>
+      <tr>
+          <td>对角矩阵</td>
+          <td>与对称矩阵类似</td>
+      </tr>
+  </tbody>
+</table></div>
+<h4 id="稀疏矩阵">稀疏矩阵
+</h4><p>设矩阵<code>a[m][n]</code>中有<code>t</code>个元素不为<code>0</code>，若稀疏因子 $\displaystyle \delta = \frac{t}{m \times n}$ 很小时，称之为稀疏矩阵。</p>
+<p>为了压缩存储空间，只需要存储稀疏矩阵中的非零元。因此，除了存储非零元的值之外，还需要同时记下它所在行和列的位置 $(i,j)$。这样，三元组 $(i,j,a_{ij})$ 就与稀疏矩阵的一个非零元相对应。</p>
+<h2 id="树">树
+</h2><h3 id="二叉树">二叉树
+</h3><h2 id="c语言补充知识">C语言补充知识
+</h2><h3 id="typedef">typedef
+</h3><p><code>typedef</code>可以给变量起一个别名，例如：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">typedef</span> <span class="kt">int</span> <span class="n">ElemType</span>
+</span></span></code></pre></div><p>此后可以用<code>ElemType</code>代替<code>int</code>。</p>
+<h3 id="输入输出函数">输入输出函数
+</h3><p>一般而言，C语言的输入输出函数比<code>cin</code>，<code>cout</code>更高效。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">int</span> <span class="n">num</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kt">float</span> <span class="n">fnum</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="kt">double</span> <span class="n">dnum</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="kt">char</span> <span class="n">str</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="c1">// 输入
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1"></span>    <span class="nf">scanf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">num</span><span class="p">);</span>      <span class="c1">// 整数
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="c1"></span>    <span class="nf">scanf</span><span class="p">(</span><span class="s">&#34;%f&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">fnum</span><span class="p">);</span>     <span class="c1">// float类型浮点数
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="c1"></span>    <span class="nf">scanf</span><span class="p">(</span><span class="s">&#34;%lf&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">dnum</span><span class="p">);</span>    <span class="c1">// double类型浮点数
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="c1"></span>    <span class="nf">scanf</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">,</span> <span class="n">str</span><span class="p">);</span>       <span class="c1">// 字符串
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="c1">//输出
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="c1"></span>    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="n">num</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%f&#34;</span><span class="p">,</span> <span class="n">fnum</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">
+</span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>C语言的格式符：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>格式符</th>
+          <th>含义</th>
+          <th>示例代码</th>
+          <th>输出示例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>%d</code></td>
+          <td>十进制整数</td>
+          <td><code>printf(&quot;%d&quot;, 123);</code></td>
+          <td><code>123</code></td>
+      </tr>
+      <tr>
+          <td><code>%f</code></td>
+          <td>浮点数</td>
+          <td><code>printf(&quot;%f&quot;, 3.14);</code></td>
+          <td><code>3.140000</code></td>
+      </tr>
+      <tr>
+          <td><code>%c</code></td>
+          <td>字符</td>
+          <td><code>printf(&quot;%c&quot;, 'A');</code></td>
+          <td><code>A</code></td>
+      </tr>
+      <tr>
+          <td><code>%s</code></td>
+          <td>字符串</td>
+          <td><code>printf(&quot;%s&quot;, &quot;hello&quot;);</code></td>
+          <td><code>hello</code></td>
+      </tr>
+      <tr>
+          <td><code>%x</code></td>
+          <td>十六进制整数（小写）</td>
+          <td><code>printf(&quot;%x&quot;, 255);</code></td>
+          <td><code>ff</code></td>
+      </tr>
+      <tr>
+          <td><code>%X</code></td>
+          <td>十六进制整数（大写）</td>
+          <td><code>printf(&quot;%X&quot;, 255);</code></td>
+          <td><code>FF</code></td>
+      </tr>
+      <tr>
+          <td><code>%o</code></td>
+          <td>八进制整数</td>
+          <td><code>printf(&quot;%o&quot;, 8);</code></td>
+          <td><code>10</code></td>
+      </tr>
+      <tr>
+          <td><code>%p</code></td>
+          <td>指针地址</td>
+          <td><code>printf(&quot;%p&quot;, ptr);</code></td>
+          <td><code>0x7ffeefbff5a0</code></td>
+      </tr>
+      <tr>
+          <td><code>%e</code></td>
+          <td>科学计数法（小写e）</td>
+          <td><code>printf(&quot;%e&quot;, 1234.5);</code></td>
+          <td><code>1.234500e+03</code></td>
+      </tr>
+      <tr>
+          <td><code>%E</code></td>
+          <td>科学计数法（大写E）</td>
+          <td><code>printf(&quot;%E&quot;, 1234.5);</code></td>
+          <td><code>1.234500E+03</code></td>
+      </tr>
+      <tr>
+          <td><code>%g</code></td>
+          <td>自动选 <code>%f</code> 或 <code>%e</code>（更短）</td>
+          <td><code>printf(&quot;%g&quot;, 0.00001);</code></td>
+          <td><code>1e-05</code></td>
+      </tr>
+      <tr>
+          <td><code>%u</code></td>
+          <td>无符号十进制整数</td>
+          <td><code>printf(&quot;%u&quot;, -1);</code></td>
+          <td><code>4294967295</code></td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="动态内存分配">动态内存分配
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>函数</th>
+          <th>作用</th>
+          <th>返回</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>malloc</code></td>
+          <td>申请<strong>未初始化</strong>的连续字节</td>
+          <td><code>void *</code>（成功）或 <code>NULL</code>（失败）</td>
+      </tr>
+      <tr>
+          <td><code>calloc</code></td>
+          <td>申请<strong>已清零</strong>的连续元素</td>
+          <td>同上</td>
+      </tr>
+      <tr>
+          <td><code>realloc</code></td>
+          <td><strong>扩容/缩容</strong>已申请的块</td>
+          <td>同上</td>
+      </tr>
+      <tr>
+          <td><code>free</code></td>
+          <td><strong>归还</strong>内存</td>
+          <td><code>void</code></td>
+      </tr>
+  </tbody>
+</table></div>
+<blockquote>
+<p>申请要判空，用完必释放，扩容用临时，释放后置 NULL。</p></blockquote>
 
 </section>
 

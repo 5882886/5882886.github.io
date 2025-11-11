@@ -3993,150 +3993,6 @@ $$|f&#39;(x)| \leqslant \frac{f(x)}{|h|} + M \cdot \frac{|h|}{2} \leqslant 2 \sq
         
         <guid>https://5882886.github.io/p/data-structure/</guid>
         <description>&lt;center&gt;&lt;strong&gt;&lt;p style=&#34;font-size:32px;&#34;&gt;程序 = 数据结构 + &lt;a href=&#34;https://5882886.github.io/p/algorithm/&#34;&gt;算法&lt;/a&gt;&lt;/p&gt;&lt;/strong&gt;&lt;/center&gt;
-&lt;h2 id=&#34;c语言补充知识&#34;&gt;C语言补充知识
-&lt;/h2&gt;&lt;h3 id=&#34;typedef&#34;&gt;typedef
-&lt;/h3&gt;&lt;p&gt;typedef可以给变量起一个别名，例如：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;typedef&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ElemType&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;此后可以用&lt;code&gt;ElemType&lt;/code&gt;代替&lt;code&gt;int&lt;/code&gt;。&lt;/p&gt;
-&lt;h3 id=&#34;输入输出函数&#34;&gt;输入输出函数
-&lt;/h3&gt;&lt;p&gt;一般而言，C语言的输入输出函数比&lt;code&gt;cin&lt;/code&gt;，&lt;code&gt;cout&lt;/code&gt;更高效。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;num&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;float&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;fnum&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;double&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dnum&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;str&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;// 输入
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;nf&#34;&gt;scanf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%d&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;num&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;      &lt;span class=&#34;c1&#34;&gt;// 整数
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;nf&#34;&gt;scanf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%f&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;fnum&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;     &lt;span class=&#34;c1&#34;&gt;// float类型浮点数
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;nf&#34;&gt;scanf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%lf&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dnum&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;// double类型浮点数
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;nf&#34;&gt;scanf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%s&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;str&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;       &lt;span class=&#34;c1&#34;&gt;// 字符串
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;//输出
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;nf&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%d&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;num&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nf&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%f&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;fnum&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;C语言的格式符：&lt;/p&gt;
-&lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th&gt;格式符&lt;/th&gt;
-          &lt;th&gt;含义&lt;/th&gt;
-          &lt;th&gt;示例代码&lt;/th&gt;
-          &lt;th&gt;输出示例&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;code&gt;%d&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;十进制整数&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;printf(&amp;quot;%d&amp;quot;, 123);&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;123&lt;/code&gt;&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;code&gt;%f&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;浮点数&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;printf(&amp;quot;%f&amp;quot;, 3.14);&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;3.140000&lt;/code&gt;&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;code&gt;%c&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;字符&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;printf(&amp;quot;%c&amp;quot;, &#39;A&#39;);&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;A&lt;/code&gt;&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;code&gt;%s&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;字符串&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;printf(&amp;quot;%s&amp;quot;, &amp;quot;hello&amp;quot;);&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;hello&lt;/code&gt;&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;code&gt;%x&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;十六进制整数（小写）&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;printf(&amp;quot;%x&amp;quot;, 255);&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;ff&lt;/code&gt;&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;code&gt;%X&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;十六进制整数（大写）&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;printf(&amp;quot;%X&amp;quot;, 255);&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;FF&lt;/code&gt;&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;code&gt;%o&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;八进制整数&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;printf(&amp;quot;%o&amp;quot;, 8);&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;10&lt;/code&gt;&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;code&gt;%p&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;指针地址&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;printf(&amp;quot;%p&amp;quot;, ptr);&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;0x7ffeefbff5a0&lt;/code&gt;&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;code&gt;%e&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;科学计数法（小写e）&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;printf(&amp;quot;%e&amp;quot;, 1234.5);&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;1.234500e+03&lt;/code&gt;&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;code&gt;%E&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;科学计数法（大写E）&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;printf(&amp;quot;%E&amp;quot;, 1234.5);&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;1.234500E+03&lt;/code&gt;&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;code&gt;%g&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;自动选 &lt;code&gt;%f&lt;/code&gt; 或 &lt;code&gt;%e&lt;/code&gt;（更短）&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;printf(&amp;quot;%g&amp;quot;, 0.00001);&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;1e-05&lt;/code&gt;&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;code&gt;%u&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;无符号十进制整数&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;printf(&amp;quot;%u&amp;quot;, -1);&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;4294967295&lt;/code&gt;&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;动态内存分配&#34;&gt;动态内存分配
-&lt;/h3&gt;&lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th&gt;函数&lt;/th&gt;
-          &lt;th&gt;作用&lt;/th&gt;
-          &lt;th&gt;返回&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;code&gt;malloc&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;申请&lt;strong&gt;未初始化&lt;/strong&gt;的连续字节&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;void *&lt;/code&gt;（成功）或 &lt;code&gt;NULL&lt;/code&gt;（失败）&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;code&gt;calloc&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;申请&lt;strong&gt;已清零&lt;/strong&gt;的连续元素&lt;/td&gt;
-          &lt;td&gt;同上&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;code&gt;realloc&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;&lt;strong&gt;扩容/缩容&lt;/strong&gt;已申请的块&lt;/td&gt;
-          &lt;td&gt;同上&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;code&gt;free&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;&lt;strong&gt;归还&lt;/strong&gt;内存&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;void&lt;/code&gt;&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;blockquote&gt;
-&lt;p&gt;申请要判空，用完必释放，扩容用临时，释放后置 NULL。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;顺序表&#34;&gt;顺序表
 &lt;/h2&gt;&lt;p&gt;定义：用一段物理地址连续的存储单元依次存储数据元素的线性结构。&lt;/p&gt;
 &lt;h3 id=&#34;定义与初始化&#34;&gt;定义与初始化
@@ -4614,7 +4470,7 @@ $$ACN = \frac{1}{n} \sum_{i=0}^{n-1} (i+1) = \frac{1}{n} (1+2+\cdots+n) = \frac{
 &lt;/h3&gt;&lt;p&gt;将队列首尾相连。&lt;/p&gt;
 &lt;h2 id=&#34;串&#34;&gt;串
 &lt;/h2&gt;&lt;h3 id=&#34;基本概念&#34;&gt;基本概念
-&lt;/h3&gt;&lt;p&gt;串是 $n$ $n&amp;gt;0$ 个字符的有限序列，记作&lt;code&gt;S: &#39;c1c2c3...cn&#39;&lt;/code&gt;&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;串是 $n$ $(n&amp;gt;0)$ 个字符的有限序列，记作&lt;code&gt;S: &#39;c1c2c3...cn&#39;&lt;/code&gt;&lt;/p&gt;
 &lt;table&gt;
   &lt;thead&gt;
       &lt;tr&gt;
@@ -4663,14 +4519,210 @@ $$ACN = \frac{1}{n} \sum_{i=0}^{n-1} (i+1) = \frac{1}{n} (1+2+\cdots+n) = \frac{
 &lt;h4 id=&#34;链式存储&#34;&gt;链式存储
 &lt;/h4&gt;&lt;p&gt;用链表存储串。每个节点存储串的&lt;code&gt;n&lt;/code&gt;个字符。当串长不是&lt;code&gt;n&lt;/code&gt;的整数倍时，最后一个结点的剩余位置用&lt;code&gt;#&lt;/code&gt;补齐。&lt;/p&gt;
 &lt;h3 id=&#34;串的模式匹配&#34;&gt;串的模式匹配
-&lt;/h3&gt;&lt;h4 id=&#34;朴素匹配算法&#34;&gt;朴素匹配算法
-&lt;/h4&gt;&lt;p&gt;两个指针&lt;code&gt;i&lt;/code&gt;和&lt;code&gt;j&lt;/code&gt;分别指向主串和模式串，当匹配失败时，&lt;code&gt;i&lt;/code&gt;加1，同时&lt;code&gt;j&lt;/code&gt;指向模式串开头，重新开始匹配。&lt;/p&gt;
-&lt;h4 id=&#34;kmp算法&#34;&gt;KMP算法
-&lt;/h4&gt;&lt;p&gt;参见&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/algorithm/#kmp%e7%ae%97%e6%b3%95&#34; &gt;【此处】
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;算法模式&lt;/th&gt;
+          &lt;th&gt;具体操作&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;朴素匹配算法&lt;/td&gt;
+          &lt;td&gt;两个指针&lt;code&gt;i&lt;/code&gt;和&lt;code&gt;j&lt;/code&gt;分别指向主串和模式串，当匹配失败时，&lt;code&gt;i&lt;/code&gt;加1，同时&lt;code&gt;j&lt;/code&gt;指向模式串开头，重新开始匹配。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;KMP算法&lt;/td&gt;
+          &lt;td&gt;参见&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/algorithm/#kmp%e7%ae%97%e6%b3%95&#34; &gt;【此处】
     
     
 
-&lt;/a&gt;&lt;/p&gt;
+&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;数组和广义表&#34;&gt;数组和广义表
+&lt;/h2&gt;&lt;h3 id=&#34;数组的表示&#34;&gt;数组的表示
+&lt;/h3&gt;&lt;p&gt;对于数组，一旦规定了它的维数和各维度的长度，便可为它分配存储空间。反之，只要给出一组下标便可求出相应数组元素的存储位置。&lt;/p&gt;
+&lt;p&gt;设每个数据元素占 $L$ 个存储单元，则二维数组 &lt;code&gt;A[m][n]&lt;/code&gt; 中任一元素 &lt;code&gt;a[i][j]&lt;/code&gt; 的存储位置为：&lt;/p&gt;
+$$\mathrm{LOC}(i,j) = \mathrm{LOC}(0,0) + (n \times i + j)$$&lt;blockquote&gt;
+&lt;p&gt;推广到一般情况，可得 $n$ 维数组的元素 &lt;code&gt;a[j1][j2]...[jn]&lt;/code&gt; 的存储位置：&lt;/p&gt;
+$$\mathrm{LOC}(j_1,j_2,\cdots,j_n) = \mathrm{LOC}(0,0,\cdots,0) + \sum_{i=1}^{n}c_i j_i$$&lt;p&gt;
+其中 $c_n = L，c_{i-1}=b_i \times c_i$&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;数组元素的存储位置与其下标存在一一对应的关系，所以存取数组中任一元素的时间均相等。我们称具有这一特点的存储结构为随机存储结构。&lt;/p&gt;
+&lt;h3 id=&#34;矩阵的压缩存储&#34;&gt;矩阵的压缩存储
+&lt;/h3&gt;&lt;h4 id=&#34;特殊矩阵&#34;&gt;特殊矩阵
+&lt;/h4&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;类型&lt;/th&gt;
+          &lt;th&gt;存储方法&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;对称矩阵&lt;/td&gt;
+          &lt;td&gt;为每一对对称元素分配一个存储空间，则可将 $n^2$ 个元素压缩到 $\displaystyle \frac{n(n+1)}{2}$ 个元素的空间中。以一维数组 &lt;code&gt;sa[n(n+1)/2]&lt;/code&gt; 存储，则 &lt;code&gt;sa[k]&lt;/code&gt; 与 &lt;code&gt;a[i][j]&lt;/code&gt; 之间存在对应关系：$$k=\left\{\begin{matrix} \displaystyle \frac{i(i-1)}{2}+j-1 &amp; i \geqslant j \\\\ \displaystyle \frac{j(j-1)}{2} + i - 1 &amp; i &lt; j \end{matrix} \right.$$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;三角矩阵&lt;/td&gt;
+          &lt;td&gt;与对称矩阵相同，只需再分配一个元素的空间存储常数 $c$ 即可&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;对角矩阵&lt;/td&gt;
+          &lt;td&gt;与对称矩阵类似&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;稀疏矩阵&#34;&gt;稀疏矩阵
+&lt;/h4&gt;&lt;p&gt;设矩阵&lt;code&gt;a[m][n]&lt;/code&gt;中有&lt;code&gt;t&lt;/code&gt;个元素不为&lt;code&gt;0&lt;/code&gt;，若稀疏因子 $\displaystyle \delta = \frac{t}{m \times n}$ 很小时，称之为稀疏矩阵。&lt;/p&gt;
+&lt;p&gt;为了压缩存储空间，只需要存储稀疏矩阵中的非零元。因此，除了存储非零元的值之外，还需要同时记下它所在行和列的位置 $(i,j)$。这样，三元组 $(i,j,a_{ij})$ 就与稀疏矩阵的一个非零元相对应。&lt;/p&gt;
+&lt;h2 id=&#34;树&#34;&gt;树
+&lt;/h2&gt;&lt;h3 id=&#34;二叉树&#34;&gt;二叉树
+&lt;/h3&gt;&lt;h2 id=&#34;c语言补充知识&#34;&gt;C语言补充知识
+&lt;/h2&gt;&lt;h3 id=&#34;typedef&#34;&gt;typedef
+&lt;/h3&gt;&lt;p&gt;&lt;code&gt;typedef&lt;/code&gt;可以给变量起一个别名，例如：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;typedef&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ElemType&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;此后可以用&lt;code&gt;ElemType&lt;/code&gt;代替&lt;code&gt;int&lt;/code&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;输入输出函数&#34;&gt;输入输出函数
+&lt;/h3&gt;&lt;p&gt;一般而言，C语言的输入输出函数比&lt;code&gt;cin&lt;/code&gt;，&lt;code&gt;cout&lt;/code&gt;更高效。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;num&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;float&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;fnum&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;double&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dnum&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;str&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;// 输入
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;nf&#34;&gt;scanf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%d&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;num&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;      &lt;span class=&#34;c1&#34;&gt;// 整数
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;nf&#34;&gt;scanf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%f&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;fnum&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;     &lt;span class=&#34;c1&#34;&gt;// float类型浮点数
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;nf&#34;&gt;scanf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%lf&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dnum&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;// double类型浮点数
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;nf&#34;&gt;scanf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%s&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;str&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;       &lt;span class=&#34;c1&#34;&gt;// 字符串
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;//输出
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;nf&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%d&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;num&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nf&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%f&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;fnum&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;C语言的格式符：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;格式符&lt;/th&gt;
+          &lt;th&gt;含义&lt;/th&gt;
+          &lt;th&gt;示例代码&lt;/th&gt;
+          &lt;th&gt;输出示例&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;%d&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;十进制整数&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;printf(&amp;quot;%d&amp;quot;, 123);&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;123&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;%f&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;浮点数&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;printf(&amp;quot;%f&amp;quot;, 3.14);&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;3.140000&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;%c&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;字符&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;printf(&amp;quot;%c&amp;quot;, &#39;A&#39;);&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;A&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;%s&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;字符串&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;printf(&amp;quot;%s&amp;quot;, &amp;quot;hello&amp;quot;);&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;hello&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;%x&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;十六进制整数（小写）&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;printf(&amp;quot;%x&amp;quot;, 255);&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;ff&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;%X&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;十六进制整数（大写）&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;printf(&amp;quot;%X&amp;quot;, 255);&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;FF&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;%o&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;八进制整数&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;printf(&amp;quot;%o&amp;quot;, 8);&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;10&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;%p&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;指针地址&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;printf(&amp;quot;%p&amp;quot;, ptr);&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;0x7ffeefbff5a0&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;%e&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;科学计数法（小写e）&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;printf(&amp;quot;%e&amp;quot;, 1234.5);&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;1.234500e+03&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;%E&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;科学计数法（大写E）&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;printf(&amp;quot;%E&amp;quot;, 1234.5);&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;1.234500E+03&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;%g&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;自动选 &lt;code&gt;%f&lt;/code&gt; 或 &lt;code&gt;%e&lt;/code&gt;（更短）&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;printf(&amp;quot;%g&amp;quot;, 0.00001);&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;1e-05&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;%u&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;无符号十进制整数&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;printf(&amp;quot;%u&amp;quot;, -1);&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;4294967295&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;动态内存分配&#34;&gt;动态内存分配
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;函数&lt;/th&gt;
+          &lt;th&gt;作用&lt;/th&gt;
+          &lt;th&gt;返回&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;malloc&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;申请&lt;strong&gt;未初始化&lt;/strong&gt;的连续字节&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;void *&lt;/code&gt;（成功）或 &lt;code&gt;NULL&lt;/code&gt;（失败）&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;calloc&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;申请&lt;strong&gt;已清零&lt;/strong&gt;的连续元素&lt;/td&gt;
+          &lt;td&gt;同上&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;realloc&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;strong&gt;扩容/缩容&lt;/strong&gt;已申请的块&lt;/td&gt;
+          &lt;td&gt;同上&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;free&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;strong&gt;归还&lt;/strong&gt;内存&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;void&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;申请要判空，用完必释放，扩容用临时，释放后置 NULL。&lt;/p&gt;&lt;/blockquote&gt;
 </description>
         </item>
         <item>
@@ -5132,7 +5184,7 @@ $$ n! = \left\{ \begin{array}{c} 1, &amp; n = 0 \\ n \cdot (n-1)!, &amp; n \geqs
 
 &lt;h3 id=&#34;代码-1&#34;&gt;代码
 &lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// KMP算法主体
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;KMP&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;S&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;T&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pos&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;KMP&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;S&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;T&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pos&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pos&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;S&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;T&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;||&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;S&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;T&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;

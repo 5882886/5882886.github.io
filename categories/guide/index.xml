@@ -4768,7 +4768,7 @@
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;ol&gt;
+&lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;
 &lt;p&gt;Win11系统下打开 &lt;code&gt;设置&lt;/code&gt;→&lt;code&gt;系统&lt;/code&gt;→&lt;code&gt;系统信息&lt;/code&gt;，在“相关信息”中打开“高级系统设置”&lt;/p&gt;
 &lt;/li&gt;
