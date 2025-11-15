@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="似曾相识……">
-<title>图像处理的数学原理</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="以下推送制作方法和原则适用于宣怀X-Club\n基本原则 突出有效信息。 简洁，减少“炫技”成分。 秀米操作简介 排版 基础格式 字号 16 行间距 2 字体 加粗，居中 其他 默认 若要表示强调，将字号变大并调整颜色\n">
+<title>推送制作技巧</title>
 
-<link rel='canonical' href='https://5882886.github.io/p/math_in_images/'>
+<link rel='canonical' href='https://5882886.github.io/p/passage/'>
 
-<link rel="stylesheet" href="/scss/style.min.8103b62532f6d908539ba619bec7b92c543b25612d2ce5178236ae321128c975.css"><meta property='og:title' content="图像处理的数学原理">
-<meta property='og:description' content="似曾相识……">
-<meta property='og:url' content='https://5882886.github.io/p/math_in_images/'>
+<link rel="stylesheet" href="/scss/style.min.8103b62532f6d908539ba619bec7b92c543b25612d2ce5178236ae321128c975.css"><meta property='og:title' content="推送制作技巧">
+<meta property='og:description' content="以下推送制作方法和原则适用于宣怀X-Club\n基本原则 突出有效信息。 简洁，减少“炫技”成分。 秀米操作简介 排版 基础格式 字号 16 行间距 2 字体 加粗，居中 其他 默认 若要表示强调，将字号变大并调整颜色\n">
+<meta property='og:url' content='https://5882886.github.io/p/passage/'>
 <meta property='og:site_name' content='RunicDolphin806'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-10-12T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-10-12T00:00:00&#43;00:00'/>
-<meta name="twitter:title" content="图像处理的数学原理">
-<meta name="twitter:description" content="似曾相识……">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-11-14T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-11-14T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="推送制作技巧">
+<meta name="twitter:description" content="以下推送制作方法和原则适用于宣怀X-Club\n基本原则 突出有效信息。 简洁，减少“炫技”成分。 秀米操作简介 排版 基础格式 字号 16 行间距 2 字体 加粗，居中 其他 默认 若要表示强调，将字号变大并调整颜色\n">
     <link rel="shortcut icon" href="/favicon.ico" />
 <style>
      
@@ -319,18 +319,11 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#图像的表示">图像的表示</a>
+    <li><a href="#基本原则">基本原则</a></li>
+    <li><a href="#秀米操作简介">秀米操作简介</a>
       <ol>
-        <li><a href="#像素">像素</a></li>
-        <li><a href="#色值">色值</a></li>
-      </ol>
-    </li>
-    <li><a href="#图像混合">图像混合</a>
-      <ol>
-        <li><a href="#正片叠底">正片叠底</a></li>
-        <li><a href="#反色">反色</a></li>
-        <li><a href="#滤色">滤色</a></li>
-        <li><a href="#变亮变暗">变亮&amp;变暗</a></li>
+        <li><a href="#排版">排版</a></li>
+        <li><a href="#组件">组件</a></li>
       </ol>
     </li>
   </ol>
@@ -684,8 +677,8 @@
     
     <header class="article-category">
         
-            <a href="/categories/interesting/" style="background-color: #2a9d8f; color: #fff;">
-                小乐趣
+            <a href="/categories/guide/" style="background-color: #1117d0ff; color: #fff;">
+                教程
             </a>
         
     </header>
@@ -693,13 +686,9 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/math_in_images/">图像处理的数学原理</a>
+            <a href="/p/passage/">推送制作技巧</a>
         </h2>
     
-        
-        <h3 class="article-subtitle">
-            似曾相识……
-        </h3>
         
     </div>
 
@@ -719,7 +708,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Oct 12, 2025</time>
+                <time class="article-time--published">Nov 14, 2025</time>
             </div>
         
 
@@ -735,75 +724,84 @@
     <section class="article-content">
     
     
-    <h2 id="图像的表示">图像的表示
-</h2><p>在计算机（实际上是任何电子产品）中，图像的本质是一个分块矩阵。</p>
-$$ \bm{Image} = \left[\begin{matrix}  \bm{P}_{11} & \bm{P}_{12} & \cdots & \bm{P}_{1n} \\ \bm{P}_{21} & \bm{P}_{22} & \cdots & \bm{P}_{2n} \\ \vdots & \vdots & & \vdots \\ \bm{P}_{m1} & \bm{P}_{m2} & \cdots & \bm{P}_{mn}  \end{matrix}\right] $$<p>其中每个小矩阵 $\bm{P}_{ij}$ 以 $RGB$ 的格式存储了该处的颜色信息。</p>
-<h3 id="像素">像素
-</h3><p>像素是构成数字图像的最小、最基本的单位。可以把它想象成一块块微小的、带有颜色的“马赛克”或“积木”。</p>
-<p>例如，对于这一张图片：</p>
-<figure><img src="/p/math_in_images/icon.jpg" width="700"><figcaption>
-      <h4>示例图片</h4>
-    </figcaption>
-</figure>
-
-<p>当将其放大到一定倍数后，将出现这个情况：</p>
-<figure><img src="/p/math_in_images/%E6%94%BE%E5%A4%A7%E7%BB%93%E6%9E%9C.png" width="700"><figcaption>
-      <h4>示例图片放大</h4>
-    </figcaption>
-</figure>
-
-<p>可以看出，图片变成了一个个排列整齐的色块。我们把这些色块称作<strong>像素块</strong>。每个像素块对应上述的每个小矩阵 $\bm{P}_{ij}$。它具有以下几个性质：</p>
-<ol>
-<li>像素块是排列整齐、均匀的正方形区域。</li>
-<li>每个像素块只能有一种颜色。</li>
+    <p>以下推送制作方法和原则适用于宣怀X-Club</p>
+<h2 id="基本原则">基本原则
+</h2><ol>
+<li>突出有效信息。</li>
+<li>简洁，减少“炫技”成分。</li>
 </ol>
+<h2 id="秀米操作简介">秀米操作简介
+</h2><h3 id="排版">排版
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>基础格式</th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>字号</td>
+          <td>16</td>
+      </tr>
+      <tr>
+          <td>行间距</td>
+          <td>2</td>
+      </tr>
+      <tr>
+          <td>字体</td>
+          <td>加粗，居中</td>
+      </tr>
+      <tr>
+          <td>其他</td>
+          <td>默认</td>
+      </tr>
+  </tbody>
+</table></div>
 <blockquote>
-<p>由性质2，像素块还可以看作是：图像中不可再分的最小颜色区域。</p></blockquote>
-<p>我们日常生活中常见的图片是 $n*m$ 像素，就表示图片的长有 $n$ 个像素块，宽（或常称作高）有 $m$ 个像素块。其中 $m$ 和 $n$ 分别代表图像矩阵的行数和列数。</p>
-<p>由此可见，当 $n$ 和 $m$ 的数值越大，图片可容纳的像素块就越多，表示的信息就越丰富；相应地，占用的存储空间也就越大。</p>
-<h3 id="色值">色值
-</h3><p>色值表示了像素块储存的颜色信息，目前最流行的色值表示方法为 $RGB$ 色值。</p>
-<p>每个 $RGB$ 色值有3个信息位，分别表示 红色（Red）、绿色（Green）、蓝色（Blue），取值范围均为 $[0,255]$ 的整数。相应的数值越大，表明该颜色在总颜色的占比越高。</p>
-<p>例如 $[255,0,0]$ 就表示纯红色，$[255,255,255]$ 表示白色，$[0,0,0]$ 表示黑色。所以，上述的每个小矩阵</p>
-$$\bm{P_{ij}} = [R,G,B]$$<p>其中 $R$，$G$，$B$ 分别是取值 $[0,255]$ 的整数。</p>
-<blockquote>
-<p>红、绿、蓝是光的三基色，因此将此三种颜色按一定比例混合就可以产生我们可见的所有颜色。</p></blockquote>
-<p>在一些图像处理软件中，$RGB$ 的范围被定义成 $[0,1]$。实际上，这就是 $[0,255]$ 到 $[0,1]$ 上的一个压缩映射。这时，$10$ 就表示 $\displaystyle \frac{10}{255}$；$255$ 就表示 $1$。</p>
-<blockquote>
-<p>$RGB$ 色值还有一种表示方法，即通过 <code># + 6位16进制数</code> 表示。因为10进制的 $[0,255]$ 恰好对应16进制的 $[00,FF]$，所以需要6个数位表示。</p>
-<p>例如 $\# 000000$ 对应 $[0,0,0]$，$\# FFFFFF$ 对应 $[255,255,255]$。</p></blockquote>
-<h2 id="图像混合">图像混合
-</h2><p>由图像的表示原理可知，所有图像的操作本质上是对像素块的操作。</p>
-<h3 id="正片叠底">正片叠底
-</h3><p>正片叠底，简单而言就是将两张图像合并为一张图像的过程。具体操作就是取两个图像对应的像素块，对其 $RGB$ 色值分别相乘，再除以 $255$。</p>
-<p>定义新运算 $*$ 称为正片叠底运算：</p>
-<p>对任意两个图像矩阵 $\bm{I}_1$，$\bm{I}_2$，取其重叠部分，有</p>
-$$\begin{align*} \bm{I_1} * \bm{I_2} &= \left[\begin{matrix}  \bm{A}_{11} & \bm{A}_{12} & \cdots & \bm{A}_{1n} \\ \bm{A}_{21} & \bm{A}_{22} & \cdots & \bm{A}_{2n} \\ \vdots & \vdots & & \vdots \\ \bm{A}_{m1} & \bm{A}_{m2} & \cdots & \bm{A}_{mn}  \end{matrix}\right] * \left[\begin{matrix}  \bm{B}_{11} & \bm{B}_{12} & \cdots & \bm{B}_{1n} \\ \bm{B}_{21} & \bm{B}_{22} & \cdots & \bm{B}_{2n} \\ \vdots & \vdots & & \vdots \\ \bm{B}_{m1} & \bm{B}_{m2} & \cdots & \bm{B}_{mn}  \end{matrix}\right] \\ \\ &= \frac{1}{255} \left[\begin{matrix}  \bm{A}_{11} \cdot \bm{B}_{11} & \bm{A}_{12} \cdot \bm{B}_{12} & \cdots & \bm{A}_{1n} \cdot \bm{B}_{1n} \\ \bm{A}_{21} \cdot \bm{B}_{21} & \bm{A}_{22} \cdot \bm{B}_{22} & \cdots & \bm{A}_{2n} \cdot \bm{B}_{2n} \\ \vdots & \vdots & & \vdots \\ \bm{A}_{m1} \cdot \bm{B}_{m1} & \bm{A}_{m2} \cdot \bm{B}_{m2} & \cdots & \bm{A}_{mn} \cdot\bm{B}_{mn}  \end{matrix}\right] \end{align*}$$<p>容易知道，对于运算 $*$，满足以下性质：</p>
-<ol>
-<li>封闭性：任何两张图像正片叠底后仍是一张图像（这不废话么……）。</li>
-<li>可结合性：$$(\bm{A}*\bm{B})*\bm{C} = \bm{A}*(\bm{B}*\bm{C})$$ 即<strong>多张图像正片叠底，最终效果与正片叠底顺序无关</strong>。</li>
-<li>可交换性：$$\bm{A}*\bm{B} = \bm{B}*\bm{A}$$ 即<strong>两张图像正片叠底，最终效果与哪张图像作为底图无关</strong>。</li>
-<li>具有零元 $$ \bm{\theta} = \left[\begin{matrix}  \bm{O} & \bm{O} & \cdots & \bm{O} \\ \bm{O} & \bm{O} & \cdots & \bm{O} \\ \vdots & \vdots & & \vdots \\ \bm{O} & \bm{O} & \cdots & \bm{O}  \end{matrix}\right] $$ 其中 $\bm{O} = [0,0,0]$。 <br> 即<strong>任何一张图像与纯黑图像正片叠底，都将得到纯黑图像</strong>。</li>
-<li>具有幺元（单位元）$$ \bm{e} = \left[\begin{matrix}  \bm{E} & \bm{E} & \cdots & \bm{E} \\ \bm{E} & \bm{E} & \cdots & \bm{E} \\ \vdots & \vdots & & \vdots \\ \bm{E} & \bm{E} & \cdots & \bm{E}  \end{matrix}\right] $$ 其中 $\bm{E} = [255,255,255]$。<br> 即<strong>任何一张图像与纯白图像正片叠底，都将得到原图像</strong>。</li>
-</ol>
-<blockquote>
-<p>因此运算 $*$ 构成一个独异点（雾）。</p></blockquote>
-<p>由性质4和5可知，正片叠底实现了“去白留黑”。</p>
-<blockquote>
-<p>容易看出，图层混合是对图像对应的像素块做相同的操作，定义图层混合运算仅需给出对于像素块的操作。</p></blockquote>
-<h3 id="反色">反色
-</h3><p>反色，通俗地讲就是将图像颜色“反转”，也就是每个像素块的颜色都变成 $[255-R,255-G,255-B]$。</p>
-<p>定义运算 $!$ 为反色运算，则</p>
-$$ !\bm{Image} = \bm{e}-\bm{Image} = [255-R,255-G,255-B] $$<p>特别地，有：</p>
-$$!\bm{e} = \bm{\theta} \\ !\bm{\theta} = \bm{e}$$<p>经过反色操作，图像的黑色会变成白色，白色会变成黑色。</p>
-<h3 id="滤色">滤色
-</h3><p>滤色计算公式为：$!((!\bm{A}) * (!\bm{B})) = \bm{e}-(\bm{e}-\bm{A})*(\bm{e}-\bm{B})$</p>
-<p>特别地，取 $\bm{B} = \bm{e}$，即与纯白图片滤色，则有</p>
-$$!((!\bm{A}) * (!\bm{B})) = \bm{e}-\bm{\theta} * (\bm{e}-\bm{A}) = \bm{e}-\bm{\theta} = \bm{e}$$<p>取 $\bm{B} = \bm{\theta}$，即与纯黑图片滤色，则有</p>
-$$!((!\bm{A}) * (!\bm{B})) = \bm{e}-\bm{e} * (\bm{e}-\bm{A}) = \bm{e}-(\bm{e}-\bm{A}) = \bm{A}$$<p>由上述公式可知，滤色实现了“去黑留白”。</p>
-<h3 id="变亮变暗">变亮&amp;变暗
-</h3><p>定义运算 $\mathrm{MAX}$ 为变亮运算，$\mathrm{MIN}$ 为变暗运算。分析每一个像素块，则：</p>
-$$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &= [\mathrm{max}(R_1,R_2),\mathrm{max}(G_1,G_2),\mathrm{max}(B_1,B_2)] \\ \\ \mathrm{MIN}(\bm{A}, \bm{B}) &= [\mathrm{min}(R_1,R_2),\mathrm{min}(G_1,G_2),\mathrm{min}(B_1,B_2)] \end{align*}$$
+<p>若要表示强调，将字号变大并调整颜色</p></blockquote>
+<h3 id="组件">组件
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>属性</th>
+          <th>介绍</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>组前距和组后距</td>
+          <td>调整单个组件上下的距离。使用<code>%</code>作为单位，可以保持跨平台的观感一致性</td>
+      </tr>
+      <tr>
+          <td>重叠顺序</td>
+          <td>设置组件所在的图层，数值越高图层越在上方</td>
+      </tr>
+  </tbody>
+</table></div>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>常用组件</th>
+          <th>样式</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>标题</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>图片</td>
+          <td>只用基础格式。特别地，多张图片可以使用左右滑动格式或svg图集</td>
+      </tr>
+      <tr>
+          <td>分隔线</td>
+          <td></td>
+      </tr>
+  </tbody>
+</table></div>
+
 </section>
 
 
@@ -880,19 +878,6 @@ $$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &= [\mathrm{max}(R_1,R_2),\mathrm
             
                 
 <article class="">
-    <a href="/p/probability/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">概率论与数理统计</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
     <a href="/p/texstudio/">
         
         
@@ -906,12 +891,12 @@ $$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &= [\mathrm{max}(R_1,R_2),\mathrm
             
                 
 <article class="">
-    <a href="/p/shell/">
+    <a href="/p/nemu-part-2/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">Shell实验</h2>
+            <h2 class="article-title">NEMU-PART II</h2>
         </div>
     </a>
 </article>
@@ -919,12 +904,25 @@ $$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &= [\mathrm{max}(R_1,R_2),\mathrm
             
                 
 <article class="">
-    <a href="/p/nemu-part-2/">
+    <a href="/p/nemu-part-2-pre/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">NEMU-PART II</h2>
+            <h2 class="article-title">NEMU-PART II Pre</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/nemu-part-1/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">NEMU-PART I</h2>
         </div>
     </a>
 </article>

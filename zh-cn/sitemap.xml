@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://5882886.github.io/</loc>
-    <lastmod>2025-11-07T00:00:00+00:00</lastmod>
+    <lastmod>2025-11-14T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -16,7 +16,7 @@
                 />
   </url><url>
     <loc>https://5882886.github.io/categories/</loc>
-    <lastmod>2025-11-07T00:00:00+00:00</lastmod>
+    <lastmod>2025-11-14T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -29,7 +29,7 @@
                 />
   </url><url>
     <loc>https://5882886.github.io/post/</loc>
-    <lastmod>2025-11-07T00:00:00+00:00</lastmod>
+    <lastmod>2025-11-14T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -41,27 +41,8 @@
                 href="https://5882886.github.io/post/"
                 />
   </url><url>
-    <loc>https://5882886.github.io/p/probability/</loc>
-    <lastmod>2025-11-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://5882886.github.io/categories/interesting/</loc>
-    <lastmod>2025-11-07T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://5882886.github.io/en/categories/interesting/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://5882886.github.io/categories/interesting/"
-                />
-  </url><url>
-    <loc>https://5882886.github.io/p/texstudio/</loc>
-    <lastmod>2025-10-29T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://5882886.github.io/categories/guide/</loc>
-    <lastmod>2025-10-29T00:00:00+00:00</lastmod>
+    <lastmod>2025-11-14T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -73,17 +54,14 @@
                 href="https://5882886.github.io/categories/guide/"
                 />
   </url><url>
+    <loc>https://5882886.github.io/p/passage/</loc>
+    <lastmod>2025-11-14T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://5882886.github.io/categories/csapp/</loc>
-    <lastmod>2025-10-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://5882886.github.io/p/shell/</loc>
-    <lastmod>2025-10-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://5882886.github.io/p/math_in_images/</loc>
-    <lastmod>2025-10-12T00:00:00+00:00</lastmod>
+    <lastmod>2025-11-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://5882886.github.io/categories/nemu/</loc>
-    <lastmod>2025-09-17T00:00:00+00:00</lastmod>
+    <lastmod>2025-11-11T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -94,6 +72,34 @@
                 hreflang="zh-cn"
                 href="https://5882886.github.io/categories/nemu/"
                 />
+  </url><url>
+    <loc>https://5882886.github.io/p/nemu-part-3/</loc>
+    <lastmod>2025-11-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://5882886.github.io/categories/interesting/</loc>
+    <lastmod>2025-11-11T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://5882886.github.io/en/categories/interesting/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://5882886.github.io/categories/interesting/"
+                />
+  </url><url>
+    <loc>https://5882886.github.io/p/probability/</loc>
+    <lastmod>2025-11-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://5882886.github.io/p/texstudio/</loc>
+    <lastmod>2025-10-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://5882886.github.io/p/shell/</loc>
+    <lastmod>2025-10-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://5882886.github.io/p/math_in_images/</loc>
+    <lastmod>2025-10-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://5882886.github.io/p/nemu-part-2/</loc>
     <lastmod>2025-09-17T00:00:00+00:00</lastmod>

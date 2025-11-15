@@ -7,18 +7,10 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>RunicDolphin806</copyright>
-        <lastBuildDate>Fri, 07 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://5882886.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>小乐趣</title>
-        <link>https://5882886.github.io/categories/interesting/</link>
-        <pubDate>Fri, 07 Nov 2025 00:00:00 +0000</pubDate>
-        
-        <guid>https://5882886.github.io/categories/interesting/</guid>
-        <description></description>
-        </item>
-        <item>
+        <lastBuildDate>Fri, 14 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://5882886.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>教程</title>
         <link>https://5882886.github.io/categories/guide/</link>
-        <pubDate>Wed, 29 Oct 2025 00:00:00 +0000</pubDate>
+        <pubDate>Fri, 14 Nov 2025 00:00:00 +0000</pubDate>
         
         <guid>https://5882886.github.io/categories/guide/</guid>
         <description></description>
@@ -26,7 +18,7 @@
         <item>
         <title>CSAPP</title>
         <link>https://5882886.github.io/categories/csapp/</link>
-        <pubDate>Sun, 19 Oct 2025 00:00:00 +0000</pubDate>
+        <pubDate>Tue, 11 Nov 2025 00:00:00 +0000</pubDate>
         
         <guid>https://5882886.github.io/categories/csapp/</guid>
         <description></description>
@@ -34,10 +26,18 @@
         <item>
         <title>NEMU</title>
         <link>https://5882886.github.io/categories/nemu/</link>
-        <pubDate>Wed, 17 Sep 2025 00:00:00 +0000</pubDate>
+        <pubDate>Tue, 11 Nov 2025 00:00:00 +0000</pubDate>
         
         <guid>https://5882886.github.io/categories/nemu/</guid>
         <description>&lt;img src="https://5882886.github.io/categories/nemu/NEMU.png" alt="Featured image of post NEMU" /&gt;</description>
+        </item>
+        <item>
+        <title>小乐趣</title>
+        <link>https://5882886.github.io/categories/interesting/</link>
+        <pubDate>Tue, 11 Nov 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://5882886.github.io/categories/interesting/</guid>
+        <description></description>
         </item>
         <item>
         <title>网站</title>
