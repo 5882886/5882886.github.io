@@ -379,7 +379,7 @@
             <li><a href="#独立性">独立性</a></li>
           </ol>
         </li>
-        <li><a href="#二维连续性随机变量及其分布">二维连续性随机变量及其分布</a>
+        <li><a href="#二维连续型随机变量及其分布">二维连续型随机变量及其分布</a>
           <ol>
             <li><a href="#联合概率密度函数">联合概率密度函数</a></li>
             <li><a href="#边缘概率密度函数">边缘概率密度函数</a></li>
@@ -387,6 +387,12 @@
             <li><a href="#条件概率密度函数">条件概率密度函数</a></li>
             <li><a href="#独立性-1">独立性</a></li>
             <li><a href="#二维正态分布的性质">二维正态分布的性质</a></li>
+          </ol>
+        </li>
+        <li><a href="#二维随机变量函数的分布">二维随机变量函数的分布</a>
+          <ol>
+            <li><a href="#二维离散型随机变量函数的分布">二维离散型随机变量函数的分布</a></li>
+            <li><a href="#二维连续型随机变量函数的分布">二维连续型随机变量函数的分布</a></li>
           </ol>
         </li>
       </ol>
@@ -922,7 +928,30 @@ $$P(A) = \frac{A \text{的度量}}{\varOmega \text{的度量}}$$<h3 id="条件�
 </p>
 $$P(A_1 A_2 \cdots A_n) = P(A_1) P(A_2|A_1) P(A_3|A_1 A_2) \cdots P(A_n|A_1 A_2 \cdots A_{n-1})$$<h4 id="全概率公式">全概率公式
 </h4><p>若 $A_1，A_2，\cdots A_n，B$ 是 $E$ 中的事件，且满足 $A_1 \cup A_2 \cup \cdots \cup A_n = \varOmega$，则 </p>
-$$P(B) = \sum_{i=1}^{n} P(A_i) P(B|A_i)$$<h4 id="贝叶斯公式">贝叶斯公式
+$$P(B) = \sum_{i=1}^{n} P(A_i) P(B|A_i)$$<p>案例：敏感性问题调查</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>步骤</th>
+          <th>要求</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>设计两个问题</td>
+          <td><ol> <li> 你的生日是否在7月1日之前 </li> <li> <em>要调查的问题</em> </li> </ol></td>
+      </tr>
+      <tr>
+          <td>操作要求</td>
+          <td><ol> <li> 被调查者在没有旁人的情况下，独自一人回答问题 </li> <li> 在一个袋子中放入若干个红球和白球，被调查者从袋子中随机抽一个球，看过颜色后放回. 若抽到白球则回答问题1；若抽到红球则回答问题2 </li> <li> 被调查者只回答“是”或“否” </li> </ol></td>
+      </tr>
+      <tr>
+          <td>分析调查结果</td>
+          <td>设共收到 $n$ 张答卷，其中有 $k$ 张答卷回答“是”；同时，在人数较多的场合中，任选一人其生日在7月1日之前的概率为 $0.5$；袋子中红球的比率为 $\alpha$，则可知问题2回答“是”的概率为 $$p=\frac{\dfrac{k}{n}-0.5(1-\alpha)}{\alpha}$$</td>
+      </tr>
+  </tbody>
+</table></div>
+<h4 id="贝叶斯公式">贝叶斯公式
 </h4>$$P(A_i |B) = \frac{P(A_i B)}{P(B)} = \frac{P(A_i)P(B|A_i)}{\displaystyle \sum_{i=1}^{n} P(A_i)P(B|A_i)}$$<h3 id="事件的独立性">事件的独立性
 </h3><p>设 $n$ 个事件 $A_1，A_2，\cdots，A_n$，若对任意 $k=2，3，\cdots，n$ 和任意一组 $1 \leqslant i_1 &lt; i_2 &lt; \cdots &lt; i_k \leqslant n$，都有
 </p>
@@ -954,7 +983,7 @@ $$F(x) = P\{X \leqslant x\}$$<p> 则称 $F(x)$ 为随机变量 $X$ 的概率分�
       </tr>
   </tbody>
 </table></div>
-<p>区间概率: $P\{x_1 &lt; X \leqslant x_2\} = P\{X \leqslant x_2\} - P\{X \leqslant x_1\} = F(x_2) - F(x_1)$</p>
+<p>区间概率：$P\{x_1 &lt; X \leqslant x_2\} = P\{X \leqslant x_2\} - P\{X \leqslant x_1\} = F(x_2) - F(x_1)$</p>
 <p>样本点概率：$P\{X = a\} = F(a+0) - F(a-0)$</p>
 <h3 id="离散型随机变量的分布">离散型随机变量的分布
 </h3><h4 id="概率分布律">概率分布律
@@ -1022,7 +1051,10 @@ $$P\{X = x_k\} = p_k$$<p> 为随机变量 $X$ 的概率分布律. 可用表格�
 </table></div>
 <h4 id="泊松定理">泊松定理
 </h4><p>设 $\displaystyle p_n = \frac{\lambda}{n}$，$\lambda &gt; 0$ 是常数，则对任一非负整数 $k$，有 </p>
-$$\lim_{n \to \infty} \mathrm{C}_n^k p_n^k(1-p_n)^{n-k} = \frac{\lambda^k \mathrm{e}^{-\lambda}}{k!}$$<h4 id="几何分布的无记忆性">几何分布的无记忆性
+$$\lim_{n \to \infty} \mathrm{C}_n^k p_n^k(1-p_n)^{n-k} = \frac{\lambda^k \mathrm{e}^{-\lambda}}{k!}$$<blockquote>
+<p>根据泊松定理，当 $n$ 很大且 $p$ 很小时，二项分布可以近似为泊松分布，此时有 $\lambda = np$，且 </p>
+$$\mathrm{C}_n^k p_n^k(1-p_n)^{n-k} = \frac{\lambda^k \mathrm{e}^{-\lambda}}{k!}$$</blockquote>
+<h4 id="几何分布的无记忆性">几何分布的无记忆性
 </h4><p>如果 $X \sim G(p)$，则对任意正整数 $m$，$n$，都有 </p>
 $$P\{X>m+n \ |\  X>m\} = P\{X>n\}$$<h3 id="连续型随机变量的分布">连续型随机变量的分布
 </h3><h4 id="概率密度函数">概率密度函数
@@ -1293,7 +1325,7 @@ $$P\{X=x,\ Y=y\}=p_{ij}$$<p> 为随机变量 $(X,Y)$ 的联合概率分布律，
 <h4 id="条件概率分布律">条件概率分布律
 </h4>$$P\{X=x_i \ |\ Y=y_j\} = \frac{p_{ij}}{p_{\cdot j}}$$<h4 id="独立性">独立性
 </h4><p>对于二元离散型随机变量 $(X,Y)$，则 $X$ 与 $Y$ 相互独立等价于对任意的 $i,j = 1,2,\cdots,$ 都有 </p>
-$$P\{X=x_i \ |\ Y=y_j\} = p_{i \cdot} p_{\cdot j}$$<h3 id="二维连续性随机变量及其分布">二维连续性随机变量及其分布
+$$P\{X=x_i \ |\ Y=y_j\} = p_{i \cdot} p_{\cdot j}$$<h3 id="二维连续型随机变量及其分布">二维连续型随机变量及其分布
 </h3><h4 id="联合概率密度函数">联合概率密度函数
 </h4><p>设二维随机变量 $(X,Y)$ 的联合分布函数为 $F(x,y)$，若存在非负实函数 $f(x,y)$，使得对于任意 $(x,y) \in \textbf{R}^2$，都有 </p>
 $$F(x,y) = \int_{-\infty}^{x} \mathrm{d}s \int_{-\infty}^{y} f(s,t) \mathrm{d}t$$<p> 则称 $(X,Y)$ 为二维连续型随机变量，并称 $f(x,y)$ 为 $(X,Y)$ 的联合概率密度函数.</p>
@@ -1320,22 +1352,22 @@ $$F(x,y) = \int_{-\infty}^{x} \mathrm{d}s \int_{-\infty}^{y} f(s,t) \mathrm{d}t$
   </tbody>
 </table></div>
 <h4 id="边缘概率密度函数">边缘概率密度函数
-</h4><p>对于二维连续性随机变量 $(X,Y)$，联合概率密度函数 $f(x,y)$，边缘概率密度函数分别为 $f_X(x)$ 和 $f_Y(y)$，则有 </p>
+</h4><p>对于二维连续型随机变量 $(X,Y)$，联合概率密度函数 $f(x,y)$，边缘概率密度函数分别为 $f_X(x)$ 和 $f_Y(y)$，则有 </p>
 $$f_X(x) = \int_{-\infty}^{+\infty} f(x,y) \mathrm{d}y $$<p> </p>
 $$ f_Y(y) = \int_{-\infty}^{+\infty} f(x,y) \mathrm{d}x$$<h4 id="常用二维连续型随机变量的分布">常用二维连续型随机变量的分布
 </h4><h5 id="二维均匀分布">二维均匀分布
-</h5><p>设 $(X,Y)$ 是二维连续性随机变量，$G$ 是平面上一有界区域，且联合概率密度函数满足 </p>
+</h5><p>设 $(X,Y)$ 是二维连续型随机变量，$G$ 是平面上一有界区域，且联合概率密度函数满足 </p>
 $$f(x,y) = \left\{ \begin{matrix} \displaystyle \frac{1}{S_G} & (x,y) \in G \\\\ 0 & 其他 \end{matrix} \right.$$<p> 其中 $S_G$ 表示区域 $G$ 的面积.</p>
 <h5 id="二维正态分布">二维正态分布
-</h5><p>设 $(X,Y)$ 是二维连续性随机变量，且联合概率密度函数满足 </p>
+</h5><p>设 $(X,Y)$ 是二维连续型随机变量，且联合概率密度函数满足 </p>
 $$f(x,y) = \frac{1}{2\pi \sigma_{1} \sigma_{2} \sqrt{1-\rho^2} } \cdot \mathrm{exp}\left\{ \frac{1}{2(1-\rho^2)} \left[ \left( \frac{x-\mu_{1}}{\sigma_{1}} \right)^2 - \frac{2\rho(x-\mu_{1})(y-\mu_{2})}{\sigma_{1}\sigma_{2}} + \left( \frac{y-\mu_{2}}{\sigma_{2}} \right)^2 \right] \right\}$$<h4 id="条件概率密度函数">条件概率密度函数
-</h4><p>设 $(X,Y)$ 为二维连续性随机变量，在条件 $Y=y$ 下，随机变量 $X$ 的条件分布函数为 $F_{X\ |\ Y} (x\ |\ y)$，条件概率密度函数为 $f_{X\ |\ Y} (x\ |\ y)$</p>
+</h4><p>设 $(X,Y)$ 为二维连续型随机变量，在条件 $Y=y$ 下，随机变量 $X$ 的条件分布函数为 $F_{X\ |\ Y} (x\ |\ y)$，条件概率密度函数为 $f_{X\ |\ Y} (x\ |\ y)$</p>
 $$f_{X\ |\ Y} = \frac{f(x,y)}{f_Y(y)} $$<p> </p>
 $$ f_{Y\ |\ X} = \frac{f(x,y)}{f_X(x)}$$<blockquote>
 <p>随机变量的边缘密度函数只与该随机变量有关，而与另一个变量无关.</p>
 <p>条件密度通常情况下与两个随机变量都有关系.</p></blockquote>
 <h4 id="独立性-1">独立性
-</h4><p>设 $(X,Y)$ 是二维连续性随机变量，联合概率密度函数为 $f(x,y)$，边缘密度函数分别为 $f_X(x)$ 和 $f_Y(y)$，则 $X$ 和 $Y$ 相互独立的等价于对任意的 $(x,y) \in \textbf{R}^2$，在平面上几乎处处成立 </p>
+</h4><p>设 $(X,Y)$ 是二维连续型随机变量，联合概率密度函数为 $f(x,y)$，边缘密度函数分别为 $f_X(x)$ 和 $f_Y(y)$，则 $X$ 和 $Y$ 相互独立的等价于对任意的 $(x,y) \in \textbf{R}^2$，在平面上几乎处处成立 </p>
 $$f(x,y) = f_X(x) f_Y(y)$$<p>易知，连续型随机变量 $(X,Y)$ 相互独立还等价于 </p>
 $$f_{X\ |\ Y}(x\ |\ y) = f_X(x)，x \in \textbf{R} \quad 或 \quad f_{Y\ |\ X}(y\ |\ x) = f_Y(y)，y \in \textbf{R}$$<h4 id="二维正态分布的性质">二维正态分布的性质
 </h4><ol>
@@ -1343,7 +1375,26 @@ $$f_{X\ |\ Y}(x\ |\ y) = f_X(x)，x \in \textbf{R} \quad 或 \quad f_{Y\ |\ X}(y
 <li>二维正态随机变量的条件分布仍是正态分布.</li>
 <li>二维随机变量 $(X,Y) \sim N(\mu_{1},\mu_{2}; \sigma_{1}^{2}, \sigma_{2}^{2}; \rho)$，则 $(X,Y)$ 相互独立的充要条件是 $\rho = 0$.</li>
 </ol>
-
+<h3 id="二维随机变量函数的分布">二维随机变量函数的分布
+</h3><h4 id="二维离散型随机变量函数的分布">二维离散型随机变量函数的分布
+</h4><p>设 $(X,Y)$ 为二维离散型随机变量，则由函数 $Z=g(X,Y)$ 确定的随机变量也是离散型随机变量.</p>
+<p>求随机变量 $Z$ 的分布：</p>
+<ol>
+<li>确定 $Z$ 的所有可能值.</li>
+<li>逐个计算 $Z$ 取每个可能值的概率.</li>
+</ol>
+<h4 id="二维连续型随机变量函数的分布">二维连续型随机变量函数的分布
+</h4><p>常见的二维连续型随机变量函数</p>
+<ol>
+<li>$Z=X+Y$</li>
+</ol>
+<p>设 $(X,Y)$ 的联合概率密度函数为 $f(x,y)$，$(x,y) \in \textbf{R}^2$，边缘密度函数分别为 $f_X(x)$，$f_Y(y)$. 对任意实数 $z$，随机变量 $Z$ 的概率密度函数 </p>
+$$f_Z(z) = \int_{-\infty}^{+\infty} f(x,z-x) \mathrm{d}x $$<p> </p>
+$$f_Z(z) = \int_{-\infty}^{+\infty} f(z-y,y) \mathrm{d}y $$<p>称上述两式为 $X$ 与 $Y$ 的卷积公式.</p>
+<ol start="2">
+<li>$M=\mathrm{max}\{X,Y\}$，$N=\mathrm{min}\{X,Y\}$</li>
+</ol>
+$$F_M(z) = P\{\mathrm{max}\{X,Y\} \leqslant z\} = P\{X \leqslant z, Y \leqslant y\} = F(z,z)$$$$F_N(z) = P\{\mathrm{min}\{X,Y\} \leqslant z\} = 1-P\{\mathrm{min}\{X,Y\} > z\} = 1-\left[ 1-F_X(z) \right] \left[ 1-F_Y(z) \right]$$
 </section>
 
 

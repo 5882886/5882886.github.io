@@ -395,7 +395,16 @@
     </li>
     <li><a href="#树">树</a>
       <ol>
-        <li><a href="#二叉树">二叉树</a></li>
+        <li><a href="#树的定义">树的定义</a></li>
+        <li><a href="#二叉树">二叉树</a>
+          <ol>
+            <li><a href="#二叉树的性质">二叉树的性质</a></li>
+            <li><a href="#二叉树的存储结构">二叉树的存储结构</a></li>
+            <li><a href="#二叉树的遍历">二叉树的遍历</a></li>
+            <li><a href="#遍历的应用">遍历的应用</a></li>
+            <li><a href="#二叉树的重构">二叉树的重构</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
     <li><a href="#c语言补充知识">C语言补充知识</a>
@@ -1393,8 +1402,157 @@ $$\mathrm{LOC}(j_1,j_2,\cdots,j_n) = \mathrm{LOC}(0,0,\cdots,0) + \sum_{i=1}^{n}
 </h4><p>设矩阵<code>a[m][n]</code>中有<code>t</code>个元素不为<code>0</code>，若稀疏因子 $\displaystyle \delta = \frac{t}{m \times n}$ 很小时，称之为稀疏矩阵。</p>
 <p>为了压缩存储空间，只需要存储稀疏矩阵中的非零元。因此，除了存储非零元的值之外，还需要同时记下它所在行和列的位置 $(i,j)$。这样，三元组 $(i,j,a_{ij})$ 就与稀疏矩阵的一个非零元相对应。</p>
 <h2 id="树">树
-</h2><h3 id="二叉树">二叉树
-</h3><h2 id="c语言补充知识">C语言补充知识
+</h2><h3 id="树的定义">树的定义
+</h3><p>树是由 $n$ $(n&gt;0)$ 个结点的有限集合。如果 $n=0$，称为空树；如果 $n&gt;0$，则</p>
+<ol>
+<li>有且仅有一个根结点，它没有直接前驱。</li>
+<li>当 $n&gt;1$，除根结点以外的其他结点划分为 $m$ $m&gt;0$ 个互不相交的有限集 $T_1, T_2, \cdots , T_m$，其中每个集合本身又是一棵树，并且称为根的子树。</li>
+</ol>
+<blockquote>
+<p>由树的性质可知，树的结构具有递归性。</p></blockquote>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>基本概念</th>
+          <th>含义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>结点</td>
+          <td>一个数据元素及其指向结点的分支</td>
+      </tr>
+      <tr>
+          <td>度</td>
+          <td>结点拥有的子树个数</td>
+      </tr>
+      <tr>
+          <td>叶结点</td>
+          <td>度为 $0$ 的节点</td>
+      </tr>
+      <tr>
+          <td>子女</td>
+          <td>结点子树的根</td>
+      </tr>
+      <tr>
+          <td>兄弟</td>
+          <td>同一个结点的子女</td>
+      </tr>
+      <tr>
+          <td>祖先</td>
+          <td>根结点到该结点路径上的所有结点</td>
+      </tr>
+      <tr>
+          <td>子孙</td>
+          <td>某结点为根结点的子树上的任意结点</td>
+      </tr>
+      <tr>
+          <td>层</td>
+          <td>以根结点为第一层，根结点的子女为第二层，以此类推</td>
+      </tr>
+      <tr>
+          <td>树的深度</td>
+          <td>树中结点的最大层数</td>
+      </tr>
+      <tr>
+          <td>有序树</td>
+          <td>树中结点的子树从左向右有序</td>
+      </tr>
+      <tr>
+          <td>森林</td>
+          <td>$m$ $(m \leqslant 0)$ 棵互不相交的树</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="二叉树">二叉树
+</h3><p>二叉树是结点的一个有限集合，该集合或者为空，或者是由一个根结点加上互不相交的左右子树。</p>
+<h4 id="二叉树的性质">二叉树的性质
+</h4><ol>
+<li>在二叉树的第 $i$ $(i \geqslant 1)$ 层上至多有 $2^{i-1}$ 个结点。</li>
+<li>深度为 $k$ $(k \geqslant 1)$ 的二叉树至多有 $2^{k-1}$ 个结点。</li>
+<li>对任意一个二叉树 $T$，如果其叶结点数为 $n_0$，度为 $2$ 的结点数为 $n_2$，则 $n_0 = n_2 + 1$。</li>
+<li>拥有 $n$ $(n \geqslant 0)$ 个结点的完全二叉树的深度为 $\left[ \log_{2}(n)\right] + 1$</li>
+</ol>
+<h4 id="二叉树的存储结构">二叉树的存储结构
+</h4><ol>
+<li>顺序存储</li>
+<li>链式存储</li>
+</ol>
+<h4 id="二叉树的遍历">二叉树的遍历
+</h4><p>遍历：按某种次序访问树中所有结点，并且每个结点仅访问一次的操作。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// 访问结点
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">visit</span><span class="p">(</span><span class="n">BinTreeNode</span> <span class="o">*</span><span class="n">T</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">T</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>遍历分为广度优先遍历和深度优先遍历两种。</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>遍历的方式</th>
+          <th>性质</th>
+          <th>具体内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>层序遍历</td>
+          <td>广度优先</td>
+          <td>逐层从左至右，从上到下访问</td>
+      </tr>
+      <tr>
+          <td>先序遍历</td>
+          <td>深度优先</td>
+          <td>先访问根结点，再访问左子树，最后访问右子树</td>
+      </tr>
+      <tr>
+          <td>中序遍历</td>
+          <td>深度优先</td>
+          <td>先访问左子树，再访问根结点，最后访问右子树</td>
+      </tr>
+      <tr>
+          <td>后序遍历</td>
+          <td>深度优先</td>
+          <td>先访问左子树，再访问右子树，最后访问根结点</td>
+      </tr>
+  </tbody>
+</table></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1">// 先序遍历
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">PreOrder</span><span class="p">(</span><span class="n">BinTreeNode</span> <span class="o">*</span><span class="n">T</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">T</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">        <span class="n">visit</span><span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">        <span class="n">PreOrder</span><span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">leftChild</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">        <span class="n">PreOrder</span><span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">rightChild</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">
+</span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="c1">// 中序遍历
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">InOrder</span><span class="p">(</span><span class="n">BinTreeNode</span> <span class="o">*</span><span class="n">T</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">T</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">        <span class="n">PreOrder</span><span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">leftChild</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">        <span class="n">visit</span><span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">        <span class="n">PreOrder</span><span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">rightChild</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">
+</span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="c1">// 后序遍历
+</span></span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">PostOrder</span><span class="p">(</span><span class="n">BinTreeNode</span> <span class="o">*</span><span class="n">T</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">T</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">        <span class="n">PreOrder</span><span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">leftChild</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">        <span class="n">PreOrder</span><span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">rightChild</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">        <span class="n">visit</span><span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h4 id="遍历的应用">遍历的应用
+</h4><ol>
+<li>按前序建立二叉树</li>
+<li>计算二叉树结点个数</li>
+<li>求二叉树叶结点个数</li>
+<li>求二叉树高度</li>
+</ol>
+<h4 id="二叉树的重构">二叉树的重构
+</h4><h2 id="c语言补充知识">C语言补充知识
 </h2><h3 id="typedef">typedef
 </h3><p><code>typedef</code>可以给变量起一个别名，例如：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">typedef</span> <span class="kt">int</span> <span class="n">ElemType</span>
