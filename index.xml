@@ -545,10 +545,13 @@
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;容斥原理&lt;/td&gt;
-          &lt;td&gt;对任意两个事件 $A，B$，有 $P(A \cup B) = P(A) + P(B) - P(AB)$ &lt;br&gt; 一般的，对于 $n$ 个事件 $A_i$，有 $$\begin{align*} P\left(\bigcup_{i=1}^{n} A_i \right) = \sum_{i=1}^{n} P(A_i) &amp;- \sum_{1 \leqslant i &lt; j \leqslant n} P(A_i A_j) \\ &amp;+ \sum_{1 \leqslant i &lt; j &lt; k \leqslant n} P(A_i A_j A_k) - \cdots + (-1)^{n-1} P(A_1 A_2 \cdots A_n) \end{align*}$$&lt;/td&gt;
+          &lt;td&gt;对任意两个事件 $A，B$，有 $P(A \cup B) = P(A) + P(B) - P(AB)$&lt;/td&gt;
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;一般的，对于 $n$ 个事件 $A_i$，有 &lt;/p&gt;
+$$\begin{align*} P\left(\bigcup_{i=1}^{n} A_i \right) = \sum_{i=1}^{n} P(A_i) &amp;- \sum_{1 \leqslant i &lt; j \leqslant n} P(A_i A_j) \\ &amp;+ \sum_{1 \leqslant i &lt; j &lt; k \leqslant n} P(A_i A_j A_k) - \cdots + (-1)^{n-1} P(A_1 A_2 \cdots A_n) \end{align*}$$&lt;/blockquote&gt;
 &lt;h3 id=&#34;古典概型与几何概型&#34;&gt;古典概型与几何概型
 &lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;古典概型&lt;/li&gt;
@@ -591,15 +594,15 @@ $$P(B) = \sum_{i=1}^{n} P(A_i) P(B|A_i)$$&lt;p&gt;案例：敏感性问题调查
   &lt;/thead&gt;
   &lt;tbody&gt;
       &lt;tr&gt;
-          &lt;td&gt;设计两个问题&lt;/td&gt;
+          &lt;td&gt;设计问题&lt;/td&gt;
           &lt;td&gt;&lt;ol&gt; &lt;li&gt; 你的生日是否在7月1日之前 &lt;/li&gt; &lt;li&gt; &lt;em&gt;要调查的问题&lt;/em&gt; &lt;/li&gt; &lt;/ol&gt;&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
-          &lt;td&gt;操作要求&lt;/td&gt;
+          &lt;td&gt;操作&lt;/td&gt;
           &lt;td&gt;&lt;ol&gt; &lt;li&gt; 被调查者在没有旁人的情况下，独自一人回答问题 &lt;/li&gt; &lt;li&gt; 在一个袋子中放入若干个红球和白球，被调查者从袋子中随机抽一个球，看过颜色后放回. 若抽到白球则回答问题1；若抽到红球则回答问题2 &lt;/li&gt; &lt;li&gt; 被调查者只回答“是”或“否” &lt;/li&gt; &lt;/ol&gt;&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
-          &lt;td&gt;分析调查结果&lt;/td&gt;
+          &lt;td&gt;分析结果&lt;/td&gt;
           &lt;td&gt;设共收到 $n$ 张答卷，其中有 $k$ 张答卷回答“是”；同时，在人数较多的场合中，任选一人其生日在7月1日之前的概率为 $0.5$；袋子中红球的比率为 $\alpha$，则可知问题2回答“是”的概率为 $$p=\frac{\dfrac{k}{n}-0.5(1-\alpha)}{\alpha}$$&lt;/td&gt;
       &lt;/tr&gt;
   &lt;/tbody&gt;
@@ -665,7 +668,7 @@ $$P\{X = x_k\} = p_k$$&lt;p&gt; 为随机变量 $X$ 的概率分布律. 可用�
   &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;且有：$\displaystyle \sum_{i=0}^{\infty} p_k = 1$&lt;/p&gt;
-&lt;h4 id=&#34;常用离散型随机变量的分布&#34;&gt;常用离散型随机变量的分布
+&lt;h4 id=&#34;常用分布&#34;&gt;常用分布
 &lt;/h4&gt;&lt;table&gt;
   &lt;thead&gt;
       &lt;tr&gt;
@@ -713,7 +716,7 @@ $$P\{X&gt;m+n \ |\  X&gt;m\} = P\{X&gt;n\}$$&lt;h3 id=&#34;连续型随机变量
 &lt;/h3&gt;&lt;h4 id=&#34;概率密度函数&#34;&gt;概率密度函数
 &lt;/h4&gt;&lt;p&gt;设随机变量 $X$ 的分布函数为 $F(x)$，若存在非负函数 $f(x)$，使得对任意实数 $x \in \textbf{R}$，均有 &lt;/p&gt;
 $$F(x) = \int_{-\infty}^{x} f(t) \mathrm{d}t$$&lt;p&gt; 则称随机变量 $X$ 为连续型随机变量，称 $f(x)$ 为概率密度函数.&lt;/p&gt;
-&lt;h4 id=&#34;常用连续型随机变量的分布&#34;&gt;常用连续型随机变量的分布
+&lt;h4 id=&#34;常用分布-1&#34;&gt;常用分布
 &lt;/h4&gt;&lt;table&gt;
   &lt;thead&gt;
       &lt;tr&gt;
@@ -1007,7 +1010,7 @@ $$F(x,y) = \int_{-\infty}^{x} \mathrm{d}s \int_{-\infty}^{y} f(s,t) \mathrm{d}t$
 &lt;h4 id=&#34;边缘概率密度函数&#34;&gt;边缘概率密度函数
 &lt;/h4&gt;&lt;p&gt;对于二维连续型随机变量 $(X,Y)$，联合概率密度函数 $f(x,y)$，边缘概率密度函数分别为 $f_X(x)$ 和 $f_Y(y)$，则有 &lt;/p&gt;
 $$f_X(x) = \int_{-\infty}^{+\infty} f(x,y) \mathrm{d}y $$&lt;p&gt; &lt;/p&gt;
-$$ f_Y(y) = \int_{-\infty}^{+\infty} f(x,y) \mathrm{d}x$$&lt;h4 id=&#34;常用二维连续型随机变量的分布&#34;&gt;常用二维连续型随机变量的分布
+$$ f_Y(y) = \int_{-\infty}^{+\infty} f(x,y) \mathrm{d}x$$&lt;h4 id=&#34;常用分布-2&#34;&gt;常用分布
 &lt;/h4&gt;&lt;h5 id=&#34;二维均匀分布&#34;&gt;二维均匀分布
 &lt;/h5&gt;&lt;p&gt;设 $(X,Y)$ 是二维连续型随机变量，$G$ 是平面上一有界区域，且联合概率密度函数满足 &lt;/p&gt;
 $$f(x,y) = \left\{ \begin{matrix} \displaystyle \frac{1}{S_G} &amp; (x,y) \in G \\\\ 0 &amp; 其他 \end{matrix} \right.$$&lt;p&gt; 其中 $S_G$ 表示区域 $G$ 的面积.&lt;/p&gt;
@@ -1038,16 +1041,82 @@ $$f_{X\ |\ Y}(x\ |\ y) = f_X(x)，x \in \textbf{R} \quad 或 \quad f_{Y\ |\ X}(y
 &lt;/ol&gt;
 &lt;h4 id=&#34;二维连续型随机变量函数的分布&#34;&gt;二维连续型随机变量函数的分布
 &lt;/h4&gt;&lt;p&gt;常见的二维连续型随机变量函数&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;$Z=X+Y$&lt;/li&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;类型&lt;/th&gt;
+          &lt;th&gt;公式&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$Z=X+Y$&lt;/td&gt;
+          &lt;td&gt;设 $(X,Y)$ 的联合概率密度函数为 $f(x,y)$，$(x,y) \in \textbf{R}^2$，边缘密度函数分别为 $f_X(x)$，$f_Y(y)$. 对任意实数 $z$，随机变量 $Z$ 的概率密度函数 $$f_Z(z) = \int_{-\infty}^{+\infty} f(x,z-x) \mathrm{d}x $$ $$f_Z(z) = \int_{-\infty}^{+\infty} f(z-y,y) \mathrm{d}y $$ 称上述两式为 $X$ 与 $Y$ 的卷积公式.&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$M=\mathrm{max}\{X,Y\}$&lt;/td&gt;
+          &lt;td&gt;$$F_M(z) = P\{\mathrm{max}\{X,Y\} \leqslant z\} = P\{X \leqslant z, Y \leqslant y\} = F(z,z)$$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$N=\mathrm{min}\{X,Y\}$&lt;/td&gt;
+          &lt;td&gt;$$F_N(z) = P\{\mathrm{min}\{X,Y\} \leqslant z\} = 1-\left[ 1-F_X(z) \right] \left[ 1-F_Y(z) \right]$$&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;随机变量的数字特征&#34;&gt;随机变量的数字特征
+&lt;/h2&gt;&lt;h3 id=&#34;数学期望&#34;&gt;数学期望
+&lt;/h3&gt;&lt;h4 id=&#34;离散型随机变量的数学期望&#34;&gt;离散型随机变量的数学期望
+&lt;/h4&gt;&lt;p&gt;设离散型随机变量 $X$ 的概率分布律为 $P\{X=x_k\}=p_k$，$k=1,2,\cdots$，若级数 $\displaystyle \sum_{k=1}^{\infty} |x_k|p_k$ 收敛，则记 &lt;/p&gt;
+$$E(X) = \sum_{k=1}^{\infty} x_k p_k$$&lt;p&gt; 为随机变量 $X$ 的数学期望. 若级数 $\displaystyle \sum_{k=1}^{\infty} |x_k|p_k$ 不收敛，则称随机变量 $X$ 的数学期望不存在.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;也就是说，若级数 $\displaystyle \sum_{k=1}^{\infty} x_k p_k$ 绝对收敛，则数学期望存在.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h4 id=&#34;连续型随机变量的数学期望&#34;&gt;连续型随机变量的数学期望
+&lt;/h4&gt;&lt;p&gt;设连续型随机变量 $X$ 的概率密度函数为 $f(x)$，若积分 $\displaystyle \int_{-\infty}^{+\infty} |x| f(x) \mathrm{d}x$ 收敛，则记 &lt;/p&gt;
+$$E(X) = \int_{-\infty}^{+\infty} xf(x) \mathrm{d}x$$&lt;p&gt; 为随机变量 $X$ 的数学期望. 若积分 $\displaystyle \int_{-\infty}^{+\infty} |x| f(x) \mathrm{d}x$ 不收敛，则称随机变量 $X$ 的数学期望不存在.&lt;/p&gt;
+&lt;h4 id=&#34;随机变量函数的数学期望&#34;&gt;随机变量函数的数学期望
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;设 $X$ 是随机变量，令 $Y=g(X)$&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;设 $(X,Y)$ 的联合概率密度函数为 $f(x,y)$，$(x,y) \in \textbf{R}^2$，边缘密度函数分别为 $f_X(x)$，$f_Y(y)$. 对任意实数 $z$，随机变量 $Z$ 的概率密度函数 &lt;/p&gt;
-$$f_Z(z) = \int_{-\infty}^{+\infty} f(x,z-x) \mathrm{d}x $$&lt;p&gt; &lt;/p&gt;
-$$f_Z(z) = \int_{-\infty}^{+\infty} f(z-y,y) \mathrm{d}y $$&lt;p&gt;称上述两式为 $X$ 与 $Y$ 的卷积公式.&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;类型&lt;/th&gt;
+          &lt;th&gt;随机变量 $Y$ 的数学期望&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$X$ 是离散型随机变量 &lt;br&gt; 概率分布律为 $P\{X=x_k\} = p_k$&lt;/td&gt;
+          &lt;td&gt;$$E(Y) = E[g(X)] = \sum_{k=1}^{\infty} g(x_k) P\{X=x_k\}$$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$X$ 是连续型随机变量 &lt;br&gt; 概率密度函数为 $f(x)$&lt;/td&gt;
+          &lt;td&gt;$$E(Y) = E[g(X)] = \int_{-\infty}^{+\infty} g(x)f(x) \mathrm{d}x$$&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 &lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;$M=\mathrm{max}\{X,Y\}$，$N=\mathrm{min}\{X,Y\}$&lt;/li&gt;
+&lt;li&gt;设 $(X,Y)$ 是二维随机变量，令 $Z=g(X,Y)$.&lt;/li&gt;
 &lt;/ol&gt;
-$$F_M(z) = P\{\mathrm{max}\{X,Y\} \leqslant z\} = P\{X \leqslant z, Y \leqslant y\} = F(z,z)$$$$F_N(z) = P\{\mathrm{min}\{X,Y\} \leqslant z\} = 1-P\{\mathrm{min}\{X,Y\} &gt; z\} = 1-\left[ 1-F_X(z) \right] \left[ 1-F_Y(z) \right]$$</description>
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;类型&lt;/th&gt;
+          &lt;th&gt;随机变量 $Z$ 的数学期望&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$(X,Y)$ 是二维离散型随机变量 &lt;br&gt; 联合概率分布律为 $P\{X=x_i,\ Y=y_j\} = p_{ij}$&lt;/td&gt;
+          &lt;td&gt;$$E(Z) = \sum_{i=1}^{\infty} \sum_{j=1}^{\infty} g(x_i,y_i) p_{ij}$$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$(X,Y)$ 是二维连续型随机变量 &lt;br&gt; 联合概率密度函数为 $f(x,y)$&lt;/td&gt;
+          &lt;td&gt;$$E(Z) = \int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} g(x,y) f(x,y) \mathrm{d}x\mathrm{d}y$$&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</description>
         </item>
         <item>
         <title>Tex排版</title>
@@ -9694,7 +9763,8 @@ D.	全诗语言简明直白，生动地表达作者对天津的喜爱和赞美�
     &lt;/svg&gt;&lt;/span&gt;
     
 
-&lt;/a&gt;下载。需注意，论坛中下载的并非正版，请于下载体验后24小时内删除！&lt;/p&gt;&lt;/blockquote&gt;
+&lt;/a&gt;下载。&lt;/p&gt;
+&lt;p&gt;注意，论坛中下载的并非正版，请于下载体验后24小时内删除！&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;minecraft-java版进阶&#34;&gt;Minecraft Java版进阶
 &lt;/h2&gt;&lt;h3 id=&#34;java版游戏文件&#34;&gt;Java版游戏文件
 &lt;/h3&gt;&lt;p&gt;Minecraft Java版对玩家文件管理的要求较高，因此需先了解其文件结构。&lt;/p&gt;
