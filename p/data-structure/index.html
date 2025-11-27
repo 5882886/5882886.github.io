@@ -403,6 +403,11 @@
         <li><a href="#霍夫曼树">霍夫曼树</a></li>
       </ol>
     </li>
+    <li><a href="#图">图</a>
+      <ol>
+        <li><a href="#图的基本概念">图的基本概念</a></li>
+      </ol>
+    </li>
     <li><a href="#c语言补充知识">C语言补充知识</a>
       <ol>
         <li><a href="#typedef">typedef</a></li>
@@ -1661,7 +1666,52 @@ $$\mathrm{LOC}(j_1,j_2,\cdots,j_n) = \mathrm{LOC}(0,0,\cdots,0) + \sum_{i=1}^{n}
 <li>左子女-右兄弟表示（二叉链表）</li>
 </ol>
 <h3 id="霍夫曼树">霍夫曼树
-</h3><h2 id="c语言补充知识">C语言补充知识
+</h3><h2 id="图">图
+</h2><p>图是一种复杂的数据结构，结点之间的关系可以是任意的，任意两个数据元素之间都有可能相关。</p>
+<h3 id="图的基本概念">图的基本概念
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>概念</th>
+          <th>解释</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>顶点</td>
+          <td>图中的数据元素，记为 $V$</td>
+      </tr>
+      <tr>
+          <td>弧</td>
+          <td>若 $\left&lt;v,w\right&gt; \in VR$，则 $\left&lt;v,w\right&gt;$ 表示从 $v$ 到 $w$ 的一条弧，<br> 且称 $v$ 为弧尾（初始点），$w$ 为弧头（终端点）</td>
+      </tr>
+      <tr>
+          <td>边</td>
+          <td>若 $\left&lt;v,w\right&gt; \in VR$ 且 $\left&lt;w,v\right&gt; \in VR$，则可记这两条弧为一条边</td>
+      </tr>
+      <tr>
+          <td>无向图</td>
+          <td>若 $\left&lt;v,w\right&gt; \in VR$ 时必有 $\left&lt;w,v\right&gt; \in VR$，则此时称该图为无向图</td>
+      </tr>
+      <tr>
+          <td>完全图</td>
+          <td>对于 $n$ 个顶点的无向图，若有 $\displaystyle \frac{n(n-1)}{2}$ 条边，则称为完全图</td>
+      </tr>
+      <tr>
+          <td>有向完全图</td>
+          <td>对于 $n$ 个顶点的有向图，若有 $n(n-1)$ 条弧，则称为有向完全图</td>
+      </tr>
+      <tr>
+          <td>权</td>
+          <td>与图的边或弧相关的数</td>
+      </tr>
+      <tr>
+          <td>子图</td>
+          <td>对于两个图 $G=(V,\{E\})$ 和 $G'=(V',\{E'\})$，如果 $V' \subseteq V$ 且 $E' \subseteq E$，则称 $G'$ 是 $G$ 的子图</td>
+      </tr>
+  </tbody>
+</table></div>
+<h2 id="c语言补充知识">C语言补充知识
 </h2><h3 id="typedef">typedef
 </h3><p><code>typedef</code>可以给变量起一个别名，例如：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">typedef</span> <span class="kt">int</span> <span class="n">ElemType</span>

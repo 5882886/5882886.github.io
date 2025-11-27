@@ -386,7 +386,6 @@
             <li><a href="#常用分布-2">常用分布</a></li>
             <li><a href="#条件概率密度函数">条件概率密度函数</a></li>
             <li><a href="#独立性-1">独立性</a></li>
-            <li><a href="#二维正态分布的性质">二维正态分布的性质</a></li>
           </ol>
         </li>
         <li><a href="#二维随机变量函数的分布">二维随机变量函数的分布</a>
@@ -404,6 +403,12 @@
             <li><a href="#离散型随机变量的数学期望">离散型随机变量的数学期望</a></li>
             <li><a href="#连续型随机变量的数学期望">连续型随机变量的数学期望</a></li>
             <li><a href="#随机变量函数的数学期望">随机变量函数的数学期望</a></li>
+            <li><a href="#数学期望的性质">数学期望的性质</a></li>
+          </ol>
+        </li>
+        <li><a href="#方差">方差</a>
+          <ol>
+            <li><a href="#方差的基本性质">方差的基本性质</a></li>
           </ol>
         </li>
       </ol>
@@ -908,35 +913,35 @@
   </tbody>
 </table></div>
 <blockquote>
-<p>一般的，对于 $n$ 个事件 $A_i$，有 </p>
+<p>一般的，对于 $n$ 个事件 $A_i$，有
+</p>
 $$\begin{align*} P\left(\bigcup_{i=1}^{n} A_i \right) = \sum_{i=1}^{n} P(A_i) &- \sum_{1 \leqslant i < j \leqslant n} P(A_i A_j) \\ &+ \sum_{1 \leqslant i < j < k \leqslant n} P(A_i A_j A_k) - \cdots + (-1)^{n-1} P(A_1 A_2 \cdots A_n) \end{align*}$$</blockquote>
 <h3 id="古典概型与几何概型">古典概型与几何概型
-</h3><ol>
-<li>古典概型</li>
-</ol>
-$$P(A) = \frac{k}{n} = \frac{\text{事件}A\text{中所含样本点的个数}}{\text{样本空间}\varOmega\text{中所含样本点总数}}$$<ol start="2">
-<li>几何概型</li>
-</ol>
-$$P(A) = \frac{A \text{的度量}}{\varOmega \text{的度量}}$$<h3 id="条件概率与乘法公式">条件概率与乘法公式
-</h3><h4 id="条件概率">条件概率
-</h4>$$P(B|A) = \frac{P(AB)}{P(A)}$$<div class="table-wrapper"><table>
+</h3><div class="table-wrapper"><table>
   <thead>
       <tr>
-          <th>性质</th>
-          <th>表示</th>
+          <th>概型</th>
+          <th>计算</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td>①</td>
-          <td>$P(\overline{B} |A) = 1 - P(B|A) $</td>
+          <td>古典概型</td>
+          <td>$$P(A) = \frac{k}{n} = \frac{\text{事件}A\text{中所含样本点的个数}}{\text{样本空间}\varOmega\text{中所含样本点总数}}$$</td>
       </tr>
       <tr>
-          <td>②</td>
-          <td>$P(B_1 \cup B_2 | A) = P(B_1 | A) + P(B_2 | A) - P(B_1 B_2 | A) $</td>
+          <td>几何概型</td>
+          <td>$$P(A) = \frac{A \text{的度量}}{\varOmega \text{的度量}}$$</td>
       </tr>
   </tbody>
 </table></div>
+<h3 id="条件概率与乘法公式">条件概率与乘法公式
+</h3><h4 id="条件概率">条件概率
+</h4>$$P(B|A) = \frac{P(AB)}{P(A)}$$<p>性质：</p>
+<ol>
+<li>$P(\overline{B} |A) = 1 - P(B|A) $</li>
+<li>$P(B_1 \cup B_2 | A) = P(B_1 | A) + P(B_2 | A) - P(B_1 B_2 | A) $</li>
+</ol>
 <h4 id="乘法公式">乘法公式
 </h4>$$ P(AB) = P(A) P(B|A) $$<p>
 </p>
@@ -997,8 +1002,10 @@ $$F(x) = P\{X \leqslant x\}$$<p> 则称 $F(x)$ 为随机变量 $X$ 的概率分�
       </tr>
   </tbody>
 </table></div>
-<p>区间概率：$P\{x_1 &lt; X \leqslant x_2\} = P\{X \leqslant x_2\} - P\{X \leqslant x_1\} = F(x_2) - F(x_1)$</p>
-<p>样本点概率：$P\{X = a\} = F(a+0) - F(a-0)$</p>
+<ol>
+<li>区间概率：$P\{x_1 &lt; X \leqslant x_2\} = P\{X \leqslant x_2\} - P\{X \leqslant x_1\} = F(x_2) - F(x_1)$</li>
+<li>样本点概率：$P\{X = a\} = F(a+0) - F(a-0)$</li>
+</ol>
 <h3 id="离散型随机变量的分布">离散型随机变量的分布
 </h3><h4 id="概率分布律">概率分布律
 </h4><p>设离散型随机变量所有可能取值为 $x_k，k=1,2,\cdots$，则称 $X$ 取各个可能值的概率 </p>
@@ -1170,33 +1177,13 @@ $$P\{x_1 < X \leqslant x_2\} = F(x_2) - F(x_1) = \varPhi\left(\frac{x_2-\mu}{\si
 </h3><h4 id="联合分布函数">联合分布函数
 </h4><p>设 $(X,Y)$ 是二维随机变量，对于任意实数 $x,y \in \textbf{R}$，称二元函数 </p>
 $$F(x,y) = P\{X \leqslant x,Y\leqslant y\}$$<p> 为 $(X,Y)$ 的联合分布函数.</p>
-<p>$F(x,y)$ 具有以下性质：</p>
-<div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>性质</th>
-          <th>表示</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>非负性</td>
-          <td>对任意 $(x,y) \in \textbf{R}^2$，有 $0 \leqslant F(x,y) \leqslant 1$；$F(-\infty,-\infty) = 0$，$F(+\infty,+\infty) = 1$</td>
-      </tr>
-      <tr>
-          <td>单调不减性</td>
-          <td>$F(x,y)$ 分别关于 $x$ 和 $y$ 单调不减</td>
-      </tr>
-      <tr>
-          <td>右连续性</td>
-          <td>$F(x,y)$ 分别关于 $x$ 和 $y$ 右连续</td>
-      </tr>
-      <tr>
-          <td>恒等式</td>
-          <td>$\forall x_1 &lt; x_2，y_1 &lt; y_2$，有 $$P\{ x_1 < X \leqslant x_2,y_1 < Y \leqslant y_2 \} = F(x_2,y_2) - F(x_1,y_2) - F(x_2,y_1) + F(x_1,y_1) \geqslant 0$$</td>
-      </tr>
-  </tbody>
-</table></div>
+<p>联合分布函数具有以下性质：</p>
+<ol>
+<li>非负性：对任意 $(x,y) \in \textbf{R}^2$，有 $0 \leqslant F(x,y) \leqslant 1$；$F(-\infty,-\infty) = 0$，$F(+\infty,+\infty) = 1$</li>
+<li>单调不减性：$F(x,y)$ 分别关于 $x$ 和 $y$ 单调不减</li>
+<li>右连续性：$F(x,y)$ 分别关于 $x$ 和 $y$ 右连续</li>
+<li>恒等式：$\forall x_1 &lt; x_2，y_1 &lt; y_2$，有 $$P\{ x_1 < X \leqslant x_2,y_1 < Y \leqslant y_2 \} = F(x_2,y_2) - F(x_1,y_2) - F(x_2,y_1) + F(x_1,y_1) \geqslant 0$$</li>
+</ol>
 <h4 id="边缘分布函数">边缘分布函数
 </h4><ol>
 <li>$X$ 的边缘分布函数 $\displaystyle F_X(x) = P\{X \leqslant x\} = F(x,+\infty) = \lim_{y \to +\infty} F(x,y)$</li>
@@ -1269,75 +1256,6 @@ $$P\{X=x,\ Y=y\}=p_{ij}$$<p> 为随机变量 $(X,Y)$ 的联合概率分布律，
 </h4><p>随机变量 $X$ 的边缘概率分布律：$\displaystyle P\{X=x_i\} = \sum_{i=1}^{+\infty} p_{ij} = p_{i \cdot}$</p>
 <p>随机变量 $Y$ 的边缘概率分布律：$\displaystyle P\{Y=y_j\} = \sum_{j=1}^{+\infty} p_{ij} = p_{\cdot j}$</p>
 <p>可以表示在表格中：</p>
-<div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th style="text-align: center">$Y$ \ $X$</th>
-          <th style="text-align: center">$x_1$</th>
-          <th style="text-align: center">$x_2$</th>
-          <th style="text-align: center">$\cdots$</th>
-          <th style="text-align: center">$x_i$</th>
-          <th style="text-align: center">$\cdots$</th>
-          <th style="text-align: center">$P\{Y=y_j\}$</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td style="text-align: center">$y_1$</td>
-          <td style="text-align: center">$p_{11}$</td>
-          <td style="text-align: center">$p_{21}$</td>
-          <td style="text-align: center">$\cdots$</td>
-          <td style="text-align: center">$p_{i1}$</td>
-          <td style="text-align: center">$\cdots$</td>
-          <td style="text-align: center">$p_{\cdot 1}$</td>
-      </tr>
-      <tr>
-          <td style="text-align: center">$y_2$</td>
-          <td style="text-align: center">$p_{12}$</td>
-          <td style="text-align: center">$p_{22}$</td>
-          <td style="text-align: center">$\cdots$</td>
-          <td style="text-align: center">$p_{i2}$</td>
-          <td style="text-align: center">$\cdots$</td>
-          <td style="text-align: center">$p_{\cdot 2}$</td>
-      </tr>
-      <tr>
-          <td style="text-align: center">$\vdots$</td>
-          <td style="text-align: center">$\vdots$</td>
-          <td style="text-align: center">$\vdots$</td>
-          <td style="text-align: center"></td>
-          <td style="text-align: center">$\vdots$</td>
-          <td style="text-align: center">$\vdots$</td>
-          <td style="text-align: center">$\vdots$</td>
-      </tr>
-      <tr>
-          <td style="text-align: center">$y_j$</td>
-          <td style="text-align: center">$p_{1j}$</td>
-          <td style="text-align: center">$p_{2j}$</td>
-          <td style="text-align: center">$\cdots$</td>
-          <td style="text-align: center">$p_{ij}$</td>
-          <td style="text-align: center">$\cdots$</td>
-          <td style="text-align: center">$p_{\cdot j}$</td>
-      </tr>
-      <tr>
-          <td style="text-align: center">$\vdots$</td>
-          <td style="text-align: center">$\vdots$</td>
-          <td style="text-align: center">$\vdots$</td>
-          <td style="text-align: center">$\vdots$</td>
-          <td style="text-align: center">$\vdots$</td>
-          <td style="text-align: center">$\vdots$</td>
-          <td style="text-align: center">$\vdots$</td>
-      </tr>
-      <tr>
-          <td style="text-align: center">$P\{X=x_i\}$</td>
-          <td style="text-align: center">$p_{1 \cdot}$</td>
-          <td style="text-align: center">$p_{2 \cdot}$</td>
-          <td style="text-align: center">$\cdots$</td>
-          <td style="text-align: center">$p_{i \cdot}$</td>
-          <td style="text-align: center">$\cdots$</td>
-          <td style="text-align: center">$1$</td>
-      </tr>
-  </tbody>
-</table></div>
 <h4 id="条件概率分布律">条件概率分布律
 </h4>$$P\{X=x_i \ |\ Y=y_j\} = \frac{p_{ij}}{p_{\cdot j}}$$<h4 id="独立性">独立性
 </h4><p>对于二元离散型随机变量 $(X,Y)$，则 $X$ 与 $Y$ 相互独立等价于对任意的 $i,j = 1,2,\cdots,$ 都有 </p>
@@ -1345,28 +1263,12 @@ $$P\{X=x_i \ |\ Y=y_j\} = p_{i \cdot} p_{\cdot j}$$<h3 id="二维连续型随机
 </h3><h4 id="联合概率密度函数">联合概率密度函数
 </h4><p>设二维随机变量 $(X,Y)$ 的联合分布函数为 $F(x,y)$，若存在非负实函数 $f(x,y)$，使得对于任意 $(x,y) \in \textbf{R}^2$，都有 </p>
 $$F(x,y) = \int_{-\infty}^{x} \mathrm{d}s \int_{-\infty}^{y} f(s,t) \mathrm{d}t$$<p> 则称 $(X,Y)$ 为二维连续型随机变量，并称 $f(x,y)$ 为 $(X,Y)$ 的联合概率密度函数.</p>
-<div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>性质</th>
-          <th>表示</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>非负性</td>
-          <td>对任意 $(x,y) \in \textbf{R}^2$，有 $f(x,y) \geqslant 0$</td>
-      </tr>
-      <tr>
-          <td>规范性</td>
-          <td>$\displaystyle F(x,y) = \int_{-\infty}^{+\infty} \mathrm{d}s \int_{-\infty}^{+\infty} f(s,t) \mathrm{d}t = 1$</td>
-      </tr>
-      <tr>
-          <td>可导性</td>
-          <td>$\displaystyle \frac{\partial^2 F(x,y)}{\partial x \partial y} = f(x,y)$</td>
-      </tr>
-  </tbody>
-</table></div>
+<p>联合概率密度函数具有以下性质：</p>
+<ol>
+<li>非负性：对任意 $(x,y) \in \textbf{R}^2$，有 $f(x,y) \geqslant 0$</li>
+<li>规范性：$\displaystyle F(x,y) = \int_{-\infty}^{+\infty} \mathrm{d}s \int_{-\infty}^{+\infty} f(s,t) \mathrm{d}t = 1$</li>
+<li>可导性：$\displaystyle \frac{\partial^2 F(x,y)}{\partial x \partial y} = f(x,y)$</li>
+</ol>
 <h4 id="边缘概率密度函数">边缘概率密度函数
 </h4><p>对于二维连续型随机变量 $(X,Y)$，联合概率密度函数 $f(x,y)$，边缘概率密度函数分别为 $f_X(x)$ 和 $f_Y(y)$，则有 </p>
 $$f_X(x) = \int_{-\infty}^{+\infty} f(x,y) \mathrm{d}y $$<p> </p>
@@ -1376,7 +1278,14 @@ $$ f_Y(y) = \int_{-\infty}^{+\infty} f(x,y) \mathrm{d}x$$<h4 id="常用分布-2"
 $$f(x,y) = \left\{ \begin{matrix} \displaystyle \frac{1}{S_G} & (x,y) \in G \\\\ 0 & 其他 \end{matrix} \right.$$<p> 其中 $S_G$ 表示区域 $G$ 的面积.</p>
 <h5 id="二维正态分布">二维正态分布
 </h5><p>设 $(X,Y)$ 是二维连续型随机变量，且联合概率密度函数满足 </p>
-$$f(x,y) = \frac{1}{2\pi \sigma_{1} \sigma_{2} \sqrt{1-\rho^2} } \cdot \mathrm{exp}\left\{ \frac{1}{2(1-\rho^2)} \left[ \left( \frac{x-\mu_{1}}{\sigma_{1}} \right)^2 - \frac{2\rho(x-\mu_{1})(y-\mu_{2})}{\sigma_{1}\sigma_{2}} + \left( \frac{y-\mu_{2}}{\sigma_{2}} \right)^2 \right] \right\}$$<h4 id="条件概率密度函数">条件概率密度函数
+$$f(x,y) = \frac{1}{2\pi \sigma_{1} \sigma_{2} \sqrt{1-\rho^2} } \cdot \mathrm{exp}\left\{ \frac{1}{2(1-\rho^2)} \left[ \left( \frac{x-\mu_{1}}{\sigma_{1}} \right)^2 - \frac{2\rho(x-\mu_{1})(y-\mu_{2})}{\sigma_{1}\sigma_{2}} + \left( \frac{y-\mu_{2}}{\sigma_{2}} \right)^2 \right] \right\}$$<blockquote>
+<p>二维正态分布的性质</p>
+<ol>
+<li>二维正态分布的边缘分布仍是正态分布，反之未必成立.</li>
+<li>二维正态随机变量的条件分布仍是正态分布.</li>
+<li>二维随机变量 $(X,Y) \sim N(\mu_{1},\mu_{2}; \sigma_{1}^{2}, \sigma_{2}^{2}; \rho)$，则 $(X,Y)$ 相互独立的充要条件是 $\rho = 0$.</li>
+</ol></blockquote>
+<h4 id="条件概率密度函数">条件概率密度函数
 </h4><p>设 $(X,Y)$ 为二维连续型随机变量，在条件 $Y=y$ 下，随机变量 $X$ 的条件分布函数为 $F_{X\ |\ Y} (x\ |\ y)$，条件概率密度函数为 $f_{X\ |\ Y} (x\ |\ y)$</p>
 $$f_{X\ |\ Y} = \frac{f(x,y)}{f_Y(y)} $$<p> </p>
 $$ f_{Y\ |\ X} = \frac{f(x,y)}{f_X(x)}$$<blockquote>
@@ -1385,13 +1294,7 @@ $$ f_{Y\ |\ X} = \frac{f(x,y)}{f_X(x)}$$<blockquote>
 <h4 id="独立性-1">独立性
 </h4><p>设 $(X,Y)$ 是二维连续型随机变量，联合概率密度函数为 $f(x,y)$，边缘密度函数分别为 $f_X(x)$ 和 $f_Y(y)$，则 $X$ 和 $Y$ 相互独立的等价于对任意的 $(x,y) \in \textbf{R}^2$，在平面上几乎处处成立 </p>
 $$f(x,y) = f_X(x) f_Y(y)$$<p>易知，连续型随机变量 $(X,Y)$ 相互独立还等价于 </p>
-$$f_{X\ |\ Y}(x\ |\ y) = f_X(x)，x \in \textbf{R} \quad 或 \quad f_{Y\ |\ X}(y\ |\ x) = f_Y(y)，y \in \textbf{R}$$<h4 id="二维正态分布的性质">二维正态分布的性质
-</h4><ol>
-<li>二维正态分布的边缘分布仍是正态分布，反之未必成立.</li>
-<li>二维正态随机变量的条件分布仍是正态分布.</li>
-<li>二维随机变量 $(X,Y) \sim N(\mu_{1},\mu_{2}; \sigma_{1}^{2}, \sigma_{2}^{2}; \rho)$，则 $(X,Y)$ 相互独立的充要条件是 $\rho = 0$.</li>
-</ol>
-<h3 id="二维随机变量函数的分布">二维随机变量函数的分布
+$$f_{X\ |\ Y}(x\ |\ y) = f_X(x)，x \in \textbf{R} \quad 或 \quad f_{Y\ |\ X}(y\ |\ x) = f_Y(y)，y \in \textbf{R}$$<h3 id="二维随机变量函数的分布">二维随机变量函数的分布
 </h3><h4 id="二维离散型随机变量函数的分布">二维离散型随机变量函数的分布
 </h4><p>设 $(X,Y)$ 为二维离散型随机变量，则由函数 $Z=g(X,Y)$ 确定的随机变量也是离散型随机变量.</p>
 <p>求随机变量 $Z$ 的分布：</p>
@@ -1401,29 +1304,20 @@ $$f_{X\ |\ Y}(x\ |\ y) = f_X(x)，x \in \textbf{R} \quad 或 \quad f_{Y\ |\ X}(y
 </ol>
 <h4 id="二维连续型随机变量函数的分布">二维连续型随机变量函数的分布
 </h4><p>常见的二维连续型随机变量函数</p>
-<div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>类型</th>
-          <th>公式</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>$Z=X+Y$</td>
-          <td>设 $(X,Y)$ 的联合概率密度函数为 $f(x,y)$，$(x,y) \in \textbf{R}^2$，边缘密度函数分别为 $f_X(x)$，$f_Y(y)$. 对任意实数 $z$，随机变量 $Z$ 的概率密度函数 $$f_Z(z) = \int_{-\infty}^{+\infty} f(x,z-x) \mathrm{d}x $$ $$f_Z(z) = \int_{-\infty}^{+\infty} f(z-y,y) \mathrm{d}y $$ 称上述两式为 $X$ 与 $Y$ 的卷积公式.</td>
-      </tr>
-      <tr>
-          <td>$M=\mathrm{max}\{X,Y\}$</td>
-          <td>$$F_M(z) = P\{\mathrm{max}\{X,Y\} \leqslant z\} = P\{X \leqslant z, Y \leqslant y\} = F(z,z)$$</td>
-      </tr>
-      <tr>
-          <td>$N=\mathrm{min}\{X,Y\}$</td>
-          <td>$$F_N(z) = P\{\mathrm{min}\{X,Y\} \leqslant z\} = 1-\left[ 1-F_X(z) \right] \left[ 1-F_Y(z) \right]$$</td>
-      </tr>
-  </tbody>
-</table></div>
-<h2 id="随机变量的数字特征">随机变量的数字特征
+<ul>
+<li>$Z=X+Y$</li>
+</ul>
+<p>设 $(X,Y)$ 的联合概率密度函数为 $f(x,y)$，$(x,y) \in \textbf{R}^2$，边缘密度函数分别为 $f_X(x)$，$f_Y(y)$. 对任意实数 $z$，随机变量 $Z$ 的概率密度函数 </p>
+$$f_Z(z) = \int_{-\infty}^{+\infty} f(x,z-x) \mathrm{d}x $$<p> </p>
+$$f_Z(z) = \int_{-\infty}^{+\infty} f(z-y,y) \mathrm{d}y $$<blockquote>
+<p>称上述两式为 $X$ 与 $Y$ 的卷积公式，记作 $f_Z = f_X * f_Y$</p></blockquote>
+<ul>
+<li>$M=\mathrm{max}\{X,Y\}$</li>
+</ul>
+$$F_M(z) = P\{\mathrm{max}\{X,Y\} \leqslant z\} = P\{X \leqslant z, Y \leqslant y\} = F(z,z)$$<ul>
+<li>$N=\mathrm{min}\{X,Y\}$</li>
+</ul>
+$$F_N(z) = P\{\mathrm{min}\{X,Y\} \leqslant z\} = 1-\left[ 1-F_X(z) \right] \left[ 1-F_Y(z) \right]$$<h2 id="随机变量的数字特征">随机变量的数字特征
 </h2><h3 id="数学期望">数学期望
 </h3><h4 id="离散型随机变量的数学期望">离散型随机变量的数学期望
 </h4><p>设离散型随机变量 $X$ 的概率分布律为 $P\{X=x_k\}=p_k$，$k=1,2,\cdots$，若级数 $\displaystyle \sum_{k=1}^{\infty} |x_k|p_k$ 收敛，则记 </p>
@@ -1434,48 +1328,64 @@ $$E(X) = \sum_{k=1}^{\infty} x_k p_k$$<p> 为随机变量 $X$ 的数学期望. �
 </h4><p>设连续型随机变量 $X$ 的概率密度函数为 $f(x)$，若积分 $\displaystyle \int_{-\infty}^{+\infty} |x| f(x) \mathrm{d}x$ 收敛，则记 </p>
 $$E(X) = \int_{-\infty}^{+\infty} xf(x) \mathrm{d}x$$<p> 为随机变量 $X$ 的数学期望. 若积分 $\displaystyle \int_{-\infty}^{+\infty} |x| f(x) \mathrm{d}x$ 不收敛，则称随机变量 $X$ 的数学期望不存在.</p>
 <h4 id="随机变量函数的数学期望">随机变量函数的数学期望
-</h4><ol>
+</h4><ul>
 <li>设 $X$ 是随机变量，令 $Y=g(X)$</li>
-</ol>
+</ul>
 <div class="table-wrapper"><table>
   <thead>
       <tr>
           <th>类型</th>
-          <th>随机变量 $Y$ 的数学期望</th>
+          <th>$E(Y)$</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td>$X$ 是离散型随机变量 <br> 概率分布律为 $P\{X=x_k\} = p_k$</td>
-          <td>$$E(Y) = E[g(X)] = \sum_{k=1}^{\infty} g(x_k) P\{X=x_k\}$$</td>
+          <td>离散型随机变量</td>
+          <td>$$E(Y) = E[g(X)] = \sum_{k=1}^{\infty} g(x_k) P\{X=x_k\}$$ 其中概率分布律为 $P\{X=x_k\} = p_k$</td>
       </tr>
       <tr>
-          <td>$X$ 是连续型随机变量 <br> 概率密度函数为 $f(x)$</td>
-          <td>$$E(Y) = E[g(X)] = \int_{-\infty}^{+\infty} g(x)f(x) \mathrm{d}x$$</td>
+          <td>连续型随机变量</td>
+          <td>$$E(Y) = E[g(X)] = \int_{-\infty}^{+\infty} g(x)f(x) \mathrm{d}x$$ 其中概率密度函数为 $f(x)$</td>
       </tr>
   </tbody>
 </table></div>
-<ol start="2">
+<ul>
 <li>设 $(X,Y)$ 是二维随机变量，令 $Z=g(X,Y)$.</li>
-</ol>
+</ul>
 <div class="table-wrapper"><table>
   <thead>
       <tr>
           <th>类型</th>
-          <th>随机变量 $Z$ 的数学期望</th>
+          <th>$E(Z)$</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td>$(X,Y)$ 是二维离散型随机变量 <br> 联合概率分布律为 $P\{X=x_i,\ Y=y_j\} = p_{ij}$</td>
-          <td>$$E(Z) = \sum_{i=1}^{\infty} \sum_{j=1}^{\infty} g(x_i,y_i) p_{ij}$$</td>
+          <td>二维离散型随机变量</td>
+          <td>$$E(Z) = \sum_{i=1}^{\infty} \sum_{j=1}^{\infty} g(x_i,y_i) p_{ij}$$ 其中联合概率分布律为 $P\{X=x_i,\ Y=y_j\} = p_{ij}$</td>
       </tr>
       <tr>
-          <td>$(X,Y)$ 是二维连续型随机变量 <br> 联合概率密度函数为 $f(x,y)$</td>
-          <td>$$E(Z) = \int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} g(x,y) f(x,y) \mathrm{d}x\mathrm{d}y$$</td>
+          <td>二维连续型随机变量</td>
+          <td>$$E(Z) = \int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} g(x,y) f(x,y) \mathrm{d}x\mathrm{d}y$$ 其中联合概率密度函数为 $f(x,y)$</td>
       </tr>
   </tbody>
 </table></div>
+<h4 id="数学期望的性质">数学期望的性质
+</h4><ol>
+<li>设 $c$ 是常数，则 $E(c) = c$</li>
+<li>若 $a$，$b$ 是常数，则 $E(aX+b) = aE(X)+b$</li>
+<li>$E(X+Y) = E(X)+E(Y)$</li>
+<li>设 $X$，$Y$ 相互独立，则 $E(XY) = E(X)E(Y)$</li>
+</ol>
+<h3 id="方差">方差
+</h3><p>设随机变量 $X$ 的数学期望 $E(X)$ 存在，若随机变量 $[X-E(X)]^2$ 的数学期望 $E[X-E(X)]^2$ 存在，则记 </p>
+$$D(X) = \mathrm{Var}(X) = E[X-E(X)]^2 $$<p> 为随机变量 $X$ 的方差. 方差的算术平方根记作标准差 </p>
+$$\sigma(X) = \sqrt{D(X)}$$<h4 id="方差的基本性质">方差的基本性质
+</h4><ol>
+<li>$D(c) = 0$</li>
+<li>$D(aX+b) = a^2 D(X)$</li>
+<li>若随机变量 $X$ 与 $Y$ 独立，则 $D(X+Y) = D(X) + D(Y)$</li>
+</ol>
 
 </section>
 

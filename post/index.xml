@@ -892,35 +892,35 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
   &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;blockquote&gt;
-&lt;p&gt;一般的，对于 $n$ 个事件 $A_i$，有 &lt;/p&gt;
+&lt;p&gt;一般的，对于 $n$ 个事件 $A_i$，有
+&lt;/p&gt;
 $$\begin{align*} P\left(\bigcup_{i=1}^{n} A_i \right) = \sum_{i=1}^{n} P(A_i) &amp;- \sum_{1 \leqslant i &lt; j \leqslant n} P(A_i A_j) \\ &amp;+ \sum_{1 \leqslant i &lt; j &lt; k \leqslant n} P(A_i A_j A_k) - \cdots + (-1)^{n-1} P(A_1 A_2 \cdots A_n) \end{align*}$$&lt;/blockquote&gt;
 &lt;h3 id=&#34;古典概型与几何概型&#34;&gt;古典概型与几何概型
-&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;古典概型&lt;/li&gt;
-&lt;/ol&gt;
-$$P(A) = \frac{k}{n} = \frac{\text{事件}A\text{中所含样本点的个数}}{\text{样本空间}\varOmega\text{中所含样本点总数}}$$&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;几何概型&lt;/li&gt;
-&lt;/ol&gt;
-$$P(A) = \frac{A \text{的度量}}{\varOmega \text{的度量}}$$&lt;h3 id=&#34;条件概率与乘法公式&#34;&gt;条件概率与乘法公式
-&lt;/h3&gt;&lt;h4 id=&#34;条件概率&#34;&gt;条件概率
-&lt;/h4&gt;$$P(B|A) = \frac{P(AB)}{P(A)}$$&lt;table&gt;
+&lt;/h3&gt;&lt;table&gt;
   &lt;thead&gt;
       &lt;tr&gt;
-          &lt;th&gt;性质&lt;/th&gt;
-          &lt;th&gt;表示&lt;/th&gt;
+          &lt;th&gt;概型&lt;/th&gt;
+          &lt;th&gt;计算&lt;/th&gt;
       &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
       &lt;tr&gt;
-          &lt;td&gt;①&lt;/td&gt;
-          &lt;td&gt;$P(\overline{B} |A) = 1 - P(B|A) $&lt;/td&gt;
+          &lt;td&gt;古典概型&lt;/td&gt;
+          &lt;td&gt;$$P(A) = \frac{k}{n} = \frac{\text{事件}A\text{中所含样本点的个数}}{\text{样本空间}\varOmega\text{中所含样本点总数}}$$&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
-          &lt;td&gt;②&lt;/td&gt;
-          &lt;td&gt;$P(B_1 \cup B_2 | A) = P(B_1 | A) + P(B_2 | A) - P(B_1 B_2 | A) $&lt;/td&gt;
+          &lt;td&gt;几何概型&lt;/td&gt;
+          &lt;td&gt;$$P(A) = \frac{A \text{的度量}}{\varOmega \text{的度量}}$$&lt;/td&gt;
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;h3 id=&#34;条件概率与乘法公式&#34;&gt;条件概率与乘法公式
+&lt;/h3&gt;&lt;h4 id=&#34;条件概率&#34;&gt;条件概率
+&lt;/h4&gt;$$P(B|A) = \frac{P(AB)}{P(A)}$$&lt;p&gt;性质：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;$P(\overline{B} |A) = 1 - P(B|A) $&lt;/li&gt;
+&lt;li&gt;$P(B_1 \cup B_2 | A) = P(B_1 | A) + P(B_2 | A) - P(B_1 B_2 | A) $&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h4 id=&#34;乘法公式&#34;&gt;乘法公式
 &lt;/h4&gt;$$ P(AB) = P(A) P(B|A) $$&lt;p&gt;
 &lt;/p&gt;
@@ -981,8 +981,10 @@ $$F(x) = P\{X \leqslant x\}$$&lt;p&gt; 则称 $F(x)$ 为随机变量 $X$ 的概�
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;区间概率：$P\{x_1 &amp;lt; X \leqslant x_2\} = P\{X \leqslant x_2\} - P\{X \leqslant x_1\} = F(x_2) - F(x_1)$&lt;/p&gt;
-&lt;p&gt;样本点概率：$P\{X = a\} = F(a+0) - F(a-0)$&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;区间概率：$P\{x_1 &amp;lt; X \leqslant x_2\} = P\{X \leqslant x_2\} - P\{X \leqslant x_1\} = F(x_2) - F(x_1)$&lt;/li&gt;
+&lt;li&gt;样本点概率：$P\{X = a\} = F(a+0) - F(a-0)$&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h3 id=&#34;离散型随机变量的分布&#34;&gt;离散型随机变量的分布
 &lt;/h3&gt;&lt;h4 id=&#34;概率分布律&#34;&gt;概率分布律
 &lt;/h4&gt;&lt;p&gt;设离散型随机变量所有可能取值为 $x_k，k=1,2,\cdots$，则称 $X$ 取各个可能值的概率 &lt;/p&gt;
@@ -1154,33 +1156,13 @@ $$P\{x_1 &lt; X \leqslant x_2\} = F(x_2) - F(x_1) = \varPhi\left(\frac{x_2-\mu}{
 &lt;/h3&gt;&lt;h4 id=&#34;联合分布函数&#34;&gt;联合分布函数
 &lt;/h4&gt;&lt;p&gt;设 $(X,Y)$ 是二维随机变量，对于任意实数 $x,y \in \textbf{R}$，称二元函数 &lt;/p&gt;
 $$F(x,y) = P\{X \leqslant x,Y\leqslant y\}$$&lt;p&gt; 为 $(X,Y)$ 的联合分布函数.&lt;/p&gt;
-&lt;p&gt;$F(x,y)$ 具有以下性质：&lt;/p&gt;
-&lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th&gt;性质&lt;/th&gt;
-          &lt;th&gt;表示&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td&gt;非负性&lt;/td&gt;
-          &lt;td&gt;对任意 $(x,y) \in \textbf{R}^2$，有 $0 \leqslant F(x,y) \leqslant 1$；$F(-\infty,-\infty) = 0$，$F(+\infty,+\infty) = 1$&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;单调不减性&lt;/td&gt;
-          &lt;td&gt;$F(x,y)$ 分别关于 $x$ 和 $y$ 单调不减&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;右连续性&lt;/td&gt;
-          &lt;td&gt;$F(x,y)$ 分别关于 $x$ 和 $y$ 右连续&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;恒等式&lt;/td&gt;
-          &lt;td&gt;$\forall x_1 &amp;lt; x_2，y_1 &amp;lt; y_2$，有 $$P\{ x_1 &lt; X \leqslant x_2,y_1 &lt; Y \leqslant y_2 \} = F(x_2,y_2) - F(x_1,y_2) - F(x_2,y_1) + F(x_1,y_1) \geqslant 0$$&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;联合分布函数具有以下性质：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;非负性：对任意 $(x,y) \in \textbf{R}^2$，有 $0 \leqslant F(x,y) \leqslant 1$；$F(-\infty,-\infty) = 0$，$F(+\infty,+\infty) = 1$&lt;/li&gt;
+&lt;li&gt;单调不减性：$F(x,y)$ 分别关于 $x$ 和 $y$ 单调不减&lt;/li&gt;
+&lt;li&gt;右连续性：$F(x,y)$ 分别关于 $x$ 和 $y$ 右连续&lt;/li&gt;
+&lt;li&gt;恒等式：$\forall x_1 &amp;lt; x_2，y_1 &amp;lt; y_2$，有 $$P\{ x_1 &lt; X \leqslant x_2,y_1 &lt; Y \leqslant y_2 \} = F(x_2,y_2) - F(x_1,y_2) - F(x_2,y_1) + F(x_1,y_1) \geqslant 0$$&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h4 id=&#34;边缘分布函数&#34;&gt;边缘分布函数
 &lt;/h4&gt;&lt;ol&gt;
 &lt;li&gt;$X$ 的边缘分布函数 $\displaystyle F_X(x) = P\{X \leqslant x\} = F(x,+\infty) = \lim_{y \to +\infty} F(x,y)$&lt;/li&gt;
@@ -1253,75 +1235,6 @@ $$P\{X=x,\ Y=y\}=p_{ij}$$&lt;p&gt; 为随机变量 $(X,Y)$ 的联合概率分布
 &lt;/h4&gt;&lt;p&gt;随机变量 $X$ 的边缘概率分布律：$\displaystyle P\{X=x_i\} = \sum_{i=1}^{+\infty} p_{ij} = p_{i \cdot}$&lt;/p&gt;
 &lt;p&gt;随机变量 $Y$ 的边缘概率分布律：$\displaystyle P\{Y=y_j\} = \sum_{j=1}^{+\infty} p_{ij} = p_{\cdot j}$&lt;/p&gt;
 &lt;p&gt;可以表示在表格中：&lt;/p&gt;
-&lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th style=&#34;text-align: center&#34;&gt;$Y$ \ $X$&lt;/th&gt;
-          &lt;th style=&#34;text-align: center&#34;&gt;$x_1$&lt;/th&gt;
-          &lt;th style=&#34;text-align: center&#34;&gt;$x_2$&lt;/th&gt;
-          &lt;th style=&#34;text-align: center&#34;&gt;$\cdots$&lt;/th&gt;
-          &lt;th style=&#34;text-align: center&#34;&gt;$x_i$&lt;/th&gt;
-          &lt;th style=&#34;text-align: center&#34;&gt;$\cdots$&lt;/th&gt;
-          &lt;th style=&#34;text-align: center&#34;&gt;$P\{Y=y_j\}$&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;$y_1$&lt;/td&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;$p_{11}$&lt;/td&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;$p_{21}$&lt;/td&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;$\cdots$&lt;/td&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;$p_{i1}$&lt;/td&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;$\cdots$&lt;/td&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;$p_{\cdot 1}$&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;$y_2$&lt;/td&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;$p_{12}$&lt;/td&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;$p_{22}$&lt;/td&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;$\cdots$&lt;/td&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;$p_{i2}$&lt;/td&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;$\cdots$&lt;/td&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;$p_{\cdot 2}$&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;$\vdots$&lt;/td&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;$\vdots$&lt;/td&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;$\vdots$&lt;/td&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;&lt;/td&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;$\vdots$&lt;/td&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;$\vdots$&lt;/td&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;$\vdots$&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;$y_j$&lt;/td&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;$p_{1j}$&lt;/td&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;$p_{2j}$&lt;/td&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;$\cdots$&lt;/td&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;$p_{ij}$&lt;/td&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;$\cdots$&lt;/td&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;$p_{\cdot j}$&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;$\vdots$&lt;/td&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;$\vdots$&lt;/td&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;$\vdots$&lt;/td&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;$\vdots$&lt;/td&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;$\vdots$&lt;/td&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;$\vdots$&lt;/td&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;$\vdots$&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;$P\{X=x_i\}$&lt;/td&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;$p_{1 \cdot}$&lt;/td&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;$p_{2 \cdot}$&lt;/td&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;$\cdots$&lt;/td&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;$p_{i \cdot}$&lt;/td&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;$\cdots$&lt;/td&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;$1$&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
 &lt;h4 id=&#34;条件概率分布律&#34;&gt;条件概率分布律
 &lt;/h4&gt;$$P\{X=x_i \ |\ Y=y_j\} = \frac{p_{ij}}{p_{\cdot j}}$$&lt;h4 id=&#34;独立性&#34;&gt;独立性
 &lt;/h4&gt;&lt;p&gt;对于二元离散型随机变量 $(X,Y)$，则 $X$ 与 $Y$ 相互独立等价于对任意的 $i,j = 1,2,\cdots,$ 都有 &lt;/p&gt;
@@ -1329,28 +1242,12 @@ $$P\{X=x_i \ |\ Y=y_j\} = p_{i \cdot} p_{\cdot j}$$&lt;h3 id=&#34;二维连续�
 &lt;/h3&gt;&lt;h4 id=&#34;联合概率密度函数&#34;&gt;联合概率密度函数
 &lt;/h4&gt;&lt;p&gt;设二维随机变量 $(X,Y)$ 的联合分布函数为 $F(x,y)$，若存在非负实函数 $f(x,y)$，使得对于任意 $(x,y) \in \textbf{R}^2$，都有 &lt;/p&gt;
 $$F(x,y) = \int_{-\infty}^{x} \mathrm{d}s \int_{-\infty}^{y} f(s,t) \mathrm{d}t$$&lt;p&gt; 则称 $(X,Y)$ 为二维连续型随机变量，并称 $f(x,y)$ 为 $(X,Y)$ 的联合概率密度函数.&lt;/p&gt;
-&lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th&gt;性质&lt;/th&gt;
-          &lt;th&gt;表示&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td&gt;非负性&lt;/td&gt;
-          &lt;td&gt;对任意 $(x,y) \in \textbf{R}^2$，有 $f(x,y) \geqslant 0$&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;规范性&lt;/td&gt;
-          &lt;td&gt;$\displaystyle F(x,y) = \int_{-\infty}^{+\infty} \mathrm{d}s \int_{-\infty}^{+\infty} f(s,t) \mathrm{d}t = 1$&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;可导性&lt;/td&gt;
-          &lt;td&gt;$\displaystyle \frac{\partial^2 F(x,y)}{\partial x \partial y} = f(x,y)$&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;联合概率密度函数具有以下性质：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;非负性：对任意 $(x,y) \in \textbf{R}^2$，有 $f(x,y) \geqslant 0$&lt;/li&gt;
+&lt;li&gt;规范性：$\displaystyle F(x,y) = \int_{-\infty}^{+\infty} \mathrm{d}s \int_{-\infty}^{+\infty} f(s,t) \mathrm{d}t = 1$&lt;/li&gt;
+&lt;li&gt;可导性：$\displaystyle \frac{\partial^2 F(x,y)}{\partial x \partial y} = f(x,y)$&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h4 id=&#34;边缘概率密度函数&#34;&gt;边缘概率密度函数
 &lt;/h4&gt;&lt;p&gt;对于二维连续型随机变量 $(X,Y)$，联合概率密度函数 $f(x,y)$，边缘概率密度函数分别为 $f_X(x)$ 和 $f_Y(y)$，则有 &lt;/p&gt;
 $$f_X(x) = \int_{-\infty}^{+\infty} f(x,y) \mathrm{d}y $$&lt;p&gt; &lt;/p&gt;
@@ -1360,7 +1257,14 @@ $$ f_Y(y) = \int_{-\infty}^{+\infty} f(x,y) \mathrm{d}x$$&lt;h4 id=&#34;常用�
 $$f(x,y) = \left\{ \begin{matrix} \displaystyle \frac{1}{S_G} &amp; (x,y) \in G \\\\ 0 &amp; 其他 \end{matrix} \right.$$&lt;p&gt; 其中 $S_G$ 表示区域 $G$ 的面积.&lt;/p&gt;
 &lt;h5 id=&#34;二维正态分布&#34;&gt;二维正态分布
 &lt;/h5&gt;&lt;p&gt;设 $(X,Y)$ 是二维连续型随机变量，且联合概率密度函数满足 &lt;/p&gt;
-$$f(x,y) = \frac{1}{2\pi \sigma_{1} \sigma_{2} \sqrt{1-\rho^2} } \cdot \mathrm{exp}\left\{ \frac{1}{2(1-\rho^2)} \left[ \left( \frac{x-\mu_{1}}{\sigma_{1}} \right)^2 - \frac{2\rho(x-\mu_{1})(y-\mu_{2})}{\sigma_{1}\sigma_{2}} + \left( \frac{y-\mu_{2}}{\sigma_{2}} \right)^2 \right] \right\}$$&lt;h4 id=&#34;条件概率密度函数&#34;&gt;条件概率密度函数
+$$f(x,y) = \frac{1}{2\pi \sigma_{1} \sigma_{2} \sqrt{1-\rho^2} } \cdot \mathrm{exp}\left\{ \frac{1}{2(1-\rho^2)} \left[ \left( \frac{x-\mu_{1}}{\sigma_{1}} \right)^2 - \frac{2\rho(x-\mu_{1})(y-\mu_{2})}{\sigma_{1}\sigma_{2}} + \left( \frac{y-\mu_{2}}{\sigma_{2}} \right)^2 \right] \right\}$$&lt;blockquote&gt;
+&lt;p&gt;二维正态分布的性质&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;二维正态分布的边缘分布仍是正态分布，反之未必成立.&lt;/li&gt;
+&lt;li&gt;二维正态随机变量的条件分布仍是正态分布.&lt;/li&gt;
+&lt;li&gt;二维随机变量 $(X,Y) \sim N(\mu_{1},\mu_{2}; \sigma_{1}^{2}, \sigma_{2}^{2}; \rho)$，则 $(X,Y)$ 相互独立的充要条件是 $\rho = 0$.&lt;/li&gt;
+&lt;/ol&gt;&lt;/blockquote&gt;
+&lt;h4 id=&#34;条件概率密度函数&#34;&gt;条件概率密度函数
 &lt;/h4&gt;&lt;p&gt;设 $(X,Y)$ 为二维连续型随机变量，在条件 $Y=y$ 下，随机变量 $X$ 的条件分布函数为 $F_{X\ |\ Y} (x\ |\ y)$，条件概率密度函数为 $f_{X\ |\ Y} (x\ |\ y)$&lt;/p&gt;
 $$f_{X\ |\ Y} = \frac{f(x,y)}{f_Y(y)} $$&lt;p&gt; &lt;/p&gt;
 $$ f_{Y\ |\ X} = \frac{f(x,y)}{f_X(x)}$$&lt;blockquote&gt;
@@ -1369,13 +1273,7 @@ $$ f_{Y\ |\ X} = \frac{f(x,y)}{f_X(x)}$$&lt;blockquote&gt;
 &lt;h4 id=&#34;独立性-1&#34;&gt;独立性
 &lt;/h4&gt;&lt;p&gt;设 $(X,Y)$ 是二维连续型随机变量，联合概率密度函数为 $f(x,y)$，边缘密度函数分别为 $f_X(x)$ 和 $f_Y(y)$，则 $X$ 和 $Y$ 相互独立的等价于对任意的 $(x,y) \in \textbf{R}^2$，在平面上几乎处处成立 &lt;/p&gt;
 $$f(x,y) = f_X(x) f_Y(y)$$&lt;p&gt;易知，连续型随机变量 $(X,Y)$ 相互独立还等价于 &lt;/p&gt;
-$$f_{X\ |\ Y}(x\ |\ y) = f_X(x)，x \in \textbf{R} \quad 或 \quad f_{Y\ |\ X}(y\ |\ x) = f_Y(y)，y \in \textbf{R}$$&lt;h4 id=&#34;二维正态分布的性质&#34;&gt;二维正态分布的性质
-&lt;/h4&gt;&lt;ol&gt;
-&lt;li&gt;二维正态分布的边缘分布仍是正态分布，反之未必成立.&lt;/li&gt;
-&lt;li&gt;二维正态随机变量的条件分布仍是正态分布.&lt;/li&gt;
-&lt;li&gt;二维随机变量 $(X,Y) \sim N(\mu_{1},\mu_{2}; \sigma_{1}^{2}, \sigma_{2}^{2}; \rho)$，则 $(X,Y)$ 相互独立的充要条件是 $\rho = 0$.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;二维随机变量函数的分布&#34;&gt;二维随机变量函数的分布
+$$f_{X\ |\ Y}(x\ |\ y) = f_X(x)，x \in \textbf{R} \quad 或 \quad f_{Y\ |\ X}(y\ |\ x) = f_Y(y)，y \in \textbf{R}$$&lt;h3 id=&#34;二维随机变量函数的分布&#34;&gt;二维随机变量函数的分布
 &lt;/h3&gt;&lt;h4 id=&#34;二维离散型随机变量函数的分布&#34;&gt;二维离散型随机变量函数的分布
 &lt;/h4&gt;&lt;p&gt;设 $(X,Y)$ 为二维离散型随机变量，则由函数 $Z=g(X,Y)$ 确定的随机变量也是离散型随机变量.&lt;/p&gt;
 &lt;p&gt;求随机变量 $Z$ 的分布：&lt;/p&gt;
@@ -1385,29 +1283,20 @@ $$f_{X\ |\ Y}(x\ |\ y) = f_X(x)，x \in \textbf{R} \quad 或 \quad f_{Y\ |\ X}(y
 &lt;/ol&gt;
 &lt;h4 id=&#34;二维连续型随机变量函数的分布&#34;&gt;二维连续型随机变量函数的分布
 &lt;/h4&gt;&lt;p&gt;常见的二维连续型随机变量函数&lt;/p&gt;
-&lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th&gt;类型&lt;/th&gt;
-          &lt;th&gt;公式&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td&gt;$Z=X+Y$&lt;/td&gt;
-          &lt;td&gt;设 $(X,Y)$ 的联合概率密度函数为 $f(x,y)$，$(x,y) \in \textbf{R}^2$，边缘密度函数分别为 $f_X(x)$，$f_Y(y)$. 对任意实数 $z$，随机变量 $Z$ 的概率密度函数 $$f_Z(z) = \int_{-\infty}^{+\infty} f(x,z-x) \mathrm{d}x $$ $$f_Z(z) = \int_{-\infty}^{+\infty} f(z-y,y) \mathrm{d}y $$ 称上述两式为 $X$ 与 $Y$ 的卷积公式.&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;$M=\mathrm{max}\{X,Y\}$&lt;/td&gt;
-          &lt;td&gt;$$F_M(z) = P\{\mathrm{max}\{X,Y\} \leqslant z\} = P\{X \leqslant z, Y \leqslant y\} = F(z,z)$$&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;$N=\mathrm{min}\{X,Y\}$&lt;/td&gt;
-          &lt;td&gt;$$F_N(z) = P\{\mathrm{min}\{X,Y\} \leqslant z\} = 1-\left[ 1-F_X(z) \right] \left[ 1-F_Y(z) \right]$$&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;随机变量的数字特征&#34;&gt;随机变量的数字特征
+&lt;ul&gt;
+&lt;li&gt;$Z=X+Y$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;设 $(X,Y)$ 的联合概率密度函数为 $f(x,y)$，$(x,y) \in \textbf{R}^2$，边缘密度函数分别为 $f_X(x)$，$f_Y(y)$. 对任意实数 $z$，随机变量 $Z$ 的概率密度函数 &lt;/p&gt;
+$$f_Z(z) = \int_{-\infty}^{+\infty} f(x,z-x) \mathrm{d}x $$&lt;p&gt; &lt;/p&gt;
+$$f_Z(z) = \int_{-\infty}^{+\infty} f(z-y,y) \mathrm{d}y $$&lt;blockquote&gt;
+&lt;p&gt;称上述两式为 $X$ 与 $Y$ 的卷积公式，记作 $f_Z = f_X * f_Y$&lt;/p&gt;&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;$M=\mathrm{max}\{X,Y\}$&lt;/li&gt;
+&lt;/ul&gt;
+$$F_M(z) = P\{\mathrm{max}\{X,Y\} \leqslant z\} = P\{X \leqslant z, Y \leqslant y\} = F(z,z)$$&lt;ul&gt;
+&lt;li&gt;$N=\mathrm{min}\{X,Y\}$&lt;/li&gt;
+&lt;/ul&gt;
+$$F_N(z) = P\{\mathrm{min}\{X,Y\} \leqslant z\} = 1-\left[ 1-F_X(z) \right] \left[ 1-F_Y(z) \right]$$&lt;h2 id=&#34;随机变量的数字特征&#34;&gt;随机变量的数字特征
 &lt;/h2&gt;&lt;h3 id=&#34;数学期望&#34;&gt;数学期望
 &lt;/h3&gt;&lt;h4 id=&#34;离散型随机变量的数学期望&#34;&gt;离散型随机变量的数学期望
 &lt;/h4&gt;&lt;p&gt;设离散型随机变量 $X$ 的概率分布律为 $P\{X=x_k\}=p_k$，$k=1,2,\cdots$，若级数 $\displaystyle \sum_{k=1}^{\infty} |x_k|p_k$ 收敛，则记 &lt;/p&gt;
@@ -1418,48 +1307,64 @@ $$E(X) = \sum_{k=1}^{\infty} x_k p_k$$&lt;p&gt; 为随机变量 $X$ 的数学期
 &lt;/h4&gt;&lt;p&gt;设连续型随机变量 $X$ 的概率密度函数为 $f(x)$，若积分 $\displaystyle \int_{-\infty}^{+\infty} |x| f(x) \mathrm{d}x$ 收敛，则记 &lt;/p&gt;
 $$E(X) = \int_{-\infty}^{+\infty} xf(x) \mathrm{d}x$$&lt;p&gt; 为随机变量 $X$ 的数学期望. 若积分 $\displaystyle \int_{-\infty}^{+\infty} |x| f(x) \mathrm{d}x$ 不收敛，则称随机变量 $X$ 的数学期望不存在.&lt;/p&gt;
 &lt;h4 id=&#34;随机变量函数的数学期望&#34;&gt;随机变量函数的数学期望
-&lt;/h4&gt;&lt;ol&gt;
+&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;设 $X$ 是随机变量，令 $Y=g(X)$&lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 &lt;table&gt;
   &lt;thead&gt;
       &lt;tr&gt;
           &lt;th&gt;类型&lt;/th&gt;
-          &lt;th&gt;随机变量 $Y$ 的数学期望&lt;/th&gt;
+          &lt;th&gt;$E(Y)$&lt;/th&gt;
       &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
       &lt;tr&gt;
-          &lt;td&gt;$X$ 是离散型随机变量 &lt;br&gt; 概率分布律为 $P\{X=x_k\} = p_k$&lt;/td&gt;
-          &lt;td&gt;$$E(Y) = E[g(X)] = \sum_{k=1}^{\infty} g(x_k) P\{X=x_k\}$$&lt;/td&gt;
+          &lt;td&gt;离散型随机变量&lt;/td&gt;
+          &lt;td&gt;$$E(Y) = E[g(X)] = \sum_{k=1}^{\infty} g(x_k) P\{X=x_k\}$$ 其中概率分布律为 $P\{X=x_k\} = p_k$&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
-          &lt;td&gt;$X$ 是连续型随机变量 &lt;br&gt; 概率密度函数为 $f(x)$&lt;/td&gt;
-          &lt;td&gt;$$E(Y) = E[g(X)] = \int_{-\infty}^{+\infty} g(x)f(x) \mathrm{d}x$$&lt;/td&gt;
+          &lt;td&gt;连续型随机变量&lt;/td&gt;
+          &lt;td&gt;$$E(Y) = E[g(X)] = \int_{-\infty}^{+\infty} g(x)f(x) \mathrm{d}x$$ 其中概率密度函数为 $f(x)$&lt;/td&gt;
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;ol start=&#34;2&#34;&gt;
+&lt;ul&gt;
 &lt;li&gt;设 $(X,Y)$ 是二维随机变量，令 $Z=g(X,Y)$.&lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 &lt;table&gt;
   &lt;thead&gt;
       &lt;tr&gt;
           &lt;th&gt;类型&lt;/th&gt;
-          &lt;th&gt;随机变量 $Z$ 的数学期望&lt;/th&gt;
+          &lt;th&gt;$E(Z)$&lt;/th&gt;
       &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
       &lt;tr&gt;
-          &lt;td&gt;$(X,Y)$ 是二维离散型随机变量 &lt;br&gt; 联合概率分布律为 $P\{X=x_i,\ Y=y_j\} = p_{ij}$&lt;/td&gt;
-          &lt;td&gt;$$E(Z) = \sum_{i=1}^{\infty} \sum_{j=1}^{\infty} g(x_i,y_i) p_{ij}$$&lt;/td&gt;
+          &lt;td&gt;二维离散型随机变量&lt;/td&gt;
+          &lt;td&gt;$$E(Z) = \sum_{i=1}^{\infty} \sum_{j=1}^{\infty} g(x_i,y_i) p_{ij}$$ 其中联合概率分布律为 $P\{X=x_i,\ Y=y_j\} = p_{ij}$&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
-          &lt;td&gt;$(X,Y)$ 是二维连续型随机变量 &lt;br&gt; 联合概率密度函数为 $f(x,y)$&lt;/td&gt;
-          &lt;td&gt;$$E(Z) = \int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} g(x,y) f(x,y) \mathrm{d}x\mathrm{d}y$$&lt;/td&gt;
+          &lt;td&gt;二维连续型随机变量&lt;/td&gt;
+          &lt;td&gt;$$E(Z) = \int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} g(x,y) f(x,y) \mathrm{d}x\mathrm{d}y$$ 其中联合概率密度函数为 $f(x,y)$&lt;/td&gt;
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;h4 id=&#34;数学期望的性质&#34;&gt;数学期望的性质
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;设 $c$ 是常数，则 $E(c) = c$&lt;/li&gt;
+&lt;li&gt;若 $a$，$b$ 是常数，则 $E(aX+b) = aE(X)+b$&lt;/li&gt;
+&lt;li&gt;$E(X+Y) = E(X)+E(Y)$&lt;/li&gt;
+&lt;li&gt;设 $X$，$Y$ 相互独立，则 $E(XY) = E(X)E(Y)$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;方差&#34;&gt;方差
+&lt;/h3&gt;&lt;p&gt;设随机变量 $X$ 的数学期望 $E(X)$ 存在，若随机变量 $[X-E(X)]^2$ 的数学期望 $E[X-E(X)]^2$ 存在，则记 &lt;/p&gt;
+$$D(X) = \mathrm{Var}(X) = E[X-E(X)]^2 $$&lt;p&gt; 为随机变量 $X$ 的方差. 方差的算术平方根记作标准差 &lt;/p&gt;
+$$\sigma(X) = \sqrt{D(X)}$$&lt;h4 id=&#34;方差的基本性质&#34;&gt;方差的基本性质
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;$D(c) = 0$&lt;/li&gt;
+&lt;li&gt;$D(aX+b) = a^2 D(X)$&lt;/li&gt;
+&lt;li&gt;若随机变量 $X$ 与 $Y$ 独立，则 $D(X+Y) = D(X) + D(Y)$&lt;/li&gt;
+&lt;/ol&gt;
 </description>
         </item>
         <item>
@@ -8898,7 +8803,52 @@ $$\mathrm{LOC}(j_1,j_2,\cdots,j_n) = \mathrm{LOC}(0,0,\cdots,0) + \sum_{i=1}^{n}
 &lt;li&gt;左子女-右兄弟表示（二叉链表）&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;霍夫曼树&#34;&gt;霍夫曼树
-&lt;/h3&gt;&lt;h2 id=&#34;c语言补充知识&#34;&gt;C语言补充知识
+&lt;/h3&gt;&lt;h2 id=&#34;图&#34;&gt;图
+&lt;/h2&gt;&lt;p&gt;图是一种复杂的数据结构，结点之间的关系可以是任意的，任意两个数据元素之间都有可能相关。&lt;/p&gt;
+&lt;h3 id=&#34;图的基本概念&#34;&gt;图的基本概念
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;概念&lt;/th&gt;
+          &lt;th&gt;解释&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;顶点&lt;/td&gt;
+          &lt;td&gt;图中的数据元素，记为 $V$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;弧&lt;/td&gt;
+          &lt;td&gt;若 $\left&amp;lt;v,w\right&amp;gt; \in VR$，则 $\left&amp;lt;v,w\right&amp;gt;$ 表示从 $v$ 到 $w$ 的一条弧，&lt;br&gt; 且称 $v$ 为弧尾（初始点），$w$ 为弧头（终端点）&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;边&lt;/td&gt;
+          &lt;td&gt;若 $\left&amp;lt;v,w\right&amp;gt; \in VR$ 且 $\left&amp;lt;w,v\right&amp;gt; \in VR$，则可记这两条弧为一条边&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;无向图&lt;/td&gt;
+          &lt;td&gt;若 $\left&amp;lt;v,w\right&amp;gt; \in VR$ 时必有 $\left&amp;lt;w,v\right&amp;gt; \in VR$，则此时称该图为无向图&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;完全图&lt;/td&gt;
+          &lt;td&gt;对于 $n$ 个顶点的无向图，若有 $\displaystyle \frac{n(n-1)}{2}$ 条边，则称为完全图&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;有向完全图&lt;/td&gt;
+          &lt;td&gt;对于 $n$ 个顶点的有向图，若有 $n(n-1)$ 条弧，则称为有向完全图&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;权&lt;/td&gt;
+          &lt;td&gt;与图的边或弧相关的数&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;子图&lt;/td&gt;
+          &lt;td&gt;对于两个图 $G=(V,\{E\})$ 和 $G&#39;=(V&#39;,\{E&#39;\})$，如果 $V&#39; \subseteq V$ 且 $E&#39; \subseteq E$，则称 $G&#39;$ 是 $G$ 的子图&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;c语言补充知识&#34;&gt;C语言补充知识
 &lt;/h2&gt;&lt;h3 id=&#34;typedef&#34;&gt;typedef
 &lt;/h3&gt;&lt;p&gt;&lt;code&gt;typedef&lt;/code&gt;可以给变量起一个别名，例如：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;typedef&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ElemType&lt;/span&gt;
@@ -9186,7 +9136,7 @@ $$ n! = \left\{ \begin{array}{c} 1, &amp; n = 0 \\ n \cdot (n-1)!, &amp; n \geqs
 
 &lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;让计算机求出 $a^b$，暴力相乘的话，电脑要计算 $b$ 次。用快速幂，计算次数在 $\mathrm{log}_{2} b$ 级别，很实用。&lt;/p&gt;
-&lt;h3 id=&#34;原理&#34;&gt;原理：
+&lt;h3 id=&#34;原理&#34;&gt;原理
 &lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;如果将 $a$ 自乘一次，就会变成 $a^2$。再把 $a^2$ 自乘一次就会变成 $a^4$，然后是 $a^8$……自乘 $n$ 次的结果是 $a^{2^n}$。&lt;br&gt;&lt;/li&gt;
 &lt;li&gt;$a^x \cdot a^y = a^{x+y}$。&lt;br&gt;&lt;/li&gt;
