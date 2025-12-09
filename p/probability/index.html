@@ -430,6 +430,33 @@
             <li><a href="#大数定律-1">大数定律</a></li>
           </ol>
         </li>
+        <li><a href="#中心极限定理">中心极限定理</a></li>
+      </ol>
+    </li>
+    <li><a href="#数理统计的基本概念与抽样分布">数理统计的基本概念与抽样分布</a>
+      <ol>
+        <li><a href="#基本概念">基本概念</a>
+          <ol>
+            <li><a href="#总体与样本">总体与样本</a></li>
+            <li><a href="#经验分布函数">经验分布函数</a></li>
+          </ol>
+        </li>
+        <li><a href="#统计量及其分布">统计量及其分布</a>
+          <ol>
+            <li><a href="#统计量">统计量</a></li>
+            <li><a href="#统计中的常用分布">统计中的常用分布</a></li>
+            <li><a href="#抽样分布定理">抽样分布定理</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#参数估计">参数估计</a>
+      <ol>
+        <li><a href="#参数的点估计">参数的点估计</a>
+          <ol>
+            <li><a href="#矩估计法">矩估计法</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
   </ol>
@@ -1507,7 +1534,156 @@ $$\lim_{n \to \infty} P\{ |X_n -X| < \varepsilon \} = 1$$<p> 则称序列 $X_1, 
 </h4><p><strong>切比雪夫大数定律</strong>：设 $X_1, X_2 \cdots, X_n, \cdots$ 是一列两两不相关的随机变量序列，且方差有界（即存在常数 $C&gt;0$，使得对于任意 $i$，都有 $D(X_i) \leqslant C$）. 令 $\displaystyle Y_n = \frac{1}{n} \sum_{i=1}^{n} X_i$，则有 </p>
 $$Y_n \xrightarrow{P} E(Y_n)$$<p><strong>伯努利大数定律</strong>：在 $n$ 重伯努利试验中，设在每次试验中事件 $A$ 发生的概率均为 $p(0&lt;p&lt;1)$，$\mu_n$ 为 $n$ 重伯努利试验中事件 $A$ 发生的次数，则 </p>
 $$ \frac{\mu_n}{n} \xrightarrow{P} p$$<p><strong>辛钦大数定律</strong>：设 $X_1, X_2 \cdots, X_n, \cdots$ 是独立同分布的随机变量序列，且数学期望存在，即 $E(X_i) = \mu (i = 1,2,\cdots,n,\cdots)$，则 </p>
-$$ \frac{1}{n} \sum_{i=1}^{n} X_i \xrightarrow{P} \mu $$
+$$ \frac{1}{n} \sum_{i=1}^{n} X_i \xrightarrow{P} \mu $$<h3 id="中心极限定理">中心极限定理
+</h3><p>设随机变量序列 $X_1, X_2 \cdots, X_n, \cdots$ 独立同分布，且 $E(X_i) = \mu$，$D(X_i) = \sigma^2 &gt; 0$，则随机变量 </p>
+$$Y_i = \frac{\displaystyle \sum_{i=0}^{n} X_i - n\mu}{\sqrt{n}\sigma}$$<p> 的分布函数 $F_n(x)$ 满足 </p>
+$$\lim_{n \to \infty} F_n(x) = \lim_{n \to \infty} P\{Y_n \leqslant x\} = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{x} \mathrm{e}^{-\frac{y^2}{2}} \mathrm{d}y，x \in \textbf{R}$$<p>该定理表明，当 $n \to \infty$ 时，随机变量 $Y_n$ 的分布将趋近于标准正态分布 $N(0,1)$. 即：当 $n$ 充分大时，独立同分布的 $n$ 个随机变量 $X_1, X_2 \cdots, X_n$ 之和 $\displaystyle S_n = \sum_{i=1}^{n} X_i$ 将近似地服从正态分布 $N(n\mu, n\sigma^2)$</p>
+<p>设在独立重复试验序列中，事件 $A$ 发生的概率为 $p$，随机变量 $Y_n$ 表示事件 $A$ 在 $n$ 次试验中发生的次数，则对于任意实数 $x$，有 </p>
+$$\lim_{n \to \infty} \left\{  \frac{Y_n - np}{\sqrt{np(1-p)}} \leqslant x \right\} = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{x} \mathrm{e}^{-\frac{y^2}{2}} \mathrm{d}y$$<p>或者表示为：</p>
+$$P\{ a < X < b \} = \varPhi\left( \frac{b-np}{\sqrt{np(1-p)}} \right) - \varPhi\left( \frac{a-np}{\sqrt{np(1-p)}} \right)$$<h2 id="数理统计的基本概念与抽样分布">数理统计的基本概念与抽样分布
+</h2><h3 id="基本概念">基本概念
+</h3><h4 id="总体与样本">总体与样本
+</h4><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>概念</th>
+          <th>定义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>总体</td>
+          <td>研究对象的某项数量指标的值的全体称为总体</td>
+      </tr>
+      <tr>
+          <td>个体</td>
+          <td>总体中的每个元素称为个体</td>
+      </tr>
+      <tr>
+          <td>样本</td>
+          <td>从一个总体 $X$ 中随机地抽取 $n$ 个个体组成的向量 $(X_1,X_2,\cdots,X_n)$ 称为总体 $X$ 的一个样本</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>随机样本的要求</p>
+<ol>
+<li>独立性：$X_1,X_2,\cdots,X_n$ 是相互独立的随机变量；</li>
+<li>代表性：样本的每个个体 $X_i$ 与总体 $X$ 具有相同的分布.</li>
+</ol>
+<h4 id="经验分布函数">经验分布函数
+</h4><p>设 $(X_1,X_2,\cdots,X_n)$ 是从总体 $X$ 中抽取的容量为 $n$ 的样本，$(x_1,x_2,\cdots,x_n)$ 是样本的观测值，将样本观测值从小到大排列得到 $x_{(1)} \leqslant x_{(2)} \leqslant \cdots \leqslant x_{(n)}$，对任意实数 $x$，称 </p>
+$$F_n(x) = \frac{1}{n} \sum_{i=0}^{n} I_{\{x_{(1)} \leqslant x\}}$$<p> 为总体 $X$ 的经验分布函数.</p>
+<blockquote>
+<p>当样本容量 $n$ 足够大时，经验分布函数 $F_n(x)$ 是总体分布函数的一个良好近似.</p></blockquote>
+<h3 id="统计量及其分布">统计量及其分布
+</h3><h4 id="统计量">统计量
+</h4><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>样本矩</th>
+          <th>表示</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>样本均值</td>
+          <td>$\displaystyle \overline{X} = \frac{1}{n} \sum_{i=0}^{n} X_i$</td>
+      </tr>
+      <tr>
+          <td>样本方差</td>
+          <td>$\displaystyle S^2 = \frac{1}{n-1} \sum_{i=1}^{n} (X_i - \overline{X})^2$</td>
+      </tr>
+      <tr>
+          <td>样本标准差</td>
+          <td>$\displaystyle S = \sqrt{\frac{1}{n-1} \sum_{i=1}^{n} (X_i - \overline{X})^2}$</td>
+      </tr>
+      <tr>
+          <td>样本的 $k$ 阶原点矩</td>
+          <td>$\displaystyle A_k = \frac{1}{n} \sum_{i=1}^{n} X_i^k$</td>
+      </tr>
+      <tr>
+          <td>样本的 $k$ 阶中心矩</td>
+          <td>$\displaystyle M_k = \frac{1}{n} \sum_{i=1}^{n} (X_i - \overline{X})^k$</td>
+      </tr>
+  </tbody>
+</table></div>
+<h4 id="统计中的常用分布">统计中的常用分布
+</h4><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>$\chi^2$ 分布</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>定义</td>
+          <td>设随机变量 $X_1, X_2 \cdots, X_n, \cdots$ 相互独立，且均服从 $N(0,1)$ 分布，则随机变量 $$Y = X_1^2 + X_2^2 + \cdots + X_n^2$$ 服从自由度是 $n$ 的 $\chi^2$ 分布，记为 $Y \sim \chi_n^2$</td>
+      </tr>
+      <tr>
+          <td>性质</td>
+          <td>设随机变量 $ Y \sim \chi_n^2$，则 $E(Y) = n$，$D(Y) = 2n$ <br> 设随机变量 $Y_1 \sim \chi_m^2$，$Y_2 \sim \chi_n^2$，且 $Y_1$ 和 $Y_2$ 相互独立，则 $Y_1 + Y_2 \sim \chi_{m+n}^2$</td>
+      </tr>
+  </tbody>
+</table></div>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>$t$ 分布</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>定义</td>
+          <td>设随机变量 $X \sim N(0,1)$，$Y \sim \chi_n^2$，且 $X$ 和 $Y$ 相互独立，则称随机变量 $$T = \frac{X}{\sqrt{Y/n}}$$ 服从自由度是 $n$ 的 $t$ 分布，记为 $T \sim t_n$</td>
+      </tr>
+      <tr>
+          <td>性质</td>
+          <td>$t$ 的概率密度函数 $f(x;n)$ 关于 $y$ 轴对称，且当 $n \to \infty$ 时，$t$ 分布趋于标准正态分布</td>
+      </tr>
+  </tbody>
+</table></div>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>$F$ 分布</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>定义</td>
+          <td>设随机变量 $X \sim \chi_m^2$，$Y \sim \chi_n^2$，且 $X$ 和 $Y$ 相互独立，则称随机变量 $$F = \frac{X/m}{Y/n}$$ 服从第一自由度是 $m$，第二自由度是 $n$ 的 $F$ 分布，记作 $F \sim F_{m,n}$</td>
+      </tr>
+      <tr>
+          <td>性质</td>
+          <td>若 $F \sim F_{m,n}$，则 $\displaystyle \frac{1}{F} \sim F_{m,n}$ <br> 若 $T \sim t_n$，则 $T^2 \sim F_{1,n}$</td>
+      </tr>
+  </tbody>
+</table></div>
+<h4 id="抽样分布定理">抽样分布定理
+</h4><p>设 $(X_1,X_2,\cdots,X_n)$ 是来自正态总体 $X \sim N(\mu,\sigma^2)$ 的样本，样本均值为 $\displaystyle \overline{X} = \frac{1}{n} \sum_{i=1}^{n} X_i$，样本方差为 $\displaystyle S^2=\frac{1}{n-1} \sum_{i=1}^{n} (X_i-\overline{X})^2$，则</p>
+<ol>
+<li>
+<p>$\displaystyle \overline{X} \sim N(\mu,\frac{\sigma^2}{n})$</p>
+</li>
+<li>
+<p>$\displaystyle \frac{\sqrt{n}(\overline{X}-\mu)}{S} \sim t_{n-1}$</p>
+</li>
+<li>
+<p>$\displaystyle \frac{(n-1)S^2}{\sigma^2} \sim \chi_{n-1}^2$</p>
+</li>
+<li>
+<p>${X}$ 与 $S^2$ 相互独立</p>
+</li>
+</ol>
+<h2 id="参数估计">参数估计
+</h2><h3 id="参数的点估计">参数的点估计
+</h3><h4 id="矩估计法">矩估计法
+</h4><p>设总体 $X$ 含有 $k$ 个未知参数 $\theta_1, \theta_2, \cdots, \theta_k$，且 $X$ 的 $m$ 阶原点矩 $\alpha_m = E(X^m)$ 存在，$m=1,2,\cdots,k$，，令 </p>
+$$\left \{\begin{array}{c}  \alpha_1(\theta_1, \cdots, \theta_k) = A_1 \\ \\ \alpha_2(\theta_1, \cdots, \theta_k) = A_2 \\\\ \cdots \ \cdots \ \cdots \ \cdots \\\\ \alpha_k(\theta_1, \cdots, \theta_k) = A_k \\ \end{array} \right. $$<p> 解这个方程组，其解都是样本的函数，记为 </p>
+$$\hat{\theta_i} = \hat{\theta_i}(X_1, X_2, \cdots, X_n)，i=1,2,\cdots,k$$
 </section>
 
 
@@ -1742,7 +1918,7 @@ $$ \frac{1}{n} \sum_{i=1}^{n} X_i \xrightarrow{P} \mu $$
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.bd3b5265d5a9cb8dd60a33d557d6f339f291628681bd74f041d1620d09ca6d72.js" defer></script><script type="text/javascript" src="/ts/custom.f2979a93a325fecf9605263bd141398a311c8e23388ed7dcff74f92f7e632866.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.86284e1e3afbeaf408f4d3584fe4d214fb868eea14e3071dc97612b6386cbd0d.js" defer></script><script type="text/javascript" src="/ts/custom.f2979a93a325fecf9605263bd141398a311c8e23388ed7dcff74f92f7e632866.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');

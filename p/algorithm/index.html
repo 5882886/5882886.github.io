@@ -321,6 +321,11 @@
   <ol>
     <li><a href="#排序">排序</a>
       <ol>
+        <li><a href="#插入排序">插入排序</a>
+          <ol>
+            <li><a href="#直接插入排序">直接插入排序</a></li>
+          </ol>
+        </li>
         <li><a href="#冒泡排序">冒泡排序</a></li>
         <li><a href="#快速排序">快速排序</a></li>
         <li><a href="#桶排序">桶排序</a></li>
@@ -367,6 +372,7 @@
     <li><a href="#搜索">搜索</a>
       <ol>
         <li><a href="#图的存储">图的存储</a></li>
+        <li><a href="#广度优先搜索">广度优先搜索</a></li>
       </ol>
     </li>
     <li><a href="#动态规划">动态规划</a></li>
@@ -787,7 +793,32 @@
 
 </a></p>
 <h2 id="排序">排序
-</h2><h3 id="冒泡排序">冒泡排序
+</h2><p>排序是将一个数据元素的任意序列，重新排列成一个按关键字有序的序列的过程。</p>
+<p>所有排序算法均使用以下结构：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cp">#define MAXSIZE 100
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="cp"></span><span class="k">typedef</span> <span class="kt">int</span> <span class="n">KeyType</span><span class="err">；</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="k">struct</span> <span class="nc">Data</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="n">KeyType</span> <span class="n">key</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="k">struct</span> <span class="nc">SqList</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="n">Data</span> <span class="n">r</span><span class="p">[</span><span class="n">MAXSIZE</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="kt">int</span> <span class="n">length</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p>定义函数<code>LT()</code>为元素比较函数：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// 将元素从小到大排列
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"></span><span class="kt">bool</span> <span class="nf">LT</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="k">return</span> <span class="n">a</span><span class="o">&gt;</span><span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">
+</span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="c1">// 将元素从大到小排列
+</span></span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="c1"></span><span class="kt">bool</span> <span class="nf">LT</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">8</span><span class="cl">    <span class="k">return</span> <span class="n">a</span><span class="o">&lt;</span><span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">9</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="插入排序">插入排序
+</h3><h4 id="直接插入排序">直接插入排序
+</h4><h3 id="冒泡排序">冒泡排序
 </h3><p>冒泡排序的原理是每次都将最大（或最小）的元素转移至最右侧，类似于水中的气泡不断上升的过程。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
@@ -1257,6 +1288,21 @@ $$ n! = \left\{ \begin{array}{c} 1, & n = 0 \\ n \cdot (n-1)!, & n \geqslant 1 \
 </h2><h3 id="图的存储">图的存储
 </h3><p>邻接表：vector建表。将每个点X的邻接点存入数组<code>g[X]</code>中。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">g</span><span class="p">[</span><span class="n">N</span><span class="p">]</span>
+</span></span></code></pre></div><h3 id="广度优先搜索">广度优先搜索
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">void</span> <span class="nf">Graph_Traverse</span> <span class="p">(</span><span class="n">AdjGraph</span> <span class="n">G</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="kt">int</span> <span class="o">*</span><span class="n">visited</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span> <span class="p">[</span><span class="n">MaxVexNum</span><span class="p">];</span> 
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">G</span><span class="p">.</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">        <span class="c1">// 访问数组 visited 初始化
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="c1"></span>        <span class="n">visited</span> <span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>	
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">G</span><span class="p">.</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">visited</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">            <span class="c1">// 从顶点 i 出发开始搜索
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="c1"></span>            <span class="n">BFS</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">visited</span><span class="p">);</span>	
+</span></span><span class="line"><span class="ln">11</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="k">delete</span><span class="p">[]</span> <span class="n">visited</span><span class="p">;</span>	<span class="c1">// 释放 visited 
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="c1"></span><span class="p">}</span>
 </span></span></code></pre></div><h2 id="动态规划">动态规划
 </h2>
 </section>
@@ -1493,7 +1539,7 @@ $$ n! = \left\{ \begin{array}{c} 1, & n = 0 \\ n \cdot (n-1)!, & n \geqslant 1 \
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.bd3b5265d5a9cb8dd60a33d557d6f339f291628681bd74f041d1620d09ca6d72.js" defer></script><script type="text/javascript" src="/ts/custom.f2979a93a325fecf9605263bd141398a311c8e23388ed7dcff74f92f7e632866.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.86284e1e3afbeaf408f4d3584fe4d214fb868eea14e3071dc97612b6386cbd0d.js" defer></script><script type="text/javascript" src="/ts/custom.f2979a93a325fecf9605263bd141398a311c8e23388ed7dcff74f92f7e632866.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');

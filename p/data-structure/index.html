@@ -855,8 +855,8 @@
 </span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">length</span><span class="p">;</span>         <span class="c1">// 顺序表容量
 </span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1"></span><span class="p">}</span> <span class="n">SeqList</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln"> 9</span><span class="cl">
-</span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="c1">// ----- 初始化顺序表 -----
-</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">InitList</span><span class="p">(</span><span class="n">SeqList</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="cm">/* ----- 初始化顺序表 ----- */</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="kt">void</span> <span class="nf">InitList</span><span class="p">(</span><span class="n">SeqList</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="n">L</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">ElemType</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="n">MAXSIZE</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">ElemType</span><span class="p">));</span>     <span class="c1">// 分配内存空间
 </span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="n">L</span><span class="p">.</span><span class="n">data</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">14</span><span class="cl">        <span class="c1">// 初始化失败
@@ -1018,8 +1018,8 @@ $$ACN = \frac{1}{n} \sum_{i=0}^{n-1} (i+1) = \frac{1}{n} (1+2+\cdots+n) = \frac{
 </span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="n">Node</span> <span class="o">*</span><span class="n">next</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="p">}</span> <span class="n">Node</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln"> 6</span><span class="cl">
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1">// ----- 初始化 -----
-</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">Initial</span><span class="p">(</span><span class="n">Node</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="cm">/* ----- 初始化 ----- */</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="kt">void</span> <span class="nf">Initial</span><span class="p">(</span><span class="n">Node</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="n">L</span> <span class="o">=</span> <span class="p">(</span><span class="n">Node</span><span class="o">*</span><span class="p">)</span> <span class="n">malloc</span> <span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">Node</span><span class="p">));</span>
 </span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="n">L</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="n">L</span><span class="p">.</span><span class="n">next</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
@@ -1470,7 +1470,7 @@ $$\mathrm{LOC}(j_1,j_2,\cdots,j_n) = \mathrm{LOC}(0,0,\cdots,0) + \sum_{i=1}^{n}
 </h3><p>树是由 $n$ $(n&gt;0)$ 个结点的有限集合。如果 $n=0$，称为空树；如果 $n&gt;0$，则</p>
 <ol>
 <li>有且仅有一个根结点，它没有直接前驱。</li>
-<li>当 $n&gt;1$，除根结点以外的其他结点划分为 $m$ $m&gt;0$ 个互不相交的有限集 $T_1, T_2, \cdots , T_m$，其中每个集合本身又是一棵树，并且称为根的子树。</li>
+<li>当 $n&gt;1$，除根结点以外的其他结点划分为 $m$ $(m&gt;0)$ 个互不相交的有限集 $T_1, T_2, \cdots , T_m$，其中每个集合本身又是一棵树，并且称为根的子树。</li>
 </ol>
 <blockquote>
 <p>由树的性质可知，树的结构具有递归性。</p></blockquote>
@@ -1524,7 +1524,7 @@ $$\mathrm{LOC}(j_1,j_2,\cdots,j_n) = \mathrm{LOC}(0,0,\cdots,0) + \sum_{i=1}^{n}
       </tr>
       <tr>
           <td>森林</td>
-          <td>$m$ $(m \leqslant 0)$ 棵互不相交的树</td>
+          <td>$m$ $(m \geqslant 2)$ 棵互不相交的树</td>
       </tr>
   </tbody>
 </table></div>
@@ -1794,7 +1794,7 @@ $$G.edge[i][j] = \left\{ \begin{matrix} 1， & \left< i,j \right> \in E \ 或\  
 <li>用邻接表表示无向图时，需要 $n$ 个顶点结点，$2e$ 个边结点；</li>
 <li>用邻接表表示有向图时，若不考虑逆邻接表，只需 $n$ 个顶点结点，$e$ 个边结点</li>
 </ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cm">/* ----- 边结点的结构 ----- */</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cm">/* ----- 顶点 ----- */</span>
 </span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="k">typedef</span> <span class="kt">char</span> <span class="n">VertexData</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="k">typedef</span> <span class="kt">int</span> <span class="n">EdgeData</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln"> 4</span><span class="cl">
@@ -1802,20 +1802,26 @@ $$G.edge[i][j] = \left\{ \begin{matrix} 1， & \left< i,j \right> \in E \ 或\  
 </span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="kt">int</span> <span class="n">dest</span><span class="err">；</span>          <span class="c1">// 目标顶点位置
 </span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1"></span>    <span class="n">EdgeData</span> <span class="n">cost</span><span class="p">;</span>      <span class="c1">// 边的权值
 </span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1"></span>    <span class="n">node</span> <span class="o">*</span><span class="n">link</span><span class="p">;</span>         <span class="c1">// 下一条边的指针
-</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="c1"></span><span class="p">}</span> <span class="n">EdgeNode</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="c1"></span><span class="p">};</span>
 </span></span><span class="line"><span class="ln">10</span><span class="cl">
-</span></span><span class="line"><span class="ln">11</span><span class="cl">
-</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="cm">/* ----- 图顶点的结构 ----- */</span>
-</span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="k">struct</span> <span class="nc">vertexnode</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="n">VertexData</span> <span class="n">data</span><span class="p">;</span>    <span class="c1">// 顶点数据域
-</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="c1"></span>    <span class="n">EdgeNode</span> <span class="o">*</span><span class="n">adj</span><span class="p">;</span>      <span class="c1">// 边链表头指针
-</span></span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="c1"></span><span class="p">}</span> <span class="n">VertexNode</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">17</span><span class="cl">
+</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="cm">/* ----- 顶点的邻接链表 ----- */</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="k">struct</span> <span class="nc">vnode</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="n">VertexData</span> <span class="n">data</span><span class="p">;</span>    <span class="c1">// 顶点数据域
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="c1"></span>    <span class="n">node</span> <span class="o">*</span><span class="n">adj</span><span class="p">;</span>          <span class="c1">// 边链表头指针
+</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">
+</span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="cm">/* ----- 图 ----- */</span>
 </span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="k">struct</span> <span class="nc">adjgraph</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">19</span><span class="cl">    <span class="n">VertexNode</span> <span class="n">VetList</span><span class="p">[</span><span class="n">MaxVexNum</span><span class="p">];</span>  <span class="c1">// 邻接表
-</span></span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">n</span><span class="p">,</span><span class="n">e</span><span class="p">;</span>                        <span class="c1">// 图中当前的顶点个数与边数
-</span></span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="c1"></span><span class="p">}</span> <span class="n">AdjGraph</span><span class="p">;</span>
-</span></span></code></pre></div><h3 id="图的遍历">图的遍历
+</span></span><span class="line"><span class="ln">19</span><span class="cl">    <span class="n">vnode</span> <span class="n">VetList</span><span class="p">[</span><span class="n">MaxVexNum</span><span class="p">];</span>   <span class="c1">// 邻接表
+</span></span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">n</span><span class="p">,</span><span class="n">e</span><span class="p">;</span>                    <span class="c1">// 图中当前的顶点个数与边数
+</span></span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span></code></pre></div><p>邻接表的示意图如下：</p>
+<figure><img src="/p/data-structure/images/%E9%82%BB%E6%8E%A5%E8%A1%A8.png" width="700"><figcaption>
+      <h4>邻接表</h4>
+    </figcaption>
+</figure>
+
+<h3 id="图的遍历">图的遍历
 </h3><h4 id="深度优先搜索dfs">深度优先搜索（DFS）
 </h4><p>基本步骤：</p>
 <ol>
@@ -1832,8 +1838,64 @@ $$G.edge[i][j] = \left\{ \begin{matrix} 1， & \left< i,j \right> \in E \ 或\  
 <li>对每个顶点至多调用一次 DFS 函数；</li>
 <li>时间复杂度取决于所采用的存储结构：邻接矩阵 $O(n^2)$，邻接表 $O(n+e)$</li>
 </ol>
-<h4 id="广度优先搜索bfs">广度优先搜索（BFS）
-</h4><p>基本步骤</p>
+<p>递归形式：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cm">/* ----- 深度优先搜索（递归形式）----- */</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kt">void</span> <span class="nf">Graph_Traverse</span><span class="p">(</span><span class="n">adjGraph</span> <span class="o">&amp;</span><span class="n">G</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="kt">int</span> <span class="n">visit</span><span class="p">[</span><span class="mi">16</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="mi">15</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">visit</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">            <span class="n">DFS</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">visit</span><span class="p">[]);</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">
+</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="kt">void</span> <span class="nf">DFS_recursion</span><span class="p">(</span><span class="n">adjGraph</span> <span class="o">&amp;</span><span class="n">G</span><span class="p">,</span> <span class="kt">int</span> <span class="n">v</span><span class="p">,</span> <span class="kt">int</span> <span class="n">visit</span><span class="p">[])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%c&#34;</span><span class="p">,</span> <span class="n">G</span><span class="p">.</span><span class="n">Vexlist</span><span class="p">[</span><span class="n">v</span><span class="p">].</span><span class="n">data</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="n">visit</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="n">enode</span> <span class="o">*</span><span class="n">w</span> <span class="o">=</span> <span class="n">G</span><span class="p">.</span><span class="n">Vexlist</span><span class="p">[</span><span class="n">v</span><span class="p">].</span><span class="n">adj</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">
+</span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">w</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">visit</span><span class="p">[</span><span class="n">w</span><span class="o">-&gt;</span><span class="n">dest</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">            <span class="n">DFS_recursion</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">visit</span><span class="p">[]);</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">        <span class="n">w</span> <span class="o">=</span> <span class="n">w</span><span class="o">-&gt;</span><span class="n">link</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>栈形式：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cm">/* ----- 深度优先搜索（栈形式） ----- */</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kt">void</span> <span class="nf">DFS_stack</span><span class="p">(</span><span class="n">adjGraph</span> <span class="o">&amp;</span><span class="n">G</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="kt">int</span> <span class="n">visit</span><span class="p">[</span><span class="mi">16</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="c1">// 每个连通分支调用一次DFS
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">15</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">visit</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">{</span>   
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">            <span class="n">stack</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">            <span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">            
+</span></span><span class="line"><span class="ln">11</span><span class="cl">            <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">s</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">                <span class="kt">int</span> <span class="n">top</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">top</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">                <span class="n">s</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">                
+</span></span><span class="line"><span class="ln">15</span><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">visit</span><span class="p">[</span><span class="n">top</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">                    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%c&#34;</span><span class="p">,</span> <span class="n">G</span><span class="p">.</span><span class="n">Vexlist</span><span class="p">[</span><span class="n">top</span><span class="p">].</span><span class="n">data</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">                    <span class="n">visit</span><span class="p">[</span><span class="n">top</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">                
+</span></span><span class="line"><span class="ln">20</span><span class="cl">                <span class="c1">// 将所有未访问的邻接节点入栈
+</span></span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="c1"></span>                <span class="n">enode</span> <span class="o">*</span><span class="n">w</span> <span class="o">=</span> <span class="n">G</span><span class="p">.</span><span class="n">Vexlist</span><span class="p">[</span><span class="n">top</span><span class="p">].</span><span class="n">adj</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">                <span class="k">while</span> <span class="p">(</span><span class="n">w</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">                    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">visit</span><span class="p">[</span><span class="n">w</span><span class="o">-&gt;</span><span class="n">dest</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">                        <span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">w</span><span class="o">-&gt;</span><span class="n">dest</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl">                    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">                    <span class="n">w</span> <span class="o">=</span> <span class="n">w</span><span class="o">-&gt;</span><span class="n">link</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">31</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h4 id="广度优先搜索bfs">广度优先搜索（BFS）
+</h4><p>基本步骤：</p>
 <ol>
 <li>访问起始顶点 $v$；</li>
 <li>由 $v$ 出发，依次访问 $v$ 的各个未被访问过的邻接顶点 $w_1$，$w_2$，$\cdots$， $w_t$；</li>
@@ -1846,7 +1908,37 @@ $$G.edge[i][j] = \left\{ \begin{matrix} 1， & \left< i,j \right> \in E \ 或\  
 <li>耗费的时间均取决于所采用的存储结构：邻接矩阵 $O(n^2)$，邻接表 $O(n+e)$；</li>
 <li>BFS 和 DFS 仅是对顶点的访问顺序不同。</li>
 </ol>
-<h3 id="最小生成树">最小生成树
+<p>队列形式：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1">// 广度优先搜索
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">BFS</span><span class="p">(</span><span class="n">adjGraph</span> <span class="o">&amp;</span><span class="n">G</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="kt">int</span> <span class="n">visit</span><span class="p">[</span><span class="mi">16</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="mi">15</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">visit</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">            <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%c&#34;</span><span class="p">,</span> <span class="n">G</span><span class="p">.</span><span class="n">Vexlist</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">data</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">            <span class="n">visit</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">            <span class="n">queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">q</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">            
+</span></span><span class="line"><span class="ln">11</span><span class="cl">            <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">
+</span></span><span class="line"><span class="ln">13</span><span class="cl">            <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">q</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">                <span class="kt">int</span> <span class="n">head</span> <span class="o">=</span> <span class="n">q</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">                <span class="n">q</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">
+</span></span><span class="line"><span class="ln">17</span><span class="cl">                <span class="n">enode</span> <span class="o">*</span><span class="n">w</span> <span class="o">=</span> <span class="n">G</span><span class="p">.</span><span class="n">Vexlist</span><span class="p">[</span><span class="n">head</span><span class="p">].</span><span class="n">adj</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">                <span class="k">while</span> <span class="p">(</span><span class="n">w</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">                    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">visit</span><span class="p">[</span><span class="n">w</span><span class="o">-&gt;</span><span class="n">dest</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">                        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%c&#34;</span><span class="p">,</span> <span class="n">G</span><span class="p">.</span><span class="n">Vexlist</span><span class="p">[</span><span class="n">w</span><span class="o">-&gt;</span><span class="n">dest</span><span class="p">].</span><span class="n">data</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">                        <span class="n">visit</span><span class="p">[</span><span class="n">w</span><span class="o">-&gt;</span><span class="n">dest</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">                        <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">w</span><span class="o">-&gt;</span><span class="n">dest</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">                    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">                    <span class="n">w</span> <span class="o">=</span> <span class="n">w</span><span class="o">-&gt;</span><span class="n">link</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="最小生成树">最小生成树
 </h3><p>定义：对于一个有 $n$ 个顶点的图，必须且仅用该网络中的 $n-1$ 条边来联结网络中的 $n$ 个顶点；不能产生回路；各边权值总和最小的树</p>
 <h4 id="prim-算法求最小生成树">Prim 算法求最小生成树
 </h4><p>已知，图 $N =(V,E)$，生成树顶点集合 $U$；</p>
@@ -2253,7 +2345,7 @@ $$G.edge[i][j] = \left\{ \begin{matrix} 1， & \left< i,j \right> \in E \ 或\  
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.bd3b5265d5a9cb8dd60a33d557d6f339f291628681bd74f041d1620d09ca6d72.js" defer></script><script type="text/javascript" src="/ts/custom.f2979a93a325fecf9605263bd141398a311c8e23388ed7dcff74f92f7e632866.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.86284e1e3afbeaf408f4d3584fe4d214fb868eea14e3071dc97612b6386cbd0d.js" defer></script><script type="text/javascript" src="/ts/custom.f2979a93a325fecf9605263bd141398a311c8e23388ed7dcff74f92f7e632866.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');
