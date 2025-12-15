@@ -455,6 +455,19 @@
         <li><a href="#参数的点估计">参数的点估计</a>
           <ol>
             <li><a href="#矩估计法">矩估计法</a></li>
+            <li><a href="#最大似然估计法">最大似然估计法</a></li>
+          </ol>
+        </li>
+        <li><a href="#估计量的优良性准则">估计量的优良性准则</a>
+          <ol>
+            <li><a href="#无偏性">无偏性</a></li>
+            <li><a href="#有效性">有效性</a></li>
+            <li><a href="#相合估计">相合估计</a></li>
+          </ol>
+        </li>
+        <li><a href="#区间估计">区间估计</a>
+          <ol>
+            <li><a href="#基本概念-1">基本概念</a></li>
           </ol>
         </li>
       </ol>
@@ -1680,10 +1693,84 @@ $$F_n(x) = \frac{1}{n} \sum_{i=0}^{n} I_{\{x_{(1)} \leqslant x\}}$$<p> 为总体
 </ol>
 <h2 id="参数估计">参数估计
 </h2><h3 id="参数的点估计">参数的点估计
-</h3><h4 id="矩估计法">矩估计法
+</h3><p>设总体 $X$ 的分布类型已知，但其中含有未知数 $\theta = (\theta_1, \cdots, \theta_k)$. 从样本出发构造适当的统计量 $\hat{\theta}_i = \hat{\theta}_i(X_1,X_2,\cdots,X_n)$ 作为参数 $\theta_i$ 的估计量，当取得样本观测值 $(x_1,x_2,\cdots,x_n)$ 后，就用 $\hat{\theta}_i = \hat{\theta}_i(x_1,x_2,\cdots,x_n)$ 作为未知参数 $\theta_i$ 的估计值.</p>
+<h4 id="矩估计法">矩估计法
 </h4><p>设总体 $X$ 含有 $k$ 个未知参数 $\theta_1, \theta_2, \cdots, \theta_k$，且 $X$ 的 $m$ 阶原点矩 $\alpha_m = E(X^m)$ 存在，$m=1,2,\cdots,k$，，令 </p>
 $$\left \{\begin{array}{c}  \alpha_1(\theta_1, \cdots, \theta_k) = A_1 \\ \\ \alpha_2(\theta_1, \cdots, \theta_k) = A_2 \\\\ \cdots \ \cdots \ \cdots \ \cdots \\\\ \alpha_k(\theta_1, \cdots, \theta_k) = A_k \\ \end{array} \right. $$<p> 解这个方程组，其解都是样本的函数，记为 </p>
-$$\hat{\theta_i} = \hat{\theta_i}(X_1, X_2, \cdots, X_n)，i=1,2,\cdots,k$$
+$$\hat{\theta_i} = \hat{\theta_i}(X_1, X_2, \cdots, X_n)，i=1,2,\cdots,k$$<h4 id="最大似然估计法">最大似然估计法
+</h4><p>设总体 $X$ 的概率分布为 $f(x;\theta)$，$\theta = (\theta_1,\theta_2,\cdots,\theta_k)$ 为未知参数，$(X_1,X_2,\cdots,X_n)$ 是从该总体中抽取的样本，则它们的联合概率分布为 </p>
+$$L(x_1, x_2, \cdots, x_n;\theta) = \prod_{i=1}^{n} f(x_i,\theta)$$<p> 将其设作 $\theta$ 的函数 $L(\theta)$ 称其为 $\theta$ 的似然函数.</p>
+<p>对给定的样本值 $(x_1,x_2,\cdots,x_n)$，若存在 $\hat{\theta}$ 使得 </p>
+$$L(\hat{\theta}) = \underset{\theta \in \textcircled{\mathrm{H}}}{\mathrm{max}} L(\theta)$$<p> 则称 $\hat{\theta}$ 是参数 $\theta$ 的最大似然估计值.</p>
+<h3 id="估计量的优良性准则">估计量的优良性准则
+</h3><h4 id="无偏性">无偏性
+</h4><p>设 $\hat{\theta}$ 是参数 $\theta$ 的估计量，若 $E(\hat{\theta}) = \theta$ 对一切 $\theta$ 均成立，则称 $\hat{\theta}$ 为 $\theta$ 的无偏估计量，记为 $\mathrm{UE}$.</p>
+<h4 id="有效性">有效性
+</h4><p>设 $\hat{\theta_1}$ 和 $\hat{\theta_2}$ 均为 $\theta$ 的无偏估计量，若 $D(\hat{\theta_1}) &lt; D(\hat{\theta_2})$，则称 $\hat{\theta_1}$ 比 $\hat{\theta_2}$ 有效.</p>
+<h4 id="相合估计">相合估计
+</h4><h3 id="区间估计">区间估计
+</h3><h4 id="基本概念-1">基本概念
+</h4><p>设 $\theta$ 为总体中的未知参数，$(X_1,X_2,\cdots,X_n)$ 是从总体中抽取的样本. 如果存在两个估计量 $\hat{\theta_1} = \hat{\theta}_1(X_1,X_2,\cdots,X_n)$ 和 $\hat{\theta}_2 = \theta_2(X_1,X_2,\cdots,X_n)$，对于给定的 $\alpha (0&lt;\alpha&lt;1)$ 有 </p>
+$$P\{\hat{\theta}_1 < \theta < \hat{\theta}_2\} \geqslant 1-\alpha$$<p> 则称：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>基本概念</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>置信区间</td>
+          <td>区间 $(\hat{\theta}_1,\hat{\theta}_2)$</td>
+      </tr>
+      <tr>
+          <td>置信度</td>
+          <td>$1-\alpha$</td>
+      </tr>
+      <tr>
+          <td>置信下界</td>
+          <td>$\hat{\theta}_1$</td>
+      </tr>
+      <tr>
+          <td>置信上界</td>
+          <td>$\hat{\theta}_2$</td>
+      </tr>
+  </tbody>
+</table></div>
+
+
+<blockquote class="alert alert-note">
+    <p>构造置信区间的一般步骤：</p>
+<ol>
+<li>构造样本 $(X_1,X_2,\cdots,X_n)$ 和待估参数 $\theta$ 的函数 $g(X_1,X_2,\cdots,X_n)$，要求除 $\theta$ 外，$g$ 不含任何其他未知参数，并且 $g$ 的分布完全已知（通常为标准正态分布、$\chi^2$ 分布、$t$ 分布、$F$ 分布等）且与 $\theta$ 无关；</li>
+<li>对于给定的置信度 $1-\alpha$，由关系式 $$P\{a < g(X_1,X_2,\cdots,X_n,\theta) < b\} \geqslant 1-\alpha$$ 确定适当的常数 $a$，$b$；</li>
+<li>上式等价于 $$P\{\hat{\theta}_1(X_1,X_2,\cdots,X_n) < g(X_1,X_2,\cdots,X_n,\theta) < \hat{\theta}_2(X_1,X_2,\cdots,X_n)\} \geqslant 1-\alpha$$ 于是 $(\theta_1,\theta_2)$ 就是 $\theta$ 的置信度至少为 $1-\alpha$ 的置信区间.</li>
+</ol></blockquote>
+<p>设 $X$ 是随机变量，$\alpha(0&lt;\alpha&lt;1)$ 是任意给定的正数，若存在 $x_{\alpha}$ 使得 $P\{X \geqslant x_{\alpha}\} = \alpha$，则称 $x_{\alpha}$ 为 $X$ （或它的概率分布）的 $\alpha$ 上侧分位数.</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>分布</th>
+          <th>性质</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>正态分布</td>
+          <td>若 $X \sim N(0,1)$，若 $\alpha \leqslant 0.5$，则 $P\{X \leqslant x_{1-\alpha}\} = P\{X \geqslant x_{\alpha}\} = \alpha$，所以 $x_{\alpha} = -x_{\alpha}$</td>
+      </tr>
+      <tr>
+          <td>$t$ 分布</td>
+          <td>若 $T \sim t_{n}$，则有 $t_n(1-\alpha) = t_n(\alpha)$</td>
+      </tr>
+      <tr>
+          <td>$F$ 分布</td>
+          <td>若 $F \sim F_{m,n}$，则有 $\displaystyle F_{n,m}(1-\alpha)= \frac{1}{F_{m,n}(\alpha)}$</td>
+      </tr>
+  </tbody>
+</table></div>
+
 </section>
 
 
@@ -1747,6 +1834,19 @@ $$\hat{\theta_i} = \hat{\theta_i}(X_1, X_2, \cdots, X_n)，i=1,2,\cdots,k$$
             
                 
 <article class="">
+    <a href="/p/csapp/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">运行《深入理解计算机系统》的代码</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
     <a href="/p/malloc/">
         
         
@@ -1792,19 +1892,6 @@ $$\hat{\theta_i} = \hat{\theta_i}(X_1, X_2, \cdots, X_n)，i=1,2,\cdots,k$$
 
         <div class="article-details">
             <h2 class="article-title">Shell实验</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/p/math_in_images/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">图像处理的数学原理</h2>
         </div>
     </a>
 </article>
@@ -2054,7 +2141,6 @@ $$\hat{\theta_i} = \hat{\theta_i}(X_1, X_2, \cdots, X_n)，i=1,2,\cdots,k$$
         document.querySelectorAll();
     })
 </script>
-
 <script>
     async function renderKaTeX() {
         

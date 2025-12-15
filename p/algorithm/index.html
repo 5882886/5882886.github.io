@@ -818,7 +818,20 @@
 </span></span><span class="line"><span class="ln">9</span><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="插入排序">插入排序
 </h3><h4 id="直接插入排序">直接插入排序
-</h4><h3 id="冒泡排序">冒泡排序
+</h4><p>核心是将一个待排序的数据插入到已排好序的有序表中，从而完成排序。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">void</span> <span class="nf">InsertSort</span><span class="p">(</span><span class="n">SqList</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="n">L</span><span class="p">.</span><span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">LT</span><span class="p">(</span><span class="n">L</span><span class="p">.</span><span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">key</span><span class="p">,</span> <span class="n">L</span><span class="p">.</span><span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">].</span><span class="n">key</span><span class="p">))</span> <span class="p">{</span>  <span class="c1">// 将L.r[i]插入有序子表
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="c1"></span>            <span class="n">L</span><span class="p">.</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">L</span><span class="p">.</span><span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>        <span class="c1">// 复制到“哨兵”位
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="c1"></span>            <span class="n">L</span><span class="p">.</span><span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">L</span><span class="p">.</span><span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">;</span> <span class="n">LT</span><span class="p">(</span><span class="n">L</span><span class="p">.</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">key</span><span class="p">,</span> <span class="n">L</span><span class="p">.</span><span class="n">r</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">key</span><span class="p">);</span> <span class="n">j</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">            <span class="n">L</span><span class="p">.</span><span class="n">r</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">L</span><span class="p">.</span><span class="n">r</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>      <span class="c1">// 记录后移
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="c1"></span>        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="n">L</span><span class="p">.</span><span class="n">r</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">L</span><span class="p">.</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>          <span class="c1">// 插入到正确位置 
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="冒泡排序">冒泡排序
 </h3><p>冒泡排序的原理是每次都将最大（或最小）的元素转移至最右侧，类似于水中的气泡不断上升的过程。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
@@ -913,6 +926,11 @@ $$ n! = \left\{ \begin{array}{c} 1, & n = 0 \\ n \cdot (n-1)!, & n \geqslant 1 \
 <li>圆盘可以放在x，y，z的任意塔座上。</li>
 <li>任何时刻都不能将一个较大的圆盘放在较小的圆盘之上。</li>
 </ol>
+<figure><img src="/p/algorithm/images/%E6%B1%89%E8%AF%BA%E5%A1%94.png" width="700"><figcaption>
+      <h4>汉诺塔</h4>
+    </figcaption>
+</figure>
+
 <p>因此，汉诺塔问题的解法是递归的。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">void</span> <span class="nf">hanoi</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">char</span> <span class="n">x</span><span class="p">,</span> <span class="kt">char</span> <span class="n">y</span><span class="p">,</span> <span class="kt">char</span> <span class="n">z</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
@@ -1249,6 +1267,9 @@ $$ n! = \left\{ \begin{array}{c} 1, & n = 0 \\ n \cdot (n-1)!, & n \geqslant 1 \
 </h3><p>当匹配失败时，模式串指针<code>j</code>要移动的下一个位置<code>k</code>应满足以下性质：<strong>模式串最前面的<code>k-1</code>个字符和<code>j</code>之前的最后<code>k-1</code>个字符一样</strong>。</p>
 <p>我们把匹配失败时模式串指针<code>j</code>要移动的下一个位置<code>k</code>存储到<code>next[]</code>数组中。</p>
 <p>这样，当匹配失败时，程序直接读取<code>next[]</code>数组中的值并赋值给指针<code>j</code>，重复匹配操作。</p>
+<p>这样可以得出<code>next[]</code>数组的定义：</p>
+$$next[j] = \left\{\begin{matrix} 0 & j=1 \\\\ \mathrm{max}\{k | 1 < k < j 且 p_1 \cdots p_{k-1} == p_{j-k+1} \cdots p_{j-1}\} & 此集合非空 \\\\ 1 & 其他 \end{matrix}\right.$$<blockquote>
+<p>KMP算法的<code>next[]</code>数组有多种定义方式，这里采用的是严蔚敏《数据结构（C语言版）》的方法。</p></blockquote>
 <figure><img src="/p/algorithm/images/KMP%E7%AE%97%E6%B3%95.png" width="700"><figcaption>
       <h4>KMP算法</h4>
     </figcaption>
@@ -1260,30 +1281,33 @@ $$ n! = \left\{ \begin{array}{c} 1, & n = 0 \\ n \cdot (n-1)!, & n \geqslant 1 \
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="n">i</span> <span class="o">=</span> <span class="n">pos</span><span class="p">;</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;=</span> <span class="n">S</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 5</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl">            <span class="n">i</span><span class="o">++</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl">        <span class="k">else</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 9</span><span class="cl">            <span class="n">j</span> <span class="o">=</span> <span class="n">next</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
-</span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">&gt;</span> <span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">13</span><span class="cl">        <span class="k">return</span> <span class="n">i</span><span class="o">-</span><span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="ln">17</span><span class="cl">
-</span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="c1">// 求next数组
-</span></span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">get_next</span><span class="p">(</span><span class="n">String</span> <span class="n">T</span><span class="p">,</span> <span class="kt">int</span> <span class="n">next</span><span class="p">[])</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">20</span><span class="cl">    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">next</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">21</span><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">22</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">T</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">23</span><span class="cl">            <span class="n">i</span><span class="o">++</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">;</span> <span class="n">next</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">j</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">24</span><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="ln">25</span><span class="cl">        <span class="k">else</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">26</span><span class="cl">            <span class="n">j</span> <span class="o">=</span> <span class="n">next</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">            <span class="c1">// 匹配成功时，继续比较后续字符
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1"></span>            <span class="n">i</span><span class="o">++</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">        <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">            <span class="c1">// 匹配失败时，模式串向右移动
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="c1"></span>            <span class="n">j</span> <span class="o">=</span> <span class="n">next</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">&gt;</span> <span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">        <span class="c1">// 匹配成功
+</span></span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="c1"></span>        <span class="k">return</span> <span class="n">i</span><span class="o">-</span><span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">
+</span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="c1">// 求next数组
+</span></span></span><span class="line"><span class="ln">22</span><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">get_next</span><span class="p">(</span><span class="n">String</span> <span class="n">T</span><span class="p">,</span> <span class="kt">int</span> <span class="n">next</span><span class="p">[])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">next</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">T</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">            <span class="n">i</span><span class="o">++</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">;</span> <span class="n">next</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">j</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">27</span><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="ln">28</span><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="ln">29</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">        <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl">            <span class="n">j</span> <span class="o">=</span> <span class="n">next</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">31</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">32</span><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h2 id="搜索">搜索
 </h2><h3 id="图的存储">图的存储
 </h3><p>邻接表：vector建表。将每个点X的邻接点存入数组<code>g[X]</code>中。</p>
@@ -1368,6 +1392,19 @@ $$ n! = \left\{ \begin{array}{c} 1, & n = 0 \\ n \cdot (n-1)!, & n \geqslant 1 \
             
                 
 <article class="">
+    <a href="/p/csapp/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">运行《深入理解计算机系统》的代码</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
     <a href="/p/malloc/">
         
         
@@ -1413,19 +1450,6 @@ $$ n! = \left\{ \begin{array}{c} 1, & n = 0 \\ n \cdot (n-1)!, & n \geqslant 1 \
 
         <div class="article-details">
             <h2 class="article-title">Tex排版</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/p/shell/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Shell实验</h2>
         </div>
     </a>
 </article>
@@ -1675,7 +1699,6 @@ $$ n! = \left\{ \begin{array}{c} 1, & n = 0 \\ n \cdot (n-1)!, & n \geqslant 1 \
         document.querySelectorAll();
     })
 </script>
-
 <script>
     async function renderKaTeX() {
         

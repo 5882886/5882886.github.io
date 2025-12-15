@@ -400,7 +400,12 @@
             <li><a href="#树的存储结构">树的存储结构</a></li>
           </ol>
         </li>
-        <li><a href="#霍夫曼树">霍夫曼树</a></li>
+        <li><a href="#霍夫曼树">霍夫曼树</a>
+          <ol>
+            <li><a href="#路径长度与霍夫曼树的定义">路径长度与霍夫曼树的定义</a></li>
+            <li><a href="#构造霍夫曼树">构造霍夫曼树</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
     <li><a href="#图">图</a>
@@ -1724,7 +1729,39 @@ $$\mathrm{LOC}(j_1,j_2,\cdots,j_n) = \mathrm{LOC}(0,0,\cdots,0) + \sum_{i=1}^{n}
 <li>左子女-右兄弟表示（二叉链表）</li>
 </ol>
 <h3 id="霍夫曼树">霍夫曼树
-</h3><h2 id="图">图
+</h3><h4 id="路径长度与霍夫曼树的定义">路径长度与霍夫曼树的定义
+</h4><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>概念</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>路径长度</td>
+          <td>连接两结点的路径上的分支数，记为 $PL$</td>
+      </tr>
+      <tr>
+          <td>外部路径长度</td>
+          <td>各叶结点到根结点的路径长度之和，记为 $EPL$</td>
+      </tr>
+      <tr>
+          <td>内部路径长度</td>
+          <td>各非叶结点到根结点的路径长度之和，记为 $IPL$</td>
+      </tr>
+      <tr>
+          <td>带权路径长度</td>
+          <td>各叶结点所带的权值 $w_i$ 与该结点到根结点的路径长度 $l_i$ 的乘积之和，记为 $WPL$</td>
+      </tr>
+  </tbody>
+</table></div>
+<blockquote>
+<p>容易知道，$PL=EPL+IPL$</p></blockquote>
+<p>霍夫曼树就是带权路径长度最小的二叉树，也称作最优二叉树。</p>
+<p>在霍夫曼树中，权值大的结点离根结点越近。</p>
+<h4 id="构造霍夫曼树">构造霍夫曼树
+</h4><h2 id="图">图
 </h2><p>图是一种复杂的数据结构，结点之间的关系可以是任意的，任意两个数据元素之间都有可能相关。</p>
 <blockquote>
 <p>例如，RunicDolphin806在游玩《群星》游戏时
@@ -1939,17 +1976,58 @@ $$G.edge[i][j] = \left\{ \begin{matrix} 1， & \left< i,j \right> \in E \ 或\  
 </span></span><span class="line"><span class="ln">28</span><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="ln">29</span><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="最小生成树">最小生成树
-</h3><p>定义：对于一个有 $n$ 个顶点的图，必须且仅用该网络中的 $n-1$ 条边来联结网络中的 $n$ 个顶点；不能产生回路；各边权值总和最小的树</p>
+</h3><p>对于一个有 $n$ 个顶点的图，必须且仅用该网络中的 $n-1$ 条边来联结网络中的 $n$ 个顶点；不能产生回路；各边权值总和最小的树。</p>
 <h4 id="prim-算法求最小生成树">Prim 算法求最小生成树
 </h4><p>已知，图 $N =(V,E)$，生成树顶点集合 $U$；</p>
 <ol>
-<li>从某一顶点 $u_0$  出发，选择与它关联的具有最小权值的边 $(u_0,)$，将顶点 $v$ 加入到生成树顶点集合 $U$ 中；</li>
-<li>每次从一个顶点在 $U$ 中，而另一个顶点不在 $U$（即 $V-U$）中的各条边中选择权值最小的边 $(u,u&rsquo;)$，把它的顶点 $v$ 加入到集合 $U$ 中；</li>
+<li>从某一顶点 $u_0$  出发，选择与它关联的具有最小权值的边 $(u_0,v)$，将顶点 $v$ 加入到生成树顶点集合 $U$ 中；</li>
+<li>每次从一个顶点在 $U$ 中，而另一个顶点不在 $U$（即 $V-U$）中的各条边中选择权值最小的边 $(u,u')$，把它的顶点 $v$ 加入到集合 $U$ 中；</li>
 <li>直至网络中的所有顶点都加入到生成树顶点集合 $U$ 中为止。</li>
 </ol>
-<h3 id="活动网络">活动网络
+<p>构造过程中需设置两个辅助数组：</p>
+<ol>
+<li><code>lowcost[]</code>：存放生成树顶点集合 $U$ 内顶点到生成树外 $V-U$ 各顶点的各边上的当前最小权值；</li>
+<li><code>adjvex[]</code>：记录生成树顶点集合外各顶点 $u'$ 距离集合内哪个顶点 $u$ 最近，否则记录为 <code>-1</code>。</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cm">/* ----- Prim 算法求最小生成树 ----- */</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kt">void</span> <span class="nf">Prim</span><span class="p">(</span><span class="n">Graph</span> <span class="o">&amp;</span><span class="n">G</span><span class="p">,</span> <span class="kt">int</span> <span class="n">u</span><span class="p">)</span> <span class="p">{</span>    <span class="c1">// u 表示初始时的顶点
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">lowcost</span><span class="p">[</span><span class="n">G</span><span class="p">.</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="kt">int</span> <span class="n">adjvex</span><span class="p">[</span><span class="n">G</span><span class="p">.</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">G</span><span class="p">.</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">        <span class="n">lowcost</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">G</span><span class="p">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">        <span class="n">adjvex</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">u</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="n">adjvex</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="c1">// 查找最小的lowcost
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">G</span><span class="p">.</span><span class="n">n</span> <span class="o">&amp;&amp;</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">u</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">        <span class="n">EdgeData</span> <span class="n">min</span> <span class="o">=</span> <span class="n">MaxValue</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">        <span class="kt">int</span> <span class="n">v</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">        <span class="c1">// 查找生成树外顶点到生成树内顶点具有最小权值的边，v是当前具有最小权值的边
+</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="c1"></span>        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">G</span><span class="p">.</span><span class="n">n</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">adjvex</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">lowcost</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">min</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">                <span class="n">v</span> <span class="o">=</span> <span class="n">j</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">                <span class="n">min</span> <span class="o">=</span> <span class="n">lowcost</span><span class="p">[</span><span class="n">w</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">        <span class="c1">// v!=0 表示找到所求的边，并加入生成树
+</span></span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="n">v</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl">            <span class="n">prinf</span><span class="p">(</span><span class="s">&#34;%d, %d, %d&#34;</span><span class="p">,</span> <span class="n">adjvex</span><span class="p">[</span><span class="n">v</span><span class="p">],</span> <span class="n">v</span><span class="p">,</span> <span class="n">lowcost</span><span class="p">[</span><span class="n">v</span><span class="p">]);</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">            <span class="n">adjvex</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl">            <span class="c1">// 更新 adjvex 和 lowcost 数组
+</span></span></span><span class="line"><span class="ln">28</span><span class="cl"><span class="c1"></span>            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">G</span><span class="p">.</span><span class="n">n</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="n">adjvex</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">G</span><span class="p">.</span><span class="n">edge</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">lowcost</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl">                    <span class="n">lowcost</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">G</span><span class="p">.</span><span class="n">edge</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln">31</span><span class="cl">                    <span class="n">adjvex</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">32</span><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="ln">33</span><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="ln">34</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">35</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">36</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="活动网络">活动网络
 </h3><h4 id="aov网络">AOV网络
-</h4><p>定义：用有向图表示一个工程。在这种有向图中，用顶点表示活动，用有向边 $\left&lt; v_i, v_j \right&gt;$ 表示活动 $v_i$ 必须先于活动 $v_j$ 进行。这种有向图叫做顶点表示活动的 AOV 网络。</p>
+</h4><p>用有向图表示一个工程。在这种有向图中，用顶点表示活动，用有向边 $\left&lt; v_i, v_j \right&gt;$ 表示活动 $v_i$ 必须先于活动 $v_j$ 进行。这种有向图叫做顶点表示活动的 AOV 网络。</p>
 <h5 id="拓扑排序">拓扑排序
 </h5><p>输入 AOV 网络，令 n 为顶点个数。</p>
 <ol>
@@ -1957,8 +2035,82 @@ $$G.edge[i][j] = \left\{ \begin{matrix} 1， & \left< i,j \right> \in E \ 或\  
 <li>从图中删去该顶点，同时删去所有它发出的有向边；</li>
 <li>重复以上 1,2步，直到全部顶点均已输出，拓扑排序完成，说明无有向环；或还有未输出的顶点，但已跳出处理循环。说明图中剩下的顶点都有直接前驱。这时网络中必存在有向环。</li>
 </ol>
-<h4 id="aoe网络">AOE网络
-</h4><p>定义：如果在有向无环的带权图中，用有向边表示一个工程中的活动，用边上权值表示活动持续时间，用顶点表示事件，则这样的有向图叫做用边表示活动的网络，简称 AOE 网络。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">void</span> <span class="nf">TopologicalSort</span><span class="p">(</span><span class="n">adjGraph</span> <span class="o">&amp;</span><span class="n">G</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="n">stack</span> <span class="n">S</span><span class="p">;</span> <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="c1">// 入度为零的顶点栈初始化
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">s</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">        <span class="n">s</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">G</span><span class="p">.</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>	<span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">        <span class="c1">// 将入度为0的顶点进栈
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="n">count</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">            <span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="p">}</span>	 
+</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="c1">// 期望输出n个顶点
+</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">G</span><span class="p">.</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>	<span class="p">{</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">            <span class="k">return</span><span class="p">;</span>		<span class="c1">// 中途栈空，退出
+</span></span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="c1"></span>        <span class="p">}</span>							<span class="c1">// 网络中有回路，退出
+</span></span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="c1"></span>        <span class="k">else</span> <span class="p">{</span>					<span class="c1">// 继续拓扑排序
+</span></span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="c1"></span>            <span class="n">j</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">top</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">            <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">j</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">
+</span></span><span class="line"><span class="ln">23</span><span class="cl">            <span class="c1">// 扫描出边表，更新与j相连的顶点入度
+</span></span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="c1"></span>            <span class="n">EdgeNode</span> <span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">G</span><span class="p">.</span><span class="n">VexList</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">adj</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl">            <span class="k">while</span> <span class="p">(</span><span class="n">p</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>	
+</span></span><span class="line"><span class="ln">26</span><span class="cl">                <span class="c1">// 获得另一顶点		
+</span></span></span><span class="line"><span class="ln">27</span><span class="cl"><span class="c1"></span>                <span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">dest</span><span class="p">;</span>			
+</span></span><span class="line"><span class="ln">28</span><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="n">count</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl">                    <span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">k</span><span class="p">);</span>      <span class="c1">// 将入度为零的顶点进栈
+</span></span></span><span class="line"><span class="ln">30</span><span class="cl"><span class="c1"></span>                    <span class="n">count</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">--</span> <span class="p">;</span>    <span class="c1">// 顶点入度减一
+</span></span></span><span class="line"><span class="ln">31</span><span class="cl"><span class="c1"></span>                <span class="p">}</span> 	
+</span></span><span class="line"><span class="ln">32</span><span class="cl">                <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">link</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">33</span><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="ln">34</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">35</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">36</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h4 id="aoe网络">AOE网络
+</h4><p>如果在有向无环的带权图中，用有向边表示一个工程中的活动，用边上权值表示活动持续时间，用顶点表示事件，则这样的有向图叫做用边表示活动的网络，简称 AOE 网络。</p>
+<p>完成工程的最短时间是从开始点到完成点的最长路径的长度。</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>概念</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>关键路径</td>
+          <td>路径长度最长的路径</td>
+      </tr>
+      <tr>
+          <td><code>e[i]</code></td>
+          <td>活动 $a_i$ 的最早开始时间</td>
+      </tr>
+      <tr>
+          <td><code>l[i]</code></td>
+          <td>活动 $a_i$ 的最迟开始时间</td>
+      </tr>
+      <tr>
+          <td><code>l[i]-e[i]</code></td>
+          <td>完成活动 $a_i$ 的时间余量</td>
+      </tr>
+      <tr>
+          <td>关键活动`</td>
+          <td>满足 <code>l[i] == e[i]</code> 的活动 $a_i$</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>求关键路径的算法：</p>
+<ol>
+<li>输入 $e$ 条弧 $&lt;j,k&gt;$，建立 AOE 网的存储结构；</li>
+<li>从源点 $v_0$ 出发，令 <code>ve[0] = 0</code>，按拓扑排序求其余各顶点的最早发生时间 <code>ve[i]</code> $(1 \leqslant i \leqslant n-1)$。如果得到的拓扑有序序列中顶点个数小于网中的顶点数 $n$，则说明网中存在环，不能求关键路径；</li>
+<li>从汇点 $v_n$ 出发，令<code>vl[n-1] = ve[n-1]</code>，按逆拓扑有序求其余各顶点的最迟发生时间 <code>vl[i]</code> $(n-2 \geqslant i \geqslant 2)$；</li>
+<li>根据各顶点的 $ve$ 和 $vl$ 值，求每条弧 $s$ 最早开始时间 $e(s)$ 和最迟开始时间 $l(s)$。若某条弧满足条件 $e(s)=l(s)$，则为关键活动。</li>
+</ol>
 <h3 id="最短路径">最短路径
 </h3><p>Dijkstra 算法</p>
 <ol>
@@ -2174,6 +2326,19 @@ $$G.edge[i][j] = \left\{ \begin{matrix} 1， & \left< i,j \right> \in E \ 或\  
             
                 
 <article class="">
+    <a href="/p/csapp/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">运行《深入理解计算机系统》的代码</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
     <a href="/p/malloc/">
         
         
@@ -2219,19 +2384,6 @@ $$G.edge[i][j] = \left\{ \begin{matrix} 1， & \left< i,j \right> \in E \ 或\  
 
         <div class="article-details">
             <h2 class="article-title">Tex排版</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/p/shell/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Shell实验</h2>
         </div>
     </a>
 </article>
@@ -2481,7 +2633,6 @@ $$G.edge[i][j] = \left\{ \begin{matrix} 1， & \left< i,j \right> \in E \ 或\  
         document.querySelectorAll();
     })
 </script>
-
 <script>
     async function renderKaTeX() {
         
