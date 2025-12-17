@@ -769,11 +769,20 @@ $$ n! = \left\{ \begin{array}{c} 1, & n = 0 \\ n \cdot (n-1)!, & n \geqslant 1 \
 <li>圆盘可以放在x，y，z的任意塔座上。</li>
 <li>任何时刻都不能将一个较大的圆盘放在较小的圆盘之上。</li>
 </ol>
-<figure><img src="/p/algorithm/images/%E6%B1%89%E8%AF%BA%E5%A1%94.png" width="700"><figcaption>
-      <h4>汉诺塔</h4>
-    </figcaption>
-</figure>
-
+<p><img src="/p/algorithm/images/%E6%B1%89%E8%AF%BA%E5%A1%94.png"
+	width="994"
+	height="297"
+	srcset="/p/algorithm/images/%E6%B1%89%E8%AF%BA%E5%A1%94_hu_a2ada0664d269998.png 480w, /p/algorithm/images/%E6%B1%89%E8%AF%BA%E5%A1%94_hu_89073f7a6c3df404.png 1024w"
+	loading="lazy"
+	
+		alt="汉诺塔"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="334"
+		data-flex-basis="803px"
+	
+></p>
 <p>因此，汉诺塔问题的解法是递归的。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">void</span> <span class="nf">hanoi</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">char</span> <span class="n">x</span><span class="p">,</span> <span class="kt">char</span> <span class="n">y</span><span class="p">,</span> <span class="kt">char</span> <span class="n">z</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
@@ -1329,7 +1338,7 @@ $$next[j] = \left\{\begin{matrix} 0 & j=1 \\\\ \mathrm{max}\{k | 1 < k < j 且 p
     
     <section class="powerby">
         
-            网站总访客数：<span id='busuanzi_value_site_uv'>Loading</span><br/> 网站总访问量：<span id='busuanzi_value_site_pv'>Loading</span> <br/>
+            网站总访客数：<span id='busuanzi_value_site_uv'>Loading</span><br/> <br/>
         使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
         主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
 
