@@ -489,207 +489,50 @@
             
         
             
-                
-
-
-<!DOCTYPE html>
+                <!DOCTYPE html>
 <html lang="zh_cn">
     <head>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>文字生成器</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
         <style>
-             
-            .quote-box {
-                background-color: var(--card-background);
-                width: 100%;
-                margin: var(--card-margin) 0;
-                padding: var(--card-padding);
-                border-radius: 10px;
-                box-shadow: var(--shadow-l1);
-                box-shadow: inset 0 20px 20px var(--body-background);
-                 
-                max-height: 35vh;
-                overflow-x: hidden;
-                overflow-y: auto;
+            .aplayer-music {
+                overflow-x: scroll
             }
 
-             
-            .quote-text {
-                color: var(--card-text-color-main);
-                font-size: 16px;
-                font-style: normal;
-                margin-top: 20px;
-                line-height: var(--article-line-height);
-                margin-bottom: 20px;
-            }
-            .quote-author {
-                color: var(--card-text-color-main);
-                font-size: 16px;
-                text-align: right;
-            }
-
-             
-            .row {
-                display: flex;           
-            }
-
-            #new-quote {
-                background-color: #4caf50;
-                color: #fff;
-                border: none;
-                padding: 10px 20px;
-                margin-top: 20px;
-                margin-right: auto;
-                border-radius: 5px;
-                cursor: pointer;
-            }
-            #next-quote, #pre-quote {
-                background-color: #4caf50;
-                color: #fff;
-                border: none;
-                padding: 10px 20px;
-                margin-top: 20px;
-                margin-left: 8px;
-                border-radius: 5px;
-                cursor: pointer;
-            }
-
-             
-            .widget-icon {
-                color: var(--body-text-color);
-            }
+            
         </style>
     </head>
 
-    
-    <section class="widget quote">
+    <section class="widget music"> 
         <div class="widget-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrows-shuffle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 4l3 3l-3 3" /><path d="M18 20l3 -3l-3 -3" /><path d="M3 7h3a5 5 0 0 1 5 5a5 5 0 0 0 5 5h5" /><path d="M21 7h-5a4.978 4.978 0 0 0 -3 1m-4 8a4.984 4.984 0 0 1 -3 1h-3" /></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M9 17v-13h10v13" /><path d="M9 8h10" /></svg>
         </div>
-        <h2 class="widget-title section-title">随机文字</h2>
-        <div class="quote-box">
-            <div class="quote-text">Text</div>
-            <div class="quote-author">——Author</div>
-            <div class="row">
-                <button id="new-quote">Random</button>
-                <button id="pre-quote">Pre</button>
-                <button id="next-quote">Next</button>
-            </div>
-        </div>
+        <h2 class="widget-title section-title">音乐</h2>
+        <div id="aplayer"></div>
     </section>
-
-
-    
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
-        onload="renderMathInElement(document.body, {
-            delimiters: [
-                {left: '$$', right: '$$', display: true},
-                {left: '$', right: '$', display: false},
-                {left: '\\[', right: '\\]', display: true},
-                {left: '\\(', right: '\\)', display: false}
-            ]
-        });">
-    </script>
 
     <script>
         
-        let quotes = [];
-        let index = 0;
-
-        
-        async function loadQuotes() {
-            const res = await fetch('/json/quotes.json');    
-            quotes = await res.json();
-            showQuotes();                               
-        }
-
-        
-        
-        function showQuotes() {
-            
-            index = Math.floor(Math.random() * quotes.length);
-            const quote = quotes[index];
-             
-            
-            const textElement = document.querySelector(".quote-text");
-            const authorElement = document.querySelector(".quote-author");
-
-            textElement.innerText = quote.quote;
-            authorElement.innerText = `—— ${quote.author}`;
-
-            
-            renderMathInElement(textElement, {
-                delimiters: [
-                    {left: '$$', right: '$$', display: true},
-                    {left: '$', right: '$', display: false},
-                    {left: '\\[', right: '\\]', display: true},
-                    {left: '\\(', right: '\\)', display: false}
-                ]
-            });
-        };
-
-        function showNextQuote() {
-            index ++;
-            if(index >= quotes.length) {
-                index = 0;
-            }
-
-            const quote = quotes[index];
-            const textElement = document.querySelector(".quote-text");
-            const authorElement = document.querySelector(".quote-author");
-
-            textElement.innerText = quote.quote;
-            authorElement.innerText = `—— ${quote.author}`;
-
-            
-            renderMathInElement(textElement, {
-                delimiters: [
-                    {left: '$$', right: '$$', display: true},
-                    {left: '$', right: '$', display: false},
-                    {left: '\\[', right: '\\]', display: true},
-                    {left: '\\(', right: '\\)', display: false}
-                ]
-            });  
-        };
-
-        function showPreQuote() {
-            index --;
-            if(index < 0 ) {
-                index = quotes.length-1;
-            }
-
-            const quote = quotes[index];
-            const textElement = document.querySelector(".quote-text");
-            const authorElement = document.querySelector(".quote-author");
-
-            textElement.innerText = quote.quote;
-            authorElement.innerText = `—— ${quote.author}`;
-
-            
-            renderMathInElement(textElement, {
-                delimiters: [
-                    {left: '$$', right: '$$', display: true},
-                    {left: '$', right: '$', display: false},
-                    {left: '\\[', right: '\\]', display: true},
-                    {left: '\\(', right: '\\)', display: false}
-                ]
-            });
-        };
-
-        
-        document.querySelector("#new-quote").addEventListener("click", showQuotes);
-        document.querySelector("#pre-quote").addEventListener("click", showPreQuote);
-        document.querySelector("#next-quote").addEventListener("click", showNextQuote);
-
-        loadQuotes();
-        showQuotes();
-
+        fetch('/json/music.json')
+            .then(r => r.json())    
+            .then(list => {
+                const ap = new APlayer({ 
+                    container: document.getElementById('aplayer'), 
+                    mini: false,
+                    fixed: false,
+                    listFolded: true,
+                    lrcType: 3,
+                    audio: list 
+                });
+        });
     </script>
 </html>
+
+
+    
+
             
         
     </aside>
@@ -1234,20 +1077,24 @@
                 >
             </script><script>
     window.addEventListener("DOMContentLoaded", () => {
-	const mainArticleElement = document.querySelector(".main-article");
-        renderMathInElement(mainArticleElement, {
-            delimiters: [
-                { left: "$$", right: "$$", display: true },
-                { left: "$", right: "$", display: false },
-                { left: "\\(", right: "\\)", display: false },
-                { left: "\\[", right: "\\]", display: true }
-            ],
-            ignoredClasses: ["gist"]
-        });})
+        const elementsToRender = [".main-article", ".widget--toc"];
+
+        elementsToRender.forEach(selector => {
+            const element = document.querySelector(selector);
+            if (element) {
+                renderMathInElement(element, {
+                    delimiters: [
+                        { left: "$$", right: "$$", display: true },
+                        { left: "$", right: "$", display: false },
+                        { left: "\\(", right: "\\)", display: false },
+                        { left: "\\[", right: "\\]", display: true }
+                    ],
+                    ignoredClasses: ["gist"]
+                });
+            }
+        });
+    });
 </script>
-
-<div class="math-katex"></div>
-
     
 </article>
 
@@ -1364,6 +1211,8 @@
     </section>
     
     <section class="powerby">
+        
+            网站总访客数：<span id='busuanzi_value_site_uv'>Loading</span><br/> 网站总访问量：<span id='busuanzi_value_site_pv'>Loading</span> <br/>
         使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
         主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
 
@@ -1455,7 +1304,7 @@
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.86284e1e3afbeaf408f4d3584fe4d214fb868eea14e3071dc97612b6386cbd0d.js" defer></script><script type="text/javascript" src="/ts/custom.f2979a93a325fecf9605263bd141398a311c8e23388ed7dcff74f92f7e632866.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.4cfd38f5b6dfa8b863116716f640326e6c2a91cf464c17f31bc16e72400df208.js" defer></script><script type="text/javascript" src="/ts/custom.f2979a93a325fecf9605263bd141398a311c8e23388ed7dcff74f92f7e632866.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');
@@ -1466,130 +1315,6 @@
 
         document.head.appendChild(customFont);
     }());
-</script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
-<div id="aplayer"></div>
-<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
-
-<style>
-    .aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -70px !important;
-         
-    }
-
-    .aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0 !important;
-         
-    }
-</style>
-
-<script>
-    
-    fetch('/json/music.json')
-        .then(r => r.json())    
-        .then(list => {
-            const ap = new APlayer({ 
-                container: document.getElementById('aplayer'), 
-                fixed: true,
-                listFolded: true,
-                lrcType: 3,
-                audio: list 
-            });
-    });
-
-	
-    window.onbeforeunload = () => {
-        
-        const playInfo = {
-            index: ap.list.index,
-            currentTime: ap.audio.currentTime,
-            paused: ap.paused
-        };
-        localStorage.setItem("playInfo", JSON.stringify(playInfo));
-    };
-
-    
-    window.onload = () => {
-        
-        const playInfo = JSON.parse(localStorage.getItem("playInfo"));
-        if (!playInfo) {
-            return;
-        }
-        
-        ap.list.switch(playInfo.index);
-        
-        setTimeout(() => {
-            
-            ap.seek(playInfo.currentTime);
-            
-            if (!playInfo.paused) {
-                ap.play()
-            }
-        }, 500);
-    };
-</script>
-
-
-<script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
-<script>
-    var pjax = new Pjax({
-        selectors: [
-            ".main-container"
-        ]
-    })
-
-    pjax._handleResponse = pjax.handleResponse;
-    pjax.handleResponse = function(responseText, request, href, options) {
-        if (request.responseText.match("<html")) {
-            if (responseText) {
-                
-                let newDom = new DOMParser().parseFromString(responseText, 'text/html');
-                
-                let bodyClass = newDom.body.className;
-                document.body.setAttribute("class", bodyClass)
-                
-                pjax._handleResponse(responseText, request, href, options);
-            }
-        } else {
-            
-        }
-    }
-
-    
-    document.addEventListener('pjax:complete', () => {
-        initTocHide();
-    }) 
-
-    
-    document.addEventListener('pjax:complete', () => {
-        loadQuestion();
-        document.querySelector("#Change").addEventListener("click", RandomQuestion);
-        document.querySelector("#Pre").addEventListener("click", showPreQuestion);
-        document.querySelector("#Next").addEventListener("click", showNextQuestion);
-        document.querySelector("#ShowAnswer").addEventListener("click", showAnswer);
-        document.querySelector("#HideAnswer").addEventListener("click", hideAnswer);
-    })
-
-    
-    document.addEventListener('pjax:complete', () => {
-        loadQuotes();
-        showQuotes();
-        document.querySelector("#new-quote").addEventListener("click", showQuotes);
-        document.querySelector("#pre-quote").addEventListener("click", showPreQuote);
-        document.querySelector("#next-quote").addEventListener("click", showNextQuote);
-    })
-
-    document.addEventListener('DOMContentLoaded', function () {
-        if (window.pjax) {
-            window.pjax.options.cacheBust = false; 
-        }
-    });
-
-    document.addEventListener('pjax:complete', () => {
-        
-        window.Stack.init();
-        document.querySelectorAll();
-    })
 </script>
 <script>
     async function renderKaTeX() {
@@ -1719,5 +1444,6 @@
     }
 </style>
 
+<script defer src="https://cn.vercount.one/js"></script>
     </body>
 </html>

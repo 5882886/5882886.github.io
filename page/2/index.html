@@ -399,6 +399,53 @@
 
             
         
+            
+                <!DOCTYPE html>
+<html lang="zh_cn">
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+        <style>
+            .aplayer-music {
+                overflow-x: scroll
+            }
+
+            
+        </style>
+    </head>
+
+    <section class="widget music"> 
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M9 17v-13h10v13" /><path d="M9 8h10" /></svg>
+        </div>
+        <h2 class="widget-title section-title">音乐</h2>
+        <div id="aplayer"></div>
+    </section>
+
+    <script>
+        
+        fetch('/json/music.json')
+            .then(r => r.json())    
+            .then(list => {
+                const ap = new APlayer({ 
+                    container: document.getElementById('aplayer'), 
+                    mini: false,
+                    fixed: false,
+                    listFolded: true,
+                    lrcType: 3,
+                    audio: list 
+                });
+        });
+    </script>
+</html>
+
+
+    
+
+            
+        
     </aside>
 
 
@@ -422,8 +469,8 @@
 </div>
 
     
-    
     <section class="article-list">
+        
         
 
 
@@ -1055,6 +1102,8 @@
     </section>
     
     <section class="powerby">
+        
+            网站总访客数：<span id='busuanzi_value_site_uv'>Loading</span><br/> 网站总访问量：<span id='busuanzi_value_site_pv'>Loading</span> <br/>
         使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
         主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
 
@@ -1067,7 +1116,7 @@
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.86284e1e3afbeaf408f4d3584fe4d214fb868eea14e3071dc97612b6386cbd0d.js" defer></script><script type="text/javascript" src="/ts/custom.f2979a93a325fecf9605263bd141398a311c8e23388ed7dcff74f92f7e632866.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.4cfd38f5b6dfa8b863116716f640326e6c2a91cf464c17f31bc16e72400df208.js" defer></script><script type="text/javascript" src="/ts/custom.f2979a93a325fecf9605263bd141398a311c8e23388ed7dcff74f92f7e632866.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');
@@ -1078,130 +1127,6 @@
 
         document.head.appendChild(customFont);
     }());
-</script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
-<div id="aplayer"></div>
-<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
-
-<style>
-    .aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -70px !important;
-         
-    }
-
-    .aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0 !important;
-         
-    }
-</style>
-
-<script>
-    
-    fetch('/json/music.json')
-        .then(r => r.json())    
-        .then(list => {
-            const ap = new APlayer({ 
-                container: document.getElementById('aplayer'), 
-                fixed: true,
-                listFolded: true,
-                lrcType: 3,
-                audio: list 
-            });
-    });
-
-	
-    window.onbeforeunload = () => {
-        
-        const playInfo = {
-            index: ap.list.index,
-            currentTime: ap.audio.currentTime,
-            paused: ap.paused
-        };
-        localStorage.setItem("playInfo", JSON.stringify(playInfo));
-    };
-
-    
-    window.onload = () => {
-        
-        const playInfo = JSON.parse(localStorage.getItem("playInfo"));
-        if (!playInfo) {
-            return;
-        }
-        
-        ap.list.switch(playInfo.index);
-        
-        setTimeout(() => {
-            
-            ap.seek(playInfo.currentTime);
-            
-            if (!playInfo.paused) {
-                ap.play()
-            }
-        }, 500);
-    };
-</script>
-
-
-<script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
-<script>
-    var pjax = new Pjax({
-        selectors: [
-            ".main-container"
-        ]
-    })
-
-    pjax._handleResponse = pjax.handleResponse;
-    pjax.handleResponse = function(responseText, request, href, options) {
-        if (request.responseText.match("<html")) {
-            if (responseText) {
-                
-                let newDom = new DOMParser().parseFromString(responseText, 'text/html');
-                
-                let bodyClass = newDom.body.className;
-                document.body.setAttribute("class", bodyClass)
-                
-                pjax._handleResponse(responseText, request, href, options);
-            }
-        } else {
-            
-        }
-    }
-
-    
-    document.addEventListener('pjax:complete', () => {
-        initTocHide();
-    }) 
-
-    
-    document.addEventListener('pjax:complete', () => {
-        loadQuestion();
-        document.querySelector("#Change").addEventListener("click", RandomQuestion);
-        document.querySelector("#Pre").addEventListener("click", showPreQuestion);
-        document.querySelector("#Next").addEventListener("click", showNextQuestion);
-        document.querySelector("#ShowAnswer").addEventListener("click", showAnswer);
-        document.querySelector("#HideAnswer").addEventListener("click", hideAnswer);
-    })
-
-    
-    document.addEventListener('pjax:complete', () => {
-        loadQuotes();
-        showQuotes();
-        document.querySelector("#new-quote").addEventListener("click", showQuotes);
-        document.querySelector("#pre-quote").addEventListener("click", showPreQuote);
-        document.querySelector("#next-quote").addEventListener("click", showNextQuote);
-    })
-
-    document.addEventListener('DOMContentLoaded', function () {
-        if (window.pjax) {
-            window.pjax.options.cacheBust = false; 
-        }
-    });
-
-    document.addEventListener('pjax:complete', () => {
-        
-        window.Stack.init();
-        document.querySelectorAll();
-    })
 </script>
 <script>
     async function renderKaTeX() {
@@ -1331,5 +1256,6 @@
     }
 </style>
 
+<script defer src="https://cn.vercount.one/js"></script>
     </body>
 </html>
