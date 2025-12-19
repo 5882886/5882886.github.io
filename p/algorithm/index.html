@@ -334,6 +334,12 @@
             <li><a href="#快速排序">快速排序</a></li>
           </ol>
         </li>
+        <li><a href="#选择排序">选择排序</a>
+          <ol>
+            <li><a href="#直接选择排序">直接选择排序</a></li>
+            <li><a href="#堆排序">堆排序</a></li>
+          </ol>
+        </li>
         <li><a href="#桶排序">桶排序</a></li>
       </ol>
     </li>
@@ -551,6 +557,7 @@
                     mini: false,
                     fixed: false,
                     listFolded: true,
+                    listMaxHeight: '200px',
                     lrcType: 3,
                     audio: list 
                 });
@@ -788,12 +795,92 @@
 <li>基准对象则排在这两个子序列中间（这也是该对象最终应安放的位置），称为枢轴（支点）；</li>
 <li>然后分别对这两个子序列重复施行上述方法，直到所有的对象都排在相应位置为止。</li>
 </ol>
-<p>快速排序可使用<code>algorithm</code>库中的<code>sort</code>函数，时间复杂度为 $O(n\log n)$。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// 长度为n的数组
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"></span><span class="n">sort</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">a</span><span class="o">+</span><span class="n">n</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1">// vector容器
-</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1"></span><span class="n">sort</span><span class="p">(</span><span class="n">vector</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">vector</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
-</span></span></code></pre></div><h3 id="桶排序">桶排序
+<p>一趟快速排序的过程：</p>
+<ol>
+<li>设两个指针<code>low</code>和<code>high</code>，设枢轴记录的关键字为<code>pivotkey</code>；</li>
+<li>首先从<code>high</code>所指位置起向前搜索找到第一个关键字小于<code>pivotkey</code>的记录，并和枢轴记录互相交换</li>
+<li>然后从<code>low</code>所指位置起向后搜索，找到第一个关键字大于<code>pivotkey</code>的记录，和枢轴记录互相交换</li>
+<li>重复2, 3两步直至<code>low == high</code>为止。</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cm">/* ----- 一趟快速排序 ----- */</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kt">int</span> <span class="nf">Partition</span><span class="p">(</span><span class="n">SqList</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">,</span> <span class="kt">int</span> <span class="n">low</span><span class="p">,</span> <span class="kt">int</span> <span class="n">high</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="n">L</span><span class="p">.</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">L</span><span class="p">.</span><span class="n">r</span><span class="p">[</span><span class="n">low</span><span class="p">];</span>	                <span class="c1">// 第一个记录作基准对象
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="c1"></span>    <span class="n">KeyType</span> <span class="n">pivotkey</span> <span class="o">=</span> <span class="n">L</span><span class="p">.</span><span class="n">r</span><span class="p">[</span><span class="n">low</span><span class="p">].</span><span class="n">key</span><span class="p">;</span>	<span class="c1">// 枢轴记录关键字
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="c1"></span>    <span class="k">while</span> <span class="p">(</span><span class="n">low</span> <span class="o">&lt;</span> <span class="n">high</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">        <span class="k">while</span><span class="p">(</span><span class="n">low</span> <span class="o">&lt;</span> <span class="n">high</span> <span class="o">&amp;&amp;</span> <span class="n">L</span><span class="p">.</span><span class="n">r</span><span class="p">[</span><span class="n">high</span><span class="p">].</span><span class="n">key</span> <span class="o">&gt;=</span> <span class="n">pivotkey</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">            <span class="n">high</span><span class="o">--</span> <span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">        <span class="n">L</span><span class="p">.</span><span class="n">r</span><span class="p">[</span><span class="n">low</span><span class="p">]</span> <span class="o">=</span> <span class="n">L</span><span class="p">.</span><span class="n">r</span><span class="p">[</span><span class="n">high</span><span class="p">];</span>	<span class="c1">// 小于基准对象的移到区间的左侧
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">        <span class="k">while</span><span class="p">(</span><span class="n">low</span> <span class="o">&lt;</span> <span class="n">high</span> <span class="o">&amp;&amp;</span>	<span class="n">L</span><span class="p">.</span><span class="n">r</span><span class="p">[</span><span class="n">low</span><span class="p">].</span><span class="n">key</span> <span class="o">&lt;=</span> <span class="n">pivotkey</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">            <span class="n">low</span><span class="o">++</span> <span class="p">;</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">        <span class="n">L</span><span class="p">.</span><span class="n">r</span><span class="p">[</span><span class="n">high</span><span class="p">]</span> <span class="o">=</span> <span class="n">L</span><span class="p">.</span><span class="n">r</span><span class="p">[</span><span class="n">low</span><span class="p">];</span>	<span class="c1">// 大于基准对象的移到区间的右侧
+</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="n">L</span><span class="p">.</span><span class="n">r</span><span class="p">[</span><span class="n">low</span><span class="p">]</span> <span class="o">=</span> <span class="n">L</span><span class="p">.</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="k">return</span> <span class="n">low</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">
+</span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="cm">/* ----- 在序列 low-high 中递归地进行快速排序 ----- */</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="kt">void</span> <span class="nf">Qsort</span><span class="p">(</span><span class="n">SqList</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">,</span> <span class="kt">int</span> <span class="n">low</span><span class="p">,</span> <span class="kt">int</span> <span class="n">high</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">low</span> <span class="o">&lt;</span> <span class="n">high</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">        <span class="n">pivotloc</span> <span class="o">=</span> <span class="n">Partition</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">);</span>	<span class="c1">// 划分
+</span></span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="c1"></span>        <span class="n">QSort</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">low</span><span class="p">,</span> <span class="n">pivotloc</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>          <span class="c1">// 左序列同样处理
+</span></span></span><span class="line"><span class="ln">25</span><span class="cl"><span class="c1"></span>        <span class="n">QSort</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">pivotloc</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="p">);</span>	        <span class="c1">// 右序列同样处理
+</span></span></span><span class="line"><span class="ln">26</span><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">
+</span></span><span class="line"><span class="ln">29</span><span class="cl"><span class="cm">/* ----- 主函数 ----- */</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl"><span class="kt">void</span> <span class="nf">QuickSort</span><span class="p">(</span><span class="n">SqList</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">31</span><span class="cl">    <span class="n">Qsort</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">L</span><span class="p">.</span><span class="n">length</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">32</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>快速排序分析：</p>
+<ol>
+<li>快速排序的平均计算时间为 $O(n\log n)$。实验结果表明：就平均计算时间而言，快速排序是所有内排序方法中最好的一个。</li>
+<li>快速排序是一种不稳定的排序方法。</li>
+</ol>
+<p>在C++中，快速排序可使用<code>algorithm</code>库中的<code>sort</code>函数，时间复杂度为 $O(n\log n)$。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1">// 长度为n的数组
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1"></span><span class="n">sort</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">a</span><span class="o">+</span><span class="n">n</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="c1">// vector容器
+</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="c1"></span><span class="n">sort</span><span class="p">(</span><span class="n">vector</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">vector</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+</span></span></code></pre></div><h3 id="选择排序">选择排序
+</h3><p>基本思想：进行<code>n–1</code>趟排序，每一趟在<code>n–i+1</code> $(i=1,2,\cdots,n-1)$ 个记录中选取关键字最小的记录作为有序序列中第<code>i</code>个记录。</p>
+<h4 id="直接选择排序">直接选择排序
+</h4><p>基本步骤：</p>
+<ol>
+<li>每一步，在<code>L.r[i]～L.r[n]</code>中选择关键字最小记录；</li>
+<li>若它不是该组第一个记录，则将它与该组中的第一个记录对调；</li>
+<li>在剩下的记录<code>L.r[i+1]～L.r[n]</code>中重复执行第1、2步，直到循环结束。</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">void</span> <span class="nf">SelectSort</span><span class="p">(</span><span class="n">SqList</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">L</span><span class="p">.</span><span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">        <span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>			<span class="c1">// 选择具有最小的关键字
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="c1"></span>        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">L</span><span class="p">.</span><span class="n">length</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">L</span><span class="p">.</span><span class="n">r</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">key</span> <span class="o">&lt;</span> <span class="n">L</span><span class="p">.</span><span class="n">r</span><span class="p">[</span><span class="n">k</span><span class="p">].</span><span class="n">key</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">                 <span class="n">k</span> <span class="o">=</span> <span class="n">j</span><span class="p">;</span>     <span class="c1">// 当前最小关键字
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1"></span>            <span class="p">}</span>  
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">        <span class="k">if</span><span class="p">(</span> <span class="n">k</span> <span class="o">!=</span> <span class="n">i</span> <span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">            <span class="c1">// 对换到第 i 个位置
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="c1"></span>            <span class="n">swap</span><span class="p">(</span><span class="n">L</span><span class="p">.</span><span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">L</span><span class="p">.</span><span class="n">r</span><span class="p">[</span><span class="n">k</span><span class="p">]);</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">        <span class="p">}</span>	
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h4 id="堆排序">堆排序
+</h4><blockquote>
+<p>堆的定义：设有一个关键字集合，按完全二叉树的顺序存储方式存储在一维数组中。对它们从根开始，自顶向下，同一层自左向右从<code>1</code>开始连续编号。若满足 </p>
+$$K_i \leqslant K_{2i} \ \&\&\  K_i \leqslant K_{2i+1}$$<p> 或 </p>
+$$K_i \geqslant K_{2i} \ \&\&\  K_i \geqslant K_{2i+1}$$<p> 则称该关键字集合构成一个堆。前者称为小顶堆（最小堆），后者称为大顶堆（最大堆）。</p></blockquote>
+<p>使用堆排序实现由小到大排列：</p>
+<ol>
+<li>建立一个大顶堆，则可以交换第一和最后一个对象，最后一个对象就位；</li>
+<li>而前<code>n–1</code>个元素使用一次调整算法，又可成为一个大顶堆，则再交换第一和倒数第二个元素，再调整；</li>
+<li>依此类推可得最终序列。</li>
+</ol>
+<h3 id="桶排序">桶排序
 </h3><p>桶排序的时间复杂度为O(n)，适用于数据范围较小且已知、数据容量大的排序场景。它利用值域小的特点，可以用一个数组（桶）记录各类数据出现的次数，然后下标就可以自动排序了。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">int</span> <span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">;</span> <span class="c1">// n为数据的个数，m为数据的种数
 </span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">bucket</span><span class="p">[</span><span class="n">m</span><span class="p">];</span>
