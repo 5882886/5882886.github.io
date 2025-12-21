@@ -10,9 +10,10 @@
 <meta property='og:description' content="基本公式">
 <meta property='og:url' content='https://5882886.github.io/p/probability/'>
 <meta property='og:site_name' content='RunicDolphin806'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-11-07T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-11-07T00:00:00&#43;00:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-11-07T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-11-07T00:00:00&#43;00:00'/><meta property='og:image' content='https://5882886.github.io/p/probability/rohit-choudhari-JS3RDAnRUB8-unsplash.jpg' />
 <meta name="twitter:title" content="概率论与数理统计">
-<meta name="twitter:description" content="基本公式">
+<meta name="twitter:description" content="基本公式"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://5882886.github.io/p/probability/rohit-choudhari-JS3RDAnRUB8-unsplash.jpg' />
     <link rel="shortcut icon" href="/favicon.ico" />
 <style>
      
@@ -458,19 +459,19 @@
             <li><a href="#最大似然估计法">最大似然估计法</a></li>
           </ol>
         </li>
-        <li><a href="#估计量的优良性准则">估计量的优良性准则</a>
-          <ol>
-            <li><a href="#无偏性">无偏性</a></li>
-            <li><a href="#有效性">有效性</a></li>
-            <li><a href="#相合估计">相合估计</a></li>
-          </ol>
-        </li>
+        <li><a href="#估计量的优良性准则">估计量的优良性准则</a></li>
         <li><a href="#区间估计">区间估计</a>
           <ol>
             <li><a href="#基本概念-1">基本概念</a></li>
             <li><a href="#单个正态总体参数的置信区间">单个正态总体参数的置信区间</a></li>
+            <li><a href="#两个正态总体参数的置信区间">两个正态总体参数的置信区间</a></li>
           </ol>
         </li>
+      </ol>
+    </li>
+    <li><a href="#假设检验">假设检验</a>
+      <ol>
+        <li><a href="#基本概念-2">基本概念</a></li>
       </ol>
     </li>
   </ol>
@@ -661,8 +662,20 @@
             <main class="main full-width">
      
     
-    <article class="main-article">
+    <article class="has-image main-article">
     <header class="article-header">
+        <div class="article-image">
+            <a href="/p/probability/">
+                <img src="/p/probability/rohit-choudhari-JS3RDAnRUB8-unsplash_hu_755ea8d07786eafe.jpg"
+                        srcset="/p/probability/rohit-choudhari-JS3RDAnRUB8-unsplash_hu_755ea8d07786eafe.jpg 800w, /p/probability/rohit-choudhari-JS3RDAnRUB8-unsplash_hu_bd331352e4a6b0f9.jpg 1600w"
+                        width="800" 
+                        height="450" 
+                        loading="lazy"
+                        alt="Featured image of post 概率论与数理统计" />
+                
+            </a>
+        </div>
+    
 
     <div class="article-details">
     
@@ -1548,14 +1561,35 @@ $$L(x_1, x_2, \cdots, x_n;\theta) = \prod_{i=1}^{n} f(x_i,\theta)$$<p> 将其设
 <p>对给定的样本值 $(x_1,x_2,\cdots,x_n)$，若存在 $\hat{\theta}$ 使得 </p>
 $$L(\hat{\theta}) = \underset{\theta \in \textcircled{\mathrm{H}}}{\mathrm{max}} L(\theta)$$<p> 则称 $\hat{\theta}$ 是参数 $\theta$ 的最大似然估计值.</p>
 <h3 id="估计量的优良性准则">估计量的优良性准则
-</h3><h4 id="无偏性">无偏性
-</h4><p>设 $\hat{\theta}$ 是参数 $\theta$ 的估计量，若 $E(\hat{\theta}) = \theta$ 对一切 $\theta$ 均成立，则称 $\hat{\theta}$ 为 $\theta$ 的无偏估计量，记为 $\mathrm{UE}$.</p>
-<h4 id="有效性">有效性
-</h4><p>设 $\hat{\theta_1}$ 和 $\hat{\theta_2}$ 均为 $\theta$ 的无偏估计量，若 $D(\hat{\theta_1}) &lt; D(\hat{\theta_2})$，则称 $\hat{\theta_1}$ 比 $\hat{\theta_2}$ 有效.</p>
-<h4 id="相合估计">相合估计
-</h4><h3 id="区间估计">区间估计
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>准则</th>
+          <th>定义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>无偏性</td>
+          <td>设 $\hat{\theta}$ 是参数 $\theta$ 的估计量，若 $E(\hat{\theta}) = \theta$ 对一切 $\theta$ 均成立，则称 $\hat{\theta}$ 为 $\theta$ 的无偏估计量，记为 $\mathrm{UE}$</td>
+      </tr>
+      <tr>
+          <td>有效性</td>
+          <td>设 $\hat{\theta_1}$ 和 $\hat{\theta_2}$ 均为 $\theta$ 的无偏估计量，若 $D(\hat{\theta_1}) &lt; D(\hat{\theta_2})$，则称 $\hat{\theta_1}$ 比 $\hat{\theta_2}$ 有效</td>
+      </tr>
+      <tr>
+          <td>相合估计</td>
+          <td>设 $\hat{\theta}_n = \hat{\theta}_n(X_1,X_2,\cdots,X_n)$ 是未知参数 $\theta$ 的估计序列，若 $\hat{\theta}_n$ <a class="link" href="#%e4%be%9d%e6%a6%82%e7%8e%87%e6%94%b6%e6%95%9b" >依概率收敛
+    
+    
+
+</a>于 $\theta$，则称 $\hat{\theta}_n$ 是 $\theta$ 的相合估计量或一致估计量</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="区间估计">区间估计
 </h3><h4 id="基本概念-1">基本概念
-</h4><p>设 $\theta$ 为总体中的未知参数，$(X_1,X_2,\cdots,X_n)$ 是从总体中抽取的样本. 如果存在两个估计量 $\hat{\theta_1} = \hat{\theta}_1(X_1,X_2,\cdots,X_n)$ 和 $\hat{\theta}_2 = \theta_2(X_1,X_2,\cdots,X_n)$，对于给定的 $\alpha (0&lt;\alpha&lt;1)$ 有 </p>
+</h4><p>设 $\theta$ 为总体中的未知参数，$(X_1,X_2,\cdots,X_n)$ 是从总体中抽取的样本. 如果存在两个估计量 $\hat{\theta_1} = \hat{\theta}_1(X_1,X_2,\cdots,X_n)$ 和 $\hat{\theta}_2 = \hat{\theta_2}(X_1,X_2,\cdots,X_n)$，对于给定的 $\alpha (0&lt;\alpha&lt;1)$ 有 </p>
 $$P\{\hat{\theta}_1 < \theta < \hat{\theta}_2\} \geqslant 1-\alpha$$<p> 则称：</p>
 <div class="table-wrapper"><table>
   <thead>
@@ -1617,7 +1651,70 @@ $$P\{\hat{\theta}_1 < \theta < \hat{\theta}_2\} \geqslant 1-\alpha$$<p> 则称�
 </table></div>
 <h4 id="单个正态总体参数的置信区间">单个正态总体参数的置信区间
 </h4><p>设总体 $X \sim N(\mu,\sigma^2)$，$(X_1,X_2,\cdots,X_n)$ 是取自总体 $X$ 的样本，对给定的置信度 $1-\alpha$，分别求参数 $\mu$ 和 $\sigma^2$ 的区间估计.</p>
-
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>估计量</th>
+          <th>条件</th>
+          <th>枢轴量</th>
+          <th>置信区间</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>$\mu$</td>
+          <td>$\sigma^2$ 已知</td>
+          <td>$\displaystyle Z=\frac{\overline{X}-\mu}{\sigma /\sqrt{n}} \sim N(0,1) $</td>
+          <td>$\displaystyle \left(\overline{X} - z_{\frac{\alpha}{2}} \frac{\sigma}{\sqrt{n}},\ \overline{X} + z_{\frac{\alpha}{2}} \frac{\sigma}{\sqrt{n}} \right)$</td>
+      </tr>
+      <tr>
+          <td>$\mu$</td>
+          <td>$\sigma^2$ 未知</td>
+          <td>$\displaystyle T=\frac{\overline{X}-\mu}{S/\sqrt{n}} \sim t_{n-1}$</td>
+          <td>$\displaystyle \left(\overline{X}-t_{n-1}\left(\frac{\alpha}{2}\right) \frac{S}{\sqrt{n}},\ \overline{X}+t_{n-1}\left(\frac{\alpha}{2}\right) \frac{S}{\sqrt{n}} \right) $</td>
+      </tr>
+      <tr>
+          <td>$\sigma^2$</td>
+          <td>$\mu$ 未知</td>
+          <td>$\displaystyle \chi^2 = \frac{(n-1)S^2}{\sigma^2} \sim \chi_{n-1}^2$</td>
+          <td>$\displaystyle \left(\frac{(n-1)S^2}{\displaystyle \chi_{n-1}^2 \left(\frac{\alpha}{2}\right)}, \ \frac{(n-1)S^2}{\displaystyle \chi_{n-1}^2 \left(1-\frac{\alpha}{2}\right)} \right)$</td>
+      </tr>
+  </tbody>
+</table></div>
+<h4 id="两个正态总体参数的置信区间">两个正态总体参数的置信区间
+</h4><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>估计量</th>
+          <th>条件</th>
+          <th>枢轴量</th>
+          <th>置信区间</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>$\mu_1 - \mu_2$</td>
+          <td>方差已知</td>
+          <td>$\displaystyle Z = \frac{\overline{X}-\overline{Y}-(\mu_1-\mu_2)}{\displaystyle \sqrt{\frac{1}{m} \sigma_1^2 + \frac{1}{n} \sigma_2^2}} \sim N(0,1)$</td>
+          <td>$\displaystyle \left(\overline{X}-\overline{Y}-z_{\frac{\alpha}{2}} \sqrt{\frac{1}{m}\sigma_1^2 + \frac{1}{n}\sigma_2^2}, \ \overline{X}-\overline{Y}+z_{\frac{\alpha}{2}} \sqrt{\frac{1}{m}\sigma_1^2 + \frac{1}{n}\sigma_2^2} \right)$</td>
+      </tr>
+      <tr>
+          <td>$\mu_1 - \mu_2$</td>
+          <td>方差未知但相等</td>
+          <td>$\displaystyle T = \frac{\overline{X}-\overline{Y}-(\mu_1-\mu_2)}{\displaystyle S\sqrt{\frac{1}{m} + \frac{1}{n}}} \sim t_{m+n-2}$</td>
+          <td>$\displaystyle \left(\overline{X}-\overline{Y}-\lambda, \ \overline{X}-\overline{Y}+\lambda\right)$ <br> 其中 $\displaystyle \lambda = t_{m+n-2}\left(\frac{\alpha}{2}\right)S_w \sqrt{\frac{1}{m}+\frac{1}{n}}$</td>
+      </tr>
+      <tr>
+          <td>$\displaystyle \frac{\sigma_1^2}{\sigma_2^2}$</td>
+          <td>均值未知</td>
+          <td>$\displaystyle F = \frac{S_2^2}{S_1^2} \cdot \frac{\sigma_1^2}{\sigma_2^2}\sim F_{n-1,m-1}$</td>
+          <td>$\displaystyle \left(F_{n-1,m-1}\left(1-\frac{\alpha}{2}\right)\frac{S_1^2}{S_2^2}, \ F_{n-1,m-1}\left(\frac{\alpha}{2}\right)\frac{S_1^2}{S_2^2} \right)$</td>
+      </tr>
+  </tbody>
+</table></div>
+<h2 id="假设检验">假设检验
+</h2><h3 id="基本概念-2">基本概念
+</h3>
 </section>
 
 
@@ -1723,9 +1820,20 @@ $$P\{\hat{\theta}_1 < \theta < \hat{\theta}_2\} \geqslant 1-\alpha$$<p> 则称�
 
             
                 
-<article class="">
+<article class="has-image">
     <a href="/p/texstudio/">
         
+        
+            <div class="article-image">
+                <img src="/p/texstudio/bozhin-karaivanov-R5dKk1oXPAM-unsplash.8d91853d7ef39979103db0b36c4d1d57_hu_4210f327eb385ada.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Tex排版"
+                        data-key="texstudio" 
+                        data-hash="md5-jZGFPX7zmXkQPbCzbE0dVw==">
+                
+            </div>
         
 
         <div class="article-details">

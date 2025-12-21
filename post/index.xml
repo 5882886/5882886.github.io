@@ -1007,7 +1007,7 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
         <pubDate>Fri, 07 Nov 2025 00:00:00 +0000</pubDate>
         
         <guid>https://5882886.github.io/p/probability/</guid>
-        <description>&lt;h2 id=&#34;随机事件与概率&#34;&gt;随机事件与概率
+        <description>&lt;img src="https://5882886.github.io/p/probability/rohit-choudhari-JS3RDAnRUB8-unsplash.jpg" alt="Featured image of post 概率论与数理统计" /&gt;&lt;h2 id=&#34;随机事件与概率&#34;&gt;随机事件与概率
 &lt;/h2&gt;&lt;h3 id=&#34;随机事件的关系与运算&#34;&gt;随机事件的关系与运算
 &lt;/h3&gt;&lt;table&gt;
   &lt;thead&gt;
@@ -1836,14 +1836,35 @@ $$L(x_1, x_2, \cdots, x_n;\theta) = \prod_{i=1}^{n} f(x_i,\theta)$$&lt;p&gt; 将
 &lt;p&gt;对给定的样本值 $(x_1,x_2,\cdots,x_n)$，若存在 $\hat{\theta}$ 使得 &lt;/p&gt;
 $$L(\hat{\theta}) = \underset{\theta \in \textcircled{\mathrm{H}}}{\mathrm{max}} L(\theta)$$&lt;p&gt; 则称 $\hat{\theta}$ 是参数 $\theta$ 的最大似然估计值.&lt;/p&gt;
 &lt;h3 id=&#34;估计量的优良性准则&#34;&gt;估计量的优良性准则
-&lt;/h3&gt;&lt;h4 id=&#34;无偏性&#34;&gt;无偏性
-&lt;/h4&gt;&lt;p&gt;设 $\hat{\theta}$ 是参数 $\theta$ 的估计量，若 $E(\hat{\theta}) = \theta$ 对一切 $\theta$ 均成立，则称 $\hat{\theta}$ 为 $\theta$ 的无偏估计量，记为 $\mathrm{UE}$.&lt;/p&gt;
-&lt;h4 id=&#34;有效性&#34;&gt;有效性
-&lt;/h4&gt;&lt;p&gt;设 $\hat{\theta_1}$ 和 $\hat{\theta_2}$ 均为 $\theta$ 的无偏估计量，若 $D(\hat{\theta_1}) &amp;lt; D(\hat{\theta_2})$，则称 $\hat{\theta_1}$ 比 $\hat{\theta_2}$ 有效.&lt;/p&gt;
-&lt;h4 id=&#34;相合估计&#34;&gt;相合估计
-&lt;/h4&gt;&lt;h3 id=&#34;区间估计&#34;&gt;区间估计
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;准则&lt;/th&gt;
+          &lt;th&gt;定义&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;无偏性&lt;/td&gt;
+          &lt;td&gt;设 $\hat{\theta}$ 是参数 $\theta$ 的估计量，若 $E(\hat{\theta}) = \theta$ 对一切 $\theta$ 均成立，则称 $\hat{\theta}$ 为 $\theta$ 的无偏估计量，记为 $\mathrm{UE}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;有效性&lt;/td&gt;
+          &lt;td&gt;设 $\hat{\theta_1}$ 和 $\hat{\theta_2}$ 均为 $\theta$ 的无偏估计量，若 $D(\hat{\theta_1}) &amp;lt; D(\hat{\theta_2})$，则称 $\hat{\theta_1}$ 比 $\hat{\theta_2}$ 有效&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;相合估计&lt;/td&gt;
+          &lt;td&gt;设 $\hat{\theta}_n = \hat{\theta}_n(X_1,X_2,\cdots,X_n)$ 是未知参数 $\theta$ 的估计序列，若 $\hat{\theta}_n$ &lt;a class=&#34;link&#34; href=&#34;#%e4%be%9d%e6%a6%82%e7%8e%87%e6%94%b6%e6%95%9b&#34; &gt;依概率收敛
+    
+    
+
+&lt;/a&gt;于 $\theta$，则称 $\hat{\theta}_n$ 是 $\theta$ 的相合估计量或一致估计量&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;区间估计&#34;&gt;区间估计
 &lt;/h3&gt;&lt;h4 id=&#34;基本概念-1&#34;&gt;基本概念
-&lt;/h4&gt;&lt;p&gt;设 $\theta$ 为总体中的未知参数，$(X_1,X_2,\cdots,X_n)$ 是从总体中抽取的样本. 如果存在两个估计量 $\hat{\theta_1} = \hat{\theta}_1(X_1,X_2,\cdots,X_n)$ 和 $\hat{\theta}_2 = \theta_2(X_1,X_2,\cdots,X_n)$，对于给定的 $\alpha (0&amp;lt;\alpha&amp;lt;1)$ 有 &lt;/p&gt;
+&lt;/h4&gt;&lt;p&gt;设 $\theta$ 为总体中的未知参数，$(X_1,X_2,\cdots,X_n)$ 是从总体中抽取的样本. 如果存在两个估计量 $\hat{\theta_1} = \hat{\theta}_1(X_1,X_2,\cdots,X_n)$ 和 $\hat{\theta}_2 = \hat{\theta_2}(X_1,X_2,\cdots,X_n)$，对于给定的 $\alpha (0&amp;lt;\alpha&amp;lt;1)$ 有 &lt;/p&gt;
 $$P\{\hat{\theta}_1 &lt; \theta &lt; \hat{\theta}_2\} \geqslant 1-\alpha$$&lt;p&gt; 则称：&lt;/p&gt;
 &lt;table&gt;
   &lt;thead&gt;
@@ -1905,7 +1926,70 @@ $$P\{\hat{\theta}_1 &lt; \theta &lt; \hat{\theta}_2\} \geqslant 1-\alpha$$&lt;p&
 &lt;/table&gt;
 &lt;h4 id=&#34;单个正态总体参数的置信区间&#34;&gt;单个正态总体参数的置信区间
 &lt;/h4&gt;&lt;p&gt;设总体 $X \sim N(\mu,\sigma^2)$，$(X_1,X_2,\cdots,X_n)$ 是取自总体 $X$ 的样本，对给定的置信度 $1-\alpha$，分别求参数 $\mu$ 和 $\sigma^2$ 的区间估计.&lt;/p&gt;
-</description>
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;估计量&lt;/th&gt;
+          &lt;th&gt;条件&lt;/th&gt;
+          &lt;th&gt;枢轴量&lt;/th&gt;
+          &lt;th&gt;置信区间&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\mu$&lt;/td&gt;
+          &lt;td&gt;$\sigma^2$ 已知&lt;/td&gt;
+          &lt;td&gt;$\displaystyle Z=\frac{\overline{X}-\mu}{\sigma /\sqrt{n}} \sim N(0,1) $&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \left(\overline{X} - z_{\frac{\alpha}{2}} \frac{\sigma}{\sqrt{n}},\ \overline{X} + z_{\frac{\alpha}{2}} \frac{\sigma}{\sqrt{n}} \right)$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\mu$&lt;/td&gt;
+          &lt;td&gt;$\sigma^2$ 未知&lt;/td&gt;
+          &lt;td&gt;$\displaystyle T=\frac{\overline{X}-\mu}{S/\sqrt{n}} \sim t_{n-1}$&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \left(\overline{X}-t_{n-1}\left(\frac{\alpha}{2}\right) \frac{S}{\sqrt{n}},\ \overline{X}+t_{n-1}\left(\frac{\alpha}{2}\right) \frac{S}{\sqrt{n}} \right) $&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\sigma^2$&lt;/td&gt;
+          &lt;td&gt;$\mu$ 未知&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \chi^2 = \frac{(n-1)S^2}{\sigma^2} \sim \chi_{n-1}^2$&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \left(\frac{(n-1)S^2}{\displaystyle \chi_{n-1}^2 \left(\frac{\alpha}{2}\right)}, \ \frac{(n-1)S^2}{\displaystyle \chi_{n-1}^2 \left(1-\frac{\alpha}{2}\right)} \right)$&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;两个正态总体参数的置信区间&#34;&gt;两个正态总体参数的置信区间
+&lt;/h4&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;估计量&lt;/th&gt;
+          &lt;th&gt;条件&lt;/th&gt;
+          &lt;th&gt;枢轴量&lt;/th&gt;
+          &lt;th&gt;置信区间&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\mu_1 - \mu_2$&lt;/td&gt;
+          &lt;td&gt;方差已知&lt;/td&gt;
+          &lt;td&gt;$\displaystyle Z = \frac{\overline{X}-\overline{Y}-(\mu_1-\mu_2)}{\displaystyle \sqrt{\frac{1}{m} \sigma_1^2 + \frac{1}{n} \sigma_2^2}} \sim N(0,1)$&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \left(\overline{X}-\overline{Y}-z_{\frac{\alpha}{2}} \sqrt{\frac{1}{m}\sigma_1^2 + \frac{1}{n}\sigma_2^2}, \ \overline{X}-\overline{Y}+z_{\frac{\alpha}{2}} \sqrt{\frac{1}{m}\sigma_1^2 + \frac{1}{n}\sigma_2^2} \right)$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\mu_1 - \mu_2$&lt;/td&gt;
+          &lt;td&gt;方差未知但相等&lt;/td&gt;
+          &lt;td&gt;$\displaystyle T = \frac{\overline{X}-\overline{Y}-(\mu_1-\mu_2)}{\displaystyle S\sqrt{\frac{1}{m} + \frac{1}{n}}} \sim t_{m+n-2}$&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \left(\overline{X}-\overline{Y}-\lambda, \ \overline{X}-\overline{Y}+\lambda\right)$ &lt;br&gt; 其中 $\displaystyle \lambda = t_{m+n-2}\left(\frac{\alpha}{2}\right)S_w \sqrt{\frac{1}{m}+\frac{1}{n}}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\displaystyle \frac{\sigma_1^2}{\sigma_2^2}$&lt;/td&gt;
+          &lt;td&gt;均值未知&lt;/td&gt;
+          &lt;td&gt;$\displaystyle F = \frac{S_2^2}{S_1^2} \cdot \frac{\sigma_1^2}{\sigma_2^2}\sim F_{n-1,m-1}$&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \left(F_{n-1,m-1}\left(1-\frac{\alpha}{2}\right)\frac{S_1^2}{S_2^2}, \ F_{n-1,m-1}\left(\frac{\alpha}{2}\right)\frac{S_1^2}{S_2^2} \right)$&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;假设检验&#34;&gt;假设检验
+&lt;/h2&gt;&lt;h3 id=&#34;基本概念-2&#34;&gt;基本概念
+&lt;/h3&gt;</description>
         </item>
         <item>
         <title>Tex排版</title>
@@ -1913,7 +1997,7 @@ $$P\{\hat{\theta}_1 &lt; \theta &lt; \hat{\theta}_2\} \geqslant 1-\alpha$$&lt;p&
         <pubDate>Wed, 29 Oct 2025 00:00:00 +0000</pubDate>
         
         <guid>https://5882886.github.io/p/texstudio/</guid>
-        <description>&lt;h2 id=&#34;排版与排版工具&#34;&gt;排版与排版工具
+        <description>&lt;img src="https://5882886.github.io/p/texstudio/bozhin-karaivanov-R5dKk1oXPAM-unsplash.jpg" alt="Featured image of post Tex排版" /&gt;&lt;h2 id=&#34;排版与排版工具&#34;&gt;排版与排版工具
 &lt;/h2&gt;&lt;p&gt;排版是指对文字、图片等元素的布局处理，使之符合我们的阅读习惯。&lt;/p&gt;
 &lt;table&gt;
   &lt;thead&gt;
@@ -12388,7 +12472,7 @@ $$</description>
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;  font-family: Apple Color Emoji, Segoe UI Emoji, NotoColorEmoji, Segoe UI Symbol, Android Emoji, EmojiSymbols;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;I &amp;#x2764;&amp;#xfe0f; Hugo!&lt;/p&gt;</description>
+&lt;p&gt;I :heart: Hugo!&lt;/p&gt;</description>
         </item>
         
     </channel>
