@@ -688,17 +688,17 @@
 </h3><h4 id="直接插入排序">直接插入排序
 </h4><p>核心是将一个待排序的数据插入到已排好序的有序表中，从而完成排序。</p>
 <p><img src="/p/algorithm/images/%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F.png"
-	width="849"
-	height="934"
-	srcset="/p/algorithm/images/%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F_hu_8216d1fceaac56db.png 480w, /p/algorithm/images/%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F_hu_d364bbcf4cfe468b.png 1024w"
+	width="913"
+	height="1087"
+	srcset="/p/algorithm/images/%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F_hu_cf1bc6cce016cdc7.png 480w, /p/algorithm/images/%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F_hu_f59027b65ac68587.png 1024w"
 	loading="lazy"
 	
 		alt="直接插入排序"
 	
 	
 		class="gallery-image" 
-		data-flex-grow="90"
-		data-flex-basis="218px"
+		data-flex-grow="83"
+		data-flex-basis="201px"
 	
 ></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">void</span> <span class="nf">InsertSort</span><span class="p">(</span><span class="n">SqList</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">)</span> <span class="p">{</span>
@@ -722,17 +722,17 @@
 <li>直到最后取<code>gap = 1</code>，将所有对象放在同一个序列中排序为止。</li>
 </ol>
 <p><img src="/p/algorithm/images/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F.png"
-	width="831"
-	height="962"
-	srcset="/p/algorithm/images/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F_hu_73b84caae6a59dd7.png 480w, /p/algorithm/images/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F_hu_f5e2a145eac84b3e.png 1024w"
+	width="1047"
+	height="1305"
+	srcset="/p/algorithm/images/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F_hu_d44676ed03fb5254.png 480w, /p/algorithm/images/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F_hu_9a0df36d36462c9d.png 1024w"
 	loading="lazy"
 	
 		alt="希尔排序"
 	
 	
 		class="gallery-image" 
-		data-flex-grow="86"
-		data-flex-basis="207px"
+		data-flex-grow="80"
+		data-flex-basis="192px"
 	
 ></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">void</span> <span class="nf">ShellSort</span><span class="p">(</span><span class="n">SqList</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">)</span> <span class="p">{</span>
@@ -834,7 +834,21 @@
 </span></span><span class="line"><span class="ln">30</span><span class="cl"><span class="kt">void</span> <span class="nf">QuickSort</span><span class="p">(</span><span class="n">SqList</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">31</span><span class="cl">    <span class="n">Qsort</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">L</span><span class="p">.</span><span class="n">length</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">32</span><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>快速排序分析：</p>
+</span></span></code></pre></div><p><img src="/p/algorithm/images/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F.png"
+	width="868"
+	height="2339"
+	srcset="/p/algorithm/images/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F_hu_c7192fbf69c1de69.png 480w, /p/algorithm/images/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F_hu_5710b337ef9da2a3.png 1024w"
+	loading="lazy"
+	
+		alt="快速排序"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="37"
+		data-flex-basis="89px"
+	
+></p>
+<p>快速排序分析：</p>
 <ol>
 <li>快速排序的平均计算时间为 $O(n\log n)$。实验结果表明：就平均计算时间而言，快速排序是所有内排序方法中最好的一个。</li>
 <li>快速排序是一种不稳定的排序方法。</li>
@@ -874,13 +888,59 @@
 <p>堆的定义：设有一个关键字集合，按完全二叉树的顺序存储方式存储在一维数组中。对它们从根开始，自顶向下，同一层自左向右从<code>1</code>开始连续编号。若满足 </p>
 $$K_i \leqslant K_{2i} \ \&\&\  K_i \leqslant K_{2i+1}$$<p> 或 </p>
 $$K_i \geqslant K_{2i} \ \&\&\  K_i \geqslant K_{2i+1}$$<p> 则称该关键字集合构成一个堆。前者称为小顶堆（最小堆），后者称为大顶堆（最大堆）。</p></blockquote>
+<p>堆调整：将一无序序列看成完全二叉树，则最后一个非终端结点是第 $[n/2]$ 个元素，则从该元素开始自下向上逐步调整为大顶堆（小顶堆）。</p>
+<p><img src="/p/algorithm/images/%E5%A0%86%E8%B0%83%E6%95%B4%E7%AE%97%E6%B3%95.png"
+	width="1676"
+	height="2016"
+	srcset="/p/algorithm/images/%E5%A0%86%E8%B0%83%E6%95%B4%E7%AE%97%E6%B3%95_hu_761c52f64d4aaf14.png 480w, /p/algorithm/images/%E5%A0%86%E8%B0%83%E6%95%B4%E7%AE%97%E6%B3%95_hu_7663b85c43222cc2.png 1024w"
+	loading="lazy"
+	
+		alt="堆调整算法"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="83"
+		data-flex-basis="199px"
+	
+></p>
 <p>使用堆排序实现由小到大排列：</p>
 <ol>
 <li>建立一个大顶堆，则可以交换第一和最后一个对象，最后一个对象就位；</li>
 <li>而前<code>n–1</code>个元素使用一次调整算法，又可成为一个大顶堆，则再交换第一和倒数第二个元素，再调整；</li>
 <li>依此类推可得最终序列。</li>
 </ol>
-<h3 id="桶排序">桶排序
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">typedef</span> <span class="n">SqList</span> <span class="n">HeapType</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="cm">/* ----- 堆调整算法 ----- */</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="c1">// 设大顶堆为 H.r[s..m]，且 H.r[s] 需要调整
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">HeapAdjust</span><span class="p">(</span><span class="n">HeapType</span> <span class="o">&amp;</span><span class="n">H</span><span class="p">,</span> <span class="kt">int</span> <span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">m</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="n">Data</span> <span class="n">rc</span> <span class="o">=</span> <span class="n">H</span><span class="p">.</span><span class="n">r</span><span class="p">[</span><span class="n">s</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">s</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">m</span><span class="p">;</span> <span class="n">j</span> <span class="o">*=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">j</span> <span class="o">&lt;</span> <span class="n">m</span> <span class="o">&amp;&amp;</span> <span class="n">H</span><span class="p">.</span><span class="n">r</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">key</span> <span class="o">&lt;</span> <span class="n">H</span><span class="p">.</span><span class="n">r</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">].</span><span class="n">key</span><span class="p">)</span>	<span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">            <span class="n">j</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">rc</span><span class="p">.</span><span class="n">key</span> <span class="o">&gt;=</span> <span class="n">H</span><span class="p">.</span><span class="n">r</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">key</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">            <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">        <span class="n">H</span><span class="p">.</span><span class="n">r</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="n">H</span><span class="p">.</span><span class="n">r</span><span class="p">[</span><span class="n">j</span><span class="p">];</span> 
+</span></span><span class="line"><span class="ln">15</span><span class="cl">        <span class="n">s</span> <span class="o">=</span> <span class="n">j</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="n">H</span><span class="p">.</span><span class="n">r</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="n">rc</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">
+</span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="cm">/* ----- 堆排序 ----- */</span> 
+</span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="kt">void</span> <span class="nf">HeapSort</span><span class="p">(</span><span class="n">HeapType</span> <span class="o">&amp;</span><span class="n">H</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">    <span class="c1">// 建立堆
+</span></span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="c1"></span>    <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">H</span><span class="p">.</span><span class="n">length</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>	
+</span></span><span class="line"><span class="ln">24</span><span class="cl">        <span class="n">HeapAdjust</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">H</span><span class="p">.</span><span class="n">length</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">    <span class="c1">// 排序
+</span></span></span><span class="line"><span class="ln">27</span><span class="cl"><span class="c1"></span>    <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">H</span><span class="p">.</span><span class="n">length</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>		
+</span></span><span class="line"><span class="ln">28</span><span class="cl">        <span class="n">swap</span><span class="p">(</span><span class="n">H</span><span class="p">.</span><span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">H</span><span class="p">.</span><span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl">        <span class="n">HeapAdjust</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="err">–</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">31</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="桶排序">桶排序
 </h3><p>桶排序的时间复杂度为O(n)，适用于数据范围较小且已知、数据容量大的排序场景。它利用值域小的特点，可以用一个数组（桶）记录各类数据出现的次数，然后下标就可以自动排序了。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">int</span> <span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">;</span> <span class="c1">// n为数据的个数，m为数据的种数
 </span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">bucket</span><span class="p">[</span><span class="n">m</span><span class="p">];</span>
