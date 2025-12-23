@@ -340,6 +340,7 @@
             <li><a href="#堆排序">堆排序</a></li>
           </ol>
         </li>
+        <li><a href="#归并排序">归并排序</a></li>
         <li><a href="#桶排序">桶排序</a></li>
       </ol>
     </li>
@@ -940,8 +941,67 @@ $$K_i \geqslant K_{2i} \ \&\&\  K_i \geqslant K_{2i+1}$$<p> 则称该关键字�
 </span></span><span class="line"><span class="ln">29</span><span class="cl">        <span class="n">HeapAdjust</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="err">–</span><span class="mi">1</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">30</span><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="ln">31</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><img src="/p/algorithm/images/%E5%A0%86%E6%8E%92%E5%BA%8F.png"
+	width="2656"
+	height="1869"
+	srcset="/p/algorithm/images/%E5%A0%86%E6%8E%92%E5%BA%8F_hu_ad0d20cf199e8fad.png 480w, /p/algorithm/images/%E5%A0%86%E6%8E%92%E5%BA%8F_hu_3424568299b489b5.png 1024w"
+	loading="lazy"
+	
+		alt="堆排序"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="142"
+		data-flex-basis="341px"
+	
+></p>
+<h3 id="归并排序">归并排序
+</h3><p>定义：不断将两个或两个以上的有序表合并成一个新的有序表的排序方法。</p>
+<p>常用的归并排序方法为<strong>2-路归并排序</strong>。</p>
+<p>步骤：</p>
+<ol>
+<li>设初始序列有 $n$ 个对象，首先把它看成是 $n$ 个长度为 $1$ 的有序子序列；</li>
+<li>然后两两归并，得到 $\displaystyle \left\lceil \frac{n}{2} \right\rceil$ 个长度为 $2$ 的有序子序列（如果 $n$ 为奇数，则最后一个有序子序列的长度为 $1$）；</li>
+<li>再做两两归并，如此重复，最后得到一个长度为 $n$ 的有序序列。</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1">// 将有序的 SR[l..m] 和 SR[m+1..r] 归并为有序的 TR[l..r]
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">Merge</span><span class="p">(</span><span class="n">RcdType</span> <span class="n">SR</span><span class="p">[</span> <span class="p">],</span> <span class="n">RcdType</span> <span class="n">TR</span><span class="p">[</span> <span class="p">],</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">m</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">l</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="n">l</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;=</span> <span class="n">m</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>		<span class="c1">// 归并
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="n">SR</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">key</span> <span class="o">&lt;=</span> <span class="n">SR</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">key</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">            <span class="n">TR</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">SR</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">        <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">            <span class="n">TR</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">SR</span><span class="p">[</span><span class="n">j</span><span class="o">++</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">        <span class="n">k</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;=</span> <span class="n">m</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">        <span class="n">TR</span><span class="p">[</span><span class="n">k</span><span class="p">..</span><span class="n">r</span><span class="p">]</span> <span class="o">=</span> <span class="n">SR</span><span class="p">[</span><span class="n">i</span><span class="p">..</span><span class="n">m</span><span class="p">];</span>	<span class="c1">// 整体复制
+</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">&lt;=</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">        <span class="n">TR</span><span class="p">[</span><span class="n">k</span><span class="p">..</span><span class="n">r</span><span class="p">]</span> <span class="o">=</span> <span class="n">SR</span><span class="p">[</span><span class="n">j</span><span class="p">..</span><span class="n">r</span><span class="p">];</span> 	<span class="c1">// 整体复制
+</span></span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>递归形式的归并排序：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">void</span> <span class="nf">MSort</span><span class="p">(</span><span class="n">RcdType</span> <span class="n">SR</span><span class="p">[],</span> <span class="n">RcdType</span> <span class="o">&amp;</span><span class="n">TR</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">l</span> <span class="o">==</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">        <span class="n">TR</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="n">SR</span><span class="p">[</span><span class="n">l</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="k">else</span> <span class="p">{</span> 
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">        <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="n">r</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>	        <span class="c1">// 平分SR[l..r]     
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1"></span>        <span class="n">MSort</span><span class="p">(</span><span class="n">SR</span><span class="p">,</span> <span class="n">TR1</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">m</span><span class="p">);</span>       <span class="c1">// 对左侧进行归并排序
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1"></span>        <span class="n">MSort</span><span class="p">(</span><span class="n">SR</span><span class="p">,</span> <span class="n">TR1</span><span class="p">,</span> <span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">r</span><span class="p">);</span>     <span class="c1">// 对右侧进行归并排序
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="c1"></span>        <span class="n">Merge</span><span class="p">(</span><span class="n">TR1</span><span class="p">,</span> <span class="n">TR</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">r</span><span class="p">);</span>    <span class="c1">// 合并左右两个有序序列
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">
+</span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="c1">// 对顺序表L作归并排序
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">MergeSort</span><span class="p">(</span><span class="n">SqList</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">)</span> <span class="p">{</span>		
+</span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="n">MSort</span><span class="p">(</span><span class="n">L</span><span class="p">.</span><span class="n">r</span><span class="p">,</span> <span class="n">L</span><span class="p">.</span><span class="n">r</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">L</span><span class="p">.</span><span class="n">length</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="桶排序">桶排序
-</h3><p>桶排序的时间复杂度为O(n)，适用于数据范围较小且已知、数据容量大的排序场景。它利用值域小的特点，可以用一个数组（桶）记录各类数据出现的次数，然后下标就可以自动排序了。</p>
+</h3><p>桶排序的时间复杂度为 $O(n)$，适用于数据范围较小且已知、数据容量大的排序场景。它利用值域小的特点，可以用一个数组（桶）记录各类数据出现的次数，然后下标就可以自动排序了。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">int</span> <span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">;</span> <span class="c1">// n为数据的个数，m为数据的种数
 </span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">bucket</span><span class="p">[</span><span class="n">m</span><span class="p">];</span>
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl">
@@ -1097,7 +1157,7 @@ $$ n! = \left\{ \begin{array}{c} 1, & n = 0 \\ n \cdot (n-1)!, & n \geqslant 1 \
       </tr>
   </tbody>
 </table></div>
-<p>总的来说，如果 b 在二进制上的某一位是 1，我们就把答案乘上对应的 $a^{2^n}$。</p>
+<p>总的来说，如果 $b$ 在二进制上的某一位是 $1$，我们就把答案乘上对应的 $a^{2^n}$。</p>
 <hr>
 </details>
 <h3 id="代码">代码
@@ -1275,7 +1335,7 @@ $$ n! = \left\{ \begin{array}{c} 1, & n = 0 \\ n \cdot (n-1)!, & n \geqslant 1 \
 </span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">l</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">r</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="n">sum</span> <span class="o">+=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
 </span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>使用前缀和的时间复杂度则降为O(n)。定义两个数组，一个为原始数组<code>a[]</code>，一个为前缀和数组<code>prefix[]</code>。</p>
+</span></span></code></pre></div><p>使用前缀和的时间复杂度则降为 $O(n)$。定义两个数组，一个为原始数组<code>a[]</code>，一个为前缀和数组<code>prefix[]</code>。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl">

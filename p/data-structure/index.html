@@ -438,6 +438,8 @@
         <li><a href="#最短路径">最短路径</a></li>
       </ol>
     </li>
+    <li><a href="#查找">查找</a></li>
+    <li><a href="#排序">排序</a></li>
     <li><a href="#c语言补充知识">C语言补充知识</a>
       <ol>
         <li><a href="#typedef">typedef</a></li>
@@ -1963,10 +1965,10 @@ $$G.edge[i][j] = \left\{ \begin{matrix} 1， & \left< i,j \right> \in E \ 或\  
 </table></div>
 <p>求关键路径的算法：</p>
 <ol>
-<li>输入 $e$ 条弧 $&lt;j,k&gt;$，建立 AOE 网的存储结构；</li>
-<li>从源点 $v_0$ 出发，令 <code>ve[0] = 0</code>，按拓扑排序求其余各顶点的最早发生时间 <code>ve[i]</code> $(1 \leqslant i \leqslant n-1)$。如果得到的拓扑有序序列中顶点个数小于网中的顶点数 $n$，则说明网中存在环，不能求关键路径；</li>
-<li>从汇点 $v_n$ 出发，令<code>vl[n-1] = ve[n-1]</code>，按逆拓扑有序求其余各顶点的最迟发生时间 <code>vl[i]</code> $(n-2 \geqslant i \geqslant 2)$；</li>
-<li>根据各顶点的 $ve$ 和 $vl$ 值，求每条弧 $s$ 最早开始时间 $e(s)$ 和最迟开始时间 $l(s)$。若某条弧满足条件 $e(s)=l(s)$，则为关键活动。</li>
+<li>输入 $e$ 条弧 <code>&lt;j,k&gt;</code>，建立 AOE 网的存储结构；</li>
+<li>从源点 $v_0$ 出发，令 <code>ve[0] = 0</code>，按拓扑排序求出其余各顶点的最早发生时间 <code>ve[i]</code> $(1 \leqslant i \leqslant n-1)$。如果得到的拓扑有序序列中顶点个数小于网中的顶点数 $n$，则说明网中存在环，不能求关键路径；</li>
+<li>从汇点 $v_n$ 出发，令<code>vl[n-1] = ve[n-1]</code>，按逆拓扑有序求出其余各顶点的最迟发生时间 <code>vl[i]</code> $(2 \leqslant i \leqslant n-2)$；</li>
+<li>根据各顶点的<code>ve</code>和<code>vl</code>值，求每条弧 $s$ 最早开始时间<code>e(s)</code>和最迟开始时间<code>l(s)</code>。若某条弧满足条件<code>e(s) = l(s)</code>，则为关键活动。</li>
 </ol>
 <h3 id="最短路径">最短路径
 </h3><p>Dijkstra 算法</p>
@@ -1975,6 +1977,76 @@ $$G.edge[i][j] = \left\{ \begin{matrix} 1， & \left< i,j \right> \in E \ 或\  
 <li>再参照它求出长度次短的一条最短路径；依次类推……</li>
 <li>直到从顶点 $v$ 到其它各顶点的最短路径全部求出为止。</li>
 </ol>
+<h2 id="查找">查找
+</h2><h2 id="排序">排序
+</h2><p>详见<a class="link" href="/p/algorithm/#%e6%8e%92%e5%ba%8f" >此处
+    
+    
+
+</a></p>
+<p>各种排序的复杂度比较：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>排序方法</th>
+          <th>比较次数</th>
+          <th>移动次数</th>
+          <th>稳定性</th>
+          <th>额外存储空间</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>直接插入排序</td>
+          <td>$O(n) \sim O(n^2)$</td>
+          <td>$0 \sim O(n^2)$</td>
+          <td>稳定</td>
+          <td>$1$</td>
+      </tr>
+      <tr>
+          <td>折半插入排序</td>
+          <td>$O(n\log n)$</td>
+          <td>$0 \sim O(n^2)$</td>
+          <td>稳定</td>
+          <td>$1$</td>
+      </tr>
+      <tr>
+          <td>冒泡排序</td>
+          <td>$O(n) \sim O(n^2)$</td>
+          <td>$0 \sim O(n^2)$</td>
+          <td>稳定</td>
+          <td>$1$</td>
+      </tr>
+      <tr>
+          <td>快速排序</td>
+          <td>$O(n\log n) \sim O(n^2)$</td>
+          <td>$O(n\log n) \sim O(n^2)$</td>
+          <td>不稳定</td>
+          <td>$\log n \sim n^2$</td>
+      </tr>
+      <tr>
+          <td>直接选择排序</td>
+          <td>$O(n^2)$</td>
+          <td>$0 \sim O(n)$</td>
+          <td>不稳定</td>
+          <td>$1$</td>
+      </tr>
+      <tr>
+          <td>堆排序</td>
+          <td>$O(n\log n)$</td>
+          <td>$O(n\log n)$</td>
+          <td>不稳定</td>
+          <td>$1$</td>
+      </tr>
+      <tr>
+          <td>归并排序</td>
+          <td>$O(n\log n)$</td>
+          <td>$O(n\log n)$</td>
+          <td>稳定</td>
+          <td>$n$</td>
+      </tr>
+  </tbody>
+</table></div>
 <h2 id="c语言补充知识">C语言补充知识
 </h2><h3 id="typedef">typedef
 </h3><p><code>typedef</code>可以给变量起一个别名，例如：</p>
