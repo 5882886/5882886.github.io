@@ -1739,8 +1739,11 @@ $$F_n(x) = \frac{1}{n} \sum_{i=0}^{n} I_{\{x_{(1)} \leqslant x\}}$$&lt;p&gt; 为
 &lt;p&gt;${X}$ 与 $S^2$ 相互独立&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;抽样分布定理常用来构造一些已知分布的统计量.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;参数估计&#34;&gt;参数估计
-&lt;/h2&gt;&lt;h3 id=&#34;参数的点估计&#34;&gt;参数的点估计
+&lt;/h2&gt;&lt;p&gt;通过样本来估计总体的参数，称为参数估计.&lt;/p&gt;
+&lt;h3 id=&#34;参数的点估计&#34;&gt;参数的点估计
 &lt;/h3&gt;&lt;p&gt;设总体 $X$ 的分布类型已知，但其中含有未知数 $\theta = (\theta_1, \cdots, \theta_k)$. 从样本出发构造适当的统计量 $\hat{\theta}_i = \hat{\theta}_i(X_1,X_2,\cdots,X_n)$ 作为参数 $\theta_i$ 的估计量，当取得样本观测值 $(x_1,x_2,\cdots,x_n)$ 后，就用 $\hat{\theta}_i = \hat{\theta}_i(x_1,x_2,\cdots,x_n)$ 作为未知参数 $\theta_i$ 的估计值.&lt;/p&gt;
 &lt;h4 id=&#34;矩估计法&#34;&gt;矩估计法
 &lt;/h4&gt;&lt;p&gt;设总体 $X$ 含有 $k$ 个未知参数 $\theta_1, \theta_2, \cdots, \theta_k$，且 $X$ 的 $m$ 阶原点矩 $\alpha_m = E(X^m)$ 存在，$m=1,2,\cdots,k$，，令 &lt;/p&gt;
@@ -1749,7 +1752,7 @@ $$\hat{\theta_i} = \hat{\theta_i}(X_1, X_2, \cdots, X_n)，i=1,2,\cdots,k$$&lt;h
 &lt;/h4&gt;&lt;p&gt;设总体 $X$ 的概率分布为 $f(x;\theta)$，$\theta = (\theta_1,\theta_2,\cdots,\theta_k)$ 为未知参数，$(X_1,X_2,\cdots,X_n)$ 是从该总体中抽取的样本，则它们的联合概率分布为 &lt;/p&gt;
 $$L(x_1, x_2, \cdots, x_n;\theta) = \prod_{i=1}^{n} f(x_i,\theta)$$&lt;p&gt; 将其设作 $\theta$ 的函数 $L(\theta)$ 称其为 $\theta$ 的似然函数.&lt;/p&gt;
 &lt;p&gt;对给定的样本值 $(x_1,x_2,\cdots,x_n)$，若存在 $\hat{\theta}$ 使得 &lt;/p&gt;
-$$L(\hat{\theta}) = \underset{\theta \in \textcircled{\mathrm{H}}}{\mathrm{max}} L(\theta)$$&lt;p&gt; 则称 $\hat{\theta}$ 是参数 $\theta$ 的最大似然估计值.&lt;/p&gt;
+$$L(\hat{\theta}) = \underset{\theta \in \mathrm{H}9}{\mathrm{max}} L(\theta)$$&lt;p&gt; 则称 $\hat{\theta}$ 是参数 $\theta$ 的最大似然估计值.&lt;/p&gt;
 &lt;h3 id=&#34;估计量的优良性准则&#34;&gt;估计量的优良性准则
 &lt;/h3&gt;&lt;table&gt;
   &lt;thead&gt;
@@ -1891,7 +1894,7 @@ $$P\{\hat{\theta}_1 &lt; \theta &lt; \hat{\theta}_2\} \geqslant 1-\alpha$$&lt;p&
       &lt;tr&gt;
           &lt;td&gt;$\mu_1 - \mu_2$&lt;/td&gt;
           &lt;td&gt;方差未知但相等&lt;/td&gt;
-          &lt;td&gt;$\displaystyle T = \frac{\overline{X}-\overline{Y}-(\mu_1-\mu_2)}{\displaystyle S\sqrt{\frac{1}{m} + \frac{1}{n}}} \sim t_{m+n-2}$&lt;/td&gt;
+          &lt;td&gt;$\displaystyle T = \frac{\overline{X}-\overline{Y}-(\mu_1-\mu_2)}{\displaystyle S_w\sqrt{\frac{1}{m} + \frac{1}{n}}} \sim t_{m+n-2}$&lt;/td&gt;
           &lt;td&gt;$\displaystyle \left(\overline{X}-\overline{Y}-\lambda, \ \overline{X}-\overline{Y}+\lambda\right)$ &lt;br&gt; 其中 $\displaystyle \lambda = t_{m+n-2}\left(\frac{\alpha}{2}\right)S_w \sqrt{\frac{1}{m}+\frac{1}{n}}$&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
@@ -1903,8 +1906,124 @@ $$P\{\hat{\theta}_1 &lt; \theta &lt; \hat{\theta}_2\} \geqslant 1-\alpha$$&lt;p&
   &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2 id=&#34;假设检验&#34;&gt;假设检验
-&lt;/h2&gt;&lt;h3 id=&#34;基本概念-2&#34;&gt;基本概念
-&lt;/h3&gt;</description>
+&lt;/h2&gt;&lt;p&gt;假设检验是对总体的分布类型或分布类型中的未知参数提出假设，然后根据抽取的样本构造适当的统计量，对假设的真伪作出具有一定可靠性的判断.&lt;/p&gt;
+&lt;h3 id=&#34;基本概念-2&#34;&gt;基本概念
+&lt;/h3&gt;&lt;p&gt;提出假设时，称：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;定义&lt;/th&gt;
+          &lt;th&gt;含义&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$H_0$&lt;/td&gt;
+          &lt;td&gt;&lt;strong&gt;原假设&lt;/strong&gt;或&lt;strong&gt;零假设&lt;/strong&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$H_1$&lt;/td&gt;
+          &lt;td&gt;&lt;strong&gt;备择假设&lt;/strong&gt;或&lt;strong&gt;对立假设&lt;/strong&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;小概率原理&lt;/td&gt;
+          &lt;td&gt;小概率事件在一次试验中几乎不可能发生&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;检验统计量&lt;/td&gt;
+          &lt;td&gt;检验假设的统计量&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;拒绝域&lt;/td&gt;
+          &lt;td&gt;$W = \{|Z| \geqslant z_{\alpha/2}\}$：拒绝原假设 $H_0$ 的区间&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;接受域&lt;/td&gt;
+          &lt;td&gt;$W = \{|Z| &amp;lt; z_{\alpha/2}\}$：接受原假设 $H_0$ 的区间&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;一般步骤&#34;&gt;一般步骤
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;根据实际问题的需求，提出原假设 $H_0$ 和备择假设 $H_1$；&lt;/li&gt;
+&lt;li&gt;根据 $H_0$ 内容，选取合适的检验统计量；&lt;/li&gt;
+&lt;li&gt;对给定的显著性水平 $\alpha$，确定小概率事件（即拒绝域）$W$；&lt;/li&gt;
+&lt;li&gt;判断：若样本观测值落入拒绝域 $W$，则拒绝原假设 $H_0$，否则不拒绝原假设 $H_0$.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;两类错误&#34;&gt;两类错误
+&lt;/h4&gt;&lt;p&gt;第一类错误：当原假设 $H_0$ 为真时，样本观测值却落在了拒绝域，犯了“弃真”的错误. 可知犯第一类错误的最大概率为 &lt;/p&gt;
+$$P\{拒绝 H_0 | H_0 为真\} = \alpha$$&lt;p&gt;第二类错误：当原假设 $H_0$ 不真时，样本观测值却落在了接受域，犯了“采伪”的错误，记犯第二类错误的概率 &lt;/p&gt;
+$$P\{不拒绝 H_0 | H_0 不真\} = \beta$$&lt;blockquote&gt;
+&lt;p&gt;注意：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;对检验结果来说，拒绝 $H_0$ 是有说服力的，接受 $H_0$ 是没有说服力的.&lt;/li&gt;
+&lt;li&gt;原假设 $H_0$ 和备择假设 $H_1$ 不是平等的.&lt;/li&gt;
+&lt;li&gt;在提出假设时，应当尽量使后果更严重的错误成为第一类错误.&lt;/li&gt;
+&lt;/ol&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;正态总体的假设检验&#34;&gt;正态总体的假设检验
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;检验法&lt;/th&gt;
+          &lt;th&gt;条件&lt;/th&gt;
+          &lt;th&gt;原假设&lt;/th&gt;
+          &lt;th&gt;备择假设&lt;/th&gt;
+          &lt;th&gt;检验统计量&lt;/th&gt;
+          &lt;th&gt;拒绝条件&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$Z$ 检验&lt;/td&gt;
+          &lt;td&gt;$\sigma^2 = \sigma_0^2$&lt;/td&gt;
+          &lt;td&gt;$\mu = \mu_0$&lt;/td&gt;
+          &lt;td&gt;$\mu \ne \mu_0$&lt;/td&gt;
+          &lt;td&gt;$\displaystyle Z = \frac{\overline{X}-\mu_0}{\sigma_0 / \sqrt{n}}$&lt;/td&gt;
+          &lt;td&gt;$\{|Z| \geqslant z_{\alpha / 2}\}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;$\mu \leqslant \mu_0$&lt;/td&gt;
+          &lt;td&gt;$\mu &amp;gt; \mu_0$&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;$\{Z \geqslant z_{\alpha}\}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;$\mu \geqslant \mu_0$&lt;/td&gt;
+          &lt;td&gt;$\mu &amp;lt; \mu_0$&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;$\{Z \leqslant -z_{\alpha}\}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$t$ 检验&lt;/td&gt;
+          &lt;td&gt;$\sigma$ 未知&lt;/td&gt;
+          &lt;td&gt;$\mu = \mu_0$&lt;/td&gt;
+          &lt;td&gt;$\mu \ne \mu_0$&lt;/td&gt;
+          &lt;td&gt;$\displaystyle T = \frac{\overline{X}-\mu_0}{S/\sqrt{n}}$&lt;/td&gt;
+          &lt;td&gt;$\{|T| \geqslant t_{n-1}(\alpha / 2)\}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;$\mu \leqslant \mu_0$&lt;/td&gt;
+          &lt;td&gt;$\mu &amp;gt; \mu_0$&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;$\{T \geqslant t_{n-1}(\alpha)\}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;$\mu \geqslant \mu_0$&lt;/td&gt;
+          &lt;td&gt;$\mu &amp;lt; \mu_0$&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;$\{Z \leqslant -t_{n-1}(\alpha)\}$&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</description>
         </item>
         <item>
         <title>Tex排版</title>
@@ -7119,7 +7238,7 @@ $$G.edge[i][j] = \left\{ \begin{matrix} 1， &amp; \left&lt; i,j \right&gt; \in 
 &lt;p&gt;堆的定义：设有一个关键字集合，按完全二叉树的顺序存储方式存储在一维数组中。对它们从根开始，自顶向下，同一层自左向右从&lt;code&gt;1&lt;/code&gt;开始连续编号。若满足 &lt;/p&gt;
 $$K_i \leqslant K_{2i} \ \&amp;\&amp;\  K_i \leqslant K_{2i+1}$$&lt;p&gt; 或 &lt;/p&gt;
 $$K_i \geqslant K_{2i} \ \&amp;\&amp;\  K_i \geqslant K_{2i+1}$$&lt;p&gt; 则称该关键字集合构成一个堆。前者称为小顶堆（最小堆），后者称为大顶堆（最大堆）。&lt;/p&gt;&lt;/blockquote&gt;
-&lt;p&gt;堆调整：将一无序序列看成完全二叉树，则最后一个非终端结点是第 $[n/2]$ 个元素，则从该元素开始自下向上逐步调整为大顶堆（小顶堆）。&lt;/p&gt;
+&lt;p&gt;堆调整：将一无序序列看成完全二叉树，则最后一个非终端结点是第 $\displaystyle \left\lfloor \frac{n}{2} \right\rfloor$ 个元素，则从该元素开始自下向上逐步调整为大顶堆（小顶堆）。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://5882886.github.io/p/algorithm/images/%E5%A0%86%E8%B0%83%E6%95%B4%E7%AE%97%E6%B3%95.png&#34;
 	width=&#34;1676&#34;
 	height=&#34;2016&#34;
@@ -7162,11 +7281,11 @@ $$K_i \geqslant K_{2i} \ \&amp;\&amp;\  K_i \geqslant K_{2i+1}$$&lt;p&gt; 则称
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cm&#34;&gt;/* ----- 堆排序 ----- */&lt;/span&gt; 
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;HeapSort&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;HeapType&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;H&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;// 建立堆
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;H&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;length&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;--&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;	
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;H&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;length&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;--&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;	
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;HeapAdjust&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;H&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;H&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;length&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;// 排序
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;H&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;length&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;--&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;		
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;H&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;length&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;--&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;		
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;swap&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;H&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;r&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;H&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;r&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;HeapAdjust&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;H&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;–&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
@@ -7237,7 +7356,7 @@ $$K_i \geqslant K_{2i} \ \&amp;\&amp;\  K_i \geqslant K_{2i+1}$$&lt;p&gt; 则称
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;bucket_sort&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[],&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;bucket&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[],&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;bucket&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]]&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;// 记录元素a[i]出现的次数，放进编号为a[i]的桶中
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;bucket&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]]&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;// 记录元素a[i]出现的次数，放进编号为a[i]的桶中
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
@@ -7253,18 +7372,30 @@ $$K_i \geqslant K_{2i} \ \&amp;\&amp;\  K_i \geqslant K_{2i+1}$$&lt;p&gt; 则称
 &lt;table&gt;
   &lt;thead&gt;
       &lt;tr&gt;
-          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;递归&lt;/th&gt;
           &lt;th&gt;内容&lt;/th&gt;
       &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
       &lt;tr&gt;
           &lt;td&gt;三种情况&lt;/td&gt;
-          &lt;td&gt;&lt;ol&gt; &lt;li&gt; 定义是递归的。 &lt;/li&gt;  &lt;li&gt; 数据结构是递归的。&lt;/li&gt; &lt;li&gt; 问题的解法是递归的。 &lt;/li&gt; &lt;/ol&gt;&lt;/td&gt;
+          &lt;td&gt;定义是递归的&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;数据结构是递归的&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;问题的解法是递归的&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;特点&lt;/td&gt;
-          &lt;td&gt;&lt;ol&gt; &lt;li&gt; 递归至少存在一个出口。&lt;/li&gt; &lt;li&gt;函数内部自己调用自己。&lt;/li&gt; &lt;/ol&gt;&lt;/td&gt;
+          &lt;td&gt;递归至少存在一个出口&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;函数内部自己调用自己&lt;/td&gt;
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -7365,7 +7496,7 @@ $$ n! = \left\{ \begin{array}{c} 1, &amp; n = 0 \\ n \cdot (n-1)!, &amp; n \geqs
   &lt;thead&gt;
       &lt;tr&gt;
           &lt;th&gt;&lt;/th&gt;
-          &lt;th&gt;&lt;center&gt;操作&lt;/center&gt;&lt;/th&gt;
+          &lt;th&gt;操作&lt;/th&gt;
       &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;

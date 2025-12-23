@@ -889,7 +889,7 @@
 <p>堆的定义：设有一个关键字集合，按完全二叉树的顺序存储方式存储在一维数组中。对它们从根开始，自顶向下，同一层自左向右从<code>1</code>开始连续编号。若满足 </p>
 $$K_i \leqslant K_{2i} \ \&\&\  K_i \leqslant K_{2i+1}$$<p> 或 </p>
 $$K_i \geqslant K_{2i} \ \&\&\  K_i \geqslant K_{2i+1}$$<p> 则称该关键字集合构成一个堆。前者称为小顶堆（最小堆），后者称为大顶堆（最大堆）。</p></blockquote>
-<p>堆调整：将一无序序列看成完全二叉树，则最后一个非终端结点是第 $[n/2]$ 个元素，则从该元素开始自下向上逐步调整为大顶堆（小顶堆）。</p>
+<p>堆调整：将一无序序列看成完全二叉树，则最后一个非终端结点是第 $\displaystyle \left\lfloor \frac{n}{2} \right\rfloor$ 个元素，则从该元素开始自下向上逐步调整为大顶堆（小顶堆）。</p>
 <p><img src="/p/algorithm/images/%E5%A0%86%E8%B0%83%E6%95%B4%E7%AE%97%E6%B3%95.png"
 	width="1676"
 	height="2016"
@@ -932,11 +932,11 @@ $$K_i \geqslant K_{2i} \ \&\&\  K_i \geqslant K_{2i+1}$$<p> 则称该关键字�
 </span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="cm">/* ----- 堆排序 ----- */</span> 
 </span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="kt">void</span> <span class="nf">HeapSort</span><span class="p">(</span><span class="n">HeapType</span> <span class="o">&amp;</span><span class="n">H</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">22</span><span class="cl">    <span class="c1">// 建立堆
-</span></span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="c1"></span>    <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">H</span><span class="p">.</span><span class="n">length</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>	
+</span></span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="c1"></span>    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">H</span><span class="p">.</span><span class="n">length</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>	
 </span></span><span class="line"><span class="ln">24</span><span class="cl">        <span class="n">HeapAdjust</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">H</span><span class="p">.</span><span class="n">length</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">25</span><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="ln">26</span><span class="cl">    <span class="c1">// 排序
-</span></span></span><span class="line"><span class="ln">27</span><span class="cl"><span class="c1"></span>    <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">H</span><span class="p">.</span><span class="n">length</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>		
+</span></span></span><span class="line"><span class="ln">27</span><span class="cl"><span class="c1"></span>    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">H</span><span class="p">.</span><span class="n">length</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>		
 </span></span><span class="line"><span class="ln">28</span><span class="cl">        <span class="n">swap</span><span class="p">(</span><span class="n">H</span><span class="p">.</span><span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">H</span><span class="p">.</span><span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
 </span></span><span class="line"><span class="ln">29</span><span class="cl">        <span class="n">HeapAdjust</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="err">–</span><span class="mi">1</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">30</span><span class="cl">    <span class="p">}</span>
@@ -1007,7 +1007,7 @@ $$K_i \geqslant K_{2i} \ \&\&\  K_i \geqslant K_{2i+1}$$<p> 则称该关键字�
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl">
 </span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="kt">void</span> <span class="nf">bucket_sort</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">bucket</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">m</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl">        <span class="n">bucket</span><span class="p">[</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">++</span><span class="p">;</span>    <span class="c1">// 记录元素a[i]出现的次数，放进编号为a[i]的桶中
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">        <span class="n">bucket</span><span class="p">[</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">++</span> <span class="p">;</span>    <span class="c1">// 记录元素a[i]出现的次数，放进编号为a[i]的桶中
 </span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1"></span>    <span class="p">}</span>
 </span></span><span class="line"><span class="ln"> 8</span><span class="cl">
 </span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
@@ -1023,18 +1023,30 @@ $$K_i \geqslant K_{2i} \ \&\&\  K_i \geqslant K_{2i+1}$$<p> 则称该关键字�
 <div class="table-wrapper"><table>
   <thead>
       <tr>
-          <th></th>
+          <th>递归</th>
           <th>内容</th>
       </tr>
   </thead>
   <tbody>
       <tr>
           <td>三种情况</td>
-          <td><ol> <li> 定义是递归的。 </li>  <li> 数据结构是递归的。</li> <li> 问题的解法是递归的。 </li> </ol></td>
+          <td>定义是递归的</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>数据结构是递归的</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>问题的解法是递归的</td>
       </tr>
       <tr>
           <td>特点</td>
-          <td><ol> <li> 递归至少存在一个出口。</li> <li>函数内部自己调用自己。</li> </ol></td>
+          <td>递归至少存在一个出口</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>函数内部自己调用自己</td>
       </tr>
   </tbody>
 </table></div>
@@ -1135,7 +1147,7 @@ $$ n! = \left\{ \begin{array}{c} 1, & n = 0 \\ n \cdot (n-1)!, & n \geqslant 1 \
   <thead>
       <tr>
           <th></th>
-          <th><center>操作</center></th>
+          <th>操作</th>
       </tr>
   </thead>
   <tbody>
