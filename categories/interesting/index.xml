@@ -1961,7 +1961,8 @@ $$P\{不拒绝 H_0 | H_0 不真\} = \beta$$&lt;blockquote&gt;
 &lt;li&gt;在提出假设时，应当尽量使后果更严重的错误成为第一类错误.&lt;/li&gt;
 &lt;/ol&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;正态总体的假设检验&#34;&gt;正态总体的假设检验
-&lt;/h3&gt;&lt;table&gt;
+&lt;/h3&gt;&lt;h4 id=&#34;单个正态总体&#34;&gt;单个正态总体
+&lt;/h4&gt;&lt;table&gt;
   &lt;thead&gt;
       &lt;tr&gt;
           &lt;th&gt;检验法&lt;/th&gt;
@@ -2019,7 +2020,55 @@ $$P\{不拒绝 H_0 | H_0 不真\} = \beta$$&lt;blockquote&gt;
           &lt;td&gt;$\mu \geqslant \mu_0$&lt;/td&gt;
           &lt;td&gt;$\mu &amp;lt; \mu_0$&lt;/td&gt;
           &lt;td&gt;&lt;/td&gt;
-          &lt;td&gt;$\{Z \leqslant -t_{n-1}(\alpha)\}$&lt;/td&gt;
+          &lt;td&gt;$\{T \leqslant -t_{n-1}(\alpha)\}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\chi^2$ 检验&lt;/td&gt;
+          &lt;td&gt;$\mu = \mu_0$&lt;/td&gt;
+          &lt;td&gt;$\sigma^2 = \sigma_0^2$&lt;/td&gt;
+          &lt;td&gt;$\sigma^2 \ne \sigma_0^2$&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \chi^2 = \frac{\displaystyle \sum_{i=1}^n(X_i-\mu_0)^2}{\sigma_0^2}$&lt;/td&gt;
+          &lt;td&gt;$\{\chi^2 \leqslant \chi_n^2\left(1-\alpha/2\right) \ 或\  \chi^2 \geqslant \chi_n^2(\alpha/2)\}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;$\sigma^2 \leqslant \sigma_0^2$&lt;/td&gt;
+          &lt;td&gt;$\sigma^2 &amp;gt; \sigma_0^2$&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;$\{\chi^2 \geqslant \chi_n^2(\alpha)\}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;$\sigma^2 \geqslant \sigma_0^2$&lt;/td&gt;
+          &lt;td&gt;$\sigma^2 &amp;lt; \sigma_0^2$&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;$\{\chi^2 \leqslant \chi_n^2(1-\alpha)\}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$\chi^2$ 检验&lt;/td&gt;
+          &lt;td&gt;$\mu$ 未知&lt;/td&gt;
+          &lt;td&gt;$\sigma^2 = \sigma_0^2$&lt;/td&gt;
+          &lt;td&gt;$\sigma^2 \ne \sigma_0^2$&lt;/td&gt;
+          &lt;td&gt;$\displaystyle \chi^2 = \frac{(n-1)S^2}{\sigma_0^2}$&lt;/td&gt;
+          &lt;td&gt;$\{\chi^2 \leqslant \chi_{n-1}^2\left(1-\alpha/2\right) \ 或\  \chi^2 \geqslant \chi_{n-1}^2(\alpha/2)\}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;$\sigma^2 \leqslant \sigma_0^2$&lt;/td&gt;
+          &lt;td&gt;$\sigma^2 &amp;gt; \sigma_0^2$&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;$\{\chi^2 \geqslant \chi_{n-1}^2(\alpha)\}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;$\sigma^2 \geqslant \sigma_0^2$&lt;/td&gt;
+          &lt;td&gt;$\sigma^2 &amp;lt; \sigma_0^2$&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;$\{\chi^2 \leqslant \chi_{n-1}^2(1-\alpha)\}$&lt;/td&gt;
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -6755,7 +6804,7 @@ $$G.edge[i][j] = \left\{ \begin{matrix} 1， &amp; \left&lt; i,j \right&gt; \in 
           &lt;td&gt;完成活动 $a_i$ 的时间余量&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
-          &lt;td&gt;关键活动`&lt;/td&gt;
+          &lt;td&gt;关键活动&lt;/td&gt;
           &lt;td&gt;满足 &lt;code&gt;l[i] == e[i]&lt;/code&gt; 的活动 $a_i$&lt;/td&gt;
       &lt;/tr&gt;
   &lt;/tbody&gt;
@@ -6775,7 +6824,70 @@ $$G.edge[i][j] = \left\{ \begin{matrix} 1， &amp; \left&lt; i,j \right&gt; \in 
 &lt;li&gt;直到从顶点 $v$ 到其它各顶点的最短路径全部求出为止。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;查找&#34;&gt;查找
-&lt;/h2&gt;&lt;h2 id=&#34;排序&#34;&gt;排序
+&lt;/h2&gt;&lt;h3 id=&#34;查找的基本概念&#34;&gt;查找的基本概念
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;基本概念&lt;/th&gt;
+          &lt;th&gt;内容&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;查找表&lt;/td&gt;
+          &lt;td&gt;由同一类型数据结构组成的集合&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;静态查找表&lt;/td&gt;
+          &lt;td&gt;仅作查询或检索操作的查找表&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;动态查找表&lt;/td&gt;
+          &lt;td&gt;在查找表插入中查找不存在的数据元素，或者从查找表中删除已存在的某个数据元素&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;关键字&lt;/td&gt;
+          &lt;td&gt;数据元素中某个数据项的值，可以标识一个数据元素&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;主关键字&lt;/td&gt;
+          &lt;td&gt;可以唯一标识一个数据元素的关键字&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;查找&lt;/td&gt;
+          &lt;td&gt;根据给定的某个值，在查找表中确定一个关键字等于定值的数据元素&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;查找方法的评价指标：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;查找速度&lt;/li&gt;
+&lt;li&gt;占用存储空间&lt;/li&gt;
+&lt;li&gt;算法本身复杂程度&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;平均查找长度ASL：&lt;/p&gt;
+&lt;p&gt;为确定记录在表中的位置，需和给定值进行比较的关键字的个数的期望值称作查找算法的ASL。&lt;/p&gt;
+&lt;p&gt;对含有 $n$ 个记录的表，&lt;/p&gt;
+$$ASL=\sum_{i=𝟏}^{n} p_i c_i$$&lt;p&gt; 其中：$p_i$ 为查找表中第 $i$ 个元素的概率，$\displaystyle \sum_{i=𝟏}^{n} p_i =1$，$c_i$ 为查找表中第 $i$ 个元素所需比较次数。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;静态查找表&#34;&gt;静态查找表
+&lt;/h3&gt;&lt;h4 id=&#34;顺序表的查找&#34;&gt;顺序表的查找
+&lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Search_Seq&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SSTable&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ST&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;KeyType&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;key&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;// 在顺序表ST中顺序查找其关键字等于key的数据元素。
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;// 若找到，则函数值为该元素在表中的位置，否则为0。
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;ST&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;elem&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;].&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;key&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;key&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;	&lt;span class=&#34;c1&#34;&gt;// 设置哨兵
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;// 从后往前找
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ST&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;length&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ST&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;elem&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;].&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;key&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;!=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;key&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;--&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;// 找不到时，i 为0
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;查找性能分析：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;在等概率查找的情况下，$\displaystyle p_i = \frac{1}{n}$，顺序表查找成功时的平均查找长度为：$$ASL = \frac{1}{n} \sum_{i=1}^{n} (n-i+1) = \frac{n+1}{n} $$&lt;/li&gt;
+&lt;li&gt;如果考虑上查找不成功的情况，且查找成功与不成功的可能性相同，对每个记录的查找概率也相等，即 $\displaystyle p_i = \frac{1}{2n}$，此时顺序查找的平均查找长度为 $$ASL = \frac{1}{2n} \sum_{i=1}^{n} (n-i+1) + \frac{1}{2}(n+1)= \frac{3}{4}(n+1) $$&lt;/li&gt;
+&lt;li&gt;在不等概率查找的情况下， $ASL$ 在 $p_n \geqslant p_{n-1} \geqslant \cdots \geqslant p_1$ 时取极小值。将表中记录按查找概率由小到大重新排列，可以提高查找效率。&lt;/li&gt;
+&lt;li&gt;若查找概率无法事先测定，则查找过程采取的改进办法是，在每次查找之后，将刚刚查找到的记录直接移至表尾的位置上。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;排序&#34;&gt;排序
 &lt;/h2&gt;&lt;p&gt;详见&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/algorithm/#%e6%8e%92%e5%ba%8f&#34; &gt;此处
     
     

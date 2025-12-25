@@ -477,7 +477,11 @@
             <li><a href="#两类错误">两类错误</a></li>
           </ol>
         </li>
-        <li><a href="#正态总体的假设检验">正态总体的假设检验</a></li>
+        <li><a href="#正态总体的假设检验">正态总体的假设检验</a>
+          <ol>
+            <li><a href="#单个正态总体">单个正态总体</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
   </ol>
@@ -1777,7 +1781,8 @@ $$P\{不拒绝 H_0 | H_0 不真\} = \beta$$<blockquote>
 <li>在提出假设时，应当尽量使后果更严重的错误成为第一类错误.</li>
 </ol></blockquote>
 <h3 id="正态总体的假设检验">正态总体的假设检验
-</h3><div class="table-wrapper"><table>
+</h3><h4 id="单个正态总体">单个正态总体
+</h4><div class="table-wrapper"><table>
   <thead>
       <tr>
           <th>检验法</th>
@@ -1835,7 +1840,55 @@ $$P\{不拒绝 H_0 | H_0 不真\} = \beta$$<blockquote>
           <td>$\mu \geqslant \mu_0$</td>
           <td>$\mu &lt; \mu_0$</td>
           <td></td>
-          <td>$\{Z \leqslant -t_{n-1}(\alpha)\}$</td>
+          <td>$\{T \leqslant -t_{n-1}(\alpha)\}$</td>
+      </tr>
+      <tr>
+          <td>$\chi^2$ 检验</td>
+          <td>$\mu = \mu_0$</td>
+          <td>$\sigma^2 = \sigma_0^2$</td>
+          <td>$\sigma^2 \ne \sigma_0^2$</td>
+          <td>$\displaystyle \chi^2 = \frac{\displaystyle \sum_{i=1}^n(X_i-\mu_0)^2}{\sigma_0^2}$</td>
+          <td>$\{\chi^2 \leqslant \chi_n^2\left(1-\alpha/2\right) \ 或\  \chi^2 \geqslant \chi_n^2(\alpha/2)\}$</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+          <td>$\sigma^2 \leqslant \sigma_0^2$</td>
+          <td>$\sigma^2 &gt; \sigma_0^2$</td>
+          <td></td>
+          <td>$\{\chi^2 \geqslant \chi_n^2(\alpha)\}$</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+          <td>$\sigma^2 \geqslant \sigma_0^2$</td>
+          <td>$\sigma^2 &lt; \sigma_0^2$</td>
+          <td></td>
+          <td>$\{\chi^2 \leqslant \chi_n^2(1-\alpha)\}$</td>
+      </tr>
+      <tr>
+          <td>$\chi^2$ 检验</td>
+          <td>$\mu$ 未知</td>
+          <td>$\sigma^2 = \sigma_0^2$</td>
+          <td>$\sigma^2 \ne \sigma_0^2$</td>
+          <td>$\displaystyle \chi^2 = \frac{(n-1)S^2}{\sigma_0^2}$</td>
+          <td>$\{\chi^2 \leqslant \chi_{n-1}^2\left(1-\alpha/2\right) \ 或\  \chi^2 \geqslant \chi_{n-1}^2(\alpha/2)\}$</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+          <td>$\sigma^2 \leqslant \sigma_0^2$</td>
+          <td>$\sigma^2 &gt; \sigma_0^2$</td>
+          <td></td>
+          <td>$\{\chi^2 \geqslant \chi_{n-1}^2(\alpha)\}$</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+          <td>$\sigma^2 \geqslant \sigma_0^2$</td>
+          <td>$\sigma^2 &lt; \sigma_0^2$</td>
+          <td></td>
+          <td>$\{\chi^2 \leqslant \chi_{n-1}^2(1-\alpha)\}$</td>
       </tr>
   </tbody>
 </table></div>

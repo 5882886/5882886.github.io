@@ -438,7 +438,16 @@
         <li><a href="#最短路径">最短路径</a></li>
       </ol>
     </li>
-    <li><a href="#查找">查找</a></li>
+    <li><a href="#查找">查找</a>
+      <ol>
+        <li><a href="#查找的基本概念">查找的基本概念</a></li>
+        <li><a href="#静态查找表">静态查找表</a>
+          <ol>
+            <li><a href="#顺序表的查找">顺序表的查找</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
     <li><a href="#排序">排序</a></li>
     <li><a href="#c语言补充知识">C语言补充知识</a>
       <ol>
@@ -1958,7 +1967,7 @@ $$G.edge[i][j] = \left\{ \begin{matrix} 1， & \left< i,j \right> \in E \ 或\  
           <td>完成活动 $a_i$ 的时间余量</td>
       </tr>
       <tr>
-          <td>关键活动`</td>
+          <td>关键活动</td>
           <td>满足 <code>l[i] == e[i]</code> 的活动 $a_i$</td>
       </tr>
   </tbody>
@@ -1978,7 +1987,70 @@ $$G.edge[i][j] = \left\{ \begin{matrix} 1， & \left< i,j \right> \in E \ 或\  
 <li>直到从顶点 $v$ 到其它各顶点的最短路径全部求出为止。</li>
 </ol>
 <h2 id="查找">查找
-</h2><h2 id="排序">排序
+</h2><h3 id="查找的基本概念">查找的基本概念
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>基本概念</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>查找表</td>
+          <td>由同一类型数据结构组成的集合</td>
+      </tr>
+      <tr>
+          <td>静态查找表</td>
+          <td>仅作查询或检索操作的查找表</td>
+      </tr>
+      <tr>
+          <td>动态查找表</td>
+          <td>在查找表插入中查找不存在的数据元素，或者从查找表中删除已存在的某个数据元素</td>
+      </tr>
+      <tr>
+          <td>关键字</td>
+          <td>数据元素中某个数据项的值，可以标识一个数据元素</td>
+      </tr>
+      <tr>
+          <td>主关键字</td>
+          <td>可以唯一标识一个数据元素的关键字</td>
+      </tr>
+      <tr>
+          <td>查找</td>
+          <td>根据给定的某个值，在查找表中确定一个关键字等于定值的数据元素</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>查找方法的评价指标：</p>
+<ol>
+<li>查找速度</li>
+<li>占用存储空间</li>
+<li>算法本身复杂程度</li>
+</ol>
+<blockquote>
+<p>平均查找长度ASL：</p>
+<p>为确定记录在表中的位置，需和给定值进行比较的关键字的个数的期望值称作查找算法的ASL。</p>
+<p>对含有 $n$ 个记录的表，</p>
+$$ASL=\sum_{i=𝟏}^{n} p_i c_i$$<p> 其中：$p_i$ 为查找表中第 $i$ 个元素的概率，$\displaystyle \sum_{i=𝟏}^{n} p_i =1$，$c_i$ 为查找表中第 $i$ 个元素所需比较次数。</p></blockquote>
+<h3 id="静态查找表">静态查找表
+</h3><h4 id="顺序表的查找">顺序表的查找
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="kt">int</span> <span class="nf">Search_Seq</span><span class="p">(</span><span class="n">SSTable</span> <span class="n">ST</span><span class="p">,</span> <span class="n">KeyType</span> <span class="n">key</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="c1">// 在顺序表ST中顺序查找其关键字等于key的数据元素。
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"></span>    <span class="c1">// 若找到，则函数值为该元素在表中的位置，否则为0。
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1"></span>    <span class="n">ST</span><span class="p">.</span><span class="n">elem</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">key</span> <span class="o">=</span> <span class="n">key</span><span class="p">;</span>	<span class="c1">// 设置哨兵
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="c1"></span>    <span class="c1">// 从后往前找
+</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="c1"></span>    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">ST</span><span class="p">.</span><span class="n">length</span><span class="p">;</span> <span class="n">ST</span><span class="p">.</span><span class="n">elem</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">key</span> <span class="o">!=</span> <span class="n">key</span><span class="p">;</span> <span class="o">--</span><span class="n">i</span><span class="p">)</span> <span class="p">;</span>
+</span></span><span class="line"><span class="ln">7</span><span class="cl">    <span class="k">return</span> <span class="n">i</span><span class="p">;</span>  <span class="c1">// 找不到时，i 为0
+</span></span></span><span class="line"><span class="ln">8</span><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></div><p>查找性能分析：</p>
+<ol>
+<li>在等概率查找的情况下，$\displaystyle p_i = \frac{1}{n}$，顺序表查找成功时的平均查找长度为：$$ASL = \frac{1}{n} \sum_{i=1}^{n} (n-i+1) = \frac{n+1}{n} $$</li>
+<li>如果考虑上查找不成功的情况，且查找成功与不成功的可能性相同，对每个记录的查找概率也相等，即 $\displaystyle p_i = \frac{1}{2n}$，此时顺序查找的平均查找长度为 $$ASL = \frac{1}{2n} \sum_{i=1}^{n} (n-i+1) + \frac{1}{2}(n+1)= \frac{3}{4}(n+1) $$</li>
+<li>在不等概率查找的情况下， $ASL$ 在 $p_n \geqslant p_{n-1} \geqslant \cdots \geqslant p_1$ 时取极小值。将表中记录按查找概率由小到大重新排列，可以提高查找效率。</li>
+<li>若查找概率无法事先测定，则查找过程采取的改进办法是，在每次查找之后，将刚刚查找到的记录直接移至表尾的位置上。</li>
+</ol>
+<h2 id="排序">排序
 </h2><p>详见<a class="link" href="/p/algorithm/#%e6%8e%92%e5%ba%8f" >此处
     
     
