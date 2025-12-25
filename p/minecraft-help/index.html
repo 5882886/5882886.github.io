@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/minecraft-help/'>
 
-<link rel="stylesheet" href="/scss/style.min.e851fcab2a85f7d449567d7f43c7cd36646cf5a9b08bb9364dca65dd264196e2.css"><meta property='og:title' content="Minecraft教程">
+<link rel="stylesheet" href="/scss/style.min.90289cd6c8c19645ed90d05b0f2cd54bca3088b1ce8c3826878145b9a627f3fe.css"><meta property='og:title' content="Minecraft教程">
 <meta property='og:description' content="Minecraft——从入门到精通！">
 <meta property='og:url' content='https://5882886.github.io/p/minecraft-help/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -622,7 +622,8 @@
 </h2><h3 id="正版和离线版">正版和离线版
 </h3><p>MC的正版与否取决于你的微软账号上有没有MC。换句话说，无论是否购买正版，你都可以下载到MC的游戏文件并启动游玩。唯一的区别在于非正版玩家无法进入开启了正版验证的服务器，因此MC中的“非正版”也被称之为“离线版”。</p>
 <blockquote>
-<p>离线版依然可以进入未开启正版验证的服务器</p></blockquote>
+<p>离线版依然可以进入未开启正版验证的服务器</p>
+</blockquote>
 <h3 id="mc-java版启动器">MC Java版启动器
 </h3><p>MC Java版本身没有<code>.exe</code>之类的文件，必须得有一个启动程序才能运行。</p>
 <div class="table-wrapper"><table>
@@ -650,7 +651,8 @@
 <blockquote>
 <p>也有部分发烧友喜欢在Android平台上启动MC Java版。目前，Android系统流行的启动器主要是Fold Craft Launcher和ZalitLauncher</p>
 <p>注意：千万不要指望Android平台上MC Java版的表现和Windows系统的一样。</p>
-<p>启动器的原理就是整合了启动游戏核心 <code>.jar</code>文件的功能。因此如果愿意，也可以使用IntelliJ IDEA启动。</p></blockquote>
+<p>启动器的原理就是整合了启动游戏核心 <code>.jar</code>文件的功能。因此如果愿意，也可以使用IntelliJ IDEA启动。</p>
+</blockquote>
 <h3 id="mc基岩版">MC基岩版
 </h3><p>MC基岩版则相对简单很多。只需要在相应的平台里下载MC基岩版即可。</p>
 <div class="table-wrapper"><table>
@@ -689,21 +691,23 @@
     
 
 </a>下载。</p>
-<p>注意，论坛中下载的并非正版，请于下载体验后24小时内删除！</p></blockquote>
+<p>注意，论坛中下载的并非正版，请于下载体验后24小时内删除！</p>
+</blockquote>
 <h2 id="minecraft-java版进阶">Minecraft Java版进阶
 </h2><h3 id="java版游戏文件">Java版游戏文件
 </h3><p>Minecraft Java版对玩家文件管理的要求较高，因此需先了解其文件结构。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="ln">1</span><span class="cl"><span class="l">.minecraft          </span><span class="w"> </span><span class="c"># 游戏文件根目录</span><span class="w">
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="w"></span><span class="l">├── assets          </span><span class="w"> </span><span class="c"># 游戏资源文件夹</span><span class="w">
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="w"></span><span class="l">├── global          </span><span class="w"> </span><span class="c"># 全局配置</span><span class="w">
-</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="w"></span><span class="l">├── libraries       </span><span class="w"> </span><span class="c"># 加载库文件</span><span class="w">
-</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="w"></span><span class="l">├── versions        </span><span class="w"> </span><span class="c"># 版本文件夹（开启版本隔离后生效）</span><span class="w">
-</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="w"></span><span class="l">├── …</span><span class="w">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="l">├── assets          </span><span class="w"> </span><span class="c"># 游戏资源文件夹</span><span class="w">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="l">├── global          </span><span class="w"> </span><span class="c"># 全局配置</span><span class="w">
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="l">├── libraries       </span><span class="w"> </span><span class="c"># 加载库文件</span><span class="w">
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="l">├── versions        </span><span class="w"> </span><span class="c"># 版本文件夹（开启版本隔离后生效）</span><span class="w">
+</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="l">├── …</span><span class="w">
 </span></span></span></code></pre></div><p>其中<code>versions</code>文件夹是我们进行操作的主要位置。</p>
 <blockquote>
 <p>版本隔离</p>
 <p>版本隔离是MC Java版独特的功能，它使得每个Java游戏版本都相互独立，互不影响。</p>
-<p>注意：版本隔离选项默认是关闭的，第一次使用应当在启动器设置内将“版本隔离”设置成“各版本相互独立”。</p></blockquote>
+<p>注意：版本隔离选项默认是关闭的，第一次使用应当在启动器设置内将“版本隔离”设置成“各版本相互独立”。</p>
+</blockquote>
 <h3 id="安装-mod">安装 MOD
 </h3><p>Java版的优势之一就是能方便自由地安装mod、材质和光影等。</p>
 <p>安装mod的前提是安装mod加载器，这是绝大多数mod的加载环境。常用mod加载器如下：</p>
@@ -734,7 +738,8 @@
   </tbody>
 </table></div>
 <blockquote>
-<p>mod加载器一般互不兼容，只能选择其中一个。</p></blockquote>
+<p>mod加载器一般互不兼容，只能选择其中一个。</p>
+</blockquote>
 <p>当安装了mod加载器后，下载适配当前加载器的模组并放到对应游戏版本的<code>/versions/你的游戏版本/mods</code>文件夹中，启动游戏即可畅玩！</p>
 <p>以下提供mod加载器的安装方法。</p>
 <h4 id="启动器内安装">启动器内安装
@@ -796,7 +801,8 @@
 </h3><p>这是最简单的联机方式，需要房主和玩家在同一个局域网下，也就是连接同一个Wifi。</p>
 <blockquote>
 <p>遗憾的是，校园网等大型局域网可能不支持这种方式。因为即使连接到同一个Wifi，ipv4地址的第3个十进制数（也就是网关）可能不相同，这样就无法通过 <code>ipv4:端口号</code>的方式联机。</p>
-<p>幸运的是，现在一些大型局域网已经支持了ipv6。这时，可以使用<code>[ipv6]:端口号</code>的方式启动局域网联机。</p></blockquote>
+<p>幸运的是，现在一些大型局域网已经支持了ipv6。这时，可以使用<code>[ipv6]:端口号</code>的方式启动局域网联机。</p>
+</blockquote>
 <details>
     <summary>选做：使用Radmin VPN创建虚拟局域网</summary>
 <p>不过，使用Radmin VPN创建虚拟局域网可以解决ipv4地址网关不同的问题。只需要双方同时下载Radmin VPN，由其中一方创建虚拟局域网，然后同时连接到该局域网下，即可联机成功。</p>
@@ -831,7 +837,8 @@
 
 </a></p>
 <blockquote>
-<p>更改DNS服务器后可能会影响其他网站的访问速度。当登录微软账号成功后，最好立即切换回自动DNS。</p></blockquote>
+<p>更改DNS服务器后可能会影响其他网站的访问速度。当登录微软账号成功后，最好立即切换回自动DNS。</p>
+</blockquote>
 <h2 id="链接网站">链接网站
 </h2><div class="table-wrapper"><table>
   <thead>

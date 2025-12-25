@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/markdown/'>
 
-<link rel="stylesheet" href="/scss/style.min.e851fcab2a85f7d449567d7f43c7cd36646cf5a9b08bb9364dca65dd264196e2.css"><meta property='og:title' content="Markdown语法">
+<link rel="stylesheet" href="/scss/style.min.90289cd6c8c19645ed90d05b0f2cd54bca3088b1ce8c3826878145b9a627f3fe.css"><meta property='og:title' content="Markdown语法">
 <meta property='og:description' content="Markdown语法案例">
 <meta property='og:url' content='https://5882886.github.io/p/markdown/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -657,7 +657,7 @@
 <h2 id="标题">标题
 </h2><p>如下的 <code>&lt;h1&gt;</code>—<code>&lt;h6&gt;</code> 显示了标题的6个级别， <code>&lt;h1&gt;</code> 级别最高， <code>&lt;h6&gt;</code> 级别最低.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-md" data-lang="md"><span class="line"><span class="ln">1</span><span class="cl"><span class="gh"># H1
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="gh"></span><span class="gu">## H2
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="gu">## H2
 </span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="gu">### H3
 </span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="gu">#### H4
 </span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="gu">##### H5
@@ -703,11 +703,13 @@
 <h3 id="不含注解的引用">不含注解的引用
 </h3><blockquote>
 <p>Tiam, ad mint andaepu dandae nostion secatur sequo quae.
-<strong>Note</strong> that you can use <em>Markdown syntax</em> within a blockquote.</p></blockquote>
+<strong>Note</strong> that you can use <em>Markdown syntax</em> within a blockquote.</p>
+</blockquote>
 <h3 id="包含注解的引用">包含注解的引用
 </h3><blockquote>
 <p>不积跬步，无以至千里；不积小流，无以成江海。<br>
-——— <cite>荀子<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></cite></p></blockquote>
+——— <cite>荀子<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></cite></p>
+</blockquote>
 <h2 id="表格">表格
 </h2><p>表格不是Markdown语法的核心功能，但是Hugo同样为其提供了支持。</p>
 <div class="table-wrapper"><table>
@@ -810,7 +812,7 @@
 </span></span><span class="line"><span class="ln">2</span><span class="cl">git = &#34;https://github.com/bevyengine/bevy&#34;
 </span></span><span class="line"><span class="ln">3</span><span class="cl">rev = &#34;11f52b8c72fc3a568e8bb4a4cd1f3eb025ac2e13&#34;
 </span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="gd">- features = [&#34;dynamic&#34;]
-</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="gd"></span><span class="gi">+ features = [&#34;jpeg&#34;, &#34;dynamic&#34;]
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="gi">+ features = [&#34;jpeg&#34;, &#34;dynamic&#34;]
 </span></span></span></code></pre></div><h2 id="列举类">列举类
 </h2><h3 id="有序列举">有序列举
 </h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-md" data-lang="md"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">1.</span> 项目一
@@ -859,7 +861,8 @@
 <h2 id="在markdown中使用tex">在Markdown中使用Tex
 </h2><p>在Markdown文件中，Tex文本须使用<code>$…$</code>（行内文本）或<code>$$…$$</code>（行间文本）包裹.</p>
 <blockquote>
-<p>注意：若要在行内文本中显示行间文本的样式，须加上<code>\displaystyle</code>.</p></blockquote>
+<p>注意：若要在行内文本中显示行间文本的样式，须加上<code>\displaystyle</code>.</p>
+</blockquote>
 <h3 id="数学符号">数学符号
 </h3><div class="table-wrapper"><table>
   <thead>
@@ -1220,10 +1223,10 @@
 $$\left[\begin{matrix} a & a+b \\ c+d & d \\ \end{matrix} \right]$$<h3 id="在等号处对齐">在等号处对齐
 </h3><p>使用<code>{align*}</code>环境，在每一行公式后加上<code>\\</code>；在要对齐的等号前加上<code>&amp;</code>。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tex" data-lang="tex"><span class="line"><span class="ln">1</span><span class="cl"><span class="sb">$$</span><span class="nb"> 
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb"></span><span class="nv">\begin</span><span class="nb">{align</span><span class="o">*</span><span class="nb">} 
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nv">\begin</span><span class="nb">{align</span><span class="o">*</span><span class="nb">} 
 </span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="nb">x_</span><span class="m">1</span><span class="o">+</span><span class="nb">x_</span><span class="m">2</span><span class="nb"> &amp;</span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{</span><span class="o">-</span><span class="nb">b</span><span class="o">+</span><span class="nv">\sqrt</span><span class="nb">{b^{</span><span class="m">2</span><span class="nb">}</span><span class="o">-</span><span class="m">4</span><span class="nb">ac}}{</span><span class="m">2</span><span class="nb">a} </span><span class="o">+</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{</span><span class="o">-</span><span class="nb">b</span><span class="o">-</span><span class="nv">\sqrt</span><span class="nb">{b^{</span><span class="m">2</span><span class="nb">}</span><span class="o">-</span><span class="m">4</span><span class="nb">ac}}{</span><span class="m">2</span><span class="nb">a} </span><span class="nv">\\</span><span class="nb"> &amp;</span><span class="o">=</span><span class="nb"> </span><span class="o">-</span><span class="nv">\frac</span><span class="nb">{b}{a}
-</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="nb"></span><span class="nv">\end</span><span class="nb">{align</span><span class="o">*</span><span class="nb">}
-</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="nb"></span><span class="s">$$</span> 
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="nv">\end</span><span class="nb">{align</span><span class="o">*</span><span class="nb">}
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="s">$$</span> 
 </span></span></code></pre></div><p>效果：</p>
 $$ \begin{align*} x_1+x_2 &= \frac{-b+\sqrt{b^{2}-4ac}}{2a} + \frac{-b-\sqrt{b^{2}-4ac}}{2a} \\ &= -\frac{b}{a} \end{align*}$$<h2 id="其他">其他
 </h2><h3 id="隐藏内容">隐藏内容

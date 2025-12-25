@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/csapp/'>
 
-<link rel="stylesheet" href="/scss/style.min.e851fcab2a85f7d449567d7f43c7cd36646cf5a9b08bb9364dca65dd264196e2.css"><meta property='og:title' content="运行《深入理解计算机系统》的代码">
+<link rel="stylesheet" href="/scss/style.min.90289cd6c8c19645ed90d05b0f2cd54bca3088b1ce8c3826878145b9a627f3fe.css"><meta property='og:title' content="运行《深入理解计算机系统》的代码">
 <meta property='og:description' content="以echo服务端与客户端为例">
 <meta property='og:url' content='https://5882886.github.io/p/csapp/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -620,7 +620,7 @@
 </span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="cm"> */</span> 
 </span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="cm">/* $begin echoserverimain */</span>
 </span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;csapp.h&#34;</span><span class="cp">
-</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="cp"></span>
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl">
 </span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="kt">void</span> <span class="nf">echo</span><span class="p">(</span><span class="kt">int</span> <span class="n">connfd</span><span class="p">)</span> 
 </span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="kt">size_t</span> <span class="n">n</span><span class="p">;</span> 
@@ -629,7 +629,7 @@
 </span></span><span class="line"><span class="ln">12</span><span class="cl">
 </span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="nf">Rio_readinitb</span><span class="p">(</span><span class="o">&amp;</span><span class="n">rio</span><span class="p">,</span> <span class="n">connfd</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="k">while</span><span class="p">((</span><span class="n">n</span> <span class="o">=</span> <span class="nf">Rio_readlineb</span><span class="p">(</span><span class="o">&amp;</span><span class="n">rio</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="n">MAXLINE</span><span class="p">))</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//line:netp:echo:eof
-</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="c1"></span>        <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;server received %d bytes</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="ln">15</span><span class="cl">        <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;server received %d bytes</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">16</span><span class="cl">        <span class="nf">Rio_writen</span><span class="p">(</span><span class="n">connfd</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="p">}</span>
@@ -669,7 +669,7 @@
 </span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="cm"> */</span>
 </span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="cm">/* $begin echoclientmain */</span>
 </span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;csapp.h&#34;</span><span class="cp">
-</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="cp"></span>
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl">
 </span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span> 
 </span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="kt">int</span> <span class="n">clientfd</span><span class="p">,</span> <span class="n">port</span><span class="p">;</span>
@@ -692,7 +692,7 @@
 </span></span><span class="line"><span class="ln">26</span><span class="cl">	<span class="nf">Fputs</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">stdout</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">27</span><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="ln">28</span><span class="cl">    <span class="nf">Close</span><span class="p">(</span><span class="n">clientfd</span><span class="p">);</span> <span class="c1">//line:netp:echoclient:close
-</span></span></span><span class="line"><span class="ln">29</span><span class="cl"><span class="c1"></span>    <span class="nf">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="ln">29</span><span class="cl">    <span class="nf">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">30</span><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="ln">31</span><span class="cl"><span class="cm">/* $end echoclientmain */</span>
 </span></span></code></pre></div><h3 id="生成可执行文件">生成可执行文件

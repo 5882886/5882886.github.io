@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/probability/'>
 
-<link rel="stylesheet" href="/scss/style.min.e851fcab2a85f7d449567d7f43c7cd36646cf5a9b08bb9364dca65dd264196e2.css"><meta property='og:title' content="概率论与数理统计">
+<link rel="stylesheet" href="/scss/style.min.90289cd6c8c19645ed90d05b0f2cd54bca3088b1ce8c3826878145b9a627f3fe.css"><meta property='og:title' content="概率论与数理统计">
 <meta property='og:description' content="基本公式">
 <meta property='og:url' content='https://5882886.github.io/p/probability/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -480,6 +480,7 @@
         <li><a href="#正态总体的假设检验">正态总体的假设检验</a>
           <ol>
             <li><a href="#单个正态总体">单个正态总体</a></li>
+            <li><a href="#两个正态总体">两个正态总体</a></li>
           </ol>
         </li>
       </ol>
@@ -1120,7 +1121,8 @@ $$F(x,y) = P\{X \leqslant x,Y\leqslant y\}$$<p> 为 $(X,Y)$ 的联合分布函�
 </h4><p>设 $(X,Y)$ 是二维随机变量，联合分布函数为 $F(x,y)$，边缘分布函数分别为 $F_X(x)，F_Y(y)$. 若对于任意 $(x,y) \in \textbf{R}^2$，都有 </p>
 $$F(x,y)  = F_X(x) F_Y(y)$$<p> 则称随机变量 $X$ 和 $Y$ 相互独立.</p>
 <blockquote>
-<p>两个随机变量相互独立等价于由 $X$ 表示的任一事件与由 $Y$ 表示的任一事件都相互独立.</p></blockquote>
+<p>两个随机变量相互独立等价于由 $X$ 表示的任一事件与由 $Y$ 表示的任一事件都相互独立.</p>
+</blockquote>
 <h3 id="二维离散型随机变量及其分布">二维离散型随机变量及其分布
 </h3><h4 id="联合概率分布律">联合概率分布律
 </h4><p>设二维离散型随机变量 $(X,Y)$ 的所有可能取值为 $(x_i,y_j)$，则称 </p>
@@ -1211,13 +1213,15 @@ $$f(x,y) = \frac{1}{2\pi \sigma_{1} \sigma_{2} \sqrt{1-\rho^2} } \cdot \mathrm{e
 <li>二维正态分布的边缘分布仍是正态分布，反之未必成立.</li>
 <li>二维正态随机变量的条件分布仍是正态分布.</li>
 <li>二维随机变量 $(X,Y) \sim N(\mu_{1},\mu_{2}; \sigma_{1}^{2}, \sigma_{2}^{2}; \rho)$，则 $(X,Y)$ 相互独立的充要条件是 $\rho = 0$.</li>
-</ol></blockquote>
+</ol>
+</blockquote>
 <h4 id="条件概率密度函数">条件概率密度函数
 </h4><p>设 $(X,Y)$ 为二维连续型随机变量，在条件 $Y=y$ 下，随机变量 $X$ 的条件分布函数为 $F_{X\ |\ Y} (x\ |\ y)$，条件概率密度函数为 $f_{X\ |\ Y} (x\ |\ y)$</p>
 $$f_{X\ |\ Y} = \frac{f(x,y)}{f_Y(y)} $$<p> </p>
 $$ f_{Y\ |\ X} = \frac{f(x,y)}{f_X(x)}$$<blockquote>
 <p>随机变量的边缘密度函数只与该随机变量有关，而与另一个变量无关.</p>
-<p>条件密度通常情况下与两个随机变量都有关系.</p></blockquote>
+<p>条件密度通常情况下与两个随机变量都有关系.</p>
+</blockquote>
 <h4 id="独立性-1">独立性
 </h4><p>设 $(X,Y)$ 是二维连续型随机变量，联合概率密度函数为 $f(x,y)$，边缘密度函数分别为 $f_X(x)$ 和 $f_Y(y)$，则 $X$ 和 $Y$ 相互独立的等价于对任意的 $(x,y) \in \textbf{R}^2$，在平面上几乎处处成立 </p>
 $$f(x,y) = f_X(x) f_Y(y)$$<p>易知，连续型随机变量 $(X,Y)$ 相互独立还等价于 </p>
@@ -1237,7 +1241,8 @@ $$f_{X\ |\ Y}(x\ |\ y) = f_X(x)，x \in \textbf{R} \quad 或 \quad f_{Y\ |\ X}(y
 <p>设 $(X,Y)$ 的联合概率密度函数为 $f(x,y)$，$(x,y) \in \textbf{R}^2$，边缘密度函数分别为 $f_X(x)$，$f_Y(y)$. 对任意实数 $z$，随机变量 $Z$ 的概率密度函数 </p>
 $$f_Z(z) = \int_{-\infty}^{+\infty} f(x,z-x) \mathrm{d}x $$<p> </p>
 $$f_Z(z) = \int_{-\infty}^{+\infty} f(z-y,y) \mathrm{d}y $$<blockquote>
-<p>称上述两式为 $X$ 与 $Y$ 的卷积公式，记作 $f_Z = f_X * f_Y$</p></blockquote>
+<p>称上述两式为 $X$ 与 $Y$ 的卷积公式，记作 $f_Z = f_X * f_Y$</p>
+</blockquote>
 <ul>
 <li>$M=\mathrm{max}\{X,Y\}$</li>
 </ul>
@@ -1250,7 +1255,8 @@ $$F_N(z) = P\{\mathrm{min}\{X,Y\} \leqslant z\} = 1-\left[ 1-F_X(z) \right] \lef
 </h4><p>设离散型随机变量 $X$ 的概率分布律为 $P\{X=x_k\}=p_k$，$k=1,2,\cdots$，若级数 $\displaystyle \sum_{k=1}^{\infty} |x_k|p_k$ 收敛，则记 </p>
 $$E(X) = \sum_{k=1}^{\infty} x_k p_k$$<p> 为随机变量 $X$ 的数学期望. 若级数 $\displaystyle \sum_{k=1}^{\infty} |x_k|p_k$ 不收敛，则称随机变量 $X$ 的数学期望不存在.</p>
 <blockquote>
-<p>也就是说，若级数 $\displaystyle \sum_{k=1}^{\infty} x_k p_k$ 绝对收敛，则数学期望存在.</p></blockquote>
+<p>也就是说，若级数 $\displaystyle \sum_{k=1}^{\infty} x_k p_k$ 绝对收敛，则数学期望存在.</p>
+</blockquote>
 <h4 id="连续型随机变量的数学期望">连续型随机变量的数学期望
 </h4><p>设连续型随机变量 $X$ 的概率密度函数为 $f(x)$，若积分 $\displaystyle \int_{-\infty}^{+\infty} |x| f(x) \mathrm{d}x$ 收敛，则记 </p>
 $$E(X) = \int_{-\infty}^{+\infty} xf(x) \mathrm{d}x$$<p> 为随机变量 $X$ 的数学期望. 若积分 $\displaystyle \int_{-\infty}^{+\infty} |x| f(x) \mathrm{d}x$ 不收敛，则称随机变量 $X$ 的数学期望不存在.</p>
@@ -1308,7 +1314,8 @@ $$E(X) = \int_{-\infty}^{+\infty} xf(x) \mathrm{d}x$$<p> 为随机变量 $X$ 的
 </h3><h4 id="方差的定义">方差的定义
 </h4><p>设随机变量 $X$ 的数学期望 $E(X)$ 存在，若随机变量 $[X-E(X)]^2$ 的数学期望 $E[X-E(X)]^2$ 存在，则记随机变量 $X$ 的方差 </p>
 $$D(X) = \mathrm{Var}(X) = E[X-E(X)]^2 $$<p> 方差的算术平方根记作标准差 </p>
-$$\sigma(X) = \sqrt{D(X)}$$<h4 id="基本性质">基本性质
+$$\sigma(X) = \sqrt{D(X)}$$<p>将方差的定义式展开，可得：</p>
+$$D(X) = E(X^2)-[E(X)]^2$$<h4 id="基本性质">基本性质
 </h4><ol>
 <li>$D(c) = 0$</li>
 <li>$D(aX+b) = a^2 D(X)$</li>
@@ -1455,7 +1462,8 @@ $$P\{ a < X < b \} = \varPhi\left( \frac{b-np}{\sqrt{np(1-p)}} \right) - \varPhi
 </h4><p>设 $(X_1,X_2,\cdots,X_n)$ 是从总体 $X$ 中抽取的容量为 $n$ 的样本，$(x_1,x_2,\cdots,x_n)$ 是样本的观测值，将样本观测值从小到大排列得到 $x_{(1)} \leqslant x_{(2)} \leqslant \cdots \leqslant x_{(n)}$，对任意实数 $x$，称 </p>
 $$F_n(x) = \frac{1}{n} \sum_{i=0}^{n} I_{\{x_{(1)} \leqslant x\}}$$<p> 为总体 $X$ 的经验分布函数.</p>
 <blockquote>
-<p>当样本容量 $n$ 足够大时，经验分布函数 $F_n(x)$ 是总体分布函数的一个良好近似.</p></blockquote>
+<p>当样本容量 $n$ 足够大时，经验分布函数 $F_n(x)$ 是总体分布函数的一个良好近似.</p>
+</blockquote>
 <h3 id="统计量及其分布">统计量及其分布
 </h3><h4 id="统计量">统计量
 </h4><div class="table-wrapper"><table>
@@ -1560,7 +1568,8 @@ $$F_n(x) = \frac{1}{n} \sum_{i=0}^{n} I_{\{x_{(1)} \leqslant x\}}$$<p> 为总体
 </li>
 </ol>
 <blockquote>
-<p>抽样分布定理常用来构造一些已知分布的统计量.</p></blockquote>
+<p>抽样分布定理常用来构造一些已知分布的统计量.</p>
+</blockquote>
 <h2 id="参数估计">参数估计
 </h2><p>通过样本来估计总体的参数，称为参数估计.</p>
 <h3 id="参数的点估计">参数的点估计
@@ -1779,7 +1788,8 @@ $$P\{不拒绝 H_0 | H_0 不真\} = \beta$$<blockquote>
 <li>对检验结果来说，拒绝 $H_0$ 是有说服力的，接受 $H_0$ 是没有说服力的.</li>
 <li>原假设 $H_0$ 和备择假设 $H_1$ 不是平等的.</li>
 <li>在提出假设时，应当尽量使后果更严重的错误成为第一类错误.</li>
-</ol></blockquote>
+</ol>
+</blockquote>
 <h3 id="正态总体的假设检验">正态总体的假设检验
 </h3><h4 id="单个正态总体">单个正态总体
 </h4><div class="table-wrapper"><table>
@@ -1889,6 +1899,85 @@ $$P\{不拒绝 H_0 | H_0 不真\} = \beta$$<blockquote>
           <td>$\sigma^2 &lt; \sigma_0^2$</td>
           <td></td>
           <td>$\{\chi^2 \leqslant \chi_{n-1}^2(1-\alpha)\}$</td>
+      </tr>
+  </tbody>
+</table></div>
+<h4 id="两个正态总体">两个正态总体
+</h4><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>检验法</th>
+          <th>条件</th>
+          <th>原假设</th>
+          <th>备择假设</th>
+          <th>检验统计量</th>
+          <th>拒绝条件</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>$Z$ 检验</td>
+          <td>$\sigma_1^2$，$\sigma_2^2$ 已知</td>
+          <td>$\mu_1 = \mu_2$</td>
+          <td>$\mu_1 \ne \mu_2$</td>
+          <td>$\displaystyle Z = \frac{\overline{X}-\overline{Y}}{\displaystyle \sqrt{\frac{\sigma_1^2}{m} + \frac{\sigma_2^2}{n}}}$</td>
+          <td>$\{|Z| \geqslant z_{\alpha / 2}\}$</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>$\sigma_1^2$，$\sigma_2^2$ 未知</td>
+          <td>$\mu \leqslant \mu_0$</td>
+          <td>$\mu_1 &gt; \mu_2$</td>
+          <td></td>
+          <td>$\{Z \geqslant z_{\alpha}\}$</td>
+      </tr>
+      <tr>
+          <td>$t$ 检验</td>
+          <td>$\sigma_1^2$，$\sigma_2^2$ 未知且$\sigma_1^2 = \sigma_2^2$</td>
+          <td>$\mu_1 = \mu_2$</td>
+          <td>$\mu_1 \ne \mu_2$</td>
+          <td>$\displaystyle T = \frac{\overline{X}-\overline{Y}}{\displaystyle S_w\sqrt{\frac{1}{m} + \frac{1}{n}}}$</td>
+          <td>$\{|T| \geqslant t_{m+n-2}(\alpha / 2)\}$</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+          <td>$\mu_1 \leqslant \mu_2$</td>
+          <td>$\mu_1 &gt; \mu_2$</td>
+          <td></td>
+          <td>$\{T \geqslant t_{m+n-2}(\alpha)\}$</td>
+      </tr>
+      <tr>
+          <td>$t$ 检验</td>
+          <td>成对数据</td>
+          <td>$\mu_1 = \mu_2$</td>
+          <td>$\mu_1 \ne \mu_2$</td>
+          <td>$\displaystyle T = \frac{\overline{D}}{S_d/\sqrt{n}}$</td>
+          <td>$\{|T| \geqslant t_{n-1}(\alpha / 2)\}$</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+          <td>$\mu_1 \leqslant \mu_2$</td>
+          <td>$\mu_1 &gt; \mu_2$</td>
+          <td></td>
+          <td>$\{T \geqslant t_{n-1}(\alpha)\}$</td>
+      </tr>
+      <tr>
+          <td>$F$ 检验</td>
+          <td>$\mu_1$。$\mu_2$ 未知</td>
+          <td>$\sigma_1^2 = \sigma_2^2$</td>
+          <td>$\sigma_1^2 \ne \sigma_2^2$</td>
+          <td>$\displaystyle F = \frac{S_1^2}{S_2^2}$</td>
+          <td>$\{F \leqslant F_{m-1,n-1}(1-\alpha/2) \\ 或\ F \geqslant F_{m-1,n-1}(\alpha/2)\}$</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+          <td>$\sigma_1^2 \leqslant \sigma_2^2$</td>
+          <td>$\sigma_1^2 &gt; \sigma_2^2$</td>
+          <td></td>
+          <td>$\{F \geqslant F_{m-1,n-1}(\alpha)\}$</td>
       </tr>
   </tbody>
 </table></div>

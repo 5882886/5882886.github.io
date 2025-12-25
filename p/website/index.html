@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/website/'>
 
-<link rel="stylesheet" href="/scss/style.min.e851fcab2a85f7d449567d7f43c7cd36646cf5a9b08bb9364dca65dd264196e2.css"><meta property='og:title' content="使用Hugo搭建网站">
+<link rel="stylesheet" href="/scss/style.min.90289cd6c8c19645ed90d05b0f2cd54bca3088b1ce8c3826878145b9a627f3fe.css"><meta property='og:title' content="使用Hugo搭建网站">
 <meta property='og:description' content="使用开源软件Hugo搭建自己的博客网站">
 <meta property='og:url' content='https://5882886.github.io/p/website/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -655,7 +655,8 @@
 </span></span><span class="line"><span class="ln">3</span><span class="cl">hugo --cleanDestinationDir  <span class="c1">#清理构建文件夹</span>
 </span></span></code></pre></div><blockquote>
 <p>注意事项</p>
-<p>使用<code>hugo server -D</code>命令构建的是本地网页，遇到超链接时会重定向到<code>localhost:1313/xxx</code>，不能直接部署到GitHub等服务器上，必须再执行一次<code>hugo</code>命令清除本地链接的内容之后，才能正确部署。</p></blockquote>
+<p>使用<code>hugo server -D</code>命令构建的是本地网页，遇到超链接时会重定向到<code>localhost:1313/xxx</code>，不能直接部署到GitHub等服务器上，必须再执行一次<code>hugo</code>命令清除本地链接的内容之后，才能正确部署。</p>
+</blockquote>
 <p>参考视频：
 
 
@@ -682,7 +683,8 @@
 <blockquote>
 <p>为什么命名为<code>你的用户名.github.io</code>？</p>
 <p>Github的Pages分为两种，一种为用户Pages，另一种为项目Pages。用户Pages每个账号只能拥有一个，域名为<code>https://你的用户名.github.io</code>；项目Pages数目不限，域名为<code>https://你的用户名.github.io/你的项目名</code>.</p>
-<p>因此，设置仓库名为<code>你的用户名.github.io</code>可以使网站地址更简洁。</p></blockquote>
+<p>因此，设置仓库名为<code>你的用户名.github.io</code>可以使网站地址更简洁。</p>
+</blockquote>
 <h3 id="生成静态网页文件">生成静态网页文件
 </h3><p>在命令行中执行</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">hugo
@@ -769,10 +771,10 @@
 </h3><p>如果某些页面有别名（例如在 frontmatter 中定义了 aliases），你可以直接使用别名来链接。</p>
 <p>假设<code>post1.md</code>的 frontmatter 中定义了别名：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln">1</span><span class="cl"><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="w"></span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;我的博客文章&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="w"></span><span class="nt">aliases</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;我的博客文章&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="nt">aliases</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="w">  </span>- <span class="s2">&#34;/old-post1&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span></code></pre></div><p>你可以通过以下方式链接到它：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">[访问旧的博客文章](/old-post1)
 </span></span></code></pre></div>

@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/nemu-part-2-pre/'>
 
-<link rel="stylesheet" href="/scss/style.min.e851fcab2a85f7d449567d7f43c7cd36646cf5a9b08bb9364dca65dd264196e2.css"><meta property='og:title' content="NEMU-PART II Pre">
+<link rel="stylesheet" href="/scss/style.min.90289cd6c8c19645ed90d05b0f2cd54bca3088b1ce8c3826878145b9a627f3fe.css"><meta property='og:title' content="NEMU-PART II Pre">
 <meta property='og:description' content="PA2预备知识">
 <meta property='og:url' content='https://5882886.github.io/p/nemu-part-2-pre/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -607,7 +607,7 @@
 <h2 id="切换用户程序">切换用户程序
 </h2><p>修改工程目录下的<code>Makefile</code>文件，更换<code>NEMU</code>的用户程序：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-diff" data-lang="diff"><span class="line"><span class="ln">1</span><span class="cl"><span class="gd">- USERPROG := obj/testcase/mov
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="gd"></span><span class="gi">+ USERPROG := obj/testcase/mov-c
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="gi">+ USERPROG := obj/testcase/mov-c
 </span></span></span></code></pre></div><p>同理，将<code>mov-c</code>更换为<code>testcase/src</code>目录下的其他文件，例如<code>add</code>、<code>bubble-sort</code>等，即可执行对应的用户程序。</p>
 <h2 id="了解nemu的指令集">了解NEMU的指令集
 </h2><p>X86系列处理器采用变长指令字结构，各种指令长度随指令功能而异。</p>
@@ -643,7 +643,8 @@
 <blockquote>
 <p><strong><code>ModR/M</code>部分为什么解析出了<code>disp32[--][--]</code>？</strong></p>
 <p><code>ModR/M</code>内部这一个字节的组成，分为了三个部分，具体每个部分的编码都对应着右边表内的含义，以<code>ModR/M</code>内的编码为基准进行查表就能够解析出对应的含义。</p>
-<p>例如例子中的<code>ModR/M</code>部分编码是<code>84</code>（十六进制），对应二进制就是<code>10000100</code>，对应回格式中的部分就是<code>Mod</code>部分为<code>10</code>，<code>R/M</code>部分为<code>100</code>，二者在右边表中可以对应出一行，这一行的对应指令就是<code>disp32[--][--]</code>。<code>disp32</code>代表偏移量（displacement）为32位的，两个<code>[--][--]</code>就代表我们需要解析<code>SIB</code>中的编码部分才能得到偏移量的具体数值。</p></blockquote>
+<p>例如例子中的<code>ModR/M</code>部分编码是<code>84</code>（十六进制），对应二进制就是<code>10000100</code>，对应回格式中的部分就是<code>Mod</code>部分为<code>10</code>，<code>R/M</code>部分为<code>100</code>，二者在右边表中可以对应出一行，这一行的对应指令就是<code>disp32[--][--]</code>。<code>disp32</code>代表偏移量（displacement）为32位的，两个<code>[--][--]</code>就代表我们需要解析<code>SIB</code>中的编码部分才能得到偏移量的具体数值。</p>
+</blockquote>
 <h3 id="阅读opcode-table">阅读Opcode Table
 </h3><p>以<code>mov</code>指令的第一种形式为例：</p>
 <figure><img src="/p/nemu-part-2-pre/mov%E6%8C%87%E4%BB%A4.png" width="700"><figcaption>
@@ -682,16 +683,17 @@
 <p>接下来的两种形式也就不难看懂了：但这两种形式的<code>Opcode</code>都是一样的，难道不会出现歧义吗？</p>
 <p>x86是通过指令一般格式中的 <code>operand-size prefix</code>来区分上面这两种形式的。</p>
 <p><code>Operand-size prefix</code>的编码是<code>0x66</code>，作用是指示当前指令需要改变操作数的长度。在 IA-32 中，通常如果这个前缀没有出现，操作数长度默认是 32 位；当这个前缀出现的时候，操作数长度就改变成16位。</p>
-<p>换句话说，如果把一个开头为<code>89 ...</code>的比特串解释成指令，它就应该被解释成<code>MOV r/m32, r32</code>的形式；如果比特串的开头是<code>66 89...</code>，它就应该被解释成<code>MOV r/m16, r16</code>。</p></blockquote>
+<p>换句话说，如果把一个开头为<code>89 ...</code>的比特串解释成指令，它就应该被解释成<code>MOV r/m32, r32</code>的形式；如果比特串的开头是<code>66 89...</code>，它就应该被解释成<code>MOV r/m16, r16</code>。</p>
+</blockquote>
 <h2 id="c语言宏定义">C语言宏定义
 </h2><p>在C语言中，可以使用命令#define来定义宏。宏不负责检查语法的正确性。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// 常规的宏
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"></span><span class="cp">#define PI 3.1415926
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="cp"></span><span class="c1">// 带参数的宏
-</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1"></span><span class="cp">#define putchar(x) putc(x, stdout)
-</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="cp"></span>
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="cp">#define PI 3.1415926
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1">// 带参数的宏
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="cp">#define putchar(x) putc(x, stdout)
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl">
 </span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="c1">// 使用宏进行连接
-</span></span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="c1"></span><span class="cp">#define concat(x, y)   x ## y
+</span></span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="cp">#define concat(x, y)   x ## y
 </span></span></span></code></pre></div><p>例如：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="cp">#define make_helper(name) int name(swaddr_t eip)
 </span></span></span></code></pre></div><p>这个宏定义就代表了以下的两行代码是同一个代码，我们使用的时候看到的是上面部分函数，但是程序执行的时候实际上是在执行下面的函数（实际上就是同一个函数）：</p>
@@ -699,7 +701,8 @@
 </span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="kt">int</span> <span class="nf">exec</span><span class="p">(</span><span class="kt">swaddr_t</span> <span class="n">eip</span><span class="p">)</span>
 </span></span></code></pre></div><blockquote>
 <p>在C语言中，宏必须定义在一行中。</p>
-<p>若需通过换行提高代码可读性，可使用<code>\</code>附在每行末尾。</p></blockquote>
+<p>若需通过换行提高代码可读性，可使用<code>\</code>附在每行末尾。</p>
+</blockquote>
 <h2 id="nemu的指令周期">NEMU的指令周期
 </h2><h3 id="取指">取指
 </h3><p>核心流程</p>
@@ -708,16 +711,16 @@
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl">
 </span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="k">for</span><span class="p">(;</span> <span class="n">n</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">;</span> <span class="n">n</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 5</span><span class="cl">        <span class="kt">int</span> <span class="n">instr_len</span> <span class="o">=</span> <span class="nf">exec</span><span class="p">(</span><span class="n">cpu</span><span class="p">.</span><span class="n">eip</span><span class="p">);</span>  <span class="c1">// 执行当前%eip所指向的指令
-</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="c1"></span>        <span class="n">cpu</span><span class="p">.</span><span class="n">eip</span> <span class="o">+=</span> <span class="n">instr_len</span><span class="p">;</span>           <span class="c1">// %eip指向下一条指令
-</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl">        <span class="n">cpu</span><span class="p">.</span><span class="n">eip</span> <span class="o">+=</span> <span class="n">instr_len</span><span class="p">;</span>           <span class="c1">// %eip指向下一条指令
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="ln"> 8</span><span class="cl">
 </span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="p">...</span>
 </span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>函数<code>exec</code>：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="nf">make_helper</span><span class="p">(</span><span class="n">exec</span><span class="p">)</span> <span class="p">{</span>     <span class="c1">//等价于 int exec(swaddr_t eip)
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"></span>    <span class="n">ops_decoded</span><span class="p">.</span><span class="n">opcode</span> <span class="o">=</span> <span class="nf">instr_fetch</span><span class="p">(</span><span class="n">eip</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>       <span class="c1">// 表示读取一个字节的操作码
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"></span>    <span class="k">return</span> <span class="n">opcode_table</span><span class="p">[</span><span class="n">ops_decoded</span><span class="p">.</span><span class="n">opcode</span><span class="p">](</span><span class="n">eip</span><span class="p">);</span>   <span class="c1">// 返回一个函数 
-</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="n">ops_decoded</span><span class="p">.</span><span class="n">opcode</span> <span class="o">=</span> <span class="nf">instr_fetch</span><span class="p">(</span><span class="n">eip</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>       <span class="c1">// 表示读取一个字节的操作码
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="k">return</span> <span class="n">opcode_table</span><span class="p">[</span><span class="n">ops_decoded</span><span class="p">.</span><span class="n">opcode</span><span class="p">](</span><span class="n">eip</span><span class="p">);</span>   <span class="c1">// 返回一个函数 
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>其中，函数<code>instr_fetch()</code>负责取指：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">static</span> <span class="kr">inline</span> <span class="kt">uint32_t</span> <span class="nf">instr_fetch</span><span class="p">(</span><span class="kt">swaddr_t</span> <span class="n">addr</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">len</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="k">return</span> <span class="nf">swaddr_read</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>

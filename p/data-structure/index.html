@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/data-structure/'>
 
-<link rel="stylesheet" href="/scss/style.min.e851fcab2a85f7d449567d7f43c7cd36646cf5a9b08bb9364dca65dd264196e2.css"><meta property='og:title' content="熟练掌握数据结构">
+<link rel="stylesheet" href="/scss/style.min.90289cd6c8c19645ed90d05b0f2cd54bca3088b1ce8c3826878145b9a627f3fe.css"><meta property='og:title' content="熟练掌握数据结构">
 <meta property='og:description' content="并非熟练">
 <meta property='og:url' content='https://5882886.github.io/p/data-structure/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -720,27 +720,27 @@
 <p>它具有随机存储的特点，即：每个元素都与一个序号存在唯一对应关系。</p>
 <h3 id="定义与初始化">定义与初始化
 </h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cp">#define MAXSIZE 100
-</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="cp"></span>
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl">
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="k">typedef</span> <span class="kt">int</span> <span class="n">ElemType</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln"> 4</span><span class="cl">
 </span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="k">struct</span> <span class="nc">seqlist</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="n">ElemType</span> <span class="o">*</span><span class="n">data</span><span class="p">;</span>     <span class="c1">// 定义首元素地址
-</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">length</span><span class="p">;</span>         <span class="c1">// 顺序表容量
-</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1"></span><span class="p">}</span> <span class="n">SeqList</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="kt">int</span> <span class="n">length</span><span class="p">;</span>         <span class="c1">// 顺序表容量
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="p">}</span> <span class="n">SeqList</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln"> 9</span><span class="cl">
 </span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="cm">/* ----- 初始化顺序表 ----- */</span>
 </span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="kt">void</span> <span class="nf">InitList</span><span class="p">(</span><span class="n">SeqList</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="n">L</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">ElemType</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="n">MAXSIZE</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">ElemType</span><span class="p">));</span>     <span class="c1">// 分配内存空间
-</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="n">L</span><span class="p">.</span><span class="n">data</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">L</span><span class="p">.</span><span class="n">data</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">14</span><span class="cl">        <span class="c1">// 初始化失败
-</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="c1"></span>        <span class="k">return</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="ln">15</span><span class="cl">        <span class="k">return</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="n">L</span><span class="p">.</span><span class="n">length</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><blockquote>
 <p>在函数参数中使用取指（<code>&amp;</code>）是 C++ 的用法，C 语言只能传递指针。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// 纯C语言实现
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">InitList</span><span class="p">(</span><span class="n">SeqList</span> <span class="o">*</span><span class="n">L</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="kt">void</span> <span class="nf">InitList</span><span class="p">(</span><span class="n">SeqList</span> <span class="o">*</span><span class="n">L</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">3</span><span class="cl">   <span class="n">L</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">ElemType</span><span class="o">*</span><span class="p">)</span><span class="nf">malloc</span><span class="p">(</span><span class="n">MAXSIZE</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">ElemType</span><span class="p">));</span>
 </span></span><span class="line"><span class="ln">4</span><span class="cl">   <span class="k">if</span> <span class="p">(</span><span class="n">L</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">5</span><span class="cl">       <span class="k">return</span><span class="p">;</span>
@@ -760,10 +760,10 @@
 </span></span><span class="line"><span class="ln"> 8</span><span class="cl">
 </span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="cm">/* ----- 插入元素 ----- */</span>
 </span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="c1">// 在尾部添加元素
-</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">Append</span><span class="p">(</span><span class="n">SeqList</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">,</span> <span class="n">ElemType</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="kt">void</span> <span class="nf">Append</span><span class="p">(</span><span class="n">SeqList</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">,</span> <span class="n">ElemType</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">L</span><span class="p">.</span><span class="n">length</span> <span class="o">&gt;=</span> <span class="n">MAXSIZE</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">13</span><span class="cl">        <span class="c1">// 顺序表内存已满
-</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="c1"></span>        <span class="k">return</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl">        <span class="k">return</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="p">}</span> 
 </span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="k">else</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">17</span><span class="cl">        <span class="n">L</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="n">L</span><span class="p">.</span><span class="n">length</span><span class="p">]</span> <span class="o">=</span> <span class="n">e</span><span class="p">;</span>
@@ -773,7 +773,7 @@
 </span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="ln">22</span><span class="cl">
 </span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="c1">// 向顺序表中插入元素
-</span></span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">Insert</span><span class="p">(</span><span class="n">SeqList</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pos</span><span class="p">,</span> <span class="n">ElemType</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="kt">void</span> <span class="nf">Insert</span><span class="p">(</span><span class="n">SeqList</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pos</span><span class="p">,</span> <span class="n">ElemType</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">25</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">pos</span> <span class="o">&lt;=</span> <span class="n">L</span><span class="p">.</span><span class="n">length</span> <span class="o">&amp;&amp;</span> <span class="n">pos</span> <span class="o">&gt;=</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">L</span><span class="p">.</span><span class="n">length</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">MAXSIZE</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">26</span><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">L</span><span class="p">.</span><span class="n">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="n">pos</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">27</span><span class="cl">            <span class="n">L</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">L</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
@@ -783,14 +783,14 @@
 </span></span><span class="line"><span class="ln">31</span><span class="cl">    <span class="p">}</span> 
 </span></span><span class="line"><span class="ln">32</span><span class="cl">    <span class="k">else</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">33</span><span class="cl">        <span class="c1">// 非法插入
-</span></span></span><span class="line"><span class="ln">34</span><span class="cl"><span class="c1"></span>        <span class="k">return</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="ln">34</span><span class="cl">        <span class="k">return</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">35</span><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="ln">36</span><span class="cl">    <span class="k">return</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">37</span><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="ln">38</span><span class="cl">
 </span></span><span class="line"><span class="ln">39</span><span class="cl"><span class="cm">/* ----- 删除元素 ----- */</span>
 </span></span><span class="line"><span class="ln">40</span><span class="cl"><span class="c1">// 删除特定元素
-</span></span></span><span class="line"><span class="ln">41</span><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">Delete</span><span class="p">(</span><span class="n">SeqList</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pos</span><span class="p">,</span> <span class="n">ElemType</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln">41</span><span class="cl"><span class="kt">void</span> <span class="nf">Delete</span><span class="p">(</span><span class="n">SeqList</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pos</span><span class="p">,</span> <span class="n">ElemType</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">42</span><span class="cl">    <span class="n">e</span> <span class="o">=</span> <span class="n">L</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="n">pos</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span>
 </span></span><span class="line"><span class="ln">43</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">pos</span> <span class="o">&gt;=</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">pos</span> <span class="o">&lt;=</span> <span class="n">L</span><span class="p">.</span><span class="n">length</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">44</span><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">pos</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">L</span><span class="p">.</span><span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
@@ -800,13 +800,13 @@
 </span></span><span class="line"><span class="ln">48</span><span class="cl">    <span class="p">}</span> 
 </span></span><span class="line"><span class="ln">49</span><span class="cl">    <span class="k">else</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">50</span><span class="cl">        <span class="c1">// 非法删除
-</span></span></span><span class="line"><span class="ln">51</span><span class="cl"><span class="c1"></span>        <span class="k">return</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="ln">51</span><span class="cl">        <span class="k">return</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">52</span><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="ln">53</span><span class="cl">    <span class="k">return</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">54</span><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="ln">55</span><span class="cl">
 </span></span><span class="line"><span class="ln">56</span><span class="cl"><span class="c1">// 清空顺序表
-</span></span></span><span class="line"><span class="ln">57</span><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">DeletAll</span><span class="p">(</span><span class="n">SeqList</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln">57</span><span class="cl"><span class="kt">void</span> <span class="nf">DeletAll</span><span class="p">(</span><span class="n">SeqList</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">58</span><span class="cl">    <span class="n">L</span><span class="p">.</span><span class="n">length</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">59</span><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="ln">60</span><span class="cl">
@@ -828,7 +828,7 @@ $$ACN = \frac{1}{n} \sum_{i=0}^{n-1} (i+1) = \frac{1}{n} (1+2+\cdots+n) = \frac{
 <p>思路2：使用桶排序。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1">// 获取构造“桶”的参数
 </span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="c1">// 查找最小最大值
-</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">FindMinMax</span><span class="p">(</span><span class="n">SeqList</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">,</span> <span class="n">ElemType</span> <span class="o">&amp;</span><span class="n">minVal</span><span class="p">,</span> <span class="n">ElemType</span> <span class="o">&amp;</span><span class="n">maxVal</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="kt">void</span> <span class="nf">FindMinMax</span><span class="p">(</span><span class="n">SeqList</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">,</span> <span class="n">ElemType</span> <span class="o">&amp;</span><span class="n">minVal</span><span class="p">,</span> <span class="n">ElemType</span> <span class="o">&amp;</span><span class="n">maxVal</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">L</span><span class="p">.</span><span class="n">length</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln"> 5</span><span class="cl">    
 </span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="n">minVal</span> <span class="o">=</span> <span class="n">maxVal</span> <span class="o">=</span> <span class="n">L</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
@@ -839,7 +839,7 @@ $$ACN = \frac{1}{n} \sum_{i=0}^{n-1} (i+1) = \frac{1}{n} (1+2+\cdots+n) = \frac{
 </span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="ln">12</span><span class="cl">
 </span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="c1">// 通用桶排序去重（支持负数）
-</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">BucketSortUnique</span><span class="p">(</span><span class="n">SeqList</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="kt">void</span> <span class="nf">BucketSortUnique</span><span class="p">(</span><span class="n">SeqList</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">L</span><span class="p">.</span><span class="n">length</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">16</span><span class="cl">        <span class="k">return</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="p">}</span>
@@ -850,19 +850,19 @@ $$ACN = \frac{1}{n} \sum_{i=0}^{n-1} (i+1) = \frac{1}{n} (1+2+\cdots+n) = \frac{
 </span></span><span class="line"><span class="ln">22</span><span class="cl">    <span class="kt">int</span> <span class="n">range</span> <span class="o">=</span> <span class="n">maxVal</span> <span class="o">-</span> <span class="n">minVal</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">23</span><span class="cl">    
 </span></span><span class="line"><span class="ln">24</span><span class="cl">    <span class="c1">// 动态创建桶数组
-</span></span></span><span class="line"><span class="ln">25</span><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="o">*</span><span class="n">bucket</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="n">calloc</span><span class="p">(</span><span class="n">range</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+</span></span></span><span class="line"><span class="ln">25</span><span class="cl">    <span class="kt">int</span> <span class="o">*</span><span class="n">bucket</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="n">calloc</span><span class="p">(</span><span class="n">range</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
 </span></span><span class="line"><span class="ln">26</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">bucket</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">27</span><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;内存分配失败！</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">28</span><span class="cl">        <span class="k">return</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">29</span><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="ln">30</span><span class="cl">    
 </span></span><span class="line"><span class="ln">31</span><span class="cl">    <span class="c1">// 标记存在的元素
-</span></span></span><span class="line"><span class="ln">32</span><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">L</span><span class="p">.</span><span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln">32</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">L</span><span class="p">.</span><span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">33</span><span class="cl">        <span class="n">bucket</span><span class="p">[</span><span class="n">L</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">minVal</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">34</span><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="ln">35</span><span class="cl">    
 </span></span><span class="line"><span class="ln">36</span><span class="cl">    <span class="c1">// 重构顺序表
-</span></span></span><span class="line"><span class="ln">37</span><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">newLength</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="ln">37</span><span class="cl">    <span class="kt">int</span> <span class="n">newLength</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">38</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">range</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">39</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">bucket</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">40</span><span class="cl">            <span class="n">L</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="n">newLength</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="n">minVal</span><span class="p">;</span>
@@ -883,7 +883,8 @@ $$ACN = \frac{1}{n} \sum_{i=0}^{n-1} (i+1) = \frac{1}{n} (1+2+\cdots+n) = \frac{
 <h2 id="链表">链表
 </h2><p>链表是用一段物理地址不连续的存储单元依次存储数据元素的线性结构。因为存储地址不连续，所以不能用下标索引的方式寻找元素，而是要在结点之间设置指针串联起来。</p>
 <blockquote>
-<p>由此可见，链表不具备随机存储的特点。</p></blockquote>
+<p>由此可见，链表不具备随机存储的特点。</p>
+</blockquote>
 <h3 id="定义与初始化-1">定义与初始化
 </h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cm">/* ----- 定义 ----- */</span>
 </span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="k">struct</span> <span class="nc">node</span> <span class="p">{</span>
@@ -905,7 +906,7 @@ $$ACN = \frac{1}{n} \sum_{i=0}^{n-1} (i+1) = \frac{1}{n} (1+2+\cdots+n) = \frac{
 </span></span><span class="line"><span class="ln">  5</span><span class="cl">    <span class="k">while</span><span class="p">(</span><span class="n">p</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">  6</span><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d &#34;</span><span class="p">,</span> <span class="n">p</span><span class="p">.</span><span class="n">data</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">  7</span><span class="cl">        <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">next</span><span class="p">;</span>	<span class="c1">//指针指向下一个节点
-</span></span></span><span class="line"><span class="ln">  8</span><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span></span><span class="line"><span class="ln">  8</span><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="ln">  9</span><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln"> 10</span><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="ln"> 11</span><span class="cl">
@@ -922,22 +923,22 @@ $$ACN = \frac{1}{n} \sum_{i=0}^{n-1} (i+1) = \frac{1}{n} (1+2+\cdots+n) = \frac{
 </span></span><span class="line"><span class="ln"> 22</span><span class="cl">
 </span></span><span class="line"><span class="ln"> 23</span><span class="cl"><span class="cm">/* ----- 增加元素 ----- */</span>
 </span></span><span class="line"><span class="ln"> 24</span><span class="cl"><span class="c1">// 头插法：在第一个节点前插入
-</span></span></span><span class="line"><span class="ln"> 25</span><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">InsertHead</span><span class="p">(</span><span class="n">Node</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">,</span> <span class="n">ElemType</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln"> 25</span><span class="cl"><span class="kt">void</span> <span class="nf">InsertHead</span><span class="p">(</span><span class="n">Node</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">,</span> <span class="n">ElemType</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 26</span><span class="cl">    <span class="c1">// 创建新节点
-</span></span></span><span class="line"><span class="ln"> 27</span><span class="cl"><span class="c1"></span>    <span class="n">Node</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="n">Node</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">Node</span><span class="p">));</span>
+</span></span></span><span class="line"><span class="ln"> 27</span><span class="cl">    <span class="n">Node</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="n">Node</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">Node</span><span class="p">));</span>
 </span></span><span class="line"><span class="ln"> 28</span><span class="cl">    <span class="c1">// 新节点的data赋值e
-</span></span></span><span class="line"><span class="ln"> 29</span><span class="cl"><span class="c1"></span>    <span class="n">p</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">e</span><span class="p">;</span>	
+</span></span></span><span class="line"><span class="ln"> 29</span><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">e</span><span class="p">;</span>	
 </span></span><span class="line"><span class="ln"> 30</span><span class="cl">    <span class="c1">// 新节点的next指向头节点原来指向的下一个节点
-</span></span></span><span class="line"><span class="ln"> 31</span><span class="cl"><span class="c1"></span>    <span class="n">p</span><span class="p">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">L</span><span class="p">.</span><span class="n">next</span><span class="p">;</span>	
+</span></span></span><span class="line"><span class="ln"> 31</span><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">L</span><span class="p">.</span><span class="n">next</span><span class="p">;</span>	
 </span></span><span class="line"><span class="ln"> 32</span><span class="cl">    <span class="c1">// 头节点的next指向新节点
-</span></span></span><span class="line"><span class="ln"> 33</span><span class="cl"><span class="c1"></span>    <span class="n">L</span><span class="p">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>	
+</span></span></span><span class="line"><span class="ln"> 33</span><span class="cl">    <span class="n">L</span><span class="p">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>	
 </span></span><span class="line"><span class="ln"> 34</span><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;插入成功！</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln"> 35</span><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="ln"> 36</span><span class="cl">    
 </span></span><span class="line"><span class="ln"> 37</span><span class="cl"><span class="c1">// 尾插法：在链表尾节点后插入
-</span></span></span><span class="line"><span class="ln"> 38</span><span class="cl"><span class="c1"></span>
+</span></span></span><span class="line"><span class="ln"> 38</span><span class="cl">
 </span></span><span class="line"><span class="ln"> 39</span><span class="cl"><span class="c1">//寻找尾节点
-</span></span></span><span class="line"><span class="ln"> 40</span><span class="cl"><span class="c1"></span><span class="n">Node</span><span class="o">*</span> <span class="nf">GetTail</span><span class="p">(</span><span class="n">Node</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln"> 40</span><span class="cl"><span class="n">Node</span><span class="o">*</span> <span class="nf">GetTail</span><span class="p">(</span><span class="n">Node</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 41</span><span class="cl">    <span class="n">Node</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="n">L</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln"> 42</span><span class="cl">    <span class="k">while</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">next</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 43</span><span class="cl">        <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">next</span><span class="p">;</span>
@@ -947,20 +948,20 @@ $$ACN = \frac{1}{n} \sum_{i=0}^{n-1} (i+1) = \frac{1}{n} (1+2+\cdots+n) = \frac{
 </span></span><span class="line"><span class="ln"> 47</span><span class="cl">
 </span></span><span class="line"><span class="ln"> 48</span><span class="cl"><span class="kt">void</span> <span class="nf">InsertTail</span><span class="p">(</span><span class="n">Node</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">,</span> <span class="n">ElemType</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 49</span><span class="cl">    <span class="c1">// 将元素转换成链表元素
-</span></span></span><span class="line"><span class="ln"> 50</span><span class="cl"><span class="c1"></span>    <span class="n">Node</span> <span class="o">*</span><span class="n">newNode</span> <span class="o">=</span> <span class="p">(</span><span class="n">Node</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">Node</span><span class="p">));</span>
+</span></span></span><span class="line"><span class="ln"> 50</span><span class="cl">    <span class="n">Node</span> <span class="o">*</span><span class="n">newNode</span> <span class="o">=</span> <span class="p">(</span><span class="n">Node</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">Node</span><span class="p">));</span>
 </span></span><span class="line"><span class="ln"> 51</span><span class="cl">    <span class="n">newNode</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">e</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln"> 52</span><span class="cl">    <span class="c1">// 获取尾节点
-</span></span></span><span class="line"><span class="ln"> 53</span><span class="cl"><span class="c1"></span>    <span class="n">Node</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="n">GetTail</span><span class="p">(</span><span class="n">L</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="ln"> 53</span><span class="cl">    <span class="n">Node</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="n">GetTail</span><span class="p">(</span><span class="n">L</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln"> 54</span><span class="cl">
 </span></span><span class="line"><span class="ln"> 55</span><span class="cl">    <span class="n">newNode</span><span class="p">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">link</span><span class="p">;</span>    <span class="c1">// 相当于 newNode-&gt;next = NULL
-</span></span></span><span class="line"><span class="ln"> 56</span><span class="cl"><span class="c1"></span>    <span class="n">p</span><span class="p">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">newNode</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="ln"> 56</span><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">newNode</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln"> 57</span><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;插入成功！</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln"> 58</span><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="ln"> 59</span><span class="cl">
 </span></span><span class="line"><span class="ln"> 60</span><span class="cl">
 </span></span><span class="line"><span class="ln"> 61</span><span class="cl"><span class="c1">// 任意插入
 </span></span></span><span class="line"><span class="ln"> 62</span><span class="cl"><span class="c1">//寻找特定位置的元素
-</span></span></span><span class="line"><span class="ln"> 63</span><span class="cl"><span class="c1"></span><span class="n">Node</span><span class="o">*</span> <span class="nf">Find</span><span class="p">(</span><span class="n">Node</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pos</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln"> 63</span><span class="cl"><span class="n">Node</span><span class="o">*</span> <span class="nf">Find</span><span class="p">(</span><span class="n">Node</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pos</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 64</span><span class="cl">    <span class="n">Node</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="n">L</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln"> 65</span><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">pos</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 66</span><span class="cl">        <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">next</span><span class="p">;</span>
@@ -981,13 +982,13 @@ $$ACN = \frac{1}{n} \sum_{i=0}^{n-1} (i+1) = \frac{1}{n} (1+2+\cdots+n) = \frac{
 </span></span><span class="line"><span class="ln"> 81</span><span class="cl">
 </span></span><span class="line"><span class="ln"> 82</span><span class="cl"><span class="cm">/* ----- 删除元素 ----- */</span>
 </span></span><span class="line"><span class="ln"> 83</span><span class="cl"><span class="c1">// 删除指定位置的元素
-</span></span></span><span class="line"><span class="ln"> 84</span><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">Delete</span><span class="p">(</span><span class="n">Node</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pos</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln"> 84</span><span class="cl"><span class="kt">void</span> <span class="nf">Delete</span><span class="p">(</span><span class="n">Node</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pos</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 85</span><span class="cl">    <span class="n">Node</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="n">Find</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">pos</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln"> 86</span><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">p</span> <span class="o">!=</span> <span class="nb">NULL</span> <span class="o">&amp;&amp;</span> <span class="n">p</span><span class="p">.</span><span class="n">next</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 87</span><span class="cl">        <span class="n">Node</span> <span class="o">*</span><span class="n">q</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">next</span><span class="p">;</span>      <span class="c1">// q指向pos对应的结点
-</span></span></span><span class="line"><span class="ln"> 88</span><span class="cl"><span class="c1"></span>        <span class="n">p</span><span class="p">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">q</span><span class="p">.</span><span class="n">next</span><span class="p">;</span>      <span class="c1">// p指向q的后继结点
-</span></span></span><span class="line"><span class="ln"> 89</span><span class="cl"><span class="c1"></span>        <span class="n">free</span><span class="p">(</span><span class="n">q</span><span class="p">);</span>                <span class="c1">// 删除pos对应的结点
-</span></span></span><span class="line"><span class="ln"> 90</span><span class="cl"><span class="c1"></span>        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;删除成功！</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="ln"> 88</span><span class="cl">        <span class="n">p</span><span class="p">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">q</span><span class="p">.</span><span class="n">next</span><span class="p">;</span>      <span class="c1">// p指向q的后继结点
+</span></span></span><span class="line"><span class="ln"> 89</span><span class="cl">        <span class="n">free</span><span class="p">(</span><span class="n">q</span><span class="p">);</span>                <span class="c1">// 删除pos对应的结点
+</span></span></span><span class="line"><span class="ln"> 90</span><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;删除成功！</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln"> 91</span><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="ln"> 92</span><span class="cl">    <span class="k">else</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 93</span><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;删除错误！</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
@@ -995,7 +996,7 @@ $$ACN = \frac{1}{n} \sum_{i=0}^{n-1} (i+1) = \frac{1}{n} (1+2+\cdots+n) = \frac{
 </span></span><span class="line"><span class="ln"> 95</span><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="ln"> 96</span><span class="cl">
 </span></span><span class="line"><span class="ln"> 97</span><span class="cl"><span class="c1">// 释放链表
-</span></span></span><span class="line"><span class="ln"> 98</span><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">Free</span><span class="p">(</span><span class="n">Node</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln"> 98</span><span class="cl"><span class="kt">void</span> <span class="nf">Free</span><span class="p">(</span><span class="n">Node</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 99</span><span class="cl">    <span class="n">Node</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="n">L</span><span class="p">.</span><span class="n">next</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">100</span><span class="cl">    <span class="n">Node</span> <span class="o">*</span><span class="n">q</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">101</span><span class="cl">    
@@ -1011,15 +1012,15 @@ $$ACN = \frac{1}{n} \sum_{i=0}^{n-1} (i+1) = \frac{1}{n} (1+2+\cdots+n) = \frac{
 </h4><p>设被拼接链表为<code>append_list</code>，其头结点为<code>append_list.head</code>：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">void</span> <span class="nf">Append</span><span class="p">(</span><span class="n">Node</span> <span class="o">&amp;</span><span class="n">List</span><span class="p">,</span> <span class="n">Node</span> <span class="o">&amp;</span><span class="n">append_list</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="c1">// append_list.head是被拼接元素的头结点
-</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="c1"></span>
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl">
 </span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="c1">// append_list连接到尾结点之后
-</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="c1"></span>    <span class="n">last</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">append_list</span><span class="p">.</span><span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="n">last</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">append_list</span><span class="p">.</span><span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="c1">// 更新尾结点
-</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1"></span>    <span class="n">last</span> <span class="o">=</span> <span class="n">append_list</span><span class="p">.</span><span class="n">last</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="n">last</span> <span class="o">=</span> <span class="n">append_list</span><span class="p">.</span><span class="n">last</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="n">len</span> <span class="o">+=</span> <span class="n">append_list</span><span class="p">.</span><span class="n">len</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln"> 9</span><span class="cl">
 </span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="c1">// append_list清除
-</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="c1"></span>    <span class="n">append_list</span><span class="p">.</span><span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="n">append_list</span><span class="p">.</span><span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="n">append_list</span><span class="p">.</span><span class="n">len</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="k">return</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="p">}</span>
@@ -1077,7 +1078,7 @@ $$ACN = \frac{1}{n} \sum_{i=0}^{n-1} (i+1) = \frac{1}{n} (1+2+\cdots+n) = \frac{
 </span></span><span class="line"><span class="ln">29</span><span class="cl"><span class="kt">void</span> <span class="nf">push</span><span class="p">(</span><span class="n">Stack</span> <span class="o">&amp;</span><span class="n">s</span><span class="p">,</span> <span class="n">ElemType</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">30</span><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">top</span> <span class="o">==</span> <span class="n">MAXSIZE</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">31</span><span class="cl">        <span class="c1">// 栈已满
-</span></span></span><span class="line"><span class="ln">32</span><span class="cl"><span class="c1"></span>        <span class="k">return</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="ln">32</span><span class="cl">        <span class="k">return</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">33</span><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="ln">34</span><span class="cl">    <span class="k">else</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">35</span><span class="cl">        <span class="n">s</span><span class="p">.</span><span class="n">top</span> <span class="o">++</span><span class="p">;</span>
@@ -1090,7 +1091,7 @@ $$ACN = \frac{1}{n} \sum_{i=0}^{n-1} (i+1) = \frac{1}{n} (1+2+\cdots+n) = \frac{
 </span></span><span class="line"><span class="ln">42</span><span class="cl"><span class="kt">void</span> <span class="nf">pop</span><span class="p">(</span><span class="n">Stack</span> <span class="o">&amp;</span><span class="n">s</span><span class="p">,</span> <span class="n">ElemType</span> <span class="o">&amp;</span><span class="n">e</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">43</span><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">top</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">44</span><span class="cl">        <span class="c1">// 栈为空
-</span></span></span><span class="line"><span class="ln">45</span><span class="cl"><span class="c1"></span>        <span class="k">return</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="ln">45</span><span class="cl">        <span class="k">return</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">46</span><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="ln">47</span><span class="cl">    <span class="k">else</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">48</span><span class="cl">        <span class="n">e</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="n">s</span><span class="p">.</span><span class="n">top</span><span class="p">];</span>
@@ -1103,7 +1104,7 @@ $$ACN = \frac{1}{n} \sum_{i=0}^{n-1} (i+1) = \frac{1}{n} (1+2+\cdots+n) = \frac{
 </span></span><span class="line"><span class="ln">55</span><span class="cl"><span class="kt">void</span> <span class="nf">get_top</span><span class="p">(</span><span class="n">Stack</span> <span class="o">&amp;</span><span class="n">s</span><span class="p">,</span> <span class="n">ElemType</span> <span class="o">&amp;</span><span class="n">e</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">56</span><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">top</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">57</span><span class="cl">        <span class="c1">// 栈为空
-</span></span></span><span class="line"><span class="ln">58</span><span class="cl"><span class="c1"></span>        <span class="k">return</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="ln">58</span><span class="cl">        <span class="k">return</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">59</span><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="ln">60</span><span class="cl">    <span class="k">else</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">61</span><span class="cl">        <span class="n">e</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="n">s</span><span class="p">.</span><span class="n">top</span><span class="p">];</span>
@@ -1186,7 +1187,8 @@ $$ACN = \frac{1}{n} \sum_{i=0}^{n-1} (i+1) = \frac{1}{n} (1+2+\cdots+n) = \frac{
 </table></div>
 <blockquote>
 <p><code>#</code>标识了表达式的开始与结束。</p>
-<p>优先级的特点为：保持级差，同级进栈升高，左括号入栈降至最低。</p></blockquote>
+<p>优先级的特点为：保持级差，同级进栈升高，左括号入栈降至最低。</p>
+</blockquote>
 <ol start="3">
 <li>实现表达式求值 <br></li>
 </ol>
@@ -1270,7 +1272,7 @@ $$ACN = \frac{1}{n} \sum_{i=0}^{n-1} (i+1) = \frac{1}{n} (1+2+\cdots+n) = \frac{
 </h3><h4 id="定长顺序存储">定长顺序存储
 </h4><p>用一组地址连续的存储单元存储串值</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="cp">#define MAXSTRLEN 255
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="cp"></span><span class="k">typedef</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">sstring</span><span class="p">[</span><span class="n">MAXSTRLEN</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span>     <span class="c1">// 0号单元存串长
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="k">typedef</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">sstring</span><span class="p">[</span><span class="n">MAXSTRLEN</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span>     <span class="c1">// 0号单元存串长
 </span></span></span></code></pre></div><h4 id="堆分配存储">堆分配存储
 </h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="nc">HString</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="kt">char</span> <span class="o">*</span><span class="n">ch</span><span class="p">;</span>
@@ -1309,7 +1311,8 @@ $$ACN = \frac{1}{n} \sum_{i=0}^{n-1} (i+1) = \frac{1}{n} (1+2+\cdots+n) = \frac{
 $$\mathrm{LOC}(i,j) = \mathrm{LOC}(0,0) + (n \times i + j)$$<blockquote>
 <p>推广到一般情况，可得 $n$ 维数组的元素 <code>a[j1][j2]...[jn]</code> 的存储位置：</p>
 $$\mathrm{LOC}(j_1,j_2,\cdots,j_n) = \mathrm{LOC}(0,0,\cdots,0) + \sum_{i=1}^{n}c_i j_i$$<p>
-其中 $c_n = L，c_{i-1}=b_i \times c_i$</p></blockquote>
+其中 $c_n = L，c_{i-1}=b_i \times c_i$</p>
+</blockquote>
 <p>数组元素的存储位置与其下标存在一一对应的关系，所以存取数组中任一元素的时间均相等。我们称具有这一特点的存储结构为随机存储结构。</p>
 <h3 id="矩阵的压缩存储">矩阵的压缩存储
 </h3><h4 id="特殊矩阵">特殊矩阵
@@ -1346,7 +1349,8 @@ $$\mathrm{LOC}(j_1,j_2,\cdots,j_n) = \mathrm{LOC}(0,0,\cdots,0) + \sum_{i=1}^{n}
 <li>当 $n&gt;1$，除根结点以外的其他结点划分为 $m$ $(m&gt;0)$ 个互不相交的有限集 $T_1, T_2, \cdots , T_m$，其中每个集合本身又是一棵树，并且称为根的子树。</li>
 </ol>
 <blockquote>
-<p>由树的性质可知，树的结构具有递归性。</p></blockquote>
+<p>由树的性质可知，树的结构具有递归性。</p>
+</blockquote>
 <div class="table-wrapper"><table>
   <thead>
       <tr>
@@ -1419,7 +1423,7 @@ $$\mathrm{LOC}(j_1,j_2,\cdots,j_n) = \mathrm{LOC}(0,0,\cdots,0) + \sum_{i=1}^{n}
 </h4><h5 id="遍历">遍历
 </h5><p>按某种次序访问树中所有结点，并且每个结点仅访问一次的操作。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// 访问结点
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">visit</span><span class="p">(</span><span class="n">BinTreeNode</span> <span class="o">*</span><span class="n">T</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="kt">void</span> <span class="nf">visit</span><span class="p">(</span><span class="n">BinTreeNode</span> <span class="o">*</span><span class="n">T</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">T</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">4</span><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">5</span><span class="cl">    <span class="p">}</span>
@@ -1457,7 +1461,7 @@ $$\mathrm{LOC}(j_1,j_2,\cdots,j_n) = \mathrm{LOC}(0,0,\cdots,0) + \sum_{i=1}^{n}
   </tbody>
 </table></div>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1">// 先序遍历
-</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">PreOrder</span><span class="p">(</span><span class="n">BinTreeNode</span> <span class="o">*</span><span class="n">T</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kt">void</span> <span class="nf">PreOrder</span><span class="p">(</span><span class="n">BinTreeNode</span> <span class="o">*</span><span class="n">T</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">T</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 4</span><span class="cl">        <span class="n">visit</span><span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln"> 5</span><span class="cl">        <span class="n">PreOrder</span><span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">leftChild</span><span class="p">);</span>
@@ -1466,7 +1470,7 @@ $$\mathrm{LOC}(j_1,j_2,\cdots,j_n) = \mathrm{LOC}(0,0,\cdots,0) + \sum_{i=1}^{n}
 </span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="ln"> 9</span><span class="cl">
 </span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="c1">// 中序遍历
-</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">InOrder</span><span class="p">(</span><span class="n">BinTreeNode</span> <span class="o">*</span><span class="n">T</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="kt">void</span> <span class="nf">InOrder</span><span class="p">(</span><span class="n">BinTreeNode</span> <span class="o">*</span><span class="n">T</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">T</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">13</span><span class="cl">        <span class="n">PreOrder</span><span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">leftChild</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">14</span><span class="cl">        <span class="n">visit</span><span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span>
@@ -1475,7 +1479,7 @@ $$\mathrm{LOC}(j_1,j_2,\cdots,j_n) = \mathrm{LOC}(0,0,\cdots,0) + \sum_{i=1}^{n}
 </span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="ln">18</span><span class="cl">
 </span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="c1">// 后序遍历
-</span></span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">PostOrder</span><span class="p">(</span><span class="n">BinTreeNode</span> <span class="o">*</span><span class="n">T</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="kt">void</span> <span class="nf">PostOrder</span><span class="p">(</span><span class="n">BinTreeNode</span> <span class="o">*</span><span class="n">T</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">21</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">T</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">22</span><span class="cl">        <span class="n">PreOrder</span><span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">leftChild</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">23</span><span class="cl">        <span class="n">PreOrder</span><span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">rightChild</span><span class="p">);</span>
@@ -1485,7 +1489,7 @@ $$\mathrm{LOC}(j_1,j_2,\cdots,j_n) = \mathrm{LOC}(0,0,\cdots,0) + \sum_{i=1}^{n}
 </span></span></code></pre></div><h5 id="获取二叉树的相关信息">获取二叉树的相关信息
 </h5><p>二叉树的操作函数基本都是以递归作为执行的核心逻辑。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1">// 按前序建立二叉树
-</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">CreateBiTree</span><span class="p">(</span><span class="n">BiTree</span><span class="o">*</span> <span class="o">&amp;</span><span class="n">T</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kt">void</span> <span class="nf">CreateBiTree</span><span class="p">(</span><span class="n">BiTree</span><span class="o">*</span> <span class="o">&amp;</span><span class="n">T</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="n">scanf</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ch</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">ch</span> <span class="o">==</span> <span class="sc">&#39;@&#39;</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 5</span><span class="cl">        <span class="n">T</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
@@ -1499,7 +1503,7 @@ $$\mathrm{LOC}(j_1,j_2,\cdots,j_n) = \mathrm{LOC}(0,0,\cdots,0) + \sum_{i=1}^{n}
 </span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="ln">14</span><span class="cl">
 </span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="c1">// 计算二叉树结点个数
-</span></span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="kt">int</span> <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="kt">void</span> <span class="nf">NodeCount</span><span class="p">(</span><span class="n">BiTree</span><span class="o">*</span> <span class="o">&amp;</span><span class="n">T</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">18</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">T</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">19</span><span class="cl">        <span class="n">cnt</span> <span class="o">++</span><span class="p">;</span>
@@ -1509,7 +1513,7 @@ $$\mathrm{LOC}(j_1,j_2,\cdots,j_n) = \mathrm{LOC}(0,0,\cdots,0) + \sum_{i=1}^{n}
 </span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="ln">24</span><span class="cl">
 </span></span><span class="line"><span class="ln">25</span><span class="cl"><span class="c1">// 求二叉树叶结点个数
-</span></span></span><span class="line"><span class="ln">26</span><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="nf">LeafCount</span><span class="p">(</span><span class="n">BiTree</span><span class="o">*</span> <span class="o">&amp;</span><span class="n">T</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln">26</span><span class="cl"><span class="kt">int</span> <span class="nf">LeafCount</span><span class="p">(</span><span class="n">BiTree</span><span class="o">*</span> <span class="o">&amp;</span><span class="n">T</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">27</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">T</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">28</span><span class="cl">        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">29</span><span class="cl">    <span class="p">}</span>
@@ -1522,7 +1526,7 @@ $$\mathrm{LOC}(j_1,j_2,\cdots,j_n) = \mathrm{LOC}(0,0,\cdots,0) + \sum_{i=1}^{n}
 </span></span><span class="line"><span class="ln">36</span><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="ln">37</span><span class="cl">
 </span></span><span class="line"><span class="ln">38</span><span class="cl"><span class="c1">// 求二叉树高度
-</span></span></span><span class="line"><span class="ln">39</span><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="nf">Height</span><span class="p">(</span><span class="n">BiTree</span><span class="o">*</span> <span class="o">&amp;</span><span class="n">T</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln">39</span><span class="cl"><span class="kt">int</span> <span class="nf">Height</span><span class="p">(</span><span class="n">BiTree</span><span class="o">*</span> <span class="o">&amp;</span><span class="n">T</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">40</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">T</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">41</span><span class="cl">        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">42</span><span class="cl">    <span class="p">}</span>
@@ -1557,38 +1561,38 @@ $$\mathrm{LOC}(j_1,j_2,\cdots,j_n) = \mathrm{LOC}(0,0,\cdots,0) + \sum_{i=1}^{n}
   </tbody>
 </table></div>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1">// 重构二叉树
-</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">BuildTree</span><span class="p">(</span><span class="n">BinTreeNode</span><span class="o">*</span> <span class="o">&amp;</span><span class="n">T</span><span class="p">,</span> <span class="n">ElemType</span> <span class="n">PreStart</span><span class="p">,</span> <span class="n">ElemType</span> <span class="n">PreEnd</span><span class="p">,</span> 
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kt">void</span> <span class="nf">BuildTree</span><span class="p">(</span><span class="n">BinTreeNode</span><span class="o">*</span> <span class="o">&amp;</span><span class="n">T</span><span class="p">,</span> <span class="n">ElemType</span> <span class="n">PreStart</span><span class="p">,</span> <span class="n">ElemType</span> <span class="n">PreEnd</span><span class="p">,</span> 
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl">                <span class="n">ElemType</span> <span class="n">InStart</span><span class="p">,</span> <span class="n">ElemType</span> <span class="n">InEnd</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="c1">// 递归终点
-</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="n">PreStart</span> <span class="o">&gt;</span> <span class="n">PreEnd</span> <span class="o">||</span> <span class="n">InStart</span> <span class="o">&gt;</span> <span class="n">InEnd</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">PreStart</span> <span class="o">&gt;</span> <span class="n">PreEnd</span> <span class="o">||</span> <span class="n">InStart</span> <span class="o">&gt;</span> <span class="n">InEnd</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 6</span><span class="cl">        <span class="k">return</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="ln"> 8</span><span class="cl">
 </span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="n">T</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BinTreeNode</span><span class="p">();</span>
 </span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="c1">// 当前子树的根结点
-</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="c1"></span>    <span class="n">T</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">=</span> <span class="n">PreSeq</span><span class="p">[</span><span class="n">PreStart</span><span class="p">];</span>
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="n">T</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">=</span> <span class="n">PreSeq</span><span class="p">[</span><span class="n">PreStart</span><span class="p">];</span>
 </span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="n">T</span><span class="o">-&gt;</span><span class="n">leftChild</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="n">T</span><span class="o">-&gt;</span><span class="n">rightChild</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">14</span><span class="cl">
 </span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="c1">// 寻找中序遍历的根结点位置
-</span></span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">root</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">,</span> <span class="n">InSeq</span><span class="p">,</span> <span class="n">InStart</span><span class="p">,</span> <span class="n">InEnd</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="kt">int</span> <span class="n">root</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">,</span> <span class="n">InSeq</span><span class="p">,</span> <span class="n">InStart</span><span class="p">,</span> <span class="n">InEnd</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="c1">// 计算左子树结点数目
-</span></span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">nL</span> <span class="o">=</span> <span class="n">root</span> <span class="o">-</span> <span class="n">InStart</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="ln">18</span><span class="cl">    <span class="kt">int</span> <span class="n">nL</span> <span class="o">=</span> <span class="n">root</span> <span class="o">-</span> <span class="n">InStart</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">19</span><span class="cl">    
 </span></span><span class="line"><span class="ln">20</span><span class="cl">    <span class="c1">// 递归构建左子树
-</span></span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="c1"></span>    <span class="n">BuildTree</span><span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">leftChild</span><span class="p">,</span> <span class="n">PreStart</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">PreStart</span><span class="o">+</span><span class="n">nL</span><span class="p">,</span> <span class="n">InStart</span><span class="p">,</span> <span class="n">root</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="ln">21</span><span class="cl">    <span class="n">BuildTree</span><span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">leftChild</span><span class="p">,</span> <span class="n">PreStart</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">PreStart</span><span class="o">+</span><span class="n">nL</span><span class="p">,</span> <span class="n">InStart</span><span class="p">,</span> <span class="n">root</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">22</span><span class="cl">    <span class="c1">// 递归构建右子树
-</span></span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="c1"></span>    <span class="n">BuildTree</span><span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">rightChild</span><span class="p">,</span> <span class="n">PreStart</span><span class="o">+</span><span class="n">nL</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">PreEnd</span><span class="p">,</span> <span class="n">root</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">InEnd</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="ln">23</span><span class="cl">    <span class="n">BuildTree</span><span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">rightChild</span><span class="p">,</span> <span class="n">PreStart</span><span class="o">+</span><span class="n">nL</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">PreEnd</span><span class="p">,</span> <span class="n">root</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">InEnd</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h4 id="线索二叉树">线索二叉树
 </h4><p>线索二叉树中，除根节点外，每个结点都有自己的前驱和后继。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">struct</span> <span class="nc">BiTree</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="n">ElemType</span> <span class="n">data</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="n">BiTree</span> <span class="n">LeftTread</span><span class="p">;</span>       <span class="c1">// 左子女指针
-</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1"></span>    <span class="n">BiTree</span> <span class="n">RightTread</span><span class="p">;</span>      <span class="c1">// 右子女指针
-</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="c1"></span>    <span class="n">BiTree</span> <span class="o">*</span><span class="n">LeftChild</span><span class="p">;</span>      <span class="c1">// 左子树指针
-</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="c1"></span>    <span class="n">BiTree</span> <span class="o">*</span><span class="n">RightChild</span><span class="p">;</span>     <span class="c1">// 右子树指针
-</span></span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl">    <span class="n">BiTree</span> <span class="n">RightTread</span><span class="p">;</span>      <span class="c1">// 右子女指针
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl">    <span class="n">BiTree</span> <span class="o">*</span><span class="n">LeftChild</span><span class="p">;</span>      <span class="c1">// 左子树指针
+</span></span></span><span class="line"><span class="ln">6</span><span class="cl">    <span class="n">BiTree</span> <span class="o">*</span><span class="n">RightChild</span><span class="p">;</span>     <span class="c1">// 右子树指针
+</span></span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="p">};</span>
 </span></span></code></pre></div><h3 id="树与森林">树与森林
 </h3><h4 id="树的存储结构">树的存储结构
 </h4><ol>
@@ -1625,7 +1629,8 @@ $$\mathrm{LOC}(j_1,j_2,\cdots,j_n) = \mathrm{LOC}(0,0,\cdots,0) + \sum_{i=1}^{n}
   </tbody>
 </table></div>
 <blockquote>
-<p>容易知道，$PL=EPL+IPL$</p></blockquote>
+<p>容易知道，$PL=EPL+IPL$</p>
+</blockquote>
 <p>霍夫曼树就是带权路径长度最小的二叉树，也称作最优二叉树。</p>
 <p>在霍夫曼树中，权值大的结点离根结点越近。</p>
 <h4 id="构造霍夫曼树">构造霍夫曼树
@@ -1643,7 +1648,8 @@ $$\mathrm{LOC}(j_1,j_2,\cdots,j_n) = \mathrm{LOC}(0,0,\cdots,0) + \sum_{i=1}^{n}
       <h4>图</h4>
     </figcaption>
 </figure>
-</p></blockquote>
+</p>
+</blockquote>
 <h3 id="图的基本概念">图的基本概念
 </h3><div class="table-wrapper"><table>
   <thead>
@@ -1691,7 +1697,8 @@ $$\mathrm{LOC}(j_1,j_2,\cdots,j_n) = \mathrm{LOC}(0,0,\cdots,0) + \sum_{i=1}^{n}
 </h3><h4 id="邻接矩阵">邻接矩阵
 </h4><p>设图 $G = (V,E)$ 是一个有 $n$ 个顶点的图，则其邻接矩阵是一个二维数组 <code>G.edge[n][n]</code>，定义 </p>
 $$G.edge[i][j] = \left\{ \begin{matrix} 1， & \left< i,j \right> \in E \ 或\  (i,j) \in E \\\\ 0， & 其他 \end{matrix} \right.$$<blockquote>
-<p>由定义可知，无向图的邻接矩阵是对称的。</p></blockquote>
+<p>由定义可知，无向图的邻接矩阵是对称的。</p>
+</blockquote>
 <h4 id="邻接表">邻接表
 </h4><p>邻接表是图的一种链式存储结构</p>
 <p>设图中有 $n$ 个顶点，$e$ 条边，则</p>
@@ -1705,21 +1712,21 @@ $$G.edge[i][j] = \left\{ \begin{matrix} 1， & \left< i,j \right> \in E \ 或\  
 </span></span><span class="line"><span class="ln"> 4</span><span class="cl">
 </span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="k">struct</span> <span class="nc">node</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="kt">int</span> <span class="n">dest</span><span class="err">；</span>          <span class="c1">// 目标顶点位置
-</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1"></span>    <span class="n">EdgeData</span> <span class="n">cost</span><span class="p">;</span>      <span class="c1">// 边的权值
-</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1"></span>    <span class="n">node</span> <span class="o">*</span><span class="n">link</span><span class="p">;</span>         <span class="c1">// 下一条边的指针
-</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="n">EdgeData</span> <span class="n">cost</span><span class="p">;</span>      <span class="c1">// 边的权值
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="n">node</span> <span class="o">*</span><span class="n">link</span><span class="p">;</span>         <span class="c1">// 下一条边的指针
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="p">};</span>
 </span></span><span class="line"><span class="ln">10</span><span class="cl">
 </span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="cm">/* ----- 顶点的邻接链表 ----- */</span>
 </span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="k">struct</span> <span class="nc">vnode</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="n">VertexData</span> <span class="n">data</span><span class="p">;</span>    <span class="c1">// 顶点数据域
-</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="c1"></span>    <span class="n">node</span> <span class="o">*</span><span class="n">adj</span><span class="p">;</span>          <span class="c1">// 边链表头指针
-</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="n">node</span> <span class="o">*</span><span class="n">adj</span><span class="p">;</span>          <span class="c1">// 边链表头指针
+</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="p">};</span>
 </span></span><span class="line"><span class="ln">16</span><span class="cl">
 </span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="cm">/* ----- 图 ----- */</span>
 </span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="k">struct</span> <span class="nc">adjgraph</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">19</span><span class="cl">    <span class="n">vnode</span> <span class="n">VetList</span><span class="p">[</span><span class="n">MaxVexNum</span><span class="p">];</span>   <span class="c1">// 邻接表
-</span></span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">n</span><span class="p">,</span><span class="n">e</span><span class="p">;</span>                    <span class="c1">// 图中当前的顶点个数与边数
-</span></span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span></span><span class="line"><span class="ln">20</span><span class="cl">    <span class="kt">int</span> <span class="n">n</span><span class="p">,</span><span class="n">e</span><span class="p">;</span>                    <span class="c1">// 图中当前的顶点个数与边数
+</span></span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="p">};</span>
 </span></span></code></pre></div><p>邻接表的示意图如下：</p>
 <figure><img src="/p/data-structure/images/%E9%82%BB%E6%8E%A5%E8%A1%A8.png" width="700"><figcaption>
       <h4>邻接表</h4>
@@ -1773,7 +1780,7 @@ $$G.edge[i][j] = \left\{ \begin{matrix} 1， & \left< i,j \right> \in E \ 或\  
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="kt">int</span> <span class="n">visit</span><span class="p">[</span><span class="mi">16</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
 </span></span><span class="line"><span class="ln"> 4</span><span class="cl">    
 </span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="c1">// 每个连通分支调用一次DFS
-</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">15</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">15</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 7</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">visit</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">{</span>   
 </span></span><span class="line"><span class="ln"> 8</span><span class="cl">            <span class="n">stack</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln"> 9</span><span class="cl">            <span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
@@ -1788,7 +1795,7 @@ $$G.edge[i][j] = \left\{ \begin{matrix} 1， & \left< i,j \right> \in E \ 或\  
 </span></span><span class="line"><span class="ln">18</span><span class="cl">                <span class="p">}</span>
 </span></span><span class="line"><span class="ln">19</span><span class="cl">                
 </span></span><span class="line"><span class="ln">20</span><span class="cl">                <span class="c1">// 将所有未访问的邻接节点入栈
-</span></span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="c1"></span>                <span class="n">enode</span> <span class="o">*</span><span class="n">w</span> <span class="o">=</span> <span class="n">G</span><span class="p">.</span><span class="n">Vexlist</span><span class="p">[</span><span class="n">top</span><span class="p">].</span><span class="n">adj</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="ln">21</span><span class="cl">                <span class="n">enode</span> <span class="o">*</span><span class="n">w</span> <span class="o">=</span> <span class="n">G</span><span class="p">.</span><span class="n">Vexlist</span><span class="p">[</span><span class="n">top</span><span class="p">].</span><span class="n">adj</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">22</span><span class="cl">                <span class="k">while</span> <span class="p">(</span><span class="n">w</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">23</span><span class="cl">                    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">visit</span><span class="p">[</span><span class="n">w</span><span class="o">-&gt;</span><span class="n">dest</span><span class="p">])</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">24</span><span class="cl">                        <span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">w</span><span class="o">-&gt;</span><span class="n">dest</span><span class="p">);</span>
@@ -1815,7 +1822,7 @@ $$G.edge[i][j] = \left\{ \begin{matrix} 1， & \left< i,j \right> \in E \ 或\  
 </ol>
 <p>队列形式：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1">// 广度优先搜索
-</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">BFS</span><span class="p">(</span><span class="n">adjGraph</span> <span class="o">&amp;</span><span class="n">G</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kt">void</span> <span class="nf">BFS</span><span class="p">(</span><span class="n">adjGraph</span> <span class="o">&amp;</span><span class="n">G</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="kt">int</span> <span class="n">visit</span><span class="p">[</span><span class="mi">16</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
 </span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="mi">15</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 5</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">visit</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">{</span>
@@ -1859,7 +1866,7 @@ $$G.edge[i][j] = \left\{ \begin{matrix} 1， & \left< i,j \right> \in E \ 或\  
 </ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cm">/* ----- Prim 算法求最小生成树 ----- */</span>
 </span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kt">void</span> <span class="nf">Prim</span><span class="p">(</span><span class="n">Graph</span> <span class="o">&amp;</span><span class="n">G</span><span class="p">,</span> <span class="kt">int</span> <span class="n">u</span><span class="p">)</span> <span class="p">{</span>    <span class="c1">// u 表示初始时的顶点
-</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">lowcost</span><span class="p">[</span><span class="n">G</span><span class="p">.</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="kt">int</span> <span class="n">lowcost</span><span class="p">[</span><span class="n">G</span><span class="p">.</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
 </span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="kt">int</span> <span class="n">adjvex</span><span class="p">[</span><span class="n">G</span><span class="p">.</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
 </span></span><span class="line"><span class="ln"> 5</span><span class="cl">
 </span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">G</span><span class="p">.</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
@@ -1869,22 +1876,22 @@ $$G.edge[i][j] = \left\{ \begin{matrix} 1， & \left< i,j \right> \in E \ 或\  
 </span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="n">adjvex</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">11</span><span class="cl">
 </span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="c1">// 查找最小的lowcost
-</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">G</span><span class="p">.</span><span class="n">n</span> <span class="o">&amp;&amp;</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">u</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">G</span><span class="p">.</span><span class="n">n</span> <span class="o">&amp;&amp;</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">u</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">14</span><span class="cl">        <span class="n">EdgeData</span> <span class="n">min</span> <span class="o">=</span> <span class="n">MaxValue</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">15</span><span class="cl">        <span class="kt">int</span> <span class="n">v</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">16</span><span class="cl">        <span class="c1">// 查找生成树外顶点到生成树内顶点具有最小权值的边，v是当前具有最小权值的边
-</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="c1"></span>        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">G</span><span class="p">.</span><span class="n">n</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln">17</span><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">G</span><span class="p">.</span><span class="n">n</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">18</span><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">adjvex</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">lowcost</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">min</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">19</span><span class="cl">                <span class="n">v</span> <span class="o">=</span> <span class="n">j</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">20</span><span class="cl">                <span class="n">min</span> <span class="o">=</span> <span class="n">lowcost</span><span class="p">[</span><span class="n">w</span><span class="p">];</span>
 </span></span><span class="line"><span class="ln">21</span><span class="cl">            <span class="p">}</span>
 </span></span><span class="line"><span class="ln">22</span><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="ln">23</span><span class="cl">        <span class="c1">// v!=0 表示找到所求的边，并加入生成树
-</span></span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="n">v</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln">24</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">v</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">25</span><span class="cl">            <span class="n">prinf</span><span class="p">(</span><span class="s">&#34;%d, %d, %d&#34;</span><span class="p">,</span> <span class="n">adjvex</span><span class="p">[</span><span class="n">v</span><span class="p">],</span> <span class="n">v</span><span class="p">,</span> <span class="n">lowcost</span><span class="p">[</span><span class="n">v</span><span class="p">]);</span>
 </span></span><span class="line"><span class="ln">26</span><span class="cl">            <span class="n">adjvex</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">27</span><span class="cl">            <span class="c1">// 更新 adjvex 和 lowcost 数组
-</span></span></span><span class="line"><span class="ln">28</span><span class="cl"><span class="c1"></span>            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">G</span><span class="p">.</span><span class="n">n</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln">28</span><span class="cl">            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">G</span><span class="p">.</span><span class="n">n</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">29</span><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="n">adjvex</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">G</span><span class="p">.</span><span class="n">edge</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">lowcost</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">30</span><span class="cl">                    <span class="n">lowcost</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">G</span><span class="p">.</span><span class="n">edge</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
 </span></span><span class="line"><span class="ln">31</span><span class="cl">                    <span class="n">adjvex</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">;</span>
@@ -1906,34 +1913,34 @@ $$G.edge[i][j] = \left\{ \begin{matrix} 1， & \left< i,j \right> \in E \ 或\  
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">void</span> <span class="nf">TopologicalSort</span><span class="p">(</span><span class="n">adjGraph</span> <span class="o">&amp;</span><span class="n">G</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="n">stack</span> <span class="n">S</span><span class="p">;</span> <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="c1">// 入度为零的顶点栈初始化
-</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">s</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">s</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 5</span><span class="cl">        <span class="n">s</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
 </span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="ln"> 7</span><span class="cl">    
 </span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">G</span><span class="p">.</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>	<span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 9</span><span class="cl">        <span class="c1">// 将入度为0的顶点进栈
-</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="n">count</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">count</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">11</span><span class="cl">            <span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">12</span><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="p">}</span>	 
 </span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="c1">// 期望输出n个顶点
-</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">G</span><span class="p">.</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">G</span><span class="p">.</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">16</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>	<span class="p">{</span>
 </span></span><span class="line"><span class="ln">17</span><span class="cl">            <span class="k">return</span><span class="p">;</span>		<span class="c1">// 中途栈空，退出
-</span></span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="c1"></span>        <span class="p">}</span>							<span class="c1">// 网络中有回路，退出
-</span></span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="c1"></span>        <span class="k">else</span> <span class="p">{</span>					<span class="c1">// 继续拓扑排序
-</span></span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="c1"></span>            <span class="n">j</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">top</span><span class="p">();</span>
+</span></span></span><span class="line"><span class="ln">18</span><span class="cl">        <span class="p">}</span>							<span class="c1">// 网络中有回路，退出
+</span></span></span><span class="line"><span class="ln">19</span><span class="cl">        <span class="k">else</span> <span class="p">{</span>					<span class="c1">// 继续拓扑排序
+</span></span></span><span class="line"><span class="ln">20</span><span class="cl">            <span class="n">j</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">top</span><span class="p">();</span>
 </span></span><span class="line"><span class="ln">21</span><span class="cl">            <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">j</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">22</span><span class="cl">
 </span></span><span class="line"><span class="ln">23</span><span class="cl">            <span class="c1">// 扫描出边表，更新与j相连的顶点入度
-</span></span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="c1"></span>            <span class="n">EdgeNode</span> <span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">G</span><span class="p">.</span><span class="n">VexList</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">adj</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="ln">24</span><span class="cl">            <span class="n">EdgeNode</span> <span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">G</span><span class="p">.</span><span class="n">VexList</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">adj</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">25</span><span class="cl">            <span class="k">while</span> <span class="p">(</span><span class="n">p</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>	
 </span></span><span class="line"><span class="ln">26</span><span class="cl">                <span class="c1">// 获得另一顶点		
-</span></span></span><span class="line"><span class="ln">27</span><span class="cl"><span class="c1"></span>                <span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">dest</span><span class="p">;</span>			
+</span></span></span><span class="line"><span class="ln">27</span><span class="cl">                <span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">dest</span><span class="p">;</span>			
 </span></span><span class="line"><span class="ln">28</span><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="n">count</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">29</span><span class="cl">                    <span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">k</span><span class="p">);</span>      <span class="c1">// 将入度为零的顶点进栈
-</span></span></span><span class="line"><span class="ln">30</span><span class="cl"><span class="c1"></span>                    <span class="n">count</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">--</span> <span class="p">;</span>    <span class="c1">// 顶点入度减一
-</span></span></span><span class="line"><span class="ln">31</span><span class="cl"><span class="c1"></span>                <span class="p">}</span> 	
+</span></span></span><span class="line"><span class="ln">30</span><span class="cl">                    <span class="n">count</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">--</span> <span class="p">;</span>    <span class="c1">// 顶点入度减一
+</span></span></span><span class="line"><span class="ln">31</span><span class="cl">                <span class="p">}</span> 	
 </span></span><span class="line"><span class="ln">32</span><span class="cl">                <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">link</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">33</span><span class="cl">            <span class="p">}</span>
 </span></span><span class="line"><span class="ln">34</span><span class="cl">        <span class="p">}</span>
@@ -2032,17 +2039,19 @@ $$G.edge[i][j] = \left\{ \begin{matrix} 1， & \left< i,j \right> \in E \ 或\  
 <p>平均查找长度ASL：</p>
 <p>为确定记录在表中的位置，需和给定值进行比较的关键字的个数的期望值称作查找算法的ASL。</p>
 <p>对含有 $n$ 个记录的表，</p>
-$$ASL=\sum_{i=𝟏}^{n} p_i c_i$$<p> 其中：$p_i$ 为查找表中第 $i$ 个元素的概率，$\displaystyle \sum_{i=𝟏}^{n} p_i =1$，$c_i$ 为查找表中第 $i$ 个元素所需比较次数。</p></blockquote>
+$$ASL=\sum_{i=𝟏}^{n} p_i c_i$$<p> 其中：$p_i$ 为查找表中第 $i$ 个元素的概率，$\displaystyle \sum_{i=𝟏}^{n} p_i =1$，$c_i$ 为查找表中第 $i$ 个元素所需比较次数。</p>
+</blockquote>
 <h3 id="静态查找表">静态查找表
 </h3><h4 id="顺序表的查找">顺序表的查找
 </h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="kt">int</span> <span class="nf">Search_Seq</span><span class="p">(</span><span class="n">SSTable</span> <span class="n">ST</span><span class="p">,</span> <span class="n">KeyType</span> <span class="n">key</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="c1">// 在顺序表ST中顺序查找其关键字等于key的数据元素。
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"></span>    <span class="c1">// 若找到，则函数值为该元素在表中的位置，否则为0。
-</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1"></span>    <span class="n">ST</span><span class="p">.</span><span class="n">elem</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">key</span> <span class="o">=</span> <span class="n">key</span><span class="p">;</span>	<span class="c1">// 设置哨兵
-</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="c1"></span>    <span class="c1">// 从后往前找
-</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="c1"></span>    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">ST</span><span class="p">.</span><span class="n">length</span><span class="p">;</span> <span class="n">ST</span><span class="p">.</span><span class="n">elem</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">key</span> <span class="o">!=</span> <span class="n">key</span><span class="p">;</span> <span class="o">--</span><span class="n">i</span><span class="p">)</span> <span class="p">;</span>
-</span></span><span class="line"><span class="ln">7</span><span class="cl">    <span class="k">return</span> <span class="n">i</span><span class="p">;</span>  <span class="c1">// 找不到时，i 为0
-</span></span></span><span class="line"><span class="ln">8</span><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="c1">// 若找到，则函数值为该元素在表中的位置，否则为0。
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl">    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">    <span class="n">ST</span><span class="p">.</span><span class="n">elem</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">key</span> <span class="o">=</span> <span class="n">key</span><span class="p">;</span>	<span class="c1">// 设置哨兵
+</span></span></span><span class="line"><span class="ln">6</span><span class="cl">    <span class="c1">// 从后往前找
+</span></span></span><span class="line"><span class="ln">7</span><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">ST</span><span class="p">.</span><span class="n">length</span><span class="p">;</span> <span class="n">ST</span><span class="p">.</span><span class="n">elem</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">key</span> <span class="o">!=</span> <span class="n">key</span><span class="p">;</span> <span class="o">--</span><span class="n">i</span><span class="p">)</span> <span class="p">;</span>
+</span></span><span class="line"><span class="ln">8</span><span class="cl">    <span class="k">return</span> <span class="n">i</span><span class="p">;</span>  <span class="c1">// 找不到时，i为0
+</span></span></span><span class="line"><span class="ln">9</span><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>查找性能分析：</p>
 <ol>
 <li>在等概率查找的情况下，$\displaystyle p_i = \frac{1}{n}$，顺序表查找成功时的平均查找长度为：$$ASL = \frac{1}{n} \sum_{i=1}^{n} (n-i+1) = \frac{n+1}{n} $$</li>
@@ -2133,13 +2142,13 @@ $$ASL=\sum_{i=𝟏}^{n} p_i c_i$$<p> 其中：$p_i$ 为查找表中第 $i$ 个�
 </span></span><span class="line"><span class="ln"> 5</span><span class="cl">
 </span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="c1">// 输入
-</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1"></span>    <span class="nf">scanf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">num</span><span class="p">);</span>      <span class="c1">// 整数
-</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="c1"></span>    <span class="nf">scanf</span><span class="p">(</span><span class="s">&#34;%f&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">fnum</span><span class="p">);</span>     <span class="c1">// float类型浮点数
-</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="c1"></span>    <span class="nf">scanf</span><span class="p">(</span><span class="s">&#34;%lf&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">dnum</span><span class="p">);</span>    <span class="c1">// double类型浮点数
-</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="c1"></span>    <span class="nf">scanf</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">,</span> <span class="n">str</span><span class="p">);</span>       <span class="c1">// 字符串
-</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="c1"></span>
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="nf">scanf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">num</span><span class="p">);</span>      <span class="c1">// 整数
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="nf">scanf</span><span class="p">(</span><span class="s">&#34;%f&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">fnum</span><span class="p">);</span>     <span class="c1">// float类型浮点数
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="nf">scanf</span><span class="p">(</span><span class="s">&#34;%lf&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">dnum</span><span class="p">);</span>    <span class="c1">// double类型浮点数
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="nf">scanf</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">,</span> <span class="n">str</span><span class="p">);</span>       <span class="c1">// 字符串
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl">
 </span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="c1">//输出
-</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="c1"></span>    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="n">num</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="n">num</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%f&#34;</span><span class="p">,</span> <span class="n">fnum</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">16</span><span class="cl">
 </span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
@@ -2262,7 +2271,8 @@ $$ASL=\sum_{i=𝟏}^{n} p_i c_i$$<p> 其中：$p_i$ 为查找表中第 $i$ 个�
   </tbody>
 </table></div>
 <blockquote>
-<p>申请要判空，用完必释放，扩容用临时，释放后置 NULL。</p></blockquote>
+<p>申请要判空，用完必释放，扩容用临时，释放后置 NULL。</p>
+</blockquote>
 
 </section>
 

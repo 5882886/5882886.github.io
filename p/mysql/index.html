@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/mysql/'>
 
-<link rel="stylesheet" href="/scss/style.min.e851fcab2a85f7d449567d7f43c7cd36646cf5a9b08bb9364dca65dd264196e2.css"><meta property='og:title' content="MySQL操作">
+<link rel="stylesheet" href="/scss/style.min.90289cd6c8c19645ed90d05b0f2cd54bca3088b1ce8c3826878145b9a627f3fe.css"><meta property='og:title' content="MySQL操作">
 <meta property='og:description' content="默默无闻的后端……">
 <meta property='og:url' content='https://5882886.github.io/p/mysql/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -676,16 +676,17 @@
 <li>查询</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">-- 查询所有数据库
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"></span><span class="k">SHOW</span><span class="w"> </span><span class="n">DATABASES</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="w"></span><span class="c1">-- 查询当前数据库
-</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">DATABASE</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="k">SHOW</span><span class="w"> </span><span class="n">DATABASES</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1">-- 查询当前数据库
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="k">DATABASE</span><span class="p">();</span><span class="w">
 </span></span></span></code></pre></div><ul>
 <li>创建</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="p">[</span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="p">]</span><span class="w"> </span><span class="err">数据库名</span><span class="w"> 
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="w"></span><span class="p">[</span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">CHARSET</span><span class="w"> </span><span class="err">字符集</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="k">COLLATE</span><span class="w"> </span><span class="err">排序规则</span><span class="p">];</span><span class="w">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="p">[</span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">CHARSET</span><span class="w"> </span><span class="err">字符集</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="k">COLLATE</span><span class="w"> </span><span class="err">排序规则</span><span class="p">];</span><span class="w">
 </span></span></span></code></pre></div><blockquote>
-<p>MySQL中建议使用字符集<code>UTF8mb4</code>。</p></blockquote>
+<p>MySQL中建议使用字符集<code>UTF8mb4</code>。</p>
+</blockquote>
 <ul>
 <li>删除</li>
 </ul>
@@ -719,7 +720,7 @@
 </span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="w">    </span><span class="err">字段</span><span class="mi">3</span><span class="w"> </span><span class="err">字段</span><span class="mi">3</span><span class="err">类型</span><span class="w"> </span><span class="p">[</span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;字段3注释&#39;</span><span class="p">],</span><span class="w">
 </span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="w">    </span><span class="p">...</span><span class="w">
 </span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="w">    </span><span class="err">字段</span><span class="n">n</span><span class="w"> </span><span class="err">字段</span><span class="n">n类型</span><span class="w"> </span><span class="p">[</span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;字段n注释&#39;</span><span class="p">]</span><span class="w">
-</span></span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;表注释&#39;</span><span class="p">];</span><span class="w">
+</span></span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;表注释&#39;</span><span class="p">];</span><span class="w">
 </span></span></span></code></pre></div><p>参见：<a class="link" href="/p/mysql/#mysql%e7%9a%84%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b" >MySQL的数据类型
     
     
@@ -752,9 +753,9 @@
 <li>删除表</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">-- 删除表
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"></span><span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">[</span><span class="k">IF</span><span class="w"> </span><span class="k">EXISTS</span><span class="p">]</span><span class="w"> </span><span class="err">表名</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="w"></span><span class="c1">-- 删除指定表，并重新创建该表
-</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1"></span><span class="k">TRUNCATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="err">表名</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">[</span><span class="k">IF</span><span class="w"> </span><span class="k">EXISTS</span><span class="p">]</span><span class="w"> </span><span class="err">表名</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1">-- 删除指定表，并重新创建该表
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="k">TRUNCATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="err">表名</span><span class="p">;</span><span class="w">
 </span></span></span></code></pre></div><h2 id="dml">DML
 </h2><p>数据操作语言，用于数据库中数据的增删改。</p>
 <h3 id="添加数据">添加数据
@@ -770,47 +771,48 @@
 <li>批量添加数据</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">-- 指定字段名添加
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="err">表名</span><span class="p">(</span><span class="err">字段名</span><span class="mi">1</span><span class="p">,</span><span class="err">字段名</span><span class="mi">2</span><span class="p">,...)</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">值</span><span class="mi">2</span><span class="p">,...),(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">值</span><span class="mi">2</span><span class="p">,...),(...);</span><span class="w">
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="w"></span><span class="c1">-- 全部添加
-</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">值</span><span class="mi">2</span><span class="p">,...),(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">值</span><span class="mi">2</span><span class="p">,...),(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">值</span><span class="mi">2</span><span class="p">,...);</span><span class="w">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="err">表名</span><span class="p">(</span><span class="err">字段名</span><span class="mi">1</span><span class="p">,</span><span class="err">字段名</span><span class="mi">2</span><span class="p">,...)</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">值</span><span class="mi">2</span><span class="p">,...),(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">值</span><span class="mi">2</span><span class="p">,...),(...);</span><span class="w">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1">-- 全部添加
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">值</span><span class="mi">2</span><span class="p">,...),(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">值</span><span class="mi">2</span><span class="p">,...),(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">值</span><span class="mi">2</span><span class="p">,...);</span><span class="w">
 </span></span></span></code></pre></div><blockquote>
 <p>注意：</p>
 <ol>
 <li>插入数据时，指定的字段顺序需要与值的顺序相对应。</li>
 <li>字符串和日期型数据应包含在引号中。</li>
 <li>插入数据的大小应该在字段的指定范围内。</li>
-</ol></blockquote>
+</ol>
+</blockquote>
 <h3 id="修改数据">修改数据
 </h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">UPDATE</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="err">字段名</span><span class="mi">1</span><span class="o">=</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">字段名</span><span class="mi">2</span><span class="o">=</span><span class="err">值</span><span class="mi">2</span><span class="p">,...</span><span class="w"> </span><span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="err">条件</span><span class="p">];</span><span class="w">
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="w"></span><span class="c1">-- 作用是修改满足条件的一行数据对应字段的值，不是修改字段名
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1">-- 作用是修改满足条件的一行数据对应字段的值，不是修改字段名
 </span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1">-- 如果没有修改条件，则会修改整张表中所有数据
 </span></span></span></code></pre></div><h3 id="删除数据">删除数据
 </h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="err">条件</span><span class="p">];</span><span class="w">
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="w"></span><span class="c1">-- 如果没有修改条件，则会修改整张表中所有数据
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1">-- 如果没有修改条件，则会修改整张表中所有数据
 </span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1">-- DELETE语句不能删除某一个字段的值，可以使用UPDATE将该字段值设为NONE
 </span></span></span></code></pre></div><h2 id="dql">DQL
 </h2><p>数据查询语言，用于查询数据库中表的记录。</p>
 <h3 id="语法">语法
 </h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">SELECT</span><span class="w">      </span><span class="c1">-- 字段列表
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"></span><span class="k">FROM</span><span class="w">        </span><span class="c1">-- 表名列表
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"></span><span class="k">WHERE</span><span class="w">       </span><span class="c1">-- 条件列表
-</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1"></span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w">    </span><span class="c1">-- 分组字段列表
-</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="c1"></span><span class="k">HAVING</span><span class="w">      </span><span class="c1">-- 分组后筛选列表
-</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="c1"></span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w">    </span><span class="c1">-- 排序字段列表
-</span></span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="c1"></span><span class="k">LIMIT</span><span class="w">       </span><span class="c1">-- 分页参数
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="k">FROM</span><span class="w">        </span><span class="c1">-- 表名列表
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="k">WHERE</span><span class="w">       </span><span class="c1">-- 条件列表
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w">    </span><span class="c1">-- 分组字段列表
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="k">HAVING</span><span class="w">      </span><span class="c1">-- 分组后筛选列表
+</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w">    </span><span class="c1">-- 排序字段列表
+</span></span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="k">LIMIT</span><span class="w">       </span><span class="c1">-- 分页参数
 </span></span></span></code></pre></div><h3 id="基本查询">基本查询
 </h3><ul>
 <li>查询多个字段</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">-- 查询指定字段
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="err">字段</span><span class="mi">1</span><span class="p">,</span><span class="err">字段</span><span class="mi">2</span><span class="p">,...</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="err">表名</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="w"></span><span class="c1">-- 查询所有字段
-</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="err">表名</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="err">字段</span><span class="mi">1</span><span class="p">,</span><span class="err">字段</span><span class="mi">2</span><span class="p">,...</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="err">表名</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1">-- 查询所有字段
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="err">表名</span><span class="p">;</span><span class="w">
 </span></span></span></code></pre></div><ul>
 <li>设置别名</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="err">字段</span><span class="mi">1</span><span class="w"> </span><span class="p">[</span><span class="k">AS</span><span class="w"> </span><span class="err">别名</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="err">字段</span><span class="mi">2</span><span class="w"> </span><span class="p">[</span><span class="k">AS</span><span class="w"> </span><span class="err">别名</span><span class="mi">2</span><span class="p">],...</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="err">表名</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="w"></span><span class="c1">-- AS可省略
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1">-- AS可省略
 </span></span></span></code></pre></div><ul>
 <li>去除重复记录</li>
 </ul>

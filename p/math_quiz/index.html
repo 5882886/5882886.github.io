@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/math_quiz/'>
 
-<link rel="stylesheet" href="/scss/style.min.e851fcab2a85f7d449567d7f43c7cd36646cf5a9b08bb9364dca65dd264196e2.css"><meta property='og:title' content="微积分：题目">
+<link rel="stylesheet" href="/scss/style.min.90289cd6c8c19645ed90d05b0f2cd54bca3088b1ce8c3826878145b9a627f3fe.css"><meta property='og:title' content="微积分：题目">
 <meta property='og:description' content="回顾知识点 → 题目编号依据红宝书2023年版\n极限与函数 【例1.9】求 $\\displaystyle I=\\lim_{x \\to 1^-} \\frac{\\ln (1-x) + \\tan\\dfrac{\\pi}{2}x}{\\mathrm{cot}\\pi x}$\n点击展开解答 解：将原极限拆分成两项极限之和，则可得：\n">
 <meta property='og:url' content='https://5882886.github.io/p/math_quiz/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -588,7 +588,8 @@
 $$I_1 = \lim_{x \to 1^-} \frac{\ln(1-x)}{\mathrm{cot}\pi x} = \lim_{x \to 1^-} \frac{-\dfrac{1}{1-x}}{-\pi \mathrm{csc}^2 \pi x} = \lim_{x \to 1^-} \frac{\sin^2 \pi x}{\pi (1-x)} = \lim_{x \to 1^-} \frac{2\pi \sin \pi x \cos \pi x}{-\pi} = 0 $$$$I_2 = \lim_{x \to 1^-} \frac{\sin \pi x}{\cos \pi x} \cdot \lim_{x \to 1^-} \frac{\sin \dfrac{\pi}{2}x}{\cos \dfrac{\pi}{2}x} = (-1) \cdot \lim_{x \to 1^-} \frac{\sin \pi x}{\cos \dfrac{\pi}{2}x} = (-1)\lim_{x \to 1^-} \frac{\pi \cos \pi x}{-\dfrac{\pi}{2} \sin \dfrac{\pi}{2}x} = -2 $$<p>则 $I=I_1+I_2=-2$</p>
 <blockquote>
 <p>① 本题如果想直接使用洛必达法则，还必须证明分子极限为无穷，这是困难的. 因此考虑将其拆分成两项分别计算. <br>
-② 使用洛必达法则时，每一次求导之后都应立即检查式子能否化简，例如 $\displaystyle \lim_{x \to 1^-} \frac{-\dfrac{1}{1-x}}{-\pi \mathrm{csc}^2 \pi x} = \lim_{x \to 1^-} \frac{\sin^2 \pi x}{\pi (1-x)} $，这样可以大幅降低运算量.</p></blockquote>
+② 使用洛必达法则时，每一次求导之后都应立即检查式子能否化简，例如 $\displaystyle \lim_{x \to 1^-} \frac{-\dfrac{1}{1-x}}{-\pi \mathrm{csc}^2 \pi x} = \lim_{x \to 1^-} \frac{\sin^2 \pi x}{\pi (1-x)} $，这样可以大幅降低运算量.</p>
+</blockquote>
 </details>
 <hr>
 <p>【例1.13】求极限 $\displaystyle I = \lim_{\varphi \to 0} \frac{1-\cos\varphi \sqrt{\cos 2\varphi} \cdots \sqrt[n]{\cos n\varphi}}{\varphi^2}\quad (n \in \mathbf{N^*})$</p>
@@ -608,7 +609,8 @@ $$\begin{align*} I &= \lim_{\varphi \to 0} \frac{1-f(\varphi)}{\varphi^2} = \lim
 <p>解：（1）由海涅定理可知，</p>
 $$\begin{align*} \lim_{n \to \infty} n \left[ \left(1+\frac{1}{n}\right)^n - \mathrm{e} \right] &= \lim_{x \to 0} \frac{\left(1+x\right)^{\frac{1}{x}} - \mathrm{e}}{x} = \mathrm{e} \lim_{x \to 0} \frac{\mathrm{e}^{\frac{\ln (1+x)}{x}-1}-1}{x} = \mathrm{e}\lim_{x \to 0} \frac{\dfrac{\ln (x+1)}{x}-1}{x} \\ &= \mathrm{e}\lim_{x \to 0}\frac{\ln (1+x)-x}{x^2} = \mathrm{e} \lim_{x \to 0} \frac{\dfrac{1}{1+x}-1}{2x} = -\frac{\mathrm{e}}{2} \lim_{x \to 0} \frac{1}{x+1} = -\frac{\mathrm{e}}{2} \end{align*} $$<p>（2）由海涅定理，令 $\displaystyle f(x) = \left( \frac{a^x+b^x+c^x}{3} \right)^{\frac{1}{x}}$，则原式 $\displaystyle = \lim_{x \to 0} f(x) $，而易知 $\displaystyle \ln f(x) = \frac{\ln(a^x+b^x+c^x)-\ln 3}{x}$，则利用洛必达法则，$\displaystyle \lim_{x \to 0} \ln f(x) = \lim_{x \to 0} \frac{a^x\ln a+b^x\ln b+c^x\ln c}{a^x+b^x+c^x} = \ln \sqrt[3]{abc}$. 因此 $\displaystyle \lim_{x \to 0} f(x) = \sqrt[3]{abc}$，即所求极限为 $\sqrt[3]{abc}$.</p>
 <blockquote>
-<p>求复杂的数列极限时，可考虑使用海涅定理，将数列极限转化为函数极限. 但是注意，必须强调“海涅定理”，不可直接对数列极限作“求导”操作.</p></blockquote>
+<p>求复杂的数列极限时，可考虑使用海涅定理，将数列极限转化为函数极限. 但是注意，必须强调“海涅定理”，不可直接对数列极限作“求导”操作.</p>
+</blockquote>
 </details>
 <hr>
 <p>【例1.18】设函数 $f(x)$ 在 $x=0$ 的某领域内存在 $n$ 阶导数，$f(0)=f'(0)=\cdots=f^{(n-1)}(0)=0$，而 $f^{(n)}(0) \ne 0$，求极限 $\displaystyle I=\frac{\displaystyle \int_{0}^{x}(x-t)f(t)\mathrm{d}t}{\displaystyle x\int_{0}^{x}f(x-t)\mathrm{d}t}$</p>
@@ -626,7 +628,8 @@ $$\lim_{x \to 0} \frac{\displaystyle \int_{0}^{x} f(t) \mathrm{d}t}{xf(x)} = \li
 <p>记 $\displaystyle \lim_{n \to \infty} y_n = A$， 由 $y_{n+1} = f(y_n)$ 得 $A=f(A)$，即 $A = \sqrt{2A}$. 因此 </p>
 $$\lim_{n \to \infty} x_n = \sqrt{2a}-1 = \sqrt{2022}-1 $$<blockquote>
 <p>为什么构造函数 $\displaystyle f(x) = \frac{x}{2} + \frac{a}{x} \ (x&gt;0)$？</p>
-<p>题中所给方程中有 $2(x_n+1)x_{n+1}$，多出一个 $2x_{n+1}$.</p></blockquote>
+<p>题中所给方程中有 $2(x_n+1)x_{n+1}$，多出一个 $2x_{n+1}$.</p>
+</blockquote>
 </details>
 <hr>
 <p>【例1.62】设函数 $f(x)$ 在 $x=0$ 的某领域内具有二阶连续导数，且 $f(0), f'(0), f''(x)$ 均不为零. 证明：存在唯一的一组实数 $k_1, k_2, k_3$，使得 </p>
@@ -642,7 +645,8 @@ $$F(x) = (k_1+k_2+k_3)f(0)+(k_1+2k_2+3k_3)f'(0)+\frac{1}{2}(k_1+4k_2+9k_3)f''(0)
 $$\left\{ \begin{array}{c}  k_1+k_2+k_3 = 0 \\ k_1+2k_2+3k_3 = 0 \\ k_1+4k_2+9k_3 = 0 \end{array} \right.$$<p>易知此方程组的系数行列式 </p>
 $$\left| \begin{matrix}  1 & 1 & 1 \\ 1 & 2 & 3 \\ 1 & 4 & 9 \end{matrix} \right| = 2 \ne 0$$<p>即方程组有解，故存在唯一的一组实数 $k_1, k_2, k_3$ 满足要求.</p>
 <blockquote>
-<p>注意到分母为 $h^2$，联想到二阶泰勒公式.</p></blockquote>
+<p>注意到分母为 $h^2$，联想到二阶泰勒公式.</p>
+</blockquote>
 </details>
 <hr>
 <p>【例1.65】设 $\displaystyle A_n = \frac{n}{n^2+1^2} + \frac{n}{n^2+2^2} + \cdots + \frac{n}{n^2+n^2} $，求极限 $\displaystyle \lim_{n \to \infty} n \left( \frac{\pi}{4}-A_n \right)$</p>
@@ -680,7 +684,8 @@ $\displaystyle \frac{1}{n^{4}} \prod_{i=1}^{2n} (n^{2} + i^{2}) ^{\frac{1}{n}} =
 <p>$\displaystyle \sum_{i=1}^{2n} \ln (n^{2} + i^{2})^{\frac{1}{n}} - \ln n^{4} = \sum_{i=1}^{2n} \frac{\ln n^{2}}{n} + \sum_{i=1}^{2n} \frac{\ln [1+(\frac{i}{n})^{2}]}{n} - 4 \ln n = 2 \ln n^{2} + \sum_{i=1}^{2n} \frac{\ln [1+(\frac{i}{n})^{2}]}{n}- 4 \ln n = \sum_{i=1}^{2n} \frac{\ln [1+(\frac{i}{n})^{2}]}{n}$</p>
 <p>则原式 $\displaystyle  = \lim_{x \to \infty} \mathrm{exp} \left\{ \sum_{i=1}^{2n} \frac{\ln [1+(\frac{i}{n})^{2}]}{n} \right\} = \mathrm{exp} \left\{ \int_{0}^{2} \ln (1+x^{2}) \mathrm{d}x \right\} = 25\mathrm{e}^{2\arctan 2 - 4}$</p>
 <blockquote>
-<p>本题核心在于取对数，将连乘转换为连加，从而可以使用微积分的定义解决。</p></blockquote>
+<p>本题核心在于取对数，将连乘转换为连加，从而可以使用微积分的定义解决。</p>
+</blockquote>
 </details>
 <h2 id="微分中值定理">微分中值定理
 </h2><p>设 $f(x)$ 在$[0,1]$上连续，在$(0,1)$内可导，$f(1) = 2f(0)$. 试证明：至少存在一点$\xi \in (0,1)$，使得$ (1+\xi)f'(\xi) = f(\xi) $.</p>
@@ -688,7 +693,8 @@ $\displaystyle \frac{1}{n^{4}} \prod_{i=1}^{2n} (n^{2} + i^{2}) ^{\frac{1}{n}} =
       <summary>点击展开解答</summary>
 <p>解：构造函数 $\displaystyle F(x) = \frac{f(x)}{x+1} $，可知 $ F(0) = F(1) $. 由罗尔中值定理，存在 $\xi \in (a,b)$ 使得 $\displaystyle F'(\xi) = \frac{f'(\xi)(1+\xi) - f(\xi)}{(1+\xi)^{2}} = 0 $，即 $ (1+\xi)f'(\xi) = f(\xi)$.</p>
 <blockquote>
-<p>本题核心在于构造辅助函数 $ \displaystyle F(x) = \frac{f(x)}{x+1} $. 由相减的形式可考虑函数相除的形式.</p></blockquote>
+<p>本题核心在于构造辅助函数 $ \displaystyle F(x) = \frac{f(x)}{x+1} $. 由相减的形式可考虑函数相除的形式.</p>
+</blockquote>
 </details>
 <hr>
 <p>设 $f(x)$ 在 $ [0,1] $上连续，在 $(0,1)$内可导，$ f(0) = 0, f(1) = 1 $, $k_{1}, k_{2}, \cdots ,k_{n} $为 $n$ 个正数，证明：在区间 $(0,1) $内至少存在一组互不相等的数 $x_{1}, x_{2}, \cdots, x_{n}$，使得 $\displaystyle \sum_{i=1}^{n} \frac{k_{i}}{f'(x_{i})} = \sum_{i=1}^{n} k_{i} $.</p>
@@ -748,7 +754,8 @@ $$\begin{align*} I_1 &= \int_{0}^{\frac{\pi}{4}} \mathrm{d}\theta \int_{0}^{1} \
 <p>由重积分的对称性可得 </p>
 $$\iint\limits_{D_1} \mathrm{sgn}(x+y) \mathrm{e}^{x^2+y^2} \mathrm{d}x\mathrm{d}y = -\iint\limits_{D_3} \mathrm{sgn}(x+y) \mathrm{e}^{x^2+y^2} \mathrm{d}x\mathrm{d}y $$<p>因此 $\displaystyle I = \iint\limits_{D_2} \mathrm{sgn}(x+y) \mathrm{e}^{x^2+y^2} \mathrm{d}x\mathrm{d}y = 2 \int_{\frac{\pi}{4}}^{\frac{\pi}{2}} \mathrm{d}\theta \int_{0}^{1} r\mathrm{e}^{r^2} \mathrm{d}r = \frac{\pi}{4} (\mathrm{e}-1) $</p>
 <blockquote>
-<p>本题通过构造辅助线 $y = x$，利用重积分的对称性，将积分区域转换成易于计算的扇形.</p></blockquote>
+<p>本题通过构造辅助线 $y = x$，利用重积分的对称性，将积分区域转换成易于计算的扇形.</p>
+</blockquote>
 </details>
 <hr>
 <p>【例7.30】 计算：$\displaystyle I = \iint\limits_{D} \left| \frac{x+y}{\sqrt{2}}-x^2-y^2 \right| \mathrm{d}x\mathrm{d}y$，其中 $D: x^2+y^2 \leqslant 1$.</p>

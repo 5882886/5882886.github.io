@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/nemu-part-3/'>
 
-<link rel="stylesheet" href="/scss/style.min.e851fcab2a85f7d449567d7f43c7cd36646cf5a9b08bb9364dca65dd264196e2.css"><meta property='og:title' content="NEMU-PART III">
+<link rel="stylesheet" href="/scss/style.min.90289cd6c8c19645ed90d05b0f2cd54bca3088b1ce8c3826878145b9a627f3fe.css"><meta property='og:title' content="NEMU-PART III">
 <meta property='og:description' content="PA3">
 <meta property='og:url' content='https://5882886.github.io/p/nemu-part-3/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -604,16 +604,16 @@
 </ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cp">#ifndef __CACHE_H__
 </span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="cp">#define __CACHE_H__
-</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="cp"></span>
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl">
 </span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;common.h&#34;</span><span class="cp">
-</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="cp"></span>
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl">
 </span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="c1">// 定义高速缓存参数
-</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1"></span><span class="cp">#define CACHE_E_L1 8
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="cp">#define CACHE_E_L1 8
 </span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="cp">#define CACHE_E_L2 16
 </span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="cp">#define CACHE_BLOCK 64
 </span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="cp">#define CACHE_SIZE_L1 64*1024
 </span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="cp">#define CACHE_SIZE_L2 4*1024*1024
-</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="cp"></span>
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl">
 </span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="p">...</span>
 </span></span><span class="line"><span class="ln">14</span><span class="cl">
 </span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="cp">#endif
@@ -621,14 +621,14 @@
 <li>缓存块的结构体定义：</li>
 </ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1">// 定义一级缓存
-</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="c1"></span><span class="k">struct</span> <span class="n">cache_l1</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="k">struct</span> <span class="n">cache_l1</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="kt">bool</span> <span class="n">valid</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="kt">int</span> <span class="n">tag</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="kt">uint8_t</span> <span class="n">byte</span><span class="p">[</span><span class="n">CACHE_BLOCK</span><span class="p">];</span>
 </span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="p">}</span> <span class="n">cache_L1</span><span class="p">[</span><span class="n">CACHE_SIZE_L1</span> <span class="o">/</span> <span class="n">CACHE_BLOCK</span><span class="p">];</span>
 </span></span><span class="line"><span class="ln"> 7</span><span class="cl">
 </span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1">// 定义二级缓存
-</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="c1"></span><span class="k">struct</span> <span class="n">cache_l2</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="k">struct</span> <span class="n">cache_l2</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="kt">bool</span> <span class="n">valid</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="kt">bool</span> <span class="n">dirty</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="kt">int</span> <span class="n">tag</span><span class="p">;</span>
@@ -636,7 +636,7 @@
 </span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="p">}</span> <span class="n">cache_L2</span><span class="p">[</span><span class="n">CACHE_SIZE_L2</span> <span class="o">/</span> <span class="n">CACHE_BLOCK</span><span class="p">];</span>
 </span></span><span class="line"><span class="ln">15</span><span class="cl">
 </span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="c1">// 定义高速缓存函数
-</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">init_cache</span><span class="p">();</span>
+</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="kt">void</span> <span class="nf">init_cache</span><span class="p">();</span>
 </span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="kt">uint32_t</span> <span class="nf">cache_read_L1</span><span class="p">(</span><span class="kt">hwaddr_t</span> <span class="n">addr</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="kt">uint32_t</span> <span class="nf">cache_read_L2</span><span class="p">(</span><span class="kt">hwaddr_t</span> <span class="n">addr</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="kt">void</span> <span class="nf">cache_write_L1</span><span class="p">(</span><span class="kt">hwaddr_t</span> <span class="n">addr</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">len</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">data</span><span class="p">);</span>
@@ -665,28 +665,28 @@
 </ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">uint32_t</span> <span class="nf">cache_read_L1</span><span class="p">(</span><span class="kt">hwaddr_t</span> <span class="n">addr</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="c1">// 取出地址中set的部分（右移block位并 &amp; 1111111）
-</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="c1"></span>    <span class="c1">// set = 7 byte (set = 2^s = 128)
-</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="c1"></span>    <span class="c1">// offset = 6 byte (block = 2^e = 64)
-</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="c1"></span>    <span class="kt">uint32_t</span> <span class="n">set</span> <span class="o">=</span> <span class="p">(</span><span class="n">addr</span> <span class="o">&gt;&gt;</span> <span class="mi">6</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0x7f</span><span class="p">;</span> 
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="c1">// set = 7 byte (set = 2^s = 128)
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="c1">// offset = 6 byte (block = 2^e = 64)
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="kt">uint32_t</span> <span class="n">set</span> <span class="o">=</span> <span class="p">(</span><span class="n">addr</span> <span class="o">&gt;&gt;</span> <span class="mi">6</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0x7f</span><span class="p">;</span> 
 </span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="kt">bool</span> <span class="n">hit</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="c1">// 一级缓存中找到相应set
-</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="c1"></span>    <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">set</span> <span class="o">*</span> <span class="n">CACHE_E_L1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">set</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">CACHE_E_L1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span> 
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">set</span> <span class="o">*</span> <span class="n">CACHE_E_L1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">set</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">CACHE_E_L1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span> 
 </span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">cache_L1</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">tag</span> <span class="o">==</span> <span class="p">(</span><span class="n">addr</span> <span class="o">&gt;&gt;</span> <span class="mi">13</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">cache_L1</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">valid</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 如果tag和地址相符合并且valid == true
-</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="c1"></span>            <span class="n">hit</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span> 
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl">            <span class="n">hit</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span> 
 </span></span><span class="line"><span class="ln">12</span><span class="cl">            <span class="k">return</span> <span class="n">i</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">13</span><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="ln">15</span><span class="cl">     
 </span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="c1">// 一级缓存中找空内存块
-</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="c1"></span>    <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">set</span> <span class="o">*</span> <span class="n">CACHE_E_L1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">set</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">CACHE_E_L1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">set</span> <span class="o">*</span> <span class="n">CACHE_E_L1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">set</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">CACHE_E_L1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">18</span><span class="cl">        <span class="c1">// 找到空的地方退出
-</span></span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">cache_L1</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">valid</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln">19</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">cache_L1</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">valid</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">20</span><span class="cl">            <span class="k">break</span><span class="p">;</span> 
 </span></span><span class="line"><span class="ln">21</span><span class="cl">        <span class="p">}</span>  
 </span></span><span class="line"><span class="ln">22</span><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="ln">23</span><span class="cl">    <span class="c1">// 到最后仍然没有找到空的地方，执行随机替换算法
-</span></span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="c1"></span>    <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="p">(</span><span class="n">set</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">CACHE_E_L1</span><span class="p">)</span> <span class="p">{</span> 
+</span></span></span><span class="line"><span class="ln">24</span><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="p">(</span><span class="n">set</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">CACHE_E_L1</span><span class="p">)</span> <span class="p">{</span> 
 </span></span><span class="line"><span class="ln">25</span><span class="cl">        <span class="nf">srand</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">26</span><span class="cl">        <span class="n">i</span> <span class="o">=</span> <span class="n">set</span> <span class="o">*</span> <span class="n">CACHE_E_L1</span> <span class="o">+</span> <span class="nf">rand</span><span class="p">()</span> <span class="o">%</span> <span class="n">CACHE_E_L1</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">27</span><span class="cl">    <span class="p">}</span>
@@ -750,7 +750,7 @@
 </span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="c1">// 写直通
-</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="n">hit</span><span class="p">)</span> <span class="p">{</span> 
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">hit</span><span class="p">)</span> <span class="p">{</span> 
 </span></span><span class="line"><span class="ln">14</span><span class="cl">        <span class="nf">memcpy</span><span class="p">(</span><span class="n">cache_L1</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">byte</span> <span class="o">+</span> <span class="n">offset</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">data</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="nf">cache_write_L2</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span> <span class="n">len</span><span class="p">,</span> <span class="n">data</span><span class="p">);</span>
@@ -799,18 +799,20 @@
 </h2><h3 id="修改kernel">修改kernel
 </h3><p>首先需要在<code>kernel</code>中加入切换到保护模式的代码：在<code>kernel/include/common.h</code>中定义宏<code>IA32_SEG</code>，然后重新编译<code>kernel</code>。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-diff" data-lang="diff"><span class="line"><span class="ln">1</span><span class="cl"><span class="gd">- //#define IA32_SEG
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="gd"></span><span class="gi">+ #define IA32_SEG
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="gi">+ #define IA32_SEG
 </span></span></span></code></pre></div><blockquote>
-<p>这一步必须完成！如果你是CV大佬，很容易漏掉这个步骤！</p></blockquote>
+<p>这一步必须完成！如果你是CV大佬，很容易漏掉这个步骤！</p>
+</blockquote>
 <h3 id="定义段寄存器">定义段寄存器
 </h3><p>在<code>CPU_state</code>结构中添加<code>GDTR</code>，<code>CR0</code>和各种段寄存器，包括<code>CS</code>, <code>DS</code>, <code>ES</code>, <code>SS</code>, 其具体结构参考<code>i386</code>手册。</p>
 <blockquote>
-<p>在<code>libcommon/x86-inc</code>目录下的头文件中定义了一些和<code>x86</code>相关的宏和结构体，你可以在<code>NEMU</code>中包含这些头文件来使用它们。</p></blockquote>
+<p>在<code>libcommon/x86-inc</code>目录下的头文件中定义了一些和<code>x86</code>相关的宏和结构体，你可以在<code>NEMU</code>中包含这些头文件来使用它们。</p>
+</blockquote>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1">// 段寄存器
-</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="c1"></span><span class="k">enum</span> <span class="p">{</span><span class="n">R_ES</span><span class="p">,</span> <span class="n">R_CS</span><span class="p">,</span> <span class="n">R_SS</span><span class="p">,</span> <span class="n">R_DS</span><span class="p">};</span>
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="k">enum</span> <span class="p">{</span><span class="n">R_ES</span><span class="p">,</span> <span class="n">R_CS</span><span class="p">,</span> <span class="n">R_SS</span><span class="p">,</span> <span class="n">R_DS</span><span class="p">};</span>
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl">
 </span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="c1">// 定义段寄存器结构体
-</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="c1"></span><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="kt">uint16_t</span> <span class="n">selector</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="kt">uint16_t</span> <span class="n">attribute</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="kt">uint32_t</span> <span class="n">limit</span><span class="p">;</span>
@@ -823,17 +825,17 @@
 </span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="p">...</span>
 </span></span><span class="line"><span class="ln">16</span><span class="cl">
 </span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="c1">// GDTR寄存器
-</span></span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="c1"></span>    <span class="k">struct</span> <span class="n">GDTR</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln">18</span><span class="cl">    <span class="k">struct</span> <span class="n">GDTR</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">19</span><span class="cl">        <span class="kt">uint32_t</span> <span class="n">base</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">20</span><span class="cl">        <span class="kt">uint16_t</span> <span class="n">limit</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">21</span><span class="cl">    <span class="p">}</span> <span class="n">gdtr</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">22</span><span class="cl">
 </span></span><span class="line"><span class="ln">23</span><span class="cl">    <span class="c1">// CR0和CR3寄存器由 /lib-common/x86-inc/cpu.h 定义
-</span></span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="c1"></span>    <span class="n">CR0</span> <span class="n">cr0</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="ln">24</span><span class="cl">    <span class="n">CR0</span> <span class="n">cr0</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">25</span><span class="cl">    <span class="n">CR3</span> <span class="n">cr3</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">26</span><span class="cl">
 </span></span><span class="line"><span class="ln">27</span><span class="cl">    <span class="c1">// 设置段寄存器
-</span></span></span><span class="line"><span class="ln">28</span><span class="cl"><span class="c1"></span>    <span class="k">union</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln">28</span><span class="cl">    <span class="k">union</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">29</span><span class="cl">        <span class="k">struct</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">30</span><span class="cl">            <span class="n">Segment_Reg</span> <span class="n">sreg</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>	
 </span></span><span class="line"><span class="ln">31</span><span class="cl">        <span class="p">};</span>
@@ -868,11 +870,11 @@
 </span></span><span class="line"><span class="ln"> 4</span><span class="cl">    union {
 </span></span><span class="line"><span class="ln"> 5</span><span class="cl">        uint32_t reg;
 </span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="gd">-       swaddr_t addr;
-</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="gd"></span><span class="gi">+		struct {
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="gi">+		struct {
 </span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="gi">+			swaddr_t addr;
 </span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="gi">+			uint8_t sreg;
 </span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="gi">+		};
-</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="gi"></span>        uint32_t imm;
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl">        uint32_t imm;
 </span></span><span class="line"><span class="ln">12</span><span class="cl">        int32_t simm;
 </span></span><span class="line"><span class="ln">13</span><span class="cl">    };
 </span></span><span class="line"><span class="ln">14</span><span class="cl">    uint32_t val;
@@ -917,19 +919,21 @@
 </table></div>
 <h3 id="修改内存读写函数">修改内存读写函数
 </h3><blockquote>
-<p>设置<code>CR0</code>后，如果发现<code>CR0</code>的<code>PE</code>位为 <code>1</code>，则进入<code>IA-32</code>保护模式，从此所有虚拟地址的访问（包括<code>swaddr_read()</code>和 <code>swaddr_write()</code>）都需要经过段级地址转换。</p></blockquote>
+<p>设置<code>CR0</code>后，如果发现<code>CR0</code>的<code>PE</code>位为 <code>1</code>，则进入<code>IA-32</code>保护模式，从此所有虚拟地址的访问（包括<code>swaddr_read()</code>和 <code>swaddr_write()</code>）都需要经过段级地址转换。</p>
+</blockquote>
 <p>为了实现段级地址转换，需要对<code>/nemu/src/memory/memory.c</code>中的<code>swaddr_read()</code>和<code>swaddr_write()</code>函数作少量修改：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="kt">uint32_t</span> <span class="nf">swaddr_read</span><span class="p">(</span><span class="kt">swaddr_t</span> <span class="n">addr</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">len</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="cp">#ifdef DEBUG
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="cp"></span>    <span class="nf">assert</span><span class="p">(</span><span class="n">len</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">len</span> <span class="o">==</span> <span class="mi">2</span> <span class="o">||</span> <span class="n">len</span> <span class="o">==</span> <span class="mi">4</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="nf">assert</span><span class="p">(</span><span class="n">len</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">len</span> <span class="o">==</span> <span class="mi">2</span> <span class="o">||</span> <span class="n">len</span> <span class="o">==</span> <span class="mi">4</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="cp">#endif
-</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="cp"></span>    <span class="kt">lnaddr_t</span> <span class="n">lnaddr</span> <span class="o">=</span> <span class="nf">seg_translate</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span> <span class="n">len</span><span class="p">,</span> <span class="n">current_sreg</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl">    <span class="kt">lnaddr_t</span> <span class="n">lnaddr</span> <span class="o">=</span> <span class="nf">seg_translate</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span> <span class="n">len</span><span class="p">,</span> <span class="n">current_sreg</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">6</span><span class="cl">    <span class="k">return</span> <span class="nf">lnaddr_read</span><span class="p">(</span><span class="n">lnaddr</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="ln">8</span><span class="cl">
 </span></span><span class="line"><span class="ln">9</span><span class="cl"><span class="c1">// swaddr_write()函数采取类似操作
 </span></span></span></code></pre></div><blockquote>
-<p>其中<code>sreg</code>记录了当前段级地址转换所用到的段寄存器的编码。关于段寄存器的编码，请查阅<code>i386</code>手册。</p></blockquote>
+<p>其中<code>sreg</code>记录了当前段级地址转换所用到的段寄存器的编码。关于段寄存器的编码，请查阅<code>i386</code>手册。</p>
+</blockquote>
 <p>然后实现<code>seg_translate()</code>函数。再次提醒，在 NEMU 中，只有进入保护模式之后才会进行段级地址转换。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="kt">lnaddr_t</span> <span class="nf">seg_translate</span><span class="p">(</span><span class="kt">swaddr_t</span> <span class="n">addr</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">len</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">sreg_id</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">cpu</span><span class="p">.</span><span class="n">cr0</span><span class="p">.</span><span class="n">protect_enable</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>

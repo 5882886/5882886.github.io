@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/minecraft-server/'>
 
-<link rel="stylesheet" href="/scss/style.min.e851fcab2a85f7d449567d7f43c7cd36646cf5a9b08bb9364dca65dd264196e2.css"><meta property='og:title' content="Minecraft服务器">
+<link rel="stylesheet" href="/scss/style.min.90289cd6c8c19645ed90d05b0f2cd54bca3088b1ce8c3826878145b9a627f3fe.css"><meta property='og:title' content="Minecraft服务器">
 <meta property='og:description' content="开服经历回顾">
 <meta property='og:url' content='https://5882886.github.io/p/minecraft-server/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -743,14 +743,16 @@
 <details>
     <summary>什么是局域网？</summary>
 <blockquote>
-<p>通俗来说，通过同一个Wifi相连的设备都处于同一个局域网下。连接在同一个局域网下的设备，它们的设备IP地址仅最后一位不同。在同一个局域网下的设备可通过IP地址互相连接。</p></blockquote>
+<p>通俗来说，通过同一个Wifi相连的设备都处于同一个局域网下。连接在同一个局域网下的设备，它们的设备IP地址仅最后一位不同。在同一个局域网下的设备可通过IP地址互相连接。</p>
+</blockquote>
 </details>
 <h3 id="内网穿透">内网穿透
 </h3><p>请在网络上自行查找相关内容。</p>
 <details>
     <summary>什么是内网穿透？</summary>
 <blockquote>
-<p>内网穿透是通过特定技术，将你的内网（如局域网）地址经服务器映射到公网上的过程。此时一个公网IP地址，如：<code>frp-xxx.com:xxxxx</code>就等同于你的局域网地址<code>192.168.x.x</code>。</p></blockquote>
+<p>内网穿透是通过特定技术，将你的内网（如局域网）地址经服务器映射到公网上的过程。此时一个公网IP地址，如：<code>frp-xxx.com:xxxxx</code>就等同于你的局域网地址<code>192.168.x.x</code>。</p>
+</blockquote>
 </details>
 <h3 id="ipv6连接">IPv6连接
 </h3><p>这是目前成本最低，效果最好的连接方式。</p>
@@ -758,7 +760,8 @@
 <details>
     <summary>什么是IPv6？</summary>
 <blockquote>
-<p>目前IP技术分为IPv4和IPv6两种。IPv4地址为12个十进制数，每3个数字用“ : ”隔开；IPv6地址为28个16进制数，每4个数字用“ : ”隔开。由此可见，IPv6地址比IPv4多得多，所以每个IPv6地址都可以作为公网使用。</p></blockquote>
+<p>目前IP技术分为IPv4和IPv6两种。IPv4地址为12个十进制数，每3个数字用“ : ”隔开；IPv6地址为28个16进制数，每4个数字用“ : ”隔开。由此可见，IPv6地址比IPv4多得多，所以每个IPv6地址都可以作为公网使用。</p>
+</blockquote>
 </details>
 <h2 id="服务器进阶">服务器进阶
 </h2><h3 id="修改服务器配置">修改服务器配置
@@ -841,7 +844,7 @@
 <li>打开PowerRanks的配置文件，找到关于数据来源的配置。</li>
 </ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="nn">...</span><span class="w">
-</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="w"></span><span class="nt">storage</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="nt">storage</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">mysql</span><span class="w">
 </span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="w">  </span><span class="nt">mysql</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="w">    </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="m">127.0.0.1</span><span class="w">
@@ -851,7 +854,7 @@
 </span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="w">    </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="cp">*******</span><span class="w">
 </span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="w">    </span><span class="nt">ssl</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="w">    </span><span class="nt">verbose</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="w"></span><span class="nn">...</span><span class="w">
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="nn">...</span><span class="w">
 </span></span></span></code></pre></div><p>将<code>type</code>改为<code>mysql</code>，并配置好端口、用户名和密码。这样在启动时，插件会自动从<code>127.0.0.1:3306</code>端口的root用户读入数据。</p>
 <ol start="2">
 <li>
@@ -862,7 +865,8 @@
 </li>
 </ol>
 <blockquote>
-<p>注意：使用MySQL的数据时，每次启动服务器前应当先启动MySQL客户端，否则插件会报错。</p></blockquote>
+<p>注意：使用MySQL的数据时，每次启动服务器前应当先启动MySQL客户端，否则插件会报错。</p>
+</blockquote>
 <h2 id="开发者选项">开发者选项
 </h2><h3 id="制作自己的服务端插件">制作自己的服务端插件
 </h3>

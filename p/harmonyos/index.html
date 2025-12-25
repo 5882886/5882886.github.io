@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/harmonyos/'>
 
-<link rel="stylesheet" href="/scss/style.min.e851fcab2a85f7d449567d7f43c7cd36646cf5a9b08bb9364dca65dd264196e2.css"><meta property='og:title' content="HarmonyOS入门">
+<link rel="stylesheet" href="/scss/style.min.90289cd6c8c19645ed90d05b0f2cd54bca3088b1ce8c3826878145b9a627f3fe.css"><meta property='og:title' content="HarmonyOS入门">
 <meta property='og:description' content="进大厂">
 <meta property='og:url' content='https://5882886.github.io/p/harmonyos/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -614,8 +614,8 @@
     
     <h2 id="鸿蒙项目结构">鸿蒙项目结构
 </h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="l">entry</span><span class="w">
-</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="w"></span><span class="l">├── preview</span><span class="w">
-</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="w"></span><span class="l">├── src</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="l">├── preview</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="l">├── src</span><span class="w">
 </span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="w">    </span><span class="l">├── main</span><span class="w">
 </span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="w">        </span><span class="l">├── ets        </span><span class="w"> </span><span class="c"># 存放代码文件</span><span class="w">
 </span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="w">            </span><span class="l">├── entryability</span><span class="w">
@@ -625,14 +625,14 @@
 </span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="w">        </span><span class="l">├── resources  </span><span class="w"> </span><span class="c"># 存放资源文件</span><span class="w">
 </span></span></span></code></pre></div><p>示例文件<code>Index.ets</code></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kd">@Entry</span>          <span class="c1">// Index文件入口
-</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="c1"></span><span class="kd">@Component</span>      <span class="c1">// 声明以下为组件
-</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="c1"></span><span class="nx">struct</span> <span class="nx">Index</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kd">@Component</span>      <span class="c1">// 声明以下为组件
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="nx">struct</span> <span class="nx">Index</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="kd">@State</span> <span class="nx">message</span>: <span class="kt">string</span> <span class="o">=</span> <span class="s1">&#39;Hello World&#39;</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln"> 5</span><span class="cl">
 </span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="nx">build() {</span>
 </span></span><span class="line"><span class="ln"> 7</span><span class="cl">        <span class="nx">RelativeContainer() {</span>
 </span></span><span class="line"><span class="ln"> 8</span><span class="cl">            <span class="nx">Text</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">message</span><span class="p">)</span>    <span class="c1">// 系统组件
-</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="c1"></span>                <span class="p">.</span><span class="nx">id</span><span class="p">(</span><span class="s1">&#39;HelloWorld&#39;</span><span class="p">)</span>
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl">                <span class="p">.</span><span class="nx">id</span><span class="p">(</span><span class="s1">&#39;HelloWorld&#39;</span><span class="p">)</span>
 </span></span><span class="line"><span class="ln">10</span><span class="cl">                <span class="p">.</span><span class="nx">fontSize</span><span class="p">(</span><span class="nx">$r</span><span class="p">(</span><span class="s1">&#39;app.float.page_text_font_size&#39;</span><span class="p">))</span>
 </span></span><span class="line"><span class="ln">11</span><span class="cl">                <span class="p">.</span><span class="nx">fontWeight</span><span class="p">(</span><span class="nx">FontWeight</span><span class="p">.</span><span class="nx">Bold</span><span class="p">)</span>
 </span></span><span class="line"><span class="ln">12</span><span class="cl">                <span class="p">.</span><span class="nx">alignRules</span><span class="p">({</span>
@@ -688,7 +688,7 @@
 </span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="ln"> 7</span><span class="cl">
 </span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1">// 约定接口后相应对象中应包含接口中的所有数据类型
-</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="kt">object</span><span class="o">:</span> <span class="nx">Interface</span> <span class="o">=</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="kd">let</span> <span class="kt">object</span><span class="o">:</span> <span class="nx">Interface</span> <span class="o">=</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="nx">parameter1</span>: <span class="kt">data1</span><span class="p">,</span>
 </span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="nx">parameter2</span>: <span class="kt">data2</span><span class="p">,</span>
 </span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="p">...</span>
@@ -696,7 +696,7 @@
 </span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="ln">15</span><span class="cl">
 </span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="c1">// 访问方法
-</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="c1"></span><span class="nx">fun</span><span class="p">(</span><span class="kt">object</span><span class="p">.</span><span class="nx">data1</span><span class="p">)</span>
+</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="nx">fun</span><span class="p">(</span><span class="kt">object</span><span class="p">.</span><span class="nx">data1</span><span class="p">)</span>
 </span></span></code></pre></div><h2 id="函数">函数
 </h2><h3 id="普通函数">普通函数
 </h3><ol>
@@ -712,23 +712,23 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="ln">1</span><span class="cl"><span class="nx">fun</span><span class="p">(</span><span class="nx">parameter1</span><span class="p">,</span> <span class="nx">parameter2</span><span class="p">,...)</span>
 </span></span><span class="line"><span class="ln">2</span><span class="cl">
 </span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1">//可以使用变量接收函数返回值
-</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">text</span>: <span class="kt">string</span> <span class="o">=</span> <span class="nx">fun</span><span class="p">()</span>
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="kd">let</span> <span class="nx">text</span>: <span class="kt">string</span> <span class="o">=</span> <span class="nx">fun</span><span class="p">()</span>
 </span></span></code></pre></div><h3 id="箭头函数">箭头函数
 </h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// 定义函数
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">fun</span> <span class="o">=</span> <span class="p">(</span><span class="nx">parameter1</span>: <span class="kt">type1</span><span class="p">,</span> <span class="nx">parameter2</span>: <span class="kt">type2</span><span class="p">,</span> <span class="p">...)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="kd">let</span> <span class="nx">fun</span> <span class="o">=</span> <span class="p">(</span><span class="nx">parameter1</span>: <span class="kt">type1</span><span class="p">,</span> <span class="nx">parameter2</span>: <span class="kt">type2</span><span class="p">,</span> <span class="p">...)</span> <span class="o">=&gt;</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="p">...</span>
 </span></span><span class="line"><span class="ln">4</span><span class="cl">    <span class="k">return</span> <span class="nx">value</span>
 </span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="ln">6</span><span class="cl">
 </span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="c1">// 调用函数
-</span></span></span><span class="line"><span class="ln">8</span><span class="cl"><span class="c1"></span><span class="nx">fun</span><span class="p">(</span><span class="nx">parameter1</span><span class="p">,</span> <span class="nx">parameter2</span><span class="p">)</span>
+</span></span></span><span class="line"><span class="ln">8</span><span class="cl"><span class="nx">fun</span><span class="p">(</span><span class="nx">parameter1</span><span class="p">,</span> <span class="nx">parameter2</span><span class="p">)</span>
 </span></span></code></pre></div><h3 id="自定义构建函数">自定义构建函数
 </h3><p>可以将组件的构建函数封装到<code>@Builder</code>中。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kd">@Entry</span>
 </span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kd">@Component</span>
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="nx">struct</span> <span class="nx">Index</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="c1">// 定义自定义构建函数
-</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="c1"></span>    <span class="kd">@Builder</span>
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="kd">@Builder</span>
 </span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="nx">name</span> <span class="p">(</span><span class="nx">parameterList</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 7</span><span class="cl">        <span class="nx">component</span>
 </span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="p">}</span>
@@ -736,7 +736,7 @@
 </span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="nx">build() {</span>
 </span></span><span class="line"><span class="ln">11</span><span class="cl">        <span class="nx">Column() {</span>
 </span></span><span class="line"><span class="ln">12</span><span class="cl">            <span class="c1">// 使用自定义构建函数
-</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="c1"></span>            <span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">(</span><span class="nx">parameterList</span><span class="p">)</span>
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl">            <span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">(</span><span class="nx">parameterList</span><span class="p">)</span>
 </span></span><span class="line"><span class="ln">14</span><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="p">}</span>
@@ -746,17 +746,17 @@
 <h3 id="两类基本组件">两类基本组件
 </h3><p>容器组件：控制布局</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// 写法：组件名() {}
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"></span>
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl">
 </span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="nx">Cloumn() {</span><span class="p">}</span>   <span class="c1">// 内容竖排
-</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1"></span><span class="nx">Row() {</span><span class="p">}</span>      <span class="c1">// 内容横排
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="nx">Row() {</span><span class="p">}</span>      <span class="c1">// 内容横排
 </span></span></span></code></pre></div><p><code>build() {}</code> 中只允许存在一个根组件，但组件允许嵌套使用。</p>
 <p>内容组件：内容</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// 写法：组件名()
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"></span>
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl">
 </span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="nx">Text</span><span class="p">(</span><span class="s1">&#39;内容&#39;</span><span class="p">)</span>    <span class="c1">// 文本组件
-</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1"></span><span class="nx">Button</span><span class="p">()</span>       <span class="c1">// 按钮组件
-</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="c1"></span><span class="nx">Image</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span>     <span class="c1">// 图像组件
-</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="c1"></span><span class="nx">List</span><span class="p">()</span>         <span class="c1">// 可滚动组件
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="nx">Button</span><span class="p">()</span>       <span class="c1">// 按钮组件
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="nx">Image</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span>     <span class="c1">// 图像组件
+</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="nx">List</span><span class="p">()</span>         <span class="c1">// 可滚动组件
 </span></span></span></code></pre></div><h3 id="通用属性">通用属性
 </h3><div class="table-wrapper"><table>
   <thead>
@@ -790,9 +790,9 @@
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl">        <span class="nx">Column() {</span>
 </span></span><span class="line"><span class="ln"> 4</span><span class="cl">        <span class="nx">Text</span><span class="p">(</span><span class="s1">&#39;text&#39;</span><span class="p">)</span>
 </span></span><span class="line"><span class="ln"> 5</span><span class="cl">            <span class="p">.</span><span class="nx">width</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>     <span class="c1">// 宽度设为100vp
-</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="c1"></span>            <span class="p">.</span><span class="nx">height</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>     <span class="c1">// 高度设为50vp
-</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1"></span>            <span class="p">.</span><span class="nx">backgroundColor</span><span class="p">(</span><span class="nx">Color</span><span class="p">.</span><span class="nx">Orange</span><span class="p">)</span>    <span class="c1">// 背景色设为橙色
-</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1"></span>            <span class="cm">/*
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl">            <span class="p">.</span><span class="nx">height</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>     <span class="c1">// 高度设为50vp
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl">            <span class="p">.</span><span class="nx">backgroundColor</span><span class="p">(</span><span class="nx">Color</span><span class="p">.</span><span class="nx">Orange</span><span class="p">)</span>    <span class="c1">// 背景色设为橙色
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl">            <span class="cm">/*
 </span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="cm">            HarmonyOS的满屏尺寸：
 </span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="cm">            .width(360)
 </span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="cm">            .width(&#39;100%&#39;)
@@ -835,7 +835,7 @@
 </span></span><span class="line"><span class="ln"> 5</span><span class="cl">            <span class="p">.</span><span class="nx">fontSize</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
 </span></span><span class="line"><span class="ln"> 6</span><span class="cl">            <span class="p">.</span><span class="nx">fontColor</span><span class="p">(</span><span class="nx">Color</span><span class="p">.</span><span class="nx">Red</span><span class="p">)</span>
 </span></span><span class="line"><span class="ln"> 7</span><span class="cl">            <span class="p">.</span><span class="nx">fontWeight</span><span class="p">(</span><span class="mi">400</span><span class="p">)</span>    <span class="c1">// 默认粗细为400
-</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1"></span>        <span class="p">}</span>
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="图像属性">图像属性
@@ -843,10 +843,10 @@
 <li>图片路径</li>
 </ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// 本地路径：设图片在entry/src/main/resource/media文件夹中
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"></span><span class="nx">Image</span><span class="p">(</span><span class="nx">$r</span><span class="p">(</span><span class="s1">&#39;app.media.xx&#39;</span><span class="p">))</span>
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nx">Image</span><span class="p">(</span><span class="nx">$r</span><span class="p">(</span><span class="s1">&#39;app.media.xx&#39;</span><span class="p">))</span>
 </span></span><span class="line"><span class="ln">3</span><span class="cl">
 </span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1">// 网络路径
-</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="c1"></span><span class="nx">Image</span><span class="p">(</span><span class="nx">www</span><span class="p">.</span><span class="nx">example</span><span class="p">.</span><span class="nx">com</span><span class="p">)</span>
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="nx">Image</span><span class="p">(</span><span class="nx">www</span><span class="p">.</span><span class="nx">example</span><span class="p">.</span><span class="nx">com</span><span class="p">)</span>
 </span></span></code></pre></div><ol start="2">
 <li>图片样式</li>
 </ol>
@@ -855,12 +855,12 @@
 </h3><p>内边距：<code>padding</code>，拉开内容与组件边缘的距离。</p>
 <p>外边距：<code>margin</code>，拉开两个组件之间的距离。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// 四个方向间距相同
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"></span><span class="nx">component</span><span class="p">()</span>
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nx">component</span><span class="p">()</span>
 </span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="p">.</span><span class="nx">padding</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </span></span><span class="line"><span class="ln">4</span><span class="cl">    <span class="p">.</span><span class="nx">margin</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </span></span><span class="line"><span class="ln">5</span><span class="cl">
 </span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="c1">// 间距不同
-</span></span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="c1"></span><span class="nx">component</span><span class="p">()</span>
+</span></span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="nx">component</span><span class="p">()</span>
 </span></span><span class="line"><span class="ln">8</span><span class="cl">    <span class="p">.</span><span class="nx">padding</span><span class="p">({</span><span class="nx">top</span>: <span class="kt">10</span><span class="p">,</span> <span class="nx">bottom</span>: <span class="kt">20</span><span class="p">,</span> <span class="nx">left</span>: <span class="kt">30</span><span class="p">,</span> <span class="nx">right</span>: <span class="kt">40</span><span class="p">})</span>
 </span></span><span class="line"><span class="ln">9</span><span class="cl">    <span class="p">.</span><span class="nx">margin</span><span class="p">({</span><span class="nx">top</span>: <span class="kt">10</span><span class="p">,</span> <span class="nx">bottom</span>: <span class="kt">20</span><span class="p">,</span> <span class="nx">left</span>: <span class="kt">30</span><span class="p">,</span> <span class="nx">right</span>: <span class="kt">40</span><span class="p">})</span>
 </span></span></code></pre></div><p>示例：</p>
@@ -886,10 +886,10 @@
 </h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="ln">1</span><span class="cl"><span class="nx">component</span><span class="p">()</span> 
 </span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="p">.</span><span class="nx">border</span><span class="p">({</span>
 </span></span><span class="line"><span class="ln">3</span><span class="cl">        <span class="nx">width</span><span class="o">:</span>    <span class="c1">// 粗细
-</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1"></span>        <span class="nx">color</span><span class="o">:</span>    <span class="c1">// 颜色
-</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="c1"></span>        <span class="nx">style</span><span class="o">:</span>    <span class="c1">// 线条样式
-</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="c1"></span>        <span class="nx">radius</span><span class="o">:</span>   <span class="c1">// 圆角
-</span></span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="c1"></span>    <span class="p">})</span>
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl">        <span class="nx">color</span><span class="o">:</span>    <span class="c1">// 颜色
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl">        <span class="nx">style</span><span class="o">:</span>    <span class="c1">// 线条样式
+</span></span></span><span class="line"><span class="ln">6</span><span class="cl">        <span class="nx">radius</span><span class="o">:</span>   <span class="c1">// 圆角
+</span></span></span><span class="line"><span class="ln">7</span><span class="cl">    <span class="p">})</span>
 </span></span></code></pre></div><h3 id="实例歌曲列表">实例：歌曲列表
 </h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kd">@Entry</span>
 </span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kd">@Component</span>
@@ -904,16 +904,16 @@
 </span></span><span class="line"><span class="ln">11</span><span class="cl">
 </span></span><span class="line"><span class="ln">12</span><span class="cl">            <span class="nx">List() {</span>
 </span></span><span class="line"><span class="ln">13</span><span class="cl">                <span class="c1">// 音乐卡片1
-</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="c1"></span>                <span class="nx">ListItem() {</span>
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl">                <span class="nx">ListItem() {</span>
 </span></span><span class="line"><span class="ln">15</span><span class="cl">                    <span class="nx">Row() {</span>
 </span></span><span class="line"><span class="ln">16</span><span class="cl">                        <span class="c1">// 音乐封面
-</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="c1"></span>                        <span class="nx">Image</span><span class="p">(</span><span class="nx">$r</span><span class="p">(</span><span class="s1">&#39;app.media.1&#39;</span><span class="p">))</span>
+</span></span></span><span class="line"><span class="ln">17</span><span class="cl">                        <span class="nx">Image</span><span class="p">(</span><span class="nx">$r</span><span class="p">(</span><span class="s1">&#39;app.media.1&#39;</span><span class="p">))</span>
 </span></span><span class="line"><span class="ln">18</span><span class="cl">                            <span class="p">.</span><span class="nx">width</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
 </span></span><span class="line"><span class="ln">19</span><span class="cl">                            <span class="p">.</span><span class="nx">border</span><span class="p">({</span><span class="nx">radius</span>: <span class="kt">8</span><span class="p">})</span>
 </span></span><span class="line"><span class="ln">20</span><span class="cl">                            <span class="p">.</span><span class="nx">margin</span><span class="p">({</span><span class="nx">right</span>: <span class="kt">10</span><span class="p">})</span>
 </span></span><span class="line"><span class="ln">21</span><span class="cl">
 </span></span><span class="line"><span class="ln">22</span><span class="cl">                        <span class="c1">// 音乐信息
-</span></span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="c1"></span>                        <span class="nx">Column() {</span>
+</span></span></span><span class="line"><span class="ln">23</span><span class="cl">                        <span class="nx">Column() {</span>
 </span></span><span class="line"><span class="ln">24</span><span class="cl">                            <span class="nx">Text</span><span class="p">(</span><span class="s1">&#39;xxx&#39;</span><span class="p">)</span>
 </span></span><span class="line"><span class="ln">25</span><span class="cl">                                <span class="p">.</span><span class="nx">fontColor</span><span class="p">(</span><span class="s1">&#39;#F3F3F3&#39;</span><span class="p">)</span>
 </span></span><span class="line"><span class="ln">26</span><span class="cl">                                <span class="p">.</span><span class="nx">width</span><span class="p">(</span><span class="s1">&#39;100%&#39;</span><span class="p">)</span>
@@ -935,9 +935,9 @@
 </span></span><span class="line"><span class="ln">42</span><span class="cl">                                <span class="p">.</span><span class="nx">width</span><span class="p">(</span><span class="s1">&#39;100%&#39;</span><span class="p">)</span>
 </span></span><span class="line"><span class="ln">43</span><span class="cl">                        <span class="p">}</span>
 </span></span><span class="line"><span class="ln">44</span><span class="cl">                            <span class="p">.</span><span class="nx">layoutWeight</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>    <span class="c1">// 占用所有剩余空间
-</span></span></span><span class="line"><span class="ln">45</span><span class="cl"><span class="c1"></span>
+</span></span></span><span class="line"><span class="ln">45</span><span class="cl">
 </span></span><span class="line"><span class="ln">46</span><span class="cl">                        <span class="c1">// 更多信息
-</span></span></span><span class="line"><span class="ln">47</span><span class="cl"><span class="c1"></span>                        <span class="nx">Image</span><span class="p">(</span><span class="nx">$r</span><span class="p">(</span><span class="s1">&#39;app.media.ic_more&#39;</span><span class="p">))</span>
+</span></span></span><span class="line"><span class="ln">47</span><span class="cl">                        <span class="nx">Image</span><span class="p">(</span><span class="nx">$r</span><span class="p">(</span><span class="s1">&#39;app.media.ic_more&#39;</span><span class="p">))</span>
 </span></span><span class="line"><span class="ln">48</span><span class="cl">                            <span class="p">.</span><span class="nx">width</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span>
 </span></span><span class="line"><span class="ln">49</span><span class="cl">                            <span class="p">.</span><span class="nx">fillColor</span><span class="p">(</span><span class="s1">&#39;#FEFEFE&#39;</span><span class="p">)</span>
 </span></span><span class="line"><span class="ln">50</span><span class="cl">
@@ -1022,22 +1022,22 @@
 <p>状态变量：使用装饰器修饰，状态变量数据改变会引起UI的渲染刷新。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="ln">1</span><span class="cl"><span class="nx">component</span>
 </span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="c1">// 为组件添加事件
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"></span>    <span class="p">.</span><span class="nx">event</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="p">.</span><span class="nx">event</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">4</span><span class="cl">        <span class="nx">code</span>
 </span></span><span class="line"><span class="ln">5</span><span class="cl">    <span class="p">})</span>
 </span></span></code></pre></div><p>示例：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1">// 启用HarmonyOS的V2状态管理
-</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="c1"></span><span class="kd">@ComponentV2</span>
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kd">@ComponentV2</span>
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl">
 </span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="nx">struct</span> <span class="nx">Index</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="kd">@Local</span> <span class="nx">num</span>: <span class="kt">number</span> <span class="o">=</span> <span class="mi">1</span>
 </span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="c1">// 状态必须设置数据类型
-</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1"></span>    <span class="c1">// 状态必须设置初始值
-</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1"></span>    <span class="p">...</span>
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="c1">// 状态必须设置初始值
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="p">...</span>
 </span></span><span class="line"><span class="ln"> 9</span><span class="cl">        <span class="c1">// 定义事件
-</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="c1"></span>        <span class="nx">Text</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">num</span><span class="p">.</span><span class="nx">toString</span><span class="p">())</span>
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="nx">Text</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">num</span><span class="p">.</span><span class="nx">toString</span><span class="p">())</span>
 </span></span><span class="line"><span class="ln">11</span><span class="cl">            <span class="c1">// 添加点击事件
-</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="c1"></span>            <span class="p">.</span><span class="nx">onClick</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl">            <span class="p">.</span><span class="nx">onClick</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">13</span><span class="cl">                <span class="k">this</span><span class="p">.</span><span class="nx">num</span> <span class="o">++</span>
 </span></span><span class="line"><span class="ln">14</span><span class="cl">            <span class="p">})</span>
 </span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="p">...</span>

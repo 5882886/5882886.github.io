@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/c_for_vscode/'>
 
-<link rel="stylesheet" href="/scss/style.min.e851fcab2a85f7d449567d7f43c7cd36646cf5a9b08bb9364dca65dd264196e2.css"><meta property='og:title' content="VScode配置C/C++运行环境">
+<link rel="stylesheet" href="/scss/style.min.90289cd6c8c19645ed90d05b0f2cd54bca3088b1ce8c3826878145b9a627f3fe.css"><meta property='og:title' content="VScode配置C/C++运行环境">
 <meta property='og:description' content="编辑器秒变IDE">
 <meta property='og:url' content='https://5882886.github.io/p/c_for_vscode/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -576,7 +576,8 @@
     <h2 id="下载cc编译器">下载C/C++编译器
 </h2><p>当前主流的C/C++编译器是gcc/g++，可以通过MinGW下载。</p>
 <blockquote>
-<p>MinGW有32位和64位版本，推荐使用64位版，因为32位的gcc/g++版本较低，且会在VScode的调试界面出现bug。</p></blockquote>
+<p>MinGW有32位和64位版本，推荐使用64位版，因为32位的gcc/g++版本较低，且会在VScode的调试界面出现bug。</p>
+</blockquote>
 <p>在<a class="link" href="https://www.mingw-w64.org/downloads"  target="_blank" rel="noopener"
     >MinGW-64下载地址
     
@@ -636,11 +637,13 @@
 </figure>
 
 <blockquote>
-<p>注意：配置完 Windows 中的环境变量之后，必须重启 cmd 之后才会在 cmd 中生效。</p></blockquote>
+<p>注意：配置完 Windows 中的环境变量之后，必须重启 cmd 之后才会在 cmd 中生效。</p>
+</blockquote>
 <h2 id="配置vscode">配置VScode
 </h2><h3 id="了解配置原理">了解配置原理
 </h3><blockquote>
-<p>这部分会比较抽象，省时间可以跳过。</p></blockquote>
+<p>这部分会比较抽象，省时间可以跳过。</p>
+</blockquote>
 <p>VScode默认有3套配置文件，均位于文件夹<code>.vscode</code>下。</p>
 <p>可以通过打开设置看到：用户区、工作区、SSH。</p>
 <div class="table-wrapper"><table>
@@ -694,28 +697,29 @@
   </tbody>
 </table></div>
 <blockquote>
-<p>也就是说，如果只是要构建和运行C/C++程序，可以只用写<code>tasks.json</code>。</p></blockquote>
+<p>也就是说，如果只是要构建和运行C/C++程序，可以只用写<code>tasks.json</code>。</p>
+</blockquote>
 <p><code>tasks.json</code>文件写入以下内容：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="nt">&#34;version&#34;</span><span class="p">:</span> <span class="s2">&#34;2.0.0&#34;</span><span class="p">,</span>     <span class="c1">// 版本号，建议保持不变
-</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="c1"></span>    <span class="nt">&#34;tasks&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="nt">&#34;tasks&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="ln"> 4</span><span class="cl">        <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 5</span><span class="cl">            <span class="nt">&#34;label&#34;</span><span class="p">:</span> <span class="s2">&#34;构建C/C++文件&#34;</span><span class="p">,</span>   <span class="c1">// 任务名称，选择任务时将会看到
-</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="c1"></span>            <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;shell&#34;</span><span class="p">,</span>           <span class="c1">// 任务类别，shell表示在终端运行
-</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1"></span>            <span class="nt">&#34;command&#34;</span><span class="p">:</span> <span class="s2">&#34;g++&#34;</span><span class="p">,</span>          <span class="c1">// 命令名称
-</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1"></span>            <span class="nt">&#34;args&#34;</span><span class="p">:</span> <span class="p">[</span>                  <span class="c1">// 命令参数（可自行修改）
-</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="c1"></span>                <span class="c1">// 表示将会被替换为所操作的.cpp文件
-</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="c1"></span>                <span class="s2">&#34;${file}&#34;</span><span class="p">,</span>
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl">            <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;shell&#34;</span><span class="p">,</span>           <span class="c1">// 任务类别，shell表示在终端运行
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl">            <span class="nt">&#34;command&#34;</span><span class="p">:</span> <span class="s2">&#34;g++&#34;</span><span class="p">,</span>          <span class="c1">// 命令名称
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl">            <span class="nt">&#34;args&#34;</span><span class="p">:</span> <span class="p">[</span>                  <span class="c1">// 命令参数（可自行修改）
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl">                <span class="c1">// 表示将会被替换为所操作的.cpp文件
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl">                <span class="s2">&#34;${file}&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="ln">11</span><span class="cl">                <span class="s2">&#34;-o&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="ln">12</span><span class="cl">                <span class="c1">// 可执行文件生成的位置
-</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="c1"></span>                <span class="s2">&#34;${workspaceFolder}\\bin\\${fileBasenameNoExtension}.exe&#34;</span><span class="p">,</span>
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl">                <span class="s2">&#34;${workspaceFolder}\\bin\\${fileBasenameNoExtension}.exe&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="ln">14</span><span class="cl">                <span class="s2">&#34;-g&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="ln">15</span><span class="cl">                <span class="s2">&#34;-Wall&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="ln">16</span><span class="cl">                <span class="s2">&#34;-static-libgcc&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="ln">17</span><span class="cl">                <span class="c1">// 编码，默认为UTF-8
-</span></span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="c1"></span>                <span class="s2">&#34;-fexec-charset=UTF-8&#34;</span><span class="p">,</span>
+</span></span></span><span class="line"><span class="ln">18</span><span class="cl">                <span class="s2">&#34;-fexec-charset=UTF-8&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="ln">19</span><span class="cl">                <span class="c1">// 构建的C++标准
-</span></span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="c1"></span>                <span class="s2">&#34;-std=c++14&#34;</span>
+</span></span></span><span class="line"><span class="ln">20</span><span class="cl">                <span class="s2">&#34;-std=c++14&#34;</span>
 </span></span><span class="line"><span class="ln">21</span><span class="cl">            <span class="p">],</span>
 </span></span><span class="line"><span class="ln">22</span><span class="cl">            <span class="nt">&#34;group&#34;</span><span class="p">:</span> <span class="s2">&#34;build&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="ln">23</span><span class="cl">            <span class="nt">&#34;presentation&#34;</span><span class="p">:</span> <span class="p">{</span>
@@ -725,7 +729,7 @@
 </span></span><span class="line"><span class="ln">27</span><span class="cl">                <span class="nt">&#34;panel&#34;</span><span class="p">:</span> <span class="s2">&#34;new&#34;</span>
 </span></span><span class="line"><span class="ln">28</span><span class="cl">            <span class="p">},</span>
 </span></span><span class="line"><span class="ln">29</span><span class="cl">            <span class="nt">&#34;detail&#34;</span><span class="p">:</span> <span class="s2">&#34;生成可执行文件&#34;</span><span class="p">,</span>     <span class="c1">// 任务注释，显示为任务名称的下行小字
-</span></span></span><span class="line"><span class="ln">30</span><span class="cl"><span class="c1"></span>            <span class="nt">&#34;problemMatcher&#34;</span><span class="p">:</span> <span class="s2">&#34;$gcc&#34;</span>
+</span></span></span><span class="line"><span class="ln">30</span><span class="cl">            <span class="nt">&#34;problemMatcher&#34;</span><span class="p">:</span> <span class="s2">&#34;$gcc&#34;</span>
 </span></span><span class="line"><span class="ln">31</span><span class="cl">        <span class="p">},</span>
 </span></span><span class="line"><span class="ln">32</span><span class="cl">
 </span></span><span class="line"><span class="ln">33</span><span class="cl">        <span class="p">{</span>
@@ -736,7 +740,7 @@
 </span></span><span class="line"><span class="ln">38</span><span class="cl">            <span class="nt">&#34;group&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">39</span><span class="cl">                <span class="nt">&#34;kind&#34;</span><span class="p">:</span> <span class="s2">&#34;build&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="ln">40</span><span class="cl">                <span class="nt">&#34;isDefault&#34;</span><span class="p">:</span> <span class="kc">true</span>   <span class="c1">// 设置为默认操作
-</span></span></span><span class="line"><span class="ln">41</span><span class="cl"><span class="c1"></span>            <span class="p">},</span>
+</span></span></span><span class="line"><span class="ln">41</span><span class="cl">            <span class="p">},</span>
 </span></span><span class="line"><span class="ln">42</span><span class="cl">            <span class="nt">&#34;presentation&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">43</span><span class="cl">                <span class="nt">&#34;echo&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
 </span></span><span class="line"><span class="ln">44</span><span class="cl">                <span class="nt">&#34;reveal&#34;</span><span class="p">:</span> <span class="s2">&#34;always&#34;</span><span class="p">,</span>
@@ -749,7 +753,8 @@
 </span></span><span class="line"><span class="ln">51</span><span class="cl">    <span class="p">]</span>
 </span></span><span class="line"><span class="ln">52</span><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><blockquote>
-<p>在<code>.json</code>文件中，所有的<code>\</code>都应输入成<code>\\</code>，这一过程称为转译。</p></blockquote>
+<p>在<code>.json</code>文件中，所有的<code>\</code>都应输入成<code>\\</code>，这一过程称为转译。</p>
+</blockquote>
 <p>配置完成后，点击 <code>终端</code>→<code>运行任务</code>→<code>选择所需的任务</code> 即可构建或运行程序。或直接按<code>Ctrl+Shift+B</code>运行默认任务，上例中为&quot;构建并运行C/C++文件&quot;，相当于在终端中执行命令：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">g++ file.cpp -o file.exe -g -Wall -static-libgcc -fexec-charset<span class="o">=</span>UTF-8 -std<span class="o">=</span>c++14
 </span></span><span class="line"><span class="ln">2</span><span class="cl">file.exe
@@ -764,22 +769,22 @@
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="nt">&#34;configurations&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="ln"> 4</span><span class="cl">        <span class="p">{</span> 
 </span></span><span class="line"><span class="ln"> 5</span><span class="cl">            <span class="c1">// 单文件调试
-</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="c1"></span>            <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;Debug for one file&#34;</span><span class="p">,</span>
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl">            <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;Debug for one file&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="ln"> 7</span><span class="cl">            <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;cppdbg&#34;</span><span class="p">,</span>   <span class="c1">// cppdbg对应cpptools提供的调试功能；只能是cppdbg
-</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1"></span>            <span class="nt">&#34;request&#34;</span><span class="p">:</span> <span class="s2">&#34;launch&#34;</span><span class="p">,</span>
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl">            <span class="nt">&#34;request&#34;</span><span class="p">:</span> <span class="s2">&#34;launch&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="ln"> 9</span><span class="cl">            <span class="c1">// 这里program指编译好的exe可执行文件的路径，与tasks中要对应
-</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="c1"></span>            <span class="nt">&#34;program&#34;</span><span class="p">:</span> <span class="s2">&#34;${workspaceFolder}\\bin\\${fileBasenameNoExtension}.exe&#34;</span><span class="p">,</span>
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl">            <span class="nt">&#34;program&#34;</span><span class="p">:</span> <span class="s2">&#34;${workspaceFolder}\\bin\\${fileBasenameNoExtension}.exe&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="ln">11</span><span class="cl">            <span class="nt">&#34;args&#34;</span><span class="p">:</span> <span class="p">[],</span>
 </span></span><span class="line"><span class="ln">12</span><span class="cl">            <span class="nt">&#34;stopAtEntry&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>   <span class="c1">// 是否在main处打断点    
-</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="c1"></span>            <span class="nt">&#34;cwd&#34;</span><span class="p">:</span> <span class="s2">&#34;${fileDirname}&#34;</span><span class="p">,</span>    <span class="c1">// 调试程序时的工作目录
-</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="c1"></span>            <span class="nt">&#34;environment&#34;</span><span class="p">:</span> <span class="p">[],</span>
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl">            <span class="nt">&#34;cwd&#34;</span><span class="p">:</span> <span class="s2">&#34;${fileDirname}&#34;</span><span class="p">,</span>    <span class="c1">// 调试程序时的工作目录
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl">            <span class="nt">&#34;environment&#34;</span><span class="p">:</span> <span class="p">[],</span>
 </span></span><span class="line"><span class="ln">15</span><span class="cl">            <span class="nt">&#34;externalConsole&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>               <span class="c1">// 改为true时为使用cmd终端
-</span></span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="c1"></span>            <span class="nt">&#34;internalConsoleOptions&#34;</span><span class="p">:</span> <span class="s2">&#34;neverOpen&#34;</span><span class="p">,</span>  <span class="c1">// 设为true为调试时聚焦调试控制台
-</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="c1"></span>            <span class="nt">&#34;MIMode&#34;</span><span class="p">:</span> <span class="s2">&#34;gdb&#34;</span><span class="p">,</span>
+</span></span></span><span class="line"><span class="ln">16</span><span class="cl">            <span class="nt">&#34;internalConsoleOptions&#34;</span><span class="p">:</span> <span class="s2">&#34;neverOpen&#34;</span><span class="p">,</span>  <span class="c1">// 设为true为调试时聚焦调试控制台
+</span></span></span><span class="line"><span class="ln">17</span><span class="cl">            <span class="nt">&#34;MIMode&#34;</span><span class="p">:</span> <span class="s2">&#34;gdb&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="ln">18</span><span class="cl">            <span class="c1">// 指定调试器所在路径，注意间隔是\\，请修改为你的路径
-</span></span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="c1"></span>            <span class="nt">&#34;miDebuggerPath&#34;</span><span class="p">:</span> <span class="s2">&#34;D:\\Developer\\mingw64\\bin\\gdb.exe&#34;</span><span class="p">,</span>
+</span></span></span><span class="line"><span class="ln">19</span><span class="cl">            <span class="nt">&#34;miDebuggerPath&#34;</span><span class="p">:</span> <span class="s2">&#34;D:\\Developer\\mingw64\\bin\\gdb.exe&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="ln">20</span><span class="cl">            <span class="c1">// 调试开始前执行的任务，必须与tasks.json的label相对应
-</span></span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="c1"></span>            <span class="nt">&#34;preLaunchTask&#34;</span><span class="p">:</span> <span class="s2">&#34;构建C/C++文件&#34;</span> 
+</span></span></span><span class="line"><span class="ln">21</span><span class="cl">            <span class="nt">&#34;preLaunchTask&#34;</span><span class="p">:</span> <span class="s2">&#34;构建C/C++文件&#34;</span> 
 </span></span><span class="line"><span class="ln">22</span><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="ln">23</span><span class="cl">    <span class="p">]</span>
 </span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="p">}</span>
@@ -789,18 +794,18 @@
 </ol>
 <p>如果按照以上方法配置，工作区的文件结构应该如下所示：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="l">workspace/</span><span class="w">
-</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="w"></span><span class="l">├── .vscode/           </span><span class="w"> </span><span class="c"># 存放配置文件</span><span class="w">
-</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="w"></span><span class="l">│   ├── launch.json</span><span class="w">
-</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="w"></span><span class="l">│   └── tasks.json</span><span class="w">
-</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="w"></span><span class="l">│</span><span class="w">
-</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="w"></span><span class="l">├── bin/               </span><span class="w"> </span><span class="c"># 存放构建的exe文件</span><span class="w">
-</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="w"></span><span class="l">│   ├── HelloWorld.exe</span><span class="w">
-</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="w"></span><span class="l">│   ├── Number.exe</span><span class="w">
-</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="w"></span><span class="l">│   └── {name}.exe</span><span class="w">
-</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="w"></span><span class="l">│</span><span class="w">
-</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="w"></span><span class="l">├── HelloWorld.cpp     </span><span class="w"> </span><span class="c"># 存放源代码</span><span class="w">
-</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="w"></span><span class="l">├── Number.cpp</span><span class="w">
-</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="w"></span><span class="l">└── {name}.cpp</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="l">├── .vscode/           </span><span class="w"> </span><span class="c"># 存放配置文件</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="l">│   ├── launch.json</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="l">│   └── tasks.json</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="l">│</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="l">├── bin/               </span><span class="w"> </span><span class="c"># 存放构建的exe文件</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="l">│   ├── HelloWorld.exe</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="l">│   ├── Number.exe</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="l">│   └── {name}.exe</span><span class="w">
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="l">│</span><span class="w">
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="l">├── HelloWorld.cpp     </span><span class="w"> </span><span class="c"># 存放源代码</span><span class="w">
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="l">├── Number.cpp</span><span class="w">
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="l">└── {name}.cpp</span><span class="w">
 </span></span></span></code></pre></div>
 </section>
 

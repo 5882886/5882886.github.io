@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/nemu-part-2/'>
 
-<link rel="stylesheet" href="/scss/style.min.e851fcab2a85f7d449567d7f43c7cd36646cf5a9b08bb9364dca65dd264196e2.css"><meta property='og:title' content="NEMU-PART II">
+<link rel="stylesheet" href="/scss/style.min.90289cd6c8c19645ed90d05b0f2cd54bca3088b1ce8c3826878145b9a627f3fe.css"><meta property='og:title' content="NEMU-PART II">
 <meta property='og:description' content="PA2">
 <meta property='og:url' content='https://5882886.github.io/p/nemu-part-2/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -622,28 +622,28 @@
 <li>编写<code>call-template.h</code></li>
 </ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;cpu/exec/template-start.h&#34;</span><span class="cp">
-</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="cp"></span>
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl">
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="cp">#define instr call
-</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="cp"></span>
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl">
 </span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="c1">// call + 相对偏移量（视为一个立即数）
-</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="c1"></span><span class="nf">make_helper</span><span class="p">(</span><span class="nf">concat</span><span class="p">(</span><span class="n">call_i_</span><span class="p">,</span> <span class="n">SUFFIX</span><span class="p">))</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="nf">make_helper</span><span class="p">(</span><span class="nf">concat</span><span class="p">(</span><span class="n">call_i_</span><span class="p">,</span> <span class="n">SUFFIX</span><span class="p">))</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="c1">// 解码偏移量（立即数）
-</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="nf">concat</span><span class="p">(</span><span class="n">decode_i_</span><span class="p">,</span> <span class="n">SUFFIX</span><span class="p">)(</span><span class="n">cpu</span><span class="p">.</span><span class="n">eip</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span> 
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="nf">concat</span><span class="p">(</span><span class="n">decode_i_</span><span class="p">,</span> <span class="n">SUFFIX</span><span class="p">)(</span><span class="n">cpu</span><span class="p">.</span><span class="n">eip</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span> 
 </span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="c1">// 压栈操作 (push)
-</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="c1"></span>    <span class="nf">reg_l</span><span class="p">(</span><span class="n">R_ESP</span><span class="p">)</span> <span class="o">-=</span> <span class="n">DATA_BYTE</span><span class="p">;</span> 
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="nf">reg_l</span><span class="p">(</span><span class="n">R_ESP</span><span class="p">)</span> <span class="o">-=</span> <span class="n">DATA_BYTE</span><span class="p">;</span> 
 </span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="c1">// eip寄存器的下一位地址写入esp (mov)
-</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="c1"></span>    <span class="nf">MEM_W</span><span class="p">(</span><span class="nf">reg_l</span><span class="p">(</span><span class="n">R_ESP</span><span class="p">),</span> <span class="n">cpu</span><span class="p">.</span><span class="n">eip</span> <span class="o">+</span> <span class="n">len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span> 
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="nf">MEM_W</span><span class="p">(</span><span class="nf">reg_l</span><span class="p">(</span><span class="n">R_ESP</span><span class="p">),</span> <span class="n">cpu</span><span class="p">.</span><span class="n">eip</span> <span class="o">+</span> <span class="n">len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span> 
 </span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="c1">// 加上立即数偏移量，实现跳转
-</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="c1"></span>    <span class="n">cpu</span><span class="p">.</span><span class="n">eip</span> <span class="o">+=</span> <span class="p">(</span><span class="n">DATA_TYPE_S</span><span class="p">)</span><span class="n">op_src</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">;</span> 
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="n">cpu</span><span class="p">.</span><span class="n">eip</span> <span class="o">+=</span> <span class="p">(</span><span class="n">DATA_TYPE_S</span><span class="p">)</span><span class="n">op_src</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">;</span> 
 </span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="c1">// 更新eip寄存器
-</span></span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="c1"></span>    <span class="nf">print_asm</span><span class="p">(</span><span class="s">&#34;call: 0x%x&#34;</span><span class="p">,</span> <span class="n">cpu</span><span class="p">.</span><span class="n">eip</span> <span class="o">+</span> <span class="n">len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span> 
+</span></span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="nf">print_asm</span><span class="p">(</span><span class="s">&#34;call: 0x%x&#34;</span><span class="p">,</span> <span class="n">cpu</span><span class="p">.</span><span class="n">eip</span> <span class="o">+</span> <span class="n">len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span> 
 </span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="k">return</span> <span class="n">len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="ln">19</span><span class="cl">
 </span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="c1">// call + 寄存器
-</span></span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="c1"></span><span class="nf">make_helper</span><span class="p">(</span><span class="nf">concat</span><span class="p">(</span><span class="n">call_rm_</span><span class="p">,</span> <span class="n">SUFFIX</span><span class="p">))</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="nf">make_helper</span><span class="p">(</span><span class="nf">concat</span><span class="p">(</span><span class="n">call_rm_</span><span class="p">,</span> <span class="n">SUFFIX</span><span class="p">))</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">22</span><span class="cl">    <span class="c1">// 解码寄存器/内存
-</span></span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="nf">concat</span><span class="p">(</span><span class="n">decode_rm_</span><span class="p">,</span> <span class="n">SUFFIX</span><span class="p">)(</span><span class="n">eip</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="ln">23</span><span class="cl">    <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="nf">concat</span><span class="p">(</span><span class="n">decode_rm_</span><span class="p">,</span> <span class="n">SUFFIX</span><span class="p">)(</span><span class="n">eip</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">24</span><span class="cl">    <span class="nf">reg_l</span><span class="p">(</span><span class="n">R_ESP</span><span class="p">)</span> <span class="o">-=</span> <span class="n">DATA_BYTE</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">25</span><span class="cl">    <span class="nf">MEM_W</span><span class="p">(</span><span class="nf">reg_l</span><span class="p">(</span><span class="n">R_ESP</span><span class="p">),</span> <span class="n">cpu</span><span class="p">.</span><span class="n">eip</span> <span class="o">+</span> <span class="n">len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">26</span><span class="cl">    <span class="n">cpu</span><span class="p">.</span><span class="n">eip</span> <span class="o">=</span> <span class="p">(</span><span class="n">DATA_TYPE_S</span><span class="p">)</span><span class="n">op_src</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">-</span> <span class="n">len</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
@@ -661,19 +661,19 @@
 <li>编写<code>call.c</code></li>
 </ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;cpu/exec/helper.h&#34;</span><span class="cp">
-</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="cp"></span>
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl">
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="cp">#define DATA_BYTE 1
 </span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;call-template.h&#34;</span><span class="cp">
 </span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="cp">#undef DATA_BYTE
-</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="cp"></span>
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl">
 </span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="cp">#define DATA_BYTE 2
 </span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;call-template.h&#34;</span><span class="cp">
 </span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="cp">#undef DATA_BYTE
-</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="cp"></span>
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl">
 </span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="cp">#define DATA_BYTE 4
 </span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;call-template.h&#34;</span><span class="cp">
 </span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="cp">#undef DATA_BYTE
-</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="cp"></span>
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl">
 </span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="nf">make_helper_v</span><span class="p">(</span><span class="n">call_i</span><span class="p">)</span>
 </span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="nf">make_helper_v</span><span class="p">(</span><span class="n">call_rm</span><span class="p">)</span> 
 </span></span></code></pre></div><ol start="3">
@@ -681,7 +681,7 @@
 </ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="cp">#ifndef __CALL_H__
 </span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="cp">#define __CALL_H__
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="cp"></span>
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl">
 </span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="nf">make_helper</span><span class="p">(</span><span class="n">call_i_v</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="nf">make_helper</span><span class="p">(</span><span class="n">call_rm_v</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">6</span><span class="cl">
@@ -746,19 +746,19 @@
 <li>编写<code>test-template.h</code></li>
 </ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;cpu/exec/template-start.h&#34;</span><span class="cp">
-</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="cp"></span>
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl">
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="cp">#define instr test
-</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="cp"></span>
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl">
 </span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="k">static</span> <span class="kt">void</span> <span class="nf">do_execute</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="c1">// 两个操作数进行与运算
-</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1"></span>    <span class="n">DATA_TYPE</span> <span class="n">result</span> <span class="o">=</span> <span class="n">op_dest</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">&amp;</span> <span class="n">op_src</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="n">DATA_TYPE</span> <span class="n">result</span> <span class="o">=</span> <span class="n">op_dest</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">&amp;</span> <span class="n">op_src</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln"> 8</span><span class="cl">
 </span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="n">cpu</span><span class="p">.</span><span class="n">eflags</span><span class="p">.</span><span class="n">CF</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="n">cpu</span><span class="p">.</span><span class="n">eflags</span><span class="p">.</span><span class="n">OF</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">11</span><span class="cl">
 </span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="c1">// 在/nemu/src/cpu/eflags.c中定义的函数
-</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="c1"></span>    <span class="c1">// 可根据结果自动修改eflags寄存器的值
-</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="c1"></span>    <span class="nf">update_eflags_pf_zf_sf</span><span class="p">((</span><span class="n">DATA_TYPE_S</span><span class="p">)</span><span class="n">result</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="c1">// 可根据结果自动修改eflags寄存器的值
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="nf">update_eflags_pf_zf_sf</span><span class="p">((</span><span class="n">DATA_TYPE_S</span><span class="p">)</span><span class="n">result</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="nf">print_asm_template1</span><span class="p">();</span>
 </span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="nf">make_instr_helper</span><span class="p">(</span><span class="n">i2a</span><span class="p">)</span>
@@ -769,24 +769,25 @@
 </span></span></span></code></pre></div><blockquote>
 <p>程序中经常使用一些缩写，并已成为约定俗成的惯例。</p>
 <p>例如，为了方便理解，通常把<code>to</code>用<code>2</code>代替。因此<code>i2rm</code>表示立即数传到寄存器/内存中，<code>r2rm</code>表示寄存器传到寄存器/内存中。</p>
-<p><code>i18n</code>与此类似，是<code>internationalization</code>的缩写，表示“国际化”。</p></blockquote>
+<p><code>i18n</code>与此类似，是<code>internationalization</code>的缩写，表示“国际化”。</p>
+</blockquote>
 <ol start="2">
 <li>编写<code>test.c</code></li>
 </ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;cpu/exec/helper.h&#34;</span><span class="cp">
-</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="cp"></span>
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl">
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="cp">#define DATA_BYTE 1
 </span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;test-template.h&#34;</span><span class="cp">
 </span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="cp">#undef DATA_BYTE
-</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="cp"></span>
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl">
 </span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="cp">#define DATA_BYTE 2
 </span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;test-template.h&#34;</span><span class="cp">
 </span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="cp">#undef DATA_BYTE
-</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="cp"></span>
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl">
 </span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="cp">#define DATA_BYTE 4
 </span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;test-template.h&#34;</span><span class="cp">
 </span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="cp">#undef DATA_BYTE
-</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="cp"></span>
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl">
 </span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="nf">make_helper_v</span><span class="p">(</span><span class="n">test_i2a</span><span class="p">)</span>
 </span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="nf">make_helper_v</span><span class="p">(</span><span class="n">test_i2rm</span><span class="p">)</span>
 </span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="nf">make_helper_v</span><span class="p">(</span><span class="n">test_r2rm</span><span class="p">)</span>
@@ -795,7 +796,7 @@
 </ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cp">#ifndef _TEST_H_
 </span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="cp">#define _TEST_H_
-</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="cp"></span>
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl">
 </span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="nf">make_helper</span><span class="p">(</span><span class="n">test_i2a_b</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="nf">make_helper</span><span class="p">(</span><span class="n">test_i2rm_b</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="nf">make_helper</span><span class="p">(</span><span class="n">test_r2rm_b</span><span class="p">);</span>
@@ -812,11 +813,12 @@
 </figure>
 
 <blockquote>
-<p>添加je指令有两种方法，一种是参考普通指令的执行方式，用<code>static void do_execute</code>创建函数并使用<code>make_instr_helper()</code>；另一种是直接定义一个新的<code>make_jcc_helper()</code>宏。这里采用后者，因为这样所有条件跳转如<code>jne</code>，<code>jg</code>，<code>jge</code>等都可以用<code>make_jcc_helper()</code>的宏实现。</p></blockquote>
+<p>添加je指令有两种方法，一种是参考普通指令的执行方式，用<code>static void do_execute</code>创建函数并使用<code>make_instr_helper()</code>；另一种是直接定义一个新的<code>make_jcc_helper()</code>宏。这里采用后者，因为这样所有条件跳转如<code>jne</code>，<code>jg</code>，<code>jge</code>等都可以用<code>make_jcc_helper()</code>的宏实现。</p>
+</blockquote>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;cpu/exec/template-start.h&#34;</span><span class="cp">
-</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="cp"></span> 
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"> 
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="c1">// 条件跳转指令译码过程复杂，make_instr_helper无法使用，需要重新定义
-</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="c1"></span><span class="cp">#define make_jcc_helper(cc) \
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="cp">#define make_jcc_helper(cc) \
 </span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="cp">    make_helper(concat4(j, cc, _, SUFFIX)) { \
 </span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="cp">        int len = concat(decode_si_, SUFFIX)(eip + 1); \
 </span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="cp">        print_asm(str(concat(j,cc)) &#34; %x&#34;,cpu.eip+op_src-&gt;val+1+len+(DATA_BYTE == 4)); \
@@ -825,7 +827,7 @@
 </span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="cp">        } \
 </span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="cp">        return len + 1; \
 </span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="cp">    }
-</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="cp"></span>
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl">
 </span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;cpu/exec/template-end.h&#34;</span><span class="cp">
 </span></span></span></code></pre></div><p>在<code>include/cpu/eflags.h</code>中定义比较函数：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">static</span> <span class="kr">inline</span> <span class="kt">bool</span> <span class="nf">check_cc_e</span><span class="p">()</span> <span class="p">{</span>
@@ -912,34 +914,34 @@
 </h3><p>在<code>lib-common/FLOAT.h</code>中定义定点数与整型的基本运算：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">static</span> <span class="kr">inline</span> <span class="kt">int</span> <span class="nf">F2int</span><span class="p">(</span><span class="n">FLOAT</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 2</span><span class="cl">	<span class="c1">// 将定点数转换为整型
-</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="c1"></span>	<span class="k">return</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="mi">16</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl">	<span class="k">return</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="mi">16</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="ln"> 5</span><span class="cl">
 </span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="k">static</span> <span class="kr">inline</span> <span class="n">FLOAT</span> <span class="nf">int2F</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 7</span><span class="cl">	<span class="c1">// 将整型转换为定点数
-</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1"></span>	<span class="k">return</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="mi">16</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl">	<span class="k">return</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="mi">16</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="ln">10</span><span class="cl">
 </span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="k">static</span> <span class="kr">inline</span> <span class="n">FLOAT</span> <span class="nf">F_mul_int</span><span class="p">(</span><span class="n">FLOAT</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">12</span><span class="cl">	<span class="c1">// 定点数与整型相乘
-</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="c1"></span>	<span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl">	<span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="ln">15</span><span class="cl">
 </span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="k">static</span> <span class="kr">inline</span> <span class="n">FLOAT</span> <span class="nf">F_div_int</span><span class="p">(</span><span class="n">FLOAT</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">17</span><span class="cl">	<span class="c1">// 定点数与整型相除
-</span></span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="c1"></span>	<span class="k">return</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="ln">18</span><span class="cl">	<span class="k">return</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>在<code>lib-common/FLOAT/FLOAT.c</code>中定义浮点数到定点数的转化和定点数的运算：</p>
 <ol>
 <li>定义浮点数结构</li>
 </ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// 接收IEEE编码的浮点数
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"></span><span class="k">typedef</span> <span class="k">union</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="k">typedef</span> <span class="k">union</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">3</span><span class="cl">	<span class="k">struct</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">4</span><span class="cl">		<span class="kt">uint32_t</span> <span class="nl">m</span> <span class="p">:</span> <span class="mi">23</span><span class="p">;</span>	<span class="c1">// 尾数位
-</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="c1"></span>		<span class="kt">uint32_t</span> <span class="nl">e</span> <span class="p">:</span> <span class="mi">8</span><span class="p">;</span>		<span class="c1">// 指数位
-</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="c1"></span>		<span class="kt">uint32_t</span> <span class="nl">s</span> <span class="p">:</span> <span class="mi">1</span><span class="p">;</span>		<span class="c1">// 符号位
-</span></span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="c1"></span>	<span class="p">};</span>
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl">		<span class="kt">uint32_t</span> <span class="nl">e</span> <span class="p">:</span> <span class="mi">8</span><span class="p">;</span>		<span class="c1">// 指数位
+</span></span></span><span class="line"><span class="ln">6</span><span class="cl">		<span class="kt">uint32_t</span> <span class="nl">s</span> <span class="p">:</span> <span class="mi">1</span><span class="p">;</span>		<span class="c1">// 符号位
+</span></span></span><span class="line"><span class="ln">7</span><span class="cl">	<span class="p">};</span>
 </span></span><span class="line"><span class="ln">8</span><span class="cl">	<span class="kt">uint32_t</span> <span class="n">val</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">9</span><span class="cl"><span class="p">}</span> <span class="n">Float</span><span class="p">;</span>
 </span></span></code></pre></div><ol start="2">
@@ -961,13 +963,13 @@
 </span></span><span class="line"><span class="ln">12</span><span class="cl">	<span class="n">Float</span> <span class="n">f</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">13</span><span class="cl">	<span class="kt">void</span> <span class="o">*</span><span class="n">temp</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">14</span><span class="cl">	<span class="n">f</span><span class="p">.</span><span class="n">val</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="o">*</span><span class="p">)</span> <span class="n">temp</span><span class="p">;</span>     <span class="c1">// 联合体val接收IEEE编码
-</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="c1"></span>
+</span></span></span><span class="line"><span class="ln">15</span><span class="cl">
 </span></span><span class="line"><span class="ln">16</span><span class="cl">	<span class="kt">uint32_t</span> <span class="n">m</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="n">m</span> <span class="o">|</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">23</span><span class="p">);</span>	<span class="c1">// 为尾数位添加1
-</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="c1"></span>	<span class="c1">// 计算偏移量
-</span></span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="c1"></span>	<span class="kt">int</span> <span class="n">shift</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">f</span><span class="p">.</span><span class="n">e</span> <span class="o">-</span> <span class="p">(</span><span class="mi">127</span><span class="o">+</span><span class="mi">23</span><span class="o">-</span><span class="mi">16</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="ln">17</span><span class="cl">	<span class="c1">// 计算偏移量
+</span></span></span><span class="line"><span class="ln">18</span><span class="cl">	<span class="kt">int</span> <span class="n">shift</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">f</span><span class="p">.</span><span class="n">e</span> <span class="o">-</span> <span class="p">(</span><span class="mi">127</span><span class="o">+</span><span class="mi">23</span><span class="o">-</span><span class="mi">16</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">19</span><span class="cl">	
 </span></span><span class="line"><span class="ln">20</span><span class="cl">	<span class="c1">// 对m执行偏移操作
-</span></span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="c1"></span>	<span class="k">if</span><span class="p">(</span><span class="n">shift</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln">21</span><span class="cl">	<span class="k">if</span><span class="p">(</span><span class="n">shift</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">22</span><span class="cl">		<span class="n">m</span> <span class="o">&lt;&lt;=</span> <span class="n">shift</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">23</span><span class="cl">	<span class="p">}</span>
 </span></span><span class="line"><span class="ln">24</span><span class="cl">	<span class="k">else</span> <span class="p">{</span>
@@ -992,16 +994,16 @@
 <h2 id="为简易调试器增加变量支持">为简易调试器增加变量支持
 </h2><p>在<code>nemu/src/monitor/debug/elf.c</code>文件中：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1">//sym是我们需要匹配的符号名称，success指针用于设置是否匹配成功
-</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="c1"></span><span class="kt">uint32_t</span> <span class="nf">look_up_symtab</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">sym</span><span class="p">){</span>
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kt">uint32_t</span> <span class="nf">look_up_symtab</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">sym</span><span class="p">){</span>
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="c1">//遍历符号表逐个匹配符号
-</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="c1"></span>    <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">nr_symtab_entry</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">nr_symtab_entry</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
 </span></span><span class="line"><span class="ln"> 6</span><span class="cl">        <span class="c1">//逐个提取符号信息中的符号类别
-</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1"></span>        <span class="kt">uint8_t</span> <span class="n">type</span> <span class="o">=</span> <span class="nf">ELF32_ST_TYPE</span><span class="p">(</span><span class="n">symtab</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">st_info</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl">        <span class="kt">uint8_t</span> <span class="n">type</span> <span class="o">=</span> <span class="nf">ELF32_ST_TYPE</span><span class="p">(</span><span class="n">symtab</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">st_info</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln"> 8</span><span class="cl">        <span class="c1">//当遇到类别为FUNC或者OBJECT时候匹配符号名
-</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="c1"></span>        <span class="k">if</span><span class="p">((</span><span class="n">type</span> <span class="o">==</span> <span class="n">STT_FUNC</span> <span class="o">||</span> <span class="n">type</span> <span class="o">==</span> <span class="n">STT_OBJECT</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nf">strcmp</span><span class="p">(</span><span class="n">strtab</span> <span class="o">+</span> <span class="n">symtab</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">st_name</span><span class="p">,</span> <span class="n">sym</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl">        <span class="k">if</span><span class="p">((</span><span class="n">type</span> <span class="o">==</span> <span class="n">STT_FUNC</span> <span class="o">||</span> <span class="n">type</span> <span class="o">==</span> <span class="n">STT_OBJECT</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nf">strcmp</span><span class="p">(</span><span class="n">strtab</span> <span class="o">+</span> <span class="n">symtab</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">st_name</span><span class="p">,</span> <span class="n">sym</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
 </span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="c1">//匹配成功后返回符号的地址
-</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="c1"></span>        <span class="k">return</span> <span class="n">symtab</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">st_value</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl">        <span class="k">return</span> <span class="n">symtab</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">st_value</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">12</span><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;No sym found&#34;</span><span class="p">);</span>
@@ -1012,30 +1014,30 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="p">...</span>
 </span></span><span class="line"><span class="ln"> 2</span><span class="cl">	<span class="cm">/* TODO: fix the magic number with the correct one */</span>
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="c1">//修改为elf文件的魔数
-</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="c1"></span>	<span class="k">const</span> <span class="kt">uint32_t</span> <span class="n">elf_magic</span> <span class="o">=</span> <span class="mh">0x464c457f</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl">	<span class="k">const</span> <span class="kt">uint32_t</span> <span class="n">elf_magic</span> <span class="o">=</span> <span class="mh">0x464c457f</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln"> 5</span><span class="cl">	<span class="kt">uint32_t</span> <span class="o">*</span><span class="n">p_magic</span> <span class="o">=</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="n">buf</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln"> 6</span><span class="cl">	<span class="nf">nemu_assert</span><span class="p">(</span><span class="o">*</span><span class="n">p_magic</span> <span class="o">==</span> <span class="n">elf_magic</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln"> 7</span><span class="cl"> 
 </span></span><span class="line"><span class="ln"> 8</span><span class="cl">	<span class="cm">/* Load each program segment */</span>
 </span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="c1">//初始化ph指向program header开头，buf指向elf文件的开头，e_phoff为program header偏移量
-</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="c1"></span>    <span class="n">ph</span> <span class="o">=</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="n">buf</span> <span class="o">+</span> <span class="n">elf</span><span class="o">-&gt;</span><span class="n">e_phoff</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="n">ph</span> <span class="o">=</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="n">buf</span> <span class="o">+</span> <span class="n">elf</span><span class="o">-&gt;</span><span class="n">e_phoff</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="c1">//eph指向program header的末尾，e_phnum为program header中segment的数量
-</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="c1"></span>    <span class="c1">//遍历program header表，加载需要加载的segment
-</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="c1"></span>	<span class="k">for</span><span class="p">(</span><span class="n">Elf32_Phdr</span> <span class="o">*</span><span class="n">eph</span> <span class="o">=</span> <span class="n">ph</span> <span class="o">+</span> <span class="n">elf</span><span class="o">-&gt;</span><span class="n">e_phnum</span><span class="p">;</span><span class="n">ph</span> <span class="o">&lt;</span> <span class="n">eph</span><span class="p">;</span><span class="n">ph</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="c1">//遍历program header表，加载需要加载的segment
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl">	<span class="k">for</span><span class="p">(</span><span class="n">Elf32_Phdr</span> <span class="o">*</span><span class="n">eph</span> <span class="o">=</span> <span class="n">ph</span> <span class="o">+</span> <span class="n">elf</span><span class="o">-&gt;</span><span class="n">e_phnum</span><span class="p">;</span><span class="n">ph</span> <span class="o">&lt;</span> <span class="n">eph</span><span class="p">;</span><span class="n">ph</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">14</span><span class="cl">		<span class="cm">/* Scan the program header table, load each segment into memory */</span>
 </span></span><span class="line"><span class="ln">15</span><span class="cl">		<span class="k">if</span><span class="p">(</span><span class="n">ph</span><span class="o">-&gt;</span><span class="n">p_type</span> <span class="o">==</span> <span class="n">PT_LOAD</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">16</span><span class="cl">            <span class="kt">uint32_t</span> <span class="n">addr</span> <span class="o">=</span> <span class="n">ph</span><span class="o">-&gt;</span><span class="n">p_vaddr</span><span class="p">;</span> <span class="c1">//存储segment加载到的目标地址
-</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="c1"></span>			<span class="cm">/* TODO: read the content of the segment from the ELF file 
+</span></span></span><span class="line"><span class="ln">17</span><span class="cl">			<span class="cm">/* TODO: read the content of the segment from the ELF file 
 </span></span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="cm">			 * to the memory region [VirtAddr, VirtAddr + FileSiz)
 </span></span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="cm">			 */</span>
 </span></span><span class="line"><span class="ln">20</span><span class="cl">            <span class="c1">//利用函数从当前segment中读取filesiz大小的数据到目标地址
-</span></span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="c1"></span>         <span class="nf">ramdisk_read</span><span class="p">((</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="n">addr</span><span class="p">,</span> <span class="n">ELF_OFFSET_IN_DISK</span> <span class="o">+</span> <span class="n">ph</span><span class="o">-&gt;</span><span class="n">p_offset</span><span class="p">,</span><span class="n">ph</span><span class="o">-&gt;</span><span class="n">p_filesz</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="ln">21</span><span class="cl">         <span class="nf">ramdisk_read</span><span class="p">((</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="n">addr</span><span class="p">,</span> <span class="n">ELF_OFFSET_IN_DISK</span> <span class="o">+</span> <span class="n">ph</span><span class="o">-&gt;</span><span class="n">p_offset</span><span class="p">,</span><span class="n">ph</span><span class="o">-&gt;</span><span class="n">p_filesz</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">22</span><span class="cl">			
 </span></span><span class="line"><span class="ln">23</span><span class="cl">			<span class="cm">/* TODO: zero the memory region 
 </span></span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="cm">			 * [VirtAddr + FileSiz, VirtAddr + MemSiz)
 </span></span></span><span class="line"><span class="ln">25</span><span class="cl"><span class="cm">			 */</span>
 </span></span><span class="line"><span class="ln">26</span><span class="cl">         <span class="c1">//通过函数将未初始化的数据置0
-</span></span></span><span class="line"><span class="ln">27</span><span class="cl"><span class="c1"></span>         <span class="nf">memset</span><span class="p">((</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="n">addr</span> <span class="o">+</span> <span class="n">ph</span><span class="o">-&gt;</span><span class="n">p_filesz</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">ph</span><span class="o">-&gt;</span><span class="n">p_memsz</span> <span class="o">-</span> <span class="n">ph</span><span class="o">-&gt;</span><span class="n">p_filesz</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="ln">27</span><span class="cl">         <span class="nf">memset</span><span class="p">((</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="n">addr</span> <span class="o">+</span> <span class="n">ph</span><span class="o">-&gt;</span><span class="n">p_filesz</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">ph</span><span class="o">-&gt;</span><span class="n">p_memsz</span> <span class="o">-</span> <span class="n">ph</span><span class="o">-&gt;</span><span class="n">p_filesz</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">28</span><span class="cl"><span class="p">...</span>
 </span></span></code></pre></div>
 </section>
