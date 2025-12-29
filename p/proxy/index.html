@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="实现网络代理服务器">
+<title>Proxy实验</title>
+
+<link rel='canonical' href='https://5882886.github.io/p/proxy/'>
+
+<link rel="stylesheet" href="/scss/style.min.90289cd6c8c19645ed90d05b0f2cd54bca3088b1ce8c3826878145b9a627f3fe.css"><meta property='og:title' content="Proxy实验">
+<meta property='og:description' content="实现网络代理服务器">
+<meta property='og:url' content='https://5882886.github.io/p/proxy/'>
+<meta property='og:site_name' content='RunicDolphin806'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-12-28T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-12-28T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Proxy实验">
+<meta name="twitter:description" content="实现网络代理服务器">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<style>
+     
+    @media print {
+         
+        body {
+            width: 100%;
+            max-width: 1200px;  
+            margin: 0 auto;
+        }
+
+         
+        .menu, .footer, .sidebar.right-sidebar {
+            display: none !important;
+        }
+
+         
+        .main-container {
+            display: block !important;
+            width: 100% !important;
+        }
+    }
+</style>
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/RunicDolphin806_hu_1cf19e68755c676d.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">RunicDolphin806</a></h1>
+            <h2 class="site-description">技术备忘录</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/1102225810?spm_id_from=333.337.0.0'
+                        target="_blank"
+                        title="Bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/5882886'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>链接</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/exercises/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-text-scan-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 8v-2a2 2 0 0 1 2 -2h2" /><path d="M4 16v2a2 2 0 0 0 2 2h2" /><path d="M16 4h2a2 2 0 0 1 2 2v2" /><path d="M16 20h2a2 2 0 0 0 2 -2v-2" /><path d="M8 12h8" /><path d="M8 9h6" /><path d="M8 15h4" /></svg>
+                
+                <span>壹题</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://5882886.github.io/en/" >English</option>
+                                
+                                    <option value="https://5882886.github.io/" selected>简体中文</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    
+    <button id="toggle-toc" class="mobile-only">Toc</button>
+    <section class="widget archives" id="toc-container">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#part-i实现顺序的代理服务器">Part I：实现顺序的代理服务器</a>
+      <ol>
+        <li><a href="#main函数"><code>main</code>函数</a></li>
+        <li><a href="#解析url">解析URL</a></li>
+        <li><a href="#readclient函数"><code>readClient</code>函数</a></li>
+        <li><a href="#doit函数"><code>doit</code>函数</a></li>
+      </ol>
+    </li>
+    <li><a href="#part-ii处理多个并发请求">Part II：处理多个并发请求</a>
+      <ol>
+        <li><a href="#main函数-1"><code>main</code>函数</a></li>
+        <li><a href="#sbuf包"><code>SBUF</code>包</a></li>
+      </ol>
+    </li>
+    <li><a href="#part-iii缓存web对象">Part III：缓存Web对象</a>
+      <ol>
+        <li><a href="#main函数-2"><code>main</code>函数</a></li>
+        <li><a href="#读者-写者模型">读者-写者模型</a></li>
+        <li><a href="#缓存相关">缓存相关</a>
+          <ol>
+            <li><a href="#缓存结构">缓存结构</a></li>
+            <li><a href="#缓存函数">缓存函数</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+
+<style>
+    .container {
+        .right-sidebar {
+             
+            display: flex;
+        }
+    }
+
+     
+    .mobile-only {
+        display: none !important;
+    }
+
+    #toc-container {
+         
+         
+        position: fixed;
+         
+        bottom: 21%;
+         
+        right: 60px;
+         
+        background-color: var(--card-background);
+         
+        padding: 10px;
+         
+        border: 1px solid #96979a50;
+        border-radius: var(--card-border-radius);
+         
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+         
+        z-index: 9998 !important;
+         
+        max-height: 75vh;
+        overflow-y: auto;
+         
+        width: auto;
+        max-width: 290px;
+    }
+
+    #toggle-toc {
+        position: fixed;
+        bottom: 22%;
+        right: 20px;
+        padding: 10px 10px;
+        z-index: 9998 !important;
+        border: 0px solid #96979a50;
+        border-radius: 7px;
+        box-shadow: var(--shadow-l1);
+        background-color: #00640010;
+        color: var(--card-text-color-main);
+         
+        display: none;       
+        margin-bottom: -20px;
+        cursor: pointer;
+        font-size: 1.2rem;
+    }
+
+    @media screen and (max-width: 768px) {
+        .mobile-only {
+            display: block !important;  
+        }
+
+        #toc-container {
+            display: none;  
+        }
+
+        #toggle-toc {
+            display: block;  
+            bottom: 100px;  
+        }
+    }
+
+     
+    @media screen and (min-width: 769px) {
+        #toc-container {
+            display: block !important;  
+            position: static;  
+            border: none;  
+            box-shadow: none;  
+            max-height: none;  
+            overflow-y: visible;  
+            margin-top: 20px;  
+            right: auto;  
+            bottom: auto;  
+            width: auto;  
+            max-width: 100%;  
+            background-color: transparent;  
+            padding: 0;  
+        }
+        #toggle-toc {
+            display: none !important;  
+        }
+    }
+</style>
+<script>
+    var toggleButton = document.getElementById('toggle-toc');
+    var tocContainer = document.getElementById('toc-container');
+
+    
+    toggleButton.addEventListener('click', function() {
+        if (tocContainer.style.display === 'none' || tocContainer.style.display === '') {
+            tocContainer.style.display = 'block';
+        } else {
+            tocContainer.style.display = 'none';
+        }
+    });
+
+    
+    toggleButton.addEventListener('mouseover', function() {
+        
+            tocContainer.style.display = 'block';
+        
+    });
+
+    
+    document.addEventListener('click', function(event) {
+        
+            
+            if (!tocContainer.contains(event.target) && event.target !== toggleButton) {
+                
+                tocContainer.style.display = 'none';
+            }
+        
+    });
+</script>
+            
+        
+            
+                <!DOCTYPE html>
+<html lang="zh_cn">
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+        <style>
+            .aplayer-music {
+                overflow-x: scroll
+            }
+
+            
+        </style>
+    </head>
+
+    <section class="widget music"> 
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M9 17v-13h10v13" /><path d="M9 8h10" /></svg>
+        </div>
+        <h2 class="widget-title section-title">音乐</h2>
+        <div id="aplayer"></div>
+    </section>
+
+    <script>
+        
+        fetch('/json/music.json')
+            .then(r => r.json())    
+            .then(list => {
+                const ap = new APlayer({ 
+                    container: document.getElementById('aplayer'), 
+                    mini: false,
+                    fixed: false,
+                    listFolded: true,
+                    listMaxHeight: '200px',
+                    lrcType: 3,
+                    audio: list 
+                });
+        });
+    </script>
+</html>
+
+
+    
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    
+        
+
+<!DOCTYPE html>
+<html lang="zh_cn">
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>密码</title>
+        <style>
+             
+            .password-box {
+                background-color: var(--card-background);
+                width: 100%;
+                margin: var(--card-margin) 0;
+                padding: var(--card-padding);
+                border-radius: 10px;
+                 
+                max-height: 35vh;
+                overflow-x: hidden;
+                overflow-y: auto;
+            }
+            .password-guide {
+                color: var(--card-text-color-main);
+            }
+            .cloze {
+                color: var(--card-text-color-main);
+            }
+            
+             
+            .widget-icon {
+                color: var(--body-text-color);
+            }
+
+             
+            .main-article {
+                display: none;
+            }
+            .widget--toc {
+               display: none;
+               max-height: 40vh;
+               overflow-y: auto;
+            }
+        </style>
+    </head>
+
+    
+    <section class="widget password"> 
+        <div class="password-box">
+            <div class="widget-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-lock"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6z" /><path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" /><path d="M8 11v-4a4 4 0 1 1 8 0v4" /></svg>
+            </div>
+            <div class="password-guide"><p>请输入密码以查看内容：</p></div>
+            <input id="password-input" type="password"  />
+            <button id="check">提交</button>
+            <div class="cloze" style="display: block;">
+                <p>密码为以下题目答案（保留6位小数）：</p>
+                <p>计算三重积分 $\displaystyle \iiint\limits_{\varOmega} \frac{xyz}{x^2+y^2} \mathrm{d}x\mathrm{d}y\mathrm{d}z$，其中 $\varOmega$ 是由曲面 $(x^2+y^2+z^2)^2 = 2xy$ 围成的区域在第一卦限的部分. </p>
+            </div>
+        </div>
+    </section>
+
+
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: '\\[', right: '\\]', display: true},
+                {left: '\\(', right: '\\)', display: false}
+            ]
+        });">
+    </script>
+
+    <script>
+        function checkPassword() {
+            const input = document.getElementById("password-input").value;
+            const correctPassword = "0.013888";
+            if (input == correctPassword) {
+                document.querySelector(".main-article").style.display = "block";
+                document.querySelector(".widget--toc").style.display = "block";
+                document.querySelector(".password-box").style.display = "none";
+            }
+            else {
+                alert("密码错误！");
+            }
+            window.Stack.init();
+        }
+
+        document.querySelector("#check").addEventListener("click", checkPassword);
+        
+    </script>
+</html>
+     
+    
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/interesting/" style="background-color: #2a9d8f; color: #fff;">
+                小乐趣
+            </a>
+        
+            <a href="/categories/csapp/" style="background-color: #080a4aff; color: #fff;">
+                CSAPP
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/proxy/">Proxy实验</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            实现网络代理服务器
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published" datetime='2025-12-28T00:00:00Z'>Dec 28, 2025</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>本实验的所有内容均在<code>proxy.c</code>文件中完成。</p>
+<p>感谢<a class="link" href="https://www.cnblogs.com/hankeke303/p/18155107/csapp-proxylab"  target="_blank" rel="noopener"
+    >hankeke303
+    
+    
+    <span style="white-space: nowrap;"><svg width=".7em"
+        height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+        <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+        <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+            fill="currentColor">
+    </svg></span>
+    
+
+</a>大佬提供的思路！</p>
+<h2 id="part-i实现顺序的代理服务器">Part I：实现顺序的代理服务器
+</h2><p>实现顺序的代理服务器实际上就是一个<code>tiny</code>服务器的复刻。</p>
+<h3 id="main函数"><code>main</code>函数
+</h3><p><code>main</code>函数参考书上 P672 的实例：</p>
+<figure><img src="/p/proxy/images/main.png" width="700"><figcaption>
+      <h4>main函数</h4>
+    </figcaption>
+</figure>
+
+<p>现在的代理服务器只支持<code>GET</code>方法。如果客户端请求其他方法（如<code>POST</code>），我们发送给它一个错误信息，并返回到主程序，主程序随后关闭连接并等待下一个连接请求。否则，读并且忽略任何请求报头。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="kt">int</span> <span class="n">listenfd</span><span class="p">,</span> <span class="n">connfd</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="kt">char</span> <span class="n">hostname</span><span class="p">[</span><span class="n">MAXLINE</span><span class="p">],</span> <span class="n">port</span><span class="p">[</span><span class="n">MAXLINE</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="kt">socklen_t</span> <span class="n">clientlen</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="k">struct</span> <span class="n">sockaddr_storage</span> <span class="n">clientaddr</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="c1">// 检查命令输入是否正确
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">        <span class="nf">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&#34;usage: %s &lt;port&gt; </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">        <span class="nf">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">
+</span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="n">listenfd</span> <span class="o">=</span> <span class="nf">Open_listenfd</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="c1">// 主循环
+</span></span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">        <span class="n">clientlen</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">clientaddr</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">        <span class="n">connfd</span> <span class="o">=</span> <span class="nf">Accept</span><span class="p">(</span><span class="n">listenfd</span><span class="p">,</span> <span class="p">(</span><span class="n">SA</span> <span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">clientaddr</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">clientlen</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">
+</span></span><span class="line"><span class="ln">21</span><span class="cl">        <span class="nf">Getnameinfo</span><span class="p">((</span><span class="n">SA</span> <span class="o">*</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">clientaddr</span><span class="p">,</span> <span class="n">clientlen</span><span class="p">,</span> <span class="n">hostname</span><span class="p">,</span> <span class="n">MAXLINE</span><span class="p">,</span> 
+</span></span><span class="line"><span class="ln">22</span><span class="cl">                    <span class="n">port</span><span class="p">,</span> <span class="n">MAXLINE</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">
+</span></span><span class="line"><span class="ln">24</span><span class="cl">        <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Accepted connection from (%s, %s)</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">hostname</span><span class="p">,</span> <span class="n">port</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">
+</span></span><span class="line"><span class="ln">27</span><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">,</span> <span class="n">user_agent_hdr</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="解析url">解析URL
+</h3><p>首先在程序中定义一个<code>URL</code>结构体，存放一个<code>URL</code>的<code>host</code>、端口和路径。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// URL 结构体
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="kt">char</span> <span class="n">host</span><span class="p">[</span><span class="n">MAXLINE</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">    <span class="kt">char</span> <span class="n">port</span><span class="p">[</span><span class="n">MAXLINE</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">    <span class="kt">char</span> <span class="n">path</span><span class="p">[</span><span class="n">MAXLINE</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="p">}</span> <span class="n">URL</span><span class="p">;</span>
+</span></span></code></pre></div><p>对于一个传入的<code>URL</code>字符串，首先忽略掉 <code>http://</code> 这种协议标识，可以通过查找<code>//</code>字符串来实现。</p>
+<p>然后，我们找到第一个<code>/</code>字符，在这个字符后面的就是路径了。如果找不到这个字符，我们就认为访问的是根路径<code>/</code>。随后我们将这个字符设置为<code>\0</code>，方便之后端口的读取。我们通过<code>:</code>字符来定位端口，<code>:</code>后面的就是端口，如果找不到<code>:</code> 那么就认为端口是<code>80</code>，然后我们将这个字符设置为<code>\0</code>。</p>
+<p>最后，剩下的字符串就是<code>host</code>了。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">void</span> <span class="nf">parseURL</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">s</span><span class="p">,</span> <span class="n">URL</span> <span class="o">*</span><span class="n">url</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="c1">// 忽略&#34;http&#34;，查找 &#34;//&#34; 字符串
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="kt">char</span> <span class="o">*</span><span class="n">ptr</span> <span class="o">=</span> <span class="nf">strstr</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="s">&#34;//&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">ptr</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">        <span class="n">s</span> <span class="o">=</span> <span class="n">ptr</span><span class="o">+</span><span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="c1">// 找到第一个 &#39;/&#39; 字符，其后为路径
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="n">ptr</span> <span class="o">=</span> <span class="nf">strchr</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="sc">&#39;/&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">ptr</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">        <span class="nf">strcpy</span><span class="p">(</span><span class="n">url</span><span class="o">-&gt;</span><span class="n">path</span><span class="p">,</span> <span class="n">ptr</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">        <span class="o">*</span><span class="n">ptr</span> <span class="o">=</span> <span class="sc">&#39;\0&#39;</span><span class="p">;</span>    <span class="c1">// 在原字符串中截断路径部分
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">
+</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="c1">// &#39;:&#39; 之后为端口号
+</span></span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="n">ptr</span> <span class="o">=</span> <span class="nf">strchr</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="sc">&#39;:&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">ptr</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">        <span class="nf">strcpy</span><span class="p">(</span><span class="n">url</span><span class="o">-&gt;</span><span class="n">port</span><span class="p">,</span> <span class="n">ptr</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">        <span class="o">*</span><span class="n">ptr</span> <span class="o">=</span> <span class="sc">&#39;\0&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">    <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">        <span class="c1">// 默认端口为80
+</span></span></span><span class="line"><span class="ln">24</span><span class="cl">        <span class="nf">strcpy</span><span class="p">(</span><span class="n">url</span><span class="o">-&gt;</span><span class="n">port</span><span class="p">,</span> <span class="s">&#34;80&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">
+</span></span><span class="line"><span class="ln">27</span><span class="cl">    <span class="nf">strcpy</span><span class="p">(</span><span class="n">url</span><span class="o">-&gt;</span><span class="n">host</span><span class="p">,</span> <span class="n">s</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>以<code>http://www.example.com:8080/path/to/file</code>为例：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>步骤</th>
+          <th>操作</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>查找<code>//</code>子字符串</td>
+          <td>指针指向<code>www.example.com:8080/path</code></td>
+      </tr>
+      <tr>
+          <td>查找第一个<code>/</code>字符</td>
+          <td><code>ptr</code>指向<code>/</code>，<code>s</code>变为<code>www.example.com:8080</code>，<code>url-&gt;path</code>得到<code>/path/to/file</code></td>
+      </tr>
+      <tr>
+          <td>查找<code>:</code>字符</td>
+          <td><code>ptr</code>指向<code>:</code>，<code>s</code>变为<code>www.example.com</code>，<code>url-&gt;port</code>得到<code>8080</code></td>
+      </tr>
+      <tr>
+          <td>获取主机名</td>
+          <td>剩余部分就是主机名，复制到<code>url-&gt;host</code>，<code>url-&gt;host</code>得到<code>www.example.com</code></td>
+      </tr>
+  </tbody>
+</table></div>
+<blockquote>
+<p>函数说明：</p>
+<ol>
+<li><code>strchr</code>是C语言标准库<code>&lt;string.h&gt;</code>中的一个函数，用于在字符串中查找指定字符的第一次出现位置。如果找到了指定字符，返回该字符在字符串中第一次出现的位置的指针；如果没有找到指定字符，返回<code>NULL</code>。</li>
+<li><code>strcpy</code>是C语言标准库<code>&lt;string.h&gt;</code>中的一个函数，用于将一个字符串复制到另一个字符串中。它会复制源字符串的内容（包括字符串的结束符<code>\0</code>），返回目标字符串的起始地址。</li>
+</ol>
+</blockquote>
+<h3 id="readclient函数"><code>readClient</code>函数
+</h3><p><code>readClient</code>函数会从客户端读取请求的全部内容，并生成即将发送到服务端的新请求。</p>
+<p>首先，从第一行读取<code>URL</code>扔给<code>parseURL</code>函数提取。</p>
+<p>然后，设置默认的<code>Hosts header</code>为<code>URL</code>中的<code>host</code>。接着从接下来读取到的<code>headers</code>中，如果是<code>Hosts</code>那么就更新<code>Hosts</code>，如果是<code>User-Agent</code>、<code>Connection</code>和<code>Proxy-Connection</code>，那么就忽略（因为我们有我们要设定的专属<code>header</code>）。其余的<code>header</code>收集起来，稍后一并作为新请求发过去。</p>
+<p>最后，向新请求字符串中写入我们生成的<code>HTTP</code>头和<code>headers</code>。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">void</span> <span class="nf">readClient</span><span class="p">(</span><span class="kt">rio_t</span> <span class="o">*</span><span class="n">rio</span><span class="p">,</span> <span class="n">URL</span> <span class="o">*</span><span class="n">url</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">data</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="kt">char</span> <span class="n">host</span><span class="p">[</span><span class="n">MAXLINE</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="kt">char</span> <span class="n">line</span><span class="p">[</span><span class="n">MAXLINE</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="kt">char</span> <span class="n">other</span><span class="p">[</span><span class="n">MAXLINE</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="kt">char</span> <span class="n">method</span><span class="p">[</span><span class="n">MAXLINE</span><span class="p">],</span> <span class="n">urlstr</span><span class="p">[</span><span class="n">MAXLINE</span><span class="p">],</span> <span class="n">version</span><span class="p">[</span><span class="n">MAXLINE</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"> 
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="nf">Rio_readlineb</span><span class="p">(</span><span class="n">rio</span><span class="p">,</span> <span class="n">line</span><span class="p">,</span> <span class="n">MAXLINE</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="nf">sscanf</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="s">&#34;%s %s %s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">urlstr</span><span class="p">,</span> <span class="n">version</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="nf">parseURL</span><span class="p">(</span><span class="n">urlstr</span><span class="p">,</span> <span class="n">url</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl"> 
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="nf">sprintf</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="s">&#34;Host: %s</span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">url</span><span class="o">-&gt;</span><span class="n">host</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="nf">Rio_readlineb</span><span class="p">(</span><span class="n">rio</span><span class="p">,</span> <span class="n">line</span><span class="p">,</span> <span class="n">MAXLINE</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nf">strcmp</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="s">&#34;</span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">            <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nf">strncmp</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="s">&#34;Host&#34;</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">            <span class="nf">strcpy</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">line</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nf">strncmp</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="s">&#34;User-Agent&#34;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nf">strncmp</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="s">&#34;Connection&#34;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> 
+</span></span><span class="line"><span class="ln">20</span><span class="cl">            <span class="o">&amp;&amp;</span> <span class="nf">strncmp</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="s">&#34;Proxy-Connection&#34;</span><span class="p">,</span> <span class="mi">16</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">            <span class="nf">strcat</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">line</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">    
+</span></span><span class="line"><span class="ln">25</span><span class="cl">    <span class="nf">sprintf</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s">&#34;%s %s HTTP/1.0</span><span class="se">\r\n</span><span class="s">&#34;</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">                <span class="s">&#34;%s%s&#34;</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl">                <span class="s">&#34;Connection: close</span><span class="se">\r\n</span><span class="s">&#34;</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">                <span class="s">&#34;Proxy-Connection: close</span><span class="se">\r\n</span><span class="s">&#34;</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl">                <span class="s">&#34;%s</span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="o">-&gt;</span><span class="n">path</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">user_agent_hdr</span><span class="p">,</span> <span class="n">other</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="doit函数"><code>doit</code>函数
+</h3><p><code>doit</code>函数的功能是处理成功连接的套接字接口。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">void</span> <span class="nf">doit</span><span class="p">(</span><span class="kt">int</span> <span class="n">connfd</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="kt">rio_t</span> <span class="n">rio</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="kt">char</span> <span class="n">line</span><span class="p">[</span><span class="n">MAXLINE</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="nf">Rio_readinitb</span><span class="p">(</span><span class="o">&amp;</span><span class="n">rio</span><span class="p">,</span> <span class="n">connfd</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="n">URL</span> <span class="n">url</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="kt">char</span> <span class="n">data</span><span class="p">[</span><span class="n">MAXLINE</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="nf">readClient</span><span class="p">(</span><span class="o">&amp;</span><span class="n">rio</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="kt">int</span> <span class="n">serverfd</span> <span class="o">=</span> <span class="nf">open_clientfd</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="n">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="n">port</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">serverfd</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">        <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Connection failed!</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">    
+</span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="nf">rio_readinitb</span><span class="p">(</span><span class="o">&amp;</span><span class="n">rio</span><span class="p">,</span> <span class="n">serverfd</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="nf">Rio_writen</span><span class="p">(</span><span class="n">serverfd</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="nf">strlen</span><span class="p">(</span><span class="n">data</span><span class="p">));</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">    
+</span></span><span class="line"><span class="ln">18</span><span class="cl">    <span class="kt">int</span> <span class="n">len</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">    <span class="k">while</span> <span class="p">((</span><span class="n">len</span> <span class="o">=</span> <span class="nf">Rio_readlineb</span><span class="p">(</span><span class="o">&amp;</span><span class="n">rio</span><span class="p">,</span> <span class="n">line</span><span class="p">,</span> <span class="n">MAXLINE</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">        <span class="nf">Rio_writen</span><span class="p">(</span><span class="n">connfd</span><span class="p">,</span> <span class="n">line</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">    
+</span></span><span class="line"><span class="ln">23</span><span class="cl">    <span class="nf">Close</span><span class="p">(</span><span class="n">serverfd</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="part-ii处理多个并发请求">Part II：处理多个并发请求
+</h2><p>这一部分的任务是实现处理并发请求。</p>
+<h3 id="main函数-1"><code>main</code>函数
+</h3><p>参考书上 P709 的实现。</p>
+<figure><img src="/p/proxy/images/main_pthread.png" width="700"><figcaption>
+      <h4>引入线程的main函数</h4>
+    </figcaption>
+</figure>
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="kt">int</span> <span class="n">listenfd</span><span class="p">,</span> <span class="n">connfd</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="kt">char</span> <span class="n">hostname</span><span class="p">[</span><span class="n">MAXLINE</span><span class="p">],</span> <span class="n">port</span><span class="p">[</span><span class="n">MAXLINE</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="kt">socklen_t</span> <span class="n">clientlen</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="k">struct</span> <span class="n">sockaddr_storage</span> <span class="n">clientaddr</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="c1">// 引入线程
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="kt">pthread_t</span> <span class="n">tid</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="c1">// 检查命令输入是否正确
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">        <span class="nf">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&#34;usage: %s &lt;port&gt; </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">        <span class="nf">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">
+</span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="c1">// 创建线程
+</span></span></span><span class="line"><span class="ln">18</span><span class="cl">    <span class="nf">sbuf_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sbuf</span><span class="p">,</span> <span class="n">SBUFSIZE</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">NTHREADS</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">        <span class="nf">Pthread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tid</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="kr">thread</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">
+</span></span><span class="line"><span class="ln">23</span><span class="cl">    <span class="n">listenfd</span> <span class="o">=</span> <span class="nf">Open_listenfd</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">    <span class="c1">// 主循环
+</span></span></span><span class="line"><span class="ln">25</span><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">        <span class="n">clientlen</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">clientaddr</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl">        <span class="n">connfd</span> <span class="o">=</span> <span class="nf">Accept</span><span class="p">(</span><span class="n">listenfd</span><span class="p">,</span> <span class="p">(</span><span class="n">SA</span> <span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">clientaddr</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">clientlen</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">
+</span></span><span class="line"><span class="ln">29</span><span class="cl">        <span class="nf">Getnameinfo</span><span class="p">((</span><span class="n">SA</span> <span class="o">*</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">clientaddr</span><span class="p">,</span> <span class="n">clientlen</span><span class="p">,</span> <span class="n">hostname</span><span class="p">,</span> <span class="n">MAXLINE</span><span class="p">,</span> 
+</span></span><span class="line"><span class="ln">30</span><span class="cl">                    <span class="n">port</span><span class="p">,</span> <span class="n">MAXLINE</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">31</span><span class="cl">
+</span></span><span class="line"><span class="ln">32</span><span class="cl">        <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Accepted connection from (%s, %s)</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">hostname</span><span class="p">,</span> <span class="n">port</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">33</span><span class="cl">        <span class="c1">// 在循环内部不再是直接执行，而是加入缓冲区
+</span></span></span><span class="line"><span class="ln">34</span><span class="cl">        <span class="nf">sbuf_insert</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sbuf</span><span class="p">,</span> <span class="n">connfd</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">35</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">36</span><span class="cl">    
+</span></span><span class="line"><span class="ln">37</span><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">,</span> <span class="n">user_agent_hdr</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">38</span><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">39</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>同时加入线程执行函数：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// 线程执行函数
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="kt">void</span> <span class="o">*</span><span class="nf">thread</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">vargp</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="nf">Pthread_detach</span><span class="p">(</span><span class="nf">pthread_self</span><span class="p">());</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">        <span class="kt">int</span> <span class="n">connfd</span> <span class="o">=</span> <span class="nf">sbuf_remove</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sbuf</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl">        <span class="nf">doit</span><span class="p">(</span><span class="n">connfd</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">7</span><span class="cl">        <span class="nf">Close</span><span class="p">(</span><span class="n">connfd</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">8</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">9</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="sbuf包"><code>SBUF</code>包
+</h3><p><code>SBUF</code>用于构造生产者-消费者程序，具体实现参考书上 P705-P706 的相关内容。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1">// SBUF 结构体
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="kt">int</span> <span class="o">*</span><span class="n">buf</span><span class="p">;</span>          <span class="cm">/* Buffer array */</span>         
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>             <span class="cm">/* Maximum number of slots */</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="kt">int</span> <span class="n">front</span><span class="p">;</span>         <span class="cm">/* buf[(front+1)%n] is first item */</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="kt">int</span> <span class="n">rear</span><span class="p">;</span>          <span class="cm">/* buf[rear%n] is last item */</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="kt">sem_t</span> <span class="n">mutex</span><span class="p">;</span>       <span class="cm">/* Protects accesses to buf */</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="kt">sem_t</span> <span class="n">slots</span><span class="p">;</span>       <span class="cm">/* Counts available slots */</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="kt">sem_t</span> <span class="n">items</span><span class="p">;</span>       <span class="cm">/* Counts available items */</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="p">}</span> <span class="kt">sbuf_t</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">
+</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="cm">/* Create an empty, bounded, shared FIFO buffer with n slots */</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="cm">/* $begin sbuf_init */</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="kt">void</span> <span class="nf">sbuf_init</span><span class="p">(</span><span class="kt">sbuf_t</span> <span class="o">*</span><span class="n">sp</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="n">sp</span><span class="o">-&gt;</span><span class="n">buf</span> <span class="o">=</span> <span class="nf">Calloc</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span> 
+</span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="n">sp</span><span class="o">-&gt;</span><span class="n">n</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>                       <span class="cm">/* Buffer holds max of n items */</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">    <span class="n">sp</span><span class="o">-&gt;</span><span class="n">front</span> <span class="o">=</span> <span class="n">sp</span><span class="o">-&gt;</span><span class="n">rear</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>        <span class="cm">/* Empty buffer iff front == rear */</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">    <span class="nf">Sem_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sp</span><span class="o">-&gt;</span><span class="n">mutex</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>      <span class="cm">/* Binary semaphore for locking */</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">    <span class="nf">Sem_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sp</span><span class="o">-&gt;</span><span class="n">slots</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>      <span class="cm">/* Initially, buf has n empty slots */</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">    <span class="nf">Sem_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sp</span><span class="o">-&gt;</span><span class="n">items</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>      <span class="cm">/* Initially, buf has zero data items */</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="cm">/* $end sbuf_init */</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">
+</span></span><span class="line"><span class="ln">25</span><span class="cl"><span class="cm">/* Clean up buffer sp */</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl"><span class="cm">/* $begin sbuf_deinit */</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl"><span class="kt">void</span> <span class="nf">sbuf_deinit</span><span class="p">(</span><span class="kt">sbuf_t</span> <span class="o">*</span><span class="n">sp</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl">    <span class="nf">Free</span><span class="p">(</span><span class="n">sp</span><span class="o">-&gt;</span><span class="n">buf</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">31</span><span class="cl"><span class="cm">/* $end sbuf_deinit */</span>
+</span></span><span class="line"><span class="ln">32</span><span class="cl">
+</span></span><span class="line"><span class="ln">33</span><span class="cl"><span class="cm">/* Insert item onto the rear of shared buffer sp */</span>
+</span></span><span class="line"><span class="ln">34</span><span class="cl"><span class="cm">/* $begin sbuf_insert */</span>
+</span></span><span class="line"><span class="ln">35</span><span class="cl"><span class="kt">void</span> <span class="nf">sbuf_insert</span><span class="p">(</span><span class="kt">sbuf_t</span> <span class="o">*</span><span class="n">sp</span><span class="p">,</span> <span class="kt">int</span> <span class="n">item</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">36</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln">37</span><span class="cl">    <span class="nf">P</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sp</span><span class="o">-&gt;</span><span class="n">slots</span><span class="p">);</span>                          <span class="cm">/* Wait for available slot */</span>
+</span></span><span class="line"><span class="ln">38</span><span class="cl">    <span class="nf">P</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sp</span><span class="o">-&gt;</span><span class="n">mutex</span><span class="p">);</span>                          <span class="cm">/* Lock the buffer */</span>
+</span></span><span class="line"><span class="ln">39</span><span class="cl">    <span class="n">sp</span><span class="o">-&gt;</span><span class="n">buf</span><span class="p">[(</span><span class="o">++</span><span class="n">sp</span><span class="o">-&gt;</span><span class="n">rear</span><span class="p">)</span><span class="o">%</span><span class="p">(</span><span class="n">sp</span><span class="o">-&gt;</span><span class="n">n</span><span class="p">)]</span> <span class="o">=</span> <span class="n">item</span><span class="p">;</span>   <span class="cm">/* Insert the item */</span>
+</span></span><span class="line"><span class="ln">40</span><span class="cl">    <span class="nf">V</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sp</span><span class="o">-&gt;</span><span class="n">mutex</span><span class="p">);</span>                          <span class="cm">/* Unlock the buffer */</span>
+</span></span><span class="line"><span class="ln">41</span><span class="cl">    <span class="nf">V</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sp</span><span class="o">-&gt;</span><span class="n">items</span><span class="p">);</span>                          <span class="cm">/* Announce available item */</span>
+</span></span><span class="line"><span class="ln">42</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">43</span><span class="cl"><span class="cm">/* $end sbuf_insert */</span>
+</span></span><span class="line"><span class="ln">44</span><span class="cl">
+</span></span><span class="line"><span class="ln">45</span><span class="cl"><span class="cm">/* Remove and return the first item from buffer sp */</span>
+</span></span><span class="line"><span class="ln">46</span><span class="cl"><span class="cm">/* $begin sbuf_remove */</span>
+</span></span><span class="line"><span class="ln">47</span><span class="cl"><span class="kt">int</span> <span class="nf">sbuf_remove</span><span class="p">(</span><span class="kt">sbuf_t</span> <span class="o">*</span><span class="n">sp</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">48</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln">49</span><span class="cl">    <span class="kt">int</span> <span class="n">item</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">50</span><span class="cl">    <span class="nf">P</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sp</span><span class="o">-&gt;</span><span class="n">items</span><span class="p">);</span>                          <span class="cm">/* Wait for available item */</span>
+</span></span><span class="line"><span class="ln">51</span><span class="cl">    <span class="nf">P</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sp</span><span class="o">-&gt;</span><span class="n">mutex</span><span class="p">);</span>                          <span class="cm">/* Lock the buffer */</span>
+</span></span><span class="line"><span class="ln">52</span><span class="cl">    <span class="n">item</span> <span class="o">=</span> <span class="n">sp</span><span class="o">-&gt;</span><span class="n">buf</span><span class="p">[(</span><span class="o">++</span><span class="n">sp</span><span class="o">-&gt;</span><span class="n">front</span><span class="p">)</span><span class="o">%</span><span class="p">(</span><span class="n">sp</span><span class="o">-&gt;</span><span class="n">n</span><span class="p">)];</span>  <span class="cm">/* Remove the item */</span>
+</span></span><span class="line"><span class="ln">53</span><span class="cl">    <span class="nf">V</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sp</span><span class="o">-&gt;</span><span class="n">mutex</span><span class="p">);</span>                          <span class="cm">/* Unlock the buffer */</span>
+</span></span><span class="line"><span class="ln">54</span><span class="cl">    <span class="nf">V</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sp</span><span class="o">-&gt;</span><span class="n">slots</span><span class="p">);</span>                          <span class="cm">/* Announce available slot */</span>
+</span></span><span class="line"><span class="ln">55</span><span class="cl">    <span class="k">return</span> <span class="n">item</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">56</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="part-iii缓存web对象">Part III：缓存Web对象
+</h2><p>第3个任务就是实现缓存一些网页对象。</p>
+<p>具体地，当我们的代理访问了一个服务器网页的时候，我们需要将这个网页缓存下来，在之后的请求中就不需要再次从服务器那里请求这个网页了。</p>
+<p>但是，缓存的大小不是无限的，这就需要我们在缓存使用满的时候驱逐一部分已经缓存的网页出去。本实验要求我们使用<code>LRU</code>（最近最少使用）的方法，也就是找到上一次访问时间最远的对象替换掉。</p>
+<h3 id="main函数-2"><code>main</code>函数
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="kt">int</span> <span class="n">listenfd</span><span class="p">,</span> <span class="n">connfd</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="kt">char</span> <span class="n">hostname</span><span class="p">[</span><span class="n">MAXLINE</span><span class="p">],</span> <span class="n">port</span><span class="p">[</span><span class="n">MAXLINE</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="kt">socklen_t</span> <span class="n">clientlen</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="k">struct</span> <span class="n">sockaddr_storage</span> <span class="n">clientaddr</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="c1">// 引入线程
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="kt">pthread_t</span> <span class="n">tid</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="c1">// 检查命令输入是否正确
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">        <span class="nf">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&#34;usage: %s &lt;port&gt; </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">        <span class="nf">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">
+</span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="c1">// 创建线程
+</span></span></span><span class="line"><span class="ln">18</span><span class="cl">    <span class="nf">sbuf_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sbuf</span><span class="p">,</span> <span class="n">SBUFSIZE</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">NTHREADS</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">        <span class="nf">Pthread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tid</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="kr">thread</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">    <span class="c1">// 初始化缓存
+</span></span></span><span class="line"><span class="ln">23</span><span class="cl">    <span class="nf">initCache</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">
+</span></span><span class="line"><span class="ln">25</span><span class="cl">    <span class="n">listenfd</span> <span class="o">=</span> <span class="nf">Open_listenfd</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">    <span class="c1">// 主循环
+</span></span></span><span class="line"><span class="ln">27</span><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">        <span class="n">clientlen</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">clientaddr</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl">        <span class="n">connfd</span> <span class="o">=</span> <span class="nf">Accept</span><span class="p">(</span><span class="n">listenfd</span><span class="p">,</span> <span class="p">(</span><span class="n">SA</span> <span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">clientaddr</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">clientlen</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl">
+</span></span><span class="line"><span class="ln">31</span><span class="cl">        <span class="nf">Getnameinfo</span><span class="p">((</span><span class="n">SA</span> <span class="o">*</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">clientaddr</span><span class="p">,</span> <span class="n">clientlen</span><span class="p">,</span> <span class="n">hostname</span><span class="p">,</span> <span class="n">MAXLINE</span><span class="p">,</span> 
+</span></span><span class="line"><span class="ln">32</span><span class="cl">                    <span class="n">port</span><span class="p">,</span> <span class="n">MAXLINE</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">33</span><span class="cl">
+</span></span><span class="line"><span class="ln">34</span><span class="cl">        <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Accepted connection from (%s, %s)</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">hostname</span><span class="p">,</span> <span class="n">port</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">35</span><span class="cl">        <span class="c1">// 在循环内部不再是直接执行，而是加入缓冲区
+</span></span></span><span class="line"><span class="ln">36</span><span class="cl">        <span class="nf">sbuf_insert</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sbuf</span><span class="p">,</span> <span class="n">connfd</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">37</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">38</span><span class="cl">
+</span></span><span class="line"><span class="ln">39</span><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">,</span> <span class="n">user_agent_hdr</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">40</span><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">41</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="读者-写者模型">读者-写者模型
+</h3><p>读者-写者模型实现了多个读者可以同时读取，但是读-写、写-写会互斥。在本实验中采用的是读者优先的策略。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1">// 读者-写者模型
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kt">void</span> <span class="nf">readBegin</span><span class="p">(</span><span class="n">Cache</span> <span class="o">*</span><span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="nf">P</span><span class="p">(</span><span class="o">&amp;</span><span class="n">c</span><span class="o">-&gt;</span><span class="n">mutex</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">++</span><span class="n">c</span><span class="o">-&gt;</span><span class="n">read_cnt</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="nf">P</span><span class="p">(</span><span class="o">&amp;</span><span class="n">c</span><span class="o">-&gt;</span><span class="n">w</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="nf">V</span><span class="p">(</span><span class="o">&amp;</span><span class="n">c</span><span class="o">-&gt;</span><span class="n">mutex</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="kt">void</span> <span class="nf">readEnd</span><span class="p">(</span><span class="n">Cache</span> <span class="o">*</span><span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="nf">P</span><span class="p">(</span><span class="o">&amp;</span><span class="n">c</span><span class="o">-&gt;</span><span class="n">mutex</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">--</span><span class="n">c</span><span class="o">-&gt;</span><span class="n">read_cnt</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="nf">V</span><span class="p">(</span><span class="o">&amp;</span><span class="n">c</span><span class="o">-&gt;</span><span class="n">w</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="nf">V</span><span class="p">(</span><span class="o">&amp;</span><span class="n">c</span><span class="o">-&gt;</span><span class="n">mutex</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">
+</span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="kt">void</span> <span class="nf">writeBegin</span><span class="p">(</span><span class="n">Cache</span> <span class="o">*</span><span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="nf">P</span><span class="p">(</span><span class="o">&amp;</span><span class="n">c</span><span class="o">-&gt;</span><span class="n">w</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">
+</span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="kt">void</span> <span class="nf">writeEnd</span><span class="p">(</span><span class="n">Cache</span> <span class="o">*</span><span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">    <span class="nf">V</span><span class="p">(</span><span class="o">&amp;</span><span class="n">c</span><span class="o">-&gt;</span><span class="n">w</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="缓存相关">缓存相关
+</h3><h4 id="缓存结构">缓存结构
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="n">Cache</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="kt">bool</span> <span class="n">empty</span><span class="p">;</span>                 <span class="c1">// 是否为空
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="n">URL</span> <span class="n">url</span><span class="p">;</span>                    <span class="c1">// 缓存 URL
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl">    <span class="kt">char</span> <span class="n">data</span><span class="p">[</span><span class="n">MAX_OBJECT_SIZE</span><span class="p">];</span> <span class="c1">// 缓存内容
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl">    <span class="kt">int</span> <span class="n">lru</span><span class="p">;</span>                    <span class="c1">// 上次访问时间
+</span></span></span><span class="line"><span class="ln">6</span><span class="cl">    <span class="kt">int</span> <span class="n">read_cnt</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">7</span><span class="cl">    <span class="kt">sem_t</span> <span class="n">mutex</span><span class="p">,</span> <span class="n">w</span><span class="p">;</span>             <span class="c1">// 读者-写者模型相关信号量
+</span></span></span><span class="line"><span class="ln">8</span><span class="cl"><span class="p">}</span> <span class="n">Cache</span><span class="p">;</span>
+</span></span></code></pre></div><h4 id="缓存函数">缓存函数
+</h4><p>初始化缓存</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// 缓存初始化
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="kt">void</span> <span class="nf">initCache</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">MAX_CACHE</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">        <span class="n">cache</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">empty</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">        <span class="nf">Sem_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">cache</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">mutex</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl">        <span class="nf">Sem_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">cache</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">w</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">7</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">8</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>寻找缓存：枚举每一个缓存，判断是否为空，如果不为空判断<code>URL </code>是否相等。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="n">Cache</span> <span class="o">*</span><span class="nf">getCache</span><span class="p">(</span><span class="n">URL</span> <span class="o">*</span><span class="n">url</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="n">Cache</span> <span class="o">*</span><span class="n">ans</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">MAX_CACHE</span> <span class="o">&amp;&amp;</span> <span class="n">ans</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">        <span class="nf">readBegin</span><span class="p">(</span><span class="o">&amp;</span><span class="n">cache</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">cache</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">empty</span> <span class="o">&amp;&amp;</span> <span class="nf">urlEqual</span><span class="p">(</span><span class="o">&amp;</span><span class="n">cache</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">url</span><span class="p">,</span> <span class="n">url</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">            <span class="n">ans</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">cache</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">        <span class="nf">readEnd</span><span class="p">(</span><span class="o">&amp;</span><span class="n">cache</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">ans</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">        <span class="nf">updateLRU</span><span class="p">(</span><span class="n">ans</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="k">return</span> <span class="n">ans</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>插入缓存</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1">// 插入缓存
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kt">void</span> <span class="nf">insCache</span><span class="p">(</span><span class="n">URL</span> <span class="o">*</span><span class="n">url</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">data</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="n">Cache</span> <span class="o">*</span><span class="n">pos</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">MAX_CACHE</span> <span class="o">&amp;&amp;</span> <span class="n">pos</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">        <span class="nf">readBegin</span><span class="p">(</span><span class="o">&amp;</span><span class="n">cache</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">cache</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">empty</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">            <span class="n">pos</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">cache</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">        <span class="nf">readEnd</span><span class="p">(</span><span class="o">&amp;</span><span class="n">cache</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="c1">// fprintf(stderr, &#34;insCache: pos = %#p\n&#34;, pos);
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">pos</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">        <span class="nf">fillCache</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">        <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">    
+</span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="kt">int</span> <span class="n">minLRU</span> <span class="o">=</span> <span class="n">__INT_MAX__</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">MAX_CACHE</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">        <span class="nf">readBegin</span><span class="p">(</span><span class="o">&amp;</span><span class="n">cache</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">cache</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">empty</span> <span class="o">&amp;&amp;</span> <span class="n">cache</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">lru</span> <span class="o">&lt;</span> <span class="n">minLRU</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">            <span class="n">minLRU</span> <span class="o">=</span> <span class="n">cache</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">lru</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">            <span class="n">pos</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">cache</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">        <span class="nf">readEnd</span><span class="p">(</span><span class="o">&amp;</span><span class="n">cache</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">    <span class="nf">fillCache</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>更新 LRU</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// 更新 LRU
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="kt">void</span> <span class="nf">updateLRU</span><span class="p">(</span><span class="n">Cache</span> <span class="o">*</span><span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="k">static</span> <span class="kt">int</span> <span class="n">clock</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">    <span class="nf">writeBegin</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">    <span class="n">c</span><span class="o">-&gt;</span><span class="n">lru</span> <span class="o">=</span> <span class="o">++</span><span class="n">clock</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl">    <span class="nf">writeEnd</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>装载缓存</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// 装载缓存
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="kt">void</span> <span class="nf">fillCache</span><span class="p">(</span><span class="n">Cache</span> <span class="o">*</span><span class="n">c</span><span class="p">,</span> <span class="n">URL</span> <span class="o">*</span><span class="n">url</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">data</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="nf">writeBegin</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">    <span class="n">c</span><span class="o">-&gt;</span><span class="n">empty</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">    <span class="nf">urlCopy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">c</span><span class="o">-&gt;</span><span class="n">url</span><span class="p">,</span> <span class="n">url</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl">    <span class="nf">strcpy</span><span class="p">(</span><span class="n">c</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">,</span> <span class="n">data</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">7</span><span class="cl">    <span class="nf">writeEnd</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">8</span><span class="cl">    <span class="nf">updateLRU</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">9</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>辅助函数，用来判断<code>URL</code>是否相等和复制<code>URL</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">bool</span> <span class="nf">urlEqual</span><span class="p">(</span><span class="k">const</span> <span class="n">URL</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">URL</span> <span class="o">*</span><span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="k">return</span> <span class="nf">strcmp</span><span class="p">(</span><span class="n">a</span><span class="o">-&gt;</span><span class="n">host</span><span class="p">,</span> <span class="n">b</span><span class="o">-&gt;</span><span class="n">host</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">           <span class="nf">strcmp</span><span class="p">(</span><span class="n">a</span><span class="o">-&gt;</span><span class="n">port</span><span class="p">,</span> <span class="n">b</span><span class="o">-&gt;</span><span class="n">port</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">           <span class="nf">strcmp</span><span class="p">(</span><span class="n">a</span><span class="o">-&gt;</span><span class="n">path</span><span class="p">,</span> <span class="n">b</span><span class="o">-&gt;</span><span class="n">path</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="kt">void</span> <span class="nf">urlCopy</span><span class="p">(</span><span class="n">URL</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">URL</span> <span class="o">*</span><span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="nf">strcpy</span><span class="p">(</span><span class="n">a</span><span class="o">-&gt;</span><span class="n">host</span><span class="p">,</span> <span class="n">b</span><span class="o">-&gt;</span><span class="n">host</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="nf">strcpy</span><span class="p">(</span><span class="n">a</span><span class="o">-&gt;</span><span class="n">port</span><span class="p">,</span> <span class="n">b</span><span class="o">-&gt;</span><span class="n">port</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="nf">strcpy</span><span class="p">(</span><span class="n">a</span><span class="o">-&gt;</span><span class="n">path</span><span class="p">,</span> <span class="n">b</span><span class="o">-&gt;</span><span class="n">path</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div>
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        const elementsToRender = [".main-article", ".widget--toc"];
+
+        elementsToRender.forEach(selector => {
+            const element = document.querySelector(selector);
+            if (element) {
+                renderMathInElement(element, {
+                    delimiters: [
+                        { left: "$$", right: "$$", display: true },
+                        { left: "$", right: "$", display: false },
+                        { left: "\\(", right: "\\)", display: false },
+                        { left: "\\[", right: "\\]", display: true }
+                    ],
+                    ignoredClasses: ["gist"]
+                });
+            }
+        });
+    });
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/csapp/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">运行《深入理解计算机系统》的代码</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/malloc/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Malloc实验</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/nemu-part-3/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">NEMU-PART III</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/shell/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Shell实验</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/nemu-part-2/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">NEMU-PART II</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2025 RunicDolphin806
+    </section>
+    
+    <section class="powerby">
+        
+            网站总访客数：<span id='vercount_value_site_uv'>Loading</span> <br> <br/>
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.4cfd38f5b6dfa8b863116716f640326e6c2a91cf464c17f31bc16e72400df208.js" defer></script><script type="text/javascript" src="/ts/custom.f2979a93a325fecf9605263bd141398a311c8e23388ed7dcff74f92f7e632866.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<script>
+    async function renderKaTeX() {
+        
+        let katex = document.querySelector(".math-katex");
+        if (!katex) {
+            return;
+        }
+        
+        while (typeof renderMathInElement !== 'function') {
+            await delay(500);
+        }        
+        
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });
+    }
+    
+    
+
+    function delay(time) {
+        return new Promise(resolve => {
+            setTimeout(resolve, time)
+        })
+    }
+
+    document.addEventListener('pjax:complete', () => {
+        renderKaTeX();
+    })
+</script>
+
+<style>
+    #TableOfContents > ul, ol {
+        ul, ol {
+            display: none;
+        }
+        .open {
+            display: block;
+        }
+    }
+</style>
+
+<script>
+    function initTocHide() {
+        
+        let toc = document.querySelector(".widget--toc");
+        if (!toc) {
+            return;
+        }
+        
+        window.addEventListener('scroll', function() {
+            
+            let openUl = document.querySelectorAll(".open");
+            if (openUl.length > 0) {
+                openUl.forEach((ul) => {
+                ul.classList.remove("open")
+              })
+            }
+            
+            let currentLi = document.querySelector(".active-class");
+            if (!currentLi) {
+                return
+            }
+            
+            if (currentLi.children.length > 1) {
+                currentLi.children[1].classList.add("open")
+            }
+            
+            let ul = currentLi.parentElement;
+            do {
+                ul.classList.add("open");
+                ul = ul.parentElement.parentElement
+            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
+        });
+    }
+
+    initTocHide(); 
+</script>
+
+
+    
+    <script src=https://5882886.github.io/js/topbar.min.js></script>
+
+<script>
+    
+    topbar.config({
+        barColors: {
+            '0': 'rgba(255,  255, 255, 1)', 
+            '1.0': 'rgba(0, 149, 234,  1)' 
+        }
+    })
+	
+    document.addEventListener('pjax:send', () => {
+        
+        topbar.show();
+    })
+	
+    document.addEventListener('pjax:complete', () => {     
+        
+        topbar.hide();
+    })
+</script>
+
+<div id="particles-js"></div>
+
+<script src="https://5882886.github.io/background/particles.min.js" ></script>
+<script>
+    particlesJS.load('particles-js', 'https:\/\/5882886.github.io\/background\/particlesjs-config.json', function() {
+        console.log('particles.js loaded - callback');
+    });
+</script>
+
+<style>
+    #particles-js {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+    }
+</style>
+
+<script defer src="https://cn.vercount.one/js"></script>
+    </body>
+</html>

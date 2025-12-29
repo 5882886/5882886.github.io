@@ -401,8 +401,7 @@
       <ol>
         <li><a href="#数学期望">数学期望</a>
           <ol>
-            <li><a href="#离散型随机变量的数学期望">离散型随机变量的数学期望</a></li>
-            <li><a href="#连续型随机变量的数学期望">连续型随机变量的数学期望</a></li>
+            <li><a href="#随机变量的数学期望">随机变量的数学期望</a></li>
             <li><a href="#随机变量函数的数学期望">随机变量函数的数学期望</a></li>
             <li><a href="#数学期望的性质">数学期望的性质</a></li>
           </ol>
@@ -1236,30 +1235,50 @@ $$f_{X\ |\ Y}(x\ |\ y) = f_X(x)，x \in \textbf{R} \quad 或 \quad f_{Y\ |\ X}(y
 <h4 id="二维连续型随机变量函数的分布">二维连续型随机变量函数的分布
 </h4><p>常见的二维连续型随机变量函数</p>
 <ul>
-<li>$Z=X+Y$</li>
+<li>$Z=X+Y$
+设 $(X,Y)$ 的联合概率密度函数为 $f(x,y)$，$(x,y) \in \textbf{R}^2$，边缘密度函数分别为 $f_X(x)$，$f_Y(y)$. 对任意实数 $z$，随机变量 $Z$ 的概率密度函数 $$f_Z(z) = \int_{-\infty}^{+\infty} f(x,z-x) \mathrm{d}x $$ $$f_Z(z) = \int_{-\infty}^{+\infty} f(z-y,y) \mathrm{d}y $$</li>
 </ul>
-<p>设 $(X,Y)$ 的联合概率密度函数为 $f(x,y)$，$(x,y) \in \textbf{R}^2$，边缘密度函数分别为 $f_X(x)$，$f_Y(y)$. 对任意实数 $z$，随机变量 $Z$ 的概率密度函数 </p>
-$$f_Z(z) = \int_{-\infty}^{+\infty} f(x,z-x) \mathrm{d}x $$<p> </p>
-$$f_Z(z) = \int_{-\infty}^{+\infty} f(z-y,y) \mathrm{d}y $$<blockquote>
+<blockquote>
 <p>称上述两式为 $X$ 与 $Y$ 的卷积公式，记作 $f_Z = f_X * f_Y$</p>
 </blockquote>
 <ul>
-<li>$M=\mathrm{max}\{X,Y\}$</li>
+<li>
+<p>$M=\mathrm{max}\{X,Y\}$
+</p>
+$$F_M(z) = P\{\mathrm{max}\{X,Y\} \leqslant z\} = P\{X \leqslant z, Y \leqslant z\} = F(z,z)$$<p>
+若 $X$ 与 $Y$ 相互独立，则 $F_M(z) = F_X(z) F_Y(z)$</p>
+</li>
+<li>
+<p>$N=\mathrm{min}\{X,Y\}$
+</p>
+$$F_N(z) = P\{\mathrm{min}\{X,Y\} \leqslant z\} = 1-P\{X>z, Y>z\}$$<p>
+若 $X$ 与 $Y$ 相互独立，则 $F_M(z) = 1-[1-F_X(z)] \cdot [1-F_Y(z)]$</p>
+</li>
 </ul>
-$$F_M(z) = P\{\mathrm{max}\{X,Y\} \leqslant z\} = P\{X \leqslant z, Y \leqslant y\} = F(z,z)$$<ul>
-<li>$N=\mathrm{min}\{X,Y\}$</li>
-</ul>
-$$F_N(z) = P\{\mathrm{min}\{X,Y\} \leqslant z\} = 1-\left[ 1-F_X(z) \right] \left[ 1-F_Y(z) \right]$$<h2 id="随机变量的数字特征">随机变量的数字特征
+<h2 id="随机变量的数字特征">随机变量的数字特征
 </h2><h3 id="数学期望">数学期望
-</h3><h4 id="离散型随机变量的数学期望">离散型随机变量的数学期望
-</h4><p>设离散型随机变量 $X$ 的概率分布律为 $P\{X=x_k\}=p_k$，$k=1,2,\cdots$，若级数 $\displaystyle \sum_{k=1}^{\infty} |x_k|p_k$ 收敛，则记 </p>
-$$E(X) = \sum_{k=1}^{\infty} x_k p_k$$<p> 为随机变量 $X$ 的数学期望. 若级数 $\displaystyle \sum_{k=1}^{\infty} |x_k|p_k$ 不收敛，则称随机变量 $X$ 的数学期望不存在.</p>
-<blockquote>
-<p>也就是说，若级数 $\displaystyle \sum_{k=1}^{\infty} x_k p_k$ 绝对收敛，则数学期望存在.</p>
-</blockquote>
-<h4 id="连续型随机变量的数学期望">连续型随机变量的数学期望
-</h4><p>设连续型随机变量 $X$ 的概率密度函数为 $f(x)$，若积分 $\displaystyle \int_{-\infty}^{+\infty} |x| f(x) \mathrm{d}x$ 收敛，则记 </p>
-$$E(X) = \int_{-\infty}^{+\infty} xf(x) \mathrm{d}x$$<p> 为随机变量 $X$ 的数学期望. 若积分 $\displaystyle \int_{-\infty}^{+\infty} |x| f(x) \mathrm{d}x$ 不收敛，则称随机变量 $X$ 的数学期望不存在.</p>
+</h3><h4 id="随机变量的数学期望">随机变量的数学期望
+</h4><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>类型</th>
+          <th>概率分布</th>
+          <th>数学期望</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>离散型随机变量</td>
+          <td>概率分布律：$P\{X=x_k\}=p_k$，$k=1,2,\cdots$</td>
+          <td>$\displaystyle E(X) = \sum_{k=1}^{\infty} x_k p_k$</td>
+      </tr>
+      <tr>
+          <td>连续型随机变量</td>
+          <td>概率分布函数：$f(x)$</td>
+          <td>$\displaystyle E(X) = \int_{-\infty}^{+\infty} xf(x) \mathrm{d}x$</td>
+      </tr>
+  </tbody>
+</table></div>
 <h4 id="随机变量函数的数学期望">随机变量函数的数学期望
 </h4><ul>
 <li>设 $X$ 是随机变量，令 $Y=g(X)$</li>
@@ -1268,17 +1287,20 @@ $$E(X) = \int_{-\infty}^{+\infty} xf(x) \mathrm{d}x$$<p> 为随机变量 $X$ 的
   <thead>
       <tr>
           <th>类型</th>
+          <th>概率分布</th>
           <th>$E(Y)$</th>
       </tr>
   </thead>
   <tbody>
       <tr>
           <td>离散型随机变量</td>
-          <td>$$E(Y) = E[g(X)] = \sum_{k=1}^{\infty} g(x_k) P\{X=x_k\}$$ 其中概率分布律为 $P\{X=x_k\} = p_k$</td>
+          <td>概率分布律：$P\{X=x_k\} = p_k$</td>
+          <td>$\displaystyle E(Y) = E[g(X)] = \sum_{k=1}^{\infty} g(x_k) P\{X=x_k\}$</td>
       </tr>
       <tr>
           <td>连续型随机变量</td>
-          <td>$$E(Y) = E[g(X)] = \int_{-\infty}^{+\infty} g(x)f(x) \mathrm{d}x$$ 其中概率密度函数为 $f(x)$</td>
+          <td>概率密度函数：$f(x)$</td>
+          <td>$\displaystyle E(Y) = E[g(X)] = \int_{-\infty}^{+\infty} g(x)f(x) \mathrm{d}x$</td>
       </tr>
   </tbody>
 </table></div>
@@ -1289,17 +1311,20 @@ $$E(X) = \int_{-\infty}^{+\infty} xf(x) \mathrm{d}x$$<p> 为随机变量 $X$ 的
   <thead>
       <tr>
           <th>类型</th>
+          <th>概率分布</th>
           <th>$E(Z)$</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td>二维离散型随机变量</td>
-          <td>$$E(Z) = \sum_{i=1}^{\infty} \sum_{j=1}^{\infty} g(x_i,y_i) p_{ij}$$ 其中联合概率分布律为 $P\{X=x_i,\ Y=y_j\} = p_{ij}$</td>
+          <td>离散型随机变量</td>
+          <td>联合概率分布律：$P\{X=x_i,\ Y=y_j\} = p_{ij}$</td>
+          <td>$\displaystyle E(Z) = \sum_{i=1}^{\infty} \sum_{j=1}^{\infty} g(x_i,y_i) p_{ij}$</td>
       </tr>
       <tr>
-          <td>二维连续型随机变量</td>
-          <td>$$E(Z) = \int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} g(x,y) f(x,y) \mathrm{d}x\mathrm{d}y$$ 其中联合概率密度函数为 $f(x,y)$</td>
+          <td>连续型随机变量</td>
+          <td>联合概率密度函数：$f(x,y)$</td>
+          <td>$\displaystyle E(Z) = \int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} g(x,y) f(x,y) \mathrm{d}x\mathrm{d}y$</td>
       </tr>
   </tbody>
 </table></div>
@@ -1409,7 +1434,7 @@ $$\rho_{X,Y} = \frac{\mathrm{Cov}(X,Y)}{\sqrt{D(X)} \sqrt{D(Y)}}$$<p> 为随机�
 <p>性质：</p>
 <ol>
 <li>$ | \rho_{X,Y} \leqslant 1 |$</li>
-<li>$ | \rho_{X,Y} = 1 |$ 等价于 $X$ 与 $Y$ 以概率 $1$ 有线性关系</li>
+<li>$ | \rho_{X,Y} | = 1 $ 等价于 $X$ 与 $Y$ 以概率 $1$ 有线性关系</li>
 </ol>
 <h2 id="大数定律与中心极限定理">大数定律与中心极限定理
 </h2><h3 id="切比雪夫不等式">切比雪夫不等式
@@ -1484,7 +1509,7 @@ $$F_n(x) = \frac{1}{n} \sum_{i=0}^{n} I_{\{x_{(1)} \leqslant x\}}$$<p> 为总体
       </tr>
       <tr>
           <td>样本标准差</td>
-          <td>$\displaystyle S = \sqrt{\frac{1}{n-1} \sum_{i=1}^{n} (X_i - \overline{X})^2}$</td>
+          <td>$\displaystyle S = \sqrt{\frac{1}{n-1} \sum_{i=1}^{n} (X_i - \overline{X})^2 }$</td>
       </tr>
       <tr>
           <td>样本的 $k$ 阶原点矩</td>
@@ -1577,11 +1602,19 @@ $$F_n(x) = \frac{1}{n} \sum_{i=0}^{n} I_{\{x_{(1)} \leqslant x\}}$$<p> 为总体
 <h4 id="矩估计法">矩估计法
 </h4><p>设总体 $X$ 含有 $k$ 个未知参数 $\theta_1, \theta_2, \cdots, \theta_k$，且 $X$ 的 $m$ 阶原点矩 $\alpha_m = E(X^m)$ 存在，$m=1,2,\cdots,k$，，令 </p>
 $$\left \{\begin{array}{c}  \alpha_1(\theta_1, \cdots, \theta_k) = A_1 \\ \\ \alpha_2(\theta_1, \cdots, \theta_k) = A_2 \\\\ \cdots \ \cdots \ \cdots \ \cdots \\\\ \alpha_k(\theta_1, \cdots, \theta_k) = A_k \\ \end{array} \right. $$<p> 解这个方程组，其解都是样本的函数，记为 </p>
-$$\hat{\theta_i} = \hat{\theta_i}(X_1, X_2, \cdots, X_n)，i=1,2,\cdots,k$$<h4 id="最大似然估计法">最大似然估计法
+$$\hat{\theta_i} = \hat{\theta_i}(X_1, X_2, \cdots, X_n)，i=1,2,\cdots,k$$<blockquote>
+<p>当总体含有两个未知参数时，通常我们使用 </p>
+$$\left \{ \begin{array}{c} \begin{align*} & E(\theta_1, \cdots, \theta_k) = \overline{X} \\ \\ & D(\theta_1, \cdots, \theta_k) = \frac{(n-1)S^2}{n}  \end{align*} \end{array} \right. $$<p> 求出参数.</p>
+</blockquote>
+<h4 id="最大似然估计法">最大似然估计法
 </h4><p>设总体 $X$ 的概率分布为 $f(x;\theta)$，$\theta = (\theta_1,\theta_2,\cdots,\theta_k)$ 为未知参数，$(X_1,X_2,\cdots,X_n)$ 是从该总体中抽取的样本，则它们的联合概率分布为 </p>
 $$L(x_1, x_2, \cdots, x_n;\theta) = \prod_{i=1}^{n} f(x_i,\theta)$$<p> 将其设作 $\theta$ 的函数 $L(\theta)$ 称其为 $\theta$ 的似然函数.</p>
 <p>对给定的样本值 $(x_1,x_2,\cdots,x_n)$，若存在 $\hat{\theta}$ 使得 </p>
-$$L(\hat{\theta}) = \underset{\theta \in \mathrm{H}9}{\mathrm{max}} L(\theta)$$<p> 则称 $\hat{\theta}$ 是参数 $\theta$ 的最大似然估计值.</p>
+$$L(\hat{\theta}) = \underset{\theta \in \mathrm{H}}{\mathrm{max}} L(\theta)$$<p> 则称 $\hat{\theta}$ 是参数 $\theta$ 的最大似然估计值.</p>
+<ol>
+<li>若 $L(\hat{\theta})$ 不单调，则可取 $l(\theta) = \ln L(\theta)$，对 $l(\theta)$ 求导可得到最大值点 $\hat{\theta}$.</li>
+<li>若 $L(\hat{\theta})$ 单调递增，则 $\hat{\theta}$ 取端点处的值.</li>
+</ol>
 <h3 id="估计量的优良性准则">估计量的优良性准则
 </h3><div class="table-wrapper"><table>
   <thead>
@@ -2049,6 +2082,19 @@ $$P\{不拒绝 H_0 | H_0 不真\} = \beta$$<blockquote>
             
                 
 <article class="">
+    <a href="/p/proxy/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Proxy实验</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
     <a href="/p/csapp/">
         
         
@@ -2105,19 +2151,6 @@ $$P\{不拒绝 H_0 | H_0 不真\} = \beta$$<blockquote>
 
         <div class="article-details">
             <h2 class="article-title">Tex排版</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/p/shell/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Shell实验</h2>
         </div>
     </a>
 </article>
