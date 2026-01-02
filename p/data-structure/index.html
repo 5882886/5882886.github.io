@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/data-structure/'>
 
-<link rel="stylesheet" href="/scss/style.min.90289cd6c8c19645ed90d05b0f2cd54bca3088b1ce8c3826878145b9a627f3fe.css"><meta property='og:title' content="熟练掌握数据结构">
+<link rel="stylesheet" href="/scss/style.min.ee8fec383aadd6a3c2247a153b080de01cad2cd48421f28077a9ac22b69f1726.css"><meta property='og:title' content="熟练掌握数据结构">
 <meta property='og:description' content="并非熟练">
 <meta property='og:url' content='https://5882886.github.io/p/data-structure/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -446,6 +446,7 @@
         <li><a href="#动态查找表">动态查找表</a>
           <ol>
             <li><a href="#二叉排序树">二叉排序树</a></li>
+            <li><a href="#平衡二叉树">平衡二叉树</a></li>
           </ol>
         </li>
       </ol>
@@ -667,6 +668,10 @@
         
             <a href="/categories/interesting/" style="background-color: #2a9d8f; color: #fff;">
                 小乐趣
+            </a>
+        
+            <a href="/categories/final_test/" style="background-color: #2a9d8f; color: #fff;">
+                期末救急
             </a>
         
     </header>
@@ -1933,7 +1938,7 @@ $$G.edge[i][j] = \left\{ \begin{matrix} 1， & \left< i,j \right> \in E \ 或\  
 <p><img src="/p/data-structure/images/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%E7%9A%84%E8%BF%87%E7%A8%8B.png"
 	width="2198"
 	height="2560"
-	srcset="/p/data-structure/images/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%E7%9A%84%E8%BF%87%E7%A8%8B_hu_844f43a2544dee81.png 480w, /p/data-structure/images/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%E7%9A%84%E8%BF%87%E7%A8%8B_hu_434b895ef2c8fbb8.png 1024w"
+	srcset="/p/data-structure/images/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%E7%9A%84%E8%BF%87%E7%A8%8B_hu_6b53557cc8d1fbdc.png 480w, /p/data-structure/images/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%E7%9A%84%E8%BF%87%E7%A8%8B_hu_8e70f3f0fa1d17d2.png 1024w"
 	loading="lazy"
 	
 		alt="拓扑排序的过程"
@@ -2153,21 +2158,64 @@ $$ASL=\sum_{i=𝟏}^{n} p_i c_i$$<p> 其中：$p_i$ 为查找表中第 $i$ 个�
 <h3 id="动态查找表">动态查找表
 </h3><p>特点：表结构本身是在查找过程中动态生成。若表中存在其关键字等于给定值<code>key</code>的数据元素，表明查找成功；否则插入关键字等于<code>key</code>的数据元素。</p>
 <h4 id="二叉排序树">二叉排序树
-</h4><h5 id="定义">定义
-</h5><ol>
-<li>二叉排序树或者是一棵空树；</li>
-<li>或者是具有如下特性的二叉树：<br> 若它的左子树不空，则左子树上所有结点的值均小于根结点的值；<br> 若它的右子树不空，则右子树上所有结点的值均大于根结点的值；<br> 它的左、右子树也都分别是二叉排序树。</li>
-</ol>
+</h4><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>定义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>情况1</td>
+          <td>一棵空树</td>
+      </tr>
+      <tr>
+          <td>情况2</td>
+          <td>若它的左子树不空，则左子树上所有结点的值均小于根结点的值</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>若它的右子树不空，则右子树上所有结点的值均大于根结点的值</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>它的左、右子树也都分别是二叉排序树</td>
+      </tr>
+  </tbody>
+</table></div>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// 二叉排序树的定义
 </span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="nc">BiTNode</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="n">TElemType</span> <span class="n">data</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">4</span><span class="cl">    <span class="k">struct</span> <span class="nc">BiTNode</span>  <span class="o">*</span><span class="n">lchild</span><span class="p">,</span> <span class="o">*</span><span class="n">rchild</span><span class="p">;</span>	<span class="c1">// 左右指针
 </span></span></span><span class="line"><span class="ln">5</span><span class="cl"> <span class="p">}</span> <span class="n">BiTNode</span><span class="p">,</span> <span class="o">*</span><span class="n">BiTree</span><span class="p">;</span>
 </span></span></code></pre></div><h5 id="查找算法">查找算法
-</h5><ol>
-<li>若二叉排序树为空，则查找不成功；</li>
-<li>否则分 3 种情况：<br> 若给定值等于根结点的关键字，则查找成功；<br> 若给定值小于根结点的关键字，则继续在左子树上进行查找；<br> 若给定值大于根结点的关键字，则继续在右子树上进行查找。</li>
-</ol>
+</h5><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>情况</th>
+          <th>结论</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>若二叉排序树为空</td>
+          <td>查找不成功</td>
+      </tr>
+      <tr>
+          <td>若二叉排序树非空</td>
+          <td>若给定值等于根结点的关键字，则查找成功</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>若给定值小于根结点的关键字，则继续在左子树上进行查找</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>若给定值大于根结点的关键字，则继续在右子树上进行查找</td>
+      </tr>
+  </tbody>
+</table></div>
 <p>算法实现：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="n">BiTree</span> <span class="nf">SearchBST</span><span class="p">(</span><span class="n">BiTree</span> <span class="n">T</span><span class="p">,</span> <span class="n">KeyType</span> <span class="n">key</span><span class="p">)</span> <span class="p">{</span>	
 </span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="c1">// 查找不成功，返回空
@@ -2180,20 +2228,36 @@ $$ASL=\sum_{i=𝟏}^{n} p_i c_i$$<p> 其中：$p_i$ 为查找表中第 $i$ 个�
 </span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="k">else</span> <span class="k">if</span><span class="p">(</span> <span class="n">key</span> <span class="o">&lt;</span> <span class="n">T</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">.</span><span class="n">key</span> <span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">11</span><span class="cl">        <span class="c1">// 在左子树中继续查找
-</span></span></span><span class="line"><span class="ln">12</span><span class="cl">        <span class="k">return</span> <span class="n">SearchBST</span> <span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">lchild</span><span class="p">,</span> <span class="n">key</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl">        <span class="k">return</span> <span class="n">SearchBST</span><span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">lchild</span><span class="p">,</span> <span class="n">key</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="k">else</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln">15</span><span class="cl">        <span class="c1">// 在右子树中继续查找
-</span></span></span><span class="line"><span class="ln">16</span><span class="cl">        <span class="k">return</span> <span class="n">SearchBST</span> <span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">rchild</span><span class="p">,</span> <span class="n">key</span><span class="p">);</span> 
+</span></span></span><span class="line"><span class="ln">16</span><span class="cl">        <span class="k">return</span> <span class="n">SearchBST</span><span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">rchild</span><span class="p">,</span> <span class="n">key</span><span class="p">);</span> 
 </span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h5 id="插入算法">插入算法
-</h5><p>加入动态查找的功能：</p>
-<ol>
-<li>当查找不成功时，才进行“插入”操作；</li>
-<li>在完成插入结点的操作后，仍要保持二叉排序树特性；</li>
-<li>插入过程：<br> 若二叉排序树为空树，则新插入的结点为新的根结点；<br> 否则，新插入的结点必为新的叶子结点，其插入位置由查找过程得到。</li>
-</ol>
+</h5><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>要求</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>开始条件</td>
+          <td>当查找不成功时，才进行“插入”操作</td>
+      </tr>
+      <tr>
+          <td>算法要求</td>
+          <td>在完成插入结点的操作后，仍要保持二叉排序树特性</td>
+      </tr>
+      <tr>
+          <td>算法过程</td>
+          <td>若二叉排序树为空树，则新插入的结点为新的根结点；<br> 否则，新插入的结点必为新的叶结点，其插入位置由查找过程得到</td>
+      </tr>
+  </tbody>
+</table></div>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1">// 更新搜索算法：f指向T的双亲，p记录查找位置
 </span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kt">bool</span> <span class="nf">SearchBST</span><span class="p">(</span><span class="n">BiTree</span> <span class="n">T</span><span class="p">,</span> <span class="n">KeyType</span> <span class="n">key</span><span class="p">,</span> <span class="n">BiTree</span> <span class="n">f</span><span class="p">,</span> <span class="n">BiTree</span> <span class="o">&amp;</span><span class="n">p</span><span class="p">)</span> <span class="p">{</span>	
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="c1">// 查找不成功
@@ -2235,7 +2299,212 @@ $$ASL=\sum_{i=𝟏}^{n} p_i c_i$$<p> 其中：$p_i$ 为查找表中第 $i$ 个�
 </span></span><span class="line"><span class="ln">39</span><span class="cl">        <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">40</span><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="ln">41</span><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h2 id="排序">排序
+</span></span></code></pre></div><h5 id="删除算法">删除算法
+</h5><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>要求</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>开始条件</td>
+          <td>当查找成功时，才进行“删除”操作</td>
+      </tr>
+      <tr>
+          <td>算法要求</td>
+          <td>在完成删除结点的操作后，仍要保持二叉排序树特性</td>
+      </tr>
+      <tr>
+          <td>具体情况</td>
+          <td>被删除的结点是叶子结点：其双亲结点中相应指针域的值改为空 <br> 被删除的结点只有左子树或者只有右子树：其双亲结点的相应指针域的值指向被删除结点的左子树或右子树 <br> 被删除的结点既有左子树，也有右子树：以其前驱替代之，然后再删除该前驱结点</td>
+      </tr>
+  </tbody>
+</table></div>
+<p><img src="/p/data-structure/images/%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91-%E5%88%A0%E9%99%A4%E7%AE%97%E6%B3%95.png"
+	width="2074"
+	height="2126"
+	srcset="/p/data-structure/images/%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91-%E5%88%A0%E9%99%A4%E7%AE%97%E6%B3%95_hu_2838a9b6bb2e6854.png 480w, /p/data-structure/images/%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91-%E5%88%A0%E9%99%A4%E7%AE%97%E6%B3%95_hu_5c4f10b9515035ef.png 1024w"
+	loading="lazy"
+	
+		alt="二叉排序树-删除算法"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="97"
+		data-flex-basis="234px"
+	
+></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cm">/* ----- 删除主函数 ----- */</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kt">bool</span> <span class="nf">DeleteBST</span><span class="p">(</span><span class="n">BiTree</span> <span class="o">&amp;</span><span class="n">T</span><span class="p">,</span> <span class="n">KeyType</span> <span class="n">key</span><span class="p">,</span> <span class="n">BiTree</span> <span class="o">&amp;</span><span class="n">f</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">T</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">        <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>       <span class="c1">// 不存在关键字等于 key 的数据元素
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">        <span class="c1">// 找到关键字等于 key 的数据元素
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">key</span> <span class="o">==</span> <span class="n">T</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">.</span><span class="n">key</span><span class="p">)</span> <span class="p">{</span> 
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">            <span class="n">Delete</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">f</span><span class="p">);</span>  
+</span></span><span class="line"><span class="ln">10</span><span class="cl">            <span class="k">return</span> <span class="nb">true</span><span class="p">;</span> 
+</span></span><span class="line"><span class="ln">11</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">        <span class="c1">// 继续在左子树中查找
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl">        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">key</span> <span class="o">&lt;</span> <span class="n">T</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">.</span><span class="n">key</span><span class="p">)</span> <span class="p">{</span>    
+</span></span><span class="line"><span class="ln">14</span><span class="cl">            <span class="k">return</span> <span class="n">DeleteBST</span><span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">lchild</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">T</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">        <span class="c1">// 继续在右子树中查找
+</span></span></span><span class="line"><span class="ln">17</span><span class="cl">        <span class="k">else</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="ln">18</span><span class="cl">            <span class="k">return</span> <span class="n">DeleteBST</span><span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">rchild</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">T</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">
+</span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="cm">/* ----- 删除操作过程 ----- */</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="kt">void</span> <span class="nf">Delete</span><span class="p">(</span><span class="n">BiTree</span> <span class="o">&amp;</span><span class="n">p</span><span class="p">,</span> <span class="n">BiTree</span> <span class="n">f</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl">    <span class="n">BiTree</span> <span class="o">*</span><span class="n">q</span> <span class="o">=</span> <span class="p">(</span><span class="n">BiTree</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">BiTree</span><span class="p">));</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">    <span class="c1">// 从二叉排序树中删除结点 p，并重接它的左子树或右子树
+</span></span></span><span class="line"><span class="ln">27</span><span class="cl">
+</span></span><span class="line"><span class="ln">28</span><span class="cl">    <span class="c1">// 右子树为空树，则只需重接它的左子树
+</span></span></span><span class="line"><span class="ln">29</span><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">rchild</span><span class="p">)</span>  <span class="p">{</span>	
+</span></span><span class="line"><span class="ln">30</span><span class="cl">        <span class="n">q</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">31</span><span class="cl">        <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">lchild</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">32</span><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">f</span><span class="o">-&gt;</span><span class="n">lchild</span> <span class="o">==</span> <span class="n">q</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">33</span><span class="cl">            <span class="n">f</span><span class="o">-&gt;</span><span class="n">lchild</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span> 
+</span></span><span class="line"><span class="ln">34</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">35</span><span class="cl">        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">f</span><span class="o">-&gt;</span><span class="n">rchild</span> <span class="o">==</span> <span class="n">q</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">36</span><span class="cl">            <span class="n">f</span><span class="o">-&gt;</span><span class="n">rchild</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">37</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">38</span><span class="cl">        <span class="k">delete</span><span class="p">(</span><span class="n">q</span><span class="p">);</span>	
+</span></span><span class="line"><span class="ln">39</span><span class="cl">    <span class="p">}</span> 
+</span></span><span class="line"><span class="ln">40</span><span class="cl">    <span class="c1">// 左子树为空树，只需重接它的右子树
+</span></span></span><span class="line"><span class="ln">41</span><span class="cl">    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">lchild</span><span class="p">)</span> <span class="p">{</span>	
+</span></span><span class="line"><span class="ln">42</span><span class="cl">        <span class="n">q</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">43</span><span class="cl">        <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">rchild</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">44</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">f</span><span class="o">-&gt;</span><span class="n">lchild</span> <span class="o">==</span> <span class="n">q</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">45</span><span class="cl">            <span class="n">f</span><span class="o">-&gt;</span><span class="n">lchild</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">46</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">47</span><span class="cl">        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">f</span><span class="o">-&gt;</span><span class="n">rchild</span> <span class="o">==</span> <span class="n">q</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">48</span><span class="cl">            <span class="n">f</span><span class="o">-&gt;</span><span class="n">rchild</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">49</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">50</span><span class="cl">        <span class="k">delete</span><span class="p">(</span><span class="n">q</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">51</span><span class="cl">    <span class="p">}</span> 
+</span></span><span class="line"><span class="ln">52</span><span class="cl">    <span class="c1">// 左右子树均不空
+</span></span></span><span class="line"><span class="ln">53</span><span class="cl">    <span class="k">else</span> <span class="p">{</span>	
+</span></span><span class="line"><span class="ln">54</span><span class="cl">        <span class="n">q</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>  
+</span></span><span class="line"><span class="ln">55</span><span class="cl">        <span class="n">s</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">lchild</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">56</span><span class="cl">        <span class="k">while</span> <span class="p">(</span><span class="n">s</span><span class="o">-&gt;</span><span class="n">rchild</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">57</span><span class="cl">            <span class="n">q</span> <span class="o">=</span> <span class="n">s</span><span class="p">;</span>	
+</span></span><span class="line"><span class="ln">58</span><span class="cl">            <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">-&gt;</span><span class="n">rchild</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">59</span><span class="cl">        <span class="p">}</span>	<span class="c1">// s 指向被删结点的前驱
+</span></span></span><span class="line"><span class="ln">60</span><span class="cl">        <span class="n">p</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">=</span> <span class="n">s</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">61</span><span class="cl">        <span class="c1">// 重接*q的左子树
+</span></span></span><span class="line"><span class="ln">62</span><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">q</span> <span class="o">!=</span> <span class="n">p</span> <span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">63</span><span class="cl">            <span class="n">q</span><span class="o">-&gt;</span><span class="n">rchild</span> <span class="o">=</span> <span class="n">s</span><span class="o">-&gt;</span><span class="n">lchild</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">64</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">65</span><span class="cl">        <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">66</span><span class="cl">            <span class="n">q</span><span class="o">-&gt;</span><span class="n">lchild</span> <span class="o">=</span> <span class="n">s</span><span class="o">-&gt;</span><span class="n">lchild</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">67</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">68</span><span class="cl">        <span class="k">delete</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>	
+</span></span><span class="line"><span class="ln">69</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">70</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h4 id="平衡二叉树">平衡二叉树
+</h4><p>平衡二叉树（AVL树）也是二叉排序树。</p>
+<p>特点：树中每个结点的左、右子树深度之差（平衡因子 BF）的绝对值不大于1，即 $\left|h_L - h_R\right| \leqslant 1$</p>
+<h5 id="构造">构造
+</h5><p>在插入过程中，若失去平衡，则需要采用平衡旋转技术：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>类别</th>
+          <th>特点</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>LL型</td>
+          <td>向右旋转，<code>BF(B)</code>由1变为0，<code>BF(A)</code>由2变为0</td>
+      </tr>
+      <tr>
+          <td>RR型</td>
+          <td>向左旋转，<code>BF(B)</code>由-1变为0，<code>BF(A)</code>由-2变为0</td>
+      </tr>
+      <tr>
+          <td>LR型</td>
+          <td>双向旋转，<code>BF(A)</code>由2变为-1，<code>BF(B)</code>由-1变为0，<code>BF(C)</code>由1变为0</td>
+      </tr>
+      <tr>
+          <td>RL型</td>
+          <td>双向旋转，<code>BF(A)</code>由-2变为0，<code>BF(B)</code>由1变为-1，<code>BF(C)</code>由1变为0</td>
+      </tr>
+  </tbody>
+</table></div>
+<p><img src="/p/data-structure/images/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91-%E8%B0%83%E6%95%B4.png"
+	width="3635"
+	height="3532"
+	srcset="/p/data-structure/images/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91-%E8%B0%83%E6%95%B4_hu_4d97359880d6455d.png 480w, /p/data-structure/images/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91-%E8%B0%83%E6%95%B4_hu_9daae21eb1b3ecc2.png 1024w"
+	loading="lazy"
+	
+		alt="平衡二叉树-调整"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="102"
+		data-flex-basis="246px"
+	
+></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1">// 右旋算法
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kt">void</span> <span class="nf">R_Rotate</span><span class="p">(</span><span class="n">BSTree</span> <span class="o">&amp;</span><span class="n">p</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="n">lc</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">lchild</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="n">p</span><span class="o">-&gt;</span><span class="n">lchild</span> <span class="o">=</span> <span class="n">lc</span><span class="o">-&gt;</span><span class="n">rchild</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="n">lc</span><span class="o">-&gt;</span><span class="n">rchild</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="n">p</span> <span class="o">=</span> <span class="n">lc</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="c1">// 左旋算法 
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="kt">void</span> <span class="nf">L_Rotate</span><span class="p">(</span><span class="n">BSTree</span> <span class="o">&amp;</span><span class="n">p</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="n">rc</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">rchild</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="n">p</span><span class="o">-&gt;</span><span class="n">rchild</span> <span class="o">=</span> <span class="n">rc</span><span class="o">-&gt;</span><span class="n">lchild</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="n">rc</span><span class="o">-&gt;</span><span class="n">lchild</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="n">p</span> <span class="o">=</span> <span class="n">rc</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="p">}</span> 
+</span></span><span class="line"><span class="ln">16</span><span class="cl">
+</span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="c1">// 左平衡算法
+</span></span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="cp">#define LH 1    </span><span class="c1">// 左高
+</span></span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="cp">#define EH 0    </span><span class="c1">// 等高
+</span></span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="cp">#define RH -1   </span><span class="c1">// 右高
+</span></span></span><span class="line"><span class="ln">21</span><span class="cl">
+</span></span><span class="line"><span class="ln">22</span><span class="cl"><span class="kt">void</span> <span class="nf">LeftBalance</span><span class="p">(</span><span class="n">BSTree</span> <span class="o">&amp;</span><span class="n">T</span><span class="p">)</span> <span class="p">{</span>	<span class="c1">// T对应图中的树根A
+</span></span></span><span class="line"><span class="ln">23</span><span class="cl">    <span class="n">lc</span> <span class="o">=</span> <span class="n">T</span><span class="o">-&gt;</span><span class="n">lchild</span><span class="p">;</span>             <span class="c1">// lc对应图中的树根B
+</span></span></span><span class="line"><span class="ln">24</span><span class="cl">    <span class="k">switch</span><span class="p">(</span><span class="n">lc</span><span class="o">-&gt;</span><span class="n">bf</span><span class="p">)</span> <span class="p">{</span>           <span class="c1">// 看T的左子(B)，只能是LL或LR型
+</span></span></span><span class="line"><span class="ln">25</span><span class="cl">        <span class="c1">// 左左-&gt;右旋（LL型）
+</span></span></span><span class="line"><span class="ln">26</span><span class="cl">        <span class="k">case</span> <span class="nl">LH</span><span class="p">:</span>                
+</span></span><span class="line"><span class="ln">27</span><span class="cl">            <span class="n">T</span><span class="o">-&gt;</span><span class="n">bf</span> <span class="o">=</span> <span class="n">lc</span><span class="o">-&gt;</span><span class="n">bf</span> <span class="o">=</span> <span class="n">EH</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">            <span class="n">R_Rotate</span><span class="p">(</span><span class="n">T</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl">            <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl">        <span class="c1">// LR型，先左旋后右旋
+</span></span></span><span class="line"><span class="ln">31</span><span class="cl">        <span class="k">case</span> <span class="nl">RH</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">32</span><span class="cl">            <span class="n">rd</span> <span class="o">=</span> <span class="n">lc</span><span class="o">-&gt;</span><span class="n">rchild</span><span class="p">;</span> 	<span class="c1">// 结点C
+</span></span></span><span class="line"><span class="ln">33</span><span class="cl">            <span class="k">switch</span><span class="p">(</span><span class="n">rd</span><span class="o">-&gt;</span><span class="n">bf</span><span class="p">)</span> <span class="p">{</span>	<span class="c1">// 修改BF值
+</span></span></span><span class="line"><span class="ln">34</span><span class="cl">                <span class="k">case</span> <span class="nl">LH</span><span class="p">:</span>	
+</span></span><span class="line"><span class="ln">35</span><span class="cl">                    <span class="n">T</span><span class="o">-&gt;</span><span class="n">bf</span> <span class="o">=</span> <span class="n">RH</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">36</span><span class="cl">                    <span class="n">lc</span><span class="o">-&gt;</span><span class="n">bf</span> <span class="o">=</span> <span class="n">EH</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">37</span><span class="cl">                    <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">38</span><span class="cl">                <span class="k">case</span> <span class="nl">EH</span><span class="p">:</span>	
+</span></span><span class="line"><span class="ln">39</span><span class="cl">                    <span class="n">T</span><span class="o">-&gt;</span><span class="n">bf</span> <span class="o">=</span> <span class="n">lc</span><span class="o">-&gt;</span><span class="n">bf</span> <span class="o">=</span> <span class="n">EH</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">40</span><span class="cl">                    <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">41</span><span class="cl">                <span class="k">case</span> <span class="nl">RH</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">42</span><span class="cl">                    <span class="n">T</span><span class="o">-&gt;</span><span class="n">bf</span> <span class="o">=</span> <span class="n">EH</span><span class="p">;</span> 
+</span></span><span class="line"><span class="ln">43</span><span class="cl">                    <span class="n">lc</span><span class="o">-&gt;</span><span class="n">bf</span> <span class="o">=</span> <span class="n">LH</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">44</span><span class="cl">                    <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">45</span><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="ln">46</span><span class="cl">            <span class="n">rd</span><span class="o">-&gt;</span><span class="n">bf</span> <span class="o">=</span> <span class="n">EH</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">47</span><span class="cl">            <span class="n">L_Rotate</span><span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">lchild</span><span class="p">);</span>	
+</span></span><span class="line"><span class="ln">48</span><span class="cl">            <span class="n">R_Rotate</span><span class="p">(</span><span class="n">T</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">49</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">50</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><blockquote>
+<p>呜呜呜，这部分实在是太难了，恳请高人指点……</p>
+</blockquote>
+<h2 id="排序">排序
 </h2><p>详见<a class="link" href="/p/algorithm/#%e6%8e%92%e5%ba%8f" >此处
     
     
@@ -2516,6 +2785,54 @@ $$ASL=\sum_{i=𝟏}^{n} p_i c_i$$<p> 其中：$p_i$ 为查找表中第 $i$ 个�
         <div class="flex article-list--tile">
             
                 
+<article class="has-image">
+    <a href="/p/probability/">
+        
+        
+            <div class="article-image">
+                <img src="/p/probability/rohit-choudhari-JS3RDAnRUB8-unsplash.9c3ed84851cd15d9e7e041ad209166c4_hu_5b70f49aac9fccef.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 概率论与数理统计"
+                        data-key="probability" 
+                        data-hash="md5-nD7YSFHNFdnn4EGtIJFmxA==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">概率论与数理统计</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/algorithm/">
+        
+        
+            <div class="article-image">
+                <img src="/p/algorithm/daniil-komov-7lzjMwexxnU-unsplash.a5c23d175a15257c42bf42a31e33648f_hu_11543831e72c1aef.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 常用算法"
+                        data-key="algorithm" 
+                        data-hash="md5-pcI9F1oVJXxCv0KjHjNkjw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">常用算法</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
 <article class="">
     <a href="/p/proxy/">
         
@@ -2554,43 +2871,6 @@ $$ASL=\sum_{i=𝟏}^{n} p_i c_i$$<p> 其中：$p_i$ 为查找表中第 $i$ 个�
 </article>
 
             
-                
-<article class="">
-    <a href="/p/nemu-part-3/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">NEMU-PART III</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
-    <a href="/p/probability/">
-        
-        
-            <div class="article-image">
-                <img src="/p/probability/rohit-choudhari-JS3RDAnRUB8-unsplash.9c3ed84851cd15d9e7e041ad209166c4_hu_5b70f49aac9fccef.jpg" 
-                        width="250" 
-                        height="150" 
-                        loading="lazy"
-                        alt="Featured image of post 概率论与数理统计"
-                        data-key="probability" 
-                        data-hash="md5-nD7YSFHNFdnn4EGtIJFmxA==">
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">概率论与数理统计</h2>
-        </div>
-    </a>
-</article>
-
-            
         </div>
     </div>
 </aside>
@@ -2604,7 +2884,9 @@ $$ASL=\sum_{i=𝟏}^{n} p_i c_i$$<p> 其中：$p_i$ 为查找表中第 $i$ 个�
     <section class="copyright">
         &copy; 
         
-        2025 RunicDolphin806
+            2025 - 
+        
+        2026 RunicDolphin806
     </section>
     
     <section class="powerby">

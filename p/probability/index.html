@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/probability/'>
 
-<link rel="stylesheet" href="/scss/style.min.90289cd6c8c19645ed90d05b0f2cd54bca3088b1ce8c3826878145b9a627f3fe.css"><meta property='og:title' content="概率论与数理统计">
+<link rel="stylesheet" href="/scss/style.min.ee8fec383aadd6a3c2247a153b080de01cad2cd48421f28077a9ac22b69f1726.css"><meta property='og:title' content="概率论与数理统计">
 <meta property='og:description' content="基本公式">
 <meta property='og:url' content='https://5882886.github.io/p/probability/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -695,6 +695,10 @@
                 小乐趣
             </a>
         
+            <a href="/categories/final_test/" style="background-color: #2a9d8f; color: #fff;">
+                期末救急
+            </a>
+        
     </header>
     
 
@@ -742,7 +746,10 @@
     <section class="article-content">
     
     
-    <h2 id="随机事件与概率">随机事件与概率
+    <blockquote>
+<p>依旧期末速通……</p>
+</blockquote>
+<h2 id="随机事件与概率">随机事件与概率
 </h2><h3 id="随机事件的关系与运算">随机事件的关系与运算
 </h3><div class="table-wrapper"><table>
   <thead>
@@ -893,7 +900,7 @@ $$P(B) = \sum_{i=1}^{n} P(A_i) P(B|A_i)$$<p>案例：敏感性问题调查</p>
       </tr>
       <tr>
           <td>分析结果</td>
-          <td>设共收到 $n$ 张答卷，其中有 $k$ 张答卷回答“是”；同时，在人数较多的场合中，任选一人其生日在7月1日之前的概率为 $0.5$；袋子中红球的比率为 $\alpha$，则可知问题2回答“是”的概率为 $$p=\frac{\dfrac{k}{n}-0.5(1-\alpha)}{\alpha}$$</td>
+          <td>设共收到 $n$ 张答卷，其中有 $k$ 张答卷回答“是”；同时，在人数较多的场合中，任选一人其生日在7月1日之前的概率为 $0.5$；袋子中红球的比率为 $\alpha$，则有等式 $$\frac{k}{n} = p \cdot \alpha + 0.5 \cdot (1-\alpha)$$ 可知问题2回答“是”的概率 $$p=\frac{\dfrac{k}{n}-0.5(1-\alpha)}{\alpha}$$</td>
       </tr>
   </tbody>
 </table></div>
@@ -1099,18 +1106,40 @@ $$P\{x_1 < X \leqslant x_2\} = F(x_2) - F(x_1) = \varPhi\left(\frac{x_2-\mu}{\si
 </table></div>
 <h4 id="连续型随机变量函数的分布">连续型随机变量函数的分布
 </h4><p>若 $X$ 是连续型随机变量，$y=g(x)$ 是单值实函数，则先求 $Y$ 的分布函数 $F_Y(y)$，再对 $F_Y(y)$ 求导得随机变量 $Y$ 的概率密度函数 $f_Y(y)$.</p>
+<p>随机变量 $X$ 对应的概率密度函数为 $f(x)$，随机变量 $Y$ 满足 $Y = g(X)$，则可得 </p>
+$$F_Y(y) = P\{Y \leqslant y\} = P\{g(X) \leqslant y\} = P\{a < X < b\}$$<p> 其中 $a$，$b$ 是关于 $y$ 的函数.</p>
 <h2 id="多维随机变量及其分布">多维随机变量及其分布
 </h2><h3 id="联合分布函数与边缘分布函数">联合分布函数与边缘分布函数
 </h3><h4 id="联合分布函数">联合分布函数
 </h4><p>设 $(X,Y)$ 是二维随机变量，对于任意实数 $x,y \in \textbf{R}$，称二元函数 </p>
 $$F(x,y) = P\{X \leqslant x,Y\leqslant y\}$$<p> 为 $(X,Y)$ 的联合分布函数.</p>
 <p>联合分布函数具有以下性质：</p>
-<ol>
-<li>非负性：对任意 $(x,y) \in \textbf{R}^2$，有 $0 \leqslant F(x,y) \leqslant 1$；$F(-\infty,-\infty) = 0$，$F(+\infty,+\infty) = 1$</li>
-<li>单调不减性：$F(x,y)$ 分别关于 $x$ 和 $y$ 单调不减</li>
-<li>右连续性：$F(x,y)$ 分别关于 $x$ 和 $y$ 右连续</li>
-<li>恒等式：$\forall x_1 &lt; x_2，y_1 &lt; y_2$，有 $$P\{ x_1 < X \leqslant x_2,y_1 < Y \leqslant y_2 \} = F(x_2,y_2) - F(x_1,y_2) - F(x_2,y_1) + F(x_1,y_1) \geqslant 0$$</li>
-</ol>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>性质</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>非负性</td>
+          <td>对任意 $(x,y) \in \textbf{R}^2$，有 $0 \leqslant F(x,y) \leqslant 1$；$F(-\infty,-\infty) = 0$，$F(+\infty,+\infty) = 1$</td>
+      </tr>
+      <tr>
+          <td>单调不减性</td>
+          <td>$F(x,y)$ 分别关于 $x$ 和 $y$ 单调不减</td>
+      </tr>
+      <tr>
+          <td>右连续性</td>
+          <td>$F(x,y)$ 分别关于 $x$ 和 $y$ 右连续</td>
+      </tr>
+      <tr>
+          <td>恒等式</td>
+          <td>$\forall x_1 &lt; x_2，y_1 &lt; y_2$，有 $$P\{ x_1 < X \leqslant x_2,y_1 < Y \leqslant y_2 \} = F(x_2,y_2) - F(x_1,y_2) - F(x_2,y_1) + F(x_1,y_1) \geqslant 0$$</td>
+      </tr>
+  </tbody>
+</table></div>
 <h4 id="边缘分布函数">边缘分布函数
 </h4><ol>
 <li>$X$ 的边缘分布函数 $\displaystyle F_X(x) = P\{X \leqslant x\} = F(x,+\infty) = \lim_{y \to +\infty} F(x,y)$</li>
@@ -1184,6 +1213,75 @@ $$P\{X=x,\ Y=y\}=p_{ij}$$<p> 为随机变量 $(X,Y)$ 的联合概率分布律，
 </h4><p>随机变量 $X$ 的边缘概率分布律：$\displaystyle P\{X=x_i\} = \sum_{i=1}^{+\infty} p_{ij} = p_{i \cdot}$</p>
 <p>随机变量 $Y$ 的边缘概率分布律：$\displaystyle P\{Y=y_j\} = \sum_{j=1}^{+\infty} p_{ij} = p_{\cdot j}$</p>
 <p>可以表示在表格中：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: center">$Y$ \ $X$</th>
+          <th style="text-align: center">$x_1$</th>
+          <th style="text-align: center">$x_2$</th>
+          <th style="text-align: center">$\cdots$</th>
+          <th style="text-align: center">$x_i$</th>
+          <th style="text-align: center">$\cdots$</th>
+          <th style="text-align: center">$p_Y$</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">$y_1$</td>
+          <td style="text-align: center">$p_{11}$</td>
+          <td style="text-align: center">$p_{21}$</td>
+          <td style="text-align: center">$\cdots$</td>
+          <td style="text-align: center">$p_{i1}$</td>
+          <td style="text-align: center">$\cdots$</td>
+          <td style="text-align: center">$p_{\cdot 1}$</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">$y_2$</td>
+          <td style="text-align: center">$p_{12}$</td>
+          <td style="text-align: center">$p_{22}$</td>
+          <td style="text-align: center">$\cdots$</td>
+          <td style="text-align: center">$p_{i2}$</td>
+          <td style="text-align: center">$\cdots$</td>
+          <td style="text-align: center">$p_{\cdot 2}$</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">$\vdots$</td>
+          <td style="text-align: center">$\vdots$</td>
+          <td style="text-align: center">$\vdots$</td>
+          <td style="text-align: center">$\vdots$</td>
+          <td style="text-align: center">$\vdots$</td>
+          <td style="text-align: center">$\vdots$</td>
+          <td style="text-align: center">$\vdots$</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">$y_j$</td>
+          <td style="text-align: center">$p_{1j}$</td>
+          <td style="text-align: center">$p_{2j}$</td>
+          <td style="text-align: center">$\cdots$</td>
+          <td style="text-align: center">$p_{ij}$</td>
+          <td style="text-align: center">$\cdots$</td>
+          <td style="text-align: center">$p_{\cdot j}$</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">$\vdots$</td>
+          <td style="text-align: center">$\vdots$</td>
+          <td style="text-align: center">$\vdots$</td>
+          <td style="text-align: center">$\vdots$</td>
+          <td style="text-align: center">$\vdots$</td>
+          <td style="text-align: center">$\vdots$</td>
+          <td style="text-align: center">$\vdots$</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">$p_X$</td>
+          <td style="text-align: center">$p_{1 \cdot}$</td>
+          <td style="text-align: center">$p_{2 \cdot}$</td>
+          <td style="text-align: center">$\cdots$</td>
+          <td style="text-align: center">$p_{i \cdot}$</td>
+          <td style="text-align: center">$\cdots$</td>
+          <td></td>
+      </tr>
+  </tbody>
+</table></div>
 <h4 id="条件概率分布律">条件概率分布律
 </h4>$$P\{X=x_i \ |\ Y=y_j\} = \frac{p_{ij}}{p_{\cdot j}}$$<h4 id="独立性">独立性
 </h4><p>对于二元离散型随机变量 $(X,Y)$，则 $X$ 与 $Y$ 相互独立等价于对任意的 $i,j = 1,2,\cdots,$ 都有 </p>
@@ -1485,7 +1583,7 @@ $$P\{ a < X < b \} = \varPhi\left( \frac{b-np}{\sqrt{np(1-p)}} \right) - \varPhi
 </ol>
 <h4 id="经验分布函数">经验分布函数
 </h4><p>设 $(X_1,X_2,\cdots,X_n)$ 是从总体 $X$ 中抽取的容量为 $n$ 的样本，$(x_1,x_2,\cdots,x_n)$ 是样本的观测值，将样本观测值从小到大排列得到 $x_{(1)} \leqslant x_{(2)} \leqslant \cdots \leqslant x_{(n)}$，对任意实数 $x$，称 </p>
-$$F_n(x) = \frac{1}{n} \sum_{i=0}^{n} I_{\{x_{(1)} \leqslant x\}}$$<p> 为总体 $X$ 的经验分布函数.</p>
+$$F_n(x) = \frac{1}{n} \sum_{i=0}^{n} I_{\{x_{(i)} \leqslant x\}}$$<p> 为总体 $X$ 的经验分布函数.</p>
 <blockquote>
 <p>当样本容量 $n$ 足够大时，经验分布函数 $F_n(x)$ 是总体分布函数的一个良好近似.</p>
 </blockquote>
@@ -1814,8 +1912,8 @@ $$P\{\hat{\theta}_1 < \theta < \hat{\theta}_2\} \geqslant 1-\alpha$$<p> 则称�
 </ol>
 <h4 id="两类错误">两类错误
 </h4><p>第一类错误：当原假设 $H_0$ 为真时，样本观测值却落在了拒绝域，犯了“弃真”的错误. 可知犯第一类错误的最大概率为 </p>
-$$P\{拒绝 H_0 | H_0 为真\} = \alpha$$<p>第二类错误：当原假设 $H_0$ 不真时，样本观测值却落在了接受域，犯了“采伪”的错误，记犯第二类错误的概率 </p>
-$$P\{不拒绝 H_0 | H_0 不真\} = \beta$$<blockquote>
+$$P\{拒绝 H_0 \ |\ H_0 为真\} = \alpha$$<p>第二类错误：当原假设 $H_0$ 不真时，样本观测值却落在了接受域，犯了“采伪”的错误，记犯第二类错误的概率 </p>
+$$P\{不拒绝 H_0 \ |\ H_0 不真\} = \beta$$<blockquote>
 <p>注意：</p>
 <ol>
 <li>对检验结果来说，拒绝 $H_0$ 是有说服力的，接受 $H_0$ 是没有说服力的.</li>
@@ -2081,6 +2179,54 @@ $$P\{不拒绝 H_0 | H_0 不真\} = \beta$$<blockquote>
         <div class="flex article-list--tile">
             
                 
+<article class="has-image">
+    <a href="/p/data-structure/">
+        
+        
+            <div class="article-image">
+                <img src="/p/data-structure/guerrillabuzz-7hA2wqBcSF8-unsplash.3de99e3069ec3787314a1d9663039c57_hu_2181f4c659ca8531.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 熟练掌握数据结构"
+                        data-key="data-structure" 
+                        data-hash="md5-PemeMGnsN4cxSh2WYwOcVw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">熟练掌握数据结构</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/algorithm/">
+        
+        
+            <div class="article-image">
+                <img src="/p/algorithm/daniil-komov-7lzjMwexxnU-unsplash.a5c23d175a15257c42bf42a31e33648f_hu_11543831e72c1aef.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 常用算法"
+                        data-key="algorithm" 
+                        data-hash="md5-pcI9F1oVJXxCv0KjHjNkjw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">常用算法</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
 <article class="">
     <a href="/p/proxy/">
         
@@ -2119,43 +2265,6 @@ $$P\{不拒绝 H_0 | H_0 不真\} = \beta$$<blockquote>
 </article>
 
             
-                
-<article class="">
-    <a href="/p/nemu-part-3/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">NEMU-PART III</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
-    <a href="/p/texstudio/">
-        
-        
-            <div class="article-image">
-                <img src="/p/texstudio/bozhin-karaivanov-R5dKk1oXPAM-unsplash.8d91853d7ef39979103db0b36c4d1d57_hu_4210f327eb385ada.jpg" 
-                        width="250" 
-                        height="150" 
-                        loading="lazy"
-                        alt="Featured image of post Tex排版"
-                        data-key="texstudio" 
-                        data-hash="md5-jZGFPX7zmXkQPbCzbE0dVw==">
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Tex排版</h2>
-        </div>
-    </a>
-</article>
-
-            
         </div>
     </div>
 </aside>
@@ -2169,7 +2278,9 @@ $$P\{不拒绝 H_0 | H_0 不真\} = \beta$$<blockquote>
     <section class="copyright">
         &copy; 
         
-        2025 RunicDolphin806
+            2025 - 
+        
+        2026 RunicDolphin806
     </section>
     
     <section class="powerby">

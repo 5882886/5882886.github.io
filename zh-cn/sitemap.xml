@@ -91,6 +91,19 @@
     <loc>https://5882886.github.io/p/probability/</loc>
     <lastmod>2025-11-07T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://5882886.github.io/categories/final_test/</loc>
+    <lastmod>2025-11-07T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://5882886.github.io/en/categories/final_test/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://5882886.github.io/categories/final_test/"
+                />
+  </url><url>
     <loc>https://5882886.github.io/p/texstudio/</loc>
     <lastmod>2025-10-29T00:00:00+00:00</lastmod>
   </url><url>
@@ -375,19 +388,6 @@
                 rel="alternate"
                 hreflang="zh-cn"
                 href="https://5882886.github.io/p/emoji-support/"
-                />
-  </url><url>
-    <loc>https://5882886.github.io/categories/test/</loc>
-    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://5882886.github.io/en/categories/test/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://5882886.github.io/categories/test/"
                 />
   </url><url>
     <loc>https://5882886.github.io/links/</loc>
