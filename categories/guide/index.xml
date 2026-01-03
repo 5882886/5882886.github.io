@@ -449,7 +449,44 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;实现分页机制&#34;&gt;实现分页机制
-&lt;/h2&gt;</description>
+&lt;/h2&gt;&lt;h2 id=&#34;思考题&#34;&gt;思考题
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;GDT能有多大
+段选择符的结构中，INDEX有13位，故GDT最大能容纳2^13个段描述符&lt;/li&gt;
+&lt;li&gt;为什么是线性地址？
+不可以。虚拟地址需要经GDT中的段表翻译才能得出地址，而如果GDTR中存放虚拟地址则找不到GDT在哪里了。&lt;/li&gt;
+&lt;li&gt;如何提高寻找段描述符的效率
+可以按照高速缓存的思想，建立类似cache 和 TLB 的结构来提高寻找效率。&lt;/li&gt;
+&lt;li&gt;段式存储管理的缺点
+分段管理要求分配一大段连续的存储空间，难以实现并且容易造成大量的外部碎片出现。&lt;/li&gt;
+&lt;li&gt;页式存储管理的优点
+没有外部碎片，并且不再需要大段连续的存储空间，提高了内存的利用率。&lt;/li&gt;
+&lt;li&gt;一些问题
+Q：为什么页表表项中的基地址信息只有20位而不是32位
+A：分页基地址有20位是8086的传统
+在8086的分段机制中，每个段的基地址由seg_reg（即段寄存器的值）&amp;laquo;4得到，而段寄存器是16位的，左移4位得到20位的基地址。
+Q：表项和CR3中的基地址都是物理地址，这是必须的吗？能否采用虚拟地址或者线性地址？
+A：是必须的，如果cr3中的基地址是虚拟地址，则无从寻找页表翻译成物理地址，进入鸡生蛋蛋生鸡的死循环。至于其他表项的虚拟地址与线性地址问题同理。
+Q：为什么不采用一级页表？采用一级页表会有什么缺点？
+A：多级页表可以有效地节约内存空间，如果仅采用一级页表，将可能导致较大的页表长期驻留在内存中。&lt;/li&gt;
+&lt;li&gt;空指针是“空”的吗？
+空指针只是未分配或者未指向内存任何位置的指针，并不是“NULL”的。&lt;/li&gt;
+&lt;li&gt;在扁平模式下如何进行保护
+对于数据有不同的访问权限，未达到需要的权限时不能进行写操作&lt;/li&gt;
+&lt;li&gt;地址映射&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;li&gt;分页机制
+因为这里定义的ｘ生成的地址是虚拟地址，超过了物理地址的界限，报错0xc014a000 outside of the physical memory。
+而ｋvm.c 中的虚拟地址都经过了 va_to_pa 的转换，在物理地址范围之内。
+进行反汇编后，其地址如下：
+c01003d6: e8 65 09 00 00 call c0100d40
+&amp;lt;init_page&amp;gt;
+该call指令的opcode为e8，实现的是跳转到：该条指令的下一条指令的首地址+偏移量的位置。由于未进行寻址，故不需要进行虚实地址转化。
+分页的环境下，在没有初始化页表时，0～128M的虚拟地址到物理地址的映射相当于一个简易的页表，使得高位的地址可以通过该虚拟地址（即经过va_to_pa）访问到物理地址，从而进行初始化页表的操作。
+init_mm()函数执行退出时。该函数将nemu映射到了高位地址并且将之前的PDE全部置为无效，此时返回main.c时，栈中保存的返回地址需要经过虚实转换，可由于页面被置为了无效，所以报错。
+查看汇编代码，直接调用此函数时，nemu运行在物理地址上，由于在init_mm中将之前的PDE都置为无效，所以在loader()函数寻址时页面无效，导致报错。&lt;/li&gt;
+&lt;/ol&gt;
+</description>
         </item>
         <item>
         <title>Tex排版</title>
