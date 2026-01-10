@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://5882886.github.io/p/data-structure/'>
 
-<link rel="stylesheet" href="/scss/style.min.ee8fec383aadd6a3c2247a153b080de01cad2cd48421f28077a9ac22b69f1726.css"><meta property='og:title' content="熟练掌握数据结构">
+<link rel="stylesheet" href="/scss/style.min.5d548bafa06d1ddab025202444456b7e69af5f8290cb736c50e81b3cb07b89b2.css"><meta property='og:title' content="熟练掌握数据结构">
 <meta property='og:description' content="并非熟练">
 <meta property='og:url' content='https://5882886.github.io/p/data-structure/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -447,6 +447,8 @@
           <ol>
             <li><a href="#二叉排序树">二叉排序树</a></li>
             <li><a href="#平衡二叉树">平衡二叉树</a></li>
+            <li><a href="#b-树">B-树</a></li>
+            <li><a href="#哈希表">哈希表</a></li>
           </ol>
         </li>
       </ol>
@@ -724,6 +726,7 @@
     <center><strong><p style="font-size:32px;">程序 = 数据结构 + <a href="/p/algorithm/">算法</a></p></strong></center>
 <blockquote>
 <p>本文主要用来应付我的数据结构课程期末考试，所以写得比较粗糙，很多细节都忽略掉了，还请各位 dalao 谅解 🥰。</p>
+<p>以后如果有时间我可能会新建页面具体分析相关内容，所以可以把本文看作一篇索引（一个页表？）。</p>
 </blockquote>
 <h2 id="顺序表">顺序表
 </h2><p>顺序表是用一段物理地址连续的存储单元依次存储数据元素的线性结构。</p>
@@ -2504,6 +2507,152 @@ $$ASL=\sum_{i=𝟏}^{n} p_i c_i$$<p> 其中：$p_i$ 为查找表中第 $i$ 个�
 </span></span></code></pre></div><blockquote>
 <p>呜呜呜，这部分实在是太难了，恳请高人指点……</p>
 </blockquote>
+<h4 id="b-树">B-树
+</h4><p>B-树是一种平衡的多路查找树</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>定义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>情况1</td>
+          <td>一棵空树</td>
+      </tr>
+      <tr>
+          <td>情况2</td>
+          <td>树中每个结点至多有 $m$ 棵子树</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>若根结点不是叶子结点，则至少有两棵子树</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>除根结点之外的所有非终端结点至少有 $\lfloor m/2 \rfloor$ 棵子树</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>所有的非终端结点中包含下列信息数据 $(n, A_0, K_1, A_1, K_2, A_2, \cdots, K_n, A_n)$</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>所有的叶子结点都出现在同一层次上，并且不带信息（空指针）</td>
+      </tr>
+  </tbody>
+</table></div>
+<blockquote>
+<p>$K_i$ $(i = 1, 2, \cdots, n)$ 为关键字，且 $K_i &lt; K_{i+1}$ $(i = 1, 2, \cdots, n-1)$。</p>
+<p>$Ai$ $(i = 0, 1, …, n)$ 为指向子树根结点的指针，且指针 $A_{i-1}$ 所指子树中所有结点的关键字均小于 $K_i$ $(i = 1, 2, \cdots, n)$，$A_n$ 所指子树中所有结点的关键字均大于 $K_n$，$n$ $(\lfloor m/2 \rfloor - 1 \leqslant n \leqslant m-1)$ 为关键字的个数（或 $n+1$ 为子树个数）。</p>
+<p>一棵 $m$ 阶B-树每个结点最多有 $m$ 棵子树，$m–1$ 个关键字，最少有 $\lfloor m/2 \rfloor$ 棵子树， $\lfloor m/2–1 \rfloor$ 个关键字。</p>
+</blockquote>
+<h5 id="插入">插入
+</h5><ol>
+<li>$\rceil m/2 \rceil – 1 \leqslant$ 结点中的关键字个数 $\leqslant m–1$；</li>
+<li>每次插入一个关键字不是在树中添加一个叶子结点，而是在查找的过程中找到叶子结点所在层的上一层；</li>
+<li>在某个结点中添加一个关键字，若结点的关键字个数不超过 $m–1$，则插入完成；</li>
+<li>否则产生结点的分裂。</li>
+</ol>
+<h5 id="删除">删除
+</h5><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>删除结点类型</th>
+          <th>操作</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>非终端结点</td>
+          <td>设关键字为 $K_i$，则可以用 $A_i$ 指向子树的最小关键字或 $A_{i-1}$ 指向子树的最大关键字替换 $K_i$，再删去该关键字即可，而该关键字必定在终端结点。</td>
+      </tr>
+      <tr>
+          <td>终端结点</td>
+          <td>若删除后仍满足B-树定义，则删除结束；否则要进行合并结点的操作。</td>
+      </tr>
+  </tbody>
+</table></div>
+<h4 id="哈希表">哈希表
+</h4><p>在数据元素的存储地址和它的关键字之间建立一个确定的对应关系，这样，不经过比较，一次存取就能得到所查元素。</p>
+<h5 id="基本概念-1">基本概念
+</h5><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>概念</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>哈希查找</td>
+          <td>利用哈希函数进行查找的过程</td>
+      </tr>
+      <tr>
+          <td>哈希函数</td>
+          <td>在数据元素的关键字与存储地址之间建立的一种对应关系。哈希函数是一种映象，是从关键字空间到存储地址空间的一种映象</td>
+      </tr>
+      <tr>
+          <td>哈希表</td>
+          <td>根据设定的哈希函数 $H(key)$ 和所选中的处理冲突的方法，将一组关键字映象到一个有限的、地址连续的地址集（区间）上，并以关键字在地址集中的“象”作为相应记录在表中的存储位置，如此构造所得的查找表称之为“哈希表”</td>
+      </tr>
+  </tbody>
+</table></div>
+<blockquote>
+<p>哈希函数只是一种映象，所以哈希函数的设定很灵活，只要使任何关键字的哈希函数值都落在表长允许的范围之内即可。</p>
+</blockquote>
+<p>冲突：$key_1 \ne key_2$，但 $H(key_1) = H(key_2)$ 的现象</p>
+<blockquote>
+<p>是否可以完全避免哈希冲突？</p>
+<p>一般来说，只能尽量减少冲突而不能完全避免冲突；</p>
+<p>这是因为通常关键字集合比较大，其元素包括所有可能的关键字，而地址集合的元素仅为哈希表中的地址值。</p>
+<p>构造原则：在定义哈希表时既要定义好哈希函数又要给出处理冲突的方法。</p>
+</blockquote>
+<h5 id="哈希函数的构造">哈希函数的构造
+</h5><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>构造方法</th>
+          <th>适用范围</th>
+          <th>操作</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>直接定址法</td>
+          <td>地址集合的大小 = 关键字集合的大小</td>
+          <td>哈希函数为关键字的线性函数 $H(key) = a \times key + b$ 其中a和b为常数</td>
+      </tr>
+      <tr>
+          <td>数字分析法</td>
+          <td>能预先估计出全体关键字的每一位上各种数字出现的频度</td>
+          <td>从关键字中提取分布均匀的若干位或其组合作为地址</td>
+      </tr>
+      <tr>
+          <td>平方取中法</td>
+          <td>关键字中的每一位都有某些数字重复出现频度很高</td>
+          <td>关键字的平方值的中间几位作为存储地址</td>
+      </tr>
+      <tr>
+          <td>折叠法</td>
+          <td>关键字的数字位数特别多</td>
+          <td>将关键字分割成若干部分，然后取叠加和为哈希地址</td>
+      </tr>
+      <tr>
+          <td>除留余数法</td>
+          <td></td>
+          <td>$H(key) = key MOD p$ $( p \leqslant m )$ 其中，$m$ 为表长，$p$ 为不大于 $m$ 的质数或是不含 $20$ 以下质因子的合数</td>
+      </tr>
+      <tr>
+          <td>随机数法</td>
+          <td>关键字的长度不等</td>
+          <td>$H(key) = \mathrm{Random}(key)$</td>
+      </tr>
+  </tbody>
+</table></div>
+<h5 id="处理冲突">处理冲突
+</h5><p>“处理冲突” 的实际含义：为产生冲突的地址寻找下一个哈希地址。</p>
 <h2 id="排序">排序
 </h2><p>详见<a class="link" href="/p/algorithm/#%e6%8e%92%e5%ba%8f" >此处
     

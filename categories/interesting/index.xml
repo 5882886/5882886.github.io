@@ -477,7 +477,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nf&#34;&gt;strcpy&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;port&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;port&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nf&#34;&gt;strcpy&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;path&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;path&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;实验总结&#34;&gt;实验总结
+&lt;/h2&gt;&lt;p&gt;本次的Proxy实验可以看作是对I/O、网络编程和并发编程的一次综合运用。通过实现一个简单却具有重要实际应用价值的网络代理服务器帮助我们回顾了这三部分的基本原理和核心思想。我同时进一步认识到进程（线程）作为计算机系统最成功概念的意义。&lt;/p&gt;
+&lt;p&gt;在实验过程中，我进一步巩固了LRU算法，同时意识到只要程序涉及到线程的并发运行，就必须考虑到代码的健壮性，这对我今后的学习和实践都具有重要的价值。&lt;/p&gt;
+</description>
         </item>
         <item>
         <title>运行《深入理解计算机系统》的代码</title>
@@ -6330,6 +6333,7 @@ $$|f&#39;(x)| \leqslant \frac{f(x)}{|h|} + M \cdot \frac{|h|}{2} \leqslant 2 \sq
         <description>&lt;img src="https://5882886.github.io/p/data-structure/guerrillabuzz-7hA2wqBcSF8-unsplash.jpg" alt="Featured image of post 熟练掌握数据结构" /&gt;&lt;center&gt;&lt;strong&gt;&lt;p style=&#34;font-size:32px;&#34;&gt;程序 = 数据结构 + &lt;a href=&#34;https://5882886.github.io/p/algorithm/&#34;&gt;算法&lt;/a&gt;&lt;/p&gt;&lt;/strong&gt;&lt;/center&gt;
 &lt;blockquote&gt;
 &lt;p&gt;本文主要用来应付我的数据结构课程期末考试，所以写得比较粗糙，很多细节都忽略掉了，还请各位 dalao 谅解 🥰。&lt;/p&gt;
+&lt;p&gt;以后如果有时间我可能会新建页面具体分析相关内容，所以可以把本文看作一篇索引（一个页表？）。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;顺序表&#34;&gt;顺序表
 &lt;/h2&gt;&lt;p&gt;顺序表是用一段物理地址连续的存储单元依次存储数据元素的线性结构。&lt;/p&gt;
@@ -8110,6 +8114,152 @@ $$ASL=\sum_{i=𝟏}^{n} p_i c_i$$&lt;p&gt; 其中：$p_i$ 为查找表中第 $i$
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
 &lt;p&gt;呜呜呜，这部分实在是太难了，恳请高人指点……&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;h4 id=&#34;b-树&#34;&gt;B-树
+&lt;/h4&gt;&lt;p&gt;B-树是一种平衡的多路查找树&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;定义&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;情况1&lt;/td&gt;
+          &lt;td&gt;一棵空树&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;情况2&lt;/td&gt;
+          &lt;td&gt;树中每个结点至多有 $m$ 棵子树&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;若根结点不是叶子结点，则至少有两棵子树&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;除根结点之外的所有非终端结点至少有 $\lfloor m/2 \rfloor$ 棵子树&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;所有的非终端结点中包含下列信息数据 $(n, A_0, K_1, A_1, K_2, A_2, \cdots, K_n, A_n)$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;所有的叶子结点都出现在同一层次上，并且不带信息（空指针）&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$K_i$ $(i = 1, 2, \cdots, n)$ 为关键字，且 $K_i &amp;lt; K_{i+1}$ $(i = 1, 2, \cdots, n-1)$。&lt;/p&gt;
+&lt;p&gt;$Ai$ $(i = 0, 1, …, n)$ 为指向子树根结点的指针，且指针 $A_{i-1}$ 所指子树中所有结点的关键字均小于 $K_i$ $(i = 1, 2, \cdots, n)$，$A_n$ 所指子树中所有结点的关键字均大于 $K_n$，$n$ $(\lfloor m/2 \rfloor - 1 \leqslant n \leqslant m-1)$ 为关键字的个数（或 $n+1$ 为子树个数）。&lt;/p&gt;
+&lt;p&gt;一棵 $m$ 阶B-树每个结点最多有 $m$ 棵子树，$m–1$ 个关键字，最少有 $\lfloor m/2 \rfloor$ 棵子树， $\lfloor m/2–1 \rfloor$ 个关键字。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h5 id=&#34;插入&#34;&gt;插入
+&lt;/h5&gt;&lt;ol&gt;
+&lt;li&gt;$\rceil m/2 \rceil – 1 \leqslant$ 结点中的关键字个数 $\leqslant m–1$；&lt;/li&gt;
+&lt;li&gt;每次插入一个关键字不是在树中添加一个叶子结点，而是在查找的过程中找到叶子结点所在层的上一层；&lt;/li&gt;
+&lt;li&gt;在某个结点中添加一个关键字，若结点的关键字个数不超过 $m–1$，则插入完成；&lt;/li&gt;
+&lt;li&gt;否则产生结点的分裂。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&#34;删除&#34;&gt;删除
+&lt;/h5&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;删除结点类型&lt;/th&gt;
+          &lt;th&gt;操作&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;非终端结点&lt;/td&gt;
+          &lt;td&gt;设关键字为 $K_i$，则可以用 $A_i$ 指向子树的最小关键字或 $A_{i-1}$ 指向子树的最大关键字替换 $K_i$，再删去该关键字即可，而该关键字必定在终端结点。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;终端结点&lt;/td&gt;
+          &lt;td&gt;若删除后仍满足B-树定义，则删除结束；否则要进行合并结点的操作。&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;哈希表&#34;&gt;哈希表
+&lt;/h4&gt;&lt;p&gt;在数据元素的存储地址和它的关键字之间建立一个确定的对应关系，这样，不经过比较，一次存取就能得到所查元素。&lt;/p&gt;
+&lt;h5 id=&#34;基本概念-1&#34;&gt;基本概念
+&lt;/h5&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;概念&lt;/th&gt;
+          &lt;th&gt;内容&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;哈希查找&lt;/td&gt;
+          &lt;td&gt;利用哈希函数进行查找的过程&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;哈希函数&lt;/td&gt;
+          &lt;td&gt;在数据元素的关键字与存储地址之间建立的一种对应关系。哈希函数是一种映象，是从关键字空间到存储地址空间的一种映象&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;哈希表&lt;/td&gt;
+          &lt;td&gt;根据设定的哈希函数 $H(key)$ 和所选中的处理冲突的方法，将一组关键字映象到一个有限的、地址连续的地址集（区间）上，并以关键字在地址集中的“象”作为相应记录在表中的存储位置，如此构造所得的查找表称之为“哈希表”&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;哈希函数只是一种映象，所以哈希函数的设定很灵活，只要使任何关键字的哈希函数值都落在表长允许的范围之内即可。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;冲突：$key_1 \ne key_2$，但 $H(key_1) = H(key_2)$ 的现象&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;是否可以完全避免哈希冲突？&lt;/p&gt;
+&lt;p&gt;一般来说，只能尽量减少冲突而不能完全避免冲突；&lt;/p&gt;
+&lt;p&gt;这是因为通常关键字集合比较大，其元素包括所有可能的关键字，而地址集合的元素仅为哈希表中的地址值。&lt;/p&gt;
+&lt;p&gt;构造原则：在定义哈希表时既要定义好哈希函数又要给出处理冲突的方法。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h5 id=&#34;哈希函数的构造&#34;&gt;哈希函数的构造
+&lt;/h5&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;构造方法&lt;/th&gt;
+          &lt;th&gt;适用范围&lt;/th&gt;
+          &lt;th&gt;操作&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;直接定址法&lt;/td&gt;
+          &lt;td&gt;地址集合的大小 = 关键字集合的大小&lt;/td&gt;
+          &lt;td&gt;哈希函数为关键字的线性函数 $H(key) = a \times key + b$ 其中a和b为常数&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;数字分析法&lt;/td&gt;
+          &lt;td&gt;能预先估计出全体关键字的每一位上各种数字出现的频度&lt;/td&gt;
+          &lt;td&gt;从关键字中提取分布均匀的若干位或其组合作为地址&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;平方取中法&lt;/td&gt;
+          &lt;td&gt;关键字中的每一位都有某些数字重复出现频度很高&lt;/td&gt;
+          &lt;td&gt;关键字的平方值的中间几位作为存储地址&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;折叠法&lt;/td&gt;
+          &lt;td&gt;关键字的数字位数特别多&lt;/td&gt;
+          &lt;td&gt;将关键字分割成若干部分，然后取叠加和为哈希地址&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;除留余数法&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;$H(key) = key MOD p$ $( p \leqslant m )$ 其中，$m$ 为表长，$p$ 为不大于 $m$ 的质数或是不含 $20$ 以下质因子的合数&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;随机数法&lt;/td&gt;
+          &lt;td&gt;关键字的长度不等&lt;/td&gt;
+          &lt;td&gt;$H(key) = \mathrm{Random}(key)$&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h5 id=&#34;处理冲突&#34;&gt;处理冲突
+&lt;/h5&gt;&lt;p&gt;“处理冲突” 的实际含义：为产生冲突的地址寻找下一个哈希地址。&lt;/p&gt;
 &lt;h2 id=&#34;排序&#34;&gt;排序
 &lt;/h2&gt;&lt;p&gt;详见&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/algorithm/#%e6%8e%92%e5%ba%8f&#34; &gt;此处
     
