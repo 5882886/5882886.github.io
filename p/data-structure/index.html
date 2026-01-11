@@ -399,12 +399,14 @@
         <li><a href="#树与森林">树与森林</a>
           <ol>
             <li><a href="#树的存储结构">树的存储结构</a></li>
+            <li><a href="#树的遍历">树的遍历</a></li>
           </ol>
         </li>
         <li><a href="#霍夫曼树">霍夫曼树</a>
           <ol>
             <li><a href="#路径长度与霍夫曼树的定义">路径长度与霍夫曼树的定义</a></li>
             <li><a href="#构造霍夫曼树">构造霍夫曼树</a></li>
+            <li><a href="#霍夫曼编码">霍夫曼编码</a></li>
           </ol>
         </li>
       </ol>
@@ -736,10 +738,10 @@
 </span></span></span><span class="line"><span class="ln"> 2</span><span class="cl">
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="k">typedef</span> <span class="kt">int</span> <span class="n">ElemType</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln"> 4</span><span class="cl">
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="k">struct</span> <span class="nc">seqlist</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="k">struct</span> <span class="nc">SeqList</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="n">ElemType</span> <span class="o">*</span><span class="n">data</span><span class="p">;</span>     <span class="c1">// 定义首元素地址
 </span></span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="kt">int</span> <span class="n">length</span><span class="p">;</span>         <span class="c1">// 顺序表容量
-</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="p">}</span> <span class="n">SeqList</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="p">};</span>
 </span></span><span class="line"><span class="ln"> 9</span><span class="cl">
 </span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="cm">/* ----- 初始化顺序表 ----- */</span>
 </span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="kt">void</span> <span class="nf">InitList</span><span class="p">(</span><span class="n">SeqList</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">)</span> <span class="p">{</span>
@@ -892,10 +894,10 @@ $$ACN = \frac{1}{n} \sum_{i=0}^{n-1} (i+1) = \frac{1}{n} (1+2+\cdots+n) = \frac{
 </blockquote>
 <h3 id="定义与初始化-1">定义与初始化
 </h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cm">/* ----- 定义 ----- */</span>
-</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="k">struct</span> <span class="nc">node</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="k">struct</span> <span class="nc">Node</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="n">ElemType</span> <span class="n">data</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="n">Node</span> <span class="o">*</span><span class="n">next</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="p">}</span> <span class="n">Node</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="p">};</span>
 </span></span><span class="line"><span class="ln"> 6</span><span class="cl">
 </span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="cm">/* ----- 初始化 ----- */</span>
 </span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="kt">void</span> <span class="nf">Initial</span><span class="p">(</span><span class="n">Node</span> <span class="o">&amp;</span><span class="n">L</span><span class="p">)</span> <span class="p">{</span>
@@ -1122,10 +1124,8 @@ $$ACN = \frac{1}{n} \sum_{i=0}^{n-1} (i+1) = \frac{1}{n} (1+2+\cdots+n) = \frac{
 </figure>
 
 <h4 id="表达式求值">表达式求值
-</h4><ol>
-<li>表达式的三种形式</li>
-</ol>
-<div class="table-wrapper"><table>
+</h4><h5 id="表达式的三种形式">表达式的三种形式
+</h5><div class="table-wrapper"><table>
   <thead>
       <tr>
           <th>形式</th>
@@ -1151,10 +1151,8 @@ $$ACN = \frac{1}{n} \sum_{i=0}^{n-1} (i+1) = \frac{1}{n} (1+2+\cdots+n) = \frac{
       </tr>
   </tbody>
 </table></div>
-<ol start="2">
-<li>操作符优先级</li>
-</ol>
-<div class="table-wrapper"><table>
+<h5 id="操作符优先级">操作符优先级
+</h5><div class="table-wrapper"><table>
   <thead>
       <tr>
           <th>操作符</th>
@@ -1191,10 +1189,8 @@ $$ACN = \frac{1}{n} \sum_{i=0}^{n-1} (i+1) = \frac{1}{n} (1+2+\cdots+n) = \frac{
 <p><code>#</code>标识了表达式的开始与结束。</p>
 <p>优先级的特点为：保持级差，同级进栈升高，左括号入栈降至最低。</p>
 </blockquote>
-<ol start="3">
-<li>实现表达式求值 <br></li>
-</ol>
-<div class="table-wrapper"><table>
+<h5 id="实现表达式求值">实现表达式求值
+</h5><div class="table-wrapper"><table>
   <thead>
       <tr>
           <th></th>
@@ -1232,7 +1228,38 @@ $$ACN = \frac{1}{n} \sum_{i=0}^{n-1} (i+1) = \frac{1}{n} (1+2+\cdots+n) = \frac{
 <p>特点：先进先出（FIFO）</p>
 <h3 id="双向队列">双向队列
 </h3><h3 id="循环队列">循环队列
-</h3><p>将队列首尾相连。</p>
+</h3><p>将顺序队列想象为一个环状空间，即将队列首尾相连。</p>
+<p>此时队列的操作必须考虑循环的存在。</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>操作</th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>队头指针加1</td>
+          <td><code>front = (front+1) % MAXSIZE</code></td>
+      </tr>
+      <tr>
+          <td>队尾指针加1</td>
+          <td><code>rear = (rear+1) % MAXSIZE</code></td>
+      </tr>
+      <tr>
+          <td>队列初始化</td>
+          <td><code>front = rear = 0</code></td>
+      </tr>
+      <tr>
+          <td>队列为空</td>
+          <td><code>front == rear</code></td>
+      </tr>
+      <tr>
+          <td>队列已满</td>
+          <td><code>(rear+1) % MAXSIZE == front</code></td>
+      </tr>
+  </tbody>
+</table></div>
 <h2 id="串">串
 </h2><h3 id="基本概念">基本概念
 </h3><p>串是 $n$ $(n&gt;0)$ 个字符的有限序列，记作<code>S: 'c1c2c3...cn'</code></p>
@@ -1597,11 +1624,88 @@ $$\mathrm{LOC}(j_1,j_2,\cdots,j_n) = \mathrm{LOC}(0,0,\cdots,0) + \sum_{i=1}^{n}
 </span></span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="p">};</span>
 </span></span></code></pre></div><h3 id="树与森林">树与森林
 </h3><h4 id="树的存储结构">树的存储结构
-</h4><ol>
-<li>双亲表示</li>
-<li>孩子表示（多重链表）</li>
-<li>左子女-右兄弟表示（二叉链表）</li>
-</ol>
+</h4><h5 id="双亲表示">双亲表示
+</h5><p>以一组连续空间存储树的结点，同时在结点中附设一个指针，存放双亲结点在链表中的位置。该方法利用每个结点只有一个双亲的特点，可以很方便地求出结点的双亲，但不方便得到结点的孩子。</p>
+<figure><img src="/p/data-structure/images/%E6%A0%91%E7%9A%84%E5%8F%8C%E4%BA%B2%E8%A1%A8%E7%A4%BA.png" width="700"><figcaption>
+      <h4>树的双亲表示</h4>
+    </figcaption>
+</figure>
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cm">/* ----- 树的双亲表示 ----- */</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="cp">#define MAXSIZE 100
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="k">typedef</span> <span class="kt">int</span> <span class="n">TreeData</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="n">TreeData</span> <span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="kt">int</span> <span class="n">parent</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="p">}</span> <span class="n">TreeNode</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">
+</span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="k">typedef</span> <span class="n">TreeNode</span> <span class="n">Tree</span><span class="p">[</span><span class="n">MAXSIZE</span><span class="p">];</span>
+</span></span></code></pre></div><h5 id="孩子表示多重链表">孩子表示（多重链表）
+</h5><p>将每个结点的孩子作为链表的结点链接在该结点之后，再将所有头结点组成一个线性表。</p>
+<figure><img src="/p/data-structure/images/%E6%A0%91%E7%9A%84%E5%AD%A9%E5%AD%90%E9%93%BE%E8%A1%A8%E8%A1%A8%E7%A4%BA.png" width="700"><figcaption>
+      <h4>树的孩子链表表示</h4>
+    </figcaption>
+</figure>
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cm">/* ----- 树的孩子链表表示 ----- */</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="c1">// 孩子链表
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="nc">CTNode</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="kt">int</span> <span class="n">child</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="k">struct</span> <span class="nc">CTNode</span> <span class="o">*</span><span class="n">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="p">}</span> <span class="o">*</span><span class="n">ChildPtr</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="n">s</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1">// 孩子链表的头结点
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="n">TElemType</span> <span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="n">ChildPtr</span> <span class="n">FirstChild</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="p">}</span> <span class="n">CTBox</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">
+</span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="c1">// 孩子链表头结点的线性表
+</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="n">CTBox</span> <span class="n">nodes</span><span class="p">[</span><span class="n">MAX_TREE_SIZE</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>      <span class="c1">// 结点数
+</span></span></span><span class="line"><span class="ln">18</span><span class="cl">    <span class="kt">int</span> <span class="n">r</span><span class="p">;</span>      <span class="c1">// 根的位置
+</span></span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="p">}</span> <span class="n">CTree</span><span class="p">;</span>
+</span></span></code></pre></div><h5 id="左子女-右兄弟表示二叉链表">左子女-右兄弟表示（二叉链表）
+</h5><p>任何一棵和树对应的二叉树，其右子树一定为空。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="cm">/* ----- 树的二叉链表表示 ----- */</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="k">typedef</span> <span class="kt">char</span> <span class="n">TreeData</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="nc">node</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">    <span class="n">TreeData</span> <span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl">    <span class="k">struct</span> <span class="nc">node</span> <span class="o">*</span><span class="n">firstChild</span><span class="p">,</span> <span class="o">*</span><span class="n">nextSibling</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="p">}</span> <span class="n">TreeNode</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">8</span><span class="cl">
+</span></span><span class="line"><span class="ln">9</span><span class="cl"><span class="k">typedef</span> <span class="n">TreeNode</span> <span class="o">*</span><span class="n">Tree</span><span class="p">;</span>
+</span></span></code></pre></div><figure><img src="/p/data-structure/images/%E6%A0%91%E7%9A%84%E4%BA%8C%E5%8F%89%E9%93%BE%E8%A1%A8%E8%A1%A8%E7%A4%BA.png" width="700"><figcaption>
+      <h4>树的二叉链表表示</h4>
+    </figcaption>
+</figure>
+
+<p>使用二叉链表可以方便地实现森林与二叉树的转换。</p>
+<h4 id="树的遍历">树的遍历
+</h4><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>遍历方法</th>
+          <th>操作</th>
+          <th>对应二叉链表的遍历</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>先根次序遍历</td>
+          <td>当树非空时，先访问根结点，再依次先跟遍历根的各棵子树</td>
+          <td>前序遍历</td>
+      </tr>
+      <tr>
+          <td>后根次序遍历</td>
+          <td>当树非空时，先依次后根遍历根的各棵子树，再访问根结点</td>
+          <td>中序遍历</td>
+      </tr>
+  </tbody>
+</table></div>
 <h3 id="霍夫曼树">霍夫曼树
 </h3><h4 id="路径长度与霍夫曼树的定义">路径长度与霍夫曼树的定义
 </h4><div class="table-wrapper"><table>
@@ -1635,8 +1739,78 @@ $$\mathrm{LOC}(j_1,j_2,\cdots,j_n) = \mathrm{LOC}(0,0,\cdots,0) + \sum_{i=1}^{n}
 </blockquote>
 <p>霍夫曼树就是带权路径长度最小的二叉树，也称作最优二叉树。</p>
 <p>在霍夫曼树中，权值大的结点离根结点越近。</p>
-<h4 id="构造霍夫曼树">构造霍夫曼树
-</h4><h2 id="图">图
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cm">/* ----- 霍夫曼树的定义 -----*/</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="k">const</span> <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>    <span class="c1">// 叶结点数，初始给定的权值数量
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="k">const</span> <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="c1">// 结点数，所需的存储数量
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="kt">float</span> <span class="n">weight</span><span class="p">;</span>   <span class="c1">// 权值
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="kt">int</span> <span class="n">parent</span><span class="p">,</span> <span class="n">leftChild</span><span class="p">,</span> <span class="n">rightChild</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="p">}</span> <span class="n">HTNode</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">
+</span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="k">typedef</span> <span class="n">HTNode</span> <span class="n">HuffmanTree</span><span class="p">[</span><span class="n">m</span><span class="p">];</span>
+</span></span></code></pre></div><h4 id="构造霍夫曼树">构造霍夫曼树
+</h4><p>由给定的 $n$ 个权值 $\{w_0,w_1,w_2,\cdots,w_{n-1}\}$，构造具有 $n$ 棵二叉树的森林 $F=\{T_0,T_1,T_2,\cdots,T_{n-1}\}$，其中每棵二叉树 $T_i$ 只有一个带权值的根结点，其左右子树均为空。</p>
+<p>步骤：</p>
+<ol>
+<li>在 $F$ 中选取两棵根结点权值最小的二叉树，作为左、右子树构造一棵新的二叉树。令新的二叉树根结点的权值为其左右子树上根结点的权值之和。</li>
+<li>在 $F$ 中删去这两棵二叉树。</li>
+<li>把新的二叉树加入 $F$。</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cm">/* ----- 构造霍夫曼树 ------ */</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kt">void</span> <span class="nf">CreatHuffmanTree</span><span class="p">(</span><span class="n">HuffmanTree</span> <span class="n">T</span><span class="p">[],</span> <span class="kt">float</span> <span class="n">fr</span><span class="p">[])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="c1">// 将各边的权值加入数组中
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">        <span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">weight</span> <span class="o">=</span> <span class="n">fr</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="c1">// 初始化各子树
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">m</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">        <span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">parent</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">leftChild</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">        <span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">rightChild</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">
+</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">m</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">        <span class="kt">int</span> <span class="n">min1</span> <span class="o">=</span> <span class="n">min2</span> <span class="o">=</span> <span class="n">MAXNUM</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">        <span class="kt">int</span> <span class="n">pos1</span><span class="p">,</span> <span class="n">pos2</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">i</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">parent</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">                <span class="c1">// 从所有根结点中查找权值最小的两个
+</span></span></span><span class="line"><span class="ln">20</span><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">weight</span> <span class="o">&lt;</span> <span class="n">min1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">                    <span class="n">pos2</span> <span class="o">=</span> <span class="n">pos1</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">                    <span class="n">min2</span> <span class="o">=</span> <span class="n">min1</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">                    <span class="n">pos1</span> <span class="o">=</span> <span class="n">j</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">                    <span class="n">min1</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">weight</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">                <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">weight</span> <span class="o">&lt;</span> <span class="n">min2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl">                    <span class="n">pos2</span> <span class="o">=</span> <span class="n">j</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">                    <span class="n">min2</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">weight</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="ln">31</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">32</span><span class="cl">        <span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">leftChild</span> <span class="o">=</span> <span class="n">pos1</span><span class="p">;</span>      <span class="c1">// 左子树为第一小的结点
+</span></span></span><span class="line"><span class="ln">33</span><span class="cl">        <span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">rightChild</span> <span class="o">=</span> <span class="n">pos2</span><span class="p">;</span>     <span class="c1">// 右子树为第二小的结点
+</span></span></span><span class="line"><span class="ln">34</span><span class="cl">        <span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">weight</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="n">pos1</span><span class="p">].</span><span class="n">weight</span> <span class="o">+</span> <span class="n">T</span><span class="p">[</span><span class="n">pos2</span><span class="p">].</span><span class="n">weight</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">35</span><span class="cl">        <span class="n">T</span><span class="p">[</span><span class="n">pos1</span><span class="p">].</span><span class="n">parent</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="n">pos2</span><span class="p">].</span><span class="n">parent</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">36</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">37</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h4 id="霍夫曼编码">霍夫曼编码
+</h4><p>霍夫曼编码主要用于实现数据压缩。</p>
+<p>若按照各个字符出现概率的不同而给予不同长度的编码，可以减少总编码长度。总编码长度正好等于霍夫曼树的带权路径长度。</p>
+<p>霍夫曼编码是一种无前缀编码（都由叶结点组成，路径不会重复）。解码时不会混淆。</p>
+<blockquote>
+<p>设给出一段报文：</p>
+$$CAST CAST SAT AT A TASA$$<p>
+字符集合是<code>{C, A, S, T}</code>，各个字符出现的频度（次数）为 <code>W = {2, 7, 4, 5}</code></p>
+<p>按照各字符出现概率<code>P = {2, 7, 4, 5}</code>为各叶结点上的权值建立霍夫曼树。
+<figure><img src="/p/data-structure/images/%E9%9C%8D%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81.png" width="700"><figcaption>
+      <h4>霍夫曼编码</h4>
+    </figcaption>
+</figure>
+
+左分支赋值0，右分支赋值1，可得霍夫曼编码：<code>A:0  T:10  C:110  S:111</code></p>
+</blockquote>
+<h2 id="图">图
 </h2><p>图是一种复杂的数据结构，结点之间的关系可以是任意的，任意两个数据元素之间都有可能相关。</p>
 <blockquote>
 <p>例如，RunicDolphin806在游玩《群星》游戏时
