@@ -433,7 +433,11 @@
             <li><a href="#aoe网络">AOE网络</a></li>
           </ol>
         </li>
-        <li><a href="#最短路径">最短路径</a></li>
+        <li><a href="#最短路径">最短路径</a>
+          <ol>
+            <li><a href="#单源最短路径问题">单源最短路径问题</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
     <li><a href="#查找">查找</a>
@@ -2203,13 +2207,143 @@ $$G.edge[i][j] = \left\{ \begin{matrix} 1， & \left< i,j \right> \in E \ 或\  
 <li>根据各顶点的<code>ve</code>和<code>vl</code>值，求每条弧 $s$ 最早开始时间<code>e(s)</code>和最迟开始时间<code>l(s)</code>。若某条弧满足条件<code>e(s) = l(s)</code>，则为关键活动。</li>
 </ol>
 <h3 id="最短路径">最短路径
-</h3><p>Dijkstra 算法</p>
+</h3><p>从图中某一顶点（源点）到达另一顶点（终点）的路径可能不止一条，找到一条路径使得沿此路径上各边上的权值总和达到最小的过程。</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>算法</th>
+          <th>适用问题</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Dijkstra算法</td>
+          <td>边上权值非负情形的单源最短路径问题</td>
+      </tr>
+      <tr>
+          <td>Bellman和Ford算法</td>
+          <td>边上权值为任意值的单源最短路径问题</td>
+      </tr>
+      <tr>
+          <td>Floyd算法</td>
+          <td>所有顶点之间的最短路径</td>
+      </tr>
+  </tbody>
+</table></div>
+<h4 id="单源最短路径问题">单源最短路径问题
+</h4><p>给定一个带权有向图 $G$ 与源点 $v$，求从 $v$ 到 $G$ 中其它顶点的最短路径（限定各边上的权值大于或等于 0）。</p>
+<figure><img src="/p/data-structure/images/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84.png" width="700"><figcaption>
+      <h4>最短路径问题</h4>
+    </figcaption>
+</figure>
+
+<p>Dijkstra 算法</p>
 <ol>
 <li>首先求出长度最短的一条最短路径；</li>
 <li>再参照它求出长度次短的一条最短路径；依次类推……</li>
 <li>直到从顶点 $v$ 到其它各顶点的最短路径全部求出为止。</li>
 </ol>
-<h2 id="查找">查找
+<blockquote>
+<p>引入辅助数组<code>dist[]</code>。它的每一个分量<code>dist[i]</code>表示当前找到的从源点<code>v0</code>到终点<code>vi</code>的最短路径的长度。</p>
+</blockquote>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>步骤</th>
+          <th>操作</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>初始状态</td>
+          <td>若从源点<code>v0</code>到顶点<code>vi</code>有边，则<code>dist[i]</code>为该边上的权值；<br> 若从源点<code>v0</code>到顶点<code>vi</code>无边，则<code>dist[i]</code>为 $\infty$。</td>
+      </tr>
+      <tr>
+          <td>求<code>dist[]</code>数组</td>
+          <td>长度为 $\mathrm{dist[j]} = \underset{i}{\mathrm{min}}\{⁡\mathrm{dist}[i] \ |\ v_i \in V\}$ 的路径是从源点<code>v0</code>出发的长度最短的最短路径，其值为<code>(v0, vj)</code>的最短路径的长度。</td>
+      </tr>
+      <tr>
+          <td>求解次短路径</td>
+          <td>假设次短路径终点为<code>vk</code>，则这条最短路径或为<code>(v0, vk)</code>，或为<code>(v0, vj, vk)</code>；次短路径长度为<code>edge[0][k]</code>或<code>dist[j] + edge[j][k]</code></td>
+      </tr>
+      <tr>
+          <td>更新<code>dist[]</code>数组</td>
+          <td>每次求得一条最短路径后，其终点<code>vk</code>加入集合<code>S</code>，然后对所有的 $v_i \in V-S$，修改其<code>dist[i]</code>值。</td>
+      </tr>
+  </tbody>
+</table></div>
+<blockquote>
+<p>假设 $S$ 是已求得的最短路径的终点的集合，则可证明：下一条最短路径必然是从<code>v0</code>出发，中间只经过 $S$ 中的顶点便可到达的那些顶点<code>vx</code> $(v_x \in  V-S)$ 的路径。</p>
+</blockquote>
+<p><img src="/p/data-structure/images/Dijkstra%E7%AE%97%E6%B3%95%E6%B1%82%E8%A7%A3%E8%BF%87%E7%A8%8B.png"
+	width="1755"
+	height="3323"
+	srcset="/p/data-structure/images/Dijkstra%E7%AE%97%E6%B3%95%E6%B1%82%E8%A7%A3%E8%BF%87%E7%A8%8B_hu_e3584c9327508fe1.png 480w, /p/data-structure/images/Dijkstra%E7%AE%97%E6%B3%95%E6%B1%82%E8%A7%A3%E8%BF%87%E7%A8%8B_hu_b8318daf34f241e2.png 1024w"
+	loading="lazy"
+	
+		alt="Dijkstra算法的求解过程"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="52"
+		data-flex-basis="126px"
+	
+></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cm">/* ----- Dijkstra算法 ----- */</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kt">void</span> <span class="nf">ShortestPath</span><span class="p">(</span><span class="n">MTGraph</span> <span class="n">G</span><span class="p">,</span> <span class="kt">int</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="n">EdgeData</span> <span class="n">dist</span><span class="p">[</span><span class="n">G</span><span class="p">.</span><span class="n">n</span><span class="p">];</span>         <span class="c1">// 最短路径长度数组
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="kt">int</span> <span class="n">path</span><span class="p">[</span><span class="n">G</span><span class="p">.</span><span class="n">n</span><span class="p">];</span>              <span class="c1">// 最短路径数组
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="kt">int</span> <span class="n">S</span><span class="p">[</span><span class="n">G</span><span class="p">.</span><span class="n">n</span><span class="p">];</span>                 <span class="c1">// 最短路径顶点集
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">        <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">G</span><span class="p">.</span><span class="n">edge</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="n">i</span><span class="p">];</span>         <span class="c1">// dist数组初始化
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl">        <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>                       <span class="c1">// 集合S初始化
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">MaxValue</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">            <span class="n">path</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">        <span class="k">else</span> <span class="n">path</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>              <span class="c1">// path数组初始化
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="c1">// 顶点v加入顶点集合
+</span></span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="n">S</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>       
+</span></span><span class="line"><span class="ln">16</span><span class="cl">
+</span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="c1">// 从顶点 v 确定 n-1 条路径
+</span></span></span><span class="line"><span class="ln">18</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">G</span><span class="p">.</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">        <span class="kt">float</span> <span class="n">min</span> <span class="o">=</span> <span class="n">MaxValue</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">        <span class="kt">int</span> <span class="n">u</span> <span class="o">=</span> <span class="n">v</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">        <span class="c1">// 选当前不在集合 S 中具有最短路径的顶点 u
+</span></span></span><span class="line"><span class="ln">22</span><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">G</span><span class="p">.</span><span class="n">n</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">S</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="n">dist</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">min</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">                <span class="n">u</span> <span class="o">=</span> <span class="n">j</span><span class="p">;</span>		
+</span></span><span class="line"><span class="ln">25</span><span class="cl">                <span class="n">min</span> <span class="o">=</span> <span class="n">dist</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">        <span class="c1">// 将顶点 u 加入集合 S
+</span></span></span><span class="line"><span class="ln">29</span><span class="cl">        <span class="n">S</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>						
+</span></span><span class="line"><span class="ln">30</span><span class="cl">        <span class="c1">// 修改可经过顶点 u 变短的路径值
+</span></span></span><span class="line"><span class="ln">31</span><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">w</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">w</span> <span class="o">&lt;</span> <span class="n">G</span><span class="p">.</span><span class="n">n</span><span class="p">;</span> <span class="n">w</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">32</span><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">S</span><span class="p">[</span><span class="n">w</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="n">G</span><span class="p">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">w</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">MaxValue</span> <span class="o">&amp;&amp;</span> <span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="o">+</span><span class="n">G</span><span class="p">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">w</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">dist</span><span class="p">[</span><span class="n">w</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">33</span><span class="cl">                <span class="c1">// 顶点 w 未加入 S，且经过 u 可以缩短路径值
+</span></span></span><span class="line"><span class="ln">34</span><span class="cl">                <span class="n">dist</span><span class="p">[</span><span class="n">w</span><span class="p">]</span> <span class="o">=</span> <span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">+</span> <span class="n">G</span><span class="p">.</span><span class="n">edge</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">w</span><span class="p">];</span> 
+</span></span><span class="line"><span class="ln">35</span><span class="cl">                <span class="c1">// 修改到 w 的最短路径
+</span></span></span><span class="line"><span class="ln">36</span><span class="cl">                <span class="n">path</span><span class="p">[</span><span class="n">w</span><span class="p">]</span> <span class="o">=</span> <span class="n">u</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">37</span><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="ln">38</span><span class="cl">        <span class="p">}</span>	<span class="c1">// 选定各顶点到顶点 v 的最短路径
+</span></span></span><span class="line"><span class="ln">39</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">40</span><span class="cl">
+</span></span><span class="line"><span class="ln">41</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">G</span><span class="p">.</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>	<span class="c1">// 打印各顶点的最短路径: 路径为逆向输出
+</span></span></span><span class="line"><span class="ln">42</span><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">43</span><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Distance: %d; Path: %d&#34;</span><span class="p">,</span> <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">44</span><span class="cl">        <span class="c1">// 输出终点的最短路径长度和终点
+</span></span></span><span class="line"><span class="ln">45</span><span class="cl">        <span class="kt">int</span> <span class="n">pre</span> <span class="o">=</span> <span class="n">path</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>      <span class="c1">// 取终点的直接前驱
+</span></span></span><span class="line"><span class="ln">46</span><span class="cl">        <span class="k">while</span><span class="p">(</span><span class="n">pre</span> <span class="o">!=</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>     <span class="c1">// 沿路径上溯输出
+</span></span></span><span class="line"><span class="ln">47</span><span class="cl">            <span class="n">printf</span> <span class="p">(</span><span class="s">&#34;&lt;-- %d &#34;</span><span class="p">,</span> <span class="n">pre</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">48</span><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">pre</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">49</span><span class="cl">                <span class="k">break</span><span class="p">;</span>		<span class="c1">// 无法从 v 到达该结点
+</span></span></span><span class="line"><span class="ln">50</span><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="ln">51</span><span class="cl">            <span class="n">pre</span> <span class="o">=</span> <span class="n">path</span><span class="p">[</span><span class="n">pre</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln">52</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">53</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">54</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="查找">查找
 </h2><h3 id="查找的基本概念">查找的基本概念
 </h3><div class="table-wrapper"><table>
   <thead>
@@ -2381,15 +2515,7 @@ $$ASL=\sum_{i=𝟏}^{n} p_i c_i$$<p> 其中：$p_i$ 为查找表中第 $i$ 个�
       </tr>
       <tr>
           <td>若二叉排序树非空</td>
-          <td>若给定值等于根结点的关键字，则查找成功</td>
-      </tr>
-      <tr>
-          <td></td>
-          <td>若给定值小于根结点的关键字，则继续在左子树上进行查找</td>
-      </tr>
-      <tr>
-          <td></td>
-          <td>若给定值大于根结点的关键字，则继续在右子树上进行查找</td>
+          <td>若给定值等于根结点的关键字，则查找成功 <br> 若给定值小于根结点的关键字，则继续在左子树上进行查找 <br> 若给定值大于根结点的关键字，则继续在右子树上进行查找</td>
       </tr>
   </tbody>
 </table></div>
@@ -2724,7 +2850,7 @@ $$ASL=\sum_{i=𝟏}^{n} p_i c_i$$<p> 其中：$p_i$ 为查找表中第 $i$ 个�
 </blockquote>
 <h5 id="插入">插入
 </h5><ol>
-<li>$\rceil m/2 \rceil – 1 \leqslant$ 结点中的关键字个数 $\leqslant m–1$；</li>
+<li>$\lceil m/2 \rceil – 1 \leqslant$ 结点中的关键字个数 $\leqslant m–1$；</li>
 <li>每次插入一个关键字不是在树中添加一个叶子结点，而是在查找的过程中找到叶子结点所在层的上一层；</li>
 <li>在某个结点中添加一个关键字，若结点的关键字个数不超过 $m–1$，则插入完成；</li>
 <li>否则产生结点的分裂。</li>
@@ -2776,13 +2902,6 @@ $$ASL=\sum_{i=𝟏}^{n} p_i c_i$$<p> 其中：$p_i$ 为查找表中第 $i$ 个�
 <blockquote>
 <p>哈希函数只是一种映象，所以哈希函数的设定很灵活，只要使任何关键字的哈希函数值都落在表长允许的范围之内即可。</p>
 </blockquote>
-<p>冲突：$key_1 \ne key_2$，但 $H(key_1) = H(key_2)$ 的现象</p>
-<blockquote>
-<p>是否可以完全避免哈希冲突？</p>
-<p>一般来说，只能尽量减少冲突而不能完全避免冲突；</p>
-<p>这是因为通常关键字集合比较大，其元素包括所有可能的关键字，而地址集合的元素仅为哈希表中的地址值。</p>
-<p>构造原则：在定义哈希表时既要定义好哈希函数又要给出处理冲突的方法。</p>
-</blockquote>
 <h5 id="哈希函数的构造">哈希函数的构造
 </h5><div class="table-wrapper"><table>
   <thead>
@@ -2826,7 +2945,52 @@ $$ASL=\sum_{i=𝟏}^{n} p_i c_i$$<p> 其中：$p_i$ 为查找表中第 $i$ 个�
   </tbody>
 </table></div>
 <h5 id="处理冲突">处理冲突
-</h5><p>“处理冲突” 的实际含义：为产生冲突的地址寻找下一个哈希地址。</p>
+</h5><p>冲突：$key_1 \ne key_2$，但 $H(key_1) = H(key_2)$ 的现象</p>
+<blockquote>
+<p>是否可以完全避免哈希冲突？</p>
+<p>一般来说，只能尽量减少冲突而不能完全避免冲突；</p>
+<p>这是因为通常关键字集合比较大，其元素包括所有可能的关键字，而地址集合的元素仅为哈希表中的地址值。</p>
+<p>构造原则：在定义哈希表时既要定义好哈希函数又要给出处理冲突的方法。</p>
+</blockquote>
+<p>“处理冲突”：为产生冲突的地址寻找下一个哈希地址。</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>处理冲突的方法</th>
+          <th>具体操作</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>开放定址法</td>
+          <td>为产生冲突的地址<code>H(key)</code>求得一个地址序列： <code>H1, H2, …, Hs</code> $(1 \leqslant s \leqslant m–1)$</td>
+      </tr>
+      <tr>
+          <td>再哈希法</td>
+          <td>构造若干个哈希函数，当发生冲突时，计算下一个哈希地址，直到冲突不再发生</td>
+      </tr>
+      <tr>
+          <td>链地址法</td>
+          <td>将所有哈希地址相同的记录都链接在同一链表中</td>
+      </tr>
+      <tr>
+          <td>建立公共溢出区</td>
+          <td>所有关键字冲突的记录都填入溢出表</td>
+      </tr>
+  </tbody>
+</table></div>
+<h5 id="哈希表的查找">哈希表的查找
+</h5><p>对于给定值<code>K</code>，计算哈希地址 <code>i = H(K)</code>：</p>
+<ol>
+<li>若<code>r[i] == NULL</code>，则查找失败；</li>
+<li>若<code>r[i].key == K</code>，则查找成功；</li>
+<li>否则求下一地址<code>Hi</code>直至下面两种情况之一为止：<code>r[Hi] == NULL</code>（查找失败）；<code>r[Hi].key == K</code>（查找成功）</li>
+</ol>
+<figure><img src="/p/data-structure/images/%E5%93%88%E5%B8%8C%E8%A1%A8%E7%9A%84%E6%9F%A5%E6%89%BE%E6%B5%81%E7%A8%8B.png" width="700"><figcaption>
+      <h4>哈希表的查找流程</h4>
+    </figcaption>
+</figure>
+
 <h2 id="排序">排序
 </h2><p>详见<a class="link" href="/p/algorithm/#%e6%8e%92%e5%ba%8f" >此处
     
