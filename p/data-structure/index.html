@@ -1452,7 +1452,16 @@ $$\mathrm{LOC}(j_1,j_2,\cdots,j_n) = \mathrm{LOC}(0,0,\cdots,0) + \sum_{i=1}^{n}
 <li>顺序存储</li>
 <li>链式存储</li>
 </ol>
-<h4 id="二叉树的操作">二叉树的操作
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="cm">/* ----- 二叉树的链式表示 ----- */</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="k">typedef</span> <span class="kt">char</span> <span class="n">TreeData</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="nc">node</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">    <span class="n">TreeData</span> <span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl">    <span class="k">struct</span> <span class="nc">node</span> <span class="o">*</span><span class="n">leftChild</span><span class="p">;</span> <span class="o">*</span><span class="n">rightChild</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="ln">8</span><span class="cl">
+</span></span><span class="line"><span class="ln">9</span><span class="cl"><span class="k">typedef</span> <span class="n">BinTreeNode</span> <span class="o">*</span><span class="n">BinTree</span><span class="p">;</span>
+</span></span></code></pre></div><h4 id="二叉树的操作">二叉树的操作
 </h4><h5 id="遍历">遍历
 </h5><p>按某种次序访问树中所有结点，并且每个结点仅访问一次的操作。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// 访问结点
@@ -1619,13 +1628,72 @@ $$\mathrm{LOC}(j_1,j_2,\cdots,j_n) = \mathrm{LOC}(0,0,\cdots,0) + \sum_{i=1}^{n}
 </span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h4 id="线索二叉树">线索二叉树
 </h4><p>线索二叉树中，除根节点外，每个结点都有自己的前驱和后继。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">struct</span> <span class="nc">BiTree</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="n">ElemType</span> <span class="n">data</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="n">BiTree</span> <span class="n">LeftTread</span><span class="p">;</span>       <span class="c1">// 左子女指针
-</span></span></span><span class="line"><span class="ln">4</span><span class="cl">    <span class="n">BiTree</span> <span class="n">RightTread</span><span class="p">;</span>      <span class="c1">// 右子女指针
-</span></span></span><span class="line"><span class="ln">5</span><span class="cl">    <span class="n">BiTree</span> <span class="o">*</span><span class="n">LeftChild</span><span class="p">;</span>      <span class="c1">// 左子树指针
-</span></span></span><span class="line"><span class="ln">6</span><span class="cl">    <span class="n">BiTree</span> <span class="o">*</span><span class="n">RightChild</span><span class="p">;</span>     <span class="c1">// 右子树指针
-</span></span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="p">};</span>
+<p>用二叉链表表示的二叉树中，$n$ 个结点的二叉树有 $n+1$个空链域，可利用这些空链域存储结点的前驱或后继。</p>
+<figure><img src="/p/data-structure/images/%E7%BA%BF%E7%B4%A2%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%BB%93%E7%82%B9%E7%BB%93%E6%9E%84.png" width="700"><figcaption>
+      <h4>线索二叉树的结点结构</h4>
+    </figcaption>
+</figure>
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// PointerTag 为标志
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1">// Link = 0 代表指针，Thread = 1 代表线索
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="k">typedef</span> <span class="k">enum</span> <span class="p">{</span><span class="n">Link</span><span class="p">,</span> <span class="n">Thread</span><span class="p">}</span> <span class="n">PointerTag</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">
+</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="nc">BiThrNode</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl">    <span class="n">ElemType</span> <span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">7</span><span class="cl">    <span class="k">struct</span> <span class="nc">BiThrNode</span> <span class="o">*</span><span class="n">lchild</span><span class="p">,</span> <span class="o">*</span><span class="n">rchild</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">8</span><span class="cl">    <span class="n">PointerTag</span> <span class="n">LTag</span><span class="p">,</span> <span class="n">RTag</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">9</span><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><figure><img src="/p/data-structure/images/%E4%B8%AD%E5%BA%8F%E7%BA%BF%E7%B4%A2%E4%BA%8C%E5%8F%89%E6%A0%91.png" width="700"><figcaption>
+      <h4>中序线索二叉树</h4>
+    </figcaption>
+</figure>
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cm">/* ----- 建立中序线索二叉树 ----- */</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="n">BiThrTree</span> <span class="o">*</span><span class="n">pre</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="kt">bool</span> <span class="nf">InOrderThreading</span><span class="p">(</span><span class="n">BiThrTree</span><span class="o">*</span> <span class="o">&amp;</span><span class="n">Thrt</span><span class="p">,</span> <span class="n">BiThrTree</span> <span class="n">T</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">Thrt</span> <span class="o">=</span> <span class="p">(</span><span class="n">BiThrTree</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">BiThrNode</span><span class="p">)))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">        <span class="c1">// 分配空间失败
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl">        <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="n">Thrt</span><span class="o">-&gt;</span><span class="n">LTag</span> <span class="o">=</span> <span class="n">Link</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="n">Thrt</span><span class="o">-&gt;</span><span class="n">RTag</span> <span class="o">=</span> <span class="n">Thread</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="n">Thrt</span><span class="o">-&gt;</span><span class="n">rchild</span> <span class="o">=</span> <span class="n">Thrt</span><span class="p">;</span>    <span class="c1">// 头结点右指针回指
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl">
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">T</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">        <span class="n">Thrt</span><span class="o">-&gt;</span><span class="n">lchild</span> <span class="o">=</span> <span class="n">Thrt</span> <span class="c1">// 二叉树为空，头指针也回指
+</span></span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">        <span class="n">Thrt</span><span class="o">-&gt;</span><span class="n">lchild</span> <span class="o">=</span> <span class="n">T</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">        <span class="n">pre</span> <span class="o">=</span> <span class="n">Thrt</span><span class="p">;</span>         <span class="c1">// pre指向最后一个访问过的结点
+</span></span></span><span class="line"><span class="ln">19</span><span class="cl">        <span class="n">InThreading</span><span class="p">(</span><span class="n">T</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">        <span class="n">pre</span><span class="o">-&gt;</span><span class="n">RTag</span> <span class="o">=</span> <span class="n">Thread</span><span class="p">;</span> <span class="c1">// pre指向中序遍历的最后一个结点
+</span></span></span><span class="line"><span class="ln">21</span><span class="cl">        <span class="n">pre</span><span class="o">-&gt;</span><span class="n">rchild</span> <span class="o">=</span> <span class="n">Thrt</span><span class="p">;</span> <span class="c1">// 最后一个结点的后继为头结点
+</span></span></span><span class="line"><span class="ln">22</span><span class="cl">        <span class="n">Thrt</span><span class="o">-&gt;</span><span class="n">rchild</span> <span class="o">=</span> <span class="n">pre</span><span class="p">;</span> <span class="c1">// 头结点的右指针指向中序遍历的最后一个结点
+</span></span></span><span class="line"><span class="ln">23</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">    <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">
+</span></span><span class="line"><span class="ln">27</span><span class="cl"><span class="kt">void</span> <span class="nf">InThreading</span><span class="p">(</span><span class="n">BiThrTree</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl">        <span class="n">InThreading</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">lchild</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl">
+</span></span><span class="line"><span class="ln">31</span><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">lchild</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">32</span><span class="cl">            <span class="c1">// 建立前驱线索
+</span></span></span><span class="line"><span class="ln">33</span><span class="cl">            <span class="n">p</span><span class="o">-&gt;</span><span class="n">LTag</span> <span class="o">=</span> <span class="n">Thread</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">34</span><span class="cl">            <span class="n">p</span><span class="o">-&gt;</span><span class="n">lchild</span> <span class="o">=</span> <span class="n">pre</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">35</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">36</span><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">rchild</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">37</span><span class="cl">            <span class="c1">// 建立后继线索
+</span></span></span><span class="line"><span class="ln">38</span><span class="cl">            <span class="n">pre</span><span class="o">-&gt;</span><span class="n">RTag</span> <span class="o">=</span> <span class="n">Thread</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">39</span><span class="cl">            <span class="n">pre</span><span class="o">-&gt;</span><span class="n">rchild</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">40</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">41</span><span class="cl">        <span class="c1">// 保持pre为下一结点的前驱
+</span></span></span><span class="line"><span class="ln">42</span><span class="cl">        <span class="n">pre</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">43</span><span class="cl">
+</span></span><span class="line"><span class="ln">44</span><span class="cl">        <span class="n">InThreading</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">rchild</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">45</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">46</span><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="树与森林">树与森林
 </h3><h4 id="树的存储结构">树的存储结构
 </h4><h5 id="双亲表示">双亲表示
