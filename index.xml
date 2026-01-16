@@ -13267,16 +13267,57 @@ $$ASL=\sum_{i=𝟏}^{n} p_i c_i$$&lt;p&gt; 其中：$p_i$ 为查找表中第 $i$
 &lt;/table&gt;
 &lt;blockquote&gt;
 &lt;p&gt;$K_i$ $(i = 1, 2, \cdots, n)$ 为关键字，且 $K_i &amp;lt; K_{i+1}$ $(i = 1, 2, \cdots, n-1)$。&lt;/p&gt;
-&lt;p&gt;$Ai$ $(i = 0, 1, …, n)$ 为指向子树根结点的指针，且指针 $A_{i-1}$ 所指子树中所有结点的关键字均小于 $K_i$ $(i = 1, 2, \cdots, n)$，$A_n$ 所指子树中所有结点的关键字均大于 $K_n$，$n$ $(\lfloor m/2 \rfloor - 1 \leqslant n \leqslant m-1)$ 为关键字的个数（或 $n+1$ 为子树个数）。&lt;/p&gt;
-&lt;p&gt;一棵 $m$ 阶B-树每个结点最多有 $m$ 棵子树，$m–1$ 个关键字，最少有 $\lfloor m/2 \rfloor$ 棵子树， $\lfloor m/2–1 \rfloor$ 个关键字。&lt;/p&gt;
+&lt;p&gt;$A_i$ $(i = 0, 1, …, n)$ 为指向子树根结点的指针，且指针 $A_{i-1}$ 所指子树中所有结点的关键字均小于 $K_i$ $(i = 1, 2, \cdots, n)$，$A_n$ 所指子树中所有结点的关键字均大于 $K_n$，$n$ $(\lceil m/2 \rceil - 1 \leqslant n \leqslant m-1)$ 为关键字的个数（或 $n+1$ 为子树个数）。&lt;/p&gt;
+&lt;p&gt;一棵 $m$ 阶B-树每个结点最多有 $m$ 棵子树，$m–1$ 个关键字，最少有 $\lceil m/2 \rceil$ 棵子树， $\lceil m/2 \rceil –1$ 个关键字。&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/data-structure/images/B-%E6%A0%91.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;B-树&lt;/h4&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
 &lt;h5 id=&#34;插入&#34;&gt;插入
-&lt;/h5&gt;&lt;ol&gt;
+&lt;/h5&gt;&lt;p&gt;每次插入时，尽可能插入到最后一层非叶结点上。&lt;/p&gt;
+&lt;ol&gt;
 &lt;li&gt;$\lceil m/2 \rceil – 1 \leqslant$ 结点中的关键字个数 $\leqslant m–1$；&lt;/li&gt;
 &lt;li&gt;每次插入一个关键字不是在树中添加一个叶子结点，而是在查找的过程中找到叶子结点所在层的上一层；&lt;/li&gt;
 &lt;li&gt;在某个结点中添加一个关键字，若结点的关键字个数不超过 $m–1$，则插入完成；&lt;/li&gt;
-&lt;li&gt;否则产生结点的分裂。&lt;/li&gt;
+&lt;li&gt;否则产生结点的“分裂”。&lt;/li&gt;
 &lt;/ol&gt;
+&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/data-structure/images/B-%E6%A0%91%E7%9A%84%E6%99%AE%E9%80%9A%E6%8F%92%E5%85%A5.png&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;B-树的普通插入&lt;/h4&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;一般情况下，假设结点&lt;code&gt;p&lt;/code&gt;中已经有 $m-1$ 个关键字，当插入一个关键字之后，结点中含有的信息为
+&lt;/p&gt;
+$$m，A_0，(K_1, A_1)，(K_2, A_2)，\cdots，(K_m, A_m)$$&lt;p&gt;
+此时可将结点拆分成&lt;code&gt;p&lt;/code&gt;和&lt;code&gt;p&#39;&lt;/code&gt;两个结点，&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;结点&lt;/th&gt;
+          &lt;th&gt;信息&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;p&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$\lceil m/2 \rceil -1，A_0，(K_1, A_1)，\cdots，(K_{\lceil m/2 \rceil -1}, A_{\lceil m/2 \rceil -1})$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;p&#39;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;$m-\lceil m/2 \rceil，A_{\lceil m/2 \rceil}，(K_{\lceil m/2 \rceil +1}, A_{\lceil m/2 \rceil +1})，\cdots，(K_m, A_m)$&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;而关键字 $K_{\lceil m/2 \rceil}$ 和指针&lt;code&gt;*p&#39;&lt;/code&gt;一起插入到&lt;code&gt;p&lt;/code&gt;的双亲结点中。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/data-structure/images/B-%E6%A0%91%E7%9A%84%E7%89%B9%E6%AE%8A%E6%8F%92%E5%85%A5.png&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;B-树的特殊插入&lt;/h4&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
 &lt;h5 id=&#34;删除&#34;&gt;删除
 &lt;/h5&gt;&lt;table&gt;
   &lt;thead&gt;
@@ -13296,6 +13337,34 @@ $$ASL=\sum_{i=𝟏}^{n} p_i c_i$$&lt;p&gt; 其中：$p_i$ 为查找表中第 $i$
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;p&gt;删除操作：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;若被删关键字所在结点中的关键字数目不小于 $\lceil m/2 \rceil$，则只需从该结点中删去该结点中删去该关键字 $K_i$ 和相应指针 $A_i$，树的其他部分不变。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/data-structure/images/B-%E6%A0%91%E7%9A%84%E7%AC%AC1%E7%A7%8D%E5%88%A0%E9%99%A4.png&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;B-树的第1种删除&lt;/h4&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;若被删关键字所在结点的关键字数目等于 $\lceil m/2 \rceil -1$，而与该结点相邻的右兄弟（左兄弟）结点中的关键字数目大于 $\lceil m/2 \rceil-1$，则需将其兄弟结点中的最小（最大）的关键字上移到双亲结点中，而将双亲结点中小于（大于）且紧靠该上移关键字的关键字下移到被删关键字所在的结点中。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/data-structure/images/B-%E6%A0%91%E7%9A%84%E7%AC%AC2%E7%A7%8D%E5%88%A0%E9%99%A4.png&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;B-树的第2种删除&lt;/h4&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;若被删关键字所在结点和其相邻的兄弟结点中的关键字数目均等于 $\lceil m/2 \rceil -1$，则在删去关键字后，它所在结点中剩余的关键字和指针加上双亲中的关键字 $K_i$ 一起，合并到 $A_i$ 所指的兄弟结点中。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/data-structure/images/B-%E6%A0%91%E7%9A%84%E7%AC%AC3%E7%A7%8D%E5%88%A0%E9%99%A4.png&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;B-树的第3种删除&lt;/h4&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;若删除后使双亲结点中的关键字数目小于 $\lceil m/2 \rceil –1$，则依此类推层层向上合并。&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h4 id=&#34;哈希表&#34;&gt;哈希表
 &lt;/h4&gt;&lt;p&gt;在数据元素的存储地址和它的关键字之间建立一个确定的对应关系，这样，不经过比较，一次存取就能得到所查元素。&lt;/p&gt;
 &lt;h5 id=&#34;基本概念-1&#34;&gt;基本概念

@@ -2913,16 +2913,57 @@ $$ASL=\sum_{i=𝟏}^{n} p_i c_i$$<p> 其中：$p_i$ 为查找表中第 $i$ 个�
 </table></div>
 <blockquote>
 <p>$K_i$ $(i = 1, 2, \cdots, n)$ 为关键字，且 $K_i &lt; K_{i+1}$ $(i = 1, 2, \cdots, n-1)$。</p>
-<p>$Ai$ $(i = 0, 1, …, n)$ 为指向子树根结点的指针，且指针 $A_{i-1}$ 所指子树中所有结点的关键字均小于 $K_i$ $(i = 1, 2, \cdots, n)$，$A_n$ 所指子树中所有结点的关键字均大于 $K_n$，$n$ $(\lfloor m/2 \rfloor - 1 \leqslant n \leqslant m-1)$ 为关键字的个数（或 $n+1$ 为子树个数）。</p>
-<p>一棵 $m$ 阶B-树每个结点最多有 $m$ 棵子树，$m–1$ 个关键字，最少有 $\lfloor m/2 \rfloor$ 棵子树， $\lfloor m/2–1 \rfloor$ 个关键字。</p>
+<p>$A_i$ $(i = 0, 1, …, n)$ 为指向子树根结点的指针，且指针 $A_{i-1}$ 所指子树中所有结点的关键字均小于 $K_i$ $(i = 1, 2, \cdots, n)$，$A_n$ 所指子树中所有结点的关键字均大于 $K_n$，$n$ $(\lceil m/2 \rceil - 1 \leqslant n \leqslant m-1)$ 为关键字的个数（或 $n+1$ 为子树个数）。</p>
+<p>一棵 $m$ 阶B-树每个结点最多有 $m$ 棵子树，$m–1$ 个关键字，最少有 $\lceil m/2 \rceil$ 棵子树， $\lceil m/2 \rceil –1$ 个关键字。</p>
 </blockquote>
+<figure><img src="/p/data-structure/images/B-%E6%A0%91.png" width="700"><figcaption>
+      <h4>B-树</h4>
+    </figcaption>
+</figure>
+
 <h5 id="插入">插入
-</h5><ol>
+</h5><p>每次插入时，尽可能插入到最后一层非叶结点上。</p>
+<ol>
 <li>$\lceil m/2 \rceil – 1 \leqslant$ 结点中的关键字个数 $\leqslant m–1$；</li>
 <li>每次插入一个关键字不是在树中添加一个叶子结点，而是在查找的过程中找到叶子结点所在层的上一层；</li>
 <li>在某个结点中添加一个关键字，若结点的关键字个数不超过 $m–1$，则插入完成；</li>
-<li>否则产生结点的分裂。</li>
+<li>否则产生结点的“分裂”。</li>
 </ol>
+<figure><img src="/p/data-structure/images/B-%E6%A0%91%E7%9A%84%E6%99%AE%E9%80%9A%E6%8F%92%E5%85%A5.png"><figcaption>
+      <h4>B-树的普通插入</h4>
+    </figcaption>
+</figure>
+
+<blockquote>
+<p>一般情况下，假设结点<code>p</code>中已经有 $m-1$ 个关键字，当插入一个关键字之后，结点中含有的信息为
+</p>
+$$m，A_0，(K_1, A_1)，(K_2, A_2)，\cdots，(K_m, A_m)$$<p>
+此时可将结点拆分成<code>p</code>和<code>p'</code>两个结点，</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>结点</th>
+          <th>信息</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>p</code></td>
+          <td>$\lceil m/2 \rceil -1，A_0，(K_1, A_1)，\cdots，(K_{\lceil m/2 \rceil -1}, A_{\lceil m/2 \rceil -1})$</td>
+      </tr>
+      <tr>
+          <td><code>p'</code></td>
+          <td>$m-\lceil m/2 \rceil，A_{\lceil m/2 \rceil}，(K_{\lceil m/2 \rceil +1}, A_{\lceil m/2 \rceil +1})，\cdots，(K_m, A_m)$</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>而关键字 $K_{\lceil m/2 \rceil}$ 和指针<code>*p'</code>一起插入到<code>p</code>的双亲结点中。</p>
+</blockquote>
+<figure><img src="/p/data-structure/images/B-%E6%A0%91%E7%9A%84%E7%89%B9%E6%AE%8A%E6%8F%92%E5%85%A5.png"><figcaption>
+      <h4>B-树的特殊插入</h4>
+    </figcaption>
+</figure>
+
 <h5 id="删除">删除
 </h5><div class="table-wrapper"><table>
   <thead>
@@ -2942,6 +2983,34 @@ $$ASL=\sum_{i=𝟏}^{n} p_i c_i$$<p> 其中：$p_i$ 为查找表中第 $i$ 个�
       </tr>
   </tbody>
 </table></div>
+<p>删除操作：</p>
+<ol>
+<li>若被删关键字所在结点中的关键字数目不小于 $\lceil m/2 \rceil$，则只需从该结点中删去该结点中删去该关键字 $K_i$ 和相应指针 $A_i$，树的其他部分不变。</li>
+</ol>
+<figure><img src="/p/data-structure/images/B-%E6%A0%91%E7%9A%84%E7%AC%AC1%E7%A7%8D%E5%88%A0%E9%99%A4.png"><figcaption>
+      <h4>B-树的第1种删除</h4>
+    </figcaption>
+</figure>
+
+<ol start="2">
+<li>若被删关键字所在结点的关键字数目等于 $\lceil m/2 \rceil -1$，而与该结点相邻的右兄弟（左兄弟）结点中的关键字数目大于 $\lceil m/2 \rceil-1$，则需将其兄弟结点中的最小（最大）的关键字上移到双亲结点中，而将双亲结点中小于（大于）且紧靠该上移关键字的关键字下移到被删关键字所在的结点中。</li>
+</ol>
+<figure><img src="/p/data-structure/images/B-%E6%A0%91%E7%9A%84%E7%AC%AC2%E7%A7%8D%E5%88%A0%E9%99%A4.png"><figcaption>
+      <h4>B-树的第2种删除</h4>
+    </figcaption>
+</figure>
+
+<ol start="3">
+<li>若被删关键字所在结点和其相邻的兄弟结点中的关键字数目均等于 $\lceil m/2 \rceil -1$，则在删去关键字后，它所在结点中剩余的关键字和指针加上双亲中的关键字 $K_i$ 一起，合并到 $A_i$ 所指的兄弟结点中。</li>
+</ol>
+<figure><img src="/p/data-structure/images/B-%E6%A0%91%E7%9A%84%E7%AC%AC3%E7%A7%8D%E5%88%A0%E9%99%A4.png"><figcaption>
+      <h4>B-树的第3种删除</h4>
+    </figcaption>
+</figure>
+
+<ol start="4">
+<li>若删除后使双亲结点中的关键字数目小于 $\lceil m/2 \rceil –1$，则依此类推层层向上合并。</li>
+</ol>
 <h4 id="哈希表">哈希表
 </h4><p>在数据元素的存储地址和它的关键字之间建立一个确定的对应关系，这样，不经过比较，一次存取就能得到所查元素。</p>
 <h5 id="基本概念-1">基本概念
